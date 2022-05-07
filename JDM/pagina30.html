@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pluto-tv.css">
+    <title></title>
+</head>
+
+<body>
+
+
+<div>  <section class="paginacion">
+			<ul>
+				<li><a href="pagina1.html">1</a></li>
+				<li><a href="pagina2.html">2</a></li>
+				<li><a href="pagina3.html">3</a></li>
+				<li><a href="pagina4.html">4</a></li>
+				<li><a href="pagina5.html">5</a></li>
+				<li><a href="pagina6.html">6</a></li>
+				<li><a href="pagina7.html">7</a></li>
+				<li><a href="pagina8.html">8</a></li>
+				<li><a href="pagina9.html">9</a></li>
+				<li><a href="pagina10.html">10</a></li>
+				<li><a href="pagina11.html">11</a></li>
+				<li><a href="pagina12.html">12</a></li>
+				<li><a href="pagina13.html">13</a></li>
+				<li><a href="pagina14.html">14</a></li>
+				<li><a href="pagina15.html">15</a></li>
+				<li><a href="pagina16.html">16</a></li>
+				<li><a href="pagina17.html">17</a></li>
+				<li><a href="pagina18.html">18</a></li>
+				<li><a href="pagina19.html">19</a></li>
+				<li><a href="pagina20.html">20</a></li>
+				<li><a href="pagina21.html">21</a></li>
+				<li><a href="pagina22.html">22</a></li>
+				<li><a href="pagina23.html">23</a></li>
+				<li><a href="pagina24.html">24</a></li>
+				<li><a href="pagina25.html">25</a></li>
+				<li><a href="pagina26.html">26</a></li>
+				<li><a href="pagina27.html">27</a></li>
+				<li><a href="pagina28.html">28</a></li>
+				<li><a href="pagina29.html">29</a></li>
+				<li><a href="pagina30.html" class="active">30</a></li>
+			</ul>
+		</section>
+</div>
+
+
+
+
+    <div class="grid-container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					 
+	</div>	
+
+
+
+
+
+
+
+<div>  <section class="paginacion">
+			<ul>
+				<li><a href="pagina1.html">1</a></li>
+				<li><a href="pagina2.html">2</a></li>
+				<li><a href="pagina3.html">3</a></li>
+				<li><a href="pagina4.html">4</a></li>
+				<li><a href="pagina5.html">5</a></li>
+				<li><a href="pagina6.html">6</a></li>
+				<li><a href="pagina7.html">7</a></li>
+				<li><a href="pagina8.html">8</a></li>
+				<li><a href="pagina9.html">9</a></li>
+				<li><a href="pagina10.html">10</a></li>
+				<li><a href="pagina11.html">11</a></li>
+				<li><a href="pagina12.html">12</a></li>
+				<li><a href="pagina13.html">13</a></li>
+				<li><a href="pagina14.html">14</a></li>
+				<li><a href="pagina15.html">15</a></li>
+				<li><a href="pagina16.html">16</a></li>
+				<li><a href="pagina17.html">17</a></li>
+				<li><a href="pagina18.html">18</a></li>
+				<li><a href="pagina19.html">19</a></li>
+				<li><a href="pagina20.html">20</a></li>
+				<li><a href="pagina21.html">21</a></li>
+				<li><a href="pagina22.html">22</a></li>
+				<li><a href="pagina23.html">23</a></li>
+				<li><a href="pagina24.html">24</a></li>
+				<li><a href="pagina25.html">25</a></li>
+				<li><a href="pagina26.html">26</a></li>
+				<li><a href="pagina27.html">27</a></li>
+				<li><a href="pagina28.html">28</a></li>
+				<li><a href="pagina29.html">29</a></li>
+				<li><a href="pagina30.html" class="active">30</a></li>
+			</ul>
+		</section>
+</div>
+
+
+
+
+
+
+
+
+		
+				
+</body>
+</html>
+
+
+<style>
+
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+li{
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    background-color:black;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-auto-rows: minmax(150px, auto);
+    grid-column-gap: 7px;
+    grid-row-gap: 25px;
+    grid-auto-flow: dense;
+    height: 60%;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-auto-rows: minmax(100px, auto);
+    }
+}
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-auto-rows: minmax(200px, auto);
+    }
+}
+
+body {
+    background-color: rgb(93, 193, 185);
+    font-family: sans-serif;
+    font-size: 0.7rem;
+
+	background: url(img/fondo-hd.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	justify-content: center;
+	align-items: center;
+
+}
+
+/* FONDO PRINCIPAL */
+
+body::before{
+	content:"";
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background:black;
+	opacity: 0.8;
+	z-index: -1;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 0.7rem;
+    }
+}
+@media (min-width: 1024px) {
+    body {
+        font-size: 1rem;
+    }
+}
+
+/* cuadro que esta debajo de la imagen */
+.grid-items{
+    width: 90%, height: 85%;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+/* borde del cuadro donde va imagen */
+ul {
+    border: solid #fff00 1px;
+    height: 105%;
+    border-radius: 5px;
+    padding: 4px;
+    background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.pie {
+    height: 10%;
+    font-family: sans-serif;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.iconos {
+    width: 150px;
+    height: 200px;
+    border-radius: 5%;
+}
+
+@media (max-width: 768px) {
+    .iconos {
+        width:100px;
+        height: 150px;
+        border-radius: 5%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .iconos {
+        width: 200px;
+        height: 350px;
+        border-radius: 5%;
+    }
+}
+
+
+
+
+
+
+
+/* prueba de paginacion */
+.paginacion {
+	margin:20px 0;
+}
+
+.paginacion ul {
+	list-style:none;
+	text-align: center;
+}
+
+.paginacion ul li {
+	display:inline-block;
+	margin-right:5px;
+}
+
+.paginacion ul li a {
+	display:block;
+	padding:5px 10px;
+	color:#fff;
+	background:#024959;
+	text-decoration: none;
+}
+
+.paginacion ul li a:hover {
+	background:#ff0000;
+}
+
+.paginacion ul li .active {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+    transition-delay: 0.1s;
+}
+
+/* luz de neon alrededor */
+
+
+img:hover{
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000; /*efecto con el mouse*/
+}
+
+
+
+
+
+</style>
