@@ -984,12 +984,19 @@ li{
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-auto-rows: minmax(150px, auto);
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
     grid-column-gap: 7px;
     grid-row-gap: 25px;
     grid-auto-flow: dense;
     height: 60%;
+}
+
+@media (max-width: 300px) {
+    .grid-container {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-auto-rows: minmax(100px, auto);
+    }
 }
 
 @media (max-width: 768px) {
