@@ -986,15 +986,16 @@ img.wp-smiley {max-height: 102px; margin:0; padding:0; border:none; }
 }
 
 .fondo2018 .mascara  { 
-  width:200px;
-  height:293px;
-  position:absolute;
-  top:0;
-  left:0;
-  z-index:-1;
-  padding:24px;
-  margin:0;
-  overflow:hidden;
+width: 235px;
+    height: 293px;
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    right: 0px;
+    z-index: -1;
+    padding: 24px;
+    margin: 0;
+    overflow: hidden;
 }
 
 .fondo2018 h2 { 
