@@ -918,7 +918,7 @@ img.wp-smiley {max-height: 102px; margin:0; padding:0; border:none; }
 
 .post_thumbnail:hover {opacity: 0.8; } 
 
-.post_thumbnailhome {background: none repeat scroll 0 0 #EAF2F4; border-radius: 6px 6px 6px 6px; float: left; height:302px; margin:10px; padding:7px; position: relative; width:215px;}
+.post_thumbnailhome {background: none repeat scroll 0 0 #e8050566; border-radius: 6px 6px 6px 6px; float: left; height:302px; margin:10px; padding:6px; position: relative; width:215px;}
 
 .post_thumbnailhome:hover {opacity: 0.2; } 
 
