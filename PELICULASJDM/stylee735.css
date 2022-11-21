@@ -14,7 +14,7 @@ a:hover {color: #000;text-decoration: none;}
 
 /* TOP HEADER */
 
-#topside {max-width:999px;width: 100%; /*background: scroll 0 0 #222222;*/}
+#topside {max-width:999px;width: 100%; /*background: scroll 0 0 #ff0303;*/}
 
 #topside h1 { font-family: Arial; font-size: 0px;}
 
@@ -825,7 +825,13 @@ img.wp-smiley {max-height: 102px; margin:0; padding:0; border:none; }
 
 /* wp-pagenavi */
 
-.wp-pagenavi {font-size:16px;text-align:center;margin-bottom:5px;color:#fff;}
+.wp-pagenavi {
+    position: fixed;
+    bottom: 1em;
+    font-size:16px;
+    text-align:center;
+    margin-bottom:5px;
+    color:#fff;}
 
 .wp-pagenavi a, .wp-pagenavi a:link, .wp-pagenavi a:active {color:#fff;padding:5px 8px;margin-right:5px;background:#3d3c3c;text-decoration:none;border-radius:4px 4px 4px 4px;}
 
@@ -918,7 +924,17 @@ img.wp-smiley {max-height: 102px; margin:0; padding:0; border:none; }
 
 .post_thumbnail:hover {opacity: 0.8; } 
 
-.post_thumbnailhome {background: none repeat scroll 0 0 #e8050566; border-radius: 6px 6px 6px 6px; float: left; height:302px; margin:10px; padding:6px; position: relative; width:215px;}
+
+  /* color de fondo de imagenes */
+.post_thumbnailhome {
+ background: none repeat scroll 0 0 #002232;
+ border-radius: 6px 6px 6px 6px;
+ float: left; height:302px;
+ margin:10px; padding:6px;
+ position: relative;
+ width:215px;}
+
+
 
 .post_thumbnailhome:hover {opacity: 0.2; } 
 
@@ -1067,12 +1083,15 @@ margin-top: -1em;
 }
   
 .fondo2018 .mascara p { 
-  font-size:14px;
+    position: relative;
+    top: -20px;
+  font-size:16px;
   position:relative;
   color:white;
-  padding:1px 2px 1px;
+  padding:1px 0px 1px;
   text-align:center;
-  margin-bottom: 2px;
+  margin-bottom: 0px;
+
   
 }
 
@@ -1105,6 +1124,8 @@ transition:all 0.2s linear;
 	transition:all 0.3s ease-in-out;
 }
 .ejemplo-1 h2 {
+    position: relative;
+    top: -8px;
 transform: translateX(-200px);/*Desplazamos a la izquierda*/
 opacity: 0;
 transition: all 0.7s ease-in-out;
@@ -1116,6 +1137,8 @@ transition: all 0.4s linear;
 }
 
 .ejemplo-1 .categorias {
+    position: relative;
+    top: -20px;
 opacity: 0;
 transition: all 0.8s ease-in-out;
 transform: translateX(100px);
