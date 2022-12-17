@@ -1,0 +1,133 @@
+﻿:root {
+    --red: #E50914;
+    --black: #141414;
+    --gray: #aaa;
+    --white: #fff;
+    --black-transparent: rgba(0,0,0,.50);
+}
+
+/* Resetando configurações padrões */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* elementos base */
+
+body {
+    background-color: var(--black);
+    font-family: 'Times New Roman', Times, serif;
+    color: var(--white);
+}
+
+header .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+header .logo {
+    color: var(--red);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 40px;
+    text-align: left;
+    margin-left: 5px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--gray);
+    margin-right: 15px;
+}
+
+header nav a:hover {
+    color: var(--white);
+}
+
+/* FONDO DE CATALOGO PRINCIPAL */
+
+.main-movie {
+    font-size: 20px;
+    background-image: linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.50)100%),
+ url('https://9to5mac.com/wp-content/uploads/sites/6/2022/12/apple-tv-emancipation-how-to-watch.jpg?quality=82&strip=all&w=1280');
+    height: 400px;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.main-movie .title {
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.main-movie .description {
+    margin-bottom: 40px;
+    margin-top: 40px;
+    text-align: justify;
+}
+
+.button-main-movie {
+    PADDING: 5PX;
+    PADDING-LEFT: 1.5EM;
+    background-color: var(--black-transparent);
+    border: none;
+    color: var(--white);
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    transition: .6s ease all;
+    BORDER-RADIUS: 10PX;
+}
+
+.button-main-movie:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.button-main-movie i  {
+    LEFT: 24PX;
+    PADDING-RIGHT: 125PX;
+    margin-right: 8px;
+    POSITION: ABSOLUTE;
+}
+
+.container {
+    margin-left: 20px;
+}
+
+.main-movie .container {
+    width: 70%;
+}
+
+.carousel-films {
+    margin-top: 10px;
+}
+
+.box-film {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+h4 {
+font-size: 16px;
+    color: #14ff00;
+text-decoration: none;
+ 
+}
+
+a:link {
+  text-decoration: none;
+
+
+
+
