@@ -25,12 +25,12 @@ body {
 }
 
 header .container {
-    display: flex;
+display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-top: 5px;
-    margin-bottom: -6px;
+    margin-top: -11px;
+    margin-bottom: -43px;
 }
 
 header .logo {
@@ -72,9 +72,10 @@ header nav a:hover {
 }
 
 .main-movie .description {
-    margin-bottom: 40px;
-    margin-top: 55px;
+    margin-bottom: 60px;
+    margin-top: 0px;
     text-align: justify;
+
 }
 
 .button-main-movie {
@@ -120,17 +121,17 @@ header nav a:hover {
     display: block;
 }
 
-h6 {
-    margin-right: 5px;
-font-size: 16px;
-    color: #14ff00;
-text-decoration: none;
- 
-}
+h3.title {
+    padding-top: 40px;
+
+
+
+
+
 
 a:link {
   text-decoration: none;
-
+}
 
 
 

@@ -16,7 +16,12 @@
 .owl-carousel .owl-item{min-height:1px;float:left;-webkit-backface-visibility:hidden;-webkit-touch-callout:none}
 
 .owl-carousel 
-.owl-item img{display:block;width:80%}.owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none}
+.owl-item img{
+    display: block;
+    padding-right: 50px;
+    width: 115%;}
+
+.owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none}
 
 .no-js .owl-carousel,.owl-carousel.owl-loaded{display:block}
 
