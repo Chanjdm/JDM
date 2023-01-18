@@ -30,7 +30,7 @@ display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: -11px;
-    margin-bottom: -43px;
+    margin-bottom: -10px;
 }
 
 header .logo {
@@ -58,7 +58,7 @@ header nav a:hover {
     font-size: 22px;
     background-image: linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.50)100%),
  url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtV03FY3oTT8Qa9tIfnrKt3dJK0J4gKkAxbw&usqp=CAU');
-    height: 320px;
+    height: 370px;
     background-size: cover;
     display: flex;
     flex-direction: column;
