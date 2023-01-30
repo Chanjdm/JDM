@@ -23,14 +23,21 @@ body {
 
 .container{    HEIGHT: 20EM;display:grid;grid-template-columns:2fr 1fr;gap:15px;align-items:flex-start;padding:5px 1%;}
 
-.container .main-video{background:#151515;border-radius:5px;padding:2px;}
+.container .main-video{
+    position: relative;
+    top: 60px;
+background:#151515;border-radius:5px;padding:2px;}
 
-.container .main-video video{width:100%;border-radius:5px;}
+.container .main-video video{
+width:120%;
+border-radius:5px;}
 
 .container .main-video .title{
 color:#fff;font-size:23px;padding-top:15px;padding-bottom:15px;}
 
 .container .video-list{
+    position: relative;
+    top: 60px;
 background:#151515;border-radius:5px;height:100%;overflow-y:scroll;}
 
 .container .video-list::-webkit-scrollbar{
@@ -64,7 +71,65 @@ color:#00fd01;font-size:17px;}
 .container{grid-template-columns:1.5fr 2fr;padding:10px;}}
 
 @media (max-width: 480px){
-.container{grid-template-columns:1fr;height:550px}}
+.container{grid-template-columns:1fr;height:600px;}}
+
+
+
+nav {
+    max-width: auto;
+    margin: auto;
+    background-color: #335;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.menu-horizontal {
+    position: relative;
+    z-index: 5;
+    list-style:none;
+    display:flex;
+    justify-content: space-around;
+}
+
+.menu-horizontal > li > a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+
+}
+
+.menu-horizontal > li:hover{
+    background-color: red;
+
+}
+
+.menu-vertical {
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+background-color: rgba(0, 0, 0, .5)
+
+}
+
+.menu-horizontal li:hover .menu-vertical{
+    display: block;
+
+}
+
+.menu-vertical li:hover{
+    background-color: green;
+}
+
+.menu-vertical li a{
+    display: block;
+    color: yellow;
+    padding: 5px 5px 5px 10px;
+    text-decoration:none;
+
+}
+
 
 </style>
 </head>
@@ -72,6 +137,43 @@ color:#00fd01;font-size:17px;}
 
 
 <body>
+
+<nav>
+
+  <ul class="menu-horizontal">
+      <li><a href="#">PELICULAS LETRA A-D</a>
+         <ul class="menu-vertical">
+            <li><a href="#">LETRA </a></li>
+            <li><a href="#">LETRA</a></li>
+            <li><a href="#">LETRA</a></li>
+
+
+         </ul>
+
+      </li>
+      <li>
+      <a href="https://chanjdm.github.io/JDM/JDM/==C4N4L35.html">CANALES TOTALPLAY</a>
+         <ul class="menu-vertical">
+            <li><a href="./==C4N4L35HD.html">HD</a></li>
+            <li><a href="./==C4N4L35BAJACALIDAD.html">BAJA CALIDAD</a></li>
+
+         </ul>
+      </li>
+
+
+
+
+
+
+
+
+  </ul>
+
+
+</nav>
+
+
+
 <div class="container">
 <div class="main-video">
 <div class="video">
@@ -80,9 +182,9 @@ color:#00fd01;font-size:17px;}
 </video>
 
 <!--<video src="" poster="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3r48KQZbrv_w2zeTpEMqrIE0BysJMnmdydw&usqp=CAU" controls muted autoplay></video>-->
-<h3 class="title">PELICULAS LETRA A-D</h3></div></div>
+<h3 class="title">PELICULAS</h3></div></div>
 
-
+                 
 
 <div class="video-list">
 
