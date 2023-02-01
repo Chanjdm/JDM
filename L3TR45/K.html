@@ -1,0 +1,517 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PELICULASYCANALES</title>
+<!-- Responsive viewport -->
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+<link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
+<style type="text/css">
+
+*{margin:0;padding:0;box-sizing:border-box;text-transform:capitalize;}
+body{background:#000;}
+
+ 
+body {
+
+    max-height: 100%;
+
+    margin: 0 auto;
+}
+
+.heading{color:#444;font-size:40px;text-align:center;padding:10px;}
+
+.container{    HEIGHT: 20EM;display:grid;grid-template-columns:2fr 1fr;gap:15px;align-items:flex-start;padding:5px 1%;}
+
+.container .main-video{
+    position: relative;
+    top: 60px;
+background:#151515;border-radius:5px;padding:2px;}
+
+.container .main-video video{
+width:120%;
+border-radius:5px;}
+
+.container .main-video .title{
+color:#fff;font-size:23px;padding-top:15px;padding-bottom:15px;}
+
+.container .video-list{
+    position: relative;
+    top: 60px;
+background:#151515;border-radius:5px;height:100%;overflow-y:scroll;}
+
+.container .video-list::-webkit-scrollbar{
+width:7px;}
+
+.container .video-list::-webkit-scrollbar-track{
+background:#000;border-radius:50px;}
+
+.container .video-list::-webkit-scrollbar-thumb{
+background:#00a7ad;border-radius:50px;}
+
+.container .video-list .vid video{
+width:100px;border-radius:5px;}
+
+.container .video-list .vid{
+background:#000;display:flex;align-items:center;gap:15px;border-radius:5px;margin:10px;padding:10px;border:1px solid rgba(0,0,0,.1);cursor:pointer;}
+
+.container .video-list .vid:hover{
+background:#000;}
+
+.container .video-list .vid.active{
+background:#00a7ad;}
+
+.container .video-list .vid.active .title{
+color:#000;}
+
+.container .video-list .vid .title{
+color:#00fd01;font-size:17px;}
+
+@media (max-width: 999px){
+.container{grid-template-columns:1.5fr 2fr;padding:10px;}}
+
+@media (max-width: 480px){
+.container{grid-template-columns:1fr;height:600px;}}
+
+
+
+nav {
+    max-width: auto;
+    margin: auto;
+    background-color: #335;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.menu-horizontal {
+    position: relative;
+    z-index: 5;
+    list-style:none;
+    display:flex;
+flex-wrap: wrap;
+    justify-content: CENTER;
+}
+
+.menu-horizontal > li > a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+
+}
+
+.menu-horizontal > li:hover{
+    background-color: red;
+
+}
+
+.menu-vertical {
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+background-color: rgba(0, 0, 0, .5)
+
+}
+
+.menu-horizontal li:hover .menu-vertical{
+    display: block;
+
+}
+
+.menu-vertical li:hover{
+    background-color: green;
+}
+
+.menu-vertical li a{
+    display: block;
+    color: yellow;
+    padding: 5px 5px 5px 10px;
+    text-decoration:none;
+
+}
+
+.menu-horizontal li .active {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+    transition-delay: 0.1s;
+}
+
+</style>
+</head>
+
+
+
+<body>
+
+<nav>
+
+      <!--   RESALTAR    class="active"     -->
+
+  <ul class="menu-horizontal">
+      <li>
+      <a href="./A">A</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./B">B</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./C">C</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./D">D</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./E">E</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./F">F</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./G">G</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+
+
+      <li>
+      <a href="./H">H</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./I">I</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./J">J</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="href="#" class="active">K</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./L">L</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./M">M</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./N">N</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./O">O</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./P">P</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./Q">Q</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./R">R</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./S">S</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./T">T</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./U">U</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./V">V</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./W">W</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./X">X</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./Y">Y</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./Z">Z</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./NUMEROS">NUMEROS</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+
+
+
+
+      <li>
+      <a href="https://chanjdm.github.io/JDM/JDM/==C4N4L35.html">CANALES TOTALPLAY</a>
+         <ul class="menu-vertical">
+            <li><a href="./==C4N4L35HD.html">HD</a></li>
+            <li><a href="./==C4N4L35BAJACALIDAD.html">BAJA CALIDAD</a></li>
+
+         </ul>
+      </li>
+
+
+
+
+
+
+
+
+  </ul>
+
+
+</nav>
+
+
+<div class="container">
+<div class="main-video">
+<div class="video">
+<video class='js-player' poster="https://chanjdm.github.io/JDM/jdmflix.jpg" controls muted autoplay>
+<source src="https://www.udrop.com/file/6goa/1x1" type="application/x-mpegURL">
+</video>
+
+<!--<video src="" poster="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3r48KQZbrv_w2zeTpEMqrIE0BysJMnmdydw&usqp=CAU" controls muted autoplay></video>-->
+<h3 class="title">PELICULAS</h3></div></div>
+
+                 
+
+<div class="video-list">
+
+<div class="vid active">
+<video src="	http://vod.tuxchannel.mx/peliculas/720/kal%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/g4eZO1621AiA3h7Ph8yO0I58bdG.jpg	"></video> <h3 class="title">	Kal (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Accion/14070.K.G.F.Chapter.2.2022.1080p.WEBRip.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/4wobXQ8VLfCHvgbevNMy8Rxvo41.jpg	"></video> <h3 class="title">	K.G.F. capítulo 2 (2022) SUB	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/kimi%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/okNgwtxIWzGsNlR3GsOS0i0Qgbn.jpg	"></video> <h3 class="title">	Kimi (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	https://archive.org/download/01_20220522_20220522/01.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/7mgkVKU9yXUh2JEgY7a6WJqtB15.jpg	"></video> <h3 class="title">	King: Regreso a casa (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--    ###############################################   MOLDE PARA AGREGAR CANALES O PELICULAS 
+
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+
+
+
+
+
+        #########################################################################################################    -->
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script type="text/javascript">
+let listVideo = document.querySelectorAll('.video-list .vid');
+let mainVideo = document.querySelector('.main-video video');
+let title = document.querySelector('.main-video .title');
+
+listVideo.forEach(video =>{
+  video.onclick = () =>{
+    listVideo.forEach(vid => vid.classList.remove('active'));
+    video.classList.add('active');
+    if(video.classList.contains('active')){
+      let src = video.children[0].getAttribute('src');
+      mainVideo.src = src;
+      let text = video.children[1].innerHTML;
+      title.innerHTML = text;
+    };
+  };
+});
+</script>
+<script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+<script>//<![CDATA[
+const players = Array.from(document.querySelectorAll('.js-player')).map(player => new Plyr(player));
+//]]></script>
+</body>
+</html>

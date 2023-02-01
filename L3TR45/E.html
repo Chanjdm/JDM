@@ -1,0 +1,597 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PELICULASYCANALES</title>
+<!-- Responsive viewport -->
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+<link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
+<style type="text/css">
+
+*{margin:0;padding:0;box-sizing:border-box;text-transform:capitalize;}
+body{background:#000;}
+
+ 
+body {
+
+    max-height: 100%;
+
+    margin: 0 auto;
+}
+
+.heading{color:#444;font-size:40px;text-align:center;padding:10px;}
+
+.container{    HEIGHT: 20EM;display:grid;grid-template-columns:2fr 1fr;gap:15px;align-items:flex-start;padding:5px 1%;}
+
+.container .main-video{
+    position: relative;
+    top: 60px;
+background:#151515;border-radius:5px;padding:2px;}
+
+.container .main-video video{
+width:120%;
+border-radius:5px;}
+
+.container .main-video .title{
+color:#fff;font-size:23px;padding-top:15px;padding-bottom:15px;}
+
+.container .video-list{
+    position: relative;
+    top: 60px;
+background:#151515;border-radius:5px;height:100%;overflow-y:scroll;}
+
+.container .video-list::-webkit-scrollbar{
+width:7px;}
+
+.container .video-list::-webkit-scrollbar-track{
+background:#000;border-radius:50px;}
+
+.container .video-list::-webkit-scrollbar-thumb{
+background:#00a7ad;border-radius:50px;}
+
+.container .video-list .vid video{
+width:100px;border-radius:5px;}
+
+.container .video-list .vid{
+background:#000;display:flex;align-items:center;gap:15px;border-radius:5px;margin:10px;padding:10px;border:1px solid rgba(0,0,0,.1);cursor:pointer;}
+
+.container .video-list .vid:hover{
+background:#000;}
+
+.container .video-list .vid.active{
+background:#00a7ad;}
+
+.container .video-list .vid.active .title{
+color:#000;}
+
+.container .video-list .vid .title{
+color:#00fd01;font-size:17px;}
+
+@media (max-width: 999px){
+.container{grid-template-columns:1.5fr 2fr;padding:10px;}}
+
+@media (max-width: 480px){
+.container{grid-template-columns:1fr;height:600px;}}
+
+
+
+nav {
+    max-width: auto;
+    margin: auto;
+    background-color: #335;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.menu-horizontal {
+    position: relative;
+    z-index: 5;
+    list-style:none;
+    display:flex;
+flex-wrap: wrap;
+    justify-content: CENTER;
+}
+
+.menu-horizontal > li > a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+
+}
+
+.menu-horizontal > li:hover{
+    background-color: red;
+
+}
+
+.menu-vertical {
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+background-color: rgba(0, 0, 0, .5)
+
+}
+
+.menu-horizontal li:hover .menu-vertical{
+    display: block;
+
+}
+
+.menu-vertical li:hover{
+    background-color: green;
+}
+
+.menu-vertical li a{
+    display: block;
+    color: yellow;
+    padding: 5px 5px 5px 10px;
+    text-decoration:none;
+
+}
+
+.menu-horizontal li .active {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+    transition-delay: 0.1s;
+}
+
+</style>
+</head>
+
+
+
+<body>
+
+<nav>
+
+      <!--   RESALTAR    class="active"     -->
+
+  <ul class="menu-horizontal">
+      <li>
+      <a href="./A">A</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./B">B</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./C">C</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./D">D</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="#" class="active">E</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./F">F</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./G">G</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+
+
+      <li>
+      <a href="./H">H</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./I">I</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./J">J</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./K">K</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./L">L</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./M">M</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./N">N</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./O">O</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./P">P</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./Q">Q</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./R">R</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./S">S</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./T">T</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./U">U</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./V">V</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./W">W</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./X">X</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./Y">Y</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./Z">Z</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./NUMEROS">NUMEROS</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+
+
+
+
+      <li>
+      <a href="https://chanjdm.github.io/JDM/JDM/==C4N4L35.html">CANALES TOTALPLAY</a>
+         <ul class="menu-vertical">
+            <li><a href="./==C4N4L35HD.html">HD</a></li>
+            <li><a href="./==C4N4L35BAJACALIDAD.html">BAJA CALIDAD</a></li>
+
+         </ul>
+      </li>
+
+
+
+
+
+
+
+
+  </ul>
+
+
+</nav>
+
+
+<div class="container">
+<div class="main-video">
+<div class="video">
+<video class='js-player' poster="https://chanjdm.github.io/JDM/jdmflix.jpg" controls muted autoplay>
+<source src="https://www.udrop.com/file/6goa/1x1" type="application/x-mpegURL">
+</video>
+
+<!--<video src="" poster="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3r48KQZbrv_w2zeTpEMqrIE0BysJMnmdydw&usqp=CAU" controls muted autoplay></video>-->
+<h3 class="title">PELICULAS</h3></div></div>
+
+                 
+
+<div class="video-list">
+
+<div class="vid active">
+<video src="	http://vod.tuxchannel.mx/peliculas/720/ecos%20de%20un%20crimen%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/1ilviUUwqRzWDgOYqjZTmlUFbxR.jpg	"></video> <h3 class="title">	Ecos de un crimen (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/ostatnia%20wieczerza%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/idQT8HTpdp8A9QjgS656oH8KGfH.jpg	"></video> <h3 class="title">	El abismo del infierno (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20gray%20man%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/engWUYSxDogn8csr3wJOq4cOzna.jpg	"></video> <h3 class="title">	El agente invisible (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/lady%20chatterleys%20lover%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/2qQfGJM5dCpO32T6IMJdtdkizGr.jpg	"></video> <h3 class="title">	El amante de Lady Chatterley (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20good%20nurse%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/InAsct1iw71Uspf5MPFx9AF133.jpg	"></video> <h3 class="title">	El angel de la muerte (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/senior%20year%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/hGlpctlRkYqcfFxbNqmz8flQfRy.jpg	"></video> <h3 class="title">	El año de mi graduación (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/rise%20of%20the%20teenage%20mutant%20ninja%20turtles%20the%20movie%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/tkifNQ0xPfdbcWGJPfaDa740u1y.jpg	"></video> <h3 class="title">	El ascenso de las Tortugas Ninja (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Aventura/Ver%20El%20ascenso%20del%20tigre%20%282022%29%20Online%20Latino%20HD%20-%20PELISPLUS.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/f13wtkWYZlj16St89gmZcxxVJdX.jpg	"></video> <h3 class="title">	El ascenso del tigre (2022) SUB	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	https://archive.org/download/01_20220502_20220502_1401/01.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/lNfiU8VrSXyp2hhZNlJyk4dm04R.jpg	"></video> <h3 class="title">	El asedio de Silverton (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Accion/4523.The.Enforcer.2022.1080p.WEBRip.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/d73gCCREHfwqmKK4a1VFuF8UowN.jpg	"></video> <h3 class="title">	El asesino perfecto (2022) SUB	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20tender%20bar%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/12/w1280/2udOIETaUfHa6PCxIs1fowmUtkT.jpg	"></video> <h3 class="title">	El bar de las grandes esperanzas (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Accion/Ver%20The%20Good%20Neighbor%20%282022%29%20Online%20Latino%20HD%20-%20PELISPLUS.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/w1Pg71Z60BweXmJui2H8o49MohO.jpg	"></video> <h3 class="title">	El buen vecino (2022) SUB	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/nightmare%20alley%202021.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/12/w1280/3eceDLSJQ4GbSdnBj08QkmKoqni.jpg	"></video> <h3 class="title">	El callejón de las almas perdidas (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/der%20pfad%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/qJbeY3CRQbIlyO48bFMMa4rla5z.jpg	"></video> <h3 class="title">	El camino a la libertad (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel-mx/peliculas/720/they%20them%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/85TJ4udfUOwFIlvQL6EMFvvbvN5.jpg	"></video> <h3 class="title">	El campamento Whistler: They/them (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Aventura/Ver%20The%20Siege%20of%20Robin%20Hood%20(2022)%20Online%20Latino%20HD%20-%20PELISP.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/zetKhTVOuScOavtqi2sQT14vcyR.jpg	"></video> <h3 class="title">	El cerco de Robin Hood (2022) SUB	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20sky%20is%20everywhere%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/t7gkTKPJ5lssacKTrhA3gOU1n0s.jpg	"></video> <h3 class="title">	El cielo está en cualquier lugar (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/secret%20headquarters%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/hpH62pdEhkeXnbj4qchqz4QssuR.jpg	"></video> <h3 class="title">	El cuartel secreto (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20fourth%20musketeer%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/6DdDsgqMaQ7v0e9tGTPcIExc7kl.jpg	"></video> <h3 class="title">	El cuarto mosquetero (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	https://archive.org/download/01_20220427_20220427_2029/01.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/veEFWCpgtTmUs5dT5jU3aZn59Hm.jpg	"></video> <h3 class="title">	El diablo que conoces (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20noel%20diary%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/qF74fth4nJuzoxaeWEVoAIjOJwI.jpg	"></video> <h3 class="title">	El diario de Noel (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/my%20fathers%20dragon%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/vSpDSpgo2VADOWSykemgYAYezQP.jpg	"></video> <h3 class="title">	El dragón de papá (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/crawlspace%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/qEu6qI5sVoIe10gD1BQBqxcNIW2.jpg	"></video> <h3 class="title">	El entresuelo (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20tinder%20swindler%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/e9nRmgoxc0gQkTmKbtIJL9imvq1.jpg	"></video> <h3 class="title">	El estafador de Tinder (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20wrong%20high%20school%20sweetheart%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/1UZg70VgMSbcC2BAihw0Mrx78J.jpg	"></video> <h3 class="title">	El ex novio equivocado (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20exorcism%20of%20god%202021.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/wHA9cysdFmGDfIvu9iEpu19w9GK.jpg	"></video> <h3 class="title">	El exorcismo de Dios (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/my%20best%20friends%20exorcism%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/wmz93VQwDOIKZuGHPZQPt2h2qHW.jpg	"></video> <h3 class="title">	El exorcismo de mi mejor amiga (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20stranger%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/vYhPCfSDlLObeV5bUIkmeUyR4gl.jpg	"></video> <h3 class="title">	El extraño (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Accion/puss.1n.b00ts.th3.l4st.w1sh.2022.hc.cam.latino.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/6aQfiKqi19Orx4fhoICSib58xzx.jpg	"></video> <h3 class="title">	El Gato con botas: El último deseo (2022) XBET	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/el%20gerente%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/oOYHNkJ73DDhVTH3qF8YeKp9dcW.jpg	"></video> <h3 class="title">	El gerente (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/jaadugar%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/8RlfiAecJqeO6bbsSRoYAqL4cZo.jpg	"></video> <h3 class="title">	El gran pase de magia (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/el%20guau%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/4AwndqKMSVBmipyMu9qorzEVLMA.jpg	"></video> <h3 class="title">	El Guau (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Accion/Ver%20El%20hambre%20de%20invierno%20(2022)%20Online%20Latino%20HD%20-%20PELISPLU.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/34Lt7nNfC8m2f4rGphh6G2Ypur5.jpg	"></video> <h3 class="title">	El hambre de invierno (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/il%20filo%20invisibile%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/etaZNjnQQfV1hd3CqidUmQ3rUhW.jpg	"></video> <h3 class="title">	El hilo invisible (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20northman%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/rdx0bIkwxW3EHvWn5kxZBFUT1Am.jpg	"></video> <h3 class="title">	El hombre del norte (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20man%20from%20toronto%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/ogLJ4HZUsRZlydxldhNGJVcBm5c.jpg	"></video> <h3 class="title">	El hombre de Toronto (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	https://archive.org/download/01_20220415_20220415_1712/01.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/ydUhcaO8MFrlakuAdNBxmjVBEcq.jpg	"></video> <h3 class="title">	Elige o muere (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Accion/Ver%20There%20Are%20No%20Saints%20(2022)%20Online%20Latino%20HD%20-%20PELISPLUS.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/fcOTYArjKuAgufwHoTvx8w9UKCv.jpg	"></video> <h3 class="title">	El jesuita: No hay santos (2022) SUB	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20bunker%20game%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/1DUyyU8mcMqVQOemKuuhx9fITii.jpg	"></video> <h3 class="title">	El juego del bunker (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/dangerous%20game%20the%20legacy%20murders%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/1Dlj0TbLNtGHq42HE0fLnawtyyD.jpg	"></video> <h3 class="title">	El juego más peligroso: Asesinatos heredados (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	https://archive.org/download/she-will/she%20will.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/gxPJZuIBeesHi5gkxtvvXboJ420.jpg	"></video> <h3 class="title">	Ella lo hará (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/book%20of%20love%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/wmV65p9u3aET87uZL2eq4hzcUtv.jpg	"></video> <h3 class="title">	El libro del amor (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	https://archive.org/download/01_20230105_20230105_1744/01.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/aTvCFvpIaDxfQZldTelLNBrvG10.jpg	"></video> <h3 class="title">	El menú (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/father%20stu%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/ood1lF08nkNBV69x3MGh2g8buF4.jpg	"></video> <h3 class="title">	El milagro del padre Stu (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	https://archive.org/download/01_20220502_20220502_1411/01.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/wizYwoGqL2hVTFcHHAyi2dfYGnk.jpg	"></video> <h3 class="title">	El misterio de Marilyn Monroe: Las cintas ineditas (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20sea%20beast%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/wEdvvT8js6qhdVvxGkeYqr6gayP.jpg	"></video> <h3 class="title">	El monstruo marino (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/el%20monte%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/xlwt27iWubh6DEiQhc3kyVMjCU5.jpg	"></video> <h3 class="title">	El monte (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/father%20of%20the%20bride%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/wuhRy3B36plwnAxAUKD0AgzZC7a.jpg	"></video> <h3 class="title">	El padre de la novia (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/slumberland%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/xvsftW0ai916VTtH2gPjSFC7mGN.jpg	"></video> <h3 class="title">	El país de los sueños: Slumberland (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/der%20parfumeur%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/l10CMrJdDwkIGHna8JdzYdmuvQ9.jpg	"></video> <h3 class="title">	El perfumista (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/paws%20of%20fury%20the%20legend%20of%20hank%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/dcccakIsT9rBE3EH1f38JMqtgYw.jpg	"></video> <h3 class="title">	El perro Samurai: La leyenda de Kakamucho (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20unbearable%20weight%20of%20massive%20talent%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/3n2LTkEO1TQg2hyQPv6Feus3H0J.jpg	"></video> <h3 class="title">	El peso del talento (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20wonder%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/wSwd4KqqnJLJgzIE95twAR65vLT.jpg	"></video> <h3 class="title">	El prodigio (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/eraser%20reborn%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/8aqBvfg8Gm8KfAk6rd7ygNWPXzZ.jpg	"></video> <h3 class="title">	El protector: Renace (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	https://archive.org/download/01_20220315_20220315_1510/01.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/k5waciRFMN5bwudDrgFLffoAorm.jpg	"></video> <h3 class="title">	El proyecto Adam (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/a%20madea%20homecoming%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/a98l9jruh8MuquTe6hrd8vSieN1.jpg	"></video> <h3 class="title">	El regreso a casa de Madea (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/rescued%20by%20ruby%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/3Lj8U4iOShgHY0A9QulBMx8NuOs.jpg	"></video> <h3 class="title">	El rescate de Ruby (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/king%20tweety%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/83eMgXTjcFP1OkIKBhZp4VIlI31.jpg	"></video> <h3 class="title">	El rey Piolin (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/rapiniamo%20il%20duce%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/kCdwjDILxVLG8LZKhXpjfQNUoeY.jpg	"></video> <h3 class="title">	El robo a Mussolini (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20outfit%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/sHxBAfd0CUvxvvXVLfTDuhqYGM0.jpg	"></video> <h3 class="title">	El sastre de la Mafia (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	https://archive.org/download/01_20220423_20220423_1817/01.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/yPlUvdJYZ6HMXtvMrK9sdJdn0hd.jpg	"></video> <h3 class="title">	El sentido de la vida (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/el%20sistema%20keops%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/kIOoD5Bx8ui7I7uM5D1ZRs68Ilx.jpg	"></video> <h3 class="title">	El sistema K.E.OP/S (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	https://archive.org/download/p-0-w-31sobr-3v-1v-13nt-3-60m/P0W31sobr3v1v13nt3-60m.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/oZWJ20tGWZ5xO9CrTCVavmDRy7J.jpg	"></video> <h3 class="title">	El sobreviviente (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20cellar%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/1HKmjUItpo5HRdtQtmWx4RwoRCh.jpg	"></video> <h3 class="title">	El sótano: Escalera al infierno (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/mr%20harrigans%20phone%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/aERrzPJyUYAhmbies50dMz21W4u.jpg	"></video> <h3 class="title">	El teléfono del señor Harrigan (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	https://archive.org/download/01_20220718_20220718_2113/01.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/y4l0lGNg2IKKIU8Fd2w0niNoMSI.jpg	"></video> <h3 class="title">	El teléfono negro (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/dragon%20knight%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/1dtdayBxKoYsD3YjuRyi9lSRNcF.jpg	"></video> <h3 class="title">	El último dragón (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20valet%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/d27yNLvnSESdJSqOnlYNJKMFXvL.jpg	"></video> <h3 class="title">	El valet: Aparcacoches (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/elvis%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/aE2agcR5vLmGwcXPv5vbPvdinvp.jpg	"></video> <h3 class="title">	Elvis (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20visitor%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/1FchVTEnjQw6m5NnQBa8QwjUv6T.jpg	"></video> <h3 class="title">	El visitante (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/emancipation%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/s9sUK1vAaOcxJfKzNTszrNkPhkH.jpg	"></video> <h3 class="title">	Emancipación: Hacia la libertad (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/american%20siege%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/rbmJYyOMkgMD9M5uGu1kJbtvcLo.jpg	"></video> <h3 class="title">	Emboscada (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/emergency%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/b1OVtVtcC7KQlsueXCwBSRaAR1o.jpg	"></video> <h3 class="title">	Emergencia (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/emily%20the%20criminal%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/iZvzMpREGiqDQ5eYbx8z70qPgst.jpg	"></video> <h3 class="title">	Emily: La criminal (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Suspenso/Ver%20Shut%20In%20(2022)%20Online%20Cuevana%203%20Peliculas%20Online.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/xKZ1x7btQDBxvt5JRBOxWjCHMXy.jpg	"></video> <h3 class="title">	Encerrada: Alarido (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Accion/Ver%20Wrong%20Place%20(2022)%20Online%20Latino%20HD%20-%20PELISPLUS.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w1280/rWBXVkDXdXuY1zmkonDYTiO9Yi6.jpg	"></video> <h3 class="title">	En el lugar equivocado (2022) SUB	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/en%20la%20mira%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/vhUOhup1WcTVW5YF29qgXY7w7Vg.jpg	"></video> <h3 class="title">	En la mira (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/into%20the%20deep%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/wvIPVmGIJ8RqPS6NVbEeYX9K0gf.jpg	"></video> <h3 class="title">	En lo profundo (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/enola%20holmes%202%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/hulB3uxIRzerZfjwXdKSKVn2orV.jpg	"></video> <h3 class="title">	Enola Holmes 2 (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/entergalactic%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/fsgx4kPpvwA0GxDAU9Jwv8pLXRZ.jpg	"></video> <h3 class="title">	Entergalactic (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Suspenso/6227.Entre.la.Vie.et.la.Mort.2022.1080p.BluRay.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/aEZYj3QgjxAHqc28VGmYitpe91p.jpg	"></video> <h3 class="title">	Entre la vida y la muerte (2022) SUB	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/the%20in%20between%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/4LPgEgDdipSYSU4ABafINfyGWow.jpg	"></video> <h3 class="title">	Entre dos mundos (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/erax%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/rMp04rYhy4yfOfjZq5F9R3wkeqo.jpg	"></video> <h3 class="title">	Erax (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://144.217.180.205/Peliculas/Suspenso/Ver%20Escape%20Room%20La%20Pel%c2%b7l%c3%adcula%20(2022)%20Online%20Latino%20HD%20-%20PELI.mp4	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/n2J3C0Wb7cMZ5i3cbctiMvVR9pX.jpg	"></video> <h3 class="title">	Escape room: La pel-lícula (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/thats%20amor%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/iyYibVfi8q0zwsX1evl7mxTZJp1.jpg	"></video> <h3 class="title">	Eso es amor (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/esposa%20de%20aluguel%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/yL2YJkJRWLWbadhM6EOFvnO1op7.jpg	"></video> <h3 class="title">	Esposa de alquiler (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="	http://vod.tuxchannel.mx/peliculas/720/its%20a%20wonderful%20binge%202022.mkv	 "muted poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/v0BqbkQpQ3pXTN0VB9IBEPQWj3C.jpg	"></video> <h3 class="title">	Es un atracón maravilloso (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--    ###############################################   MOLDE PARA AGREGAR CANALES O PELICULAS 
+
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+
+
+
+
+
+        #########################################################################################################    -->
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script type="text/javascript">
+let listVideo = document.querySelectorAll('.video-list .vid');
+let mainVideo = document.querySelector('.main-video video');
+let title = document.querySelector('.main-video .title');
+
+listVideo.forEach(video =>{
+  video.onclick = () =>{
+    listVideo.forEach(vid => vid.classList.remove('active'));
+    video.classList.add('active');
+    if(video.classList.contains('active')){
+      let src = video.children[0].getAttribute('src');
+      mainVideo.src = src;
+      let text = video.children[1].innerHTML;
+      title.innerHTML = text;
+    };
+  };
+});
+</script>
+<script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+<script>//<![CDATA[
+const players = Array.from(document.querySelectorAll('.js-player')).map(player => new Plyr(player));
+//]]></script>
+</body>
+</html>
