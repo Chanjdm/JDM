@@ -1,0 +1,532 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PELICULASYCANALES</title>
+<!-- Responsive viewport -->
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+<link rel="stylesheet" href="C:\Users\Terminal 2\Documents\A Escritorio julio 2022\GITHUB PELIS Y SERIES PARA SUBIR A INTERNET\plantillas\L3TR45/css.css"/>
+<style type="text/css">
+
+*{margin:0;padding:0;box-sizing:border-box;text-transform:capitalize;}
+body{background:#000;}
+
+ 
+body {
+
+    max-height: 100%;
+
+    margin: 0 auto;
+}
+
+.heading{color:#444;font-size:40px;text-align:center;padding:10px;}
+
+.container{    HEIGHT: 20EM;display:grid;grid-template-columns:2fr 1fr;gap:15px;align-items:flex-start;padding:5px 1%;}
+
+.container .main-video{
+    position: relative;
+    top: 60px;
+background:#151515;border-radius:5px;padding:2px;}
+
+.container .main-video video{
+width:100%;
+border-radius:5px;}
+
+.container .main-video .title{
+color:#fff;font-size:23px;padding-top:15px;padding-bottom:15px;}
+
+.container .video-list{
+    position: relative;
+    top: 60px;
+background:#151515;border-radius:5px;height:100%;overflow-y:scroll;}
+
+.container .video-list::-webkit-scrollbar{
+width:7px;}
+
+.container .video-list::-webkit-scrollbar-track{
+background:#000;border-radius:50px;}
+
+.container .video-list::-webkit-scrollbar-thumb{
+background:#00a7ad;border-radius:50px;}
+
+.container .video-list .vid video{
+width:100px;border-radius:5px;}
+
+.container .video-list .vid{
+background:#000;display:flex;align-items:center;gap:15px;border-radius:5px;margin:10px;padding:10px;border:1px solid rgba(0,0,0,.1);cursor:pointer;}
+
+.container .video-list .vid:hover{
+background:#000;}
+
+.container .video-list .vid.active{
+background:#00a7ad;}
+
+.container .video-list .vid.active .title{
+color:#000;}
+
+.container .video-list .vid .title{
+color:#00fd01;font-size:17px;}
+
+@media (max-width: 999px){
+.container{grid-template-columns:1.5fr 2fr;padding:10px;}}
+
+@media (max-width: 480px){
+.container{grid-template-columns:1fr;height:600px;}}
+
+
+
+nav {
+    max-width: auto;
+    margin: auto;
+    background-color: #335;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.menu-horizontal {
+    position: relative;
+    z-index: 5;
+    list-style:none;
+    display:flex;
+flex-wrap: wrap;
+    justify-content: CENTER;
+}
+
+.menu-horizontal > li > a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+
+}
+
+.menu-horizontal > li:hover{
+    background-color: red;
+
+}
+
+.menu-vertical {
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+background-color: rgba(0, 0, 0, .5)
+
+}
+
+.menu-horizontal li:hover .menu-vertical{
+    display: block;
+
+}
+
+.menu-vertical li:hover{
+    background-color: green;
+}
+
+.menu-vertical li a{
+    display: block;
+    color: yellow;
+    padding: 5px 5px 5px 10px;
+    text-decoration:none;
+
+}
+
+.menu-horizontal li .active {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+    transition-delay: 0.1s;
+}
+
+</style>
+</head>
+
+
+
+<body>
+
+<nav>
+
+      <!--   RESALTAR    class="active"     -->
+
+  <ul class="menu-horizontal">
+      <li>
+      <a  class="active">A</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./B">B</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./C">C</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./D">D</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./E">E</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./F">F</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./G">G</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+
+
+      <li>
+      <a href="./H">H</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./I">I</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./J">J</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./K">K</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./L">L</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./M">M</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./N">N</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./O">O</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./P">P</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./Q">Q</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./R">R</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./S">S</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./T">T</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./U">U</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./V">V</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./W">W</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./X">X</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./Y">Y</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./Z">Z</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+      <li>
+      <a href="./NUMEROS">NUMEROS</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+
+         </ul>   -->
+      </li>
+
+
+
+
+
+      <li>
+      <a href="./C4N41CU1TUR4">CANALES TOTALPLAY</a>
+         <ul class="menu-vertical">
+            <li><a href="./C4N41CU1TUR4HD">HD</a></li>
+         <li><a href="./C4N41CU1TUR4BAJACALIDAD.html">BAJA CALIDAD</a></li>  
+         </ul>
+      </li>
+
+
+
+
+
+
+
+
+  </ul>
+
+
+</nav>
+
+
+<div class="container">
+<div class="main-video">
+<div class="video">
+<video class='js-player' poster="https://chanjdm.github.io/JDM/jdmflix.jpg" controls muted autoplay>
+<source src="https://www.udrop.com/file/6goa/1x1" type="application/x-mpegURL">
+</video>
+
+<!--<video src="" poster="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3r48KQZbrv_w2zeTpEMqrIE0BysJMnmdydw&usqp=CAU" controls muted autoplay></video>-->
+<h3 class="title">PELICULAS</h3></div></div>
+
+                 
+
+<div class="video-list">
+
+<div class="vid active">
+<video src="http://vod.tuxchannel.mx/peliculas/720/abandoned%202022.mkv" poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/9im8JhelZGDbDpXTigJbjMQqy3S.jpg 	"></video> <h3 class="title">	 Abandonada (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+
+
+
+<div class="vid"> <video src="http://144.217.180.205/Peliculas/Accion/Ver%20Above%20Snakes%20(2022)%20Online%20Latino%20HD%20-%20PELISPLUS.mp4"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/iMmDw8FxzoZC5ptOaJWhHpwQ0NA.jpg 	"></video> <h3 class="title">	 Above snakes: Encima de víboras (2022) SUB	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/hocus%20pocus%202%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/i2uxePzWHeliW3q8ck4W5zfv43w.jpg 	"></video> <h3 class="title">	 Abracadabra 2: El retorno de las brujas (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/about%20fate%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/fabZkaVHYJ67KbZx7oFoitauX34.jpg 	"></video> <h3 class="title">	 Acerca del destino (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/after%20ever%20happy%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/xbMYV7fR9ygl5PGlM6MBZ7Vgjef.jpg 	"></video> <h3 class="title">	 After: Amor infinito (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/the%20355%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/kgU2aIuDdPyKtEi8oZ6yzohpfVF.jpg 	"></video> <h3 class="title">	 Agentes 355 (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/deep%20water%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/aarAi6bp8Cl3RYXy2lpeLc1hGS7.jpg 	"></video> <h3 class="title">	 Aguas profundas (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="https://archive.org/download/01_20220523_20220523_1413/01.mp4"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/5/w1280/wUvV0gcglEKjTl47olQd9aVLJQj.jpg 	"></video> <h3 class="title">	 A la mierda el amor... otra vez (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/she%20said%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/770tuDli5fyV3tfjdRnKOVdP6gf.jpg 	"></video> <h3 class="title">	 Al descubierto (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/something%20from%20tiffanys%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/ePM4gIQYoyhqprpKlpnWzgXQg4A.jpg 	"></video> <h3 class="title">	 Algo de Tiffanys (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/pod%20wiatr%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/snc089VFfKJToYfTjxlvAuLcT4S.jpg 	"></video> <h3 class="title">	 Al viento (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/ambulance%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/y7Lnz3ayJyW9IWmbA0M19vpBbu4.jpg 	"></video> <h3 class="title">	 Ambulancia: Plan de huida (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/blasted%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/jku68zDr7nKVvKvayafyZ49ervT.jpg 	"></video> <h3 class="title">	 Amigos vs extraterrestres (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="https://archive.org/download/01_20220504_20220504/01.mp4"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/mJnldu7WjrGdZnFZMacaoguKX48.jpg 	"></video> <h3 class="title">	 Amor de madre (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/love%20in%20the%20villa%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/poQmecI2b4QeEH85oq7Q6ThVnT.jpg 	"></video> <h3 class="title">	 Amor en Verona (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/love%20and%20leashes%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/oD1D1jTeZq5bCp22Me3GMndEjvi.jpg 	"></video> <h3 class="title">	 Amor com fetiche (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="https://archive.org/download/01_20220827_20220827_1709/01.mp4"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w1280/eK1TMsGRwMj1f3z5YLdIFhNL5Z0.jpg 	"></video> <h3 class="title">	 Amor para adultos (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/redeeming%20love%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/1/w1280/vBpxJkFsfSjghmrizJr5xhQyACQ.jpg 	"></video> <h3 class="title">	 Amor redentor (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="https://archive.org/download/01_20220701_20220701_1436/01.mp4"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w1280/9o4JJYW5AZB714Sa39i5Tj9fILT.jpg 	"></video> <h3 class="title">	 Amor y gelato (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/amsterdam%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/chCrPG0LJeilfJwsWPAfmWiJI2T.jpg 	"></video> <h3 class="title">	 Amsterdam (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/anikulapo%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/xb30hkUpBm23stnVgDJGYGsC0R0.jpg 	"></video> <h3 class="title">	 Anikulapo (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/fantastic%20beasts%20the%20secrets%20of%20dumbledore%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/yOeuJdwag4bAlnvgrdweRoiuXGC.jpg 	"></video> <h3 class="title">	 Animales fantásticos: Los secretos de Dumbledore (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/a%20plena%20luz%20el%20caso%20narvarte%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w300/amKjyo7cJwxQrAPNWvGUvj7W30l.jpg 	"></video> <h3 class="title">	 A plena luz: El caso Narvarte (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://74.208.251.230/Contenido/Peliculas/Estrenos/Apolo%2010%c2%bd:%20Una%20infancia%20espacial%20(2022).mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w1280/43EQZnWP9znGqTKfO4BsPALXVYa.jpg 	"></video> <h3 class="title">	 Apolo 10½: Una infancia espacial (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/ardiente%20paciencia%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/sioiDcvldcz36RlrsXGtAbesqwp.jpg 	"></video> <h3 class="title">	 Ardiente paciencia (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/argentina%201985%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/isLWtcB9TK3wLlTzEny2dPH6beh.jpg 	"></video> <h3 class="title">	 Argentina 1985 (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://144.217.180.205/Peliculas/Accion/Ver%20Accident%20Man%20Hitman%e2%80%99s%20Holiday%20(2022)%20Online%20Latino%20HD%20-%20.mp4"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/zC5SJ18v9AhiHoFOIzZASqSxsPh.jpg 	"></video> <h3 class="title">	 Asesinatos accidentales (2022) SUB	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/memory%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w1280/bZGWrwOjwR5APPQH61aMnik3oDO.jpg 	"></video> <h3 class="title">	 Asesino sin memoria (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/athena%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w1280/uponqptyKtBsJuODqmxoronFd8P.jpg 	"></video> <h3 class="title">	 Atenea (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="https://archive.org/download/01_20220204_20220204_1825/01.mp4"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/zGnfnPkQRUC1W1R5A8ldI4AfSJu.jpg 	"></video> <h3 class="title">	 A través de mi ventana (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://vod.tuxchannel.mx/peliculas/720/big%20gold%20brick%202022.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w1280/pioc0HaWG2Cf3zoDEGjTgJOSBvv.jpg 	"></video> <h3 class="title">	 Atropello salvador: El gran libro de oro (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+<div class="vid"> <video src="http://51.81.208.167/pelis2022/Avatar.El.camino.del.agua.mkv"poster="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/kUAG4ZQcsNbRyiPyAr3hLdsVgAq.jpg 	"></video> <h3 class="title">	 Avatar: El sentido del agua (2022)	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+
+
+
+
+
+
+    <!--    ###############################################   MOLDE PARA AGREGAR CANALES O PELICULAS 
+
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+
+
+
+
+
+        #########################################################################################################    -->
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script type="text/javascript">
+let listVideo = document.querySelectorAll('.video-list .vid');
+let mainVideo = document.querySelector('.main-video video');
+let title = document.querySelector('.main-video .title');
+
+listVideo.forEach(video =>{
+  video.onclick = () =>{
+    listVideo.forEach(vid => vid.classList.remove('active'));
+    video.classList.add('active');
+    if(video.classList.contains('active')){
+      let src = video.children[0].getAttribute('src');
+      mainVideo.src = src;
+      let text = video.children[1].innerHTML;
+      title.innerHTML = text;
+    };
+  };
+});
+</script>
+<script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+<script>//<![CDATA[
+const players = Array.from(document.querySelectorAll('.js-player')).map(player => new Plyr(player));
+//]]></script>
+</body>
+</html>
