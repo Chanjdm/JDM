@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>PELICULASYCANALES</title>
+<!-- Responsive viewport -->
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+<link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css"/>
+<style type="text/css">
+
+*{margin:0;padding:0;box-sizing:border-box;text-transform:capitalize;}
+body{background:#000;}
+
+ 
+body {
+
+    max-height: 100%;
+
+    margin: 0 auto;
+}
+
+.heading{color:#444;font-size:40px;text-align:center;padding:10px;}
+
+.container{    HEIGHT: 20EM;display:grid;grid-template-columns:2fr 1fr;gap:15px;align-items:flex-start;padding:5px 1%;}
+
+.container .main-video{
+    position: relative;
+    top: 60px;
+background:#151515;border-radius:5px;padding:2px;}
+
+.container .main-video video{
+width:100%;
+border-radius:5px;}
+
+.container .main-video .title{
+color:#fff;font-size:23px;padding-top:15px;padding-bottom:15px;}
+
+.container .video-list{
+    position: relative;
+    top: 60px;
+background:#151515;border-radius:5px;height:100%;overflow-y:scroll;}
+
+.container .video-list::-webkit-scrollbar{
+width:7px;}
+
+.container .video-list::-webkit-scrollbar-track{
+background:#000;border-radius:50px;}
+
+.container .video-list::-webkit-scrollbar-thumb{
+background:#00a7ad;border-radius:50px;}
+
+.container .video-list .vid video{
+width:100px;border-radius:5px;}
+
+.container .video-list .vid{
+background:#000;display:flex;align-items:center;gap:15px;border-radius:5px;margin:10px;padding:10px;border:1px solid rgba(0,0,0,.1);cursor:pointer;}
+
+.container .video-list .vid:hover{
+background:#000;}
+
+.container .video-list .vid.active{
+background:#00a7ad;}
+
+.container .video-list .vid.active .title{
+color:#000;}
+
+.container .video-list .vid .title{
+color:#00fd01;font-size:17px;}
+
+@media (max-width: 999px){
+.container{grid-template-columns:1.5fr 2fr;padding:10px;}}
+
+@media (max-width: 480px){
+.container{grid-template-columns:1fr;height:600px;}}
+
+
+
+nav {
+    max-width: auto;
+    margin: auto;
+    background-color: #335;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.menu-horizontal {
+    position: relative;
+    z-index: 5;
+    list-style:none;
+    display:flex;
+flex-wrap: wrap;
+    justify-content: CENTER;
+}
+
+.menu-horizontal > li > a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+
+}
+
+.menu-horizontal > li:hover{
+    background-color: red;
+
+}
+
+.menu-vertical {
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 200px;
+background-color: rgba(0, 0, 0, .9)
+
+}
+
+.menu-horizontal li:hover .menu-vertical{
+    display: block;
+
+}
+
+.menu-vertical li:hover{
+    background-color: green;
+}
+
+.menu-vertical li a{
+    display: block;
+    color: yellow;
+    padding: 5px 5px 5px 10px;
+    text-decoration:none;
+
+}
+
+.menu-horizontal li .active {
+    background: #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000;
+    transition-delay: 0.1s;
+}
+
+</style>
+</head>
+
+
+
+<body>
+
+<nav>
+
+      <!--   RESALTAR    class="active"     -->
+
+  <ul class="menu-horizontal">
+      <li>
+      <a href="./A">PELICULAS</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+
+       <li>
+      <a class="active">CANALES TOTALPLAY NORMAL</a>
+         <ul class="menu-vertical">
+            <li><a href="./C4N41CU1TUR4HD">HDL</a></li>
+            <li><a href="./C4N41CU1TUR4BC.html">BAJA CALIDAD</a></li>
+
+         </ul>
+      </li>
+
+
+
+      <li>
+      <a href="./C4N41CU1TUR4">  CULTURA </a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+
+      <li>
+      <a href="./C4N41C1N3">  CINE</a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+
+
+      <li>
+      <a href="./C4N41D3P0RT3">  DEPORTES  </a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+
+      <li>
+      <a href="./3NTR3T3N1M13NT0">  ENTRETENIMIENTO  </a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->  
+      </li>
+
+
+      <li>
+      <a href="./C4N41L0C4L35" class="active">  LOCALES </a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+
+      <li>
+      <a href="./C4N41MU51C4">  MUSICA </a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+
+      <li>
+      <a href="./C4N41N0T1C145">  NOTICIAS </a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+
+      <li>
+      <a href="./C4N41N1N05">  NIÑOS </a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+
+      <li>
+      <a href="./C4N4153RI35">  SERIES </a>
+  <!--       <ul class="menu-vertical">
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+         </ul>   -->
+      </li>
+
+
+
+
+
+
+
+
+  </ul>
+
+
+</nav>
+
+
+<div class="container">
+<div class="main-video">
+<div class="video">
+<video class='js-player' poster="https://chanjdm.github.io/JDM/jdmflix.jpg" controls muted autoplay>
+<source src="https://www.udrop.com/file/6goa/1x1" type="application/x-mpegURL">
+</video>
+
+<!--<video src="" poster="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3r48KQZbrv_w2zeTpEMqrIE0BysJMnmdydw&usqp=CAU" controls muted autoplay></video>-->
+<h3 class="title">PELICULAS</h3></div></div>
+
+                 
+   <!-- PARA AGREGAR MAS PELICULAS 
+<div class="vid"> <video src=" ## LINK ## "poster=" ## IMAGEN ##"></video> <h3 class="title"> ### <br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>           ########## -->
+
+
+<div class="video-list">
+<div class="vid active">
+<video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2278/PROFILE03.m3u8" poster="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/xhfn2.png"	 loop></video> <h3 class="title">	A MÁS+	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+
+
+
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/ae02f68e3252392c0422c02a477b0e49.png"	 loop></video> <h3 class="title">	ADN 40	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL276/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/45fbcc169fb50e688aa9d95aa167f230.png"	 loop></video> <h3 class="title">	AZ MUNDO	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL107/PROFILE03.m3u8" poster="	https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Logotipo_de_TV_Azteca.png/150px-Logotipo_de_TV_Azteca.png"	 loop></video> <h3 class="title">	AZTECA 8	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8" poster="	https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Logotipo_de_TV_Azteca.png/150px-Logotipo_de_TV_Azteca.png"	 loop></video> <h3 class="title">	AZTECA NORESTE	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL113/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/9966f7cd88549ec590609184270e0501.png"	 loop></video> <h3 class="title">	AZTECA UNO 	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	https://5fc584f3f19c9.streamlock.net/canal22/smil:canal22.smil/playlist_1920x1080.m3u8?	 " poster="	http://manualdeimagen.canal22.org.mx/img/original.png"	 loop></video> <h3 class="title">	 CANAL 22	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+	<div class="vid"> <video src="	https://5fc584f3f19c9.streamlock.net/canal222/smil:canal222.smil/playlist_1920x1080.m3u8?	 " poster="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/can222.png"	 loop></video> <h3 class="title">	 CANAL 22.3	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+	<div class="vid"> <video src="	https://60ed5b6d0df78.streamlock.net:1936/segundo/segundo/playlist.m3u8?	 " poster="	https://static.wikia.nocookie.net/logopedia/images/b/bb/XHSPR-TDT_%28Canal_14_MX%29.png/revision/latest?cb=20200410213940"	 loop></video> <h3 class="title">	 CANAL CATORCE 	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+	<div class="vid"> <video src="	https://video.cdmx.gob.mx/livestream/stream.m3u8?	 " poster="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/capital.png"	 loop></video> <h3 class="title">	 CAPITAL22	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL105/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/2188f3bbdbb08e268f77e21776499edf.png"	 loop></video> <h3 class="title">	CANAL 6	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL104/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/467675b33c1fcae34c8fc4eb0f32d73e.png"	 loop></video> <h3 class="title">	FORO TV	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL1449/PROFILE03.m3u8" poster="	https://www.izzi.mx/izzi/v4/img/dummy-img/channels/ExcelsiorTv.png"	 loop></video> <h3 class="title">	IMAGEN MULTICAST	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2298/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/f8bc7bb05f3275b810bfe807df15e42c.png"	 loop></video> <h3 class="title">	IMAGEN TV	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL401/PROFILE03.m3u8" poster="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/aec2.png"	 loop></video> <h3 class="title">	INGENIO TV	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL495/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/49f1f5c584a7aaab04bf5d5cdb546a8b.png"	 loop></video> <h3 class="title">	I-SAT	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/610e734aff40daf96440edc71c5ee75e.png"	 loop></video> <h3 class="title">	LAS ESTRELLAS	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	https://linear-414.frequency.stream/dist/vix/414/hls/master/playlist.m3u8" poster="	http://ky-iptv.com:25461/images/610e734aff40daf96440edc71c5ee75e.png"	 loop></video> <h3 class="title">	LAS ESTRELLAS-1HORAS	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	https://linear-415.frequency.stream/dist/vix/415/hls/master/playlist.m3u8" poster="	http://ky-iptv.com:25461/images/610e734aff40daf96440edc71c5ee75e.png"	 loop></video> <h3 class="title">	LAS ESTRELLAS-2HORAS	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL44/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/cd6d82f162c37d106e0ffa396ca9bf80.png"	 loop></video> <h3 class="title">	MEXIQUENSE TV	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/7cd1b96ae5ae87003ae5444ea8b273ff.png"	 loop></video> <h3 class="title">	MULTIMEDIOS BAJÍO 	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL167/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/7cd1b96ae5ae87003ae5444ea8b273ff.png"	 loop></video> <h3 class="title">	MULTIMEDIOS CDMX	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/7cd1b96ae5ae87003ae5444ea8b273ff.png"	 loop></video> <h3 class="title">	MULTIMEDIOS MTY	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL109/PROFILE03.m3u8" poster="	https://upload.wikimedia.org/wikipedia/en/5/55/Canal_Nu9ve.jpg"	 loop></video> <h3 class="title">	NU9VE	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL111/PROFILE03.m3u8" poster="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/xeipn.png"	 loop></video> <h3 class="title">	ONCE	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL3315/PROFILE03.m3u8" poster="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/xeipn.png"	 loop></video> <h3 class="title">	ONCE NIÑOS	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	https://5e50264bd6766.streamlock.net/tvunam/videotvunam/playlist.m3u8" poster="	https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_Tv_UNAM.png"	 loop></video> <h3 class="title">	 TV UNAM 	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2312/PROFILE03.m3u8" poster="	https://static.wikia.nocookie.net/youtubepedia/images/c/c3/Televisa_Puebla.png/revision/latest?cb=20211123021140&path-prefix=es"	 loop></video> <h3 class="title">	TELEVISA PUEBLA	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8" poster="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s26130_dark_360w_270h.png"	 loop></video> <h3 class="title">	TELEVISA QUERÉTARO 	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL425/PROFILE03.m3u8" poster="	http://ky-iptv.com:25461/images/2712172e46070ead867362c4850c7b68.png"	 loop></video> <h3 class="title">	TV AZTECA CINEMA	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	https://5ca9af4645e15.streamlock.net/rtv/videortv/playlist.m3u8" poster="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/tvmasver.jpg"	 loop></video> <h3 class="title">	TV MAS	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+	<div class="vid"> <video src="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2357/PROFILE03.m3u8" poster="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/tv4.png"	 loop></video> <h3 class="title">	TV4.1 GUANAJUATO	<br><strong style=" font-size: 90%; color:#fc0707;">		</strong>  </h3></div>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--    ###############################################   MOLDE PARA AGREGAR CANALES O PELICULAS 
+
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+<div class="vid"> <video src="  ## LINK ##   " poster="  ## IMAGEN ##  "></video> <h3 class="title">   ## TITULO ##         <br><strong style=" font-size: 90%; color:#fc0707;">     ## GENERO ##       </strong>  </h3></div>
+
+
+
+
+
+
+        #########################################################################################################    -->
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+<script type="text/javascript">
+let listVideo = document.querySelectorAll('.video-list .vid');
+let mainVideo = document.querySelector('.main-video video');
+let title = document.querySelector('.main-video .title');
+
+listVideo.forEach(video =>{
+  video.onclick = () =>{
+    listVideo.forEach(vid => vid.classList.remove('active'));
+    video.classList.add('active');
+    if(video.classList.contains('active')){
+      let src = video.children[0].getAttribute('src');
+      mainVideo.src = src;
+      let text = video.children[1].innerHTML;
+      title.innerHTML = text;
+    };
+  };
+});
+</script>
+<script src="https://cdn.plyr.io/3.6.12/plyr.js"></script>
+<script>//<![CDATA[
+const players = Array.from(document.querySelectorAll('.js-player')).map(player => new Plyr(player));
+//]]></script>
+</body>
+</html>
