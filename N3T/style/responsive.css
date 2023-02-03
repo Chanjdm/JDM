@@ -4,6 +4,9 @@
         flex-direction: column;
     .description {
         width: 90%;
+
+
+
     }
 
 
@@ -16,8 +19,63 @@
 
     .description {
         width: 90%;
+
+
     }
 
 
+@media screen and (max-width: 420px) {
+.main-movie {
+    font-size: 16px;
+    background-image: linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,0.5)100%), url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtV03FY3oTT8Qa9tIfnrKt3dJK0J4gKkAxbw&usqp=CAU);
+    height: 333PX;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+h3.title {
+    POSITION: relative;
+    TOP: -50PX;
+    padding: 0px;
+}
+
+.main-movie .description {
+    FONT-SIZE: 14PX;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    text-align: unset;
+}
+
+.button-main-movie {
+    PADDING: 3PX;
+    PADDING-LEFT: 1.5EM;
+    background-color: var(--black-transparent);
+    border: none;
+    color: var(--white);
+    font-size: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    cursor: pointer;
+    transition: .6s ease all;
+    BORDER-RADIUS: 10PX;
+}
+
+.button-main-movie i {
+    LEFT: 24PX;
+    PADDING-RIGHT: 125PX;
+    margin-right: 8px;
+    POSITION: ABSOLUTE;
+}
 
 
+
+
+
+
+
+
+
+
+}
