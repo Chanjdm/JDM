@@ -64,10 +64,10 @@ header nav a:hover {
 }
 
 .main-movie .description {
-    margin-bottom: 0px;
-    margin-top: 0px;
+    margin-bottom: 0px 0px 5px 5px;
+    
     text-align: -webkit-center;
-    font-size: 75%;
+    font-size: 95%;
 }
 
 .button-main-movie {
