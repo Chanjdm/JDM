@@ -19,9 +19,17 @@
 
     .description {
         width: 100%;
+                    }
+
+.owl-carousel .owl-item img {
+    display: block;
+    padding-right: 3px;
+    width: 80%;
+}
 
 
-    }
+
+}
 
 
 @media screen and (max-width: 420px) {
