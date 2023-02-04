@@ -6,10 +6,10 @@
 .owl-theme .owl-dots,.owl-theme .owl-nav{text-align:center;-webkit-tap-highlight-color:transparent}.owl-theme 
 
 .owl-nav{    FONT-SIZE: 3EM;
-    MARGIN-top: -33px;
-    margin-bottom: -23px;
+    MARGIN-top: -17px;
+    margin-bottom: -24px;
     padding-top: 0px;
-    padding-bottom: 10px;}
+    padding-bottom: 13px;}
 
 .owl-theme .owl-nav [class*=owl-]{color:#FFF;font-size:14px;margin:5px;padding:4px 7px;background:#D6D6D6;display:inline-block;cursor:pointer;border-radius:3px}
 .owl-theme .owl-nav [class*=owl-]:hover{background:#869791;color:#FFF;text-decoration:none}
