@@ -34,6 +34,8 @@ display: flex;
 }
 
 header .logo {
+    position: relative;
+    top: 5px;
     color: var(--red);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bolder;
@@ -54,17 +56,7 @@ header nav a:hover {
 
 /* FONDO DE CATALOGO PRINCIPAL */
 
-.main-movie {
-    font-size: 22px;
-    background-image: linear-gradient(rgba(0,0,0,.60),rgba(0,0,0,.50)100%),
- url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtV03FY3oTT8Qa9tIfnrKt3dJK0J4gKkAxbw&usqp=CAU');
-    height: 370px;
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}
+
 
 .main-movie .title {
     font-size: 40px;
@@ -72,10 +64,10 @@ header nav a:hover {
 }
 
 .main-movie .description {
-    margin-bottom: 60px;
+    margin-bottom: 15px;
     margin-top: 0px;
-    text-align: justify;
-
+    text-align: -webkit-center;
+    font-size: 85%;
 }
 
 .button-main-movie {
@@ -97,18 +89,18 @@ header nav a:hover {
 }
 
 .button-main-movie i  {
-    LEFT: 24PX;
+    LEFT: 5PX;
     PADDING-RIGHT: 125PX;
     margin-right: 8px;
     POSITION: ABSOLUTE;
 }
 
 .container {
-    margin-left: 20px;
+    margin-left: 0px;
 }
 
 .main-movie .container {
-    width: 70%;
+    width: 100%;
 }
 
 .carousel-films {
@@ -132,6 +124,5 @@ h3.title {
 a:link {
   text-decoration: none;
 }
-
 
 

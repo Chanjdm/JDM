@@ -18,8 +18,8 @@
 .owl-carousel 
 .owl-item img{
     display: block;
-    padding-right: 50px;
-    width: 115%;}
+    padding-right: 3px;
+    width: 100%;}
 
 .owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none}
 
