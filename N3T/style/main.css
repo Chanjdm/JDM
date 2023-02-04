@@ -1,6 +1,6 @@
 ﻿:root {
-     margin-left: 19px;
-    margin-right: 19px;
+     margin-left: 0px;
+    margin-right: 0px;
     --red: #E50914;
     --black: #141414;
     --gray: #aaa;
@@ -64,10 +64,10 @@ header nav a:hover {
 }
 
 .main-movie .description {
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     margin-top: 0px;
     text-align: -webkit-center;
-    font-size: 85%;
+    font-size: 75%;
 }
 
 .button-main-movie {
@@ -89,7 +89,7 @@ header nav a:hover {
 }
 
 .button-main-movie i  {
-    LEFT: 5PX;
+    LEFT: -15PX;
     PADDING-RIGHT: 125PX;
     margin-right: 8px;
     POSITION: ABSOLUTE;
@@ -114,7 +114,7 @@ header nav a:hover {
 }
 
 h3.title {
-    padding-top: 40px;
+    padding-top: 0px;
 
 
 

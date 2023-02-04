@@ -18,7 +18,7 @@
         flex-direction: column;
 
     .description {
-        width: 90%;
+        width: 100%;
 
 
     }
@@ -70,7 +70,39 @@ h3.title {
 }
 
 
+@media screen and (max-width: 465px) {
+    header .container {
+        display: flex;
+        flex-direction: column;
+    .description {
+        width: 75%;
 
+:root {
+    margin-left: 5px;
+    margin-right: 0px
+px
+;
+    --red: #E50914;
+    --black: #141414;
+    --gray: #aaa;
+    --white: #fff;
+    --black-transparent: rgba(0,0,0,.50);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html[Attributes Style] {
+    -webkit-locale: "pt-br";
+}
+user agent stylesheet
+html {
+    display: block;
+}
+
+    }
 
 
 
