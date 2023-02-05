@@ -1,1 +1,1 @@
-### Clone da página principal do Netflix, com HTML, CSS, JavaScript, e também Owl Carousel 
+Aprendiendo y probando a hacer una página de películas disponibles en red
