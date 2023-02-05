@@ -83,13 +83,11 @@ h3.title {
         display: flex;
         flex-direction: column;
     .description {
-        width: 75%;
+        width: 55%;
 
 :root {
     margin-left: 5px;
-    margin-right: 0px
-px
-;
+    margin-right: 0px;
     --red: #E50914;
     --black: #141414;
     --gray: #aaa;
