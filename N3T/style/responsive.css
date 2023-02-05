@@ -51,7 +51,7 @@ h3.title {
 }
 
 .main-movie .description {
-    FONT-SIZE: 14PX;
+    FONT-SIZE: 12PX;
     margin-bottom: 15px;
     margin-top: 0px;
     text-align: unset;
@@ -83,7 +83,7 @@ h3.title {
         display: flex;
         flex-direction: column;
     .description {
-        width: 55%;
+        width: 40%;
 
 :root {
     margin-left: 5px;
