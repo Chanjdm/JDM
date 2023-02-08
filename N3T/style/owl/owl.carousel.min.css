@@ -22,7 +22,7 @@
     width: 100%;
     flex-wrap: wrap;
     position: relative;
-    top: 55px;
+    top: 30px;
 }
 
 .owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none}
