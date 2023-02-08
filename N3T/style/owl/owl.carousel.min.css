@@ -15,11 +15,15 @@
 
 .owl-carousel .owl-item{min-height:1px;float:left;-webkit-backface-visibility:hidden;-webkit-touch-callout:none}
 
-.owl-carousel 
-.owl-item img{
-    display: block;
+
+.owl-carousel .owl-item img {
+    display: flex;
     padding-right: 3px;
-    width: 100%;}
+    width: 100%;
+    flex-wrap: wrap;
+    position: relative;
+    top: 55px;
+}
 
 .owl-carousel .owl-dots.disabled,.owl-carousel .owl-nav.disabled{display:none}
 
