@@ -16,11 +16,27 @@ a{text-decoration:none;}
 body{background:#000;font-family:Nunito,sans-serif;}
 
 .cards{
-    display:grid;
-    grid-template-columns: repeat(auto-fill, 108px) 105px;
-    grid;align-items: stretch;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 130px) 130px;
+    align-items: start;
     justify-items: stretch;
- }
+
+}
+
+
+ @media screen and (max-width:340PX){
+.cards{
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px) 100px;
+    align-items: start;
+    justify-items: stretch;
+
+}
+}
+
+
 
 .card{text-align:center;}
 .card img{
