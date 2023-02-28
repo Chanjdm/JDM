@@ -96,10 +96,10 @@ header nav a:hover {
     color: var(--black);
 }
 
-.button-main-movie i  {
-    LEFT: -15PX;
-    PADDING-RIGHT: 125PX;
-    margin-right: 8px;
+.button-main-movie i {
+    LEFT: -16PX;
+    PADDING-RIGHT: 150PX;
+    margin-right: 16px;
     POSITION: ABSOLUTE;
 }
 
