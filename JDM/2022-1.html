@@ -7,22 +7,62 @@
 <!-- Responsive viewport -->
 <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
 <!-- Title -->
-<title>    </title>
-<style type='text/css'>
-*{margin:0;padding:0;box-sizing:border-box;list-style:grid;}
-a{text-decoration:none;}
-body{background:#000;font-family:Nunito,sans-serif;}
 
-.cards{display:grid;grid-template-columns:repeat(5,1fr);grid;align-items: stretch;
-    justify-items: stretch;}
+<title>  PELIS 2022 - 1    </title>
+
+<style type='text/css'>
+*{margin:0;padding:0px;box-sizing:border-box;list-style:grid;}
+a{text-decoration:none;}
+
+
+
+
+ul li::marker {
+  color: red;
+  font-size: 0px;
+}
+
+body{
+   background:#000;
+   font-family:Nunito,sans-serif;
+   margin-top: -100px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 130px) 130px;
+    justify-items: stretch;
+    align-items: start;
+    justify-content: space-evenly;
+}
+
+
+ @media screen and (max-width:340PX){
+.cards{
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px) 100px;
+    align-items: start;
+    justify-items: stretch;
+
+}
+}
+
+
+
+
+
+
+
 
 .card{text-align:center;}
+
 .card img{
-    padding: 0px;
-    padding-top: 0px;
-    width: 94%;
+    margin-top: 5px;
+    width: 100%;
     height: 84%;
-    border-radius:7px;}
+    border-radius:7px;
+}
 
 .card span{padding:0 .3rem;display:none;}
 a{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;} 
@@ -60,12 +100,14 @@ img[data-original-width] {height: auto;}
 
 
 
+/* POSITION: FIXED;  para que se desplace el buscador         top: -16px; */
 .xaviec {
-    background: #000;
-    position: fixed;
-    top: -16px;
+    background: #00000000;
+
     right: -0.5em;
-    width: 20%;
+    width: 40%;
+    height: 16%;
+    margin: 22px 0px 0px 0px;
 }
 
 
@@ -203,6 +245,7 @@ img:hover{
 
 
 .pagination {
+     MARGIN-TOP: 30PX;
     text-align: center;
     font-weight: 700;
     margin-bottom: var(--size);
@@ -338,11 +381,11 @@ border-radius: 50px; /*bordes redondos*/
 				<a class="page-link" href="4K.html">4K</a>
 				<a class="page-link" href="2023.html">2023</a>
 				<a class="page-link" href="2022.html">2022</a>
-				<a class="page-link current" href="2022-1.html">2022-1</a>
+				<a class="page-link" href="2022-1.html">2022-1</a>
 				<a class="page-link" href="2022-2.html">2022-2</a>
 				<a class="page-link" href="2022-3.html">2022-3</a>
 				<a class="page-link" href="2022-4.html">2022-4</a>
-				<a class="page-link" href="2022-5.html">2022-5</a>
+				<a class="page-link current" href="2022-5.html">2022-5</a>
 				<a class="page-link" href="2022-6.html">2022-6</a>
 				<a class="page-link" href="N1Ñ05.html">INFANTILES</a>
 
@@ -352,7 +395,6 @@ border-radius: 50px; /*bordes redondos*/
 
 </head>
 <body>
-
 
 
 
