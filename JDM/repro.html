@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title> REPRO  </title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+</script>
+
+
+
+<style type="text/css">
+
+body  {
+
+    text-decoration: none;
+    background: #000101;
+}
+
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+#menu-button {
+ Width:50px;
+ Padding:5px;
+    border-radius: 10px;
+    position: absolute;
+    top: -10px;
+    right: 0;
+    z-index: 1;
+    background: #ff0101;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 100px;
+    height: 100%;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+}
+
+h3 {
+    margin: 4px 0px 0px 0px;
+    padding: 0px 0px 0px 5px;
+    font-size: 100%;
+    color: #fdf600;
+}
+h4 {
+    Margin:2rem;
+    Padding-left:5Em;
+    Padding-top:3em;
+    color: #06fd06;
+    Position:Absolute;
+    Right: 70px;
+    
+    
+    
+ 
+}
+}
+
+
+/*
+h4 {
+    display: flex;
+    position: relative;
+    font-size: 90%;
+    color: #06fd06;
+    align-items: flex-end;
+    right: 50%;
+    top: 20px;
+}
+*/
+</style>
+</head>
+
+
+
+<body>
+
+
+<div id="video-player" >
+  <video src="#" controls id="video"poster="https://chanjdm.github.io/JDM/jdmflix.jpg"></video>
+  <button id="menu-button">Menu</button>
+  
+
+  
+  
+  
+  <ul id="video-list">
+    <li><a href="#" onclick="changeVideo('http://51.81.208.167/pelis2023/Plane.2023.mp4')"><img src="https://www.themoviedb.org/t/p/w94_and_h141_bestv2/juoinefK6tMbjwJhRpRvbAAmrTB.jpg" alt="Portada de Video 1"><h3> El PILOTO  </h3><h4> Acción-C.Ficción </h4></a></li>
+    <li><a href="#" onclick="changeVideo('http://vod.tuxchannel.mx/peliculas/720/house%20party%202023.mkv')"><img src="https://image.tmdb.org/t/p/w500/tGmCxGkVMOqig2TrbXAsE9dOVvX.jpg" alt="Portada de Video 1"><h3> House Party Houseparty Houseparty</h3><h4> Comedia-romántica </h4></a></li>
+    <li><a href="#" onclick="changeVideo('http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.mkv')"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/lZjmSFRf6u1hYvLGxCAu13dpGQA.jpg" alt="Portada de Video 1"><h3> Un Buen Hombre </h3>  <h4> Acción-Drama   </h4>  </a></li>
+    <li><a href="#" onclick="changeVideo('https://archive.org/download/1110_20230320/1110.mkv')"><img src="https://m.media-amazon.com/images/M/MV5BZDQ4Njg4YTctNGZkYi00NWU1LWI4OTYtNmNjOWMyMjI1NWYzXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_FMjpg_UX1000_.jpg" alt="Portada de Video 1"><h3> La Ballena  </h3><h4> Drama </h4></a>
+<track label="Español" kind="subtitles" srclang="es" src="https://www.opensubtitles.com/download/421421440D565DD94651D029E72C6824C3B6097E86372DEC0F6818651A0489142AC7A151E53565849E6BB392D3D7AB179C846D7A26C8448959186239F6FF5E2E394303FCB58BF99009625DEA94CA6697ADEE3ABA90AD987B2A81C0C13577B6E0AB9A45C3E1F898F8856CB2BBA6B6CE8C2ACA981279200577BA3EB80C84BB5720DE8BC0BD0F219DF0889EF63430C79AC81A92A91475C5E0DC4F8DDA48A6DAEF9A96458A853EAD59A2DFBC7FB11E7E2939A6095A853B591286D0B7DFF3EBBA1BAF34253457DF77BF013EEC0DC2F1F05FE80CED63FEC189B98E9B362ECF7DEF3B1FDCFE56BF5B281E98EAACFF0464A9D6A66C0A55CC16D024998C932612C5A9E11CF102513573E010CB52EB821949896F4B/subfile/The.Whale.2022.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX.srt">
+    </li>
+    <li><a href="#" onclick="changeVideo('https://archive.org/download/01_20230319_20230319_1754/01.mp4')"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/rdYEj6wJd6lbMiHpIN4rXTYNGn1.jpg" alt="Portada de Video 1"><h3> Shazam: La furia de los dioses </h3>  <h4>  Acción-Fantasía  </h4>  </a></li>
+    <li><a href="#" onclick="changeVideo('https://archive.org/download/01_20230319_20230319_1747/01.mp4')"><img src="https://m.media-amazon.com/images/M/MV5BODAwZDQ5ZjEtZDI1My00MTFiLTg0ZjUtOGE2YTBkOTdjODFhXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg" alt="Portada de Video 1"><h3>Oso intoxicado  </h3><h4> Comedia-Suspenso  </h4>  </a></li>
+
+
+
+
+
+
+
+
+
+
+ </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+window.addEventListener('load', function() {
+  var boton = document.getElementById('menu-button');
+  var lista = document.getElementById('video-list');
+  var temporizador;
+  
+  boton.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  lista.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  boton.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+  
+  lista.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+});
+
+
+
+
+
+
+
+
+const menuButton = document.getElementById('menu-button');
+const videoList = document.getElementById('video-list');
+const videoPlayer = document.getElementById('video');
+
+menuButton.addEventListener('click', () => {
+  if (videoList.style.display === 'none') {
+    videoList.style.display = 'block';
+  } else {
+    videoList.style.display = 'none';
+  }
+});
+
+function changeVideo(src) {
+  videoPlayer.src = src;
+  videoPlayer.play();
+  videoList.style.display = 'none';
+}
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
