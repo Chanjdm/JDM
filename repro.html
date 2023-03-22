@@ -133,8 +133,35 @@ h4 {
     top: auto;
 }
 */
-    
-    ::-webkit-scrollbar {
+@media screen and (max-width:320px) {
+ /* Nuestras nuevas reglas con este ancho o menos de pantalla */
+video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 5px 0px 5px;
+    width: 70%;
+    justify-items: start;
+}
+
+h4{
+    Margin: 2rem;
+    Padding-top: 3em;
+    padding-left: 3.8em;
+    color: #06fd06;
+    Position: absolute;
+    right: auto;
+    font-size: 85%;
+}
+
+}
+::-webkit-scrollbar {
     display: none;
 }
 </style>
