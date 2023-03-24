@@ -1,12 +1,15 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta charset="UTF-8">
 <title> REPRO  </title>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 </script>
-
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
 
 
 <style type="text/css">
@@ -14,6 +17,7 @@
 body  {
     text-decoration: none;
     background: #000000;
+outline: none;
 }
 
 
@@ -23,17 +27,19 @@ body  {
   position: relative;
   width: 100%;
   height: 670px;
+outline: none;
 }
 
 #video {
   width: 100%;
   height: 100%;
   background-color: black;
+outline: none;
 }
 
 #menu-button {
     border-width: 0px;
-    height: 600px;
+    height: 300px;
     Width: 500px;
     Padding: 5px;
     position: absolute;
@@ -42,6 +48,7 @@ body  {
     z-index: 1;
     background: #ff010100;
     text-decoration: none;
+outline: none;
 }
 
 #video-list {
@@ -57,17 +64,20 @@ body  {
     padding: 0px 5px 0px 5px;
     width: 30%;
     justify-items: start;
+outline: none;
 }
 
 #video-list a img {
     border-radius: 5px;
-    width: 100px;
+    width: 90px;
     height: 100%;
+outline: none;
 }
 
 
 #video-list li {
   margin: 10px 0;
+outline: none;
 }
 
 #video-list a {
@@ -76,10 +86,12 @@ body  {
     position: relative;
     display: flex;
     align-items: stretch;
+outline: none;
 }
 
 #video-list a:hover {
   text-decoration: NONE;
+outline: none;
 }
 
 
@@ -93,22 +105,26 @@ body  {
   padding: 10px;
   max-height: 200px;
   overflow-y: scroll;
+outline: none;
 }
 
 .menu-list li {
   margin-bottom: 1px;
+outline: none;
 }
 
 .menu-list a {
   color: #000;
   text-decoration: none;
+outline: none;
 }
 
 h3 {
-    margin: 4px 0px 0px 0px;
+    margin: 4px 0px 0px 5px;
     padding: 0px 0px 0px 5px;
-    font-size: 100%;
+    font-size: 90%;
     color: #fdf600;
+outline: none;
 }
 h4 {
     Margin: 2rem;
@@ -117,8 +133,10 @@ h4 {
     color: #06fd06;
     Position: absolute;
     right: auto;
+    font-size: 80%;
+outline: none;
 }
-}
+
 
 
 /*
@@ -131,39 +149,18 @@ h4 {
     right: auto;
     font-size: 90%;
     top: auto;
+outline: none;
 }
 */
-@media screen and (max-width:320px) {
- /* Nuestras nuevas reglas con este ancho o menos de pantalla */
-video-list {
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: absolute;
-    top: 10px;
-    right: 0;
-    z-index: 1;
-    background-color: rgba(0,0,0,0.5);
-    color: #fcfcfc00;
-    height: 580px;
-    padding: 0px 5px 0px 5px;
-    width: 70%;
-    justify-items: start;
-}
+    
 
-h4{
-    Margin: 2rem;
-    Padding-top: 3em;
-    padding-left: 3.8em;
-    color: #06fd06;
-    Position: absolute;
-    right: auto;
-    font-size: 85%;
-}
-
-}
 ::-webkit-scrollbar {
     display: none;
 }
+
+
+
+
 </style>
 </head>
 
@@ -183,24 +180,67 @@ h4{
   <ul id="video-list">
 
 
-    <li><a href="#" onclick="changeVideo('http://45.179.164.59:8181/Peliculas/Agente.Fortune.El.gran.enga%c3%b1o.2023.720p-dual-lat.mkv')"><img src=" https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/u1WvYS8FRczTY3hv3CBBQzf1vht.jpg " alt="Portada de Video 1"><h3>  Operación Fortune: El gran engaño <br>2023 </h3><h4> Accion-Comedia </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('http://51.81.208.167/pelis2023/Plane.2023.mp4')"><img src="https://www.themoviedb.org/t/p/w94_and_h141_bestv2/juoinefK6tMbjwJhRpRvbAAmrTB.jpg" alt="Portada de Video 1"><h3> El PILOTO  <br>2023</h3><h4> Acción-C.Ficción </h4></a></li>
-    <li><a href="#" onclick="changeVideo('http://vod.tuxchannel.mx/peliculas/720/house%20party%202023.mkv')"><img src="https://image.tmdb.org/t/p/w500/tGmCxGkVMOqig2TrbXAsE9dOVvX.jpg" alt="Portada de Video 1"><h3> House Party Houseparty Houseparty  <br>2023</h3><h4> Comedia-romántica </h4></a></li>
-    <li><a href="#" onclick="changeVideo('http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.mkv')"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/lZjmSFRf6u1hYvLGxCAu13dpGQA.jpg" alt="Portada de Video 1"><h3> Un Buen Hombre <br>2023</h3>  <h4> Acción-Drama   </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('https://archive.org/download/1110_20230320/1110.mkv')"><img src="https://m.media-amazon.com/images/M/MV5BZDQ4Njg4YTctNGZkYi00NWU1LWI4OTYtNmNjOWMyMjI1NWYzXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_FMjpg_UX1000_.jpg" alt="Portada de Video 1"><h3> La Ballena <br>2023 </h3><h4> Drama </h4></a>
-<track label="Español" kind="subtitles" srclang="es" src="https://www.opensubtitles.com/download/421421440D565DD94651D029E72C6824C3B6097E86372DEC0F6818651A0489142AC7A151E53565849E6BB392D3D7AB179C846D7A26C8448959186239F6FF5E2E394303FCB58BF99009625DEA94CA6697ADEE3ABA90AD987B2A81C0C13577B6E0AB9A45C3E1F898F8856CB2BBA6B6CE8C2ACA981279200577BA3EB80C84BB5720DE8BC0BD0F219DF0889EF63430C79AC81A92A91475C5E0DC4F8DDA48A6DAEF9A96458A853EAD59A2DFBC7FB11E7E2939A6095A853B591286D0B7DFF3EBBA1BAF34253457DF77BF013EEC0DC2F1F05FE80CED63FEC189B98E9B362ECF7DEF3B1FDCFE56BF5B281E98EAACFF0464A9D6A66C0A55CC16D024998C932612C5A9E11CF102513573E010CB52EB821949896F4B/subfile/The.Whale.2022.1080p.AMZN.WEB-DL.DDP5.1.Atmos.H.264-FLUX.srt"></li>
-    <li><a href="#" onclick="changeVideo('https://archive.org/download/01_20230319_20230319_1754/01.mp4')"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/rdYEj6wJd6lbMiHpIN4rXTYNGn1.jpg" alt="Portada de Video 1"><h3> Shazam: La furia de los dioses <br>2023</h3>  <h4>  Acción-Fantasía  </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('https://archive.org/download/01_20230319_20230319_1747/01.mp4')"><img src="https://m.media-amazon.com/images/M/MV5BODAwZDQ5ZjEtZDI1My00MTFiLTg0ZjUtOGE2YTBkOTdjODFhXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg" alt="Portada de Video 1"><h3>Oso intoxicado  <br>2023</h3><h4> Comedia-Suspenso  </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('https://archive.org/download/01_20230227_20230227_2250/01.mp4')"><img src=" https://m.media-amazon.com/images/M/MV5BYzI0NGFmNGMtYmRjZi00MjIxLTg5NTMtNTgwNGIwN2NkNWEwXkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_.jpg " alt="Portada de Video 1"><h3>  Duro de entrenar <br>2023</h3><h4> Accion-Comedia </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('http://45.179.164.59:8181/Peliculas/2022/Huesera.2023.720p-dual-lat/Huesera.2023.720p-dual-lat.mkv')"><img src=" https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/aVw74MES2R0kdSN8JhbJC8Xpne9.jpg " alt="Portada de Video 1"><h3>  La Huesera <br>2023</h3><h4> Terror-Suspenso </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('https://archive.org/download/01_20230319_20230319_1743/01.mp4')"><img src=" https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/d07xtqwq1uriQ1hda6qeu8Skt5m.jpg " alt="Portada de Video 1"><h3> La Exorcista <br> 2023 </h3><h4> Terror </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('http://vod.tuxchannel.mx/peliculas/720/knock%20at%20the%20cabin%202023.mkv')"><img src=" https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/4Zna9CvyzaAgejsErmyXmHC64Dd.jpg " alt="Portada de Video 1"><h3>  Llaman a la puerta <br>2023</h3><h4> Suspenso-Drama </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('http://vod.tuxchannel.mx/peliculas/720/little%20dixie%202023.mkv')"><img src=" https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/eU85DLyyhS1SnmOU9mZPb8mt1mo.jpg " alt="Portada de Video 1"><h3>  Little Dixie <br>2023</h3><h4> Accion-suspenso </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('http://vod.tuxchannel.mx/peliculas/720/dog%20gone%202023.mkv')"><img src=" https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/eYWdLZCS9W1Xli9bynzFSddLx02.jpg " alt="Portada de Video 1"><h3>  Perro Perdido <br>2023 </h3><h4> Drama </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('http://vod.tuxchannel.mx/peliculas/720/unlocked%202023.mkv')"><img src=" https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/kVwudGk77ilXN4TwJn0B3pZtS6N.jpg" alt="Portada de Video 1"><h3> Identidad robada <br>2023 </h3><h4> Drama-Suspenso </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('ttp://144.217.180.205/Peliculas/Terror/13673.Blood.2022.1080p.WEBRip.mkv')"><img src=" https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/gCUFtTvjK4gbmjVxhx8bhyOhAeW.jpg " alt="Portada de Video 1"><h3>  Blood: Sangre <br>2023 </h3><h4> Drama-Suspenso </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('https://archive.org/download/01_20230121_20230121/01.mp4')"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/zYnp9vNPdJiCU0SIisWdA3VIGNB.jpg" alt="Portada de Video 1"><h3>  Jung_E <br>2023 </h3><h4> Accion-Ficcion </h4>  </a></li>
-    <li><a href="#" onclick="changeVideo('https://archive.org/download/01_20230228/01.mp4')"><img src=" https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w300/pxPs1ukS3vYxLy7Huw2aINxX2dy.jpg " alt="Portada de Video 1"><h3>  Tenemos un fantasma <br>2023 </h3><h4> Suspenso-Comedia </h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/lZjmSFRf6u1hYvLGxCAu13dpGQA.jpg	" alt="	Portada de Video 1"	><h3>	10 días de un buen hombre (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/plane%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/r1SyEVQhOxlQ3ijDHl5HWygEDqU.jpg	" alt="	Portada de Video 1"	><h3>	Alerta extrema: El piloto (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230211_20230211_2019/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/ovHxxphDgjyEpYriDoGoIHfrdZL.jpg	" alt="	Portada de Video 1"	><h3>	Alguien a quien solía conocer (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230217_20230217_1546/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/9mFHSHWce77Pi5zwkfCL35KU6MW.jpg	" alt="	Portada de Video 1"	><h3>	Amor al cuadrado: Otra vez (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230217_20230217_2304/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/jTNYlTEijZ6c8Mn4gvINOeB2HWM.jpg	" alt="	Portada de Video 1"	><h3>	Ant-man y la Avispa: Quantumania (2023) XBET	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230211_20230211_1955/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/k6E1f3XvTq0sa02nUykPCwFKsBx.jpg	" alt="	Portada de Video 1"	><h3>	At midnight (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230217_20230217_1536/01.mp4	')" ><img src="	https://m.media-amazon.com/images/M/MV5BZTg1ZjIxNTQtMjM5Ny00OGEyLWI2OTgtOGEzYzVkMDk4ZGFhXkEyXkFqcGdeQXVyMjAwNzczNTU@._V1_.jpg	" alt="	Portada de Video 1"	><h3>	A todas partes (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://144.217.180.205/Peliculas/Terror/13673.Blood.2022.1080p.WEBRip.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/gCUFtTvjK4gbmjVxhx8bhyOhAeW.jpg	" alt="	Portada de Video 1"	><h3>	Blood: Sangre (2023) SUB	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/casando%20a%20mi%20ex%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/ewS8BeUqoNmzF7JQm07CiukwONb.jpg	" alt="	Portada de Video 1"	><h3>	Casando a mi ex (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230130_20230130_2020/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/jrPKVQGjc3YZXm07OYMriIB47HM.jpg	" alt="	Portada de Video 1"	><h3>	Detective Knight: Independencia (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/disconnect%20the%20wedding%20planner%202023.mkv	')" ><img src="	https://image.tmdb.org/t/p/w500/tGmCxGkVMOqig2TrbXAsE9dOVvX.jpg	" alt="	Portada de Video 1"	><h3>	Desconexión: El organizador de bodas (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230227_20230227_2250/01.mp4	')" ><img src="	https://m.media-amazon.com/images/M/MV5BYzI0NGFmNGMtYmRjZi00MjIxLTg5NTMtNTgwNGIwN2NkNWEwXkEyXkFqcGdeQXVyNTE1NjY5Mg@@._V1_.jpg	" alt="	Portada de Video 1"	><h3>	Duro de entrenar (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230319_20230319_1738/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/Af1vSPTbraVVqc6kB3Avm55gxcq.jpg	" alt="	Portada de Video 1"	><h3>	El estrangulador de Boston (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230313_20230313_2116/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/w7X1ra5lYbiZ5WnkCikSThKCMZm.jpg	" alt="	Portada de Video 1"	><h3>	Encontró lo que buscaba (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/meet%20me%20in%20paris%202023.mkv	')" ><img src="	https://m.media-amazon.com/images/M/MV5BMmI3NWExMTMtMzNiZS00MzcxLWFlYzgtZjc1NzA2ODUyYzZjXkEyXkFqcGdeQXVyNTM0MDc1ODE@._V1_FMjpg_UX1000_.jpg	" alt="	Portada de Video 1"	><h3>	Encuéntrame en París (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230217_20230217_1526/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/68qUoVSL7BVirc9U3a1O3zKfsAM.jpg	" alt="	Portada de Video 1"	><h3>	Entre el amor y la amistad (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/eres%20tu%202023.mkv	')" ><img src="	https://m.media-amazon.com/images/M/MV5BMDA0Nzk1ZTYtNDliNy00YWQ4LTk5MTktN2RmNTQ1YTA4NWE1XkEyXkFqcGdeQXVyMTMzNzIyNDc1._V1_.jpg	" alt="	Portada de Video 1"	><h3>	Eres tú (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/true%20spirit%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/hOyU0FuaVoWADcrh8dWs0Kw801O.jpg	" alt="	Portada de Video 1"	><h3>	Espíritu libre (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/dzisiaj%20spisz%20ze%20mna%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w300/sexnKxpAOl0wfixYC3RataZD4pI.jpg	" alt="	Portada de Video 1"	><h3>	Esta noche duermes conmigo (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/house%20party%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/oKovzRJWz4brwxogYH8vaIoMOeU.jpg	" alt="	Portada de Video 1"	><h3>	Fiesta en casa (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/theres%20something%20wrong%20with%20the%20children%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/e49Sr3Lxfk2psYhv1SzQjs7MeGo.jpg	" alt="	Portada de Video 1"	><h3>	Hay algo mal con los niños (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://45.179.164.59:8181/Peliculas/2022/Huesera.2023.720p-dual-lat/Huesera.2023.720p-dual-lat.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/aVw74MES2R0kdSN8JhbJC8Xpne9.jpg	" alt="	Portada de Video 1"	><h3>	Huesera (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/unlocked%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/kVwudGk77ilXN4TwJn0B3pZtS6N.jpg	" alt="	Portada de Video 1"	><h3>	Identidad robada (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230207_20230207_2241/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/rpuV6GRIBD2v8A2FZM53ebNFcJx.jpg	" alt="	Portada de Video 1"	><h3>	Infiesto (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/2425_20230324/2425.mp4	')" ><img src="	https://www.lavanguardia.com/files/content_image_mobile_filter/uploads/2023/01/29/63d60baf13d85.jpeg	" alt="	Portada de Video 1"	><h3>	John Wick 4 (2023) Cine	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230121_20230121/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/zYnp9vNPdJiCU0SIisWdA3VIGNB.jpg	" alt="	Portada de Video 1"	><h3>	Jung_E (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/1110_20230320/1110.mkv	')" ><img src="	https://m.media-amazon.com/images/M/MV5BZDQ4Njg4YTctNGZkYi00NWU1LWI4OTYtNmNjOWMyMjI1NWYzXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_FMjpg_UX1000_.jpg	" alt="	Portada de Video 1"	><h3>	La ballena (2023) SUB	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://45.179.164.59:8181/Peliculas/La.elefanta.del.mago.2023.720p-dual-lat.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/cAoAgzOCxSytYBqqCQulhXNR3LB.jpg	" alt="	Portada de Video 1"	><h3>	La elefanta del mago (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230319_20230319_1743/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w1280/d07xtqwq1uriQ1hda6qeu8Skt5m.jpg	" alt="	Portada de Video 1"	><h3>	La exorcista (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://144.217.180.205/Peliculas/DOCUMENTAL/16449.Mumbai.Mafia.Police.vs.The.Underworld.2023.1080p.WEBRip.Dual.Latino.mkv	')" ><img src="	https://lodynet.ink/wp-content/uploads/2023/01/AAAABS68wBMkJnY8AbIVu4eTx1h36Dg_6LC8Jvm2qxB3SO511KU2xa6ypmtNbVOOg7DrfB7FVWrdzZMC2FYFUtziIicNoj_L8mIw2DV5YUp1_HEvmPya2Yzzxb2LWd7bAztrxGpVtQ-vert.jpg	" alt="	Portada de Video 1"	><h3>	La mafia de Mumbai: La policía contra el hampa (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/la%20novia%20de%20america%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/1iD3k1qQv0p1XJpBuq96YaXPz6q.jpg	" alt="	Portada de Video 1"	><h3>	La novia de América (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/80%20for%20brady%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/jixBLmH4gQuTKTenZr89egvqZbW.jpg	" alt="	Portada de Video 1"	><h3>	La última yarda (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Legion.of.Super.Heroes.2023.1080p.dual-lat.cuevana3.win.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/3whQLi8RI7h2h2Si2KTDFJxfEcR.jpg	" alt="	Portada de Video 1"	><h3>	Legión de Superheroes (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://144.217.180.205/Peliculas/Ficcion/Ver%20Legiones%20(2023)%20Online%20Cuevana%203%20Peliculas%20Online.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/bjensvHWkOHtBO114A8sXxji1gu.jpg	" alt="	Portada de Video 1"	><h3>	Legiones (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/little%20dixie%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/eU85DLyyhS1SnmOU9mZPb8mt1mo.jpg	" alt="	Portada de Video 1"	><h3>	Little Dixie (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/knock%20at%20the%20cabin%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/4Zna9CvyzaAgejsErmyXmHC64Dd.jpg	" alt="	Portada de Video 1"	><h3>	Llaman a la puerta (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/the%20strays%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/8r68DugmiasKiduv6V6Piulm8Gn.jpg	" alt="	Portada de Video 1"	><h3>	Los extraños (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230313_20230313/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/6ZKBIsDRPs68dmoE9vRqaGASw8k.jpg	" alt="	Portada de Video 1"	><h3>	Luther: Cae la noche (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/magic%20mikes%20last%20dance%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/p98DxMJbXjI6ITI9aFh3U0u5oF7.jpg	" alt="	Portada de Video 1"	><h3>	Magic Mike: El último baile (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/malcriados%202022.mkv	')" ><img src="	https://m.media-amazon.com/images/M/MV5BZTEwMjhiZTQtNDc2NS00YWY0LWJiZDYtMGVmOWY0M2MxYmFhXkEyXkFqcGdeQXVyNTU1MzI3NDM@._V1_QL75_UX190_CR0,2,190,281_.jpg	" alt="	Portada de Video 1"	><h3>	Malcriados (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230313_20230313_2059/01.mp4	')" ><img src="	https://m.media-amazon.com/images/M/MV5BNGIxMDNlNWEtYzcwYy00ZmE0LTlhZWQtOWM5ZGNkYjIzMTJiXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg	" alt="	Portada de Video 1"	><h3>	Missing: Desaparecida (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/faraway%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/s8OSxz7U0hMsIPTrmdgUboTD2y2.jpg	" alt="	Portada de Video 1"	><h3>	Muy lejos de aquí (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://45.179.164.59:8181/Peliculas/Agente.Fortune.El.gran.enga%c3%b1o.2023.720p-dual-lat.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/u1WvYS8FRczTY3hv3CBBQzf1vht.jpg	" alt="	Portada de Video 1"	><h3>	Operación Fortune: El gran engaño (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230319_20230319_1747/01.mp4	')" ><img src="	https://m.media-amazon.com/images/M/MV5BODAwZDQ5ZjEtZDI1My00MTFiLTg0ZjUtOGE2YTBkOTdjODFhXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_FMjpg_UX1000_.jpg	" alt="	Portada de Video 1"	><h3>	Oso intoxicado (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/pamela%20a%20love%20story%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/aOj8mNRXz3ss9pwCYgpva1JqmZx.jpg	" alt="	Portada de Video 1"	><h3>	Pamela: Una historia de amor (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/dog%20gone%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/eYWdLZCS9W1Xli9bynzFSddLx02.jpg	" alt="	Portada de Video 1"	><h3>	Perro perdido (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/dear%20david%202023.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/A9JD050ibp3hNC1kmbcq07jEZv2.jpg	" alt="	Portada de Video 1"	><h3>	Querido David (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230227_20230227_2347/01.mp4	')" ><img src="	https://m.media-amazon.com/images/M/MV5BMDQ1OTY0NTItZGRjZi00NTQzLWE4ZmUtMjBjODU3MGRiZGE5XkEyXkFqcGdeQXVyOTgwNTk0MzY@._V1_.jpg	" alt="	Portada de Video 1"	><h3>	Re/Member: Buscando un cuerpo (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230319_202303/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/2EyqCN2r7gObxSpdfb9eU1yEQ8W.jpg	" alt="	Portada de Video 1"	><h3>	Ruido mental (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230313_20230313_2108/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/4nOYmPqBgbVEYJun5EB9Vk9tqSA.jpg	" alt="	Portada de Video 1"	><h3>	Scream 6: Grita (2023) XBET	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://vod.tuxchannel.mx/peliculas/720/sharper%202023.mkv	')" ><img src="	https://m.media-amazon.com/images/M/MV5BM2JlN2Q2ZmYtYmU4OS00ZjNlLWE2OTEtOTc2ZDY5NjEwMTM4XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg	" alt="	Portada de Video 1"	><h3>	Sharper: Un plan perfecto (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/2425_20230324/2424.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/rdYEj6wJd6lbMiHpIN4rXTYNGn1.jpg	" alt="	Portada de Video 1"	><h3>	Shazam: La furia de los dioses (2023) Cine	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230313_20230313_2130/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/sFaDyM9qe2eZ4TMEpB9ozWWVhUm.jpg	" alt="	Portada de Video 1"	><h3>	Tangos tequilas y algunas mentiras (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230130_20230130_2101/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/wAkpPm3wcHRqZl8XjUI3Y2chYq2.jpg	" alt="	Portada de Video 1"	><h3>	Teen Wolf: La película (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230228/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w300/pxPs1ukS3vYxLy7Huw2aINxX2dy.jpg	" alt="	Portada de Video 1"	><h3>	Tenemos un fantasma (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://144.217.180.205/Peliculas/Accion/19313.The.Old.Way.2023.1080p.WEBRip.mkv	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/8HCCYAIocXxMKn7J9yQfDX1vBM5.jpg	" alt="	Portada de Video 1"	><h3>	The old way: La vieja manera (2023) SUB	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230130_20230130_2108/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/eOixT71Ok77ZiBu06lO0Z6FysKi.jpg	" alt="	Portada de Video 1"	><h3>	Transfusión (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://144.217.180.205/Peliculas/Accion/n1ght.tr41n.2023.dvds.720p.subesp.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/gRWWO0dqCRG6K8ZtRNVf8xrb1Ng.jpg	" alt="	Portada de Video 1"	><h3>	Tren nocturno (2023) XBET SUB	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230211_20230211_2002/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w300/o5hbH2F8ovEEuyOjcLVJgPN2OQq.jpg	" alt="	Portada de Video 1"	><h3>	Tu casa o la mía (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230130_20230130_2046/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/3AqGq6t4dHzTPgQ1JSzhhDxz5pQ.jpg	" alt="	Portada de Video 1"	><h3>	Ustedes (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/01_20230319_20230319/01.mp4	')" ><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/uC77nrTr5dTvPckQ4G5JVh9lhub.jpg	" alt="	Portada de Video 1"	><h3>	Ya era hora (2023)	</h3><h4>		</h4>  </a></li>
 
 
 
@@ -211,9 +251,7 @@ h4{
 
 
   <!--    #######  PARA ´PONER MAS PELICULAS 
-
     <li><a href="#" onclick="changeVideo('## LINK ##')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </a></li>
-
  -->
 
 
