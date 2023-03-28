@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title> REPRO  </title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</script>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
+
+
+<style type="text/css">
+
+body  {
+    text-decoration: none;
+    background: #000000;
+outline: none;
+}
+
+
+
+
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 90%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #06fd06;
+    Position: absolute;
+    top: 45px;
+    right: 20px;
+    font-size: 80%;
+    outline: none;
+    overflow-y: scroll;
+    height: 80px;
+    width: 235px;
+}
+
+
+
+/*
+h4 {
+    Margin: 2rem;
+    Padding-top: 1em;
+    padding-left: 3.6em;
+    color: #06fd06;
+    Position: absolute;
+    right: auto;
+    font-size: 90%;
+    top: auto;
+outline: none;
+}
+*/
+    
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (max-width: 480px){
+    #video-player{
+    height: calc(100% - 1*1px);
+    margin-top: 1em;
+}
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 11.8em;
+    left: 5px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 15px 0px 15px;
+    width: 380px;
+    justify-items: start;
+}
+    #menu-button{
+    display: flex;
+    width: 100%;
+    height: 85px;
+    top: -1em;
+}
+#video-list a img {
+    border-radius: 5px;
+    width: 80px;
+    outline: none;
+}
+h4  {
+    Margin-top: 2px;
+    padding-bottom: 60px;
+    color: #06fd06;
+    Position: absolute;
+    right: -10px;
+    top: 45px;
+    font-size: 90%;
+    width: 300px;
+    height: 7px;
+    padding-top: 5px;
+    overflow-y: scroll;
+}
+
+}
+
+
+</style>
+</head>
+
+
+
+<body>
+
+
+<div id="video-player" >
+  <video src="#" controls id="video" poster="https://chanjdm.github.io/JDM/jdmflixbordes.jpg"></video>
+  <button id="menu-button">             </button>
+  
+
+  
+  
+  
+  <ul id="video-list">
+
+
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/A%20Todas%20Partes%20(2023).mp4     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/gBiZdPAWLSPLE4sX6BzWMzaJylP.jpg	" alt="	Portada de Video 1"	><h3>	A Todas Partes (2023)	</h3><h4>	Dos hermanos que no se han visto en 15 años reparan su relación mientras cumplen un sueño de la infancia: un viaje en moto por carretera a través de México.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Aguas%20Profundas%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/aarAi6bp8Cl3RYXy2lpeLc1hGS7.jpg	" alt="	Portada de Video 1"	><h3>	Aguas Profundas (2022)	</h3><h4>	Un marido adinerado, que permite que su esposa tenga relaciones extramatrimoniales para evitar el divorcio, se convierte en el principal sospechoso de la desaparición de los amantes de ella... Adaptación de la novela de Patricia Highsmith.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Al%20Filo%20Del%20Abismo%20(2022).mp4     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/bSZhgnlqfajabEHfXVmwCZIcpSI.jpg	" alt="	Portada de Video 1"	><h3>	Al Filo Del Abismo (2022)	</h3><h4>	Una aventura de escalada en roca entre dos amigos se convierte en una terrorífica pesadilla. Después de que Kelly captura el asesinato de su mejor amiga en cámara, se convierte en el próximo objetivo de un grupo muy unido de amigos que no se detendrán ante nada para destruir la evidencia y a cualquiera que se interponga en su camino. Desesperada por su seguridad, comienza una escalada traicionera por el acantilado de una montaña y sus instintos de supervivencia se ponen a prueba cuando queda atrapada con los asesinos a solo 20 pies de distancia.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/All%20Hail%20%e2%80%93%20Granizo%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/pnTp17HCwQ6EhsWfqzgwnUfhSym.jpg	" alt="	Portada de Video 1"	><h3>	All Hail – Granizo (2022)	</h3><h4>	Después de que le llueven críticas por fallar en el pronóstico de una tormenta, un meteorólogo se refugia en la casa de su hija e inicia un viaje de autodescubrimiento.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Ambulancia%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/y7Lnz3ayJyW9IWmbA0M19vpBbu4.jpg	" alt="	Portada de Video 1"	><h3>	Ambulancia (2022)	</h3><h4>	El veterano Will Sharp, en un acto desesperado por conseguir dinero para cubrir las deudas médicas de su esposa, recurre a la única persona que sabe que no debería, su hermano adoptivo Danny. Danny le ofrece participar en un robo a un banco, el más grande en la historia de la ciudad. Will no puede decir que no. Cuando su intento de escape sale mal, los hermanos secuestran una ambulancia con un policía herido y una paramédica. Ahora deberán huir de un inmenso dispositivo de fuerzas de seguridad desplegado por toda la ciudad, mantener a sus rehenes con vida y de alguna forma tratar de no matarse entre ellos.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Amor%20Sin%20Barreras%20(2021).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/xjjdHndSxpgBTGf1KAuYfyXyHXC.jpg	" alt="	Portada de Video 1"	><h3>	Amor Sin Barreras (2021)	</h3><h4>	Nimer es un estudiante palestino que sueña con una mejor vida en el extranjero. Una noche conoce a Roy, un abogado israelí del que se enamora profundamente. Mientras ahonda más y más en su relación, Nimer se confronta a sí mismo con la realidad palestina que se rehúsa a aceptarlo por su identidad sexual, y a la sociedad israelí que lo rechaza por su nacionalidad palestina.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Animales%20fant%c3%a1sticos:%20Los%20secretos%20de%20Dumbledore%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/yOeuJdwag4bAlnvgrdweRoiuXGC.jpg	" alt="	Portada de Video 1"	><h3>	Animales fantásticos: Los secretos de Dumbledore (2022)	</h3><h4>	El profesor Albus Dumbledore sabe que el poderoso mago oscuro Gellert Grindelwald está haciendo planes para apoderarse del mundo mágico. Incapaz de detenerlo él solo, confía en el Magizoólogo Newt Scamander para dirigir un intrépido equipo de magos, brujas y un valiente panadero Muggle en una misión peligrosa, donde se encuentran con antiguos y nuevos animales y se enfrentan a una legión cada vez más numerosa de seguidores de Grindelwald.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Apolo%2010%c2%bd:%20Una%20infancia%20espacial%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/43EQZnWP9znGqTKfO4BsPALXVYa.jpg	" alt="	Portada de Video 1"	><h3>	Apolo 10½: Una infancia espacial (2022)	</h3><h4>	Una aventura de la era espacial ambientada en el contexto de la misión lunar Apolo de 1969 e inspirada en la infancia del director Richard Linklater.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Avatar%20(2022).mp4     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/kUAG4ZQcsNbRyiPyAr3hLdsVgAq.jpg	" alt="	Portada de Video 1"	><h3>	Avatar (2022)	</h3><h4>	Ambientada más de una década después de los acontecimientos de la primera película, 'Avatar: The Way of Water' empieza contando la historia de la familia Sully (Jake, Neytiri y sus hijos), los problemas que los persiguen, lo que tienen que hacer para mantenerse a salvo, las batallas que libran para seguir con vida y las tragedias que sufren.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Bajo%20el%20sol%20amalfitano%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/oASbLpyFkZ0L3cQkSvEnNjkYurG.jpg	" alt="	Portada de Video 1"	><h3>	Bajo el sol amalfitano (2022)	</h3><h4>	Un año después del comienzo de su relación en Riccione, Vincenzo y Camilla se van de vacaciones juntos a la pintoresca Costa Amalfitana y ponen a prueba su amor.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Barba,%20cabello%20y%20bigote%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/4pZdGhTCmpnDYKdoMP3yVUaxefg.jpg	" alt="	Portada de Video 1"	><h3>	Barba, cabello y bigote (2022)	</h3><h4>	Un hijo abnegado decide echarle una mano a su madre, que está a punto de perder su peluquería. Al hacerlo, se destapa como el estilista más talentoso de la zona.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Battle:%20Estilo%20libre%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/7gxWK3zdQbLuGAbtndFdaIaQ7MY.jpg	" alt="	Portada de Video 1"	><h3>	Battle: Estilo libre (2022)	</h3><h4>	Amalie está eufórica porque han seleccionado al grupo de baile del que forma parte junto con Mikael para competir en París, pero el reencuentro con su madre la distrae.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Ben%20Crump:%20El%20Abogado%20De%20Los%20Afroamericanos%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/1stPXd2XGAGDZNbWiJXxjycuKae.jpg	" alt="	Portada de Video 1"	><h3>	Ben Crump: El Abogado De Los Afroamericanos (2022)	</h3><h4>	Ben Crump, también conocido como el «abogado negro estadounidense», muestra el lado más íntimo de su vida como hombre de familia y defensor de los derechos civiles.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Black%20Widow%20(2021).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/oggEsESyLjVGD7jbIdBfa2hFUrx.jpg	" alt="	Portada de Video 1"	><h3>	Black Widow (2021)	</h3><h4>	Natasha Romanoff, alias Viuda Negra, se enfrenta a las partes más oscuras de su historia cuando surge una peligrosa conspiración con vínculos con su pasado. Perseguida por una fuerza que no se detendrá ante nada para acabar con ella, Natasha debe enfrentarse a su historia como espía y a las relaciones rotas que dejó a su paso mucho antes de convertirse en una Vengadora.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Borrego%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/ohVi0I3VYD5Rx1Tze7tMcZ9NQj6.jpg	" alt="	Portada de Video 1"	><h3>	Borrego (2022)	</h3><h4>	Una joven botánica se traslada a un pequeño pueblo del desierto para estudiar una especie de planta invasora. Cuando acude en ayuda de un avión derribado, acaba secuestrada por un traficante de drogas sin experiencia y deberá luchar por sobrevivir en el desierto.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Brian%20y%20Charles%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/uWTVL4X0kvaDQmpWwXSfxxzwfnO.jpg	" alt="	Portada de Video 1"	><h3>	Brian y Charles (2022)	</h3><h4>	Después de un invierno especialmente duro, Brian entra en una profunda depresión; completamente aislado y sin nadie con quien hablar, Brian hace lo que cualquier persona haría al enfrentarse a una situación tan melancólica. Construye un robot.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Bull%20Shark%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/wGE4ImqYjJZQi3xFu4I2OLm8m0w.jpg	" alt="	Portada de Video 1"	><h3>	Bull Shark (2022)	</h3><h4>	Un tiburón hambriento comienza a alimentarse de los desprevenidos visitantes de un lago en un pequeño pueblo de Texas.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/C%c3%a1sate%20conmigo%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/f0p7beh1Zil35jahcUgSGL1v430.jpg	" alt="	Portada de Video 1"	><h3>	Cásate conmigo (2022)	</h3><h4>	Una estrella del pop es abandonada por su prometido, una estrella del rock, momentos antes de su boda en el Madison Square Garden, por lo que decide casarse con un hombre que selecciona aleatoriamente entre el público.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Cangrejo%20negro%20(2022).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/pfgfS62kahCuCl1QazWiRwbnWR2.jpg	" alt="	Portada de Video 1"	><h3>	Cangrejo negro (2022)	</h3><h4>	Para poner fin a una guerra apocalíptica y salvar a su hija, una soldado emprende una misión desesperada: transportar un cargamento ultrasecreto por un mar helado.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Capitana%20Nova%20(2021).mkv     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/afBZGq5CTVIAqvHMr4WciNCCqki.jpg	" alt="	Portada de Video 1"	><h3>	Capitana Nova (2021)	</h3><h4>	Una piloto de combate viaja en el tiempo para salvar al mundo de un futuro desastre ambiental. Pero debido a un efecto secundario, se acaba volviendo joven de nuevo y nadie la tomará en serio.	</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Codigo%20Revancha%20(2022).mp4     ')" ><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/h1r6A3fTe2urhf9ZTdgY0KAhOwc.jpg	" alt="	Portada de Video 1"	><h3>	Codigo Revancha (2022)	</h3><h4>	Caleb, un antiguo asesino del gobierno escondido, que reaparece cuando su protegido, el asesino igualmente mortal conocido como Banshee, descubre que se ha puesto una recompensa por la cabeza de Caleb.	</h4>  </a></li>
+
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Coldplay%20Live%20from%20Climate%20Pledge%20Arena%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Coldplay Live from Climate Pledge Arena (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Control%20-%20El%20Poder%20de%20La%20Mente%20(2022).1080p.dual-lat.cuevana3.fail.mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Control - El Poder de La Mente (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Copia%20de%20Turning%20Red%202022%20Remux%204K%20Latino%20PGO.mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Copia de Turning Red 2022 Remux 4K Latino PGO.mkv	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Coraz%c3%b3n%20de%20Fuego%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Corazón de Fuego (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Corre%20Y%20Dispara%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Corre Y Dispara (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Demasiado%20grande%20para%20cuentos%20de%20hadas%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Demasiado grande para cuentos de hadas (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Depredador%20La%20presa%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Depredador La presa (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Doctor%20Strange%20en%20el%20multiverso%20de%20la%20locura%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Doctor Strange en el multiverso de la locura (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Dos%20Contra%20el%20Hielo%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Dos Contra el Hielo (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Dune%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Dune (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Duro%20de%20Cuidar%202%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Duro de Cuidar 2 (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Ecos%20de%20un%20crimen%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Ecos de un crimen (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Ef%c3%admera%20como%20la%20sakura%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Efímera como la sakura (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20Asesino%20De%20Mi%20Hija%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El Asesino De Mi Hija (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20Hombre%20Gris%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El Hombre Gris (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20Hombre%20de%20Toronto%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El Hombre de Toronto (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20Menu%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El Menu (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20Milagro%20del%20Padre%20Stu%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El Milagro del Padre Stu (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20Proyecto%20Adam%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El Proyecto Adam (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20Rey%20Shakir.mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El Rey Shakir.mp4	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20Tel%c3%a9fono%20Negro%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El Teléfono Negro (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20Traficante%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El Traficante (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20deseo%20en%20m%c3%ad%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El deseo en mí (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20gran%20pase%20de%20magia%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El gran pase de magia (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/El%20rescate%20de%20Ruby%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	El rescate de Ruby (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Empire.of.Light.2022.1080p.dual-lat.cuevana3.nu.mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Empire.of.Light.2022.1080p.dual-lat.cuevana3.nu.mp4	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/En%20el%20Lugar%20Equivocado%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	En el Lugar Equivocado (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Esp%c3%adritus%20Oscuros%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Espíritus Oscuros (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Eternals%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Eternals (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Falsa%20influencer%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Falsa influencer (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Finalissima%20Italia%20vs%20Argentina%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Finalissima Italia vs Argentina (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Fresh%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Fresh (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Frutos%20del%20Viento%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Frutos del Viento (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Gato%20con%20Botas%20El%20ultimo%20deseo.mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Gato con Botas El ultimo deseo.mp4	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Ghostbusters%20Afterlife%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Ghostbusters Afterlife (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Goyo:%20En%20Letra%20De%20Otro%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Goyo: En Letra De Otro (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Granizo%20(2022)%20WEB-DL%201080p.mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Granizo (2022) WEB-DL 1080p.mkv	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Guerra%20Oculta%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Guerra Oculta (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Hart-%20Duro%20de%20Entrenar%20(2023).1080p.dual-lat.cuevana3.fail.mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Hart- Duro de Entrenar (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Hasta%20que%20nos%20volvamos%20a%20encontrar%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Hasta que nos volvamos a encontrar (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Hay%20Algo%20Mal%20Con%20Los%20Ni%c3%b1os%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Hay Algo Mal Con Los Niños (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Hotel%20Transylvania%204%20Transformania%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Hotel Transylvania 4 Transformania (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Hoy%20se%20arregla%20el%20mundo%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Hoy se arregla el mundo (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Ice%20Age%20Adventures%20of%20Buck%20Wild%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Ice Age Adventures of Buck Wild (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Impacto%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Impacto (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Inspector%20Ara%c3%b1a%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Inspector Araña (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Interceptor%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Interceptor (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Izzy%20y%20la%20Bestia%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Izzy y la Bestia (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/JUNGE%20(2023).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	JUNGE (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Jackass%20Por%20Siempre%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Jackass Por Siempre (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Jungle%20Cruise:%20Bienvenidos%20a%20Bordo%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Jungle Cruise: Bienvenidos a Bordo (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Jurassic%20World%20Dominio%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Jurassic World Dominio (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Justicia%20Implacable%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Justicia Implacable (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/King's%20Man%20El%20origen%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	King's Man El origen (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/La%20Abuela%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	La Abuela (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/La%20Aldea%20Siniestra%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	La Aldea Siniestra (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/La%20Burbuja%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	La Burbuja (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/La%20Cita%20Equivocada%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	La Cita Equivocada (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/La%20Ciudad%20Perdida%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	La Ciudad Perdida (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/La%20Ciudad%20Perdida%20(2022)%20WEB-DL%201080p%20Latino.mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	La Ciudad Perdida (2022) WEB-DL 1080p Latino.mkv	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/La%20Infeliz%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	La Infeliz (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/La%20Masacre%20de%20Texas%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	La Masacre de Texas (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/La%20Princesa%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	La Princesa (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/La%20Purga%20Infinita%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	La Purga Infinita (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/La%20masacre%20del%20conejito%20de%20pascua%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	La masacre del conejito de pascua (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Legion.of.Super.Heroes.2023.1080p.dual-lat.cuevana3.win.mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Legion.of.Super.Heroes.2023.1080p.dual-lat.cuevana3.win.mp4	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Legiona%20(2023).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Legiona (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Lightyear%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Lightyear (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Linterna%20Verde:%20Teman%20a%20mi%20Poder%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Linterna Verde: Teman a mi Poder (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Live%20is%20Life.%20La%20gran%20aventura%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Live is Life. La gran aventura (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Llamas%20de%20venganza%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Llamas de venganza (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Lobo%20Vikingo%20(2023).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Lobo Vikingo (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Los%20Crimenes%20de%20la%20Academia%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Los Crimenes de la Academia (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Los%20Extra%c3%b1os%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Los Extraños (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Los%20Reyes%20del%20Mundo%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Los Reyes del Mundo (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Luck%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Luck (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Luz%20Negra%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Luz Negra (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/M%c3%a1s%20barato%20por%20docena%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Más barato por docena (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/M3GAN%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	M3GAN (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Mal%20de%20Ojo%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Mal de Ojo (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Malnazidos%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Malnazidos (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Malvada%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Malvada (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Master%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Master (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Monster%20Portal%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Monster Portal (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Moonfall%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Moonfall (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Moonfall%20(2022)%20WEB-DL%201080p.mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Moonfall (2022) WEB-DL 1080p.mkv	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Morbius%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Morbius (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Mu%c3%b1ecas%20Bebe%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Muñecas Bebe (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Muerte%20en%20el%20Nilo%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Muerte en el Nilo (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Muerte%20en%20el%20Nilo%20(2022)%20BDRip%201080p%2060FPS.mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Muerte en el Nilo (2022) BDRip 1080p 60FPS.mkv	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Muerto%20Por%20Un%20Dolar%20(2022)	')" ><img src="		" alt="	Portada de Video 1"	><h3>	[   ]	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Muy%20Lejos%20(2023).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Muy Lejos (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Narvik%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Narvik (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Nate:%20Mejor%20tarde%20que%20nunca%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Nate: Mejor tarde que nunca (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/No%20Me%20Dejes%20Ir%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	No Me Dejes Ir (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/No%20conf%c3%ades%20en%20nadie:%20Tras%20la%20pista%20del%20rey%20de%20las%20criptomonedas%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	No confíes en nadie: Tras la pista del rey de las criptomonedas (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Obsesion%20Desconocida%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Obsesion Desconocida (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Orgullo%20y%20seducci%c3%b3n%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Orgullo y seducción (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Oso%20polar%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Oso polar (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Pacto%20Con%20El%20Diablo%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Pacto Con El Diablo (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Peligro%20a%20Domicilio%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Peligro a Domicilio (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Persuasi%c3%b3n%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Persuasión (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Pinocho%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Pinocho (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Piratas:%20El%20%c3%baltimo%20Tesoro%20de%20la%20Corona%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Piratas: El último Tesoro de la Corona (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/R%c3%a1pidos%20y%20Furiosos%209%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Rápidos y Furiosos 9 (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Red%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Red (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Ruido%20Mental%20(2023).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Ruido Mental (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/S%20O%20S%20%20Mamis%20%20La%20Pel%c3%adcula%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	S O S Mamis La Película (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Scream%202022.mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Scream 2022.mkv	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Sex%20Appeal%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Sex Appeal (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Siempre%20en%20el%20mejor%20momento%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Siempre en el mejor momento (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Sin%20Ti%20No%20Puedo%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Sin Ti No Puedo (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Sing%202%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Sing 2 (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Snakes%20Eyes%20G%20I%20Joe%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Snakes Eyes G I Joe (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Sonic%202%20La%20pel%c3%adcula%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Sonic 2 La película (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/South%20Park:%20Las%20guerras%20de%20los%20streaming%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	South Park: Las guerras de los streaming (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Space%20Jam%202:%20Una%20Nueva%20Era%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Space Jam 2: Una Nueva Era (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Spider-Man-Sin%20camino%20a%20casa%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Spider-Man-Sin camino a casa (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Spirit:%20El%20Indomable%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Spirit: El Indomable (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Stargirl%20en%20Hollywood%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Stargirl en Hollywood (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Sue%c3%b1os%20de%20Marte%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Sueños de Marte (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Ted%20Bundy:%20Mente%20Asesina%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Ted Bundy: Mente Asesina (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/The%20Ice%20Age%20Adventures%20of%20Buck%20Wild%202022.mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	The Ice Age Adventures of Buck Wild 2022.mkv	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/The%20Suicide%20Squad%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	The Suicide Squad (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/They%20Them%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	They Them (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Tibur%c3%b3n%20Blanco%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Tiburón Blanco (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Todo%20en%20todas%20partes%20al%20mismo%20tiempo%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Todo en todas partes al mismo tiempo (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Transfusion%20(2023).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Transfusion (2023)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Turning%20Red%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Turning Red (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Una%20sombra%20en%20mi%20ojo%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Una sombra en mi ojo (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Un%20jefe%20en%20pa%c3%b1ales%202:%20Negocios%20de%20familia%20(2021).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Un jefe en pañales 2: Negocios de familia (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Un%20lugar%20seguro%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Un lugar seguro (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Un%20rab%c3%b3n%20con%20coraz%c3%b3n%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Un rabón con corazón (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Yo%20Estuve%20aqui%20(2022).mp4	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Yo Estuve aqui (2022)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://74.208.251.230/Contenido/Peliculas/Estrenos/Zombies%203%20(2022).mkv	')" ><img src="		" alt="	Portada de Video 1"	><h3>	Zombies 3 (2022)	</h3><h4>		</h4>  </a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </a></li>
+ -->
+
+
+
+ </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+window.addEventListener('load', function() {
+  var boton = document.getElementById('menu-button');
+  var lista = document.getElementById('video-list');
+  var temporizador;
+  
+  boton.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  lista.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  boton.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+  
+  lista.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+});
+
+
+
+
+
+
+
+
+const menuButton = document.getElementById('menu-button');
+const videoList = document.getElementById('video-list');
+const videoPlayer = document.getElementById('video');
+
+menuButton.addEventListener('click', () => {
+  if (videoList.style.display === 'none') {
+    videoList.style.display = 'block';
+  } else {
+    videoList.style.display = 'none';
+  }
+});
+
+function changeVideo(src) {
+  videoPlayer.src = src;
+  videoPlayer.play();
+  videoList.style.display = 'none';
+}
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
