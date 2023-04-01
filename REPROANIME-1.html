@@ -1,0 +1,621 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title> REPRO  </title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</script>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
+
+
+<style type="text/css">
+
+body  {
+    text-decoration: none;
+    background: #000000;
+outline: none;
+}
+
+
+
+
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 90%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #06fd06;
+    Position: absolute;
+    top: 45px;
+    right: 20px;
+    font-size: 80%;
+    outline: none;
+    overflow-y: scroll;
+    height: 80px;
+    width: 325px;
+}
+
+
+
+
+    
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1200px){
+    
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 90%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #06fd06;
+    Position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 80%;
+    outline: none;
+    overflow-y: scroll;
+    height: 90px;
+    width: 235px;
+}
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 480px){
+    #video-player{
+    height: calc(100% - 1*1px);
+    margin-top: 1em;
+}
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 11.8em;
+    RIGHT: 0px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 2px 0px 1px;
+    width: 306px;
+    justify-items: start;
+}
+    #menu-button{
+    display: flex;
+    width: 100%;
+    height: 65px;
+    top: -1em;
+}
+#video-list a img {
+    border-radius: 5px;
+    width: 80px;
+    outline: none;
+}
+h4  {
+    Margin-top: 2px;
+    padding-bottom: 60px;
+    color: #06fd06;
+    Position: absolute;
+    right: -10px;
+    top: 45px;
+    font-size: 90%;
+    width: 230px;
+    height: 7px;
+    padding-top: 2px;
+    overflow-y: scroll;
+}
+
+}
+
+ #arriba{
+    background: #fcfcfc00;
+}
+ #abajo{
+    background: #fcfcfc00;
+
+}
+
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div id="video-player" >
+  <video src="#" controls id="video" poster="https://chanjdm.github.io/JDM/jdmflixbordes.jpg"></video>
+  <button id="menu-button">             </button>
+  
+
+
+  
+  
+  <ul id="video-list">
+
+
+<button id="arriba">
+      <a name="arriba"></a>
+    <a href="#abajo"> <input type="image" src="https://assets.stickpng.com/images/58f8bd2e0ed2bdaf7c128309.png" style="position: fixed; bottom: 25em;  right: 0em; z-index: 2; " height="20" width="20"/>     </a>
+  </button>
+
+
+
+
+
+
+
+
+<li><a href="	#	" onclick="	changeVideo('	https://server26.pelispluscdn.info/newhls/09417f7b228dc43876c120639c9658bd/EP.0.2.v1.1677255888.720.m3u8	 ')" ><img src="	https://pelisimg.online/cover/kimetsu-no-yaiba-mugen-ressha-hen-2-1619671564.jpg	" alt="	 Portada de Video 1"	><h3>	Kimetsu no Yaiba: Mugen Ressha-hen	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Afro%20Samurai%20Resurrection%20%282009%29.mp4	 ')" ><img src="	https://pics.filmaffinity.com/Afro_Samurai_Resurrection_TV-869167670-large.jpg	" alt="	 Portada de Video 1"	><h3>	Afro Samurai Resurrection (2009)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%2C%20Aventura%20m%C3%ADstica~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%2C%20Aventura%20m%C3%ADstica.jpg	" alt="	 Portada de Video 1"	><h3>	Aventura mística	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Cencoroll%20Connect%20%282019%29.mp4	 ')" ><img src="	https://pics.filmaffinity.com/Cencoroll_Connect-753281182-large.jpg	" alt="	 Portada de Video 1"	><h3>	RONNYJAGUAR (2019)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Detective%20Conan%2022%20El%20caso%20Zero%20%282018%29.mp4	 ')" ><img src="	https://media.redadn.es/series/p/detective-conan-22-el-caso-zero_3609.jpg	" alt="	 Portada de Video 1"	><h3>	Detective Conan 22 El caso Zero (2018)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20el%20camino%20hacia%20el%20poder~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20el%20camino%20hacia%20el%20poder.jpg	" alt="	 Portada de Video 1"	><h3>	Dragon Ball el camino hacia el poder	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Dragon%20Ball%20Super%20Broly%20%282018%29.mp4	 ')" ><img src="	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3O71Sjyh6mz5HRAhF26NWyG30Q9Hgu7TgZ0GryI41SyNo9U0Y	" alt="	 Portada de Video 1"	><h3>	Dragon Ball Super Broly (2018)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20Devu%C3%A9lvanme%20a%20mi%20Gohan~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20Devu%C3%A9lvanme%20a%20mi%20Gohan.jpg	" alt="	 Portada de Video 1"	><h3>	Dragon Ball Z Devuélvanme a mi Gohan	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20El%20ataque%20del%20drag%C3%B3n~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20El%20ataque%20del%20drag%C3%B3n.jpg	" alt="	 Portada de Video 1"	><h3>	Dragon Ball Z El ataque del dragón	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20El%20combate%20final~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20El%20combate%20final.jpg	" alt="	 Portada de Video 1"	><h3>	Dragon Ball Z El combate final	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20El%20hombre%20m%C3%A1s%20fuerte%20del%20mundo~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20El%20hombre%20m%C3%A1s%20fuerte%20del%20mundo.jpg	" alt="	 Portada de Video 1"	><h3>	Dragon Ball Z El hombre más fuerte del mundo	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20El%20poder%20invencible~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20El%20poder%20invencible.jpg	" alt="	 Portada de Video 1"	><h3>	Dragon Ball Z El poder invencible	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20El%20regreso%20del%20guerrero%20legendario~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%20El%20regreso%20del%20guerrero%20legendario.jpg	" alt="	 Portada de Video 1"	><h3>	Dragon Ball Z El regreso del guerrero legendario	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Dragon%20Ball%20Z%20La%20resurreccio%CC%81n%20de%20Freezer%20%282015%29.mp4	 ')" ><img src="	https://cinemarevius.files.wordpress.com/2015/06/dragon-ball-z-la-resurreccic3b3n-de-freezer-poster-1.jpg	" alt="	 Portada de Video 1"	><h3>	Dragon Ball Z La resurreccio´n de Freezer (2015)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/G.I.%20Joe%2C%20el%20contraataque~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/G.I.%20Joe%2C%20el%20contraataque.jpg	" alt="	 Portada de Video 1"	><h3>	el contraataque	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/cesser-16-acrimony-1080p/Ver%20Kenshin%2C%20El%20Guerrero%20Samur%C3%A1i%20%28%29%20480%20%40JuAnChO1304.mp4	 ')" ><img src="	https://pics.filmaffinity.com/Kenshin_El_Guerrero_Samur_i_La_Pel_cula-125599913-large.jpg	" alt="	 Portada de Video 1"	><h3>	El Guerrero Samurái	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/El%20Himno%20del%20Corazo%CC%81n%20%282015%29.mp4	 ')" ><img src="	https://pics.filmaffinity.com/El_himno_del_coraz_n-275323689-large.jpg	" alt="	 Portada de Video 1"	><h3>	El Himno del Corazon (2015)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/El%20recuerdo%20de%20Marnie%20%282014%29.mp4	 ')" ><img src="	https://es.web.img2.acsta.net/pictures/16/02/08/12/58/542941.jpg	" alt="	 Portada de Video 1"	><h3>	El recuerdo de Marnie (2014)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/animal-crackers-2017_202101/El%20rey%20espino%20%282009%29.mp4	 ')" ><img src="	https://r1.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic2.abc.es%2Fmedia%2Fpeliculas%2F000%2F039%2F585%2Fking-of-thorn-el-rey-espino-1.jpg&nuevoancho=690&medio=abc	" alt="	 Portada de Video 1"	><h3>	El rey espino (2009)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/En%20este%20rinco%CC%81n%20del%20mundo%20%282016%29.mp4	 ')" ><img src="	https://es.web.img3.acsta.net/pictures/17/05/22/10/13/585916.jpg	" alt="	 Portada de Video 1"	><h3>	En este rincon del mundo (2016)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Evangelion%2030%2B10%20%282021%29.mp4	 ')" ><img src="	https://somoskudasai.com/wp-content/uploads/2020/10/evangelion_KV2-2.jpg	" alt="	 Portada de Video 1"	><h3>	Evangelion 30 10 (2021)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://archive.org/download/you-can-not-redo/You%20Can%20%28Not%29%20Advance.mp4	 ')" ><img src="	https://i.ibb.co/FYZjDqs/evangelion-2-0-you-can-not-advance-evangelion-2-22-951719741-large.png	" alt="	 Portada de Video 1"	><h3>	 Evangelion 2.0: Puedes (NO) avanzar	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/animal-crackers-2017_202101/Fairy%20Tail%20Dragon%20Cry%20%282017%29.mp4	 ')" ><img src="	https://www.ecartelera.com/carteles/12800/12894/001_m.jpg7)	" alt="	 Portada de Video 1"	><h3>	Fairy Tail Dragon Cry (2017)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/animal-crackers-2017_202101/Fatekaleid%20liner%20Prisma%E2%98%86Illya%20Movie%20Sekka%20no%20Chikai%20%282017%29.mp4	 ')" ><img src="	https://1.bp.blogspot.com/-RN6sKVpdFDU/X9yAaQJJWKI/AAAAAAAFyOo/F7rkKe1X_gY41lqhMMTuGRmeVfUTGxi8ACLcBGAsYHQ/s700/prismaillyalicht.jpg	" alt="	 Portada de Video 1"	><h3>	Fatekaleid liner PrismaIllya Movie Sekka no Chikai (2017)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Final%20Fantasy%20XV%20La%20peli%CC%81cula%20%282016%29.mp4	 ')" ><img src="	https://pics.filmaffinity.com/Final_Fantasy_XV_La_pel_cula-570069523-large.jpg	" alt="	 Portada de Video 1"	><h3>	Final Fantasy XV La pelicula (2016)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Ghost%20in%20the%20Shell%20The%20Rising%20%282015%29.mp4	 ')" ><img src="	https://s3-eu-west-1.amazonaws.com/abandomedia/db/foto/db_30580_90.jpg	" alt="	 Portada de Video 1"	><h3>	Ghost in the Shell The Rising (2015)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Ginga%20Eiyuu%20Densetsu%20Gaiden%20Ougon%20no%20Tsubasa%20%281992%29.mp4	 ')" ><img src="	https://pics.filmaffinity.com/Ginga_Eiyuu_Densetsu_Gaiden_Ougon_no_Tsubasa-619817476-large.jpg	" alt="	 Portada de Video 1"	><h3>	Ginga Eiyuu Densetsu Gaiden Ougon no Tsubasa (1992)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20Los%20dos%20guerreros%20del%20futuro%2C%20Gohan%20%20y%20Trunks~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20Los%20dos%20guerreros%20del%20futuro%2C%20Gohan%20%20y%20Trunks.jpg	" alt="	 Portada de Video 1"	><h3>	Gohan  y Trunks	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20Goku%20es%20un%20super%20Saiyajin~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20Goku%20es%20un%20super%20Saiyajin.jpg	" alt="	 Portada de Video 1"	><h3>	Goku es un super Saiyajin	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/He%CC%81roes%20humildes%20%282018%29.mp4	 ')" ><img src="	https://pics.filmaffinity.com/H_roes_humildes-464138472-large.jpg	" alt="	 Portada de Video 1"	><h3>	Heroes humildes (2018)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/animal-crackers-2017_202101/He%CC%81roes%20humildes%20%282018%29.mp4	 ')" ><img src="	https://pics.filmaffinity.com/H_roes_humildes_Life_Ain_t_Gonna_Lose_C-818135260-mmed.jpg	" alt="	 Portada de Video 1"	><h3>	Heroes humildes (2018)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Kakurenbo%20%282005%29.mp4	 ')" ><img src="	https://m.media-amazon.com/images/M/MV5BZWVlMGY3OTUtZTljNS00MDAxLWE2YzYtMjc0ZjhlNzUwMDBhXkEyXkFqcGdeQXVyMzM4MjM0Nzg@._V1_.jpg	" alt="	 Portada de Video 1"	><h3>	Kakurenbo (2005)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20La%20Batalla%20De%20Los%20Dioses~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20La%20Batalla%20De%20Los%20Dioses.jpg	" alt="	 Portada de Video 1"	><h3>	La Batalla De Los Dioses	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20La%20batalla%20m%C3%A1s%20grande%20del%20mundo%20est%C3%A1%20por%20comenzar~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20La%20batalla%20m%C3%A1s%20grande%20del%20mundo%20est%C3%A1%20por%20comenzar.jpg	" alt="	 Portada de Video 1"	><h3>	La batalla más grande del mundo está por comenzar	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%2C%20La%20bella%20durmiente%20en%20el%20castillo%20del%20mal~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%2C%20La%20bella%20durmiente%20en%20el%20castillo%20del%20mal.jpg	" alt="	 Portada de Video 1"	><h3>	La bella durmiente en el castillo del mal	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20la%20fusi%C3%B3n%20de%20Goku%20y%20Vegeta~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20la%20fusi%C3%B3n%20de%20Goku%20y%20Vegeta.jpg	" alt="	 Portada de Video 1"	><h3>	la fusión de Goku y Vegeta	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20la%20galaxia%20corre%20peligro.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20la%20galaxia%20corre%20peligro.jpg	" alt="	 Portada de Video 1"	><h3>	la galaxia corre peligro	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%2C%20La%20leyenda%20del%20drag%C3%B3n%20Shenlong~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%2C%20La%20leyenda%20del%20drag%C3%B3n%20Shenlong.jpg	" alt="	 Portada de Video 1"	><h3>	La leyenda del dragón Shenlong	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/La%20Princesa%20Y%20El%20Piloto%202011~1.mp4	 ')" ><img src="	https://pics.filmaffinity.com/toaru_hikuushi_e_no_tsuioku_toaru_hikushi_e_no_tsuioku_the_princess_and_the_pilot-165273344-mmed.jpg	" alt="	 Portada de Video 1"	><h3>	La Princesa Y El Piloto 2011	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20los%20rivales%20m%C3%A1s%20poderosos~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dragon%20Ball%20Z%2C%20los%20rivales%20m%C3%A1s%20poderosos.jpg	" alt="	 Portada de Video 1"	><h3>	los rivales más poderosos	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Magical%20Girl%20Lyrical%20Nanoha%20Reflection%20%282017%29.mp4	 ')" ><img src="	https://image.tmdb.org/t/p/original/ifnaCaG37qeygihwKNnykWluAQW.jpg	" alt="	 Portada de Video 1"	><h3>	Magical Girl Lyrical Nanoha Reflection (2017)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Nanatsu%20no%20Taizai%20Movie%20Tenkuu%20no%20Torawarebito%20%282018%29.mp4	 ')" ><img src="	https://i.pinimg.com/originals/73/bc/d0/73bcd021614be76919facd961eaceb40.jpg	" alt="	 Portada de Video 1"	><h3>	Nanatsu no Taizai Movie Tenkuu no Torawarebito (2018)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Neon%20Genesis%20Evangelion%20Death%20%26%20Rebirth~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Neon%20Genesis%20Evangelion%20Death%20%26%20Rebirth.jpg	" alt="	 Portada de Video 1"	><h3>	Neon Genesis Evangelion Death & Rebirth	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	http://archive.org/download/7_20190824/1.mp4	 ')" ><img src="	PELÍCULAS	" alt="	 Portada de Video 1"	><h3>	 EL FIN DE EVANGELION	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/166214684	 ')" ><img src="	https://r2.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic1.abc.es%2Fmedia%2Fpeliculas%2F000%2F055%2F699%2Fni-no-kuni-1.jpg&nuevoancho=690&medio=abc	" alt="	 Portada de Video 1"	><h3>	Ni no Kuni (2019	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/yummy_202105/NiNoKuni%20%282019%29.mp4	 ')" ><img src="	https://archive.org/download/yummy_202105/NiNoKuni%20%282019%29.jpg	" alt="	 Portada de Video 1"	><h3>	NiNo	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/No%20Game%20No%20Life%20Zero%20%282017%29.mp4	 ')" ><img src="	https://www.ecartelera.com/carteles/13500/13514/001_m.jpg	" alt="	 Portada de Video 1"	><h3>	No Game No Life Zero (2017)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/One%20Piece%20Estampida%20%282019%29.mp4	 ')" ><img src="	https://es.web.img2.acsta.net/pictures/19/10/28/17/02/4637907.jpg	" alt="	 Portada de Video 1"	><h3>	One Piece Estampida (2019)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/One%20Piece%20Gold%20%282016%29.mp4	 ')" ><img src="	https://legiondescargas.com/wp-content/uploads/2019/08/ssssssssd65das.jpg	" alt="	 Portada de Video 1"	><h3>	One Piece Gold (2016)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Ovella~1.mp4	 ')" ><img src="	https://archive.org/download/por-encima-de-la-ley-1/Ovella.jpg	" alt="	 Portada de Video 1"	><h3>	Ovella	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Redline%20%282009%29.mp4	 ')" ><img src="	https://image.tmdb.org/t/p/w1280/fQ0UYOHuU6n2qsoYZ44pG59sFzb.jpg	" alt="	 Portada de Video 1"	><h3>	Redline (2009)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Shikioriori%20%282018%29.mp4	 ')" ><img src="	https://www.cinepremiere.com.mx/wp-content/uploads/2018/08/Flavors_of_youth_netflix-723x1024.jpg	" alt="	 Portada de Video 1"	><h3>	Shikioriori (2018)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Uchiage%20Hanabi%2C%20Shita%20kara%20Miru%20ka%20Yoko%20kara%20Miru%20ka%20%282017%29.mp4	 ')" ><img src="	https://pics.filmaffinity.com/FireWorks-929306530-large.jpg	" alt="	 Portada de Video 1"	><h3>	Shita kara Miru ka Yoko kara Miru ka (2017)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Strait%20Jacket%20%282007%29.mp4	 ')" ><img src="	https://pics.filmaffinity.com/Strait_Jacket-213091204-large.jpg	" alt="	 Portada de Video 1"	><h3>	Strait Jacket (2007)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Suki%20ni%20Naru%20Sono%20Shunkan%20wo%20Kokuhaku%20Jikkou%20Iinkai%20%282016%29.mp4	 ')" ><img src="	https://3.bp.blogspot.com/-xEk0xCoPjfE/W3hZ2moXanI/AAAAAAAABOY/cn9JMvwRSYM84e1SoaXexRRlPK-kbZmKgCPcBGAYYCw/s1600/c59bbc06b7493ea9b43fe3f2aca1d2ca7808b63e_hq.jpg	" alt="	 Portada de Video 1"	><h3>	Suki ni Naru Sono Shunkan wo Kokuhaku Jikkou Iinkai (2016)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Sword%20Art%20Online%20La%20peli%CC%81cula%20Ordinal%20scale%20%282017%29.mp4	 ')" ><img src="	https://r2.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic1.abc.es%2Fmedia%2Fpeliculas%2F000%2F051%2F413%2Fsword-art-online-ordinal-scale-1.jpg&nuevoancho=690&medio=abc	" alt="	 Portada de Video 1"	><h3>	Sword Art Online La peli´cula Ordinal scale (2017)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/velvet-buzzsaw-2019_202012/The%20Wonderland%20%282019%29.mp4	 ')" ><img src="	https://pics.filmaffinity.com/The_Wonderland-805084923-large.jpg	" alt="	 Portada de Video 1"	><h3>	The Wonderland (2019)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/yummy_202105/Toys%20and%20pets%20-%20Tea%20Pets%20%282017%29.mp4	 ')" ><img src="	https://archive.org/download/yummy_202105/Toys%20and%20pets%20-%20Tea%20Pets%20%282017%29.jpg	" alt="	 Portada de Video 1"	><h3>	Toys and pets - Tea Pets (2017)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Una%20voz%20silenciosa%20%282016%29.mp4	 ')" ><img src="	https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/cover_290x414/public/media/image/2017/10/voz-silenciosa.jpg?itok=Igtmlqeh	" alt="	 Portada de Video 1"	><h3>	Una voz silenciosa (2016)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Your%20name%20%282016%29.mp4	 ')" ><img src="	https://es.web.img2.acsta.net/pictures/17/02/08/13/45/536055.jpg	" alt="	 Portada de Video 1"	><h3>	Your name (2016)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Yu-Gi-Oh%21%20El%20Lado%20Oscuro%20de%20las%20Dimensiones%20%282016%29.mp4	 ')" ><img src="	https://pics.filmaffinity.com/Yu_Gi_Oh_El_lado_oscuro_de_las_dimensiones-949144323-large.jpg	" alt="	 Portada de Video 1"	><h3>	Yu-Gi-Oh! El Lado Oscuro de las Dimensiones (2016)	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/yummy_202105/Ne%20Zha%20%282019%29.mp4	 ')" ><img src="	https://archive.org/download/yummy_202105/Ne%20Zha%20%282019%29.jpg	" alt="	 Portada de Video 1"	><h3>	Zha	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ02%20El%20Hombre%20M%C3%A1s%20Fuerte%20De%20Este%20Mundo.mp4	 ')" ><img src="	https://i.pinimg.com/564x/5a/0d/b0/5a0db02cc6f4d261d90e8110646f2cba.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ02 El Hombre Más Fuerte De Este Mundo	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ03%20S%C3%BAper%20Batalla%20Decisiva%20Por%20El%20Planeta%20Tierra.mp4	 ')" ><img src="	https://i.pinimg.com/564x/de/6d/20/de6d20b4c71a8f85c7408efb6ec19603.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ03 Súper Batalla Decisiva Por El Planeta Tierra	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ04%20Goku%20Es%20Un%20S%C3%BAper%20Saiyan.mp4	 ')" ><img src="	https://i.pinimg.com/564x/3b/ef/41/3bef41cf785280f12986e516b93fc9d3.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ04 Goku Es Un Súper Saiyan	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ05%20Los%20Rivales%20M%C3%A1s%20Poderosos.mp4	 ')" ><img src="	https://i.pinimg.com/564x/49/be/74/49be74b2e0253e10bf5ba7562b46cacb.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ05 Los Rivales Más Poderosos	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ06%20Los%20Guerreros%20M%C3%A1s%20Poderosos.mp4	 ')" ><img src="	https://i.pinimg.com/564x/53/cb/52/53cb52d6b4dbaef3109d39522fa91ddf.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ06 Los Guerreros Más Poderosos	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ07%20Los%20Tres%20Grandes%20S%C3%BAper%20Saiyans.mp4	 ')" ><img src="	https://i.pinimg.com/564x/21/94/22/219422f1a8046f7423efa091166744c1.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ07 Los Tres Grandes Súper Saiyans	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ08%20El%20Poder%20Invencible.mp4	 ')" ><img src="	https://i.pinimg.com/564x/02/77/fe/0277fef2df53a9383536f19aecba514d.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ08 El Poder Invencible	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ09%20%C2%A1%C2%A1La%20Galaxia%20Est%C3%A1%20En%20Peligro%21%21%20Un%20Guerrero%20S%C3%BAper%20Incre%C3%ADble.mp4	 ')" ><img src="	https://i.pinimg.com/564x/01/6c/ab/016cab27a0f3916cb7142fc5c7fff6f8.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ09 ¡¡La Galaxia Está En Peligro!!	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ10%20El%20Regreso%20Del%20Guerrero%20Legendario.mp4	 ')" ><img src="	https://i.pinimg.com/564x/4a/3d/f8/4a3df803a4da6829d79bd6c6f4a4cd90.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ10 El Regreso Del Guerrero Legendario	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ11%20El%20Combate%20Final.mp4	 ')" ><img src="	https://i.pinimg.com/564x/36/eb/6a/36eb6a9a7b4d41b54e0b84c3b50f5554.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ11 El Combate Final	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ12%20%C2%A1El%20Renacer%20De%20La%20Fusi%C3%B3n%21%20Goku%20Y%20Vegeta.mp4	 ')" ><img src="	https://i.pinimg.com/564x/2f/4d/e4/2f4de458ba523c20bfdaa0d32d7d6f50.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ12 ¡El Renacer De La Fusión! Goku Y Vegeta	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ13%20El%20Ataque%20Del%20Drag%C3%B3n.mp4	 ')" ><img src="	https://i.pinimg.com/564x/57/f8/29/57f829c9693b7397b8bae74fc4ee66ea.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ13 El Ataque Del Dragón	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/Your%20Name.mp4	 ')" ><img src="	https://i.pinimg.com/564x/8b/81/81/8b818146b1e872dbb5732d4e0b67ee0b.jpg	" alt="	 Portada de Video 1"	><h3>	Your Name	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/DBZ01%20Devuelvanme%20a%20mi%20Gohan.mp4	 ')" ><img src="	https://i.pinimg.com/564x/c2/13/f9/c213f9344b3fcd7c6fe3a1613b36676f.jpg	" alt="	 Portada de Video 1"	><h3>	DBZ01 Devuelvanme a mi Gohan	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Pel%C3%ADculas%20Anime/Dragon%20Ball%20Super%20-%20Super%20Hero.mp4	 ')" ><img src="	https://i.pinimg.com/564x/5a/61/30/5a61305d062d8702fa16e9eedf05b003.jpg	" alt="	 Portada de Video 1"	><h3>	Dragon Ball Super - Super Hero	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep03.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep03	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep04.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep04	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep05.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep05	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep06.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep06	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep07.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep07	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep08.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep08	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep09.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep09	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep10.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep10	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep11.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep11	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep12.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep12	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep13.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep13	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep14.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep14	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep15.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep15	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep16.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep16	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep17.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep17	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep18.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep18	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep19.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep19	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep20.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep20	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep21.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep21	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep22.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep22	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep23.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep23	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep24.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep24	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://sp2.eacosta.workers.dev/0:/Anime/Attack%20on%20Titan/Attack%20on%20Titan%20-%20S1%20Ep25.mp4	 ')" ><img src="	https://i.pinimg.com/564x/b7/7c/05/b77c0595ed847ce1886f631f9aa45403.jpg	" alt="	 Portada de Video 1"	><h3>	Attack on Titan - T1 Ep25	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://ia601505.us.archive.org/14/items/evangelion-01-remux/Evangelion%2001%20Remux%20%281%29.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/f/f5/Shinji_usa_el_tel%C3%A9fono_EP01.png/revision/latest?cb=20140115122205&path-prefix=es	" alt="	 Portada de Video 1"	><h3>	01 - El ataque del ángel	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/02%20-%20Un%20techo%20desconocido.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/0/04/NGE02_96.png/	" alt="	 Portada de Video 1"	><h3>	02 - Un techo desconocido	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/03%20-%20El%20tel%C3%A9fono%20no%20suena.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/7/79/Episode_3-_A_Transfer.png	" alt="	 Portada de Video 1"	><h3>	03 - El teléfono que nunca suena	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/04%20-%20Lluvia%2C%20despu%C3%A9s%20de%20la%20huida.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/a/a9/4-_Hedgehog%27s_Dilemma.png	" alt="	 Portada de Video 1"	><h3>	04 - Lluvia después de la huida	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/05%20%20-Rei%2C%20al%20otro%20lado%20de%20su%20coraz%C3%B3n.mp4.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/b/b8/Eva00_berserk.png/revision/latest?cb=20120312015531	" alt="	 Portada de Video 1"	><h3>	05 - Rei al otro lado de su corazón	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/06%20-%20La%20batalla%20decisiva.%20Distrito3%20Nuevo%20Tokio.%20Rei.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/8/8c/Episodio_6_Rei_y_la_Luna.jpg/revision/latest?cb=20180704115019&path-prefix=es	" alt="	 Portada de Video 1"	><h3>	06 - La batalla decisiva / Distrito 3 de Nuevo Tokio - Rei II	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/07%20-%20Constru%C3%ADdo%20por%20los%20hombres.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/3/3c/Una_obra_humana_EP07.png/revision/latest?cb=20140115140755&path-prefix=es	" alt="	 Portada de Video 1"	><h3>	07 - Construido por los hombres	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/08%20-%20Asuka%20llega%20a%20Jap%C3%B3n.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/d/d8/Shocked_at_Misato%27s_truth_%28NGE%29.png/revision/latest?cb=20130711235119	" alt="	 Portada de Video 1"	><h3>	08 - Asuka llega a Japón	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/09%20-%20Un%20instante%2C%20una%20mente%20al%20un%C3%ADsono.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/6/6d/Episodio_9_Shinji_y_Asuka_entrenan.jpg/revision/latest?cb=20150930200540&path-prefix=es	" alt="	 Portada de Video 1"	><h3>	09 - Un instante una mente al unísono	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/10%20-%20Sumergido%20en%20el%20magma.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/b/b1/Giant_Stroke_Entry.png/revision/latest?cb=20121216051853	" alt="	 Portada de Video 1"	><h3>	10 - Sumergida en el magma	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/11%20-%20En%20las%20tinieblas%20inm%C3%B3viles.%20M%C3%A1s%20all%C3%A1%20de%20la%20oscuridad.mp4	 ')" ><img src="	https://i.pinimg.com/originals/98/02/87/98028768e388bad72393aae919984217.jpg	" alt="	 Portada de Video 1"	><h3>	11 - En las tinieblas inmóviles / Más allá de la oscuridad	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/12%20-%20El%20valor%20de%20un%20milagro.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/7/78/EVA_detiene_a_Sahaquiel_EP12.png/revision/latest?cb=20140115143521&path-prefix=es	" alt="	 Portada de Video 1"	><h3>	12 - El valor de un milagro	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/13%20-%20La%20invasi%C3%B3n%20del%20%C3%81ngel.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/7/7d/Lilliputian_Hitcher.png/revision/latest?cb=20121216052617	" alt="	 Portada de Video 1"	><h3>	13 - La invasión del ángel	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/14%20-%20Se%20el%20lugar%20de%20los%20esp%C3%ADritus.%20Tejiendo%20una%20historia.mp4	 ')" ><img src="	https://i.imgur.com/0HN2Olh.png	" alt="	 Portada de Video 1"	><h3>	14 - Seele. El lugar de los espíritus / Tejiendo una historia	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/15%20-%20Mentiras%20y%20silencio%20ansia%20de%20besos.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/d/d0/Shinji_y_Asuka_EP_15.png/revision/latest?cb=20160528061750&path-prefix=es	" alt="	 Portada de Video 1"	><h3>	15 - Mentiras y silencio / Ansia de besos	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/16%20-%20Al%20borde%20de%20la%20muerte%20y%20despu%C3%A9s....mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/6/6a/Episodio_16_EVA_01_destruye_a_Leliel.png/revision/latest?cb=20180914023145&path-prefix=es	" alt="	 Portada de Video 1"	><h3>	16 - Al borde de la muerte y después enfermedad mortal	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/17%20-%20Apto%20para%20ser%20el%20cuarto%20elegido.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/9/93/Dummy_System_Plant.png/revision/latest?cb=20120312011811	" alt="	 Portada de Video 1"	><h3>	17 - Apto para ser el cuarto elegido	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/18%20-%20El%20juicio%20de%20la%20vida.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/7/73/Bardiel_Shadow.png/revision/latest?cb=20121219010911	" alt="	 Portada de Video 1"	><h3>	18 - Elegir un destino / El juicio de la vida	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/19%20-%20La%20lucha%20de%20un%20muchacho.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/8/82/A_man%27s_battle.png/revision/latest?cb=20120320221055	" alt="	 Portada de Video 1"	><h3>	19 - El combate de un muchacho / La lucha de un muchacho	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/20%20-%20La%20forma%20de%20la%20mente.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/f/f0/Restrained_Unit_01.png/revision/latest?cb=20120312012543	" alt="	 Portada de Video 1"	><h3>	20 - El espejo del alma / La forma de la mente	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/21%20-%20El%20nacimiento%20de%20NERV.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/0/02/The_Birth_of_Nerv.png/revision/latest?cb=20120312012803	" alt="	 Portada de Video 1"	><h3>	21 - El nacimiento de NERV	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/22%20-%20Al%20menos%20act%C3%BAa%20como%20un%20ser%20humano.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/5/5b/Peque%C3%B1a_Asuka_Langley_Ep_22.jpg/revision/latest?cb=20150927144120&path-prefix=es	" alt="	 Portada de Video 1"	><h3>	22 - Al menos actúa como un ser humano	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/23%20-%20Rei%20L%C3%A1grimas.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/9/98/Rei_infected_by_Armisael_%28EP_23%29.png/revision/latest/scale-to-width-down/720?cb=20120319151752	" alt="	 Portada de Video 1"	><h3>	23 - Rei III - Lágrimas	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/24%20-%20El%20%C3%9Altimo%20enviado.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/7/77/EVA_01_agarra_a_Kaworu_EP24.png/revision/latest?cb=20140115153512&path-prefix=es	" alt="	 Portada de Video 1"	><h3>	24 - El último enviado	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/25%20-%20Aire%20Un%20mundo%20que%20se%20acaba.mp4	 ')" ><img src="	https://static.wikia.nocookie.net/evangelion/images/5/50/Do_you_love_me.png/revision/latest?cb=20121216062507	" alt="	 Portada de Video 1"	><h3>	25 - Un mundo que se acaba	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/26%20-%20La%20bestia%20que%20gritaba%20amor%20en%20el%20coraz%C3%B3n%20del%20mundo.mp4	 ')" ><img src="	https://1.bp.blogspot.com/-TVa9JMIxQYI/YRdCVNB7QEI/AAAAAAAAhmI/NN5jbGA4SBMcBT3-VTl7Ga78deopOLKmgCLcBGAsYHQ/s498/final-evangelion.gif	" alt="	 Portada de Video 1"	><h3>	26 - La bestia que pedía amor a gritos desde el centro del mundo	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/evangelioncastellano/Neon%20genesis%20evangelion%20escena%20final%20castellano.ia.mp4	 ')" ><img src="	https://assets.mubicdn.net/images/notebook/post_images/28765/images-w1400.png?1565206981	" alt="	 Portada de Video 1"	><h3>	27 - Escena final	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/neon-genesis-evangelion-death-rebirth/Neon%20Genesis%20Evangelion%20Death%20%26%20Rebirth.mp4	 ')" ><img src="	https://m.media-amazon.com/images/M/MV5BMTc4YTY0MDUtYWNmMi00NTRiLWE4NmItM2JiMmIzYmEwNGQzXkEyXkFqcGdeQXVyNTkwNzYyODM@._V1_.jpg	" alt="	 Portada de Video 1"	><h3>	28 - Death & Rebirth	</h3><h4>		</h4>  </a></li>
+<li><a href="	#	" onclick="	changeVideo('	https://archive.org/download/the-end-of-evangelion-1997_202010/27%20-%20The%20End%20of%20Evangelion%20%281997%29.ia.mp4	 ')" ><img src="	https://m.media-amazon.com/images/I/61l3qx1VjSL._SY679_.jpg	" alt="	 Portada de Video 1"	><h3>	29 - The end of Evangelion	</h3><h4>		</h4>  </a></li>
+
+
+
+
+
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </a></li>
+ -->
+
+<button id="abajo"> 
+   <a href="#arriba"> <input type="image" src="https://static.vecteezy.com/system/resources/thumbnails/016/770/568/small/red-directional-arrow-on-transparent-background-free-png.png" style="position: fixed; bottom: 20em;  right: 0em; z-index: 2;" height="20" width="20"/>   </a>
+    <a name="abajo"></a>
+  </button>
+
+
+ </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+window.addEventListener('load', function() {
+  var boton = document.getElementById('menu-button');
+  var lista = document.getElementById('video-list');
+  var temporizador;
+  
+  boton.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  lista.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  boton.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+  
+  lista.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+});
+
+
+
+
+
+
+
+
+const menuButton = document.getElementById('menu-button');
+const videoList = document.getElementById('video-list');
+const videoPlayer = document.getElementById('video');
+
+menuButton.addEventListener('click', () => {
+  if (videoList.style.display === 'none') {
+    videoList.style.display = 'block';
+  } else {
+    videoList.style.display = 'none';
+  }
+});
+
+function changeVideo(src) {
+  videoPlayer.src = src;
+  videoPlayer.play();
+  videoList.style.display = 'none';
+}
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
