@@ -1,0 +1,625 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv = «X-UA-compatible» content = «IE = 9; IE = 7; IE = 8; IE = EDGE, Chrome = 1″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>             </title>    
+	<link rel="stylesheet" href="https://vjs.zencdn.net/7.15.4/video-js.css" />
+	<script src="https://vjs.zencdn.net/7.15.4/video.js"></script>
+
+
+	<style>
+
+
+button {
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+    font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-weight: ;
+    font-stretch: ;
+    font-size: ;
+    font-family: ;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: black;
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body  {
+    background-color: black;
+    outline: none;
+}
+
+
+*{
+    text-decoration: none;
+    list-style:none
+}
+a{
+    color: #fbe700;
+    margin-left: -40px;
+}
+h1{
+    color: red;
+}
+#playlist {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 25.8em;
+    right: -0.6em;
+    top: 2em;
+    display: none;
+    position: absolute;
+    background-color: #000000ad;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    z-index: 1;
+    padding: 12px;
+    margin-top: -12px;
+    margin-left: 8px;
+}
+#playlist-button {
+    position: absolute;
+    top: 3.6em;
+    right: 0.6em;
+    padding-bottom: 25em;
+}
+#playlist-button:hover #playlist {
+			display: block;
+		}
+
+img {
+    width: 100px;
+    height: 50px;
+    padding: 5px;
+}
+
+
+
+
+@media screen and (max-width: 480px) {
+button {
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+    font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-weight: ;
+    font-stretch: ;
+    font-size: ;
+    font-family: ;
+    text-rendering: auto;
+    color: aqua;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: #060100;
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: red;
+    border-image: initial;
+outline: none;
+}
+#playlist-button {
+    position: absolute;
+    top: 17em;
+    right: -1.4em;
+    padding-right: 20em;
+outline: none;
+}
+#playlist {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 19em;
+    right: 0.5em;
+    top: 2em;
+    display: none;
+    position: absolute;
+    background-color: #000000ad;
+    min-width: 210px;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    z-index: 1;
+    padding: 12px;
+    margin-top: -12px;
+    margin-left: 8px;
+    border-radius: 0px 0px 0px 10px;
+outline: none;
+}
+
+
+
+}
+
+@media screen and (min-width: 641px) {
+	#player {
+		width: autopx;
+		height: 360px;
+	}
+}
+
+img {
+    width: 100px;
+    height: 80px;
+    padding: 5px;
+}
+
+
+@media screen and (max-width: 320px) {
+ h1 {
+  Margin-top:0px;
+  Height:19px;
+  Color:Red;
+ }
+button {
+    appearance: auto;
+    writing-mode: horizontal-tb !important;
+    font-style: ;
+    font-variant-ligatures: ;
+    font-variant-caps: ;
+    font-variant-numeric: ;
+    font-variant-east-asian: ;
+    font-weight: ;
+    font-stretch: ;
+    font-size: ;
+    font-family: ;
+    text-rendering: auto;
+    color: aqua;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: #060100;
+    margin: 0em;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: red;
+    border-image: initial;
+outline: none;
+}
+#playlist-button {
+    position: Fixed;
+    top: 14em;
+    right: 2em;
+    padding-right: 14em;
+    outline: none;
+}
+#playlist {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 19em;
+    right: -1.5em;
+    top: 3em;
+    display: none;
+    position: absolute;
+    background-color: #000000ad;
+    min-width: 210px;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    z-index: 0;
+    padding: 0px;
+    margin-top: -12px;
+    margin-left: -5px;
+    border-radius: 0px 0px 0px 10px;
+    outline: none;
+}
+
+
+
+}
+
+
+	</style>
+</head>
+
+
+
+<!--    EMPIEZA BODY ############################  -->
+
+
+
+
+<body>
+
+
+
+
+
+
+
+
+	<h1>  CANALES  JDM    </h1>
+	<video id="player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360" data-setup='{ "fluid": true }'>
+		Tu navegador no soporta la etiqueta de video HTML5.
+	</video>
+
+
+ <!-- 
+<button id="download-btn">Descargar lista</button>
+<button id="load-btn">Cargar lista</button>
+<input id="file-input" type="file" style="display:none;">
+ -->
+
+
+
+
+
+	<div id="playlist-button">
+		<button>Menú</button>
+		<div id="playlist">
+			<ul>
+<li><a href="#" data-source="http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8"><img src=" https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Las_Estrellas.svg/360px-Las_Estrellas.svg.png"/>LAS ESTRELLAS</a></li>
+<li><a href="#" data-source="http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL211/PROFILE03.m3u8"><img src="https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/416551-8c.png "/> A & E</a></li>
+<li><a href="#" data-source="http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL445/PROFILE03.m3u8"><img src="https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425308-8c.png "/> SPACE</a></li>
+<li><a href="#" data-source="http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL484/PROFILE03.m3u8"><img src="https://afiliados.televisa-networks.com/wp-content/uploads/2017/08/golden-edge-1.png	"/>  GOLDEN EDGE </a></li>
+<li><a href="#" data-source="http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL492/PROFILE03.m3u8"><img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Universal_TV_Logo_2018.png	"/>  UNIVERSAL </a></li>
+<li><a href="#" data-source="http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL201/PROFILE03.m3u8"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Star_Channel_2020.svg/1200px-Star_Channel_2020.svg.png	"/>  STAR CHANNEL </a></li>
+<li><a href="#" data-source="http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL272/PROFILE05.m3u8"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/DistritoComediaLOGO2018.png	"/>  DISTRITO COMEDIA </a></li>
+<li><a href="#" data-source="http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL335/PROFILE05.m3u8"><img src="https://cdn.mitvstatic.com/channels/mx_de-pelicula_m.png	"/>  DE PELICULA </a></li>
+<li><a href="#" data-source="http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL430/PROFILE05.m3u8"><img src="https://static.wikia.nocookie.net/logopedia/images/d/d3/Cinecanal.png/revision/latest?cb=20191215233547	"/>  CINE CANAL </a></li>
+<li><a href="#" data-source="http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL444/PROFILE05.m3u8"><img src="https://www.freepnglogos.com/uploads/amc-png-logo/amc-media-png-logo-1.png	"/>  AMC </a></li>
+<li><a href="#" data-source="https://linear-311.frequency.stream/dist/localnow/311/hls/master/playlist.m3u8"><img src=" https://depor.com/resizer/Hk5doNRSzzU02kVejlFMxM5FWNQ=/620x0/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/EKQNCSXZTFEHDAVJEZYONUDWI4.jpg "/>F.PELUCHE </a></li>
+<li><a href="#" data-source="https://linear-314.frequency.stream/dist/localnow/314/hls/master/playlist.m3u8"><img src=" https://upload.wikimedia.org/wikipedia/commons/2/2c/Vecinos_%28_TV_series%29_logo.png"/> VECINOS </a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2237/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/4/4f/Las_Estrellas_logo_%282016%29.png	"/> 	  BAJÍO LAS ESTRELLAS I	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL211/PROFILE03.m3u8?	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/416551-8c.png	"/> 	 A&E	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2/PROFILE03.m3u8	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/adn_40-mediano.png	"/> 	 ADN 40 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL140/PROFILE03.m3u8	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/adn_40-mediano.png	"/> 	 ADN 40 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2/PROFILE03.m3u8	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/adn_40-mediano.png	"/> 	 ADN 40 I	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL444/PROFILE03.m3u8?	"><img src="	https://www.freepnglogos.com/uploads/amc-png-logo/amc-media-png-logo-1.png	"/> 	 AMC 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL199/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Antena_3_%282017%29.svg/800px-Antena_3_%282017%29.svg.png	"/> 	 ANTENA 3  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL107/PROFILE03.m3u8	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/azteca_7-mediano.png	"/> 	 AZTECA 7	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2049/PROFILE03.m3u8	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/azteca_7-mediano.png	"/> 	 AZTECA 7	</a></li>
+<li><a href="#" data-source="	https://ott.cdn.iutpcdn.com/LIVE/H01/CANAL1822/PROFILE03.m3u8	"><img src="	http://3.bp.blogspot.com/-c5VRPGS34ss/T0AkxQxbKbI/AAAAAAAACU8/zqK89SAPTGA/s1600/cdazteca.png	"/> 	 AZTECA 7 METROPOLITANO	</a></li>
+<li><a href="#" data-source="	https://ott.cdn.iutpcdn.com/LIVE/H01/CANAL1869/PROFILE03.m3u8	"><img src="	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzjPXwKKfOuOLCRpSz_isUKTbmyFrXsTp8ds7N_BxDUQ&s	"/> 	 AZTECA BAJA CALIFORNIA	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2336/PROFILE03.m3u8?	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/azteca_uno-mediano.png	"/> 	 AZTECA BAJÍO I	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL113/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/417298-8c.png	"/> 	 AZTECA UNO	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2051/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/417298-8c.png	"/> 	 AZTECA UNO	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL732/PROFILE03.m3u8?	"><img src="	https://logodix.com/logo/1754440.png	"/> 	 BANDAMAX 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL191/PROFILE03.m3u8	"><img src="	https://static.wikia.nocookie.net/robloxtv/images/0/00/BBC_News_Logo_5.png/revision/latest/scale-to-width-down/569?cb=20150619174511	"/> 	 BBC NEWS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2591/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/BitMe_logo.svg/1024px-BitMe_logo.svg.png	"/> 	 BIT ME  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL190/PROFILE03.m3u8	"><img src="	https://seeklogo.com/images/B/bloomberg-tv-logo-F21E63B0F0-seeklogo.com.png	"/> 	 BLOOMBERG	</a></li>
+<li><a href="#" data-source="	https://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2357/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/8/85/Canal_Catorce.png	"/> 	 CANAL 14	</a></li>
+<li><a href="#" data-source="	https://5fc584f3f19c9.streamlock.net/canal22/smil:canal22.smil/playlist_1920x1080.m3u8?	"><img src="	http://manualdeimagen.canal22.org.mx/img/original.png	"/> 	 CANAL 22	</a></li>
+<li><a href="#" data-source="	https://5fc584f3f19c9.streamlock.net/canal222/smil:canal222.smil/playlist_1920x1080.m3u8?	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/can222.png	"/> 	 CANAL 22.2 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL105/PROFILE03.m3u8	"><img src="	https://static.wikia.nocookie.net/logopedia/images/5/5d/Canal_5_M%C3%A9xico_2007.svg/revision/latest/scale-to-width-down/200?cb=20210515040932&path-prefix=es	"/> 	 CANAL 5	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2048/PROFILE03.m3u8	"><img src="	https://static.wikia.nocookie.net/logopedia/images/5/5d/Canal_5_M%C3%A9xico_2007.svg/revision/latest/scale-to-width-down/200?cb=20210515040932&path-prefix=es	"/> 	 CANAL 5	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL167/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Multimedios_Canal_Seis_Logo.svg/171px-Multimedios_Canal_Seis_Logo.svg.png	"/> 	 CANAL 6 CDMX I	</a></li>
+<li><a href="#" data-source="	https://60ed5b6d0df78.streamlock.net:1936/segundo/segundo/playlist.m3u8?	"><img src="	https://static.wikia.nocookie.net/logopedia/images/b/bb/XHSPR-TDT_%28Canal_14_MX%29.png/revision/latest?cb=20200410213940	"/> 	 CANAL CATORCE 	</a></li>
+<li><a href="#" data-source="	https://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2331/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425505-8c.png	"/> 	 CANAL DEL CONGRESO	</a></li>
+<li><a href="#" data-source="	https://video.cdmx.gob.mx/livestream/stream.m3u8?	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/capital.png	"/> 	 CAPITAL21 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL430/PROFILE03.m3u8?	"><img src="	https://i.postimg.cc/d34hZkDX/Ednar33-TV.png	"/> 	 Cinecanal	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL425/PROFILE03.m3u8?	"><img src="	https://static.wikia.nocookie.net/logopedia/images/e/e9/TVAztecaCinema.png/revision/latest?cb=20200207222158&path-prefix=es	"/> 	 CINEMA  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL481/PROFILE03.m3u8?	"><img src="	https://i.postimg.cc/d34hZkDX/Ednar33-TV.png	"/> 	 Cinemax	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL725/PROFILE03.m3u8?	"><img src="	https://static.wikia.nocookie.net/logopedia/images/b/b6/TV_Azteca_Clic_2019.png/revision/latest?cb=20191211180120&path-prefix=es	"/> 	 CLIC  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL186/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425402-8c.png	"/> 	 CNN	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL187/PROFILE03.m3u8?	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/cnn_en_espanol-mediano.png	"/> 	 CNN ESPAÑOL 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL197/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/531193-8c.png	"/> 	 CNN NEWS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL187/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/531193-8c.png	"/> 	 CÑÑ	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL250/PROFILE03.m3u8?	"><img src="	https://static.wikia.nocookie.net/logopedia/images/6/6e/TV_Azteca_Coraz%C3%B3n_2019.png/revision/latest?cb=20191211175456&path-prefix=es	"/> 	 CORAZON  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL335/PROFILE03.m3u8	"><img src="	https://static.wikia.nocookie.net/logopedia/images/2/24/DPel%C3%ADcula_2021.svg.png/revision/latest?cb=20210123132402&path-prefix=es	"/> 	 DE PELICULA 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL442/PROFILE03.m3u8	"><img src="	https://static.wikia.nocookie.net/logopedia/images/8/8e/DPel%C3%ADcula_Plus_2021.png/revision/latest?cb=20210129162928&path-prefix=es	"/> 	 DE PELICULA PLUS 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL371/PROFILE03.m3u8?	"><img src="	https://logodownload.org/wp-content/uploads/2017/04/discovery-channel-logo-8.png	"/> 	 DISCOVERY CHANNEL I 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL374/PROFILE03.m3u8?	"><img src="	https://static.wikia.nocookie.net/logopedia/images/f/ff/Discovery_H%26H.png/revision/latest?cb=20190926042803&path-prefix=es	"/> 	 DISCOVERY H&H I 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2379/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Discovery_Turbo_logo.svg/1200px-Discovery_Turbo_logo.svg.png	"/> 	 DISCOVERY TURBO I	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL272/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/6/6b/DistritoComediaLOGO2018.png	"/> 	 DISTRITO COMEDIA 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL654/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Deutsche_Welle_symbol_2012.svg/1280px-Deutsche_Welle_symbol_2012.svg.png	"/> 	 DW	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL255/PROFILE03.m3u8?	"><img src="	https://static.wikia.nocookie.net/logopedia/images/7/71/E%21_2012_logo.png/revision/latest?cb=20200402215643&path-prefix=es	"/> 	 E ENTRETEMIENT 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2167/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/416401-8c.png	"/> 	 EL FINANCIERO	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL136/PROFILE03.m3u8?	"><img src="	https://i.postimg.cc/d34hZkDX/Ednar33-TV.png	"/> 	 europe europe	</a></li>
+<li><a href="#" data-source="	https://ott.cdn.iutpcdn.com/LIVE/H01/CANAL1449/PROFILE03.m3u8	"><img src="	http://cdn2.excelsior.imagendigital.com/images/excelsior-tv-redes.png	"/> 	 EXCELSIOR TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL137/PROFILE03.m3u8?	"><img src="	https://i.postimg.cc/d34hZkDX/Ednar33-TV.png	"/> 	 Film & Arts	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL137/PROFILE03.m3u8?	"><img src="	https://www.filmandarts.tv/theme/assets/fa-logo.png	"/> 	 FILMS & ARTS I	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL104/PROFILE03.m3u8	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/foro_tv-mediano.png	"/> 	 FORO TV I  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL188/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425392-8c.png	"/> 	 FOX NEWS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL522/PROFILE03.m3u8?	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/fox_sports-mediano.png	"/> 	 FOX SPORTS  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL178/PROFILE03.m3u8?	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/fox_sports_3-mediano.png	"/> 	 FOX SPORTS 3  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2402/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/France24.png/640px-France24.png	"/> 	 FRANCE 24	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2402/PROFILE03.m3u8?	"><img src="	https://cdn-profiles.tunein.com/s303640/images/logog.png?t=151602	"/> 	 FRANCE24 I	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL209/PROFILE03.m3u8?	"><img src="	https://i.postimg.cc/d34hZkDX/Ednar33-TV.png	"/> 	 FX	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL802/PROFILE03.m3u8	"><img src="	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWDVPIFv7EBD4NRnGNTKliI3zvdJ1JCSIW1LEKX_AXqeG-9VeC38B0zmptsoSCAzAnhdA&usqp=CAU	"/> 	 GALICIA	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL269/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/garage.png	"/> 	 GARAGE TV I 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL123/PROFILE03.m3u8?	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/golden-mediano.png	"/> 	 GOLDEN  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL484/PROFILE03.m3u8?	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/golden_edge-mediano.png	"/> 	 GOLDEN EDGE 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL436/PROFILE03.m3u8?	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/golden_plus-mediano.png	"/> 	 GOLDEN PLUS  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL3105/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/HGTV_US_Logo_2015.svg/1200px-HGTV_US_Logo_2015.svg.png	"/> 	 HGTV I	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL353/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/History_Logo.svg/1200px-History_Logo.svg.png	"/> 	 HISTORY I	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL219/PROFILE03.m3u8?	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/hola_tv-mediano.png	"/> 	 HOLA TV I	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2298/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Logo_Imagen_Televisi%C3%B3n_2016.png/212px-Logo_Imagen_Televisi%C3%B3n_2016.png	"/> 	 IMAGEN TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Las_Estrellas.svg/360px-Las_Estrellas.svg.png	"/> 	 LAS ESTRELLAS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2047/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Las_Estrellas.svg/360px-Las_Estrellas.svg.png	"/> 	 LAS ESTRELLAS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL52/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Las_Estrellas.svg/360px-Las_Estrellas.svg.png	"/> 	 LAS ESTRELLAS 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2037/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Las_Estrellas.svg/360px-Las_Estrellas.svg.png	"/> 	 LAS ESTRELLAS -1HR	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2264/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Las_Estrellas.svg/360px-Las_Estrellas.svg.png	"/> 	 LAS ESTRELLAS -2HR	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2037/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Las_Estrellas.svg/360px-Las_Estrellas.svg.png	"/> 	 LAS ESTRELLAS Ch	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL379/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Logo_Lifetime_2020.svg/1024px-Logo_Lifetime_2020.svg.png	"/> 	 LIFETIME  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL221/PROFILE03.m3u8?	"><img src="	https://cdn.mitvstatic.com/channels/co_mas-chic_m.png	"/> 	 MÁS CHIC	</a></li>
+<li><a href="#" data-source="	https://ott.cdn.iutpcdn.com/LIVE/H01/CANAL44/PROFILE03.m3u8	"><img src="		"/> 	 MEXIQUENSE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2305/PROFILE03.m3u8	"><img src="	https://static.wikia.nocookie.net/logopedia/images/4/4b/Multimedios_Estrellas_de_Oro_%281991_Symbol%29.svg/revision/latest?cb=20210721224718	"/> 	 MULTIMEDIOS CDMX	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL276/PROFILE03.m3u8?	"><img src="	https://static.wikia.nocookie.net/logopedia/images/a/af/TV_Azteca_Mundo_2019.png/revision/latest?cb=20191211171850&path-prefix=es	"/> 	 MUNDO  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL109/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/nu9ve.png	"/> 	 NU9VE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2050/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/nu9ve.png	"/> 	 NU9VE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL111/PROFILE03.m3u8	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/once_tv_mexico-mediano.png	"/> 	 ONCE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL1726/PROFILE03.m3u8?	"><img src="	https://i.postimg.cc/d34hZkDX/Ednar33-TV.png	"/> 	 PARAMONT	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2091/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/rt.png	"/> 	 RT ESPAÑOL	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL999/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/rt.png	"/> 	 RT INGLES	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL203/PROFILE03.m3u8?	"><img src="	https://i.postimg.cc/d34hZkDX/Ednar33-TV.png	"/> 	 Sony Channel	</a></li>
+<li><a href="#" data-source="	http://us1-external-sources.iptvserver.tv/live/kkkrkDp2a9KNwAwGzpb/QT94uK5NNQw4r4Qs/643.ts	"><img src="	https://i.postimg.cc/d34hZkDX/Ednar33-TV.png	"/> 	 Sony Channel	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL445/PROFILE03.m3u8?	"><img src="	https://i.postimg.cc/d34hZkDX/Ednar33-TV.png	"/> 	 Space	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL201/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Star_Channel_2020.svg/1200px-Star_Channel_2020.svg.png	"/> 	 STAR CHANNEL  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2375/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/0/08/Star-TVE-logo.png	"/> 	 STAR TVE  	</a></li>
+<li><a href="#" data-source="	https://samsung-mx.ott-channels.stingray.com/naturescape/master.m3u8	"><img src="	https://i.imgur.com/lu8bFhZ.jpg	"/> 	 STINGRAY NATURESCAPE 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL492/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/7/74/StudioUniversal2016.png	"/> 	 STUDIO UNIVERSAL  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL161/PROFILE03.m3u8?	"><img src="	https://directostv.teleame.com/wp-content/uploads/2018/07/Teleformula-en-vivo-Online-218x150.png	"/> 	 TELEFORMULA 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL85/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Logo_tlnovelas_feb2019.png/1223px-Logo_tlnovelas_feb2019.png	"/> 	 TELEMUNDO INTERNACIONAL 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2355/PROFILE03.m3u8?	"><img src="	https://directostv.teleame.com/wp-content/uploads/2018/07/Televisa-del-Bajio-en-vivo-Online-218x150.png	"/> 	 TELEVISA DEL BAJÍO I	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2312/PROFILE03.m3u8?	"><img src="	https://directostv.teleame.com/wp-content/uploads/2018/07/Televisa-Puebla-en-vivo-Online-218x150.png	"/> 	 TELEVISA PUEBLA CANAL 4  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL275/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Logo_tlnovelas_feb2019.png/1223px-Logo_tlnovelas_feb2019.png	"/> 	 TLNOVELAS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL435/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/TNT_Logo_2016.svg/1000px-TNT_Logo_2016.svg.png	"/> 	 TNT  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL1975/PROFILE03.m3u8?	"><img src="	https://imagenes.gatotv.com/logos/canales/oscuros/tudn-mediano.png	"/> 	 TUDN 	</a></li>
+<li><a href="#" data-source="	https://5e50264bd6766.streamlock.net/tvunam/videotvunam/playlist.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/6/6b/Logo_Tv_UNAM.png	"/> 	 TV UNAM 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2357/PROFILE03.m3u8	"><img src="	https://directostv.teleame.com/wp-content/uploads/2017/10/TV-Cuatro-Canal-4.1-Guanajuato-en-vivo-Online-218x150.png	"/> 	 TV4.1 GUANAJUATO I	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL651/PROFILE03.m3u8?	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Logo_TVE-1.svg/800px-Logo_TVE-1.svg.png	"/> 	 TVE LA 1  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL218/PROFILE03.m3u8?	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/unicable.png	"/> 	 UNICABLE  	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL207/PROFILE03.m3u8?	"><img src="	https://i.postimg.cc/d34hZkDX/Ednar33-TV.png	"/> 	 Universal TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL205/PROFILE03.m3u8?	"><img src="	https://i.postimg.cc/d34hZkDX/Ednar33-TV.png	"/> 	 Warner 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL219/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/hola.jpg	"/> 	¡HOLA! TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2278/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/xhfn2.png	"/> 	A MÁS+	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL211/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/ae.png	"/> 	A&E	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL3112/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/a3c.png	"/> 	A3CINE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2113/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/cdbc51673b283b91bbcc95656f740bf0.png	"/> 	A3SERIES	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/1038568-8c.png	"/> 	ADN 40	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL1799/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/asn.png	"/> 	ADRENALINA SPORTS	</a></li>
+<li><a href="#" data-source="	https://linear-348.frequency.stream/dist/localnow/348/hls/master/playlist.m3u8	"><img src="	http://xtream-coders.com/x0/deportes/afizzionados.png	"/> 	AFIZZIONADOS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL444/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/e1a0a412d0aa953b2959df15c7a9920f.png	"/> 	AMC	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2378/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/2adecf47066d183750c323ff430d4704.png	"/> 	ANIMAL PLANET	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL199/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/a3.png	"/> 	ANTENA 3	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2507/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/axn.png	"/> 	AXN	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL576/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/deportes/aymsports.png	"/> 	AYM SPORTS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL250/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/928370-8c.png	"/> 	AZ CORAZON	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL276/PROFILE03.m3u8	"><img src="	https://mediaplan.com.gt/wp-content/uploads/2022/07/Mundo450x300.png	"/> 	AZ MUNDO	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2591/PROFILE03.m3u8	"><img src="	https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dc270200-bf86-4cd5-86ce-ec11b4bd9b1e/ddt8etp-2446086d-08d4-46e5-91f0-9c5c6908fba4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2RjMjcwMjAwLWJmODYtNGNkNS04NmNlLWVjMTFiNGJkOWIxZVwvZGR0OGV0cC0yNDQ2MDg2ZC0wOGQ0LTQ2ZTUtOTFmMC05YzVjNjkwOGZiYTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.0btkBSJ1AYNjuYKYHKVmF7lzOII2woePnREKOhiQVUo	"/> 	BITME	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL105/PROFILE03.m3u8?	"><img src="	http://ky-iptv.com:25461/images/2188f3bbdbb08e268f77e21776499edf.png	"/> 	CANAL 5	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL320/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/416605-8c.png	"/> 	CARTOON NETWORK	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL324/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/942888-8c.png	"/> 	CARTOONITO	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL430/PROFILE03.m3u8	"><img src="	http://images.mi.tv/channels/co_cinecanal-sd-hd-1_m.png	"/> 	CINECANAL	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL481/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/movie/cinemax.png	"/> 	CINEMAX	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2564/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/claro.png	"/> 	CLARO SPORTS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL725/PROFILE03.m3u8	"><img src="	https://totalgo.totalplay.com.mx:444/TPCOREWeb/MasterImage?mimId=2867	"/> 	CLIC 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL185/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/cnn.png	"/> 	CNN LIVE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL217/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/millanf606/iptvtest/main/pngch/comedy-central_m.png	"/> 	COMEDY CENTRAL	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2594/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/curio.png	"/> 	CURIOSITY STREAM	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL335/PROFILE03.m3u8	"><img src="	http://tv.naturalplus.live:25461/images/8f14bdb5de5a8097affa91bf0bf9c77d.png	"/> 	DE PELICULA	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL442/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/01134d9ccf0bb376e97b9b2b239ba632.png	"/> 	DE PELICULA +	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL371/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/f756578ec005c2ab8da7a8334173509c.png	"/> 	DISCOVERY CHANNEL	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL374/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/discovery_hh.png	"/> 	DISCOVERY H&H	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2376/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/5595a1bcd6cd02bc45caac86437e43d5.png	"/> 	DISCOVERY ID 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL381/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/669f4cb377977e1089d3bdeeebe06010.jpg	"/> 	DISCOVERY SCIENCE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL351/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/c5718d89e5b2be2c08708aa9cde7b7c7.png	"/> 	DISCOVERY THEATER	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2379/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/3a42e889d925964891ab42e3e43b1466.png	"/> 	DISCOVERY TURBO	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL356/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/f6335e56bc07c10d229167b09d171b28.png	"/> 	DISCOVERY WORLD	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL272/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/distrito_comedia.png	"/> 	DISTRITO COMEDIA	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL255/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/416571-8c.png	"/> 	E!	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL516/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/5ffb03c8561859d0cbac95875f282c10.png	"/> 	ESPN +	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL561/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/deportes/espn.png	"/> 	ESPN 1	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL558/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/deportes/espn2.png	"/> 	ESPN 2	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL520/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/deportes/espn3.png	"/> 	ESPN 3	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL136/PROFILE03.m3u8	"><img src="	https://www.europaeuropa.tv/theme/assets/ee-logo.png	"/> 	EUROPA EUROPA	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8	"><img src="		"/> 	FIBA AMERICAS TV 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL137/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/e021b02e9045e20c70fa2a07ef224473.png	"/> 	FILMS & ARTS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2145/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425217-8c.png	"/> 	FOOD NETWORK	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL104/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/467675b33c1fcae34c8fc4eb0f32d73e.png	"/> 	FORO TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL188/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/fox_news.png	"/> 	FOX NEWS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL522/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/fox1.png	"/> 	FOX SPORTS 1	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL527/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/f861606d811726f30067d1f1d4fafb06.png	"/> 	FOX SPORTS 2	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL178/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/d7ad96c14ffede8e1404d139e1f91e6e.png	"/> 	FOX SPORTS 3	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2402/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/f24.png	"/> 	FRANCE 24	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2587/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/fuel.png	"/> 	FUEL TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL209/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/416547-8c.png	"/> 	FX	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL269/PROFILE03.m3u8	"><img src="	http://lonewolftvpr.com/logos/garage.png	"/> 	GARAGE TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL270/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425223-8c.png	"/> 	GLITZ	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL123/PROFILE03.m3u8	"><img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s50709_dark_360w_270h.png	"/> 	GOLDEN	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL436/PROFILE03.m3u8	"><img src="	http://lonewolftvpr.com/logos/goldenplus.png	"/> 	GOLDEN +	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL484/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/golden_edge.png	"/> 	GOLDEN EDGE	</a></li>
+<li><a href="#" data-source="	https://linear-411.frequency.stream/411/hls/master/playlist.m3u8	"><img src="	http://xtream-coders.com/x0/latino/golden_edge.png	"/> 	GOLDEN PREMIER	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL179/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/deportes/nbcgolf.png	"/> 	GOLF	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL268/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/416575-8c.png	"/> 	GOURMET	</a></li>
+<li><a href="#" data-source="	http://190.61.102.67:31589/play/a00v/index.m3u8	"><img src="	http://ky-iptv.com:25461/images/ded5e060d8dab8d4317c3568834c94cf.png	"/> 	H2	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL3105/PROFILE03.m3u8	"><img src="	https://i.pinimg.com/280x280_RS/1b/f1/d4/1bf1d4bf0ed8c37e1c8efc5b17401467.jpg	"/> 	HGTV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL353/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/ded5e060d8dab8d4317c3568834c94cf.png	"/> 	HISTORY	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL1449/PROFILE03.m3u8	"><img src="	https://www.izzi.mx/izzi/v4/img/dummy-img/channels/ExcelsiorTv.png	"/> 	IMAGEN MULTICAST	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL1449/PROFILE03.m3u8	"><img src="	https://www.izzi.mx/izzi/v4/img/dummy-img/channels/ExcelsiorTv.png	"/> 	IMAGEN MULTICAST	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2298/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/499014-8c.png	"/> 	IMAGEN TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL401/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/aec2.png	"/> 	INGENIO TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL495/PROFILE03.m3u8	"><img src="	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQQyqw2N2LYLhzhwNhgsNRhu-EoVls9WbTmKXe-cim_Q&s	"/> 	I-SAT	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/las.png	"/> 	LAS 	</a></li>
+<li><a href="#" data-source="	https://linear-414.frequency.stream/dist/vix/414/hls/master/playlist.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/4/4f/Las_Estrellas_logo_%282016%29.png	"/> 	LAS ESTRELLAS-1HORAS	</a></li>
+<li><a href="#" data-source="	https://linear-415.frequency.stream/dist/vix/415/hls/master/playlist.m3u9	"><img src="	https://upload.wikimedia.org/wikipedia/commons/4/4f/Las_Estrellas_logo_%282016%29.png	"/> 	LAS ESTRELLAS-2HORAS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL379/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Lifetime_logo17.svg/1024px-Lifetime_logo17.svg.png	"/> 	LIFETIME	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL221/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/mas_chic.png	"/> 	MAS CHIC	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2156/PROFILE03.m3u8	"><img src="	http://schedulesdirect-api20141201-logos.s3.amazonaws.com/stationLogos/s16292_dark_360w_270h.png	"/> 	MEGA NOTICIAS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL44/PROFILE03.m3u8	"><img src="	https://static.wikia.nocookie.net/logopedia/images/7/73/Mexiquense2011b.webp/revision/latest?cb=20210414173621&path-prefix=es	"/> 	MEXIQUENSE TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Milenio_Television.png/640px-Milenio_Television.png	"/> 	MILENIO	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL470/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/morbido_tv.png	"/> 	MORBIDO TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL726/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425459-8c.png	"/> 	MTV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL703/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/f/f8/MTV_00s_remaster.png	"/> 	MTV 00S	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL728/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/527066-8c.png	"/> 	MTV 80'S	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL727/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/518653-8c.png	"/> 	MTV HITS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL701/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425451-8c.png	"/> 	MTV LIVE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8	"><img src="	https://mexico.mom-gmr.org/uploads/tx_lfrogmom/company/11834-1329_company_import.png	"/> 	MULTIMEDIOS BAJÍO 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL167/PROFILE03.m3u8	"><img src="	https://mexico.mom-gmr.org/uploads/tx_lfrogmom/company/11834-1329_company_import.png	"/> 	MULTIMEDIOS CDMX	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8	"><img src="	https://mexico.mom-gmr.org/uploads/tx_lfrogmom/company/11834-1329_company_import.png	"/> 	MULTIMEDIOS MTY	</a></li>
+<li><a href="#" data-source="	https://dish.akamaized.net/Content/HLS_HLS_CLR/Live/channel(mvs)/variant.m3u8	"><img src="	https://padeci.org/Content/_files/images/mvs-022817228977949.jpg	"/> 	MVS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL377/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/ac59a138e8814102b3cd782adbc1c9b2.png	"/> 	NAT GEO	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL315/PROFILE03.m3u9	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425231-8c.png	"/> 	NICK	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL314/PROFILE03.m3u8	"><img src="	https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/46d29d3d-de3f-41bf-b713-850a858393b0/dbne8in-f7430af7-0818-482c-bd7f-f13cfa4e2dd1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQ2ZDI5ZDNkLWRlM2YtNDFiZi1iNzEzLTg1MGE4NTgzOTNiMFwvZGJuZThpbi1mNzQzMGFmNy0wODE4LTQ4MmMtYmQ3Zi1mMTNjZmE0ZTJkZDEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.RZIFy-L30b3zTMRkAUHIM-69kxLkcw5JhNI8RX8A_cY	"/> 	NICKMUSIC	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL194/PROFILE03.m3u8	"><img src="	https://www.cronicadelquindio.com/files/noticias/20120722055235.jpg	"/> 	NTN 24	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL109/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/nu9ve.png	"/> 	NU9VE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL111/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/xeipn.png	"/> 	ONCE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL3315/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/xeipn.png	"/> 	ONCE NIÑOS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL1726/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/2845a37bd0493a9167a7e068c2b76a00.png	"/> 	PARAMOUNT NETWORK	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL528/PROFILE03.m3u8	"><img src="	http://alltvpremiere.online/logo/pxsports.jpg	"/> 	PX SPORTS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2091/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425396-8c.png	"/> 	RT EN ESPAÑOL	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL999/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425394-8c.png	"/> 	RT NOTICIAS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL203/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/sony_channel.png	"/> 	SONY CHANNEL	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL445/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/69579d049ee01159a5126500e467c31b.png	"/> 	SPACE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL201/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/millanf606/iptvtest/main/pngch/star-channel_m.png	"/> 	STAR CHANNEL	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2375/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/f/f4/Star_tv.png	"/> 	STAR TVE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL492/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/studio.png	"/> 	STUDIO UNIVERSAL	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL257/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/syfy.png	"/> 	SYFY	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL273/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/416581-8c.png	"/> 	TBS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL496/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/e/ef/Turner_Classic_Movies_%28TCM%2C_Latin_America%29_-_2015_logo.png	"/> 	TCM	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2147/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/518587-8c.png	"/> 	TEENNICK	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL161/PROFILE03.m3u8	"><img src="	https://play-lh.googleusercontent.com/3AXpbxCDmUI5un2PYVGaLV99FU6yoJ-4-TUthg91_JCkJ9ulfDCyXQFu_-nD7FEUBg	"/> 	TELEFORMULA	</a></li>
+<li><a href="#" data-source="	https://linear-417.frequency.stream/417/hls/master/playlist.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/518698-8c.png	"/> 	TELEHIT	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL731/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/518698-8c.png	"/> 	TELEHIT MÚSICA 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL702/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/518700-8c.png	"/> 	TELEHIT MÚSICA +	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL85/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/416587-8c.png	"/> 	TELEMUNDO INTERNACIONAL 	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL1943/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/940722-8c.png	"/> 	TELERITMO	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2312/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/televisa_puebla.png	"/> 	TELEVISA PUEBLA	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL275/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/416583-8c.png	"/> 	TL NOVELAS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2380/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/147d3271a7894379d7379be0dc996f20.png	"/> 	TLC	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL435/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/416573-8c.png	"/> 	TNT	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL266/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/3d9b6b4d3c0fe15c610dbc7bcfcd93d3.png	"/> 	TNT SERIES	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL328/PROFILE03.m3u9	"><img src="	http://ky-iptv.com:25461/images/17358e69c24554fdad40fe61a46f8dc5.png	"/> 	TOONCAST	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL215/PROFILE03.m3u8	"><img src="	https://imgn.cdn.iutpcdn.com/IMGS/CHANNEL/SUPER_LIGHT/425209-8c.png	"/> 	TRUTV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/9ed7bff992d63629a4fdace761679342.png	"/> 	TUDN	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL425/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/2712172e46070ead867362c4850c7b68.png	"/> 	TV AZTECA CINEMA	</a></li>
+<li><a href="#" data-source="	https://5ca9af4645e15.streamlock.net/rtv/videortv/playlist.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/tvmasver.jpg	"/> 	TV MAS	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2357/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/tv4.png	"/> 	TV4.1 GUANAJUATO	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL2157/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/73e3025cc20ed6d58243d099ae362a2a.png	"/> 	TVC DEPORTES	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL651/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/tve.png	"/> 	TVE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8	"><img src="	https://upload.wikimedia.org/wikipedia/commons/5/53/U-Beat.svg	"/> 	U-BEAT	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL218/PROFILE03.m3u8	"><img src="	http://xtream-coders.com/x0/latino/unicable.png	"/> 	UNICABLE	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL207/PROFILE03.m3u8	"><img src="	http://ky-iptv.com:25461/images/f6e82a9344e449320812cf93cf5eaf17.png	"/> 	UNIVERSAL TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL205/PROFILE03.m3u8	"><img src="	https://raw.githubusercontent.com/ivantapia882804/rasta12/main/Emblems/warner.png	"/> 	WARNER TV	</a></li>
+<li><a href="#" data-source="	http://ott.cdn.iutpcdn.com/LIVE/H01/CANAL102/PROFILE03.m3u8	"><img src="	https://roastbrief.com.mx/wp-content/uploads/2021/01/WobiNegro-FondosClaros.png	"/> 	WOBI	</a></li>
+
+
+
+
+
+			</ul>
+		</div>
+	</div>
+
+
+
+
+
+ <!--  EMPIEZA SCRYPT  ########################  -->
+
+
+
+	<script>
+		var player = videojs('player');
+		var playlistButton = document.getElementById('playlist-button');
+		var playlist = document.getElementById('playlist');
+		var links = playlist.getElementsByTagName('a');
+		for (var i = 0; i < links.length; i++) {
+			links[i].addEventListener('click', function(e) {
+				e.preventDefault();
+				var source = this.getAttribute('data-source');
+				player.src({ type: 'application/x-mpegURL', src: source });
+				player.play();
+				playlist.style.display = 'none';
+			});
+		}
+		playlistButton.addEventListener('mouseover', function() {
+			playlist.style.display = 'block';
+		});
+		playlistButton.addEventListener('mouseout', function() {
+			playlist.style.display = 'none';
+		});
+
+
+<!--  RUTA PARA DESCARGAR LISTA M3U  ########################  -->
+
+var downloadBtn = document.getElementById('download-btn');
+downloadBtn.addEventListener('click', function() {
+    var link = document.createElement('a');
+    link.download = 'lista.m3u';
+    link.href = 'ruta/de/tu/lista.m3u';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+});
+
+
+
+
+
+var loadBtn = document.getElementById('load-btn');
+var fileInput = document.getElementById('file-input');
+
+loadBtn.addEventListener('click', function() {
+    fileInput.click();
+});
+
+fileInput.addEventListener('change', function() {
+    var file = fileInput.files[0];
+    var reader = new FileReader();
+    reader.onload = function() {
+        var source = reader.result;
+        player.src({ type: 'application/x-mpegURL', src: source });
+        player.play();
+    };
+    reader.readAsText(file);
+});
+
+
+
+
+
+
+
+
+	</script>
+
+
+
+
+</body>
+</html>
