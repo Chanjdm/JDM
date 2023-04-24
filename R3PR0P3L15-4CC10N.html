@@ -1,0 +1,615 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv = «X-UA-compatible» content = «IE = 9; IE = 7; IE = 8; IE = EDGE, Chrome = 1″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title> REPRO  </title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</script>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
+
+
+<style type="text/css">
+
+body  {
+    text-decoration: none;
+    background: #000000;
+outline: none;
+}
+
+
+
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 130%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #52c2ff;
+    Position: absolute;
+    top: 45px;
+    right: 20px;
+    font-size: 120%;
+    outline: none;
+    overflow-y: scroll;
+    height: 80px;
+    width: 325px;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1280px){
+    
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 37%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 90%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #57aced;
+    Position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 90%;
+    outline: none;
+    overflow-y: scroll;
+    height: 90px;
+    width: 235px;
+}
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 480px){
+    #video-player{
+    height: calc(100% - 1*1px);
+    margin-top: 1em;
+}
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 11.8em;
+    RIGHT: 0px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 2px 0px 1px;
+    width: 306px;
+    justify-items: start;
+}
+    #menu-button{
+    display: flex;
+    width: 100%;
+    height: 65px;
+    top: -1em;
+}
+#video-list a img {
+    border-radius: 5px;
+    width: 80px;
+    outline: none;
+}
+h4  {
+    Margin-top: 2px;
+    padding-bottom: 60px;
+    color: #06fd06;
+    Position: absolute;
+    right: -10px;
+    top: 45px;
+    font-size: 90%;
+    width: 230px;
+    height: 7px;
+    padding-top: 2px;
+    overflow-y: scroll;
+}
+
+}
+
+ #arriba{
+    background: #fcfcfc00;
+}
+ #abajo{
+    background: #fcfcfc00;
+
+}
+
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div id="video-player" >
+  <video src="#" controls id="video" poster="https://chanjdm.github.io/JDM/jdmflixbordes.jpg"></video>
+  <button id="menu-button">             </button>
+  
+
+
+  
+  
+  <ul id="video-list">
+
+
+<button id="arriba">
+      <a name="arriba"></a>
+    <a href="#abajo"> <input type="image" src="https://cdn.pixabay.com/photo/2013/07/13/10/22/arrow-157087_960_720.png" style="position: fixed; bottom: 25em;  right: 0em; z-index: 2; " height="20" width="20"/>     </a>
+  </button>
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+
+
+
+<li><a href="#" onclick="changeVideo('	https://ia902305.us.archive.org/2/items/independence.day.-1996.1080p-dual-lat/John.wick.2014.hd-latino-e-ingles-subt.c.mp4')"><img src="	https://www.themoviedb.org/t/p/w260_and_h390_bestv2/mHJX5D5FKKoC0GWUAWFq2qJZrPv.jpg	"/> 	John Wick 1 (2014)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('https://ia802305.us.archive.org/2/items/independence.day.-1996.1080p-dual-lat/John.wick.chapter.2.2017.1080p-dual-lat.mp4	')"><img src="	https://www.themoviedb.org/t/p/w260_and_h390_bestv2/aSmLqVTFeh9cQkcO8RWzz1gR0ez.jpg	"/> 	John Wick 2 (2017)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('http://45.179.164.59:8181/Peliculas/John.wick.chapter.3.parabellum.2019.1080p-dual-lat-cinecalidad.to.mp4	')"><img src="	https://www.themoviedb.org/t/p/w260_and_h390_bestv2/meODtyCmxvk4iDYGVwkfsVRNIa5.jpg	"/> 	John Wick 3 (2017)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/16%20calles%20%282006%29.mp4')')"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/78/41/00/20062894.jpg	"/> 	16 calles (2006)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/48%20horas%20ma%CC%81s%20%281990%29.mp4	')"><img src="	https://www.tododvdfull.com/wp-content/uploads/2015/09/Another-48-Hrs..jpg	"/> 	48 horas ma´s (1990)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Abducted%20%282018%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BZjMwMGNhNTItYjFlYS00MjQ4LWE1ZDItNWIwZjM3ZGNmYmIzXkEyXkFqcGdeQXVyMzMzMDQ3MzY@._V1_.jpg	"/> 	Abducted (2018)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Alien%20Resurreccio%CC%81n%20%281997%29.mp4	')"><img src="	https://1.bp.blogspot.com/-0seo50ce1sg/Vxv2PvcuCXI/AAAAAAAAyE8/qFeHbwpaqX4g0wFH1pAhiuQGOHDoKZcGQCLcB/s1600/Alien-4.jpg	"/> 	Alien Resurreccio´n (1997)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/ALIENS%20EL%20REGRESO%201986.MP4	')"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/72/74/01/20076545.jpg	"/> 	ALIENS EL REGRESO 1986	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Ape%20vs.%20Monster.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Ape%20vs.%20Monster.jpg	"/> 	Ape vs Monster	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Arma%20letal%204%20%281998%29.mp4	')"><img src="	https://pics.filmaffinity.com/Arma_letal_4-149791840-large.jpg	"/> 	Arma letal 4 (1998)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Armageddon%20%281998%29.mp4	')"><img src="	https://pics.filmaffinity.com/Armageddon-185976102-large.jpg	"/> 	Armageddon (1998)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Arturo%20y%20Merli%CC%81n%20Caballeros%20de%20Camelot%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Arturo_y_Merlin_Caballeros_de_Camelot-751340737-large.jpg	"/> 	Arturo y Merlin Caballeros de Camelot (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Asalto%20al%20tren%20del%20dinero%20%281995%29.mp4	')"><img src="	https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/91/35/08/20141090.jpg	"/> 	Asalto al tren del dinero (1995)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Asesinos%20%281995%29.mp4	')"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/78/40/97/20427678.jpg	"/> 	Asesinos (1995)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/163031213	')"><img src="	https://upload.wikimedia.org/wikipedia/en/9/90/Bad_Boys_for_Life_poster.jpg	"/> 	Bad Boys for Life (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Becky%20%282020%29.mp4	')"><img src="	https://upload.wikimedia.org/wikipedia/en/5/53/Becky_poster.jpg	"/> 	Becky (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Blade%20%281998%29.mp4	')"><img src="	https://pics.filmaffinity.com/Blade-397609933-mmed.jpg	"/> 	Blade (1998)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/163031217	')"><img src="	https://pics.filmaffinity.com/Bloodshot-229984487-large.jpg	"/> 	Bloodshot (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Borning%20Asfalto%20en%20llamas%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Borning_Asfalto_en_llamas-518088537-large.jpg	"/> 	Borning Asfalto en llamas (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Bright.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Bright.jpg	"/> 	Bright	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Cara%20a%20cara%20%281997%29.mp4	')"><img src="	https://pics.filmaffinity.com/Cara_a_cara-188574589-large.jpg	"/> 	Cara a cara (1997)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Collateral%20%282004%29.mp4	')"><img src="	https://www.alohacriticon.com/wp-content/uploads/elcriticonfotos/collateralcartel.jpg	"/> 	Collateral (2004)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/2Comando%20-%20Commando%20%281985%29.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Comando%20-%20Commando%20%281985%29.jpg	"/> 	Comando  Commando (1985)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/C%C3%B3mo%20me%20convert%C3%AD%20en%20superh%C3%A9roe.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/C%C3%B3mo%20me%20convert%C3%AD%20en%20superh%C3%A9roe.jpg	"/> 	Cómo me convertí en superhéroe	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Con%20Air%20%28Convictos%20en%20el%20aire%29%20%281997%29.mp4	')"><img src="	https://es.web.img3.acsta.net/pictures/14/02/27/11/31/078119.jpg	"/> 	Con Air (Convictos en el aire) (1997)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Darkman%20III%20El%20desafi%CC%81o%20%281996%29.mp4	')"><img src="	https://www.filmaboutit.com/data/shp/images/3ASFe8tm9FGidkwre8RyHAj3oF.jpg	"/> 	corre (1998)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Corre%20Lola%2C%20corre%20%281998%29.mp4	')"><img src="	https://pics.filmaffinity.com/Corre_Lola_corre-927408419-mmed.jpg	"/> 	corre lola core 1998	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Cross%20el%20ascenso%20de%20los%20villanos.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Cross%20el%20ascenso%20de%20los%20villanos.jpg	"/> 	Cross el ascenso de los villanos	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Cut%20Throat%20City%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Cut_Throat_City-319016613-large.jpg	"/> 	Cut Throat City (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Decisio%CC%81n%20cri%CC%81tica%20%281996%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w300/nbVrvCi8UPTPjdnX3Lm7C4pmXj1.jpg	"/> 	Decision critica (1996)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Deep%20Blue%20Sea%203%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Deep_Blue_Sea_3-680442315-large.jpg	"/> 	Deep Blue Sea 3 (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Depredador%20-%20Predator%20%281987%29.mp4	')"><img src="	https://2.bp.blogspot.com/-xUbyQASi4SA/XBgP4pnkOzI/AAAAAAAAAPo/OZNhNX-MR60hBvj1avUiFRm93sp9kg0kgCLcBGAs/s1600/Depredador.jpg	"/> 	Depredador - Predator (1987)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Desaparecido%20en%20combate%20%281984%29.mp4	')"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/96/24/11/20454930.jpg	"/> 	Desaparecido en combate (1984)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/El%20vuelo%20del%20halco%CC%81n%20%282019%29.mp4	')"><img src="	https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/96/24/11/20454930.jpg	"/> 	desaparecido-en-combate-1984	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Desperado%20%281995%29.mp4	')"><img src="	https://r1.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic3.abc.es%2Fmedia%2Fpeliculas%2F000%2F005%2F469%2Fdesperado-1.jpg&nuevoancho=690&medio=abc	"/> 	Desperado (1995)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Diablo%20%282019%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w185_and_h278_bestv2/fqBirm9NLTb37jT36W4YZUEDjdf.jpg	"/> 	Diablo (2019)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/48386bfcf9002b870c90cdf73ba0e10f-360p.mp4	')"><img src="	https://images-na.ssl-images-amazon.com/images/I/91sDhux1KLL._AC_SL1500_.jpg	"/> 	die drei musketiere	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20cuervo.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20cuervo.jpg	"/> 	El cuervo	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/El%20Escuadr%C3%B3n%20Suicida%202.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/El%20Escuadr%C3%B3n%20Suicida%202.jpg	"/> 	El Escuadrón Suicida 2	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Yo%2C%20el%20halco%CC%81n%20%281987%29.mp4	')"><img src="	https://www.ecartelera.com/carteles/5100/5159/001_m.jpg	"/> 	el halcon (1987)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/El%20juego%20del%20asesino%20%282019%29.mp4	')"><img src="	https://pics.filmaffinity.com/El_juego_del_asesino-293811897-large.jpg	"/> 	El juego del asesino (2019)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/El%20legado%20de%20las%20mentiras%20%282020%29-1.mp4	')"><img src="	https://pics.filmaffinity.com/El_legado_de_las_mentiras-574431853-mmed.jpg	"/> 	El legado de las mentiras (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/El%20man%CC%83ana%20nunca%20muere%20%281997%29.mp4	')"><img src="	https://lh3.googleusercontent.com/proxy/3qR1bxfGADaUtiGEeu1jXfCciUA0jBZZV1T2fjrI5zDNKtiB0ru6TFqZPY9ctDnHHurmW98SX5lCV2QOKMP55-m9Y2Jk8AUaVHU_HuTwcsRN5Um6Qz7GpjV9vSZTB8lGSZfO=w1200-h630-p-k-no-nu	"/> 	El mañana nunca muere (1997)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/G.I.%20Joe%2C%20el%20origen%20de%20Cobra~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/G.I.%20Joe%2C%20el%20origen%20de%20Cobra.jpg	"/> 	el origen de Cobra	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20El%20Santo%20%282017%29%20720p.mp4	')"><img src="	https://ia801505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_14-56-00.jpg	"/> 	El Santo (2017)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/El%20%C3%BAltimo%20gran%20h%C3%A9roe.mp4	')"><img src="	https://archive.org/download/94-1_20210929/El%20%C3%BAltimo%20gran%20h%C3%A9roe.jpg	"/> 	El último gran héroe	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/El%20vuelo%20del%20halcon.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/El%20vuelo%20del%20halcon.jpg	"/> 	El vuelo del halcon	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/d244a69c8681f159c530d3b76ad6cbbb-480p.mp4	')"><img src="	https://image.tmdb.org/t/p/w1280/iqRUOtbDunNq7gTux3zXz25Krwp.jpg	"/> 	EN BRAZOS DE UN ASESINO	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/En%20tierra%20peligrosa%202%20%281997%29.mp4	')"><img src="	https://i.pinimg.com/474x/cd/72/82/cd728277af5152162088ec3571c3aaeb.jpg	"/> 	En tierra peligrosa 2 (1997)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Enemigo%20pu%CC%81blico%20%281998%29.mp4	')"><img src="	https://gnula.nu/wp-content/uploads/2017/09/Enemy_of_the_State_poster_usa.jpg	"/> 	Enemigo publico (1998)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Fuego%20cruzado%20por%20Navidad%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Fuego_cruzado_por_Navidad-470959519-large.jpg	"/> 	Fuego cruzado por Navidad (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/163031216	')"><img src="	https://pics.filmaffinity.com/Fuego_negro-616588726-large.jpg	"/> 	Fuego negro (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Furia%20de%20titanes%20%282010%29%20720p.mp4	')"><img src="	https://upload.wikimedia.org/wikipedia/en/9/90/Bad_Boys_for_Life_poster.jpg	"/> 	Furia de titanes (2010)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Gattaca%20%281997%29.mp4	')"><img src="	https://pics.filmaffinity.com/Gattaca-237226186-large.jpg	"/> 	Gattaca (1997)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/GoldenEye%20%281995%29.mp4	')"><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/plvWFyL4tQXgWOae0P8A4hECWLD.jpg	"/> 	GoldenEye (1995)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Greenland%20el%20u%CC%81ltimo%20refugio%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Greenland_El_ltimo_refugio-677642385-large.jpg	"/> 	Greenland el u´ltimo refugio (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/163031221	')"><img src="	https://pics.filmaffinity.com/Greyhound_Enemigos_bajo_el_mar-142654194-large.jpg	"/> 	Greyhound enemigos bajo el mar (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/He%CC%81rcules%20El%20origen%20de%20la%20leyenda%20%282014%29.mp4	')"><img src="	https://pics.filmaffinity.com/H_rcules_El_origen_de_la_leyenda-194423889-large.jpg	"/> 	He´rcules El origen de la leyenda (2014)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Headshot%20%282016%29%20720p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/Headshot.jpg	"/> 	Headshot (2016)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Heavenquest%20A%20Pilgrim%27s%20Progress%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BNDk5MGYxZmUtNmJjNC00Y2JjLWJiMTEtMDY4M2QzNzAxNjJiXkEyXkFqcGdeQXVyNDczODQwOTQ@._V1_.jpg	"/> 	Heavenquest A Pilgrim's Progress (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Jackie%20Brown%20%281997%29.mp4	')"><img src="	https://r1.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic1.abc.es%2Fmedia%2Fpeliculas%2F000%2F006%2F994%2Fjackie-brown-1.jpg&nuevoancho=690&medio=abc	"/> 	Jackie Brown (1997)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Jinetes%20de%20la%20justicia.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Jinetes%20de%20la%20justicia.jpg	"/> 	Jinetes de la justicia	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Juez%20Dredd%20%281995%29.mp4	')"><img src="	https://pics.filmaffinity.com/Juez_Dredd-447589318-large.jpg	"/> 	Juez Dredd (1995)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/La%20batalla%20de%20Leningrado.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/La%20batalla%20de%20Leningrado.jpg	"/> 	La batalla de Leningrado	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/La%20delgada%20li%CC%81nea%20roja%20%281998%29.mp4	')"><img src="	https://c8.alamy.com/compes/dta9ar/poster-de-pelicula-la-delgada-linea-roja-1998-dta9ar.jpg	"/> 	La delgada linea roja (1998)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/La%20guerra%20del%20ma%C3%B1ana.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/La%20guerra%20del%20ma%C3%B1ana.jpg	"/> 	La guerra del mañana	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/La%20roca%20%281996%29.mp4	')"><img src="	https://pics.filmaffinity.com/La_roca-309868610-large.jpg	"/> 	La roca (1996)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/163031223	')"><img src="	https://pics.filmaffinity.com/the_old_guard-768938280-large.jpg	"/> 	La vieja guardia (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Land%20of%20Mine%20%28Bajo%20la%20arena%29%20%282015%29.mp4	')"><img src="	https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/cover_290x414/public/media/image/2017/02/land-mine.jpg?itok=MJYpkU34	"/> 	Land of Mine (Bajo la arena) (2015)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Li%CC%81mite%2048%20horas%20%281982%29.mp4	')"><img src="	https://pics.filmaffinity.com/L_mite_48_horas-717276934-mmed.jpg	"/> 	Li´mite 48 horas (1982)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Persecuci%C3%B3n%20extrema%206%2C%20los%20pr%C3%B3ximos%20cuarteles~1.mp4	')"><img src="	https://play-lh.googleusercontent.com/8H3uM3oCkyTPmnGf3k6XmNXDqvCR5UYK2sQGYCTRhrGVVDCUQRwbKrKwuhXKs_hdoRM	"/> 	los próximos cuarteles	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Persecuci%C3%B3n%20extrema%206%2C%20los%20pr%C3%B3ximos%20cuarteles~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Persecuci%C3%B3n%20extrema%206%2C%20los%20pr%C3%B3ximos%20cuarteles.jpg	"/> 	los próximos cuarteles	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Misio%CC%81n%20imposible%20%281996%29.mp4	')"><img src="	https://pics.filmaffinity.com/Misi_n_imposible-107188957-large.jpg	"/> 	Mision imposible (1996)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/163031222	')"><img src="	https://pics.filmaffinity.com/Mortal-463237462-large.jpg	"/> 	Mortal (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Mortal%20Kombat%20%281995%29.mp4	')"><img src="	https://i.pinimg.com/originals/8f/b3/22/8fb322b397abd737d16dae24e2d12586.jpg	"/> 	Mortal Kombat (1995)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Mortal%20Kombat%20Aniquilacio%CC%81n%20%281997%29.mp4	')"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/91/34/93/20141050.jpg	"/> 	Mortal Kombat Aniquilacion (1997)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/No%20Good%20Deed%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BYmI1MTdlYzctMTQ0Yi00NTdmLTk2MjctMTMyZDdiNDYyMzQ3XkEyXkFqcGdeQXVyMTk1NzUwMA@@._V1_.jpg	"/> 	No Good Deed (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/Nocturno%20%282020%29.mp4	')"><img src="	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-LUQo41dJeikT04nuEySGBU42oph93DRk9A&usqp=CAU	"/> 	Nocturno (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/166214689	')"><img src="	https://www.themoviedb.org/t/p/w300_and_h450_bestv2/2zHGNWo4vrAzB5ZqQC0e3p4A2lp.jpg	"/> 	Noelle (2019)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Operacio%CC%81n%20trueno%20%281995%29.mp4	')"><img src="	https://pics.filmaffinity.com/pi_li_huo_thunderbolt-274369800-mmed.jpg	"/> 	Operacion trueno (1995)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/166216422	')"><img src="	https://mx.web.img3.acsta.net/pictures/19/04/17/21/53/0781209.jpg	"/> 	PAW Patrol Mighty Pups (2019)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/166216519	')"><img src="	https://i.pinimg.com/474x/9d/fb/b7/9dfbb7fd5eebd6f34f47f4426fe4ee81.jpg	"/> 	Pledge (2019)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Por%20encima%20de%20la%20ley~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Por%20encima%20de%20la%20ley.jpg	"/> 	Por encima de la ley	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/166216520	')"><img src="	https://m.media-amazon.com/images/M/MV5BODAxNGFhMTEtYWMzYy00NTlkLTk4OGUtMDk2Y2ZjMzhjNzBiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg	"/> 	Primal Tales of Savagery (2019)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/166216521	')"><img src="	https://pics.filmaffinity.com/Proyecto_Power-232352967-large.jpg	"/> 	Proyecto Power (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Pu%C3%B1os%20de%20venganza~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Pu%C3%B1os%20de%20venganza.jpg	"/> 	Puños de venganza	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/1-%20Riesgo%20en%20el%20aire.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/-%20Riesgo%20en%20el%20aire.jpg	"/> 	Riesgo en el aire	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Rogue%20Hostage~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Rogue%20Hostage.jpg	"/> 	Rogue Hostage	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Rompiendo%20las%20reglas%20%282008%29.mp4	')"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/66/70/13/20147182.jpg	"/> 	Rompiendo las reglas (2008)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Rompiendo%20las%20reglas%202%20%282011%29.mp4	')"><img src="	https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWZL5VX8/image?locale=es-mx&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg	"/> 	Rompiendo las reglas 2 (2011)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Salvar%20al%20soldado%20Ryan%20%281998%29.mp4	')"><img src="	https://pics.filmaffinity.com/Salvar_al_soldado_Ryan-585301228-mmed.jpg	"/> 	Salvar al soldado Ryan (1998)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/star-wars-episodio-iii-la-venganza-de-los-sith-2005_20201206/Santana%20%282020%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w600_and_h900_bestv2/fqDGQXMEkc7KROMzzKd8KnqpS4x.jpg	"/> 	Santana (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Serpientes%20en%20el%20avio%CC%81n%20%282006%29.mp4	')"><img src="	https://es.web.img2.acsta.net/pictures/14/03/06/10/46/072132.jpg	"/> 	Serpientes en el avio´n (2006)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Soy%20t%C3%B3xico.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Soy%20t%C3%B3xico.jpg	"/> 	Soy tóxico	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Speed%202%20%281997%29.mp4	')"><img src="	data:image/jpeg;base64,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	"/> 	Speed 2 (1997)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/star-wars-episodio-iii-la-venganza-de-los-sith-2005_20201206/Spenser%20confidencial%20%282020%29.mp4	')"><img src="	https://1.bp.blogspot.com/-AxA2Fp267NQ/X0Pvus7wliI/AAAAAAAABII/7h7k_ola320-XmfyaAyW2aRJJWNNIEzCgCLcBGAsYHQ/s640/spenser-confidential-movie-HD-Poster-.jpg	"/> 	Spenser confidencial (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Sr%20y%20Sra%20Smith.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Sr%20y%20Sra%20Smith.jpg	"/> 	Sr y Sra Smith	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/SWAT%20%282019%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w500/wFklu01YHWhp2MxljR8e3XyvpPp.jpg	"/> 	SWAT (2019)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/star-wars-episodio-iii-la-venganza-de-los-sith-2005_20201206/Temblores%207%20La%20Isla%20Shrieker%20%282020%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w500/46qwaON7l11M407rqh8lD4vXcAR.jpg	"/> 	Temblores 7 La Isla Shrieker (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/star-wars-episodio-iii-la-venganza-de-los-sith-2005_20201206/Terminator%201_%20El%20exterminador%20%281983%29.mp4	')"><img src="	https://pics.filmaffinity.com/Terminator_El_exterminador-778052251-large.jpg	"/> 	Terminator 1_ El exterminador (1983)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/The%20Doorman%20%282020%29.mp4	')"><img src="	https://upload.wikimedia.org/wikipedia/en/thumb/6/6f/Doorman_teaser_poster.jpg/220px-Doorman_teaser_poster.jpg	"/> 	The Doorman (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/The%20Game%20%281997%29.mp4	')"><img src="	https://i.imgur.com/uv9u9rz.jpg	"/> 	The Game (1997)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/The%20Immortal%20Wars%20Resurgence%20%282019%29.mp4	')"><img src="	https://pics.filmaffinity.com/The_Immortal_Wars_Resurgence-139783082-large.jpg	"/> 	The Immortal Wars Resurgence (2019)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/velvet-buzzsaw-2019_202012/The%20Outpost%20%282020%29.mp4	')"><img src="	https://media-cache.cinematerial.com/p/500x/qldym3hg/the-outpost-canadian-dvd-movie-cover.jpg?v=1592364435,JPG	"/> 	The Outpost (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/The%20Tax%20Collector%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BMmFmZTdhYmItNjIyZS00ZjVlLWFjZjgtMjMyMDA5ZmVjNzE0XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg	"/> 	The Tax Collector (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20The%20Worthy%20%282016%29%20720p.mp4	')"><img src="	https://ia801505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_17-17-56.jpg	"/> 	The Worthy (2016) 720p.mp4	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/velvet-buzzsaw-2019_202012/Tiempo%20de%20caza%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Tiempo_de_caza-624991569-large.jpg	"/> 	Tiempo de caza (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Top%20Gun.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Top%20Gun.jpg	"/> 	Top Gun	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Tras%20la%20li%CC%81nea%20enemiga%20%282001%29.mp4	')"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/90/00/54/20076452.jpg	"/> 	Tras la li´nea enemiga (2001)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/Tremors%20Shrieker%20Island%20%282020%29.mp4	')"><img src="	https://i2.wp.com/pitakwa360.com/wp-content/uploads/2020/10/Tremors-Shrieker-Island-2020-movie-poster.jpg?resize=344%2C487&ssl=1	"/> 	Tremors Shrieker Island (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Trust%20No%201%20%282019%29.mp4	')"><img src="	https://img.repelis.id/cover/trust-no-1-1597343713.jpg	"/> 	Trust No 1 (2019)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Un%20ladro%CC%81n%20honesto%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/honest_thief-988558041-large.jpg	"/> 	Un ladro´n honesto (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Hora%20punta%20%281998%29.mp4	')"><img src="	https://images-na.ssl-images-amazon.com/images/I/710AJxDLDDL._AC_SL1000_.jpg	"/> 	una pareja explosiva	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Ver%20Cuesti%C3%B3n%20de%20sangre%20%282021%29%20480%20%40JuAnChO1304~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Cuesti%C3%B3n%20de%20sangre.jpg	"/> 	Ver Cuestión de sangre (2021)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Violento%20y%20furioso.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Violento%20y%20furioso.jpg	"/> 	Violento y furioso	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Viuda%20negra.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Viuda%20negra.jpg	"/> 	Viuda negra	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Walker%202.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Walker%202.jpg	"/> 	Walker 2	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/War%20Path.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/War%20Path.jpg	"/> 	War Path	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Welcome%20to%20Sudden%20Death%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BMmU4MDdlMTUtOTAyMC00YzQ3LWFhYWQtNDUxNjhiNzM4NzIwXkEyXkFqcGdeQXVyODQ4NjA3Mw@@._V1_.jpg	"/> 	Welcome to Sudden Death (2020)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20Wheelman%20%282017%29%20720p.mp4	')"><img src="	https://ia601505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_05-24-26.jpg	"/> 	Wheelman (2017)	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Wolf%20Warrior%202.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Wolf%20Warrior%202.jpg	"/> 	Wolf Warrior 2	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Wrong%20Place%20Wrong%20Time.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Wrong%20Place%20Wrong%20Time.jpg	"/> 	Wrong Place Wrong Time	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/3316c37e0c1225379cce86cfaa6f77bb-480p.mp4	')"><img src="	https://pics.filmaffinity.com/Zona_hostil-925160082-large.jpg	"/> 	ZONA HOSTIL	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Kill%20Bill%202~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Kill%20Bill%202.jpg	"/> 	Kill Bill 2	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Mentiras%20verdaderas~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Mentiras%20verdaderas.jpg	"/> 	Mentiras verdaderas	<h4> 	ACCION	</h4></a></li>
+<li><a href="#" onclick="changeVideo('http://158.69.158.102/Peliculas/Listo/30122022_1402/saving_private_ryan.mkv')')"><img src=" https://www.themoviedb.org/t/p/w300_and_h450_bestv2/dcKfD8xWf8XnS3tHVp7v331wdNT.jpg " alt="Portada de Video 1"><h3> Rescatando Al Soldado Ryan  </h3><h4> Segunda Guerra Mundial (1939-1945). Tras el desembarco de los Aliados en Normandía, a un grupo de soldados americanos se le encomienda una peligrosa misión: poner a salvo al soldado James Ryan. Los hombres de la patrulla del capitán John Miller deben arriesgar sus vidas para encontrar a este soldado, cuyos tres hermanos han muerto en la guerra. Lo único que se sabe del soldado Ryan es que se lanzó con su escuadrón de paracaidistas detrás de las líneas enemigas. </h4>  </h4></a></li>
+
+
+
+
+
+
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+<button id="abajo"> 
+   <a href="#arriba"> <input type="image" src="https://static.vecteezy.com/system/resources/thumbnails/016/770/568/small/red-directional-arrow-on-transparent-background-free-png.png" style="position: fixed; bottom: 20em;  right: 0em; z-index: 2;" height="20" width="20"/>   </a>
+    <a name="abajo"></a>
+  </button>
+
+
+ </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+window.addEventListener('load', function() {
+  var boton = document.getElementById('menu-button');
+  var lista = document.getElementById('video-list');
+  var temporizador;
+  
+  boton.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  lista.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  boton.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+  
+  lista.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+});
+
+
+
+
+
+
+
+
+const menuButton = document.getElementById('menu-button');
+const videoList = document.getElementById('video-list');
+const videoPlayer = document.getElementById('video');
+
+menuButton.addEventListener('click', () => {
+  if (videoList.style.display === 'none') {
+    videoList.style.display = 'block';
+  } else {
+    videoList.style.display = 'none';
+  }
+});
+
+function changeVideo(src) {
+  videoPlayer.src = src;
+  videoPlayer.play();
+  videoList.style.display = 'none';
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

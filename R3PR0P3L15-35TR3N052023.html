@@ -1,0 +1,509 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv = «X-UA-compatible» content = «IE = 9; IE = 7; IE = 8; IE = EDGE, Chrome = 1″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title> REPRO  </title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</script>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
+
+
+<style type="text/css">
+
+body  {
+    text-decoration: none;
+    background: #000000;
+outline: none;
+}
+
+
+
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 130%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #52c2ff;
+    Position: absolute;
+    top: 45px;
+    right: 20px;
+    font-size: 120%;
+    outline: none;
+    overflow-y: scroll;
+    height: 80px;
+    width: 325px;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1280px){
+    
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 37%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 90%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #57aced;
+    Position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 90%;
+    outline: none;
+    overflow-y: scroll;
+    height: 90px;
+    width: 235px;
+}
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 480px){
+    #video-player{
+    height: calc(100% - 1*1px);
+    margin-top: 1em;
+}
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 11.8em;
+    RIGHT: 0px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 2px 0px 1px;
+    width: 306px;
+    justify-items: start;
+}
+    #menu-button{
+    display: flex;
+    width: 100%;
+    height: 65px;
+    top: -1em;
+}
+#video-list a img {
+    border-radius: 5px;
+    width: 80px;
+    outline: none;
+}
+h4  {
+    Margin-top: 2px;
+    padding-bottom: 60px;
+    color: #06fd06;
+    Position: absolute;
+    right: -10px;
+    top: 45px;
+    font-size: 90%;
+    width: 230px;
+    height: 7px;
+    padding-top: 2px;
+    overflow-y: scroll;
+}
+
+}
+
+ #arriba{
+    background: #fcfcfc00;
+}
+ #abajo{
+    background: #fcfcfc00;
+
+}
+
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div id="video-player" >
+  <video src="#" controls id="video" poster="https://chanjdm.github.io/JDM/jdmflixbordes.jpg"></video>
+  <button id="menu-button">             </button>
+  
+
+
+  
+  
+  <ul id="video-list">
+
+
+<button id="arriba">
+      <a name="arriba"></a>
+    <a href="#abajo"> <input type="image" src="https://cdn.pixabay.com/photo/2013/07/13/10/22/arrow-157087_960_720.png" style="position: fixed; bottom: 25em;  right: 0em; z-index: 2; " height="20" width="20"/>     </a>
+  </button>
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+
+
+<li><a href="#" onclick="changeVideo('http://51.81.208.167/pelis2023/Ant-Man.and.the.Wasp.Quantumania.2023.720p-dual-lat.mkv')')"><img src=" https://www.themoviedb.org/t/p/w94_and_h141_bestv2/jTNYlTEijZ6c8Mn4gvINOeB2HWM.jpg " alt="Portada de Video 1"><h3>  Ant-Man y la Avispa: Quantumanía </h3><h4>La pareja de superhéroes Scott Lang y Hope van Dyne regresa para continuar sus aventuras como Ant-Man y la Avispa. Los dos, junto a los padres de Hope, Hank Pym y Janet van Dyne y la hija de Scott, Cassie Lang, se dedican a explorar el Mundo Cuántico, interactuando con nuevas y extrañas criaturas y embarcándose en una aventura que les llevará más allá de los límites de lo que creían posible. </h4>  </h4></a></li>
+
+<li><a href="#" onclick="changeVideo('http://45.179.164.59:8181/Peliculas/2023/65%20AL%20BORDE%20LA%20EXTINCION.mkv')')"><img src=" https://www.themoviedb.org/t/p/w94_and_h141_bestv2/dhqu9rInT9IOa2w0TU22YMEgGus.jpg " alt="Portada de Video 1"><h3> 65 Al Borde De La Extincion </h3><h4> Después de un catastrófico accidente en un planeta desconocido, el piloto Mills descubre rápidamente que realmente está varado en la Tierra… hace 65 millones de años. Ahora, con solo una oportunidad de rescate, Mills y la otra única superviviente, Koa, deberán abrirse camino a través del desconocido territorio plagado con peligrosas criaturas prehistóricas en una épica lucha por sobrevivir.</h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://51.81.208.167/pelis2023/The.Super.Mario.Bros.Movie.2023-RmTv.mp4')')"><img src=" https://www.themoviedb.org/t/p/w94_and_h141_bestv2/zNKs1T0VZuJiVuhuL5GSCNkGdxf.jpg" alt="Portada de Video 1"><h3>  Súper Mario Bros: La película </h3><h4> Mientras trabajan en una avería subterránea, los fontaneros de Brooklyn, Mario y su hermano Luigi, viajan por una misteriosa tubería hasta un nuevo mundo mágico. Pero, cuando los hermanos se separan, Mario deberá emprender una épica misión para encontrar a Luigi. Con la ayuda del champiñón local Toad y unas cuantas nociones de combate de la guerrera líder del Reino Champiñón, la princesa Peach, Mario descubre todo el poder que alberga en su interior. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://45.179.164.59:8181/Peliculas/2023/Hunger.2023.720p/Hunger.2023.720p.mkv')')"><img src=" https://m.media-amazon.com/images/M/MV5BZDVjZGJlZDItMTAzZS00MzBiLWJkOWItNWY5ODhiYzZhNWRmXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_FMjpg_UY2048_.jpg" alt="Portada de Video 1"><h3>  Hambre </h3><h4> Una mujer que dirige el restaurante de fideos de su familia recibe una invitación para unirse a la industria de la alta cocina bajo la tutela de un infame chef. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://158.69.224.17:88/edmian/Operation.Fortune.Ruse.De.Guerre.2023.720p%20(1).mkv')')"><img src="https://www.themoviedb.org/t/p/w94_and_h141_bestv2/37zlKKOEJ2CqCYTF8rmCSPYo3Dv.jpg " alt="Portada de Video 1"><h3> Operación Fortune: El gran engaño  </h3><h4> La historia de un agente que es reclutado por una alianza de inteligencia global para rastrear y detener la venta de nuevas tecnologías de armas mortales. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://158.69.224.17:88/edmian/Mi.maestra.se.comio.a.mi.amigo.2023.720p.mkv')')"><img src="https://www.themoviedb.org/t/p/w94_and_h141_bestv2/5MiVG39r82aYUAtvs3bTycmbewJ.jpg " alt="Portada de Video 1"><h3> Mi maestra se comió a mi amigo  </h3><h4> Tomás, un niño que vive en un mundo de fantasía debe usar su sabiduría de monstruos para pelear contra su nueva maestra de inglés: una mujer malvada que es en realidad un monstruo que come niños cada setenta años. Es hora de que Tomás y sus dos mejores amigos se vuelvan los héroes de su propia historia de monstruos. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://158.69.224.17:88/edmian/Mi.Suegra.Me.Odia.2022.720p.mkv')')"><img src="https://www.themoviedb.org/t/p/w94_and_h141_bestv2/xEZ3h6D7MdMpszVjCWibLEsbjx6.jpg " alt="Portada de Video 1"><h3> Mi suegra me odia </h3><h4>Clara es una mujer que ha sido rechazada toda su vida por ser extremadamente ordenada y limpia. Cuando el amor de su vida la invita a conocer a su suegra, Regina, Clara hará lo imposible por ganarse su aprobación sin saber que Regina es extremadamente opuesta a ella: es acumuladora compulsiva, nudista y vegetariana extrema. Si Clara no logra conquistar a su exigente suegra en un fin de semana, perderá al único hombre que la quiere tal y cómo es. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://51.81.208.167/pelis2023/On.a.Wing.and.a.Prayer.2023.lati.mp4')')"><img src=" https://www.themoviedb.org/t/p/w94_and_h141_bestv2/m5nXOX4GmuCNzv29qswOZrMWU5P.jpg " alt="Portada de Video 1"><h3>  Mientras Haya Esperanza </h3><h4> Después de que un piloto muere inesperadamente mientras volaba el avión, un pasajero se ve obligado a aterrizar el avión de manera segura para salvar a toda su familia. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://45.179.164.59:8181/Peliculas/2023/%c2%a1Shazam!.La.furia.de.los.dioses.2023.720p-dual-lat/%c2%a1Shazam!.La.furia.de.los.dioses.2023.720p-dual-lat.mkv')')"><img src=" https://www.themoviedb.org/t/p/w94_and_h141_bestv2/nDc8SyKGp6p3b3NdZwVGGCMkOdS.jpg " alt="Portada de Video 1"><h3>  Shazam 2 </h3><h4> Billy Batson y sus hermanos adoptivos, que se transforman en superhéroes al decir "¡Shazam!", se ven obligados a volver a la acción y luchar contra las Hijas de Atlas, a quienes deben evitar que use un arma que podría destruir el mundo.</h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://45.179.164.59:8181/Peliculas/2023/Chupa.2023.720p/Chupa.2023.720p.mkv')')"><img src=" https://www.themoviedb.org/t/p/w94_and_h141_bestv2/dAwvE6Vd4mhlx2xJU6PqjBAM2y5.jpg " alt="Portada de Video 1"><h3>  Chupa </h3><h4> Álex es un adolescente que ha ido a ver a su familia a México. En el cobertizo de su abuelo, se encuentra a un cachorro de chupacabras y se hacen amigos. Para salvar a esta criatura mítica, Álex y sus primos emprenden la aventura de su vida. </h4>  </h4></a></li>
+<li><a href="https://ok.ru/videoembed/4601310874366" target="blank" onclick="changeVideo('## LINK ##')')"><img src=" https://www.themoviedb.org/t/p/w94_and_h141_bestv2/sGSzha9K65abyvzBwXXnSV2sHWV.jpg" alt="Portada de Video 1"><h3>  La Niña De La Comunion </h3><h4> Finales de los 80, en un pueblo no determinado. Sara (Carla Campra) acaba de llegar al pueblo y no encuentra su lugar en ese espacio cerrado. Su mejor amiga es Rebe (Aina Quiñones), mucho más extrovertida. Una noche van a una discoteca, toman drogas y durante el trayecto a casa encontrarán una muñeca vestida de comunión. A partir de ese momento, comenzará la pesadilla. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://45.179.164.59:8181/Peliculas/2023/%c3%89rase.una.vez.un.genio.2022.720p-dual-lat/%c3%89rase.una.vez.un.genio.2022.720p-dual-lat.mkv')')"><img src=" https://www.themoviedb.org/t/p/w94_and_h141_bestv2/2eAjJ3oRr7tOI82h1H8M6z8r7bC.jpg " alt="Portada de Video 1"><h3>  Tres mil años esperándote </h3><h4> #La Dra. en literatura Alithea Binnie (Tilda Swinton) parece estar feliz con su vida aunque se enfrenta al mundo con cierto escepticismo. De repente, se encuentra con un genio (Idris Elba) que ofrece concederle tres deseos a cambio de su libertad. En un principio, Alithea se niega a aceptar la oferta ya que sabe que todos los cuentos sobre conceder deseos acaban mal. El genio defiende su posición contándole diversas historias fantásticas de su pasado. Finalmente, ella se deja persuadir y pedirá un deseo que sorprenderá a ambos. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://51.81.208.167/pelis2023/The.Whale.2022.lati.mp4')')"><img src=" https://www.themoviedb.org/t/p/w94_and_h141_bestv2/irhIdN4KDOdmTXpplSAwCGZYDSL.jpg " alt="Portada de Video 1"><h3>  La Ballena </h3><h4> Un solitario profesor de inglés con obesidad severa intenta reconectar con su hija adolescente en una última oportunidad de redención. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://51.81.208.167/pelis2023/Knock.at.the.Cabin.2023.mp4')')"><img src=" https://www.themoviedb.org/t/p/w94_and_h141_bestv2/4Zna9CvyzaAgejsErmyXmHC64Dd.jpg " alt="Portada de Video 1"><h3>  Llaman a la puerta </h3><h4> Durante unas vacaciones en una cabaña en un bosque alejada de todo, una niña y sus padres se convierten en rehenes de cuatro desconocidos armados que obligan a la familia a tomar una decisión imposible para evitar el apocalipsis. Con acceso limitado al mundo exterior, la familia deberá decidir qué creer antes de que todo esté perdido. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('http://45.179.164.59:8181/Peliculas/2023/Avatar%20The%20Way%20Of%20Water%20(2022)%20%5b720p%5d/Avatar.The.Way.Of.Water.2022.mkv')')"><img src=" https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/12/w1280/kUAG4ZQcsNbRyiPyAr3hLdsVgAq.jpg " alt="Portada de Video 1"><h3>  AVATAR El Sentido Del Agua </h3><h4> Más de una década después de los acontecimientos de 'Avatar', los Na'vi Jake Sully, Neytiri y sus hijos viven en paz en los bosques de Pandora hasta que regresan los hombres del cielo. Entonces comienzan los problemas que persiguen sin descanso a la familia Sully, que decide hacer un gran sacrificio para mantener a su pueblo a salvo y seguir ellos con vida. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('https://archive.org/download/01_20230329_20230329_1903/01.mp4')')"><img src=" https://m.media-amazon.com/images/M/MV5BMzEzOWFmNmUtYWQ3NC00YTUzLTlhM2QtMmEyYmMzZWMzZDEwXkEyXkFqcGdeQXVyMzQxMzk5NjY@._V1_.jpg " alt="Portada de Video 1"><h3>  Furies  </h3><h4> Una mujer misteriosa entrena a un trío de chicas para vengarse de una banda criminal que abusa de las mujeres. Las tres damas guerreras arriesgan todo para desafiar a este imperio corrupto, antes de finalmente descubrir que su causa no es lo que creían que era. </h4>  </h4></a></li>
+<li><a href="#" onclick="changeVideo('href="http://vod.tuxchannel.mx/peliculas/720/chor%20nikal%20ke%20bhaga%202023.mkv')')"><img src=" https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/9d0rhU1s3VHH84bWxM0F6dEKUm2.jpg " alt="Portada de Video 1"><h3>  El vuelo de los ladrones (2023)</h3><h4> Una azafata y su novio deben robar un cargamento de diamantes para saldar una vieja deuda. Pero su plan se complica cuando secuestran el avión en el que viajan. </h4>  </h4></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+<button id="abajo"> 
+   <a href="#arriba"> <input type="image" src="https://static.vecteezy.com/system/resources/thumbnails/016/770/568/small/red-directional-arrow-on-transparent-background-free-png.png" style="position: fixed; bottom: 20em;  right: 0em; z-index: 2;" height="20" width="20"/>   </a>
+    <a name="abajo"></a>
+  </button>
+
+
+ </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+window.addEventListener('load', function() {
+  var boton = document.getElementById('menu-button');
+  var lista = document.getElementById('video-list');
+  var temporizador;
+  
+  boton.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  lista.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  boton.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+  
+  lista.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+});
+
+
+
+
+
+
+
+
+const menuButton = document.getElementById('menu-button');
+const videoList = document.getElementById('video-list');
+const videoPlayer = document.getElementById('video');
+
+menuButton.addEventListener('click', () => {
+  if (videoList.style.display === 'none') {
+    videoList.style.display = 'block';
+  } else {
+    videoList.style.display = 'none';
+  }
+});
+
+function changeVideo(src) {
+  videoPlayer.src = src;
+  videoPlayer.play();
+  videoList.style.display = 'none';
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,596 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv = «X-UA-compatible» content = «IE = 9; IE = 7; IE = 8; IE = EDGE, Chrome = 1″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title> REPRO  </title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</script>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
+
+
+<style type="text/css">
+
+body  {
+    text-decoration: none;
+    background: #000000;
+outline: none;
+}
+
+
+
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 130%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #52c2ff;
+    Position: absolute;
+    top: 45px;
+    right: 20px;
+    font-size: 120%;
+    outline: none;
+    overflow-y: scroll;
+    height: 80px;
+    width: 325px;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1280px){
+    
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 37%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 90%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #57aced;
+    Position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 90%;
+    outline: none;
+    overflow-y: scroll;
+    height: 90px;
+    width: 235px;
+}
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 480px){
+    #video-player{
+    height: calc(100% - 1*1px);
+    margin-top: 1em;
+}
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 11.8em;
+    RIGHT: 0px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 2px 0px 1px;
+    width: 306px;
+    justify-items: start;
+}
+    #menu-button{
+    display: flex;
+    width: 100%;
+    height: 65px;
+    top: -1em;
+}
+#video-list a img {
+    border-radius: 5px;
+    width: 80px;
+    outline: none;
+}
+h4  {
+    Margin-top: 2px;
+    padding-bottom: 60px;
+    color: #06fd06;
+    Position: absolute;
+    right: -10px;
+    top: 45px;
+    font-size: 90%;
+    width: 230px;
+    height: 7px;
+    padding-top: 2px;
+    overflow-y: scroll;
+}
+
+}
+
+ #arriba{
+    background: #fcfcfc00;
+}
+ #abajo{
+    background: #fcfcfc00;
+
+}
+
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div id="video-player" >
+  <video src="#" controls id="video" poster="https://chanjdm.github.io/JDM/jdmflixbordes.jpg"></video>
+  <button id="menu-button">             </button>
+  
+
+
+  
+  
+  <ul id="video-list">
+
+
+<button id="arriba">
+      <a name="arriba"></a>
+    <a href="#abajo"> <input type="image" src="https://cdn.pixabay.com/photo/2013/07/13/10/22/arrow-157087_960_720.png" style="position: fixed; bottom: 25em;  right: 0em; z-index: 2; " height="20" width="20"/>     </a>
+  </button>
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+
+
+
+
+
+
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/la-navidad-magica-de-los-jangle-2020_20201213/A%20Feral%20World%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BYmYyNzlhZGUtMjMyZC00NWRjLTg5MjQtZDRjNzZlYmYyM2FkXkEyXkFqcGdeQXVyNDEzNzMxMA@@._V1_.jpg	"/> 	A Feral World (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020/Algunas%20veces%20ellos%20vuelven%20%281991%29.mp4	')"><img src="	https://cartelesmix.es/cartelesdecine/wp-content/uploads/2017/12/algunasvecesellosvuelven91002.jpg	"/> 	Algunas veces ellos vuelven (1991)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Alta%20tensio%CC%81n%20%282003%29-1.mp4	')"><img src="	https://pics.filmaffinity.com/Alta_tensi_n-258012416-large.jpg	"/> 	Alta tensio´n (2003)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Amityville%20El%20despertar.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Amityville%20El%20despertar.jpg	"/> 	Amityville El despertar	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Anatomi%CC%81a%20%282000%29.mp4	')"><img src="	https://pics.filmaffinity.com/Anatom_a-910433213-large.jpg	"/> 	Anatomi´a (2000)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Anatomi%CC%81a%202%20%282003%29.mp4	')"><img src="	https://pics.filmaffinity.com/Anatom_a_2-669670489-large.jpg	"/> 	Anatomia 2 (2003)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/Antebellum%20%282020%29.mp4	')"><img src="	https://images.squarespace-cdn.com/content/v1/511eea22e4b06642027a9a99/1600835095406-J2SG1OJCLCXVMVBB4CSH/ke17ZwdGBToddI8pDm48kObW5L834DLeOoedDyYNM0VZw-zPPgdn4jUwVcJE1ZvWEtT5uBSRWt4vQZAgTJucoTqqXjS3CfNDSuuf31e0tVE0HBlqxyJ0FKkj7k-nCdscI18NqvNAsmDs0Oklw-0igruvPknf91-IP_XxpMjX9og/image-asset.jpeg	"/> 	Antebellum (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/Asylum%20Twisted%20Horror%20%26%20Fantasy%20Tales%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BY2RhMjM3ODMtOWU1MC00ODE4LWI1NTktYmY1MzZiOWVkZjZkXkEyXkFqcGdeQXVyNzc0MTgzMzU@._V1_.jpg	"/> 	Asylum Twisted Horror & Fantasy Tales (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Atakan%2C%20The%20Bloody%20Legend.mp4	')"><img src="	https://s3-eu-west-1.amazonaws.com/abandomedia/db/poster/db_poster_40701.jpg	"/> 	Atakan The Bloody Legend	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/la-navidad-magica-de-los-jangle-2020_20201213/Baba%20Yaga%20El%20regreso%20del%20demonio%20%282020%29.mp4	')"><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/8m5HTXzwewlfXhtZtLlLts53YTW.jpg	"/> 	Baba Yaga El regreso del demonio (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Bad%20Witch.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Bad%20Witch.jpg	"/> 	Bad Witch	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Carrie%20%282002%29.mp4	')"><img src="	https://3.bp.blogspot.com/-pgY7PgWpN-k/UtdwNdkKBnI/AAAAAAAAFxM/TSeSNy9hbTs/s1600/front.jpg	"/> 	Carrie (2002)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/la-navidad-magica-de-los-jangle-2020_20201213/Casa%20ajena%20%282020%29.mp4	')"><img src="	https://www.alohacriticon.com/wp-content/uploads/2020/10/casa-ajena-his-house-netflix-poster.jpg	"/> 	Casa ajena (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Cementerio%20General%20%282013%29.mp4	')"><img src="	https://cdn.cinencuentro.com/wp-content/uploads/2013/07/Cementerio-General-poster1.jpg	"/> 	Cementerio General (2013)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/Come%20Play%20%282020%29.mp4	')"><img src="	https://i1.wp.com/www.soloplay.ng/wp-content/uploads/2020/11/Movie-come-play.jpeg?resize=720%2C1080&ssl=1	"/> 	Come Play (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Los%20viajeros%20de%20la%20noche~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Los%20viajeros%20de%20la%20noche.jpg	"/> 	Cuando cae la oscuridad	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw/Cuidado%20con%20lo%20que%20deseas%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Cuidado_con_lo_que_deseas-218046821-large.jpg	"/> 	Cuidado con lo que deseas 2020	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Curse%20of%20the%20Blair%20Witch%20%281999%29.mp4	')"><img src="	https://pics.filmaffinity.com/Curse_of_the_Blair_Witch_TV-960024835-mmed.jpg	"/> 	Curse of the Blair Witch (1999)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/DeadTectives%20%282019%29.mp4	')"><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/6DTcWoo8wWl2f2YPp21hfGAAD7O.jpg	"/> 	DeadTectives (2019)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Diavlo.mp4	')"><img src="	https://archive.org/download/yummy_202105/Diavlo.jpg	"/> 	Diavlo	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/El%20Aro%20Resurrecci%C3%B3n~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/El%20Aro%20Resurrecci%C3%B3n.jpg	"/> 	El Aro Resurrección	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/El%20club%20de%20los%20vampiros%20%281996%29.mp4	')"><img src="	https://pics.filmaffinity.com/El_club_de_los_vampiros-589423850-mmed.jpg	"/> 	El club de los vampiros (1996)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20cuervo%202%2C%20ciudad%20de%20%C3%A1ngeles.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20cuervo%202%2C%20ciudad%20de%20%C3%A1ngeles.jpg	"/> 	El cuervo 2 ciudad de ángeles	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/El%20exorcismo%20de%20Carmen%20Far%C3%ADas.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/El%20exorcismo%20de%20Carmen%20Far%C3%ADas.jpg	"/> 	El exorcismo de Carmen Farías	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/El%20Halloween%20de%20Hubie%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/El_halloween_de_Hubie-100843653-mmed.jpg	"/> 	El Halloween de Hubie (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/Transilvania%2C%20el%20imperio%20prohibido%20%282014%29.mp4	')"><img src="	https://pics.filmaffinity.com/viy_3d-656915198-large.jpg	"/> 	el imperio prohibido (2014)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Entrevista%20con%20el%20vampiro.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Entrevista%20con%20el%20vampiro.jpg	"/> 	Entrevista con el vampiro	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Escape%20to%20the%20Cove.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Escape%20to%20the%20Cove.jpg	"/> 	Escape to the Cove	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw/Este%20cuerpo%20me%20sienta%20de%20muerte%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Este_cuerpo_me_sienta_de_muerte-347088392-large.jpg	"/> 	Este cuerpo me sienta de muerte (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Fat%20Ass%20Zombies%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Fat_Ass_Zombies-343334670-large.jpg	"/> 	Fat Ass Zombies (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Framed%20%282017%29.mp4	')"><img src="	https://pics.filmaffinity.com/Framed-193211957-large.jpg	"/> 	Framed (2017)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Freddy%20contra%20Jason%20%282003%29%201080p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/-%20Freddy%20contra%20Jason.jpg	"/> 	Freddy contra Jason (2003) 1080p.mp4	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Harpoon%20%282019%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w500/yerfXP5rkPOhQVWVJhGPt399kLv.jpg	"/> 	Harpoon (2019)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/In%20The%20Earth.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/In%20The%20Earth.jpg	"/> 	In The Earth	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20It%20%282017%29%20720p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/-%20It%20%20El%20payaso%20asesino%202.jpg	"/> 	It (2017) 720p.mp4	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20It%20Cap%C3%ADtulo%20dos%20%282019%29%20720p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/It%202.jpg	"/> 	It Capítulo dos (2019) 720p.mp4	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw/Jo%CC%81venes%20y%20brujas%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/J_venes_y_brujas-806031166-large.jpg	"/> 	Jo´venes y brujas (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/-%20J%C3%B3venes%20y%20brujas.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/-%20J%C3%B3venes%20y%20brujas.jpg	"/> 	Jovenes y brujas	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/163031043	')"><img src="	https://pics.filmaffinity.com/Juegos_salvajes-358392029-large.jpg	"/> 	Juegos salvajes (1998)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/la-navidad-magica-de-los-jangle-2020_20201213/Juguetes%20del%20Terror%20%282020%29.mp4	')"><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/nlu8YdfUNRrxonk1fvgr2jyXkBm.jpg	"/> 	Juguetes del Terror (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/La%20cosecha%20%282007%29.mp4	')"><img src="	https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/89/57/73/20056052.jpg	"/> 	La cosecha (2007)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/La%20Llorona%20%282020%29.mp4	')"><img src="	https://es.web.img2.acsta.net/pictures/19/09/16/22/57/1180405.jpg	"/> 	La Llorona (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/La%20Maldicio%CC%81n%20de%20la%20Sirena%20%282019%29.mp4	')"><img src="	https://pics.filmaffinity.com/La_maldici_n_de_la_sirena-579165386-large.jpg	"/> 	La Maldicio´n de la Sirena (2019)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/La%20noche%20de%20los%20muertos%20vivientes%20%281990%29.mp4	')"><img src="	https://pics.filmaffinity.com/La_noche_de_los_muertos_vivientes-404634659-large.jpg	"/> 	La noche de los muertos vivientes (1990)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/%40cesser16%20Las%20formas%20antiguas%20%282020%29%201080p~1.mp4	')"><img src="	https://pics.filmaffinity.com/the_old_ways-698410071-mmed.jpg	"/> 	Las formas antiguas	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/Lazos%20malditos%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/il_legame-609630553-large.jpg	"/> 	Lazos malditos (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Los%20chicos%20del%20mai%CC%81z%20%281984%29.mp4	')"><img src="	https://r4.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic3.abc.es%2Fmedia%2Fpeliculas%2F000%2F007%2F403%2Flos-chicos-del-maiz-1.jpg&nuevoancho=690&medio=abc	"/> 	Los chicos del mai´z (1984)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Maligno.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Maligno.jpg	"/> 	Maligno	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/la-navidad-magica-de-los-jangle-2020_20201213/Nadie%20duerme%20en%20el%20bosque%20esta%20noche%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/w_lesie_dzis_nie_zasnie_nikt-412797928-large.jpg	"/> 	Nadie duerme en el bosque esta noche (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20Paredes%20siniestras.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Paredes%20siniestras.jpg	"/> 	Paredes siniestras	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Pesadilla%20en%20la%20calle%20del%20infierno%20%281984%29%201080p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/-%20Pesadilla%20en%20la%20calle%20del%20infierno.jpg	"/> 	Pesadilla en la calle del infierno (1984) 1080p.mp4	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Pesadilla%20en%20la%20calle%20del%20infierno%205%20%281989%29%20720p.mp4	')"><img src="	https://r3.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic2.abc.es%2Fmedia%2Fpeliculas%2F000%2F020%2F043%2Fpesadilla-en-elm-street-5-1.jpg&nuevoancho=620&medio=abc	"/> 	Pesadilla en la calle del infierno 5 (1989) 720p.mp4	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Pesadilla%20en%20la%20calle%20del%20infierno%206%20%281991%29%201080p.mp4	')"><img src="	https://pics.filmaffinity.com/Pesadilla_en_la_calle_del_infierno_6_La_muerte_de_Freddy-934501006-large.jpg	"/> 	Pesadilla en la calle del infierno 6 (1991) 1080p.mp4	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Pesadilla%20en%20la%20calle%20del%20infierno%207%20%281994%29%20720p.mp4	')"><img src="	https://img.repelis.id/cover/la-nueva-pesadilla-de-wes-craven.jpg	"/> 	Pesadilla en la calle del infierno 7 (1994) 720p.mp4	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Pesadilla%20en%20la%20calle%20del%20infierno%208%20%282010%29%20720p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/-%20Pesadilla%20en%20la%20calle%20del%20infierno%208.jpg	"/> 	Pesadilla en la calle del infierno 8 (2010) 720p.mp4	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Pipeline.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Pipeline.jpg	"/> 	Pipeline	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20Prueba%20de%20fe.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Prueba%20de%20fe.jpg	"/> 	Prueba de fe	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Re-sonator~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Re-sonator.jpg	"/> 	Re-sonator	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/ReVisitant.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/ReVisitant.jpg	"/> 	ReVisitant	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Robert%20Reborn%20%282019%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BZjRiZTRjODctNWMzYi00ZGFiLTkyYjgtNGI3NjcwNmM1YWRkXkEyXkFqcGdeQXVyMzE3NjQ5NA@@._V1_.jpg	"/> 	Robert Reborn (2019)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Ruega%20por%20nosotros.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Ruega%20por%20nosotros.jpg	"/> 	Ruega por nosotros	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Saw%20VII%20%282010%29.mp4	')"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/82/74/47/19634612.jpg	"/> 	Saw VII (2010)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Scream%20at%20the%20Devil%20%282015%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BODc0NDEyNWMtYmQ1OS00MWVhLThjZjctMDNhMWE1MDQyNmVhXkEyXkFqcGdeQXVyMjI4NDI5Njc@._V1_.jpg	"/> 	Scream at the Devil (2015)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Separation.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Separation.jpg	"/> 	Separation	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Silhouette%20%282019%29.mp4	')"><img src="	https://bzfilm.com/wp-content/uploads/2019/06/silhouette-2019.jpg	"/> 	Silhouette (2019)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Sin%20Origen%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Sin_origen-984633558-large.jpg	"/> 	Sin Origen (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20Sinister%20%282012%29%20720p.mp4	')"><img src="	https://ia801505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_02-20-15.jpg	"/> 	Sinister (2012) 720p.mp4	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Smiley%20Face%20Killers.mp4	')"><img src="	https://archive.org/download/yummy_202105/Smiley%20Face%20Killers.jpg	"/> 	Smiley Face Killers	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Barry%20Seal%2C%20solo%20en%20Am%C3%A9rica.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Barry%20Seal%2C%20solo%20en%20Am%C3%A9rica.jpg	"/> 	solo en América	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20Super%20Dark%20Times%20%282017%29%20720p.mp4	')"><img src="	https://ia801505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_17-59-26.jpg	"/> 	Super Dark Times (2017) 720p.mp4	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Temblores%202%20La%20respuesta%20%281996%29.mp4	')"><img src="	https://r2.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic2.abc.es%2Fmedia%2Fpeliculas%2F000%2F022%2F701%2Ftemblores-2-la-respuesta-1.jpg&nuevoancho=150&medio=abc	"/> 	Temblores 2 La respuesta (1996)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Tempus%20Tormentum%20%282018%29.mp4	')"><img src="	https://pics.filmaffinity.com/Tempus_Tormentum-667759425-large.jpg	"/> 	Tempus Tormentum (2018)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/star-wars-episodio-iii-la-venganza-de-los-sith-2005_20201206/Terror%20en%20Silent%20Hill%20%282006%29.mp4	')"><img src="	https://i.pinimg.com/originals/84/70/b9/8470b986f494723f0033644c6227235c.jpg	"/> 	Terror en Silent Hill (2006)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/star-wars-episodio-iii-la-venganza-de-los-sith-2005_20201206/Terror%20en%20Silent%20Hill%202_%20La%20revelaci%C3%B3n%20%282012%29.mp4	')"><img src="	https://cl.buscafs.com/www.tomatazos.com/public/uploads/images/36783/36783_800x1187.jpg	"/> 	Terror en Silent Hill 2_ La revelación (2012)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/star-wars-episodio-iii-la-venganza-de-los-sith-2005_20201206/The%20Babysitter%20Killer%20Queen%20%282020%29.mp4	')"><img src="	https://i.pinimg.com/originals/27/1d/e2/271de2dbb64ab9e6a692a1708ec7984f.jpg	"/> 	The Babysitter Killer Queen (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/The%20Current%20Occupant%20%282020%29.mp4	')"><img src="	https://img.repelis.id/cover/into-the-dark-the-current-occupant-1603984211.jpg	"/> 	The Current Occupant (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/The%20Darkness.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/The%20Darkness.jpg	"/> 	The Darkness	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/velvet-buzzsaw-2019_202012/The%20Domestics%20%282018%29.mp4	')"><img src="	https://pics.filmaffinity.com/The_Domestics-956087918-large.jpg	"/> 	The Domestics (2018)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/The%20Haunting%20of%20Alcatraz%20%282020%29.mp4	')"><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/crElqQ3vJuKyuGjbnK6OfuZ67UN.jpg	"/> 	The Haunting of Alcatraz (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/163031044	')"><img src="	https://m.media-amazon.com/images/M/MV5BMDdlNDNkMzQtMjYwMi00OGFjLWE4ZGQtYjA1YWMxOWM2ZGYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg	"/> 	The Owners (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/Sputnik%20%282020%29.mp4	')"><img src="	https://parecidas.com/img_es/movie/thumb/75/46916.jpg	"/> 	The Sputnik (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Tibur%C3%B3n%20Blanco.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Tibur%C3%B3n%20Blanco.jpg	"/> 	Tiburón Blanco	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Vampiros%20contra%20el%20Bronx%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Vampiros_contra_el_Bronx-665936619-large.jpg	"/> 	Vampiros contra el Bronx (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Vigilados.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Vigilados.jpg	"/> 	Vigilados	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Voces%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Voces-119178429-large.jpg	"/> 	Voces (2020)	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Bingo%20Hell~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Bingo%20Hell.jpg	"/> 	Bingo Hell	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/El%20d%C3%ADa%20de%20los%20inocentes~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/El%20d%C3%ADa%20de%20los%20inocentes.jpg	"/> 	El día de los inocentes	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/En%20la%20oscuridad%20de%20la%20noche~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/En%20la%20oscuridad%20de%20la%20noche.jpg	"/> 	En la oscuridad de la noche	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Hay%20alguien%20en%20tu%20casa~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Hay%20alguien%20en%20tu%20casa.jpg	"/> 	Hay alguien en tu casa	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Jack%20El%20Destripador%20La%20Historia%20no%20Contada~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Jack%20El%20Destripador%20La%20Historia%20no%20Contada.jpg	"/> 	Jack El Destripador La Historia no Contada	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/La%20mansi%C3%B3n~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/La%20mansi%C3%B3.jpg	"/> 	La mansió	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Madres~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Madres.jpg	"/> 	Madres	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Pesadilla%20en%20el%20Hotel%20Normandie~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Pesadilla%20en%20el%20Hotel%20Normandie.jpg	"/> 	Pesadilla en el Hotel Normandie	<h4> 	TERROR	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Vuelven~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Vuelven.jpg	"/> 	Vuelven	<h4> 	TERROR	</h4></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+<button id="abajo"> 
+   <a href="#arriba"> <input type="image" src="https://static.vecteezy.com/system/resources/thumbnails/016/770/568/small/red-directional-arrow-on-transparent-background-free-png.png" style="position: fixed; bottom: 20em;  right: 0em; z-index: 2;" height="20" width="20"/>   </a>
+    <a name="abajo"></a>
+  </button>
+
+
+ </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+window.addEventListener('load', function() {
+  var boton = document.getElementById('menu-button');
+  var lista = document.getElementById('video-list');
+  var temporizador;
+  
+  boton.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  lista.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  boton.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+  
+  lista.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+});
+
+
+
+
+
+
+
+
+const menuButton = document.getElementById('menu-button');
+const videoList = document.getElementById('video-list');
+const videoPlayer = document.getElementById('video');
+
+menuButton.addEventListener('click', () => {
+  if (videoList.style.display === 'none') {
+    videoList.style.display = 'block';
+  } else {
+    videoList.style.display = 'none';
+  }
+});
+
+function changeVideo(src) {
+  videoPlayer.src = src;
+  videoPlayer.play();
+  videoList.style.display = 'none';
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,682 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv = «X-UA-compatible» content = «IE = 9; IE = 7; IE = 8; IE = EDGE, Chrome = 1″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title> REPRO  </title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</script>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
+
+
+<style type="text/css">
+
+body  {
+    text-decoration: none;
+    background: #000000;
+outline: none;
+}
+
+
+
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 130%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #52c2ff;
+    Position: absolute;
+    top: 45px;
+    right: 20px;
+    font-size: 120%;
+    outline: none;
+    overflow-y: scroll;
+    height: 80px;
+    width: 325px;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1280px){
+    
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 37%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 90%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #57aced;
+    Position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 90%;
+    outline: none;
+    overflow-y: scroll;
+    height: 90px;
+    width: 235px;
+}
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 480px){
+    #video-player{
+    height: calc(100% - 1*1px);
+    margin-top: 1em;
+}
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 11.8em;
+    RIGHT: 0px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 2px 0px 1px;
+    width: 306px;
+    justify-items: start;
+}
+    #menu-button{
+    display: flex;
+    width: 100%;
+    height: 65px;
+    top: -1em;
+}
+#video-list a img {
+    border-radius: 5px;
+    width: 80px;
+    outline: none;
+}
+h4  {
+    Margin-top: 2px;
+    padding-bottom: 60px;
+    color: #06fd06;
+    Position: absolute;
+    right: -10px;
+    top: 45px;
+    font-size: 90%;
+    width: 230px;
+    height: 7px;
+    padding-top: 2px;
+    overflow-y: scroll;
+}
+
+}
+
+ #arriba{
+    background: #fcfcfc00;
+}
+ #abajo{
+    background: #fcfcfc00;
+
+}
+
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div id="video-player" >
+  <video src="#" controls id="video" poster="https://chanjdm.github.io/JDM/jdmflixbordes.jpg"></video>
+  <button id="menu-button">             </button>
+  
+
+
+  
+  
+  <ul id="video-list">
+
+
+<button id="arriba">
+      <a name="arriba"></a>
+    <a href="#abajo"> <input type="image" src="https://cdn.pixabay.com/photo/2013/07/13/10/22/arrow-157087_960_720.png" style="position: fixed; bottom: 25em;  right: 0em; z-index: 2; " height="20" width="20"/>     </a>
+  </button>
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw/After%20Aqui%CC%81%20empieza%20todo%20%282019%29.mp4	')"><img src="	https://es.web.img3.acsta.net/pictures/19/01/16/12/25/3230288.jpg	"/> 	After Aqui´ empieza todo (2019)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw/After%20En%20mil%20pedazos.mp4	')"><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/8nPw22C41EUWXREWmY9iIivMXxm.jpg	"/> 	After En mil pedazos	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Al%20ritmo%20del%20coraz%C3%B3n.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Al%20ritmo%20del%20coraz%C3%B3n.jpg	"/> 	Al ritmo del corazón	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/-%20Alucinaciones%20del%20pasado.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/-%20Alucinaciones%20del%20pasado.jpg	"/> 	Alucinaciones del pasado	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/Amadrinadas/Amadrinadas%20.mp4	')"><img src="	https://pics.filmaffinity.com/Amadrinadas-300496698-large.jpg	"/> 	Amadrinadas	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20M%C3%BAsica%2C%20amigos%20y%20fiesta%20%282015%29%20720p.mp4	')"><img src="	https://ia801505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_16-32-47.jpg	"/> 	amigos y fiesta (2015) 720p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Ammonite%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Ammonite-340737043-large.jpg	"/> 	Ammonite (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Amor%20en%20las%20alturas.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Amor%20en%20las%20alturas.jpg	"/> 	Amor en las alturas	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Amor%20sin%20ciudad.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Amor%20sin%20ciudad.jpg	"/> 	Amor sin ciudad	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Apolo%2013.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Apolo%2013.jpg	"/> 	Apolo 13	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Aquel%20verano.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Aquel%20verano.jpg	"/> 	Aquel verano	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Bia%2C%20Un%20mundo%20al%20rev%C3%A9s.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Bia%2C%20Un%20mundo%20al%20rev%C3%A9s.jpg	"/> 	Bia Un mundo al revés	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Birds%20of%20Paradise.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Birds%20of%20Paradise.jpg	"/> 	Birds of Paradise	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Burden.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Burden.jpg	"/> 	Burden	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Cabros%20de%20mierda.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Cabros%20de%20mierda.jpg	"/> 	Cabros de mierda	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw/Call%20Me%20by%20Your%20Name%20%282017%29.mp4	')"><img src="	https://www.covercaratulas.com/ode/mini/carteles-28169.jpg	"/> 	Call Me by Your Name (2017)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/carol%202015.mp4	')"><img src="	https://pics.filmaffinity.com/Carol-180515019-mmed.jpg	"/> 	carol 2015	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Castillo%20de%20arena%20%282017%29%20720p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/-%20Castillo%20de%20arena.jpg	"/> 	Castillo de arena (2017) 720p	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://mega1link.com/wp-content/uploads/2020/11/8oiMFMarbRpcusASIX4cjVXoZKI-200x300.jpg	')"><img src="	https://pics.filmaffinity.com/Charm_City_Kings-453943658-large.jpg	"/> 	Charm City Kings (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Chernobyl%2C%20Abyss.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Chernobyl%2C%20Abyss.jpg	"/> 	Chernobyl Abyss	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Roma%2C%20ciudad%20abierta~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Roma%2C%20ciudad%20abierta.jpg	"/> 	ciudad abierta	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Clouds%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Clouds-101144232-large.jpg	"/> 	Clouds (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/CODA%20Se%C3%B1ales%20del%20coraz%C3%B3n~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/CODA%20Se%C3%B1ales%20del%20coraz%C3%B3n.jpg	"/> 	CODA Señales del corazón	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/Amadrinadas/Como%20perros%20y%20gatos%20La%20patrulla%20unida%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Como_perros_y_gatos_La_patrulla_unida-518934043-large.jpg	"/> 	Como perros y gatos La patrulla unida (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Contrabando~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Contrabando.jpg	"/> 	Contrabando	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Corriendo%20contra%20el%20viento.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Corriendo%20contra%20el%20viento.jpg	"/> 	Corriendo contra el viento	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Cosas%20imposibles~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Cosas%20imposibles.jpg	"/> 	Cosas imposibles	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Cowboys.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Cowboys.jpg	"/> 	Cowboys	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Cro%CC%81nica%20de%20una%20tormenta%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Cr_nica_de_una_tormenta-611491491-large.jpg	"/> 	Cro´nica de una tormenta (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Cuando%20un%20hombre%20ama%20a%20una%20mujer.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Cuando%20un%20hombre%20ama%20a%20una%20mujer.jpg	"/> 	Cuando un hombre ama a una mujer	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Despierta%20la%20Furia%202021.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Despierta%20la%20Furia%202021.jpg	"/> 	Despierta la Furia 2021	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Dos%20caminos%20a%20casa.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Dos%20caminos%20a%20casa.jpg	"/> 	Dos caminos a casa	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/-%20Dos%20caminos%20a%20casa.mp4	')"><img src="	https://pics.filmaffinity.com/all_roads_lead_home-543621529-mmed.jpg	"/> 	Dos caminos a casa	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Dos%20oto%C3%B1os%20en%20Par%C3%ADs~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Dos%20oto%C3%B1os%20en%20Par%C3%ADs.jpg	"/> 	Dos otoños en París	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw/El%20amor%20de%20Sylvie%20%282020%29.mp4	')"><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/48P3lTdsg19OfmrD5av0VJYcjLM.jpg	"/> 	El amor de Sylvie (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20%C3%A1ngel%20culpable.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20%C3%A1ngel%20culpable.jpg	"/> 	El ángel culpable	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20baile%20de%20los%2041.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20baile%20de%20los%2041.jpg	"/> 	El baile de los 41	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/El%20castillo%20de%20cristal.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/El%20castillo%20de%20cristal.jpg	"/> 	El castillo de cristal	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/El%20ciudadano%20Kane.mp4	')"><img src="	https://archive.org/download/yummy_202105/El%20ciudadano%20Kane.jpg	"/> 	El ciudadano Kane	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/El%20club%20de%20los%20poetas%20muertos.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/El%20club%20de%20los%20poetas%20muertos.jpg	"/> 	El club de los poetas muertos	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/El%20cuaderno%20de%20Tomy%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/El_cuaderno_de_Tomy-471893905-large.jpg	"/> 	El cuaderno de Tomy (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/El%20Estornino%202021.mp4	')"><img src="	https://archive.org/download/94-1_20210929/El%20Estornino%202021.jpg	"/> 	El Estornino 2021	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20El%20faro%20de%20las%20orcas%20%282016%29%20720p.mp4	')"><img src="	https://pics.filmaffinity.com/El_faro_de_las_orcas-435033061-large.jpg	"/> 	El faro de las orcas (2016)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/El%20fot%C3%B3grafo%20de%20Minamata~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/El%20fot%C3%B3grafo%20de%20Minamata.jpg	"/> 	El fotógrafo de Minamata	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/El%20hombre%20de%20la%20ma%CC%81scara%20de%20hierro%20%281998%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w185/50Ug4tJ66gJ9ZgivMGzZnGkdw1p.jpg	"/> 	El hombre de la ma´scara de hierro (1998)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/El%20juicio%20de%20los%207%20de%20Chicago%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/El_juicio_de_los_7_de_Chicago-241324585-large.jpg	"/> 	El juicio de los 7 de Chicago (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/El%20ladr%C3%B3n%20de%20Rodeo~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/El%20ladr%C3%B3n%20de%20orqu%C3%ADdeas.jpg	"/> 	El ladrón de orquídeas	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/El%20maquinista%20-%20The%20Machinist.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/El%20maquinista%20-%20The%20Machinist.jpg	"/> 	El maquinista  The Machinist	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/El%20mundo%20que%20viene.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/El%20mundo%20que%20viene.jpg	"/> 	El mundo que viene	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/-%20El%20padre.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/-%20El%20padre.jpg	"/> 	El padre	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/EL%20PADRINO.MP4	')"><img src="	https://pics.filmaffinity.com/El_padrino-993414333-large.jpg	"/> 	EL PADRINO	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/EL%20PADRINO%20PARTE%20III.MP4	')"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/68/09/69/20420487.jpg	"/> 	EL PADRINO PARTE III	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/El%20precio%20de%20la%20inocencia.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/El%20precio%20de%20la%20inocencia.jpg	"/> 	El precio de la inocencia	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/El%20regalo%20de%20Navidad%20%282020%29.mp4	')"><img src="	https://images.moviefit.me/t/b/255905-the-christmas-gift.webp	"/> 	El regalo de Navidad (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20El%20teniente%20otomano%20%282017%29%20720p.mp4	')"><img src="	https://ia801505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_01-35-09.jpg	"/> 	El teniente otomano (2017) 720p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20%C3%BAltimo%20beso.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20%C3%BAltimo%20beso.jpg	"/> 	El último beso	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Emperor%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Emperor-190871922-large.jpg	"/> 	Emperor (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20En%20alg%C3%BAn%20lugar%20de%20la%20memoria%20%282007%29%20720p.mp4	')"><img src="	https://lh3.googleusercontent.com/proxy/HMk4_hwqNhGaPyvV_5me5TgEdxUf_zs99exhDHLmR9OmmvBB7DINfzHilECE6aVIukGH6MuOg6UR0LHvMb9XFkmbfbgxdlop9YILomlXjETDHXyFMU55lxgblZZhfi-uKK7j=w1200-h630-p-k-no-nu	"/> 	En algún lugar de la memoria (2007) 720p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/En%20busca%20de%20la%20felicidad.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/En%20busca%20de%20la%20felicidad.jpg	"/> 	En busca de la felicidad	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/En%20honor%20a%20la%20verdad%20%281996%29.mp4	')"><img src="	https://decine21.com/img/upload/obras/en-honor-a-la-verdad-3540/en-honor-a-la-verdad-3540-c.jpg	"/> 	En honor a la verdad (1996).	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Enemigo%20al%20acecho.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Enemigo%20al%20acecho.jpg	"/> 	Enemigo al acecho	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20%C3%89rase%20Una%20Vez%20en%20Queens.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20%C3%89rase%20Una%20Vez%20en%20Queens.jpg	"/> 	Érase Una Vez en Queens	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Erna%20i%20krig.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Erna%20i%20krig.jpg	"/> 	Erna i krig	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Estanislao.mp4	')"><img src="	https://pics.filmaffinity.com/Estanislao-219509656-large.jpg	"/> 	Estanislao	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Eterno%20resplandor%20de%20una%20mente%20sin%20recuerdos.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Eterno%20resplandor%20de%20una%20mente%20sin%20recuerdos.jpg	"/> 	Eterno resplandor de una mente sin recuerdos	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Ferry%20%282021%29.mp4	')"><img src="	https://archive.org/download/yummy_202105/Ferry%20%282021%29.jpg	"/> 	Ferry (2021)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Flores%20en%20el%20%C3%A1tico%20%28TV%29%20%282014%29.mp4	')"><img src="	https://pics.filmaffinity.com/Flores_en_el_tico_2_P_talos_al_viento_TV-780070215-large.jpg	"/> 	Flores en el atico  Petalos al viento TV 2014	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Flores%20en%20el%20%C3%A1tico%202%20P%C3%A9talos%20al%20viento%20%28TV%29%20%282014%29.mp4	')"><img src="	https://pics.filmaffinity.com/Si_hubiera_espinas_TV-370227173-mmed.jpg	"/> 	Flores en el atico 2 Petalos al viento TV 2014	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Flores%20en%20el%20atico%203%20Si%20hubiera%20espinas%20TV%202015.mp4	')"><img src="	https://i.pinimg.com/564x/f5/7a/da/f57ada3cbeebc5971cc601afe2139efe.jpg	"/> 	Flores en el atico 3 Si hubiera espinas TV 2015	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Flores%20en%20el%20atico%204%20Semillas%20del%20ayer%20TV%202015.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Flores%20en%20el%20atico%204%20Semillas%20del%20ayer%20TV%202015.jpg	"/> 	Flores en el atico 4 Semillas del ayer TV 2015	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Forever%20First%20Love%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Forever_First_Love-102990274-mmed.jpg	"/> 	Forever First Love (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Frankie%20%282019%29%201080p.mp4	')"><img src="	https://pics.filmaffinity.com/Frankie-757077153-large.jpg	"/> 	Frankie (2019) 1080p	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/French%20Exit.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/French%20Exit.jpg	"/> 	French Exit	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Gigol%C3%B3%20americano.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Gigol%C3%B3%20americano.jpg	"/> 	Gigoló americano	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Greed.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Greed.jpg	"/> 	Greed	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/HEIDI%202015.MP4	')"><img src="	https://i.imgur.com/EQ6AyuV.jpg	"/> 	HEIDI 2015	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Historia%20americana%20X.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Historia%20americana%20X.jpg	"/> 	Historia americana X	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Hombre%20de%20familia.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Hombre%20de%20familia.jpg	"/> 	Hombre de familia	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Hooligans%20-%20Green%20street%20hooligans%20%282005%29.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Hooligans%20-%20Green%20street%20hooligans%20%282005%29.jpg	"/> 	Hooligans  Green street hooligans 2005	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/I%20Am%20Woman.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/I%20Am%20Woman.jpg	"/> 	I Am Woman	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Infierno%20de%20hielo.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Infierno%20de%20hielo.jpg	"/> 	Infierno de hielo	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Jacqueline%20Sauvage%20v%C3%ADctima%20o%20culpable.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Jacqueline%20Sauvage%20v%C3%ADctima%20o%20culpable.jpg	"/> 	Jacqueline Sauvage víctima o culpable	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Je%20Suis%20Karl.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Je%20Suis%20Karl.jpg	"/> 	Je Suis Karl	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/JOY%20EL%20NOMBRE%20DELEXITO%202015.MP4	')"><img src="	https://pics.filmaffinity.com/Joy_El_nombre_del_xito-380748983-large.jpg	"/> 	JOY EL NOMBRE DELEXITO 2015	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Juego%20de%20poder%202007~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Juego%20de%20poder%20%282007%29.jpg	"/> 	Juego de poder (2007)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20La%20batalla%20de%20Leningrado.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20La%20batalla%20de%20Leningrado.jpg	"/> 	La batalla de Leningrado	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/La%20citacio%CC%81n%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/citation-235387619-large.jpg	"/> 	La citacio´n (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/La%20distancia.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/La%20distancia.jpg	"/> 	La distancia	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/La%20dosis%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/La_dosis-802241086-large.jpg	"/> 	La dosis (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/La%20galeri%CC%81a%20de%20los%20corazones%20rotos%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/the_broken_hearts_gallery-972949574-large.jpg	"/> 	La galeri´a de los corazones rotos (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/La%20gran%20apuesta.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/La%20gran%20apuesta.jpg	"/> 	La gran apuesta	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16_La_inspiradora_historia_de_Vinny_Pazienza_2016_720p.mp4	')"><img src="	https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWX96FC5/image?locale=es-mx&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg	"/> 	La inspiradora historia de Vinny Pazienza	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/La%20Jaula~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/La%20Jaula.jpg	"/> 	La Jaula	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/Amadrinadas/La%20llave%20ma%CC%81gica%20%281995%29.mp4	')"><img src="	https://4.bp.blogspot.com/-2PEGcoIiTfE/VbpdFDIv6jI/AAAAAAAAmt4/WNijmyYxqhY/s1600/m4gic4.jpg	"/> 	La llave magica (1995)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/La%20ma%CC%81scara%20del%20Zorro%20%281998%29.mp4	')"><img src="	https://4.bp.blogspot.com/_y8PBavjb1yc/SOj8f8p-RJI/AAAAAAAAARM/9r8L2mLarw0/s400/Zorro.jpg	"/> 	La ma´scara del Zorro (1998)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/La%20madre%20del%20blues%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/La_madre_del_blues-906078080-large.jpg	"/> 	La madre del blues (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/La%20mujer%20m%C3%A1s%20odiada%20de%20Estados%20Unidos%202017.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/La%20mujer%20m%C3%A1s%20odiada%20de%20Estados%20Unidos%202017.jpg	"/> 	La mujer más odiada de Estados Unidos 2017	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/Amadrinadas/La%20Navidad%20ma%CC%81gica%20de%20los%20Jangle%20%282020%29.mp4	')"><img src="	https://decine21.com/img/upload/obras/la-navidad-magica-de-los-jangle-42698/src/la-navidad-magica-de-los-jangle-42698-c.jpg	"/> 	La Navidad magica de los Jangle (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Yalda%2C%20la%20noche%20del%20perd%C3%B3n~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Yalda%2C%20la%20noche%20del%20perd%C3%B3n.jpg	"/> 	la noche del perdón	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20La%20promesa%20%282016%29%20720p.mp4	')"><img src="	https://pics.filmaffinity.com/Moonlight_in_Vermont_TV-669360202-large.jpg	"/> 	La promesa (2016) 720p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/La%20teniente%20O%27Neil%20%201997.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/La%20teniente%20O%27Neil%20%201997.jpg	"/> 	La teniente O Neil  1997	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/-%20La%20%C3%BAltima%20primavera.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/-%20La%20%C3%BAltima%20primavera.jpg	"/> 	La última primavera	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/La%20vampira%20de%20Barcelona%20%282020%29%20%40cesser16~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/La%20vampira%20de%20Barcelona.jpg	"/> 	La vampira de Barcelona (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/La%20casa%20del%20caracol~1.mp4	')"><img src="	https://pics.filmaffinity.com/La_casa_del_caracol-235255571-large.jpg	"/> 	La vampira de Barcelona (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/la%20verdad%20duele%202015.mp4	')"><img src="	https://es.web.img3.acsta.net/pictures/15/11/26/13/02/436595.jpg	"/> 	la verdad duele 2015	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/La%20vida%20por%20delante%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/La_vida_ante_s-916636073-large.jpg	"/> 	La vida por delante (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20Las%20Legiones%20Emergentes.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Las%20Legiones%20Emergentes.jpg	"/> 	Las Legiones Emergentes	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/Amadrinadas/lassie.mp4	')"><img src="	https://style.shockvisual.net/wp-content/uploads/2020/10/70X100cm_Lassie_Web.jpg	"/> 	lassie	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Los%20Meyerowitz%20%282017%29%20720p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/Los%20Meyerowitz%20La%20familia%20no%20se%20elige%20Historias%20nuevas%20y%20selectas.jpg	"/> 	Los Meyerowitz (2017) 720p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Los%20u%CC%81ltimos%20di%CC%81as%20del%20crimen%20%282020%29.MP4	')"><img src="	https://surtido.pe/wp-content/uploads/2020/05/Comic-The-Last-Days-of-American-Crime-Netflix.jpg	"/> 	Los u´ltimos di´as del crimen (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Magic%20Camp%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Magic_Camp-668595567-large.jpg	"/> 	Magic Camp (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Mainstream.jpg	')"><img src="	https://archive.org/download/yummy_202105/Mainstream.jpg	"/> 	Mainstream	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Mank%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Mank-722370780-large.jpg	"/> 	Mank (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Mano%20de%20obra%20%282020%29.mp4	')"><img src="	https://mx.web.img3.acsta.net/c_310_420/pictures/20/03/04/15/09/2075899.jpg	"/> 	Mano de obra (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20M%C3%A1quina%20de%20guerra%20%282017%29%20720p.mp4	')"><img src="	https://pics.filmaffinity.com/M_quina_de_guerra-236033463-large.jpg	"/> 	Máquina de guerra (2017) 720p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/M%C3%A1s%20mentes%20peligrosas.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/M%C3%A1s%20mentes%20peligrosas.jpg	"/> 	Más mentes peligrosas	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Medio%20hermanos%20%282020%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w185_and_h278_bestv2/qaHcvVfMdWkBJS0zjnZfAII0nEu.jpg	"/> 	Medio hermanos (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Mi%20gran%20amigo%20Joe%20%281998%29.mp4	')"><img src="	https://www.cine.com/peliculas/5371/cartel/5371_cartel.jpg	"/> 	Mi gran amigo Joe (1998)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Mi%20Gran%20Despedida.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Mi%20Gran%20Despedida.jpg	"/> 	Mi Gran Despedida	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Mi%20ti%CC%81o%20Frank%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/uncle_frank-285264269-large.jpg	"/> 	Mi ti´o Frank (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Nido%20de%20v%C3%ADboras.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Nido%20de%20v%C3%ADboras.jpg	"/> 	Nido de víboras	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20Nieve%20negra%20%282017%29%201080p.mp4	')"><img src="	https://ia801505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_05-58-00.jpg	"/> 	Nieve negra (2017) 1080p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Noche%20de%20verano.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Noche%20de%20verano.jpg	"/> 	Noche de verano	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Orqu%C3%ADdea%20salvaje.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Orqu%C3%ADdea%20salvaje.jpg	"/> 	Orquídea salvaje	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Paranormal%20Activity%20Los%20sen%CC%83alados%20%282014%29.mp4	')"><img src="	https://www.ecartelera.com/carteles/6800/6873/002_m.jpg	"/> 	Paranormal Activity Los sen~alados (2014)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Pasio%CC%81n%20del%20corazo%CC%81n%20%282015%29.mp4	')"><img src="	https://img.repelis.id/cover/pasion-del-corazon-1582402204.jpg	"/> 	Pasio´n del corazo´n (2015)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Police.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Police.jpg	"/> 	Police	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Powder%20720p.mp4	')"><img src="	https://pics.filmaffinity.com/Powder_Pura_energ_a-401769251-large.jpg	"/> 	Powder 720p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Psic%C3%B3pata%20americano.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Psic%C3%B3pata%20americano.jpg	"/> 	Psicópata americano	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Recu%C3%A9rdame%202010.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Recu%C3%A9rdame%202010.jpg	"/> 	Recuérdame 2010	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Reefa~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Reefa.jpg	"/> 	Reefa	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/R%C3%A9quiem%20por%20un%20sue%C3%B1o.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/R%C3%A9quiem%20por%20un%20sue%C3%B1o.jpg	"/> 	Réquiem por un sueño	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Ricochet.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Ricochet.jpg	"/> 	Ricochet	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Riding%20with%20Sugar%20%282020%29-1.mp4	')"><img src="	https://pics.filmaffinity.com/Riding_with_Sugar-415283834-large.jpg	"/> 	Riding with Sugar (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/River.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/River.jpg	"/> 	River	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Robin%20Hood%20Pri%CC%81ncipe%20de%20los%20ladrones%20%281991%29.MP4	')"><img src="	https://www.ecured.cu/images/thumb/f/ff/Robin-Hood-Principe-De-Los-Ladrones.jpg/260px-Robin-Hood-Principe-De-Los-Ladrones.jpg	"/> 	Robin Hood Pri´ncipe de los ladrones (1991)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Romeo%20Santos%20Utopia%20Live%20From%20Metlife.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Romeo%20Santos%20Utopia%20Live%20From%20Metlife.jpg	"/> 	Romeo Santos Utopia Live From Metlife	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Sal%C3%B3%2C%20o%20los%20120%20d%C3%ADas%20de%20Sodoma.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Sal%C3%B3%2C%20o%20los%20120%20d%C3%ADas%20de%20Sodoma.jpg	"/> 	Saló o los 120 días de Sodoma	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20Sandy%20Wexler%20%282017%29%20720p.mp4	')"><img src="	https://ia801505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_08-01-06.jpg	"/> 	Sandy Wexler (2017) 720p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20Secreto%20en%20la%20monta%C3%B1a.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Secreto%20en%20la%20monta%C3%B1a.jpg	"/> 	Secreto en la montaña	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20Si%20no%20despierto%20%282017%29%20720p.mp4	')"><img src="	https://ia601505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_07-12-58.jpg	"/> 	Si no despierto (2017) 720p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Sitting%20in%20Limbo.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Sitting%20in%20Limbo.jpg	"/> 	Sitting in Limbo	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/S%C3%B3lo%20un%20sue%C3%B1o.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/S%C3%B3lo%20un%20sue%C3%B1o.jpg	"/> 	Sólo un sueño	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/spotlight%202015.mp4	')"><img src="	https://es.web.img2.acsta.net/pictures/15/11/13/16/27/316410.jpg	"/> 	spotlight 2015	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20Strange%20Weather%20%282016%29%20720p.mp4	')"><img src="	https://pics.filmaffinity.com/strange_weather-926814484-large.jpg	"/> 	Strange Weather (2016) 720p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Super%20Me.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Super%20Me.jpg	"/> 	Super Me	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Territorio.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Territorio.jpg	"/> 	Territorio	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/The%20Doors.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/The%20Doors.jpg	"/> 	The Doors	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/The%20Maid.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/The%20Maid.jpg	"/> 	The Maid	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/The%20Wrong%20Mommy%20%282019%29.mp4	')"><img src="	https://pics.filmaffinity.com/The_Wrong_Mommy_TV-727134167-large.jpg	"/> 	The Wrong Mommy (2019)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Tiempo%20de%20matar.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Tiempo%20de%20matar.jpg	"/> 	Tiempo de matar	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Twister%20%281996%29.mp4	')"><img src="	https://upload.wikimedia.org/wikipedia/en/a/a5/Twistermovieposter.jpg	"/> 	Twister (1996)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Un%20hombre%20de%20familia.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Un%20hombre%20de%20familia.jpg	"/> 	Un hombre de familia	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Un%20Milagro%20Inesperado.jpg	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Un%20Milagro%20Inesperado.jpg	"/> 	Un Milagro Inesperado	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Un%20mundo%20implacable.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Un%20mundo%20implacable.jpg	"/> 	Un mundo implacable	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Un%20mundo%20normal%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Un_mundo_normal-293948077-large.jpg	"/> 	Un mundo normal (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Hillbilly%2C%20una%20elegi%CC%81a%20rural%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Hillbilly_una_eleg_a_rural-757589160-large.jpg	"/> 	una elegi´a rural (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Una%20vida%20sin%20amor.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Una%20vida%20sin%20amor.jpg	"/> 	Una vida sin amor	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/victor%20frankenstein%202015.mp4	')"><img src="	https://2.bp.blogspot.com/-LE358Oio7Uc/VkoLg9_uK5I/AAAAAAAAsdc/gNcYDb1avuY/s1600/Victor_-Frankenstein-.jpg	"/> 	victor frankenstein 2015	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20Viene%20de%20noche%20%282017%29%20720p.mp4	')"><img src="	https://ia801505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_06-35-41.jpg	"/> 	Viene de noche (2017) 720p.mp4	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Volando%20libre%20%281996%29.mp4	')"><img src="	https://dreamers.es/indices/imagenes/peliculas.4153.IMAGEN1.jpg	"/> 	Volando libre (1996)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Waiting%20for%20Anya.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Waiting%20for%20Anya.jpg	"/> 	Waiting for Anya	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Wendy%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Wendy-985872075-mmed.jpg	"/> 	Wendy (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Wild%20Mountain%20Thyme%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BYzhhOTdiYzAtMDJiYS00NDA0LWJmN2EtODljMDJmNDMxZDk3XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg	"/> 	Wild Mountain Thyme (2020)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Y%20al%20s%C3%A9ptimo%20d%C3%ADa~1.mp4	')"><img src="	https://ia601406.us.archive.org/6/items/94-1_20210929/Y%20al%20s%C3%A9ptimo%20d%C3%ADa.jpg	"/> 	Y al séptimo día	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Zombi%20Child%20%282019%29.mp4	')"><img src="	https://pics.filmaffinity.com/Zombi_Child-180737258-large.jpg	"/> 	Zombi Child (2019)	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Cr%C3%B3nica%20de%20una%20tormenta~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Cr%C3%B3nica%20de%20una%20tormenta.jpg	"/> 	Crónica de una tormenta	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Desaparecidas~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Desaparecidas.jpg	"/> 	Desaparecidas	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Dif%C3%ADcil%20de%20tragar~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Dif%C3%ADcil%20de%20tragar.jpg	"/> 	Difícil de tragar	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Disturbio~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Disturbio.jpg	"/> 	Disturbio	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Los%20santos%20de%20la%20mafia~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Los%20santos%20de%20la%20mafia.jpg	"/> 	Los santos de la mafia	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Medidas%20extremas~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Medidas%20extremas.jpg	"/> 	Medidas extremas	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Milagro%20en%20octubre~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Milagro%20en%20octubre.jpg	"/> 	Milagro en octubre	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Millonarios~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Millonarios.jpg	"/> 	Millonarios	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/The%20Space%20Between~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/The%20Space%20Between.jpg	"/> 	The Space Between	<h4> 	DRAMA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Women.jpg	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Women.jpg	"/> 	Women	<h4> 	DRAMA	</h4></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+<button id="abajo"> 
+   <a href="#arriba"> <input type="image" src="https://static.vecteezy.com/system/resources/thumbnails/016/770/568/small/red-directional-arrow-on-transparent-background-free-png.png" style="position: fixed; bottom: 20em;  right: 0em; z-index: 2;" height="20" width="20"/>   </a>
+    <a name="abajo"></a>
+  </button>
+
+
+ </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+window.addEventListener('load', function() {
+  var boton = document.getElementById('menu-button');
+  var lista = document.getElementById('video-list');
+  var temporizador;
+  
+  boton.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  lista.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  boton.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+  
+  lista.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+});
+
+
+
+
+
+
+
+
+const menuButton = document.getElementById('menu-button');
+const videoList = document.getElementById('video-list');
+const videoPlayer = document.getElementById('video');
+
+menuButton.addEventListener('click', () => {
+  if (videoList.style.display === 'none') {
+    videoList.style.display = 'block';
+  } else {
+    videoList.style.display = 'none';
+  }
+});
+
+function changeVideo(src) {
+  videoPlayer.src = src;
+  videoPlayer.play();
+  videoList.style.display = 'none';
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

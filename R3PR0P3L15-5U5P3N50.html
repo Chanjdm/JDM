@@ -1,0 +1,518 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv = «X-UA-compatible» content = «IE = 9; IE = 7; IE = 8; IE = EDGE, Chrome = 1″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title> REPRO  </title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</script>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
+
+
+<style type="text/css">
+
+body  {
+    text-decoration: none;
+    background: #000000;
+outline: none;
+}
+
+
+
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 130%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #52c2ff;
+    Position: absolute;
+    top: 45px;
+    right: 20px;
+    font-size: 120%;
+    outline: none;
+    overflow-y: scroll;
+    height: 80px;
+    width: 325px;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1280px){
+    
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 37%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 90%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #57aced;
+    Position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 90%;
+    outline: none;
+    overflow-y: scroll;
+    height: 90px;
+    width: 235px;
+}
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 480px){
+    #video-player{
+    height: calc(100% - 1*1px);
+    margin-top: 1em;
+}
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 11.8em;
+    RIGHT: 0px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 2px 0px 1px;
+    width: 306px;
+    justify-items: start;
+}
+    #menu-button{
+    display: flex;
+    width: 100%;
+    height: 65px;
+    top: -1em;
+}
+#video-list a img {
+    border-radius: 5px;
+    width: 80px;
+    outline: none;
+}
+h4  {
+    Margin-top: 2px;
+    padding-bottom: 60px;
+    color: #06fd06;
+    Position: absolute;
+    right: -10px;
+    top: 45px;
+    font-size: 90%;
+    width: 230px;
+    height: 7px;
+    padding-top: 2px;
+    overflow-y: scroll;
+}
+
+}
+
+ #arriba{
+    background: #fcfcfc00;
+}
+ #abajo{
+    background: #fcfcfc00;
+
+}
+
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div id="video-player" >
+  <video src="#" controls id="video" poster="https://chanjdm.github.io/JDM/jdmflixbordes.jpg"></video>
+  <button id="menu-button">             </button>
+  
+
+
+  
+  
+  <ul id="video-list">
+
+
+<button id="arriba">
+      <a name="arriba"></a>
+    <a href="#abajo"> <input type="image" src="https://cdn.pixabay.com/photo/2013/07/13/10/22/arrow-157087_960_720.png" style="position: fixed; bottom: 25em;  right: 0em; z-index: 2; " height="20" width="20"/>     </a>
+  </button>
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+
+
+
+
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Agatha%20y%20la%20verdad%20del%20crimen%20%282018%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w185_and_h278_bestv2/mSGqJZRIyvQkgg69BI5wTI2n9sm.jpg	"/> 	Agatha y la verdad del crimen (2018)	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Coherence%20%282013%29.mp4	')"><img src="	https://www1.naijgreen.com/wp-content/uploads/2020/06/Coherence-2013-BluRay-480p720p.jpg	"/> 	Coherence (2013)	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Deadly%20Excursion%20%282019%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w300/bsPIybp4inkbw8T9BmYuc6ZGjo0.jpg	"/> 	Deadly Excursion (2019)	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/-%20Doble%20de%20cuerpo.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/-%20Doble%20de%20cuerpo.jpg	"/> 	Doble de cuerpo	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Mi%20Padrastro%20Malvado%20%282019%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w185_and_h278_bestv2/cXYOGnUPM6wUezGA49JUIlpS3uQ.jpg	"/> 	Mi Padrastro Malvado (2019)	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Paranormal%20Activity%20%282009%29.mp4	')"><img src="	https://play-lh.googleusercontent.com/ivRhcnmwgfsjXeDZbbOhYEU0MA0JFEdmJtl0pBjYc8KlG40YFzSH4fkyozH5v7RLtPDI	"/> 	Paranormal Activity (2009)	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Paranormal%20Activity%20Los%20sen%CC%83alados%20%282014%29.mp4	')"><img src="	https://es.web.img3.acsta.net/pictures/13/12/13/10/53/157876.jpg	"/> 	Paranormal Activity Los sen~alados (2014)	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Paranormal%20Activity%20Tokyo%20Night%20%282010%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BYWViZWNmMGMtZmQzMS00MzEwLWI5ODAtNjUxY2ZjODBkNzlhXkEyXkFqcGdeQXVyMzgxODM4NjM@._V1_.jpg	"/> 	Paranormal Activity Tokyo Night (2010)	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Perseguida%20%282020%29.mp4	')"><img src="	https://www.proimagenescolombia.com/photos/57150_6229_imagen__.jpg	"/> 	Perseguida (2020)	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/The%20Black%20String%20%282018%29.mp4	')"><img src="	https://pics.filmaffinity.com/The_Black_String-994647462-mmed.jpg	"/> 	The Black String (2018)	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/The%20Show~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/The%20Show.jpg	"/> 	The Show	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Traffik%20%282018%29-1.mp4	')"><img src="	https://pics.filmaffinity.com/Traffik-381374087-large.jpg	"/> 	Traffik (2018)	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Viejos.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Viejos.jpg	"/> 	Viejos.jpg	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem%201x1%20Dual%20%40Girohens~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem.jpg	"/> 	Post Mortem 1x1	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem%201x2%20Dual%20%40Girohens~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem.jpg	"/> 	Post Mortem 1x2	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem%201x3%20Dual%20%40Girohens~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem.jpg	"/> 	Post Mortem 1x3	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem%201x4%20Dual%20%40Girohens~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem.jpg	"/> 	Post Mortem 1x4	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem%201x5%20Dual%20%40Girohens~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem.jpg	"/> 	Post Mortem 1x5	<h4> 	SUSPENSO	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem%201x6%20Dual%20%40Girohens~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Post%20Mortem.jpg	"/> 	Post Mortem 1x6	<h4> 	SUSPENSO	</h4></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+<button id="abajo"> 
+   <a href="#arriba"> <input type="image" src="https://static.vecteezy.com/system/resources/thumbnails/016/770/568/small/red-directional-arrow-on-transparent-background-free-png.png" style="position: fixed; bottom: 20em;  right: 0em; z-index: 2;" height="20" width="20"/>   </a>
+    <a name="abajo"></a>
+  </button>
+
+
+ </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+window.addEventListener('load', function() {
+  var boton = document.getElementById('menu-button');
+  var lista = document.getElementById('video-list');
+  var temporizador;
+  
+  boton.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  lista.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  boton.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+  
+  lista.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+});
+
+
+
+
+
+
+
+
+const menuButton = document.getElementById('menu-button');
+const videoList = document.getElementById('video-list');
+const videoPlayer = document.getElementById('video');
+
+menuButton.addEventListener('click', () => {
+  if (videoList.style.display === 'none') {
+    videoList.style.display = 'block';
+  } else {
+    videoList.style.display = 'none';
+  }
+});
+
+function changeVideo(src) {
+  videoPlayer.src = src;
+  videoPlayer.play();
+  videoList.style.display = 'none';
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

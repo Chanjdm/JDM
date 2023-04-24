@@ -1,0 +1,582 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv = «X-UA-compatible» content = «IE = 9; IE = 7; IE = 8; IE = EDGE, Chrome = 1″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title> REPRO  </title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</script>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
+
+
+<style type="text/css">
+
+body  {
+    text-decoration: none;
+    background: #000000;
+outline: none;
+}
+
+
+
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 130%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #52c2ff;
+    Position: absolute;
+    top: 45px;
+    right: 20px;
+    font-size: 120%;
+    outline: none;
+    overflow-y: scroll;
+    height: 80px;
+    width: 325px;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1280px){
+    
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 37%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 90%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #57aced;
+    Position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 90%;
+    outline: none;
+    overflow-y: scroll;
+    height: 90px;
+    width: 235px;
+}
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 480px){
+    #video-player{
+    height: calc(100% - 1*1px);
+    margin-top: 1em;
+}
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 11.8em;
+    RIGHT: 0px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 2px 0px 1px;
+    width: 306px;
+    justify-items: start;
+}
+    #menu-button{
+    display: flex;
+    width: 100%;
+    height: 65px;
+    top: -1em;
+}
+#video-list a img {
+    border-radius: 5px;
+    width: 80px;
+    outline: none;
+}
+h4  {
+    Margin-top: 2px;
+    padding-bottom: 60px;
+    color: #06fd06;
+    Position: absolute;
+    right: -10px;
+    top: 45px;
+    font-size: 90%;
+    width: 230px;
+    height: 7px;
+    padding-top: 2px;
+    overflow-y: scroll;
+}
+
+}
+
+ #arriba{
+    background: #fcfcfc00;
+}
+ #abajo{
+    background: #fcfcfc00;
+
+}
+
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div id="video-player" >
+  <video src="#" controls id="video" poster="https://chanjdm.github.io/JDM/jdmflixbordes.jpg"></video>
+  <button id="menu-button">             </button>
+  
+
+
+  
+  
+  <ul id="video-list">
+
+
+<button id="arriba">
+      <a name="arriba"></a>
+    <a href="#abajo"> <input type="image" src="https://cdn.pixabay.com/photo/2013/07/13/10/22/arrow-157087_960_720.png" style="position: fixed; bottom: 25em;  right: 0em; z-index: 2; " height="20" width="20"/>     </a>
+  </button>
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/200%20Degrees.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/200%20Degrees.jpg	"/> 	200 Degrees	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/AK%20vs%20AK%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BYmYzYzBmYmItMDZhMy00NTQyLTk1NzUtYTU5NTgyYmIzYmE3XkEyXkFqcGdeQXVyMTE2MjAzMTU3._V1_UY268_CR1,0,182,268_AL_.jpg	"/> 	AK vs AK (2020)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Al%20acecho%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Al_acecho-132033556-large.jpg	"/> 	Al acecho (2020)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20Aquellos%20que%20desean%20mi%20muerte.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Aquellos%20que%20desean%20mi%20muerte.jpg	"/> 	Aquellos que desean mi muerte	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Aversio%CC%81n%20%282019%29.mp4	')"><img src="	https://pics.filmaffinity.com/Aversi_n-211916385-large.jpg	"/> 	Aversio´n (2019)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Bajos%20instintos.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Bajos%20instintos.jpg	"/> 	Bajos instintos	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Broken%20Star~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Broken%20Star.jpg	"/> 	Broken Star	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Bronx%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Bronx-237628557-large.jpg	"/> 	Bronx (2020)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Captive.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Captive.jpg	"/> 	Captive	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20Casas%20de%20cristal.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Casas%20de%20cristal.jpg	"/> 	Casas de cristal	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Caza%20al%20asesino%20%282013%29.mp4	')"><img src="	https://r3.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic2.abc.es%2Fmedia%2Fpeliculas%2F000%2F005%2F961%2Fcaza-al-asesino-1.jpg&nuevoancho=690&medio=abc	"/> 	Caza al asesino (2013)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Ciudad%20de%20mentiras~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Ciudad%20de%20mentiras.jpg	"/> 	Ciudad de mentiras	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Codigo%20enigma.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Codigo%20enigma.jpg	"/> 	Codigo enigma	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Copper%20Bill%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BMmJlOTQxNjUtMDIxNC00ODI5LWE2ZmUtYzViZDY2Y2VjY2ExXkEyXkFqcGdeQXVyNDAxOTQxMjk@._V1_.jpg	"/> 	Copper Bill (2020)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/%40cesser16%20Crisis%20%282021%29%201080p~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Crisis.jpg	"/> 	Crisis (2021)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Dark%20Places%20%282015%29.mp4	')"><img src="	https://images-na.ssl-images-amazon.com/images/I/910mNotUgIL._SY445_.jpg	"/> 	Dark Places (2015)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Death%20Note%20%282017%29%20720p.mp4	')"><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/1X19j2albvewAdnTNHx2fFXjOcC.jpg	"/> 	Death Note (2017) 720p	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Death%20Ranch.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Death%20Ranch.jpg	"/> 	Death Ranch	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Death%20Saved%20My%20Life.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Death%20Saved%20My%20Life.jpg	"/> 	Death Saved My Life	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Despierta%20la%20furia.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Despierta%20la%20furia.jpg	"/> 	Despierta la furia	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Domino%20%282019%29.mp4	')"><img src="	https://image.tmdb.org/t/p/original//rrX1ojdd068aHlrGq5Khd92a3ba.jpg	"/> 	Domino (2019)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/El%20asesino%20del%20nudo%20%282018%29.mp4	')"><img src="	https://pics.filmaffinity.com/El_asesino_del_nudo-444826921-large.jpg	"/> 	El asesino del nudo (2018)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/El%20escape.mp4	')"><img src="	https://archive.org/download/94-1_20210929/El%20escape.jpg	"/> 	El escape	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/El%20final%20de%20la%20verdad%20%282019%29.mp4	')"><img src="	https://pics.filmaffinity.com/El_final_de_la_verdad-978228470-large.jpg	"/> 	El final de la verdad (2019)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/El%20hombre%20del%20laberinto%20%282019%29.mp4	')"><img src="	https://r1.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic2.abc.es%2Fmedia%2Fpeliculas%2F000%2F055%2F894%2Fel-hombre-del-laberinto-1.jpg&nuevoancho=690&medio=abc	"/> 	El hombre del laberinto (2019)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20El%20juego%20de%20Gerald%20%282017%29%20720p.mp4	')"><img src="	https://mega-mkv.com/wp-content/uploads/2018/02/gerald_s_game.jpg	"/> 	El juego de Gerald (2017) 720p.mp4	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/El%20lado%20siniestro%20de%20la%20Luna%20%282019%29.mp4	')"><img src="	https://pics.filmaffinity.com/El_lado_siniestro_de_la_luna-990874996-large.jpg	"/> 	El lado siniestro de la Luna (2019)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/El%20ocupante%20%282019%29.mp4	')"><img src="	https://pics.filmaffinity.com/El_ocupante-121902967-large.jpg	"/> 	El ocupante (2019)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/-%20El%20protector.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/-%20El%20protector.jpg	"/> 	El protector	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20silencio%20de%20los%20inocentes.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20silencio%20de%20los%20inocentes.jpg	"/> 	El silencio de los inocentes	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20s%C3%B3tano%20de%20Ma.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20s%C3%B3tano%20de%20Ma.jpg	"/> 	El sotano de Ma	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20El%20umbral.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20El%20umbral.jpg	"/> 	El umbral	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20v%C3%ADnculo.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20v%C3%ADnculo.jpg	"/> 	El vínculo	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Encu%C3%A9ntrame%20%282016%29%20720p.mp4	')"><img src="	https://pics.filmaffinity.com/Encu_ntrame-722072874-large.jpg	"/> 	Encuéntrame (2016) 720p.mp4	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Fracture%20%282007%29.mp4	')"><img src="	https://pics.filmaffinity.com/Fracture-551335752-large.jpg	"/> 	Fracture (2007)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Hailey%20Dean%20Mysteries%20A%20Prescription%20for%20Murder%20%282019%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BYWQ5OGU5YmYtZjVlYy00YmUxLTk5YWItYjRjMGVmZTI3YjM4XkEyXkFqcGdeQXVyNDM5NDkyODg@._V1_.jpg	"/> 	Hailey Dean Mysteries A Prescription for Murder (2019)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Herencia%20maldita.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Herencia%20maldita.jpg	"/> 	Herencia maldita	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/La%20chaqueta%20de%20piel%20de%20ciervo%20%282019%29.mp4	')"><img src="	https://www.elseptimoarte.net/carteles/207/la_chaqueta_de_piel_de_ciervo_83509.jpg	"/> 	La chaqueta de piel de ciervo (2019)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/La%20mujer%20en%20la%20ventana.mp4	')"><img src="	https://archive.org/download/yummy_202105/La%20mujer%20en%20la%20ventana.jpg	"/> 	La mujer en la ventana	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/La%20mujer%20ilegal.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/La%20mujer%20ilegal.jpg	"/> 	La mujer ilegal	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/La%20Purga%2C%20Infinita.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/La%20Purga%2C%20Infinita.jpg	"/> 	La Purga Infinita	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/La%20sombra%20de%20los%20otros%20%282010%29.mp4	')"><img src="	https://pics.filmaffinity.com/La_sombra_de_los_otros-421691505-large.jpg	"/> 	La sombra de los otros (2010)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/La%20viuda%20%282018%29.mp4	')"><img src="	https://es.web.img2.acsta.net/pictures/19/05/17/10/40/5908071.jpg	"/> 	La viuda (2018)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Las%20Hijas%20del%20Reich%202020.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Las%20Hijas%20del%20Reich%202020.jpg	"/> 	Las Hijas del Reich 2020	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20Los%20miserables.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Los%20miserables.jpg	"/> 	Los miserables	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/No%20respires~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/No%20respires.jpg	"/> 	No respires	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Ofrenda%20a%20la%20tormenta%20%282020%29.mp4	')"><img src="	https://www.ecartelera.com/carteles/14600/14654/001_m.jpg	"/> 	Ofrenda a la tormenta (2020)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Out%20of%20Death.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Out%20of%20Death.jpg	"/> 	Out of Death	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Plan%20de%20vuelo%201080p.mp4	')"><img src="	https://3.bp.blogspot.com/-TSbAzwQD9lU/XMcrP36YrvI/AAAAAAAAK38/XTb6XSqVaj42ei3dw8KWMm-XVkAdrvVEQCKgBGAs/s1600/Plan%2Bde%2BVuelo%2B1080p%2BLatino.png	"/> 	Plan de vuelo 1080p.mp4	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Primer%20%282004%29.mp4	')"><img src="	https://static1.opensubtitles.org/gfx/thumbs/4/8/3/0/0390384.jpg	"/> 	Primer (2004)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20Prisionero%2099.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Prisionero%2099.jpg	"/> 	Prisionero 99	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Proud%20Mary.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Proud%20Mary.jpg	"/> 	Proud Mary	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Rocambola%20%282019%29.mp4	')"><img src="	https://pics.filmaffinity.com/Rocambola-814798788-large.jpg	"/> 	Rocambola (2019)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Sleeping%20with%20Danger%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BZjQ5ZmRjMTAtNjJjZS00MzQ2LWE5MGYtMjJjNjgwMzU2OWY2XkEyXkFqcGdeQXVyNjU0NTI0Nw@@._V1_.jpg	"/> 	Sleeping with Danger (2020)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Soy%20tu%20mujer%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Soy_tu_mujer-752233198-mmed.jpg	"/> 	Soy tu mujer (2020)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Tentaciones%20oscuras.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Tentaciones%20oscuras.jpg	"/> 	Tentaciones oscuras	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/The%20Fanatic%20%282019%29.mp4	')"><img src="	https://pics.filmaffinity.com/The_Fanatic-897653290-large.jpg	"/> 	The Fanatic (2019)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/The%20Fanatic%20%282019%29.mp4	')"><img src="	https://pbs.twimg.com/media/EJRzf4MU0AEiHVP.png	"/> 	The Fanatic (2019)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/The%20Wrong%20Cheerleader%20Coach.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/The%20Wrong%20Cheerleader%20Coach.jpg	"/> 	The Wrong Cheerleader Coach	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/TKG%20The%20Kids%20of%20Grove%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BY2FmZWQ1NjctMTY0Ny00MGViLWFjNDQtODJmMDE1MzY0NTAzXkEyXkFqcGdeQXVyNTc0NTE3NDc@._V1_UY1200_CR85,0,630,1200_AL_.jpg	"/> 	TKG The Kids of Grove (2020)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Un%20desliz%20fatal%20%282020%29.mp4	')"><img src="	https://64.media.tumblr.com/1d0cc8421c92c7fd4da94dc6b60e476e/8e2655e827b0567c-9b/s500x750/29d84f1275ade208e6635f719ca90bb3bc814841.jpg	"/> 	Un desliz fatal (2020)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Undergods.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Undergods.jpg	"/> 	Undergods	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Uno%20de%20nosotros%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Uno_de_nosotros-769765138-large.jpg	"/> 	Uno de nosotros (2020)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/magical-girl-lyrical-nanoha-reflection-2017/Welcome%20Home%20%282018%29.mp4	')"><img src="	https://es.web.img3.acsta.net/pictures/19/07/08/15/00/3542246.jpg	"/> 	Welcome Home (2018)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Whiteout%20%282009%29.mp4	')"><img src="	https://upload.wikimedia.org/wikipedia/en/6/6d/Whiteout_poster.jpg	"/> 	Whiteout (2009)	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Y%20ma%C3%B1ana%20el%20mundo%20entero.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Y%20ma%C3%B1ana%20el%20mundo%20entero.jpg	"/> 	Y mañana el mundo entero	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20Yo%20soy%20todas%20las%20ni%C3%B1as.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Yo%20soy%20todas%20las%20ni%C3%B1as.jpg	"/> 	Yo soy todas las niñas	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Zodiaco.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Zodiaco.jpg	"/> 	Zodiaco	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Culpable~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Culpable.jpg	"/> 	Culpable	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Forever%20Rich~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Forever%20Rich.jpg	"/> 	Forever Rich	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Herencia%20venenosa~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Herencia%20venenosa.jpg	"/> 	Herencia venenosa	<h4> 	TRILLER	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Hijo%20de%20Ca%C3%ADn~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Hijo%20de%20Ca%C3%ADn.jpg	"/> 	Hijo de Caín	<h4> 	TRILLER	</h4></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+<button id="abajo"> 
+   <a href="#arriba"> <input type="image" src="https://static.vecteezy.com/system/resources/thumbnails/016/770/568/small/red-directional-arrow-on-transparent-background-free-png.png" style="position: fixed; bottom: 20em;  right: 0em; z-index: 2;" height="20" width="20"/>   </a>
+    <a name="abajo"></a>
+  </button>
+
+
+ </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+window.addEventListener('load', function() {
+  var boton = document.getElementById('menu-button');
+  var lista = document.getElementById('video-list');
+  var temporizador;
+  
+  boton.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  lista.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  boton.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+  
+  lista.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+});
+
+
+
+
+
+
+
+
+const menuButton = document.getElementById('menu-button');
+const videoList = document.getElementById('video-list');
+const videoPlayer = document.getElementById('video');
+
+menuButton.addEventListener('click', () => {
+  if (videoList.style.display === 'none') {
+    videoList.style.display = 'block';
+  } else {
+    videoList.style.display = 'none';
+  }
+});
+
+function changeVideo(src) {
+  videoPlayer.src = src;
+  videoPlayer.play();
+  videoList.style.display = 'none';
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,575 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv = «X-UA-compatible» content = «IE = 9; IE = 7; IE = 8; IE = EDGE, Chrome = 1″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title> REPRO  </title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</script>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
+
+
+<style type="text/css">
+
+body  {
+    text-decoration: none;
+    background: #000000;
+outline: none;
+}
+
+
+
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 130%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #52c2ff;
+    Position: absolute;
+    top: 45px;
+    right: 20px;
+    font-size: 120%;
+    outline: none;
+    overflow-y: scroll;
+    height: 80px;
+    width: 325px;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1280px){
+    
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 37%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 90%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #57aced;
+    Position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 90%;
+    outline: none;
+    overflow-y: scroll;
+    height: 90px;
+    width: 235px;
+}
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 480px){
+    #video-player{
+    height: calc(100% - 1*1px);
+    margin-top: 1em;
+}
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 11.8em;
+    RIGHT: 0px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 2px 0px 1px;
+    width: 306px;
+    justify-items: start;
+}
+    #menu-button{
+    display: flex;
+    width: 100%;
+    height: 65px;
+    top: -1em;
+}
+#video-list a img {
+    border-radius: 5px;
+    width: 80px;
+    outline: none;
+}
+h4  {
+    Margin-top: 2px;
+    padding-bottom: 60px;
+    color: #06fd06;
+    Position: absolute;
+    right: -10px;
+    top: 45px;
+    font-size: 90%;
+    width: 230px;
+    height: 7px;
+    padding-top: 2px;
+    overflow-y: scroll;
+}
+
+}
+
+ #arriba{
+    background: #fcfcfc00;
+}
+ #abajo{
+    background: #fcfcfc00;
+
+}
+
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div id="video-player" >
+  <video src="#" controls id="video" poster="https://chanjdm.github.io/JDM/jdmflixbordes.jpg"></video>
+  <button id="menu-button">             </button>
+  
+
+
+  
+  
+  <ul id="video-list">
+
+
+<button id="arriba">
+      <a name="arriba"></a>
+    <a href="#abajo"> <input type="image" src="https://cdn.pixabay.com/photo/2013/07/13/10/22/arrow-157087_960_720.png" style="position: fixed; bottom: 25em;  right: 0em; z-index: 2; " height="20" width="20"/>     </a>
+  </button>
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+
+
+
+
+
+
+
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20Amores%20can%C3%ADbales%20%282016%29%20720p.mp4	')"><img src="	https://ia601505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_04-36-09.jpg	"/> 	Amores caníbales (2016)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Archive%20%282020%29.mp4	')"><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/zNLVWauiqW3I7nJ5lRE1GLDjlHw.jpg	"/> 	Archive (2020)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Attraction%20%282017%29-1.mp4	')"><img src="	https://pics.filmaffinity.com/Attraction-612163369-mmed.jpg	"/> 	Attraction (2017)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Avengers%20Endgame.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Avengers%20Endgame.jpg	"/> 	Avengers Endgame	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/Aztech%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Aztech-667979204-large.jpg	"/> 	Aztech (2020)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Beyond%20Skyline.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Beyond%20Skyline.jpg	"/> 	Beyond Skyline	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/%40cesser16%20%20Caos%20El%20inicio%20%282021%29%201080p~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Caos%2C%20el%20inicio.jpg	"/> 	Caos El inicio 2021	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/the-immortal-wars-resurgence-2019/Cata%CC%81strofe%20inminente%20%282015%29.mp4	')"><img src="	https://pics.filmaffinity.com/earthfall_tv-909168957-large.jpg	"/> 	Cata´strofe inminente (2015)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Cherry%202000.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Cherry%202000.jpg	"/> 	Cherry 2000	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Containment%20%282015%29.mp4	')"><img src="	https://3.bp.blogspot.com/-b9h9Y-hCI7A/VibOUwATz2I/AAAAAAAAq7o/WVL5WsrDDWg/s1600/698021515.jpg	"/> 	Containment (2015)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Cosmoball%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Cosmoball-839643845-large.jpg	"/> 	Cosmoball (2020)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Divergente%203.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Divergente.jpg	"/> 	Divergente	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Divergente%202.mp4	')"><img src="	https://ia601508.us.archive.org/34/items/como-me-converti-en-superheroe/Divergente%202.jpg	"/> 	Divergente 2	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20El%20espacio%20entre%20nosotros%20%282017%29%20720p.mp4	')"><img src="	https://www.peliculas1mega.com/wp-content/uploads/2017/03/The_space_between_us_poster_latino.jpg	"/> 	El espacio entre nosotros (2017)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/El%20mundo%20perdido%20Jurassic%20Park%20%281997%29.mp4	')"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/91/43/89/20145513.jpg	"/> 	El mundo perdido Jurassic Park (1997)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/1-ver-el-quinto-elemento-1997-480-ju-an-ch-o-1304/1%20Ver%20El%20Quinto%20Elemento%20%281997%29%20480%20%40JuAnChO1304.mp4	')"><img src="	https://1.bp.blogspot.com/-INRUdodhZH4/Xv1mJDVfybI/AAAAAAAAB5k/FAoLiGkOz84iQhDhOX0EYdDbANvlHolgwCK4BGAsYHg/s16000/El%2Bquinto%2Belemento.jpg	"/> 	El quinto elemento (1997)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/En%20Modo%20Asesino~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/En%20Modo%20Asesino.jpg	"/> 	En Modo Asesino	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Espiral.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Espiral.jpg	"/> 	Espiral	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Expiry.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Expiry.jpg	"/> 	Expiry	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Flash%20Gordon%20%281980%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BN2Y4ZDBjMjEtZWQ0OS00NzYyLTg0M2ItMmUzYTEwN2RmMGVlXkEyXkFqcGdeQXVyMjgyOTI1ODY@._V1_.jpg	"/> 	Flash Gordon (1980)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Ghost%20in%20the%20Shell.mp4	')"><img src="	https://archive.org/download/yummy_202105/Ghost%20in%20the%20Shell.jpg	"/> 	Ghost in the Shell	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Ghost%20in%20the%20Shell%20Stand%20Alone%20Complex%20-%20El%20hombre%20que%20r%C3%ADe.mp4	')"><img src="	https://archive.org/download/yummy_202105/Ghost%20in%20the%20Shell%20Stand%20Alone%20Complex%20-%20El%20hombre%20que%20r%C3%ADe.jpg	"/> 	Ghost in the Shell Stand Alone Complex - El hombre que ríe	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Ghost%20in%20the%20Shell%20Stand%20Alone%20Complex%202nd%20GiG.mp4	')"><img src="	https://archive.org/download/yummy_202105/Ghost%20in%20the%20Shell%20Stand%20Alone%20Complex%202nd%20GiG.jpg	"/> 	Ghost in the Shell Stand Alone Complex 2nd GiG	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Godzilla%20%281998%29.mp4	')"><img src="	https://pics.filmaffinity.com/Godzilla-741312933-mmed.jpg	"/> 	Godzilla (1998)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Guardianes%20de%20la%20galaxia%20%282014%29%20720p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/-%20Guardianes%20de%20la%20galaxia.jpg	"/> 	Guardianes de la galaxia (2014) 720p.mp4	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Guardianes%20de%20la%20galaxia%20Vol.%202%20-%20720p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/-%20Guardianes%20de%20la%20galaxia%202.jpg	"/> 	Guardianes de la galaxia Vol. 2 - 720p.mp4	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Gu%C3%ADa%20del%20autoestopista%20gal%C3%A1ctico.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Gu%C3%ADa%20del%20autoestopista%20gal%C3%A1ctico.jpg	"/> 	Guía del autoestopista galáctico	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Independence%20Day%20%281996%29.mp4	')"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/68/00/67/20141592.jpg	"/> 	Independence Day (1996)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Infinito%202021.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Infinito%202021.jpg	"/> 	Infinito 2021	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Inteligencia%20Artificial.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Inteligencia%20Artificial.jpg	"/> 	Inteligencia Artificial	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20La%20%C3%BAltima%20vida%20de%20Sim%C3%B3n.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20La%20%C3%BAltima%20vida%20de%20Sim%C3%B3n.jpg	"/> 	La última vida de Simón	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Las%20vidas%20posibles%20de%20Mr.%20Nobody.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Las%20vidas%20posibles%20de%20Mr.%20Nobody.jpg	"/> 	Las vidas posibles de Mr Nobody	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Liga%20de%20la%20justicia%20720p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/Liga%20de%20la%20Justicia.jpg	"/> 	Liga de la justicia	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Los%20Invasores%20%282017%29%20720p.mp4	')"><img src="	https://pics.filmaffinity.com/the_recall-294838770-large.jpg	"/> 	Los Invasores (2017)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/la-navidad-magica-de-los-jangle-2020_20201213/Los%20nuevos%20mutantes%20%282020%29-1.mp4	')"><img src="	https://pics.filmaffinity.com/Los_nuevos_mutantes-737308298-large.jpg	"/> 	Los nuevos mutantes (2020)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/M%C3%A1s%20all%C3%A1%20del%20horizonte.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/M%C3%A1s%20all%C3%A1%20del%20horizonte.jpg	"/> 	Más allá del horizonte	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-acrimony-1080p/Ver%20Mortal%20Kombat%20%282021%29%20480%20%40JuAnChO1304.mp4	')"><img src="	https://es.web.img2.acsta.net/pictures/21/03/30/16/14/5223967.jpg	"/> 	Mortal Kombat (2021)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Ox%C3%ADgeno.mp4	')"><img src="	https://archive.org/download/yummy_202105/Ox%C3%ADgeno.jpg	"/> 	Oxígeno	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Par%C3%A1sitos.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Par%C3%A1sitos.jpg	"/> 	Parásitos	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Planeta%20rojo.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Planeta%20rojo.jpg	"/> 	Planeta rojo	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Polic%C3%ADa%20en%20el%20tiempo.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Polic%C3%ADa%20en%20el%20tiempo.jpg	"/> 	Policía en el tiempo	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Power%20Rangers%20La%20Peli%CC%81cula%20%281995%29.mp4	')"><img src="	https://pics.filmaffinity.com/Power_Rangers_la_pel_cula-234937996-mmed.jpg	"/> 	Power Rangers La Peli´cula (1995)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Reminiscencia~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Reminiscencia.jpg	"/> 	Reminiscencia	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Respira~1.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Respira.jpg	"/> 	Respira	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/%40cesser16%20Robot%20Apocalypse%20%282021%29%201080p~1.mp4	')"><img src="	https://pics.filmaffinity.com/robo_warriors_aka_robot_jox_3-737572793-mmed.jpg	"/> 	Robot Apocalypse 2021	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Settlers.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Settlers.jpg	"/> 	Settlers	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Spawn%20%281997%29.mp4	')"><img src="	https://media.elcinema.com/uploads/_315x420_35fb45110d658154115fbf93efc7899cdccec3ffa30138db69231a9d3da64d49.jpg	"/> 	Spawn (1997)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Sputnik%20%282020%29.mp4	')"><img src="	https://img.netnaija.com/l2bHHK.jpg	"/> 	Sputnik (2020)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Star%20Trek%20IX%20Insurreccio%CC%81n%20%281998%29.mp4	')"><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/mvBhWl93Cktgo5Xec31hQVKqMD1.jpg	"/> 	Star Trek IX Insurreccio´n (1998)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Star%20wars%20Episodio%20I%20-%20La%20amenaza%20fantasma.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Star%20wars%20Episodio%20I%20La%20amenaza%20fantasma.jpg	"/> 	Star wars Episodio I La amenaza fantasma	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/star-wars-episodio-iii-la-venganza-de-los-sith-2005_20201206/Star%20wars_%20Episodio%20III%20-%20La%20venganza%20de%20los%20sith%20%282005%29.mp4	')"><img src="	https://pics.filmaffinity.com/La_guerra_de_las_galaxias_Episodio_III_La_venganza_de_los_Sith-974479162-large.jpg	"/> 	Star wars_ Episodio III  La venganza de los sith 2005	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Starship%20Troopers%20%28Las%20brigadas%20del%20espacio%29%20%281997%29.mp4	')"><img src="	https://lh4.googleusercontent.com/proxy/MuucizTwA15f_m0eS_pXu1j3iZrQhuSxqyAxqdSUL31pck4ZW2ztx0IV_tsvJHQG17ct_D6p88NwrwLTbgwbNrEzuJiyPBipDsQEv1lmMp6z_EU=w1200-h630-p-k-no-nu	"/> 	Starship Troopers (Las brigadas del espacio) (1997)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Terminator%202%20el%20juicio%20final%20%281991%29.MP4	')"><img src="	https://4.bp.blogspot.com/-ajiyet4pTlo/XGs6fiRp5AI/AAAAAAAA0nA/pq3S9gJ7ELEFhBASfhTBIzjNCGULyOoAwCLcBGAs/s1600/Terminator%2B2%2BEl%2Bjuicio%2Bfinal.jpg	"/> 	Terminator 2 el juicio final	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/El%20exterminador%203.mp4	')"><img src="	https://pics.filmaffinity.com/Terminator_3_La_rebeli_n_de_las_m_quinas-788040850-large.jpg	"/> 	terminator 3 la revelion de las maquinas	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Terminator%204%2C%20La%20salvaci%C3%B3n.mp4	')"><img src="	https://img.repelis.id/cover/terminator-4-la-salvacion.jpg	"/> 	Terminator 4 La salvación	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/El%20exterminador%205.mp4	')"><img src="	https://i.pinimg.com/originals/ba/ca/a6/bacaa601e4ccdc41ae840f16376c44b6.jpg	"/> 	terminator 5	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/El%20exterminador%206%2C%20destino%20oscuro.mp4	')"><img src="	https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/poster-terminator-destino-oscuro-1567418737.jpg	"/> 	terminator 6 destino oscuro	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/THX%201138.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/THX%201138.jpg	"/> 	THX 1138	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Time%20Trap.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Time%20Trap.jpg	"/> 	Time Trap	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/TRON%20%281982%29.mp4	')"><img src="	https://es.web.img3.acsta.net/pictures/14/03/21/12/06/469257.jpg	"/> 	TRON (1982)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Ultra%20Galaxy%20Fight%2C%20New%20Generation%20Heroes.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Ultra%20Galaxy%20Fight%2C%20New%20Generation%20Heroes.jpg	"/> 	Ultra Galaxy	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/2001%2C%20Una%20odisea%20del%20espacio.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/2001%2C%20Una%20odisea%20del%20espacio.jpg	"/> 	Una odisea del espacio	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Vengadores%20Infinity%20War%20%282018%29.mp4	')"><img src="	https://pics.filmaffinity.com/Vengadores_Infinity_War-181539353-large.jpg	"/> 	Vengadores Infinity War (2018)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/desaparecido-en-combate-1984_202101/Volcano%20%281997%29.mp4	')"><img src="	https://upload.wikimedia.org/wikipedia/en/d/dd/Volcano_%281997_film%29.jpg	"/> 	Volcano (1997)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wonder-woman-1984-2020_202012/Wonder%20Woman%201984%20%282020%29.mp4	')"><img src="	https://i.pinimg.com/originals/18/e6/1e/18e61e299d5b505fb947716f8a1e9ac3.png	"/> 	Wonder Woman 1984 (2020)	<h4> 	CIENCIA FICCIÓN	</h4></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+<button id="abajo"> 
+   <a href="#arriba"> <input type="image" src="https://static.vecteezy.com/system/resources/thumbnails/016/770/568/small/red-directional-arrow-on-transparent-background-free-png.png" style="position: fixed; bottom: 20em;  right: 0em; z-index: 2;" height="20" width="20"/>   </a>
+    <a name="abajo"></a>
+  </button>
+
+
+ </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+window.addEventListener('load', function() {
+  var boton = document.getElementById('menu-button');
+  var lista = document.getElementById('video-list');
+  var temporizador;
+  
+  boton.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  lista.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  boton.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+  
+  lista.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+});
+
+
+
+
+
+
+
+
+const menuButton = document.getElementById('menu-button');
+const videoList = document.getElementById('video-list');
+const videoPlayer = document.getElementById('video');
+
+menuButton.addEventListener('click', () => {
+  if (videoList.style.display === 'none') {
+    videoList.style.display = 'block';
+  } else {
+    videoList.style.display = 'none';
+  }
+});
+
+function changeVideo(src) {
+  videoPlayer.src = src;
+  videoPlayer.play();
+  videoList.style.display = 'none';
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

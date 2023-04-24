@@ -1,0 +1,611 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv = «X-UA-compatible» content = «IE = 9; IE = 7; IE = 8; IE = EDGE, Chrome = 1″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title> REPRO  </title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</script>
+<link rel="stylesheet" href="bootstrap.css">
+<link rel="stylesheet" href="style.css">
+
+
+<style type="text/css">
+
+body  {
+    text-decoration: none;
+    background: #000000;
+outline: none;
+}
+
+
+
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 35%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 130%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #52c2ff;
+    Position: absolute;
+    top: 45px;
+    right: 20px;
+    font-size: 120%;
+    outline: none;
+    overflow-y: scroll;
+    height: 80px;
+    width: 325px;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1280px){
+    
+#video-player {
+  position: relative;
+  width: 100%;
+  height: 670px;
+outline: none;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+outline: none;
+}
+
+#menu-button {
+    border-width: 0px;
+    height: 600px;
+    Width: 450px;
+    Padding: 5px;
+    position: absolute;
+    top: -6px;
+    right: 0;
+    z-index: 1;
+    background: #ff010100;
+    text-decoration: none;
+outline: none;
+}
+
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    z-index: 1;
+    background-color: rgb(0 0 0 / 74%);
+    color: #fcfcfc00;
+    height: 550px;
+    padding: 0px 5px 0px 5px;
+    width: 37%;
+    justify-items: start;
+outline: none;
+}
+
+#video-list a img {
+    border-radius: 5px;
+    width: 90px;
+    height: 100%;
+outline: none;
+}
+
+
+#video-list li {
+  margin: 10px 0;
+outline: none;
+}
+
+#video-list a {
+    color: #fdf600;
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    align-items: stretch;
+outline: none;
+}
+
+#video-list a:hover {
+  text-decoration: NONE;
+outline: none;
+}
+
+
+.menu-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+outline: none;
+}
+
+.menu-list li {
+  margin-bottom: 1px;
+outline: none;
+}
+
+.menu-list a {
+  color: #000;
+  text-decoration: none;
+outline: none;
+}
+
+h3 {
+    margin-top: 2px;
+    margin-bottom: 1px;
+    font-size: 90%;
+    color: #fdf600;
+    outline: none;
+    width: 250px;
+    position: relative;
+    height: 35px;
+    left: 5px;
+}
+h4 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    color: #57aced;
+    Position: absolute;
+    top: 40px;
+    right: 20px;
+    font-size: 90%;
+    outline: none;
+    overflow-y: scroll;
+    height: 90px;
+    width: 235px;
+}
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 480px){
+    #video-player{
+    height: calc(100% - 1*1px);
+    margin-top: 1em;
+}
+#video-list {
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: absolute;
+    top: 11.8em;
+    RIGHT: 0px;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    color: #fcfcfc00;
+    height: 580px;
+    padding: 0px 2px 0px 1px;
+    width: 306px;
+    justify-items: start;
+}
+    #menu-button{
+    display: flex;
+    width: 100%;
+    height: 65px;
+    top: -1em;
+}
+#video-list a img {
+    border-radius: 5px;
+    width: 80px;
+    outline: none;
+}
+h4  {
+    Margin-top: 2px;
+    padding-bottom: 60px;
+    color: #06fd06;
+    Position: absolute;
+    right: -10px;
+    top: 45px;
+    font-size: 90%;
+    width: 230px;
+    height: 7px;
+    padding-top: 2px;
+    overflow-y: scroll;
+}
+
+}
+
+ #arriba{
+    background: #fcfcfc00;
+}
+ #abajo{
+    background: #fcfcfc00;
+
+}
+
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div id="video-player" >
+  <video src="#" controls id="video" poster="https://chanjdm.github.io/JDM/jdmflixbordes.jpg"></video>
+  <button id="menu-button">             </button>
+  
+
+
+  
+  
+  <ul id="video-list">
+
+
+<button id="arriba">
+      <a name="arriba"></a>
+    <a href="#abajo"> <input type="image" src="https://cdn.pixabay.com/photo/2013/07/13/10/22/arrow-157087_960_720.png" style="position: fixed; bottom: 25em;  right: 0em; z-index: 2; " height="20" width="20"/>     </a>
+  </button>
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+
+
+
+
+
+
+
+
+
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Al%20diablo%20con%20el%20diablo.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Al%20diablo%20con%20el%20diablo.jpg	"/> 	Al diablo con el diablo	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20All%20You%20Need%20Is%20Love%20%282009%29.mp4	')"><img src="	https://2.bp.blogspot.com/-iK3_TBKjHfs/VavGRM8r4SI/AAAAAAAABlk/dBhezko9Sgg/s400/need-love-film.jpg	"/> 	All You Need Is Love (2009)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/American%20Pie%20Las%20chicas%20mandan%20%282020%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w500/ov1sd4gvHpoVheHuJHCXJjadeIT.jpg	"/> 	American Pie Las chicas mandan (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Amigos%20con%20beneficios.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Amigos%20con%20beneficios.jpg	"/> 	Amigos con beneficios	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Anacleto%20agente%20secreto%20%282015%29.mp4	')"><img src="	https://pics.filmaffinity.com/Anacleto_Agente_secreto-863043600-large.jpg	"/> 	Anacleto agente secreto (2015)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Borat.mp4	')"><img src="	https://www.formulatv.com/images/tvmovies/posters/200/203/1_m1.jpg	"/> 	Borat	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/163039899	')"><img src="	https://m.media-amazon.com/images/M/MV5BNmE4ZTZmYjAtNGU2OS00NDFlLWI2OWYtMjYwZmVjOWJlOWE1XkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg	"/> 	Buddy Games (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/%28Re%29cambio%20de%20princesa%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Re_cambio_de_princesa-598509233-large.jpg	"/> 	cambio de princesa (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/Cantinflas.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/Cantinflas.jpg	"/> 	Cantinflas	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Chichipatos%20%C2%A1que%CC%81%20chimba%20de%20Navidad%21%20%282020%29.mp4	')"><img src="	https://i.imgur.com/NJjrOcC.png	"/> 	Chichipatos ¡que´ chimba de Navidad! (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Co%CC%81mo%20sobrevivir%20en%20un%20mundo%20material%20%28Kajillionaire%29%20%282020%29.mp4	')"><img src="	https://es.web.img3.acsta.net/c_310_420/pictures/20/11/24/09/17/0574231.jpg	"/> 	Co´mo sobrevivir en un mundo material (Kajillionaire) (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/C%C3%B3mo%20perder%20a%20un%20hombre%20en%2010%20d%C3%ADas%20%282003%29.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/C%C3%B3mo%20perder%20a%20un%20hombre%20en%2010%20d%C3%ADas%20%282003%29.jpg	"/> 	Como perder a un hombre en 10 días 2003	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/animal-crackers-2017_202101/Como%20pez%20fuera%20del%20agua%20%282017%29.mp4	')"><img src="	https://www.covercaratulas.com/ode/mini_mini/carteles-31034.jpg	"/> 	Como pez fuera del agua (2017)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Confesiones%20de%20una%20chica%20invisible.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Confesiones%20de%20una%20chica%20invisible.jpg	"/> 	Confesiones de una chica invisible	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Corazo%CC%81n%20loco%20%282020%29.mp4	')"><img src="	https://es.web.img2.acsta.net/pictures/20/08/19/18/30/5694896.jpg	"/> 	Corazo´n loco (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/Amadrinadas/Cro%CC%81nicas%20de%20Navidad%202%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Cr_nicas_de_Navidad_2-348045723-large.jpg	"/> 	Cronicas de Navidad 2 (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Ace%20Ventura%2C%20cuando%20la%20naturaleza%20llama.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Ace%20Ventura%2C%20cuando%20la%20naturaleza%20llama.jpg	"/> 	cuando la naturaleza llama	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/De%20Roma%20con%20amor.mp4	')"><img src="	https://archive.org/download/yummy_202105/De%20Roma%20con%20amor.jpg	"/> 	De Roma con amor	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/De%20vuelta%20a%20casa%20Un%20viaje%20incre%C3%ADble.mp4	')"><img src="	https://archive.org/download/yummy_202105/De%20vuelta%20a%20casa%20Un%20viaje%20incre%C3%ADble.jpg	"/> 	De vuelta a casa Un viaje increíble	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Desnudo%20%282017%29%20720p.mp4	')"><img src="	https://www.themoviedb.org/t/p/w94_and_h141_bestv2/yV95cXcHhmuUAW8bjAayPynf7Lf.jpg	"/> 	Desnudo (2017)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Despu%C3%A9s%20de%20ti%20%282021%29.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Despu%C3%A9s%20de%20ti%20%282021%29.jpg	"/> 	Despues de ti 2021	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/-%20Despu%C3%A9s%20la%20Loca%20soy%20Yo.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/-%20Despu%C3%A9s%20la%20Loca%20soy%20Yo.jpg	"/> 	Después la Loca soy Yo	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Dos%20sinverg%C3%BCenzas.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Dos%20sinverg%C3%BCenzas.jpg	"/> 	Dos sinverguenzas	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Dos%20tontos%20en%20fuga.avi	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Dos%20tontos%20en%20fuga.jpg	"/> 	Dos tontos en fuga	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Dos%20tontos%20todav%C3%ADa%20m%C3%A1s%20tontos.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Dos%20tontos%20todav%C3%ADa%20m%C3%A1s%20tontos.jpg	"/> 	Dos tontos todavía más tontos	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/El%20Club%20de%20los%20Idealistas%20%282020%29-1.mp4	')"><img src="	https://pics.filmaffinity.com/El_club_de_los_idealistas-767632998-large.jpg	"/> 	El Club de los Idealistas (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20El%20d%C3%ADa%20de%20la%20novia%20%282017%28%20720p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/-%20El%20d%C3%ADa%20de%20la%20novia.jpg	"/> 	El día de la novia (2017	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20El%20hijo%20del%20novio.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20El%20hijo%20del%20novio.jpg	"/> 	El hijo del novio	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/El%20lun%C3%A1tico%201999.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/El%20lun%C3%A1tico%201999.jpg	"/> 	El lunático 1999	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/El%20magni%CC%81fico%20Iva%CC%81n%20%282020%29.mp4	')"><img src="	https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/styles/cover_290x414/public/media/image/2020/09/magnifico-ivan-2062829.jpg?itok=Z8AB4vYg	"/> 	El magni´fico Iva´n (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/El%20mesero%20%282021%29%201080p~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/El%20mesero.jpg	"/> 	El mesero (2021)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20nieto%20de%20Sardar.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/El%20nieto%20de%20Sardar.jpg	"/> 	El nieto de Sardar	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/animal-crackers-2017_202101/El%20pri%CC%81ncipe%20olvidado%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/le_prince_oublie-172739671-large.jpg	"/> 	El pri´ncipe olvidado (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/El%20rey%20del%20sapo%20%282019%29.mp4	')"><img src="	https://www.proimagenescolombia.com/photos/57150_6183_imagen__.jpg	"/> 	El rey del sapo (2019)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/El%20testamento%20de%20la%20abuela%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BNDc1ODVjNzctOWEwYS00YWQ3LWJlZjAtZDQyMTQ0NTQ0ZWUzXkEyXkFqcGdeQXVyMzAzMzkzNTU@._V1_UY1200_CR135,0,630,1200_AL_.jpg	"/> 	El testamento de la abuela (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/El%20transexual~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/El%20transexual.jpg	"/> 	El transexual	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Esta%20abuela%20es%20un%20peligro.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Esta%20abuela%20es%20un%20peligro.jpg	"/> 	Esta abuela es un peligro	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Esta%20abuela%20es%20un%20peligro%202.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Esta%20abuela%20es%20un%20peligro%202.jpg	"/> 	Esta abuela es un peligro 2	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Est%C3%A1ndar.mp4	')"><img src="	https://archive.org/download/yummy_202105/Est%C3%A1ndar.jpg	"/> 	Estándar	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/eyjhbgcioijiuzi1nij9.eyjkyxrhijpbije5mc4ync41ny4wiiwizmpvb210ntnvbwj2iiwibiismsw_202101/Fantasmas%20a%20Mogollo%CC%81n%202%20Mi%20amiga%20fantasmago%CC%81rica%20%282014%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w500/eiVY4kKpbo1f7wyNubgJX5ILpxg.jpg	"/> 	Fantasmas a Mogollon 2 Mi amiga fantasmago rica (2014)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Funny%20People%20%282009%29.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Funny%20People%20%282009%29.jpg	"/> 	Funny People 2009	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Glass%20Houses%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BZjA2NDc0MmEtMTJhOS00NjU3LWJjMDctMzYzZTY3MjUxNTFjXkEyXkFqcGdeQXVyMTk1NzUwMA@@._V1_.jpg	"/> 	Glass Houses (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Harpoon%20%282019%29.mp4	')"><img src="	https://image.tmdb.org/t/p/w500/yerfXP5rkPOhQVWVJhGPt399kLv.jpg	"/> 	Harpoon (2019)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/High%20School%20Musical%202.mp4	')"><img src="	https://archive.org/download/yummy_202105/High%20School%20Musical%202.jpg	"/> 	High School Musical 2	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/animal-crackers-2017_202101/I%20Believe%20%282017%29.mp4	')"><img src="	https://pics.filmaffinity.com/i_believe-800864213-mmed.jpg	"/> 	I Believe (2017)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/I%20Hate%20Summer%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BY2Q5ZDdmZWItMmNiYi00MjU5LThmOTAtZDU5N2ZhYmM1NDAzXkEyXkFqcGdeQXVyMTY5OTQzNzY@._V1_UY268_CR3,0,182,268_AL_.jpg	"/> 	I Hate Summer (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Jack%20y%20las%20habichuelas%20m%C3%A1gicas.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Jack%20y%20las%20habichuelas%20m%C3%A1gicas.jpg	"/> 	Jack y las habichuelas mágicas	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Jojo%20Rabbit.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Jojo%20Rabbit.jpg	"/> 	Jojo Rabbit	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-el-santo-2017-720p/%40cesser16%20Juerga%20de%20mamis%20%282017%29%201080p.mp4	')"><img src="	https://ia801505.us.archive.org/18/items/cesser-16-el-santo-2017-720p/photo_2020-09-22_15-37-40.jpg	"/> 	Juerga de mamis (2017)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/La%20Casa%20de%20Hue%CC%81spedes%20%282020%29.mp4	')"><img src="	https://www.openpelis.com/imagenes/pelis/2020-09-07-0806610199.jpg	"/> 	La Casa de Huespedes (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/La%20estacio%CC%81n%20de%20la%20felicidad%20%282020%29.mp4	')"><img src="	http://blue-subtitle.com/wp-content/uploads/2020/11/Happiest-Season-2020-185x268.jpg	"/> 	La estacio´n de la felicidad (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/La%20estafa%20de%20los%20Logan~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/La%20estafa%20de%20los%20Logan.jpg	"/> 	La estafa de los Logan	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/La%20gran%20aventura~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/La%20gran%20aventura.jpg	"/> 	La gran aventura	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/La%20increi%CC%81ble%20historia%20de%20la%20Isla%20de%20las%20Rosas%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/La_incre_ble_historia_de_la_Isla_de_las_Rosas-391565788-large.jpg	"/> 	La increible historia de la Isla de las Rosas (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/La%20magia%20de%20la%20isla.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/La%20magia%20de%20la%20isla.jpg	"/> 	La magia de la isla	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/La%20muerte%20nos%20sienta%20bien~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/La%20muerte%20nos%20sienta%20bien.jpg	"/> 	La muerte nos sienta bien	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/La%20mujer%20de%20mis%20pesadillas.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/La%20mujer%20de%20mis%20pesadillas.jpg	"/> 	La mujer de mis pesadillas	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/La%20nochebuena%20es%20mi%20condena%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/La_nochebuena_es_mi_condena-407360379-large.jpg	"/> 	La nochebuena es mi condena (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/La%20pachanga%20%282019%29.mp4	')"><img src="	https://www.proimagenescolombia.com/photos/57150_6366_imagen__.png	"/> 	La pachanga (2019)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/La%20terminal.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/La%20terminal.jpg	"/> 	La terminal	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Locas%20por%20el%20cambio.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Locas%20por%20el%20cambio.jpg	"/> 	Locas por el cambio	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Los%20Desorientados.mp4	')"><img src="	https://archive.org/download/yummy_202105/Los%20Desorientados.jpg	"/> 	Los Desorientados	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Los%20fantasmas%20de%20mis%20exnovias.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Los%20fantasmas%20de%20mis%20exnovias.jpg	"/> 	Los fantasmas de mis exnovias	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Los%20sorprendentes%20dobermans.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Los%20sorprendentes%20dobermans.jpg	"/> 	Los impresionantes Dobermans	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Los%20trapos%20sucios%20se%20lavan%20en%20casa.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Los%20trapos%20sucios%20se%20lavan%20en%20casa.jpg	"/> 	Los trapos sucios se lavan en casa	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Ludo%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Ludo-813248419-mmed.jpg	"/> 	Ludo (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Manuel%20y%20Clemente~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Manuel%20y%20Clemente.jpg	"/> 	Manuel y Clemente	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Mi%20Abuelo%20es%20un%20Peligro%20%282016%29%201080p.mp4	')"><img src="	https://elifilms.net/wp-content/uploads/2020/04/mi-abuelo-es-un-peligro.jpg	"/> 	Mi Abuelo es un Peligro 2016 108	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Miradas%20Que%20Matan.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Miradas%20Que%20Matan.jpg	"/> 	Miradas Que Matan	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20Mr.%20Bean.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Mr.%20Bean.jpg	"/> 	Mr. Bean	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Mr.%20Bean%202.mp4	')"><img src="	https://archive.org/download/yummy_202105/Mr.%20Bean%202.jpg	"/> 	Mr. Bean 2	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Ni%20idea.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/-%20Ni%20idea.jpg	"/> 	Ni idea	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/No%2C%20porque%20me%20enamoro.mp4	')"><img src="	https://archive.org/download/94-1_20210929/No%2C%20porque%20me%20enamoro.jpg	"/> 	No porque me enamoro	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Noche%20de%20estreno%20%282016%29%20720p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/-%20Noche%20de%20estreno.jpg	"/> 	Noche de estreno (2016)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/163044437	')"><img src="	https://pics.filmaffinity.com/Nochevieja_en_el_Magnolia-299160585-large.jpg	"/> 	Nochevieja en el Magnolia (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Operacio%CC%81n%20Feliz%20Navidad%20%282020%29-1.mp4	')"><img src="	https://pics.filmaffinity.com/Operaci_n_Feliz_Navidad-595979134-large.jpg	"/> 	Operacion Feliz Navidad (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Os%20Espetaculares%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BZTkyMzRjODAtZDY4NS00NGQ3LTgyNjEtYTAxNWEyM2QxMzIzXkEyXkFqcGdeQXVyMTE5OTg3NzQy._V1_.jpg	"/> 	Os Espetaculares (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://m3u-editor.com/serve/38cb1040-4142-11eb-a2f0-4bbb78a83a5d/163039898	')"><img src="	https://www.peliculas1mega.com/wp-content/uploads/2020/10/Borat-Subsequent-Moviefilm-2020.jpg	"/> 	peli´cula film secuela (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Pelotas%20en%20juego.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Pelotas%20en%20juego.jpg	"/> 	Pelotas en juego	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Regreso%20Del%20Todopoderoso.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Regreso%20Del%20Todopoderoso.jpg	"/> 	Regreso Del Todopoderoso	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Ruby%2C%20la%20chica%20de%20mis%20sue%C3%B1os.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Ruby%2C%20la%20chica%20de%20mis%20sue%C3%B1os.jpg	"/> 	Ruby la chica de mis sueños	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Se%20busca%20papa%CC%81%20%282020%29.mp4	')"><img src="	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYSr_55I5amQytKvjTjt-jeFdGao_aGBiShA&usqp=CAU.JPG	"/> 	Se busca papa´ (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Sentadas%20en%20el%20umbral%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Sentadas_en_el_umbral-275093174-large.jpg	"/> 	Sentadas en el umbral (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Siete%20psic%C3%B3patas%20y%20un%20perro%201080p.mp4	')"><img src="	https://ia601500.us.archive.org/30/items/cesser-16-liga-de-la-justicia-720p/-%20Siete%20psic%C3%B3patas%20y%20un%20perro.jpg	"/> 	Siete psicópatas y un perro 108	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Simplemente%20Manu%20NNa.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Simplemente%20Manu%20NNa.jpg	"/> 	Simplemente Manu NNa	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Soli%CC%81a%20ir%20alli%CC%81%20%282020%29.mp4	')"><img src="	https://r2.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic2.abc.es%2Fmedia%2Fpeliculas%2F000%2F056%2F960%2Fsolia-ir-alli-1.jpg&nuevoancho=150&medio=abc	"/> 	Soli´a ir alli´ (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/-%20Soltera%2C%2039.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/-%20Soltera%2C%2039.jpg	"/> 	Soltera 39	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Son%20como%20ni%C3%B1os.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Son%20como%20ni%C3%B1os.jpg	"/> 	Son como niños	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Spontaneous%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BMWQ0YzI3NTktNjEyNC00MGVhLTlmZjEtN2NkZTcyNmQwYmQ1XkEyXkFqcGdeQXVyMDk5Mzc5MQ@@._V1_.jpg	"/> 	Spontaneous (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/Stay%20Hungry.mp4	')"><img src="	https://archive.org/download/yummy_202105/Stay%20Hungry.jpg	"/> 	Stay Hungry	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Tenacious%20D%20la%20llave%20del%20destino.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Tenacious%20D%20la%20llave%20del%20destino.jpg	"/> 	Tenacious D la llave del destino	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/sr-y-sra-smith/The%20Rocky%20Horror%20Picture%20Show.mp4	')"><img src="	https://archive.org/download/sr-y-sra-smith/The%20Rocky%20Horror%20Picture%20Show.jpg	"/> 	The Rocky Horror Picture Show	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/The%20Stand%20In%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/The_Stand_In-828252343-large.jpg	"/> 	The Stand In (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Think%20Like%20a%20Dog%20%282020%29.mp4	')"><img src="	https://m.media-amazon.com/images/M/MV5BMGNhNzk4YzMtYmQ4Ni00ZjU0LWI0YzctYjM1ZDMxNzM3MDAzXkEyXkFqcGdeQXVyMDA4NzMyOA@@._V1_.jpg	"/> 	Think Like a Dog (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/94-1_20210929/Todopoderoso.mp4	')"><img src="	https://archive.org/download/94-1_20210929/Todopoderoso.jpg	"/> 	Todopoderoso	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/%40cesser16%20Todos%20Queremos%20a%20Alguien%20Online%20%282017%29%201080p.mp4	')"><img src="	https://archive.org/download/cesser-16-liga-de-la-justicia-720p/-%20Todos%20queremos%20a%20alguien.jpg	"/> 	Todos Queremos a Alguien Online (2017) 1080p	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Tonto%20y%20Retonto.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Tonto%20y%20Retonto.jpg	"/> 	Tonto y Retonto	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Un%20Enemigo%20Americano.jpg	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Un%20Enemigo%20Americano.jpg	"/> 	Un Enemigo Americano	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/por-encima-de-la-ley-1/Un%20hombre%20llamado%20Flor%20de%20Oto%C3%B1o~1.mp4	')"><img src="	https://archive.org/download/por-encima-de-la-ley-1/Un%20hombre%20llamado%20Flor%20de%20Oto%C3%B1o.jpg	"/> 	Un hombre llamado Flor de Otoño	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/2-comando-commando-1985/Un%20pap%C3%A1%20genial.mp4	')"><img src="	https://archive.org/download/2-comando-commando-1985/Un%20pap%C3%A1%20genial.jpg	"/> 	Un papá genial	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/velvet-buzzsaw-2019_202012/Una%20noche%20en%20el%20museo%20%282006%29.mp4	')"><img src="	https://es.web.img3.acsta.net/pictures/15/11/12/10/28/248825.jpg	"/> 	Una noche en el museo (2006)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Unpregnant.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Unpregnant.jpg	"/> 	Unpregnant	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/i-hate-summer-2020/Unpregnant%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/Unpregnant-443503049-large.jpg	"/> 	Unpregnant (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/como-me-converti-en-superheroe/Viaje%20de%20chicas.mp4	')"><img src="	https://archive.org/download/como-me-converti-en-superheroe/Viaje%20de%20chicas.jpg	"/> 	Viaje de chicas	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/wendy-2020_202012/Work%20It%20Al%20ritmo%20de%20los%20suen%CC%83os%20%282020%29.mp4	')"><img src="	https://pics.filmaffinity.com/work_it-145219942-large.jpg	"/> 	Work It Al ritmo de los suen~os (2020)	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Y%20d%C3%B3nde%20est%C3%A1%20la%20nonna.mp4	')"><img src="	https://archive.org/download/el-ejercito-de-los-muertos-2021-girohens/Y%20d%C3%B3nde%20est%C3%A1%20la%20nonna.jpg	"/> 	Y dónde está la nonna	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/yummy_202105/-%20Yo%20los%20declaro%20marido%20y...%20Larry.mp4	')"><img src="	https://archive.org/download/yummy_202105/-%20Yo%20los%20declaro%20marido%20y...%20Larry.jpg	"/> 	Yo los declaro marido y... Larry	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Chef%20a%20domicilio~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Chef%20a%20domicilio.jpg	"/> 	Chef a domicilio	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Cry%20Baby%20El%20l%C3%A1grima%201990~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Cry%20Baby%20El%20l%C3%A1grima.jpg	"/> 	Cry Baby El lágrima 1990	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/El%20Babysitter~1.ia.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/El%20Babysitter.jpg	"/> 	El Babysitter	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/La%20guerra%20de%20los%20Roses~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/La%20guerra%20de%20los%20Roses.jpg	"/> 	La guerra de los Roses	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Los%20a%C3%B1os%20azules~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Los%20a%C3%B1os%20azules.jpg	"/> 	Los años azules	<h4> 	COMEDIA	</h4></a></li>
+<li><a href="#" onclick="changeVideo('	https://archive.org/download/mentiras-verdaderas-1/Redada%20asesina~1.mp4	')"><img src="	https://archive.org/download/mentiras-verdaderas-1/Redada%20asesina.jpg	"/> 	Redada asesina	<h4> 	COMEDIA	</h4></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--    #######  PARA ´PONER MAS PELICULAS 
+    <li><a href="#" onclick="changeVideo('## LINK ##')')"><img src=" ## IMAGEN ## " alt="Portada de Video 1"><h3>  ## TITULO ## </h3><h4> ## CATEGORIA ## </h4>  </h4></a></li>
+ -->
+
+<button id="abajo"> 
+   <a href="#arriba"> <input type="image" src="https://static.vecteezy.com/system/resources/thumbnails/016/770/568/small/red-directional-arrow-on-transparent-background-free-png.png" style="position: fixed; bottom: 20em;  right: 0em; z-index: 2;" height="20" width="20"/>   </a>
+    <a name="abajo"></a>
+  </button>
+
+
+ </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+window.addEventListener('load', function() {
+  var boton = document.getElementById('menu-button');
+  var lista = document.getElementById('video-list');
+  var temporizador;
+  
+  boton.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  lista.addEventListener('mouseenter', function() {
+    clearTimeout(temporizador);
+    lista.style.display = 'block';
+  });
+  
+  boton.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+  
+  lista.addEventListener('mouseleave', function() {
+    temporizador = setTimeout(function() {
+      lista.style.display = 'none';
+    }, 3000);
+  });
+});
+
+
+
+
+
+
+
+
+const menuButton = document.getElementById('menu-button');
+const videoList = document.getElementById('video-list');
+const videoPlayer = document.getElementById('video');
+
+menuButton.addEventListener('click', () => {
+  if (videoList.style.display === 'none') {
+    videoList.style.display = 'block';
+  } else {
+    videoList.style.display = 'none';
+  }
+});
+
+function changeVideo(src) {
+  videoPlayer.src = src;
+  videoPlayer.play();
+  videoList.style.display = 'none';
+}
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
