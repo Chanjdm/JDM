@@ -207,7 +207,10 @@ div.scrollmenu a:hover{background:transparent;}
 .xplus{position:relative;text-align:center;}
 
 h8 {
+    display: flex;
     color: #11ff00;
+    flex-direction: column;
+    align-items: stretch;
 }
 h9 {
     color: red;
@@ -219,12 +222,12 @@ h9 {
 .cent{ font-size:auto; position:absolute ; top:95%; left: 50%; transform:translate(-50%,-50%)} */
 
 
-.xaviec{
-     width:155px;
-     border-radius:7px;
-     height:220px;
-     z-index:1;
- }
+.xaviec {
+    width: 180px;
+    border-radius: 7px;
+    height: 250px;
+    z-index: 1;
+}
 
 
 .mnt{width:100px;border-radius:100px;height:100px;}
