@@ -1,0 +1,241 @@
+﻿
+body {
+	background-image: url(https://w0.peakpx.com/wallpaper/845/979/HD-wallpaper-youtube-cover-black-youtube.jpg);
+	background-color: black;
+        background-size:cover;
+                
+    }
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+		}
+
+.contenido  {
+    margin-top: -2.5rem;
+}
+
+
+.serie {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 5px 0px 5px;
+    padding: 0px 0px 0px 0px;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
+    width: 100%;
+    height: 600px;
+}
+
+.serie img {
+    height: 450px;
+    border-radius: 8px;
+}
+
+.serie img {
+    margin-right: 0px;
+    box-shadow: inset 0 -3em 3em rgb(220 2 2 / 87%), 0 0 0 2px rgb(243 1 1), 0.3em -0.4em 6em rgb(255 0 0 / 92%);
+}
+.serie h2 {
+    color: red;
+    font-size: 50px;
+    margin-bottom: 10px;
+    margin-left: 2rem;
+}
+
+.sinopsis {
+	font-size: 18px;
+	line-height: 1.5;
+        margin-left: 2rem;
+}
+
+.temporadas {
+    overflow-y: scroll;
+    width: 670px;
+    display: flex;
+    flex-direction: row;
+   margin-left: 2rem;
+}
+
+.temporadas button {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(255,255,255,0.8);
+    border: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 13px rgb(252 37 18);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+		.temporadas button:hover {
+			background-color: red;
+		}
+
+.episodios {
+    overflow-y: scroll;
+    Width:600px;
+    height: 250px;
+    margin: 10px;
+    font-size: 18px;
+}
+
+.episodios a {
+    font-size: 23px;
+    width: 500px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 16px;
+    background-color: rgb(255 0 0 / 79%);
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgb(203 172 55 / 26%);
+    color: #fdc900;
+    text-decoration: none;
+}
+
+.episodios a:hover {
+    background-color: rgb(113 8 8 / 78%);
+}
+
+ p  {
+    height: 200px;
+    color: #15e1fb;
+    font-size: 150%;
+    overflow-y: scroll;
+}
+
+.word {
+ margin: 40px;
+}
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+.color-button {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 13px rgb(252, 37, 18);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.color-button.selected {
+  background-color: red;
+}
+
+
+/*     =========#####=========######======######     RESPONSIVE    #########=====###########==========#########=========   */
+
+@media (max-width:480px){
+
+
+
+body {
+width: calc(84% - 0em);
+    position: relative;
+    background-image: url();
+    background-color: black;
+
+}
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.contenido  {
+    margin-top: 0rem;
+}
+
+.serie {
+    margin: 20px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(0 0 0 / 30%);
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.contenido {
+    width: 300px;
+}
+
+
+.temporadas {
+    overflow-y: scroll;
+    width: calc(170% - 75%);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 0px;
+}
+
+.episodios {
+    Width:280px;
+    margin: 10px;
+    font-size: 14px;
+}
+.episodios a {
+    font-size: 18px;
+    width: 250px;
+    display: block;
+    margin-bottom: 10px;
+    padding: 16px;
+    background-color: rgb(255 0 0 / 79%);
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgb(203 172 55 / 26%);
+    color: #fdc900;
+    text-decoration: none;
+}
+
+.serie img {
+    object-fit: cover;
+    border-radius: 8px;
+}
+.serie img {
+    margin-right: 0px;
+    box-shadow: inset 0 -3em 3em rgb(220 2 2 / 87%), 0 0 0 2px rgb(243 1 1), 0.3em -0.4em 6em rgb(255 0 0 / 92%);
+}
+.sinopsis {
+    margin-bottom: 20px;
+    font-size: 22px;
+    line-height: 1.5;
+    margin-left: 0px;
+}
+
+.serie h2 {
+    color: red;
+    font-size: 45px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+ p  {
+    height: 260px;
+    color: #15e1fb;
+    font-size: 120%;
+    overflow-y: scroll;
+}
+    color: red;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+
+}
+
+
+
+
+
