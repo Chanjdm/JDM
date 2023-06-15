@@ -69,9 +69,9 @@ body {
     cursor: pointer;
 }
 
-		.temporadas button:hover {
-			background-color: red;
-		}
+.temporadas button:hover {
+    background-color: red;
+}
 
 .episodios {
     overflow-y: scroll;
@@ -126,7 +126,7 @@ body {
 }
 
 .color-button.selected {
-  background-color: red;
+  background-color: #7eff00;
 }
 
 
