@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 2px;
+      background: black;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      Margin-left:1px;
+      
+    }
+#movie-list{
+    overflow-y: scroll;
+    position: relative;
+    width: 48%;
+    height: 300px;
+}
+
+::-webkit-scrollbar {
+   background:transparent;
+    }
+/*
+::-webkit-scrollbar {
+            width: 15px;
+height: 10px;
+            border: 2px solid blue;
+        }
+::-webkit-scrollbar-thumb {
+            background: red;
+        }
+*/
+
+img {
+    margin-bottom: 1rem;
+    position: relative;
+    width: 130px;
+    Border-radius:14px;
+}
+p{
+    top: 12rem;
+    position: absolute;
+    width: 131px;
+    font-size: 13px;
+}
+#player {
+    width: 50%;
+}
+#video-player{
+    margin-top: 0.2rem;
+    width: 100%;
+    Height:70%;
+}
+
+
+
+@media screen and (max-width: 480px){
+   #container{
+        height: auto;
+    }
+    #movie-list {
+    position: absolute;
+    width: auto;
+    Height:390px;
+    top: 10rem;
+    Left:14px;
+}
+img {
+    margin-bottom: 1rem;
+    position: relative;
+    width: 125px;
+    Border-radius:14px;
+}
+    #barra_lateral{
+        display:none;
+    }
+#player {
+    position: absolute;
+    width: 90%;
+    align-items: center;
+    left: 2px;
+    top: -2rem;
+    display: flex;
+}
+#video-player{
+    margin-top: 2rem;
+    width: 100%;
+    Height:90%;
+}
+p{
+    top: 12rem;
+    position: absolute;
+    width: 131px;
+    font-size: 13px;
+}
+
+}
+    
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="movie-list">
+
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Rock Dog 2">
+        
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/the%20unholy%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/3/w300/llHklmHQEDwTgbwGrPvQ5ouSy2k.jpg" alt="Movie 1">
+        
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/rons%20gone%20wrong%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/10/w300/6CoIzwhw29Iiq88zyWCcCJrSOKJ.jpg" alt="Movie 3">
+      
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Movie 1">
+     
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Movie 1">
+   
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/the%20unholy%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/3/w300/llHklmHQEDwTgbwGrPvQ5ouSy2k.jpg" alt="Movie 2">
+     
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/rons%20gone%20wrong%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/10/w300/6CoIzwhw29Iiq88zyWCcCJrSOKJ.jpg" alt="Movie 3">
+   
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Movie 1">
+    
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Movie 1">
+ 
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/the%20unholy%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/3/w300/llHklmHQEDwTgbwGrPvQ5ouSy2k.jpg" alt="Movie 2">
+     
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/rons%20gone%20wrong%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/10/w300/6CoIzwhw29Iiq88zyWCcCJrSOKJ.jpg" alt="Movie 3">
+   
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Movie 1">
+    
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Movie 1">
+    
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/the%20unholy%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/3/w300/llHklmHQEDwTgbwGrPvQ5ouSy2k.jpg" alt="Movie 2">
+     
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/rons%20gone%20wrong%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/10/w300/6CoIzwhw29Iiq88zyWCcCJrSOKJ.jpg" alt="Movie 3">
+  
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Movie 1">
+
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Movie 1">
+    
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/the%20unholy%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/3/w300/llHklmHQEDwTgbwGrPvQ5ouSy2k.jpg" alt="Movie 2">
+    
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/rons%20gone%20wrong%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/10/w300/6CoIzwhw29Iiq88zyWCcCJrSOKJ.jpg" alt="Movie 3">
+      
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Movie 1">
+   
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Movie 1">
+      
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/the%20unholy%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/3/w300/llHklmHQEDwTgbwGrPvQ5ouSy2k.jpg" alt="Movie 2">
+     
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/rons%20gone%20wrong%202021.mkv'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/10/w300/6CoIzwhw29Iiq88zyWCcCJrSOKJ.jpg" alt="Movie 3">
+   
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/ro-2ma-5n-8ce-a-la-c-6ar-4t-2a/Ro2ma5n8ce%20a%20la%20C6ar4t2a.mp4'); return false;">
+        <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2021/8/w300/bi2Axcg9qJyeOExi3hOsycV7kZC.jpg" alt="Movie 1">
+       
+      </a>
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+  </script>
+</body>
+
+</html>
