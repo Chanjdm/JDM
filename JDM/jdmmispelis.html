@@ -60,9 +60,13 @@
     width: 130px;
 }
 
-
-
-
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
     @media screen and (max-width: 480px){
         #container{
             height: auto;
@@ -72,7 +76,7 @@
             position: absolute;
             width: auto;
             height: 450px;
-            top: 11rem;
+            top: 12.5rem;
             left: 14px;
         }
         
@@ -92,7 +96,7 @@
             width: 90%;
             align-items: center;
             left: 2px;
-            top: 2rem;
+            top: 3.2rem;
             display: flex;
         }
 
@@ -126,6 +130,13 @@
     cursor: pointer;
 }
 
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
     }
 
 
@@ -150,7 +161,7 @@
 }
 
     #search-button {
-      padding: 5px 10px;
+      padding: 0px 10px;
       background-color: #4CAF50;
       border: none;
       border-radius: 5px;
@@ -159,12 +170,42 @@
       color:black;
       cursor: pointer;
     }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
 
 
   </style>
 </head>
 
 <body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">PELICULAS 2023</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis2022.html">PELICULAS 2022</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis2021.html">PELICULAS 2021</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisotros.html">OTROS</a>
+
+
+</div>
+</nav>
+
+
 
 
   <div id="search-bar">
@@ -175,8 +216,6 @@
 
   <div id="container">
 <div id="movie-list">
-
-
 
 
 
@@ -199,7 +238,6 @@
 
 
 
-  
 <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.mkv'); return false;"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w300/lZjmSFRf6u1hYvLGxCAu13dpGQA.jpg"><div class="movie-title">10 días de un buen hombre (2023)</div></a>
 <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/13-exorcismos-2023/13%20EXORCISMOS%20%282023%29.mp4'); return false;"><img src="https://br.web.img3.acsta.net/pictures/23/02/23/14/24/4320883.jpg"><div class="movie-title">13 exorcismos (2023)</div></a>
 <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/65%202023.mkv'); return false;"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w300/dhqu9rInT9IOa2w0TU22YMEgGus.jpg"><div class="movie-title">65: Al borde de la extinción (2023)</div></a>
@@ -225,7 +263,6 @@
 <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/01_20230623_20230623_1910/01.mp4'); return false;"><img src="https://upload.wikimedia.org/wikipedia/en/2/21/Black_Clover_Sword_of_The_Wizard_King.jpg"><div class="movie-title">Black Clover: La espada del rey mago (2023)</div></a>
 <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/kill%20boksoon%202023.mkv'); return false;"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w300/3mNP3fpjHtoCZ2GaxPnA4elj0rv.jpg"><div class="movie-title">Boksoon debe morir (2023)</div></a>
 <a class="movie-item" href="#" onclick="playMovie('http://158.69.224.17:88/edmian/Book.Club.The.Next.Chapter.2023.720p%20%281%29.mkv'); return false;"><img src="https://m.media-amazon.com/images/M/MV5BZjliNDQ3ZGItNWQxYi00OGUxLTg3MTEtYmNhOGVhNjU0YWI1XkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg"><div class="movie-title">Book club 2: Cuando ellas quieren más (2023)</div></a>
-<a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/los-caballeros-del-zodiaco-saint-seiya-el-inicio-hd.-2023/Los%20Caballeros%20del%20Zodiaco%20Saint%20Seiya%20El%20InicioHd.2023.mp4'); return false;"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/4/w300/tBiUXvCqz34GDeuY7jK14QQdtat.jpg"><div class="movie-title">Caballeros del Zodiaco: El inicio (2023)</div></a>
 <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/dungeons%20and%20dragons%20honor%20among%20thieves%202023.mkv'); return false;"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w300/uGxIYzYhYKDgE1U5DDI7gSkYmoC.jpg"><div class="movie-title">Calabozos y dragones (2023)</div></a>
 <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/casando%20a%20mi%20ex%202023.mkv'); return false;"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w300/ewS8BeUqoNmzF7JQm07CiukwONb.jpg"><div class="movie-title">Casando a mi ex (2023)</div></a>
 <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/supercell%202023.mkv'); return false;"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w300/6uaKRc0Di2pfhRLFQaH5BntSJOH.jpg"><div class="movie-title">Cazador de tormentas (2023)</div></a>
