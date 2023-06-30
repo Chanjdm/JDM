@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 0px;
+      background: black;
+      outline: none;
+      border:none;
+      text-decoration: none;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      margin-left:1px;
+    }
+    
+    #movie-list{
+        overflow-y: scroll;
+        position: relative;
+        width: 48%;
+        height: 600px;
+    }
+
+    ::-webkit-scrollbar {
+        background:transparent;
+    }
+
+    img {
+        margin-bottom: 0rem;
+        position: relative;
+        width: 130px;
+        border-radius: 14px;
+    }
+
+    #player {
+        width: 50%;
+    }
+
+    #video-player{
+        margin-top: 2.2rem;
+        width: 100%;
+        height: 55%;
+    }
+    .movie-item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
+    @media screen and (max-width: 480px){
+        #container{
+            height: auto;
+        }
+        
+        #movie-list {
+            position: absolute;
+            width: auto;
+            height: 450px;
+            top: 12.5rem;
+            left: 14px;
+        }
+        
+        img {
+            margin-bottom: 0rem;
+            position: relative;
+            width: 125px;
+            border-radius: 14px;
+        }
+
+        #barra_lateral{
+            display:none;
+        }
+
+        #player {
+            position: absolute;
+            width: 90%;
+            align-items: center;
+            left: 2px;
+            top: 3.2rem;
+            display: flex;
+        }
+
+        #video-player{
+            margin-top: 5px;
+            width: 100%;
+            height: 90%;
+        }
+  .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+#search-bar {
+    height:20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-right: 2rem;
+}
+#search-button{
+    padding: 0px 0px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
+    }
+
+
+
+
+
+
+    #search-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 2rem;
+    }
+
+    #search-input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: solid;
+    color: #b7ee00;
+    font-size: 14px;
+}
+
+    #search-button {
+      padding: 0px 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      color:black;
+      cursor: pointer;
+    }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">INICIO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisnetflix.html">NETFLIX</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisamazon.html">AMAZON</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisapple.html">APPLE</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisdisney.html">DISNEY</a>
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispelishbo.html">HBO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisvix.html">VIX</a>
+
+
+</div>
+</nav>
+
+
+
+
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+
+  <div id="container">
+<div id="movie-list">
+
+
+
+<!-- para poner mas peliculas #############################
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
+
+ ############################ -->
+
+
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/8-bit%20christmas%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/exNjVlJXBp86bY0AcBk4fjhA1Gg.jpg	"><div class="movie-title">	8-Bit Christmas (2021) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/an%20american%20pickle%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/8ziUp2q71vCmMgYY2MRCwI3mSs5.jpg	"><div class="movie-title">	An American Pickle (2020) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/charm%20city%20kings%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/tXjeA2y6nzj4nOccpYQFXhmVFJB.jpg	"><div class="movie-title">	Charm City Kings - Los Reyes De Baltimore (2020) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/locked%20down%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/21/01/15/10/29/5424445.jpg	"><div class="movie-title">	Confinados (2021) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/friends%20the%20reunion%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/vWgy2p7tyyaEOsS3quCui0UGUjR.jpg	"><div class="movie-title">	Friends: La Reunion (2021) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://199.188.103.26/rombwgshgfhgdsjr/85455532potroxvix/Pel%C3%ADculas/Kimi%202022.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/okNgwtxIWzGsNlR3GsOS0i0Qgbn.jpg	"><div class="movie-title">	Kimi: Alguien Está Escuchando (2022) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/zack%20snyders%20justice%20league%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/wcIJgChypo0s6ILm9Dkr13rV5q0.jpg	"><div class="movie-title">	La Liga De La Justicia De Zack Snyders (2021) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20witches%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/PxbO8UzZ17dMcqs0YwAnKuwfHA.jpg	"><div class="movie-title">	Las Brujas (2020) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/let%20them%20all%20talk%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/jc9809pyUGoZPP2X90VyUEGISvx.jpg	"><div class="movie-title">	Let Them All Talk - Dejales Hablar (2020) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/locked%20down%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/lgTdtN7kdtqBiabDdG8q62Bd7iy.jpg	"><div class="movie-title">	Locked Down - El Amor En Tiempos De Covid (2021) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/no%20sudden%20move%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/x5xCkGw4jutMcc8nmWLKNzbDKht.jpg	"><div class="movie-title">	Ni Un Paso En Falso (2021) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/oslo%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/j40H5hbbdOMrkbgyMZbOa1oijwj.jpg	"><div class="movie-title">	Oslo (2021) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/single%20mother%20by%20choice%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/1Nb3HcYjV3aEDWFrL0jsNmkFeJ0.jpg	"><div class="movie-title">	Single Mother By Choice (2021) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/superintelligence%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/podzoGfamoxObotrMMoH2WIc8nj.jpg	"><div class="movie-title">	Superintelligence (2020) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://199.188.103.26/rombwgshgfhgdsjr/85455532potroxvix/Pel%C3%ADculas/The%20Fallout.ts?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/fOJwjsJNtQlDhBanJSouGDwQfvP.jpg	"><div class="movie-title">	The Fallout - La Vida Despues (2021) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20many.%20saints%20of%20newark%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/s6O6T7N7qL4rVGSCPZeWyT9F499.jpg	"><div class="movie-title">	The Many Saints Of Newark (2021) 	<br>	HBO	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/unpregnant%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/1BqjLXnPkGzIFR5CRBTYfXdu2DV.jpg	"><div class="movie-title">	Unpregnant (2020) 	<br>	HBO	</div></a>
+
+
+
+
+
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>

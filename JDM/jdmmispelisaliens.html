@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 0px;
+      background: black;
+      outline: none;
+      border:none;
+      text-decoration: none;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      margin-left:1px;
+    }
+    
+    #movie-list{
+        overflow-y: scroll;
+        position: relative;
+        width: 48%;
+        height: 600px;
+    }
+
+    ::-webkit-scrollbar {
+        background:transparent;
+    }
+
+    img {
+        margin-bottom: 0rem;
+        position: relative;
+        width: 130px;
+        border-radius: 14px;
+    }
+
+    #player {
+        width: 50%;
+    }
+
+    #video-player{
+        margin-top: 2.2rem;
+        width: 100%;
+        height: 55%;
+    }
+    .movie-item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
+    @media screen and (max-width: 480px){
+        #container{
+            height: auto;
+        }
+        
+        #movie-list {
+            position: absolute;
+            width: auto;
+            height: 450px;
+            top: 12.5rem;
+            left: 14px;
+        }
+        
+        img {
+            margin-bottom: 0rem;
+            position: relative;
+            width: 125px;
+            border-radius: 14px;
+        }
+
+        #barra_lateral{
+            display:none;
+        }
+
+        #player {
+            position: absolute;
+            width: 90%;
+            align-items: center;
+            left: 2px;
+            top: 3.2rem;
+            display: flex;
+        }
+
+        #video-player{
+            margin-top: 5px;
+            width: 100%;
+            height: 90%;
+        }
+  .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+#search-bar {
+    height:20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-right: 2rem;
+}
+#search-button{
+    padding: 0px 0px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
+    }
+
+
+
+
+
+
+    #search-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 2rem;
+    }
+
+    #search-input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: solid;
+    color: #b7ee00;
+    font-size: 14px;
+}
+
+    #search-button {
+      padding: 0px 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      color:black;
+      cursor: pointer;
+    }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">INICIO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmiszombies.html">ZOMBIES</a>
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisaliens.html">ALIENS</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisterror.html">TERROR</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisdocumental.html">DOCUMENTAL</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisnetflix.html">MAS</a>
+</div>
+</nav>
+
+
+
+
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+
+  <div id="container">
+<div id="movie-list">
+
+
+
+<!-- para poner mas peliculas #############################
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
+
+ ############################ -->
+
+
+
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/contacto.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/o0KzHaunBBkCpSHTfyBSwdwsqib.jpg	"><div class="movie-title">	Contacto 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/alien.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Cien_01_32/007%20alien_copy_360x203.png	"><div class="movie-title">	Alien (1979) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/aliens.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Cien_01_32/008%20aliens%20el%20regreso_copy_360x203.png	"><div class="movie-title">	Alien 2: El Regreso (1986) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/alien%203.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Cien_01_32/009%20alien%203_copy_360x203.png	"><div class="movie-title">	Alien 3: (1992) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/alien%20resurrection.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Cien_01_32/010%20alien%204_copy_360x203.png	"><div class="movie-title">	Alien 4: Resurreccion (1997) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/alien%20abduction.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ffatP1TcSSIrh6ekYW39sMNxW4I.jpg	"><div class="movie-title">	Alien Abduction (2014) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/alien%20covenant.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Cien_01_32/011%20alient%20covenant_copy_360x203.png	"><div class="movie-title">	Alien Covenant (2017) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/alien%20vs%20predator%202004.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Cien_01_32/012%20alien%20vs%20predador_copy_360x203.png	"><div class="movie-title">	Alien vs Depredador (2004) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/depredador-2_202110/alien%20vs%20depredador%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Cien_01_32/013%20alien%20vs%20predador%202_copy_360x203.png	"><div class="movie-title">	Alien VS Depredador 2: Requiem (2007) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/attraction.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/814y6gR9UVL._RI_.jpg	"><div class="movie-title">	Attraction: La Guerra Ha Comenzado (2017) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/contacto.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/txfRLZUDzKRda5UHs4DgjPg88qI.jpg	"><div class="movie-title">	Contacto (1997) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/predator.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Cien_01_32/029%20depredador_copy_360x203.png	"><div class="movie-title">	Depredador (1987) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/predators.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Cien_01_32/031%20depredadores_copy_360x203.png	"><div class="movie-title">	Depredadores (2010) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/d4ey4ni8uy4pa7t/SalynPM-The.predator.2018.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Cien_01_32/031%20el%20depredator%204_copy_360x203.png	"><div class="movie-title">	Depredador 4 (2018) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/prey%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/22/06/07/16/22/5278876.jpg	"><div class="movie-title">	Depredador: La presa (2022) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/close%20encounters%20of%20the%20third%20kind%201977.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ixvMqfyuqJRmXSFjdl3MWnDslgU.jpg	"><div class="movie-title">	Encuentros Cercanos Del Tercer Tipo (1977) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.tv/peliculas/720/hombres%20de%20negro.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/gkcT1QmvspJ34rKgFUvv0ho0VrD.jpg	"><div class="movie-title">	Hombres De Negro (1997) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.tv/peliculas/720/hombres%20de%20negro%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/zX1Hi0j7Yn4jv2eDHyIMlHP8lDb.jpg	"><div class="movie-title">	Hombres De Negro 2 (2002) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.tv/peliculas/720/hombres%20de%20negro%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/rcVJtZCGnp39obbDKYred2mT9sE.jpg	"><div class="movie-title">	Hombres De Negro 3 (2012) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/0hpoqof8gn53cmj/SalynPM-SPM5f2y.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ewPz4CtrgyQZaCRpubtG5IedIkp.jpg	"><div class="movie-title">	Hombres de negro: Internacional (2019) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/invancion%20del%20mundo%20batalla%20los%20angeles.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2011/3/w300/ioU6K3KSbrPAVJ8J6FqyOmjuqGJ.jpg	"><div class="movie-title">	𝐈𝐧𝐯𝐚𝐬𝐢𝐨́𝐧 𝐚 𝐥𝐚 𝐭𝐢𝐞𝐫𝐫𝐚: 𝐁𝐚𝐭𝐚𝐥𝐥𝐚 𝐋.𝐀. (𝟐𝟎𝟏𝟏) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/the-faculty_20230320/the%20faculty.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/sMoNWJsS517vVdoUDD0OBqu032F.jpg	"><div class="movie-title">	La Facultad - Aulas Peligrosas (1998) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/72vv1bdqgqiwlxn/SalynPM-SPM3l6p.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ahcOViJGgwGojoncRVDMq5R7WDN.jpg	"><div class="movie-title">	La Guerra De Los Mundos (2005) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20tomorrow%20war%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/tzp6VzED2TBc02bkYoYnQa6r2OK.jpg	"><div class="movie-title">	La Guerra Del Mañana (2021) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/arrival.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/nqzXArpFIZQxEPfJT6ohWVFKK1t.jpg	"><div class="movie-title">	La Llegada (2016) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/life%20w.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/zwh9yd3CYhspyUhC2TeQED3u60f.jpg	"><div class="movie-title">	Life: Vida Inteligente (2017) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://103.145.12.67/peliculas/720/moonfall%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/nRUN5ywlehfB8opryZkXwfYSGAl.jpg	"><div class="movie-title">	moonfall	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://103.145.12.67/peliculas/720/nope%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/22/03/01/17/36/2407038.jpg	"><div class="movie-title">	Nope: No mires (2022) 	<br>	Aliens	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/senales.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/axb5KzE3cfwmKhnx33wmHJtADM8.jpg	"><div class="movie-title">	Señales (2002) 	<br>	Aliens	</div></a>
+
+
+
+
+
+
+
+
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>

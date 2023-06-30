@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 0px;
+      background: black;
+      outline: none;
+      border:none;
+      text-decoration: none;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      margin-left:1px;
+    }
+    
+    #movie-list{
+        overflow-y: scroll;
+        position: relative;
+        width: 48%;
+        height: 600px;
+    }
+
+    ::-webkit-scrollbar {
+        background:transparent;
+    }
+
+    img {
+        margin-bottom: 0rem;
+        position: relative;
+        width: 130px;
+        border-radius: 14px;
+    }
+
+    #player {
+        width: 50%;
+    }
+
+    #video-player{
+        margin-top: 2.2rem;
+        width: 100%;
+        height: 55%;
+    }
+    .movie-item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
+    @media screen and (max-width: 480px){
+        #container{
+            height: auto;
+        }
+        
+        #movie-list {
+            position: absolute;
+            width: auto;
+            height: 450px;
+            top: 12.5rem;
+            left: 14px;
+        }
+        
+        img {
+            margin-bottom: 0rem;
+            position: relative;
+            width: 125px;
+            border-radius: 14px;
+        }
+
+        #barra_lateral{
+            display:none;
+        }
+
+        #player {
+            position: absolute;
+            width: 90%;
+            align-items: center;
+            left: 2px;
+            top: 3.2rem;
+            display: flex;
+        }
+
+        #video-player{
+            margin-top: 5px;
+            width: 100%;
+            height: 90%;
+        }
+  .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+#search-bar {
+    height:20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-right: 2rem;
+}
+#search-button{
+    padding: 0px 0px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
+    }
+
+
+
+
+
+
+    #search-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 2rem;
+    }
+
+    #search-input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: solid;
+    color: #b7ee00;
+    font-size: 14px;
+}
+
+    #search-button {
+      padding: 0px 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      color:black;
+      cursor: pointer;
+    }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">INICIO</a>
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisnetflix.html">NETFLIX</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisamazon.html">AMAZON</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisapple.html">APPLE</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisdisney.html">DISNEY</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelishbo.html">HBO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisvix.html">VIX</a>
+
+
+</div>
+</nav>
+
+
+
+
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+
+  <div id="container">
+<div id="movie-list">
+
+
+
+<!-- para poner mas peliculas #############################
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
+
+ ############################ -->
+
+
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/4%20latas%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/lmHHxL1YANCn6jwpuFiCn7oCkzs.jpg	"><div class="movie-title">	4 Latas (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/quattro%20meta%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/21/12/10/22/46/3336792.png	"><div class="movie-title">	4 mitades (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/da%205%20bloods%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/xVV1uO2JJ3Tao71deZZTHXeIVYT.jpg	"><div class="movie-title">	5 Sangres (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/6%20balloons.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/d5iOt4FZcTsnxLtpq0UXkT0JuOZ.jpg	"><div class="movie-title">	6 Globos (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/7%20prisioneros%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/zLOf5qU2vx3cYRGkm5PDJBHxEq4.jpg	"><div class="movie-title">	7 Prisioneros (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/13%20the%20musical%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/22/07/21/00/53/0569890.jpg	"><div class="movie-title">	13: El musical (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/22%20july.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/jQX1Ult7VWZnCttjY4x1hGQnN2s.jpg	"><div class="movie-title">	22 De Juluo (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/1922.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/1wj8hLGHAP9goBvvJ45TIK2RjsA.jpg	"><div class="movie-title">	1922 (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/ube8rp8wyf2pmpl/SalynPM-1922.2017.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/1wj8hLGHAP9goBvvJ45TIK2RjsA.jpg	"><div class="movie-title">	1922 (Opc.2) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/outside%20the%20wire%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/21/01/07/09/21/5292740.jpg	"><div class="movie-title">	A Descubierto (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/knock%20down%20the%20house%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/o58mHkh0JQqOWVCwTxqVCsOdwzQ.jpg	"><div class="movie-title">	A La Conquista Del Congreso (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/point%20blank%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	http://es.web.img3.acsta.net/pictures/19/06/21/07/41/2266043.jpg	"><div class="movie-title">	A Quemaropa (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/to%20all%20the%20boys%20I%20ve%20loved%20before%202018.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/edspFefhqzR2jpqzV38duYjYKNC.jpg	"><div class="movie-title">	A Todos Los Chicos: De Los Que Me Enamore (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://archive.org/download/5_20200304_20200304/7.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/eoCZ84UK0E3X7ru4VAE2ept88zl.jpg	"><div class="movie-title">	A Todos Los Chicos: P.D. Todavia Te Quiero (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/to%20all%20the%20boys%20always%20and%20forever%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pCmIBo9hK6Gf28CYRIxYjDHfVui.jpg	"><div class="movie-title">	A Todos Los Chicos: Para Siempre (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://51.222.153.30:9000/rombwgshgfhgdsjr/85455532potroxvix/Pel%C3%ADculas/A%20trav%C3%A9s%20de%20mi%20ventana.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/o4ra6aYqhwqqcddgzKMbkKjD8GV.jpg	"><div class="movie-title">	A Travez De Mi Ventana (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/afterlife%20of%20the%20party%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/9qxQMR5aQXSXkGvgyKnI4otEC3v.jpg	"><div class="movie-title">	Afterlife of The Party - Mas Alla De La Fisesta (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ahi%20te%20encargo%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/2bN7DbfJHrgOAnGLRuQUmImDaqY.jpg	"><div class="movie-title">	Ahi Te Encargo (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ak%20vs%20ak%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/gs71n92m2l04eaHmylI96A50b2K.jpg	"><div class="movie-title">	Ak vs Ak (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/pod%20wiatr%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://br.web.img3.acsta.net/pictures/22/01/18/00/09/2113102.jpg	"><div class="movie-title">	Al viento (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://51.222.153.30:9000/rombwgshgfhgdsjr/85455532potroxvix/Pel%C3%ADculas/Alerta%20Roja%20HD.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/odBUpjZGxY3y7FBo5NBtEYGJf5r.jpg	"><div class="movie-title">	Alerta Roja (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/alex%20strangelove.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/yCIsE1kzHGyVnU9OAPL9XQeTFmC.jpg	"><div class="movie-title">	Alex Strangelove (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hes%20all%20that%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/08/05/10/09/3049342.jpg	"><div class="movie-title">	Alguien como el (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/amateur.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/oDfH7NoDUJGp5Nacg7BrHNS5ssf.jpg	"><div class="movie-title">	Amateur (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20factory%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/7jH3dQOJ3CHMrp9tWsI3rRCDiaD.jpg	"><div class="movie-title">	American Factory (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/blasted%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/22/06/17/12/21/4533646.jpg	"><div class="movie-title">	Amigos vs Extraterrestres (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/amina%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://cuevana3.club/wp-content/uploads/2021/11/gII53HAH7UA1yx189vROMzWA5ib.jpg	"><div class="movie-title">	Amina (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/love%20wedding%20repeat%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/20/04/02/09/20/3931365.jpg	"><div class="movie-title">	Amor Boda Azar (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/love%20and%20leashes%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://br.web.img3.acsta.net/pictures/22/01/19/17/00/5182594.jpg	"><div class="movie-title">	Amor com fetiche (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/holidate%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/20/09/30/07/28/0926795.jpg	"><div class="movie-title">	Amor de calendario (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/good%20on%20paper%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/eK0OUYeBMmbPLn25nUxWbT0ZOmj.jpg	"><div class="movie-title">	Amor De Cuento	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/nakitai%20watashi%20wa%20neko%20o%20kaburu%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/3QJ4yVmSxuLQX8vHW4elcqUa1T8.jpg	"><div class="movie-title">	Amor De Gata - Nakitai Watashi Wa Neko O Kaburu (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/falling%20inn%20love%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/jNKGZ6RB6SlA4Vd00gZM9dfvSC2.jpg	"><div class="movie-title">	Amor En Obras (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/love%20guaranteed%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	http://es.web.img3.acsta.net/pictures/20/08/21/09/21/4818463.jpg	"><div class="movie-title">	Amor garantizado (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/amor%20sem%20medida%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/11/19/10/39/3631175.jpg	"><div class="movie-title">	Amor sin medida (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/back%20to%20the%20outback%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/5w46mwA4JCZJ5Tl3rHSc98762O8.jpg	"><div class="movie-title">	Animalia En Australia (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/arlo%20the%20alligator%20boy%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/oOQMJM7G2W8v2AEK722k8welIJY.jpg	"><div class="movie-title">	Arlo El Chico Caiman (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/y6t0ovt61yipjqp/SalynPM-Apostle.2018.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/7ZrIkdRTbPNCB6LCk71CxWLVJMc.jpg	"><div class="movie-title">	Apóstol (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/gecen%20yaz%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/21/06/22/23/51/1357517.jpg	"><div class="movie-title">	Aquel verano (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/athena%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w300/uponqptyKtBsJuODqmxoronFd8P.jpg	"><div class="movie-title">	Atenea (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/atleta%20a%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://media.elcinema.com/uploads/_640x_66c2ca2fe814395057894fab3dce3e09665ce323ceee78f13d4552188b06bb27.jpg	"><div class="movie-title">	Atleta A (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/axl.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/18/05/17/12/59/5609268.jpg	"><div class="movie-title">	A.X.L. (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/vinterviken%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/21/08/26/11/46/1267959.jpg	"><div class="movie-title">	Bahia De Invierno (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/sotto%20il%20sole%20di%20amalfi%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w300/oASbLpyFkZ0L3cQkSvEnNjkYurG.jpg	"><div class="movie-title">	Bajo el sol amalfitano (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bartkowiak%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img2.acsta.net/pictures/21/07/06/20/48/0430456.jpg	"><div class="movie-title">	Bartkowiak (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/beats%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/b8P13nIvkkizVBzd2RpegsRt5zP.jpg	"><div class="movie-title">	Beats (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/beauty%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/22/06/17/17/35/3284241.jpg	"><div class="movie-title">	Beauty: Belleza (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/beckett%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/07/22/12/50/3538849.jpg	"><div class="movie-title">	Beckett (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/benji.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/79pacM3h5FoETnfuRC6O2qPfzn4.jpg	"><div class="movie-title">	Benji (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/beasts%20of%20no%20nation.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/1D4vcJmJc58WXarpRtwgd2do9Rg.jpg	"><div class="movie-title">	Bestias Sin Patria (2015) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bigbug%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/jDJOojbuqgnNVGmKgmuYzBpaIgP.jpg	"><div class="movie-title">	BigBug (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/pg99wn42smii60v/SalynPM-Bird.box.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/mJXlEnJwIz3vOq51G3SrJlcr1yr.jpg	"><div class="movie-title">	Bird Box: A ciegas (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/black%20mirror%20bandersnatch.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/fR0VZ0VE598zl1lrYf7IfBqEwQ2.jpg	"><div class="movie-title">	Black Mirror: Bandersnatch (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/blame.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/k6yAswuyz7igjDJ9yv2px1lpd3r.jpg	"><div class="movie-title">	Blame (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bright%20samurai%20soul%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/21/09/15/09/01/1837790.jpg	"><div class="movie-title">	Bright: Alma de Samurai (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bright.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/4xWEhLPlP9yg3DJbkKaBayBN98V.jpg	"><div class="movie-title">	Bright - Brillo (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bruised%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/lGCNVKSaMlEsAVjIFdfzKjEWwwJ.jpg	"><div class="movie-title">	Bruised - Herida (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/buba%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w300/7iRMwdNzXFnOKMhVoodj0zhvFYY.jpg	"><div class="movie-title">	Buba (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/calibre.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/gCVOQzV7Z556WnJFNeX7y8BFhyW.jpg	"><div class="movie-title">	Calibre (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/cuenta%20bloqueada.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/quwWODOHhwC3gGlLIRSKjPy8d9u.jpg	"><div class="movie-title">	Cam - Cuenta Bloqueada (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/canvas%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/43KcPNPNi3KTpOTYghmYYm53RZX.jpg	"><div class="movie-title">	Canvas (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/cargo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/cdPSUck4tBRvRu6DFk6XciDrssn.jpg	"><div class="movie-title">	Cargo (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/carter%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/22/07/24/19/10/5656938.jpg	"><div class="movie-title">	Carter (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/sand%20castle.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://image.tmdb.org/t/p/w200/l0bHGNRYO4hMkgANTV5F8aGUpVG.jpg	"><div class="movie-title">	Castillo de arena (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/lost%20girls%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/phnq8GaG1rjivBpPQuoAIARROC.jpg	"><div class="movie-title">	Chicas Perdidas (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20midnight%20sky%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/81iq9g1WiTL._AC_SL200_.jpg	"><div class="movie-title">	Cielo de medianoche (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/blood%20red%20sky%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/21/06/30/10/52/3410936.jpg	"><div class="movie-title">	Cielo rojo sangre (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/circus%20of%20books%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/y19U39IccjFpn70UmYIET9B3dBV.jpg	"><div class="movie-title">	Circus Of Books (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/passing%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/10/29/10/47/3471200.jpg	"><div class="movie-title">	Claroscuro (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/close.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/rdah0UpjZmy8OAsSuYWVz1aMH7L.jpg	"><div class="movie-title">	Close - Escolta (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/codigo%20emperador%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/21/12/13/18/04/2134016.jpg	"><div class="movie-title">	Codigo Emperador (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/collision%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://br.web.img2.acsta.net/c_310_420/pictures/22/06/03/11/42/4944213.jpg	"><div class="movie-title">	Colision (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ride%20or%20die%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/vCaAcunvp2yabxG5I1HACKbKw1p.jpg	"><div class="movie-title">	Contigo A Muerte (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/corazon%20loco%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/uSwCLbElGgz7HzWEHwnSfQtP2OC.jpg	"><div class="movie-title">	Corazon Loco (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/purple%20hearts%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/22/07/15/13/39/5566777.jpg	"><div class="movie-title">	Corazones Malheridos (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/crimenes%20de%20familia%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/bASjGGIpu9cw4EqstqukpP3XYbj.jpg	"><div class="movie-title">	Crimenes De Familia (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/when%20we%20first%20met.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://i.pinimg.com/736x/1d/dd/30/1ddd309be6ade7da544614337400d6b6.jpg	"><div class="movie-title">	Cuando Nos Conocimos (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/nightbooks%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/21/08/20/08/26/1442753.jpg	"><div class="movie-title">	Cuentos Al Caer La Noche (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dancing%20queens%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/xq2pkQZV5Yt1METvy5S0QjmCpsn.jpg	"><div class="movie-title">	Dancing Queens (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/darlings%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://assets.upflix.pl/media/plakat/2022/darlings__300_427.jpg	"><div class="movie-title">	Darlings (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/senior%20year%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/22/04/12/03/57/1996078.jpg	"><div class="movie-title">	De Vuelta Al Insti (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/death%20note.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/18/01/01/05/07/5324679.jpg	"><div class="movie-title">	Death Note (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/parada%20serc%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/6/w300/zziKunjkD9kUzv0FYqr2Wlty1eJ.jpg	"><div class="movie-title">	Desfile De Corazones (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/naked.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/07/10/10/02/387361.jpg	"><div class="movie-title">	Desnudo (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dhamaka%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w500/sWjCiyjheEXDluWi1uAVKtdpkYd.jpg	"><div class="movie-title">	Dhamaka (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/swallow%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://media.filmelier.com/images/tit/16648/poster/swallow41051.jpeg	"><div class="movie-title">	Dificil De Tragar (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/diorama%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://image.tmdb.org/t/p/w300/iK0Sjny4RsO9h0CGlKlhA8X2yCN.jpg	"><div class="movie-title">	Diorama (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/fever%20dream%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/10/05/15/16/1469573.jpg	"><div class="movie-title">	Distancia De Rescate (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/what%20happened%20to%20mr%20cha%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images.moviefit.me/t/o/465074-what-happened-to-mr-cha.jpg	"><div class="movie-title">	Donde Está El Sr Cha (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/against%20the%20ice%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/22/01/14/11/11/1612615.jpg	"><div class="movie-title">	Dos Contra El Hielo (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/os%20salafrarios%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://image.tmdb.org/t/p/w500/mRhFCdIexLi1ww948YyQbHGvYyC.jpg	"><div class="movie-title">	Dos Sinvergüenzas (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20gray%20man%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/c_310_420/pictures/22/05/24/15/48/1011250.jpg	"><div class="movie-title">	El Agente Invisible (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/senior%20year%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/22/04/12/03/57/1996078.jpg	"><div class="movie-title">	El Año De Mi Graduación (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/rise%20of%20the%20teenage%20mutant%20ninja%20turtles%20the%20movie%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/22/07/11/13/00/4901717.jpg	"><div class="movie-title">	El Ascenso De Las Tortugas Ninja (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20asedio%20de%20jadotville.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/20/04/29/07/02/1974216.jpg	"><div class="movie-title">	El Asedio De Jadotville (2016) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20prom%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/20/11/27/10/29/0483913.jpg	"><div class="movie-title">	El Baile (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/kadaver%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/c_310_420/pictures/20/09/29/20/41/5122915.jpg	"><div class="movie-title">	El Cadaver (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20camino%20a%20breaking%20bad%20movie%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/bykSMP21J3RzX3YmYo6hlVH4UE6.jpg	"><div class="movie-title">	El Camino: A Breaking Bad Movie (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20week%20away%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/c_310_420/pictures/21/02/23/08/05/1824339.jpg	"><div class="movie-title">	El Campamento De Mi Vida (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/asakusa%20kid%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/10/27/09/19/5647489.jpg	"><div class="movie-title">	El Chico De Asakusa (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20boy%20called%20christmas%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/09/15/09/05/0806353.jpg	"><div class="movie-title">	El Chico Que Salvo La Navidad (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20cuaderno%20de%20tomy%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/pNID1IWgWqEX1WF1X2N2wKb1le.jpg	"><div class="movie-title">	El Cuaderno De Tomy (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/angelas%20christmas%20wish%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/06/10/07/59/1874213.jpg	"><div class="movie-title">	El Deseo De Navidad De Angela (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/girlfriends%20day.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/01/18/12/41/255545.png	"><div class="movie-title">	El Dia De La Novia (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/yes%20day%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/02/10/18/14/0693859.jpg	"><div class="movie-title">	El Dia Del Si (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20devil%20all%20the%20time%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/kb4f2iRoRTBS1ECViUawfZopUtk.jpg	"><div class="movie-title">	El Diablo A Todas Horas (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20social%20dilemma%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/jcaM6V2tCtu6iMHDsGLBUbaYgYp.jpg	"><div class="movie-title">	El Dilema De Las Redes Sociales (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/wish%20dragon%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/05/14/10/39/2376393.jpg	"><div class="movie-title">	El Dragon De Los Deseos (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/army%20of%20thieves%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/4h1Uc13QPjHTTUX0bikICWUxTSV.jpg	"><div class="movie-title">	El Ejercito De Los Muertos (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20tinder%20swindler%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/22/01/12/09/46/2351700.jpg	"><div class="movie-title">	El Estafador de Tinder (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/how%20it%20ends.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/hv4SEcomyF32qrDhwScUfLHRnuc.jpg	"><div class="movie-title">	El Final De Todo (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jaadugar%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/7/w300/8RlfiAecJqeO6bbsSRoYAqL4cZo.jpg	"><div class="movie-title">	El Gran Pase De Magia (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hubie%20halloween%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://image.tmdb.org/t/p/w300/lVFr8PBWt9m3ZHV70knYrm7LVPp.jpg	"><div class="movie-title">	El Halloween De Hubie (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20man%20from%20toronto%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/ogLJ4HZUsRZlydxldhNGJVcBm5c.jpg	"><div class="movie-title">	El Hombre De Toronto (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20hoyo%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/19/09/17/17/00/0735463.jpg	"><div class="movie-title">	El Hoyo (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20irishman%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/sNilmIAwBbH0DmBOWBS6gWvNDex.jpg	"><div class="movie-title">	El Irlandes (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20juego.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/S/pv-target-images/707f28ab1ce14a01e2dc9edf960fe3fb1d52535939ca083e0d93cee85f49f938._RI_V_TTW_.jpg	"><div class="movie-title">	El Juego (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20sea%20beast%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/wEdvvT8js6qhdVvxGkeYqr6gayP.jpg	"><div class="movie-title">	El Monstruo Marino (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/8y1xjdl5mans1u2/SalynPM-E.Q.D.E.V.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/kjdYOYNpPTgL9Ll8fVGlTyfbc08.jpg	"><div class="movie-title">	El niño que domó el viento (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/g2dwc5n1gvom49w/SalynPM-The.package.2018.1080p.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/9JZcc0EgHbvAwt9iFJIot4wNapY.jpg	"><div class="movie-title">	El paquete (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://199.188.103.26/rombwgshgfhgdsjr/85455532potroxvix/Pel%C3%ADculas/El%20P%C3%A1ramo.ts?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/hdi08iM9ClmtCAcnZP04QLAV2zz.jpg	"><div class="movie-title">	El Paramo (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20power%20of%20the%20dog%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/1l9aOf6vL01NAiljwDczv3YlwHN.jpg	"><div class="movie-title">	El Poder Del Perro (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20practicante%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/20/07/28/13/55/5647191.jpg	"><div class="movie-title">	El Practicante (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20madea%20homecoming%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/22/01/27/09/52/5827561.jpg	"><div class="movie-title">	El Regreso A Casa De Madea (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/5zanb67kwqjcuke/SalynPM-SPM5m5f.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://upload.wikimedia.org/wikipedia/en/2/24/The_King_poster.jpeg	"><div class="movie-title">	El Rey (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20drug%20king%202018.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/51pZSDzdp3L.jpg	"><div class="movie-title">	El Rey De La Droga (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20polka%20king.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/12/15/20/08/5737401.jpg	"><div class="movie-title">	El Rey De La Polca (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://103.145.12.67/peliculas/720/the%20tinder%20swindler%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/22/01/12/09/46/2351700.jpg	"><div class="movie-title">	El timador de Tinder (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20highwaymen%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/zNe6LNbSyBSpsSoinGc6iIn1x4c.jpg	"><div class="movie-title">	Emboscada Final (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/1v7gr8m7theixkl/SalynPM-SPM2d9i.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/hBq8SkRduhzF8B4nwBNbEE1zuOp.jpg	"><div class="movie-title">	En la hierba alta (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/6%20underground%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/ug4XukdNLwD9Ygyw4V0L5DjoNAp.jpg	"><div class="movie-title">	Escuadron 6 (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ferry%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/5D1Tku9nfD5JjB9sLdotxTtTRw9.jpg	"><div class="movie-title">	Ferry (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/xr2k278di12cblf/SalynPM-G.E.D.D.P.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/sm5DUZ9tTd2zfA5tDNDArJxvXUh.jpg	"><div class="movie-title">	Godzilla: El devorador de planetas (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20balada%20de%20buster%20scruggs.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/hFvaG1zDijJ4EyMsYmLx6nt13qZ.jpg	"><div class="movie-title">	La Balada De Buster Scruggs (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20mother%202023.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pNYtkngatCVyDvbSkaYV2ZOr0lS.jpg	"><div class="movie-title">	La Madre (2023) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20woman%20in%20the%20window%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/htNLpDWkaCYtkjjiFlfV2VBICUx.jpg	"><div class="movie-title">	La Mujer En La Ventana (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20wandering%20earth%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/gBxyQTHMLJvODAQ4gB8FpGcujhp.jpg	"><div class="movie-title">	La Tierra Errante (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20old%20guard%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/qzYP4eiDmBoVztMUmWtKqMZcUGN.jpg	"><div class="movie-title">	La Vieja Guardia (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20pale%20blue%20eye%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/90Tle5e429OdpMmvuRrcQLrCRiT.jpg	"><div class="movie-title">	Los Crimenes De La Academia (2022) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20harder%20they%20fall%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/nqVmy7njfOvGGhhE6PgmPFaPpPg.jpg	"><div class="movie-title">	Mas Dura Sera La Caida (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://199.188.103.26/rombwgshgfhgdsjr/85455532potroxvix/Pel%C3%ADculas/Nadie%20Duerme%20en%20el%20Bosque%20esta%20Boche%202%202021.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/iD1pLLaEueFM0QjMSscHjHPuQQV.jpg	"><div class="movie-title">	Nadie Duerme En El Bosque Esta Noche 2 (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/nadie-sale-con-vida_202110/nadie%20sale%20con%20vida.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/sKrg64wRonYTsFwAOgk3L8CGLjA.jpg	"><div class="movie-title">	Nadie Sale Con Vida (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/oxygene%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pjPQyFXrbpDASuDv1mtxWZ7zo0K.jpg	"><div class="movie-title">	Oxigeno (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/pele%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/e1UtIwDDA28XPSVdSao10aww632.jpg	"><div class="movie-title">	Pele (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/guillermo%20del%20toros%20pinocchio%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/11/w300/hVa3OCfwqFm6K3Sk6IF68cYr7uk.jpg	"><div class="movie-title">	𝐏𝐢𝐧𝐨𝐜𝐡𝐨 𝐝𝐞 𝐆𝐮𝐢𝐥𝐥𝐞𝐫𝐦𝐨 𝐝𝐞𝐥 𝐓𝐨𝐫𝐨 (𝟐𝟎𝟐𝟐) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/point%20blank%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/6kX02JwHYaKYIvhP4HN5Qjrug7D.jpg	"><div class="movie-title">	Point Blanck (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/roma.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/dtIIyQyALk57ko5bjac7hi01YQ.jpg	"><div class="movie-title">	Roma (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/spectral.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/fYtIWhTDgPTcutD24f53Dcc7BAE.jpg	"><div class="movie-title">	Spectral (2016) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20last%20thing%20he%20wanted%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/8clazV2TtAK9CbTG2WPTbuVmx9C.jpg	"><div class="movie-title">	Su Ultimo Deseo (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/christmas%20inheritance.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/xvJMNDSizLT7cEyeJmnzKvMCRvJ.jpg	"><div class="movie-title">	Tarjeta De Navidad (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20after%20party.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/wFPGheX6X4bt1ZqP1870MPlUvGu.jpg	"><div class="movie-title">	The After Party (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20babysitter.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/4pMbRBz2KLlOqEIDIwnMVVKPWUh.jpg	"><div class="movie-title">	The Babysitter (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://ia801509.us.archive.org/32/items/tcSRREGIO/tcSRREGIO.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/hyeJDZxsXatr2XoPtH46NRrQ6aW.jpg	"><div class="movie-title">	The Coverfield Paradox (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20futile%20and%20stupid%20gesture%202018.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/nVExTwKXN8sbkBRYhaNcCCouuly.jpg	"><div class="movie-title">	Un Gesto Estupido E Inutil: La Historia De Doug Kenney (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20christmas%20prince.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/6GUawOmTOdSCSNIscteIRtXINSp.jpg	"><div class="movie-title">	Un Principe De Navidad (2017) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/un%20principe%20de%20navidad%20la%20boda%20real.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/nYbHrE3ND6Bzq8A0TDwmABVoyAG.jpg	"><div class="movie-title">	Un Principe De Navidad: La Boda Real (2018) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20christmas%20prince%20the%20royal%20baby%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/aBI8CcMVaiTSS28n34uAx7ZVit2.jpg	"><div class="movie-title">	Un Principe De Navidad: Un Bebe Real (2019) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/paper%20lives%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/ozYkQIGsR7kPbu1yzjC7P3ph6vT.jpg	"><div class="movie-title">	Vidas De Papel (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/all%20the%20bright%20places%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/cYtAU7GtSEoBD9EuS311RCNTb6K.jpg	"><div class="movie-title">	Violet Y Finch (2020) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/vivo%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/bmreZIM50hIb7FE3aK47FOvsQBk.jpg	"><div class="movie-title">	Vivo (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/wounds%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/3Kz6xwzm7uICHnu01G99cubw6bQ.jpg	"><div class="movie-title">	Wounds - Heridas (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/xtremo%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/5ghvx0Q5c57JoBNxFj4gSfXj6wK.jpg	"><div class="movie-title">	Xtremo (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/yara%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/gcVFI8t5QAvXGzQRKA82glDdOr3.jpg	"><div class="movie-title">	Yara (2021) 	<br>	Netflix	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/outside%20the%20wire%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/bQ2aNqcIGopI2AsTREc8sQlz6CN.jpg	"><div class="movie-title">	Zona De Riesgo (2021) 	<br>	Netflix	</div></a>
+
+
+
+
+
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>

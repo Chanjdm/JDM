@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 0px;
+      background: black;
+      outline: none;
+      border:none;
+      text-decoration: none;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      margin-left:1px;
+    }
+    
+    #movie-list{
+        overflow-y: scroll;
+        position: relative;
+        width: 48%;
+        height: 600px;
+    }
+
+    ::-webkit-scrollbar {
+        background:transparent;
+    }
+
+    img {
+        margin-bottom: 0rem;
+        position: relative;
+        width: 130px;
+        border-radius: 14px;
+    }
+
+    #player {
+        width: 50%;
+    }
+
+    #video-player{
+        margin-top: 2.2rem;
+        width: 100%;
+        height: 55%;
+    }
+    .movie-item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
+    @media screen and (max-width: 480px){
+        #container{
+            height: auto;
+        }
+        
+        #movie-list {
+            position: absolute;
+            width: auto;
+            height: 450px;
+            top: 12.5rem;
+            left: 14px;
+        }
+        
+        img {
+            margin-bottom: 0rem;
+            position: relative;
+            width: 125px;
+            border-radius: 14px;
+        }
+
+        #barra_lateral{
+            display:none;
+        }
+
+        #player {
+            position: absolute;
+            width: 90%;
+            align-items: center;
+            left: 2px;
+            top: 3.2rem;
+            display: flex;
+        }
+
+        #video-player{
+            margin-top: 5px;
+            width: 100%;
+            height: 90%;
+        }
+  .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+#search-bar {
+    height:20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-right: 2rem;
+}
+#search-button{
+    padding: 0px 0px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
+    }
+
+
+
+
+
+
+    #search-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 2rem;
+    }
+
+    #search-input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: solid;
+    color: #b7ee00;
+    font-size: 14px;
+}
+
+    #search-button {
+      padding: 0px 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      color:black;
+      cursor: pointer;
+    }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">INICIO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispeliscrimen.html">SURREAL</a>
+				<a class="page-link curent" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisculto.html">CULTO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisnegro.html">NEGRO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisretro.html">RETRO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispeliszombies.html">MAS</a>
+</div>
+</nav>
+
+
+
+
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+
+  <div id="container">
+<div id="movie-list">
+
+
+
+<!-- para poner mas peliculas #############################
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
+
+ ############################ -->
+
+
+
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/amelie.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ecb16vFXrnbmTmz04KkIXEiKVI4.jpg	"><div class="movie-title">	Amelie (2001) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/american-history-x-1998/American%20History%20X%20%281998%29%20.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/h2cDqHvnZkycBJKoF7WhcQ2MX1V.jpg	"><div class="movie-title">	American History X - Historia Americana X (1998) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20psycho.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Dra_01_50/006%20american%20psycho_copy_360x203.png	"><div class="movie-title">	𝐀𝐦𝐞𝐫𝐢𝐜𝐚𝐧 𝐏𝐬𝐲𝐜𝐡𝐨: 𝐏𝐬𝐢𝐜𝐨𝐩𝐚𝐭𝐚 𝐀𝐦𝐞𝐫𝐢𝐜𝐚𝐧𝐨 (𝟐𝟎𝟎𝟎) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/outland%201981.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1981/5/w300/cCLCslOrPNmZiniqvGo17f3Q4GC.jpg	"><div class="movie-title">	𝐀𝐭𝐦𝐨́𝐬𝐟𝐞𝐫𝐚 𝐂𝐞𝐫𝐨 (𝟏𝟗𝟖𝟏) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/bajos-instintos-2/bajos%20instintos.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kbxuAUIKrZHXXRxVvVYw95HWPKJ.jpg	"><div class="movie-title">	Bajos Instintos (1992) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://ott.cdn.iutpcdn.com:80/VOD/H01/HD/PK00009DS/index.m3u8?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/m2xBY26WSZ8ML5k4QQPsodGRo8h.jpg	"><div class="movie-title">	Belleza Americana (1999) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/beetlejuice.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/vx4DyPN57RW8c9wjqmDhCn7dNVs.jpg	"><div class="movie-title">	Beetlejuice (1988) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/blade%20runner.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/k4rBPLRRnw2t1exdSxyXFjeYWPj.jpg	"><div class="movie-title">	Blade Runner (1982) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/uno%20de%20los%20nuestros.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/6yUooXjfisl8PqItqskRtcLQCyC.jpg	"><div class="movie-title">	Buenos Muchachos (1990) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/the-faculty_20230320/buffalo%2066.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/f6Pe0cWVFeDSqgnfN0wl7mUVe4R.jpg	"><div class="movie-title">	Buffalo 66 (1998) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ciudadano%20kane.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/xnyiPnjMyW6mDm16e2OHp7Ma1iz.jpg	"><div class="movie-title">	Ciudadano Kane (1941) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/slither%202006.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ckyFr9IGq7xdaEPuEAQ3ZC0kxfH.jpg	"><div class="movie-title">	Criaturas Rastreras (2006) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/cujo_20230205/cujo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/w1vCkVpPgz743fz70jVeLwsFJit.jpg	"><div class="movie-title">	Cujo (1983) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jennifers%20body.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/mFq5W8j4Ub6sqMKhSZlOq4TOVOi.jpg	"><div class="movie-title">	Diabolica Tentacion (2009) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/donnie%20darko.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Dra_01_50/030%20donnie%20darko_copy_360x203.png	"><div class="movie-title">	Donnie Darko (2001) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dracula%201992.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/aYfpL5vJHJ21NZo5oxjUQSkkbpq.jpg	"><div class="movie-title">	𝐃𝐫𝐚𝐜𝐮𝐥𝐚 𝐃𝐞 𝐁𝐫𝐚𝐦 𝐒𝐭𝐨𝐤𝐞𝐫 (𝟏𝟗𝟗𝟐) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20counselor.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/vigDvay81iTPo0IsJbXAdu6Yl9X.jpg	"><div class="movie-title">	El Abogado Del Crimen (2013) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20abogado%20del%20diablo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Dra_01_50/032%20el%20abogado%20del%20diablo_copy_360x203.png	"><div class="movie-title">	El Abogado Del Diablo (1997) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20whole%20truth.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/16/09/22/16/01/098343.jpg	"><div class="movie-title">	El Abogado Del Mal (2016) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/fight%20club.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cm8dnS4MF3jtz0mvA9nEiDy0kxl.jpg	"><div class="movie-title">	El Club De La Pelea (1999) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20breakfast%20club%201985.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/19/04/21/23/04/2910297.jpg	"><div class="movie-title">	El Club De Los Cinco (1985) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/cube.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/e32QulxgiCCRg6mPmOWXMfAyy71.jpg	"><div class="movie-title">	El Cubo (1997) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20crow.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/83/90/03/19715400.jpg	"><div class="movie-title">	El Cuervo (1994) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20gran%20lebowski.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/83/90/03/19715400.jpg	"><div class="movie-title">	El Gran Lebowski (1998) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/gladiador_202303/el%20imperio.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ybpVOFkvYuBLofvnZ4C8TTjXBQi.jpg	"><div class="movie-title">	El Imperio (2006) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20joven%20manos%20de%20tijeras.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/61z8BGnT0kL._SL1000_.jpg	"><div class="movie-title">	El Joven Manos De Tijera (1990) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20maquinista.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/67/08/53/20071009.jpg	"><div class="movie-title">	El Maquinista (2004) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/unbreakable.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/72/16/80/20080976.jpg	"><div class="movie-title">	El Protegido (2000) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20shining.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/mm003Mj2e9kJRsrxiVdPn2BSBPh.jpg	"><div class="movie-title">	El Resplandor (1980) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20sexto%20sentido.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1999/8/w300/wcnLlfQ2USwvyYbd6XgtNEOQfMT.jpg	"><div class="movie-title">	𝐄𝐥 𝐒𝐞𝐱𝐭𝐨 𝐒𝐞𝐧𝐭𝐢𝐝𝐨 (𝟏𝟗𝟗𝟗) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/eternal%20sunshine%20of%20the%20spotless%20mind%202004.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ixacxyJOwud0wACWWOQGDwvP2I6.jpg	"><div class="movie-title">	𝐄𝐭𝐞𝐫𝐧𝐨 𝐑𝐞𝐬𝐩𝐥𝐚𝐧𝐝𝐨𝐫 𝐃𝐞 𝐔𝐧𝐚 𝐌𝐞𝐧𝐭𝐞 𝐒𝐢𝐧 𝐑𝐞𝐜𝐮𝐞𝐫𝐝𝐨𝐬 (𝟐𝟎𝟎𝟒) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/fargo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/6QqEsIx9KuLqD8auHmXWe7vJhOy.jpg	"><div class="movie-title">	𝐅𝐚𝐫𝐠𝐨 (𝟏𝟗𝟗𝟔) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-chica-del-dragon-tatuado-2/Ginger%20snaps.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/iKDXZDh41nEMpefDWAaFYYlr1aB.jpg	"><div class="movie-title">	Feroz (2000) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/full%20metal%20jacket.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/hJfHQlX5i9L5ywAHGbZw4OmI3mj.jpg	"><div class="movie-title">	Full Metal Jacket - La Chaqueta Metalica (1987) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/unfaithful.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2002/5/w300/9UeN5JUCvJU3SuA4a9CrCVzgTr2.jpg	"><div class="movie-title">	Infidelidad (2002) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/red%20heat%201988.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1988/6/w300/gCLR9iQS3dRo8mYnq2I73EK9KEf.jpg	"><div class="movie-title">	𝐈𝐧𝐟𝐢𝐞𝐫𝐧𝐨 𝐑𝐨𝐣𝐨 - 𝐀𝐥 𝐑𝐨𝐣𝐨 𝐕𝐢𝐯𝐨 (𝟏𝟗𝟖𝟖) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20craft%201996.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/eCN52uniWhJ3oK9XAcFXXjUExWL.jpg	"><div class="movie-title">	Jovenes Brujas (1996) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20cabin%20in%20the%20woods.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/4/w300/40Sjxp3rXLC3UV2Wbgxxu4HwMJK.jpg	"><div class="movie-title">	𝐋𝐚 𝐂𝐚𝐛𝐚𝐧̃𝐚 𝐃𝐞𝐥 𝐓𝐞𝐫𝐫𝐨𝐫 (𝟐𝟎𝟏𝟐) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20mask%201994.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1994/7/w300/sW0tABq2gGGzdwHKhBs2hupEK11.jpg	"><div class="movie-title">	𝐋𝐚 𝐌𝐚́𝐬𝐜𝐚𝐫𝐚 (𝟏𝟗𝟗𝟒) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20fly%201986.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1986/8/w300/lotsO2VRhsmeFKzqncMX9xrYMj6.jpg	"><div class="movie-title">	La Mosca (1986) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20clockwork%20orange.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/jdsqIFqqstruqQAJ4g94sSduxwy.jpg	"><div class="movie-title">	𝐋𝐚 𝐍𝐚𝐫𝐚𝐧𝐣𝐚 𝐌𝐞𝐜𝐚𝐧𝐢𝐜𝐚 (𝟏𝟗𝟕𝟏) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-novena-puerta/La%20Novena%20Puerta.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/32cSdAyCSvjrtbfzJcRxG3ywiJH.jpg	"><div class="movie-title">	La Novena Puerta (1999) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-chica-del-dragon-tatuado-2/Lolita.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/3nTCYIR9kwBDAnbjNlf6IHMEHry.jpg	"><div class="movie-title">	𝐋𝐨𝐥𝐢𝐭𝐚 (𝟏𝟗𝟗𝟕) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ghostbusters.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1984/6/w300/6gzodU7MbxcgsOCa0LFZScFkyvK.jpg	"><div class="movie-title">	𝐋𝐨𝐬 𝐂𝐚𝐳𝐚𝐟𝐚𝐧𝐭𝐚𝐬𝐦𝐚𝐬 (𝟏𝟗𝟖𝟒) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ghostbusters%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1989/6/w300/tqFgvP61lOFegzsCiJOaeRfkogJ.jpg	"><div class="movie-title">	𝐋𝐨𝐬 𝐂𝐚𝐳𝐚𝐟𝐚𝐧𝐭𝐚𝐬𝐦𝐚𝐬 𝟐 (𝟏??𝟖𝟗) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/boyz%20n%20the%20hood.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/j3wxu8C4BZniHEGeanx0nEo95HK.jpg	"><div class="movie-title">	Los Dueños De La Calle (1991) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20goonies.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1985/6/w300/h0QoQSodfdd3VTBqlFb2QP7wIbL.jpg	"><div class="movie-title">	𝐋𝐨𝐬 𝐆𝐨𝐨𝐧𝐢𝐞𝐬 (𝟏𝟗𝟖𝟓) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20addams%20family.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1991/11/w300/6RqnaUcDH2dpR2kmdnmSEHTcS0V.jpg	"><div class="movie-title">	Los Locos Addams (1991) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/addams%20family%20values.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1993/11/w300/3ZcXBJq9DRxEXHEtgZTiwBERqW4.jpg	"><div class="movie-title">	Los Locos Addams 2 (1993) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20usual%20suspects%201995.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1995/7/w300/zI2ESVtVBJTo68aWuwCku78q4dZ.jpg	"><div class="movie-title">	𝐋𝐨𝐬 𝐬𝐨𝐬𝐩𝐞𝐜𝐡𝐨𝐬𝐨𝐬 𝐝𝐞 𝐬𝐢𝐞𝐦𝐩𝐫𝐞 (𝟏𝟗𝟗𝟓) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/lost%20in%20translation.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/7btfyWpAEiKtTxOH48kChM96jDs.jpg	"><div class="movie-title">	Lost In Translation - Perdidos En Tokio (2003) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/the-faculty_20230320/Luna%20de%20hiel.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/klPBubXSNmRtBh1kMzS6JUvZySo.jpg	"><div class="movie-title">	Lunas De Hiel - Perversa Luna De Hiel (1992) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/magnolia.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1999/12/w300/3w8acPDI4A7v5ITDVFPfFIUqO4g.jpg	"><div class="movie-title">	𝐌𝐚𝐠𝐧𝐨𝐥𝐢𝐚 (𝟏𝟗𝟗𝟗) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/matrix.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/qK76PKQLd6zlMn0u83Ej9YQOqPL.jpg	"><div class="movie-title">	Matrix (1999) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/memento.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/neHrQLVfT3KPqvv30pNPyRb6chQ.jpg	"><div class="movie-title">	Memento - Amnesia: Recuerdos De Un Crimen (2000) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/el-color-purpura/Menace%20II%20Society.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/nS7yqmSVeNoH22VXj69JoFCxW1h.jpg	"><div class="movie-title">	Menace II Society - Una Amenaza Para La Sociedad (𝟏𝟗𝟗3) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/mulhollan-drive/Mulhollan%20drive.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/a9RucshndEs4o6MHZYjbha9GFvk.jpg	"><div class="movie-title">	Mulhollan Drive - Sueños Misterios Y Secretos (2001) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/eyes%20wide%20shut.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1999/7/w300/a0YOhU3zq0RkOYrVlPXCeE1oFkR.jpg	"><div class="movie-title">	𝐎𝐣𝐨𝐬 𝐁𝐢𝐞𝐧 𝐂𝐞𝐫𝐫𝐚𝐝𝐨𝐬 (𝟏𝟗𝟗𝟗) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://archive.org/download/orca-la-ballena-asesina_202011/orca%20la%20ballena%20asesina.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1977/7/w300/eBU74yq55Kyn6Fe0vnc0ICbozdz.jpg	"><div class="movie-title">	Orca: La ballena asesina (1977) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/reservoir%20dogs.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/8hLZxwT5Dd4AioogwcIzQoJ3d56.jpg	"><div class="movie-title">	Perros De Reserva (1992) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/lost-highway_202205/LP582PL.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/vFIhGJuUfCSGTFj5fgLCbBAtxt2.jpg	"><div class="movie-title">	Por El Lado Oscuro Del Camino (1997) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/psycho.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1960/6/w300/bpBJXvgGDG52XJJrVSl4zxfIsU9.jpg	"><div class="movie-title">	Psicosis (1960) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/who%20framed%20roger%20rabbit.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1988/6/w300/nXqhkF0tJ1K2fglVMgimVZd5kMH.jpg	"><div class="movie-title">	Quién engaño a Roger Rabbit? (1988) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/requiem%20for%20a%20dream.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/2B5brHMhaHN1d9KmdeZI6RlU3aE.jpg	"><div class="movie-title">	Requiem Por Un Sueño (2000) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/scott%20pilgrim%20vs%20the%20world.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2010/8/w300/fgrVbga0oZQNeljO6dyoWknjOzJ.jpg	"><div class="movie-title">	Scott Pilgrim contra los ex de la chica de sus sueños (2010) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/shaolin%20soccer.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2001/7/w300/gMqHA1CoURwncG1iKBukFtTCSrG.jpg	"><div class="movie-title">	Shaolin soccer (2001) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/showgirls%201995.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/dTDEDmd7A5BEbIdR7uJ9LTzw3HM.jpg	"><div class="movie-title">	Showgirls: Lo Prohibido (1995) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/snatch.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/uk8MKxYrKzaH8blos3tGkP7JBlY.jpg	"><div class="movie-title">	Snatch: Cerdos Y Diamantes (2000) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20usual%20suspects%201995.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/zI2ESVtVBJTo68aWuwCku78q4dZ.jpg	"><div class="movie-title">	Sospechosos Habituales (1995) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/starship-troopers_202302/Starship%20troopers.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cxCmv23O7p3hyHwqoktHYkZcGsY.jpg	"><div class="movie-title">	Starship Troopers (1997) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/taxi%20driver.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/jhNv3GvyCoPNZASqOIsFeGHT7mq.jpg	"><div class="movie-title">	Taxi Driver (1976) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/terciopelo%20azul.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/rzcigN8ujeVJiEKGP3y3mJybvii.jpg	"><div class="movie-title">	Terciopelo Azul (1986) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20truman%20show.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/819W-dzB7gL._AC_SL1334_.jpg	"><div class="movie-title">	The Truman Show: Historia De Una Vida (1998) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tiempos%20violentos.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/sjb1KYPp57GhG96Sc6WJDddP3f7.jpg	"><div class="movie-title">	Tiempos Violentos (1994) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/gladiador_202303/twin%20peaks%20fuego%20camina%20conmigo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/7TDqNMyueIMTrPsQBMap411eWLu.jpg	"><div class="movie-title">	Twin Peaks - Fuego Camina Conmigo (1992) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/teen%20wolf%201985.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/i9uIRLW9oNDyGVwwVXyo0RF9wWd.jpg	"><div class="movie-title">	Un Lobo Adolescente (1985) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/the-faculty_20230320/una%20vez%20en%20la%20vida.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/qS7p3LPf1fw9dOX0mGbDdCTccS0.jpg	"><div class="movie-title">	Una Vez En La Vida (1992) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/vanilla%20sky.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2001/1/w300/cAh2pCiNPftsY3aSqJuIOde7uWr.jpg	"><div class="movie-title">	Vanilla Sky (2001) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/vertigo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/15uOEfqBNTVtDUT7hGBVCka0rZz.jpg	"><div class="movie-title">	Vertigo (1958) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20virgin%20suicides.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/2KGo4e8hitKoNbA2gG5oessVllm.jpg	"><div class="movie-title">	Virgenes Suicidas (1999) 	<br>	Culto	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/zodiac_20230228/Zodiac.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/wE0UkYd8OdOSAWsoC4MNNDNEnkg.jpg	"><div class="movie-title">	Zodiac - Zodiaco (2007) 	<br>	Culto	</div></a>
+
+
+
+
+
+
+
+
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 0px;
+      background: black;
+      outline: none;
+      border:none;
+      text-decoration: none;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      margin-left:1px;
+    }
+    
+    #movie-list{
+        overflow-y: scroll;
+        position: relative;
+        width: 48%;
+        height: 600px;
+    }
+
+    ::-webkit-scrollbar {
+        background:transparent;
+    }
+
+    img {
+        margin-bottom: 0rem;
+        position: relative;
+        width: 130px;
+        border-radius: 14px;
+    }
+
+    #player {
+        width: 50%;
+    }
+
+    #video-player{
+        margin-top: 2.2rem;
+        width: 100%;
+        height: 55%;
+    }
+    .movie-item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
+    @media screen and (max-width: 480px){
+        #container{
+            height: auto;
+        }
+        
+        #movie-list {
+            position: absolute;
+            width: auto;
+            height: 450px;
+            top: 12.5rem;
+            left: 14px;
+        }
+        
+        img {
+            margin-bottom: 0rem;
+            position: relative;
+            width: 125px;
+            border-radius: 14px;
+        }
+
+        #barra_lateral{
+            display:none;
+        }
+
+        #player {
+            position: absolute;
+            width: 90%;
+            align-items: center;
+            left: 2px;
+            top: 3.2rem;
+            display: flex;
+        }
+
+        #video-player{
+            margin-top: 5px;
+            width: 100%;
+            height: 90%;
+        }
+  .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+#search-bar {
+    height:20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-right: 2rem;
+}
+#search-button{
+    padding: 0px 0px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
+    }
+
+
+
+
+
+
+    #search-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 2rem;
+    }
+
+    #search-input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: solid;
+    color: #b7ee00;
+    font-size: 14px;
+}
+
+    #search-button {
+      padding: 0px 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      color:black;
+      cursor: pointer;
+    }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">INICIO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmiszombies.html">ZOMBIES</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisaliens.html">ALIENS</a>
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisterror.html">TERROR</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisdocumental.html">DOCUMENTAL</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisnetflix.html">MAS</a>
+</div>
+</nav>
+
+
+
+
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+
+  <div id="container">
+<div id="movie-list">
+
+
+
+<!-- para poner mas peliculas #############################
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
+
+ ############################ -->
+
+
+
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20ghost%20dimension.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/3BZvUmxV4EdiHYnig9xgMS56pGb.jpg	"><div class="movie-title">	Dimnension	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/paranormal%20activity%202007.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/919Xf5NshBIKuj4HP2XkGIfNaCF.jpg	"><div class="movie-title">	Actividad Paranormal (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/paranormal%20activity%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/9pQr1OssLBtLoMoCEigHMZN7JyR.jpg	"><div class="movie-title">	Actividad Paranormal 2 (2010) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/paranormal%20activity%204.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/zthZf2pnhmtQGFZhbHEcUlilsL4.jpg	"><div class="movie-title">	Actividad Paranormal 4 (2012) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://66.70.182.230/peliculas/720/paranormal%20activity%20next%20of%20kin%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cN1WYVV1NyQNoHcOTAQVH448ljY.jpg	"><div class="movie-title">	Actividad Paranormal: Vinculos Familiares (2021) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/alien%20abduction.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ffatP1TcSSIrh6ekYW39sMNxW4I.jpg	"><div class="movie-title">	Alien Abduction (2014) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/area%2051.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/15/04/28/11/56/379860.jpg	"><div class="movie-title">	Area 51 (2015) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/as%20above%20so%20below.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/vyDIDxwMQP8UG9bpAeckURPK0Vq.jpg	"><div class="movie-title">	Asi En La Tierra Como En El Infierno (2015) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/creep.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/qn53D574tT0YRyLgirEFHQwGUXw.jpg	"><div class="movie-title">	Creep (2014) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/creep%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/yaOfXrOCjOhCAxvAtXLicDHg6YV.jpg	"><div class="movie-title">	Creep 2 (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-chica-del-dragon-tatuado-2/Cuarentena.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/4KYoUDKOO4sCxuE0UjpcXjdgkVG.jpg	"><div class="movie-title">	Cuarentena (2008) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/quarantine%202%20terminal%202011.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cF4LscI8V4RGEq8bPVoF4efI8gc.jpg	"><div class="movie-title">	Cuarentena 2: Terminal (2011) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20proyecto%20de%20la%20bruja%20de%20blair.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/4VkdY6GlFchXcHgg3Bsl1A73jsH.jpg	"><div class="movie-title">	El Proyecto De La Bruja De Blair (1999) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-chica-del-dragon-tatuado-2/la%20bruja%20de%20blair%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/4VkdY6GlFchXcHgg3Bsl1A73jsH.jpg	"><div class="movie-title">	El Proyecto De La Bruja De Blair 2 (2000) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/blair%20witch.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pa2vim7UMsuEIkhxbK4hIMB5W4O.jpg	"><div class="movie-title">	El Proyecto De La Bruja De Blair  3 (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/high%20resolution.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/nWjICXX6LOtKMzftEWvMH8PbH4p.jpg	"><div class="movie-title">	High Resolution (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20cueva.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2014/1/w300/4OQx9GlkPKFpNSEp4vedPmyC3vU.jpg	"><div class="movie-title">	𝐋𝐚 𝐂𝐮𝐞𝐯𝐚 (𝟐𝟎𝟏𝟒) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/chronicle.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/9GioqrMkkk9A694UhYz8iMo2eJV.jpg	"><div class="movie-title">	Poder Sin Limites (2012) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/project%20almanac.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/5HHOAXZxUmJ1q3ayKIubEp9PGwR.jpg	"><div class="movie-title">	Projecto Almanac (2015) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/proyecto%20x.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/3/w300/owF9NIcQOPFAOjp2pni8BsVlnRq.jpg	"><div class="movie-title">	Proyecto X (2012) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/rec%201.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/vIoBgFBJuqcIzudkFyagJuCxHZ7.jpg	"><div class="movie-title">	Rec (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/rec%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/zuBfXkPxazs6lIfqcDjYyDRsEG5.jpg	"><div class="movie-title">	Rec 2 (2009) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/rec%203.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/m2WKOO1Rt5TuBM0h9Jfpgy8crWP.jpg	"><div class="movie-title">	Rec 3 Genesis (2012) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/rec%204.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/7QS3fYHgDT5RciPczeApUxlPMAV.jpg	"><div class="movie-title">	Rec 4 Apocalipsis (2014) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/encuentro.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/r1b63J3SIfA65XuVKyabKrPbM8t.jpg	"><div class="movie-title">	Encuentro (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hell%20or%20high%20water.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/AvjczJdNyg8MiWnpeaLTytI7sct.jpg	"><div class="movie-title">	Hell or High Water	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20first%20purge%202018.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/aV3vprqPAZBbriI2UZA5bMNqMjk.jpg	"><div class="movie-title">	La primera Purga (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/n8gdjha9i0gj50m/SalynPM-12.H.P.S.V.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/y7RnSJw7VdUTXLNMfxZzgxpVGR9.jpg	"><div class="movie-title">	12 horas para sobrevivir: El inicio (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/cw3h9l3hrnwlnfl/SalynPM-SPM1l3m.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/2eVnqEQy4n98ujEdFkdddYEgpqW.jpg	"><div class="movie-title">	12 Horas Para Sobrevivir: El Año De La Elección (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/30%20days%20of%20night.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/uWVEjJ6wIjg6jVR2LtwVRHkpJAn.jpg	"><div class="movie-title">	30 Dias De Noche (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/31.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/2HR7CbC7Y2v2DdiNBXAxzV62LdN.jpg	"><div class="movie-title">	31 (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/1408.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/69/51/94/20051367.jpg	"><div class="movie-title">	1408 (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/1922.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/1wj8hLGHAP9goBvvJ45TIK2RjsA.jpg	"><div class="movie-title">	1922 (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/ube8rp8wyf2pmpl/SalynPM-1922.2017.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/q4FQOiSRhTLWulHl5Vpg37FMArH.jpg	"><div class="movie-title">	1922 (Opc.2) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/47%20meters%20down.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cugpHYvsdyMExbbcRhVJLUf2Wdu.jpg	"><div class="movie-title">	A 47 Metros (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/47%20meters%20down%20uncaged%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img2.acsta.net/pictures/19/06/24/19/42/4857107.jpg	"><div class="movie-title">	A 47 metros: El segundo ataque (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/al%20final%20del%20tunel.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/z6qrI5irqqDS7Pt1WjNVe6vbYHG.jpg	"><div class="movie-title">	Al Final Del Tunel (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/al%20tercer%20dia%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.hacerselacritica.com/wp-content/uploads/2021/02/AlTercerDia_Afiche_Cuadrado_Instagram-207x300.jpg	"><div class="movie-title">	Al Tercer Dia (2020) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/deep%20blue%20sea.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/14/03/13/12/34/539170.jpg	"><div class="movie-title">	Alerta en lo profundo (1999) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/deep%20blue%20sea%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/hTfSYIf4abjcv5hgz53m5QH6oFC.jpg	"><div class="movie-title">	Alerta en lo profundo 2 (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/deep%20blue%20sea%203%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/96rOUJEbHrhVW7JYzPJm5ZyMDg0.jpg	"><div class="movie-title">	Alerta en lo profundo 3 (2020) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/underwater%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/9ixyTKEJe5vvUczIbB6u8NfsfKm.jpg	"><div class="movie-title">	Amenaza En Lo Profundo (2020) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/amityville%20the%20awakening.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/16/03/07/11/15/319898.jpg	"><div class="movie-title">	Amityville: El despertar (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/amulet%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/812emPnp5sL._SL200_.jpg	"><div class="movie-title">	Amuleto (2020) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/annabell.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/aEW5clmn5CUH3JF1g6syjqBavcu.jpg	"><div class="movie-title">	Annabelle (2014) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/annabelle%20creation.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/qSd1EWtI9fvbZICq9dIJiGSpOYe.jpg	"><div class="movie-title">	Annabelle 2: La Creacion (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/annabelle%203%20comes%20home%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/zxwPksbRKGaAi06rapPfFTVsMHv.jpg	"><div class="movie-title">	Annabelle 3: Viene A Casa (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/antlers%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/11/05/11/42/1154408.jpg	"><div class="movie-title">	Antlers: Criatura oscura (2021) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bedeviled.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/519DyDBhx4L.jpg	"><div class="movie-title">	Aplicacion diabolica (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/y6t0ovt61yipjqp/SalynPM-Apostle.2018.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/6KR8AlHAVLuCk0jRaDVswq3o1bK.jpg	"><div class="movie-title">	Apóstol (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/tcx2292kx8goyix/SalynPM-SPM2o7d.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/8ubtl4phLy5iisPWVF5RAP2grow.jpg	"><div class="movie-title">	Arrástrame al infierno (2009) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/pg99wn42smii60v/SalynPM-Bird.box.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/dPtzSaw2lJuNe0GZmBqxX4vVAhJ.jpg	"><div class="movie-title">	Bird Box: A ciegas (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/1oguwzzpoqxspu8/SalynPM-Down.a.dark.hall.2018.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kQmWQ2KCDfgpkshyM9rMfPsMYCF.jpg	"><div class="movie-title">	Blackwood  (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ready%20or%20not%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ptzB7EgJg6gA8KujWh7ifrIRlxR.jpg	"><div class="movie-title">	Boda Sangrienta (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/brightburn%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/41WFg-JcNkL._AC_.jpg	"><div class="movie-title">	Brightburn: hijo de la oscuridad (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/3dtqyycl8jmnaso/SalynPM-C.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/vR6Zaevn3imnkXsbdgBiAdIHNgK.jpg	"><div class="movie-title">	Cadáver (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/02fzrtxsf2rv5o2/SalynPM-SPM2g1o.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/oUSIm6GxVw0BZwyndJn6zg4nZEH.jpg	"><div class="movie-title">	Camino hacia el terror (2004) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/n07q1cquifpo72c/SalynPM-SPM7e9x.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/6Z73beEN0fv4rsu2C72T7axoySh.jpg	"><div class="movie-title">	Camino hacia el terror 2 (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/3ixyqzlzh51ib9u/SalynPM-SPM1x9i.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ta9rVyblrR53L8hSzq0Vxg2a4OB.jpg	"><div class="movie-title">	Camino hacia el terror 3 (2009) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/4767h79833pr2km/SalynPM-SPM6l9q.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/p4yyI3YLbcOApCT3KcEW6FCfzLM.jpg	"><div class="movie-title">	Camino hacia el terror 4 (2011) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/98tsh7hdm9ttc6k/SalynPM-SPM2s8q.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/j3nuFv4k5TUJEKZxqrbG9cdNKr2.jpg	"><div class="movie-title">	Camino hacia el terror 5 (2013) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/wrong%20turn%206%20last%20resort.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/fQCtBbfKfDwFxGxGEsFustKCr3S.jpg	"><div class="movie-title">	Camino Hacia El Terror 6: La Herencia (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/subtituladas/wrong%20turn%202021%20sub.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cny2yzaSZGMQ1bSLsLNVm67mIvI.jpg	"><div class="movie-title">	Camino Hacia El Terror: Reinicio (2021) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/candyman%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/06/24/10/16/4423261.jpg	"><div class="movie-title">	Candyman (2021) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/carrie.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/c_310_420/pictures/210/038/21003890_20130507112915793.jpg	"><div class="movie-title">	Carrie (2013) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/fpv6gmu0podrrz1/SalynPM-C.D.M.MP4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pdEch40X27dzrhxz7uRRwOtEOB.jpg	"><div class="movie-title">	Cementerio de mascotas (1989) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/drqgqknxrpjd1yl/SalynPM-C.D.M.2.MP4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/A1qXTzGHIyCQmJbmEZL47KIqRhL.jpg	"><div class="movie-title">	Cementerio de mascotas 2 (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/pet%20sematary%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/61J8lALf5EL.jpg	"><div class="movie-title">	Cementerio Maldito (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/k31ibkqe6bob66b/SalynPM-SPM6j7n.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/61J8lALf5EL.jpg	"><div class="movie-title">	Cementerio maldito (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/childs%20play.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/jjdLXjWTF3iTznGDGMG7trfHSiC.jpg	"><div class="movie-title">	CHUKY EL MUÑECO DIABÓLICO 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://archive.org/download/img-20200520-wa-0024/mu%C3%B1eco%202.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/jjdLXjWTF3iTznGDGMG7trfHSiC.jpg	"><div class="movie-title">	CHUKY EL MUÑECO DIABÓLICO (Op. 2) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://archive.org/download/img-20200520-wa-0024/chucky%203.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/1No0Wlc92zSwqQqbp6w4octiHpP.jpg	"><div class="movie-title">	CHUKY EL MUÑECO DIABÓLICO 2	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://archive.org/download/img-20200520-wa-0024/la%20nv%20mu%C3%B1ec.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pVZhzXNDrvkLOV5cCBg6BhnjdQs.jpg	"><div class="movie-title">	CHUKY EL MUÑECO DIABÓLICO 3	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20novia%20de%20chucky.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pwDuEywhtL5EinC2XV9P8EBafn1.jpg	"><div class="movie-title">	CHUKY EL MUÑECO DIABÓLICO 4	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://archive.org/download/img-20200520-wa-0024/culto%20mu%C3%B1eco.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ibYVfKlCNgdFsYUEalormxjEvqx.jpg	"><div class="movie-title">	CHUKY EL MUÑECO DIABÓLICO 5	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20maldicion%20de%20chucky.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/7Z67Sdv2jz0bIkKAV7CHK2eE8ws.jpg	"><div class="movie-title">	CHUKY EL MUÑECO DIABÓLICO 6	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/cult%20of%20chucky.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/iFyrEGxsqfGG4A8IZb22eYQUnxr.jpg	"><div class="movie-title">	CHUKY EL MUÑECO DIABÓLICO 7: El Culto De Chucky (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/childs%20play%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/v3u6WnH55OvtZKyFHVY984vGprG.jpg	"><div class="movie-title">	CHUKY EL MUÑECO DIABÓLICO REINICIO	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/come%20play%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/uuFRSepfmEMjeQQRCche5kZAkrl.jpg	"><div class="movie-title">	Come Play (2020) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/25cmel3tluin0s2/SalynPM-Cell.2016.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/n0q9QIXPIUodZJQ6gFb2YyvKoVc.jpg	"><div class="movie-title">	Conexión Mortal (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/critters.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/e9MVVLYKTncbCo26pMdTNz29917.jpg	"><div class="movie-title">	Critters (1986) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/critters%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/k4Jj8z2TdWCS9duDemwmQQrpSW1.jpg	"><div class="movie-title">	Critters 2: El Platillo Principal (1988) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/critters%203.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/gf1kYr9c9MuoIGrQ0ILdtEDOdzk.jpg	"><div class="movie-title">	Critters 3: Los Engendros (1996) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/critters%204.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/nQEMFZHU9pLuhu49piOUkqIeKlo.jpg	"><div class="movie-title">	Critters 4: Estan Invadiendo Tu Espacio (1996) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/cu2tzromilebw9q/SalynPM-C.El.Boogeyman.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/fi7yCzIPFek5tLY4coe4178SANJ.jpg	"><div class="movie-title">	Cucuy: The Boogeyman (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/cujo_20230205/cujo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/w1vCkVpPgz743fz70jVeLwsFJit.jpg	"><div class="movie-title">	Cujo (1983) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dejame%20entrar.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/qcjBD4ueysFvd4qGTNcfSodmwn6.jpg	"><div class="movie-title">	Dejame Entrar (2010) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/demonic.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/15/12/22/17/44/293803.jpg	"><div class="movie-title">	Demoniaco (2015) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20descent.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/jNpbUQYlzKgzEz6lVn7ZAjmyJz6.jpg	"><div class="movie-title">	Descenso (2005) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/ofnnl9d1jzejyte/SalynPM-D.F.2.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/6m4TTnatasZcMi6qE4Hbe9LdJgz.jpg	"><div class="movie-title">	Destino final 2 (2003) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/7bnrsbxoar9mm30/SalynPM-D.F.3.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/27EftVQZh27QfjJkorR1x9KcW78.jpg	"><div class="movie-title">	Destino final 3 (2006) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/p9hwnlx9vfiw41m/SalynPM-D.F.4.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/rvvKHROhxc6pMOfeYqWbUqUZYvS.jpg	"><div class="movie-title">	Destino final 4 (2009) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/ade8w9slc79v3zj/SalynPM-D.F.5.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/T0IGau7Alj52OLrrthzftkLMIA.jpg	"><div class="movie-title">	Destino final 5 (2011) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/doctor%20sleep%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/2gucnaxqpzEDycFmPwwqjiwvemA.jpg	"><div class="movie-title">	Doctor Sueño (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dawn%20of%20the%20dead.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/usIWLtJIPxEJuqe3OQElUEKpf11.jpg	"><div class="movie-title">	El Amanecer De Los Muertos Vivientes (2004) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20ring.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/89/90/10/20071905.jpg	"><div class="movie-title">	El Aro (2002) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20ring%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/89/75/50/20065286.jpg	"><div class="movie-title">	El Aro 2 (1999) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/rings.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/17/02/03/10/37/196315.jpg	"><div class="movie-title">	El Aro 3 (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/sadako%20vs%20kayako.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w500/ophTMVT2bI8Oh7402KSA7LfUvVk.jpg	"><div class="movie-title">	El Aro vs La Maldicion (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dreamcatcher%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/14/03/25/09/33/479377.jpg	"><div class="movie-title">	El Atrapa Sueños (2021) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dreamkatcher%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/8154iR7M9SL._SL200_.jpg	"><div class="movie-title">	El Atrapasueños (2020) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/they%20them%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://img.sfilm.hu/w300/85TJ4udfUOwFIlvQL6EMFvvbvN5.jpg	"><div class="movie-title">	El Campamento Whistler: They/Them (2022) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/5atgpxgyor2z5ny/SalynPM-SPM3t1f.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/gMGDqPParsbPRtSbVZ2pNLmdXz1.jpg	"><div class="movie-title">	El ciempiés humano 2 (2011) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20conjuring.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/10ir0eISr3p1MF1mjZwGTx7u4vv.jpg	"><div class="movie-title">	El Conjuro (2013) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20conjuro%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/x4jUJ0fF60SSOeUUTkaRtmnDvwG.jpg	"><div class="movie-title">	El Conjuro 2 (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20conjuring%20the%20devil%20made%20me%20do%20it%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/79QjdRiT9zTLkrOq9FltoIxClma.jpg	"><div class="movie-title">	El Conjuro 3 (2021) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jeepers%20creepers.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/x2fWYlY2Ad2FL2Ad9p1HTgJEi8x.jpg	"><div class="movie-title">	El Demonio (2001) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jeepers%20creepers%20reborn%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/9/w300/pyFyhcXx4kNnLbzEY5z5fc3RehQ.jpg	"><div class="movie-title">	El Demonio 4: La reencarnación (2022) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/day%20of%20the%20dead%20bloodline.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pl3gEKM12J93WrUoAXkZNHzTiRR.jpg	"><div class="movie-title">	El Despertar De Los Muertos Vivientes (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20despertar%20del%20diablo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/69/48/15/20054805.jpg	"><div class="movie-title">	El Despertar Del Diablo (1981) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20despertar%20del%20diablo%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/69/48/15/20054805.jpg	"><div class="movie-title">	El Despertar Del Diablo 2 (1987) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20ejercito%20de%20las%20tinieblas.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/69/48/15/20054805.jpg	"><div class="movie-title">	El Despertar Del Diablo 3: El Ejercito De Los Muertos (1992) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/evil%20dead.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/69/48/15/20054805.jpg	"><div class="movie-title">	El Despertar Del Diablo 4: Posesion Infernal (2013) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.tv/peliculas/720/el%20exorcista.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/rQU3sOBms4WA7iFAqBCtbMXgaB8.jpg	"><div class="movie-title">	El Exorcista (1973) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.tv/peliculas/720/exorcist%20II%20the%20heretic.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/4CRJen2ZgHylKf8uOdbyCNlmfsb.jpg	"><div class="movie-title">	El Exorcista 2: El Hereje (1977) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the exorcist III.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/4JNaaRHzvfopeig4BqSlfufFrVK.jpg	"><div class="movie-title">	El Exorsista III (1990) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/exorcist the beginning.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/1fGRRwkBJ1sILeIwmfmuMNChsCn.jpg	"><div class="movie-title">	El Exorsista: El Comiezo (2004) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.tv/peliculas/720/dominion%20prequel%20to%20the%20exorcist.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/oIH6Q5TmtIJAyjxC7rIODj3o22d.jpg	"><div class="movie-title">	Dominion: Precuela Del Exorcista (2005) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20lighthouse%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/uatQKdDuwUFW1zTAISZcnDOqjjE.jpg	"><div class="movie-title">	El Faro (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/return%20of%20the%20tooth%20fairy%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/51l0fvOXLqL.jpg	"><div class="movie-title">	El Hada De Los Dientes Ha Regresado (2020) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20100%20candles%20game%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.cartelera.com.uy/imagenes_espectaculos/moviedetail13/29395.jpg	"><div class="movie-title">	El Juego De Las 100 Velas (2020) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20bunker%20game%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/81pvVs3pt4L._RI_.jpg	"><div class="movie-title">	El Juego Del Bunker (2022) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/3hgulftc05n8kik/SalynPM-E.L.D.D.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/fCVCaO5pCXChfXbTcqEqeyj2z9N.jpg	"><div class="movie-title">	El legado del diablo (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20number%2023.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/h0T3FmHI7PFhUseoySCBPFjxP0O.jpg	"><div class="movie-title">	El Numero 23: La Revelacion (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/ed2wtovw834sulu/SalynPM-SPM5r5a.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/uwlWjzkC9XXP494j4wMqujCigFM.jpg	"><div class="movie-title">	El Rito (2011) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/aqhzuhljyzocnbr/SalynPM-The.silence.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/1OXmZnUtBqAO4wVHOmH0cK2e83c.jpg	"><div class="movie-title">	El silencio  (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://103.145.12.67/peliculas/720/the%20cellar%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/81aU8HtLvEL._RI_.jpg	"><div class="movie-title">	El sotano: Escalera al infierno (2022) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dead%20silence.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1997/9/w300/ky3OepQzmrbwBU8ikWVU134cwEK.jpg	"><div class="movie-title">	𝐄𝐥 𝐓𝐢𝐭𝐞𝐫𝐞 (𝟐𝟎𝟎𝟕) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/6jui9n5413xiida/SalynPM-SPM7e6n.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/bIID8uZTYNnSMfWwaIluRTzaZQL.jpg	"><div class="movie-title">	Eli (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/ujwxxq1lwo9qclp/SalynPM-Unfriended.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/e0a7YYs8V71EjdYxbG87vQRgKDX.jpg	"><div class="movie-title">	Eliminar amigo (2014) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/eue3cifs8dcx2v8/SalynPM-Unfriended.dark.web.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/dQM2LDOmolIGt7WzcHl6ZSUAdci.jpg	"><div class="movie-title">	Eliminar amigo 2 (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/1v7gr8m7theixkl/SalynPM-SPM2d9i.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kOs3Ki8hhRQq3seuZ3c7M8qXHtq.jpg	"><div class="movie-title">	En la hierba alta (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/5ojipt68na5d6s9/SalynPM-Escape.room.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/q9caNLfcdLX0Q6HctTCEHGnWW5P.jpg	"><div class="movie-title">	Escape Room: Sin salida (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/it%20follows.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/x4qXZ2d9ZxAoqRF7AclBP9Nm6Z5.jpg	"><div class="movie-title">	Esta Detras De Ti (2014) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-chica-del-dragon-tatuado-2/Ginger%20snaps.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/iKDXZDh41nEMpefDWAaFYYlr1aB.jpg	"><div class="movie-title">	Feroz (2000) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://vd254.mycdn.me/expires/1675101321734/srcIp/187.190.95.59/srcAg/CHROME_ANDROID/ms/185.226.52.4/type/3/sig/HwwL6M8b7YA/ct/8/urls/45.136.22.4/clientType/0/zs/65/id/892560476788/video/?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/nTtyzQ1qFDJXLWvXX4wvOu0nYun.jpg	"><div class="movie-title">	Feroz 2: Los Malditos (2003) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://vd296.mycdn.me/expires/1675101740234/srcIp/187.190.95.59/srcAg/CHROME_ANDROID/ms/185.226.53.5/type/3/sig/IsfzDTTjj_E/ct/8/urls/45.136.20.66/clientType/0/zs/65/id/892428552820/video/?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kFkfeTlFKJwuWgDsOguCz2MGbWI.jpg	"><div class="movie-title">	Feroz 3: El Origen (2004) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/0ao7f678kuk7wr4/SalynPM-5pl17.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/aL9lq4xwMwlWkUQhnOdTTGw8yHH.jpg	"><div class="movie-title">	Fragmentado (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/gremlins.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/l0agzTOJjiTXb3DaQW4MGz6rKed.jpg	"><div class="movie-title">	Gremlins (1984) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/gremlins%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/tiDdc3ZIIcBBTFarGCpjKiCbemw.jpg	"><div class="movie-title">	Gremlins 2: La Nueva Generacion (1990) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/mq6hgbwz3gec0v4/SalynPM-H.F.18.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/iJkvu8hinbqH9OeQYSppqY3BuFn.jpg	"><div class="movie-title">	Hell Fest: Juegos diabólicos (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/28obrwrxze5e77x/SalynPM-SPM3j7v.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/p0GL9nAza9fuUVSj7m3qTMOD0DG.jpg	"><div class="movie-title">	Heridas (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/mptvqimdijghie9/SalynPM-SPM4a8o.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/lfmxj0BZuTlwahHB3AEMqvjygef.jpg	"><div class="movie-title">	Historias De Miedo Parra Contar En La Oscuridad  (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tales%20from%20the%20hood.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/9ugHDdjd3u97rldvI2iSExJiqoT.jpg	"><div class="movie-title">	Historias Del Barrio Negro (1995) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tales%20from%20the%20hood%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/d1er1Y8jh1wbhHvSTuFx1zSCSj0.jpg	"><div class="movie-title">	Historias Del Barrio Negro 2 (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tales%20from%20the%20hood%203%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ixlGLeLtkmoKvJUY0nq9sk3zauR.jpg	"><div class="movie-title">	Historias Del Barrio Negro 3 (2020) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/get%20out.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/xiMoqa0bmjuyuXYqKGwrTSJL8nI.jpg	"><div class="movie-title">	¡Huye!(2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/34ftkx76j8sd5mk/A.Haunted.House.2.2014.bluray-latino-e-ingles-subt.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/ykyXkeoUb4RDUge7ZfiiIuVJ1bG.jpg	"><div class="movie-title">	In-Actividad Paranormal (2014) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/icz7sika1qgx67h/SalynPM-L.I.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/dknDazqJW8kphSm5ZyEnes3qymV.jpg	"><div class="movie-title">	Inquilinos (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/eso.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/uuTYA9LIlIRCFMgFlxWb1KznfEx.jpg	"><div class="movie-title">	It: Eso (1990) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/it%202017.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/sSrj4lnhrb113DOPEPTaO2jaDk3.jpg	"><div class="movie-title">	It: Eso (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/it%20chapter%20two%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/9oERKIVyTWpHNum3STVsAGD4ojz.jpg	"><div class="movie-title">	It: Capitulo 2 (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jigsaw.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/k9h1Don5JWNhLMAjspwbiMMoDzS.jpg	"><div class="movie-title">	JigSaw (2004) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/JS8SRREGIO_201801/JS8SRREGIO.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/90T0Cjx2yl6RaFhxas1eKnCphh5.jpg	"><div class="movie-title">	JigSaw VIII (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/play%20or%20die%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/lBT6UQX3qpNz9VAqk40CU5fOzJ1.jpg	"><div class="movie-title">	Juega O Muere (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20aldea.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/rKwR3eZ2Pa7wQk0tuDfekzMWaLq.jpg	"><div class="movie-title">	La Aldea (2004) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20apparition.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/8/w300/a6cjKN1zp4DhpFPxXcMhEsPfjc4.jpg	"><div class="movie-title">	𝐋𝐚 𝐀𝐩𝐚𝐫𝐢𝐜𝐢𝐨́𝐧 (𝟐𝟎𝟏𝟐) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20cabin%20in%20the%20woods.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/4/w300/40Sjxp3rXLC3UV2Wbgxxu4HwMJK.jpg	"><div class="movie-title">	𝐋𝐚 𝐂𝐚𝐛𝐚𝐧̃𝐚 𝐃𝐞𝐥 𝐓𝐞𝐫𝐫𝐨𝐫 (𝟐𝟎𝟏𝟐) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20cueva.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/lVEnRvjpWMPplRN5EX28cyNnVZk.jpg	"><div class="movie-title">	La Caverna Del Terror (2005) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/orphan%202009.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2009/7/w300/3NSeL6kdni2lIxkLGmNcGWuixar.jpg	"><div class="movie-title">	𝐋𝐚 𝐇𝐮𝐞́𝐫𝐟𝐚𝐧𝐚 (𝟐𝟎𝟎𝟗) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://103.145.12.67/peliculas/720/orphan%20first%20kill%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/22/07/26/14/43/0768221.jpg	"><div class="movie-title">	𝐋𝐚 𝐇𝐮𝐞𝐫𝐟𝐚𝐧𝐚 𝟐: 𝐏𝐫𝐢𝐦𝐞𝐫 𝐀𝐬𝐞𝐬𝐢𝐧𝐚𝐭𝐨 (𝟐𝟎𝟐𝟐) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20grudge.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/3ZS6lDncKH9VTTKAUNYCXD8l38m.jpg	"><div class="movie-title">	La Maldicion (2004) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20grudge%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ia9umMA8t0koYaywI6PVyHKc8Bh.jpg	"><div class="movie-title">	La Maldicion 2 (2006) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20grudge%203.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/xMFs9uSkoo6Oa7U7fBFAxVWjXM9.jpg	"><div class="movie-title">	La Maldicion 3 (2009) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20grudge%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/62gIJdks9agqdYavMHJx3FlRXp9.jpg	"><div class="movie-title">	La Maldicion 4: Renace (2020) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/hywnw4dpw1wq2xy/SalynPM-L.M.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/q2JFJ8x0IWligHyuLJbBjqNsySf.jpg	"><div class="movie-title">	La Monja (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/l25bcid6j7hlkeu/SalynPM-Worry.dolls.2016.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/15yKbkecBAKW5KYupRY5lUgnI1q.jpg	"><div class="movie-title">	La muñeca vudú (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20mist%202007.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/l0gf42tTo2TnSunGHQI6fSbYW7I.jpg	"><div class="movie-title">	La Niebla (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/4xgf0z3ie9pzkt9/SalynPM-H4LL0W3N.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/v95lURdIFz4A6nqD7pcwv4IWj8H.jpg	"><div class="movie-title">	La noche de Halloween (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/57a388o5glw62gt/SalynPM-SPM5z4a.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/gkK5kB1pYIwDPInmAnmDrLydOnj.jpg	"><div class="movie-title">	La noche de la expiación (2013) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/fright%20night.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1985/8/w300/ftzPwgnINKlU6Vrqm0X5KXaFpfZ.jpg	"><div class="movie-title">	𝐋𝐚 𝐇𝐨𝐫𝐚 𝐃𝐞𝐥 𝐄𝐬𝐩𝐚𝐧𝐭𝐨: 𝐍𝐨𝐜𝐡𝐞 𝐃𝐞 𝐌𝐢𝐞𝐝𝐨 (𝟐𝟎𝟏𝟏) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20noche%20devoro%20al%20mundo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/qRyv9dTfxIC69APlLGkr4cJ1z56.jpg	"><div class="movie-title">	La Noche Devoro Al Mundo (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/x9h2el46rhbf3rr/DeboRaLogan.MP4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/77i7EBUyQKOUiZeYQ5tWDGQb0AI.jpg	"><div class="movie-title">	La posesion de deborah logan (2004) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20purge%20election%20year.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2013/5/w300/gkK5kB1pYIwDPInmAnmDrLydOnj.jpg	"><div class="movie-title">	La purga: Año de eleccion (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20forever%20purge%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/r2t07ky5WFRiI0bXLRIQCjalNkj.jpg	"><div class="movie-title">	La Purga Por Siempre (2021) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/incarnate.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/91AD8sjMGUL._RI_.jpg	"><div class="movie-title">	La reencarnacion (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/devil.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2010/9/w300/utiMhBWoBGf8iQ0l0yDHDlpTA60.jpg	"><div class="movie-title">	𝐋𝐚 𝐑𝐞𝐮𝐧𝐢𝐨́𝐧 𝐃𝐞𝐥 𝐃𝐢𝐚𝐛𝐥𝐨 (𝟐𝟎𝟏𝟎) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/deliver%20us%20from%20evil.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/uvhfvwbM39csF1RXdVUfgSuINRK.jpg	"><div class="movie-title">	Libranos Del Mal (2014) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20hallow.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/11/w300/g7AFVBSrdkh3IovdedH5rCSG8Hi.jpg	"><div class="movie-title">	𝐋𝐨𝐬 𝐇𝐢𝐣𝐨𝐬 𝐃𝐞𝐥 𝐃𝐢𝐚𝐛𝐥𝐨 (𝟐𝟎𝟏𝟓) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20others.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2001/8/w300/w6L1ciqLE0V9Q4l2N24lchXIYR.jpg	"><div class="movie-title">	𝐋𝐨𝐬 𝐎𝐭𝐫𝐨𝐬 (𝟐𝟎𝟎𝟏) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/ap60v4suvwiqa4j/SalynPM-SPM1s9a.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/gUPZu9stlOUHqT9FCRYwiKkFtMo.jpg	"><div class="movie-title">	Ma (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/k5rpsepvtj291fn/SalynPM-Mother.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/bKqXhnc9gCF3Zp24kySVV3jzavc.jpg	"><div class="movie-title">	¡Madre!  (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/malicious%202018.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/qD0mJvBCBkDekYQ5Hf15Tq4sFRD.jpg	"><div class="movie-title">	Malicious: En el vientre del diablo (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/lweqwsni44xdtoe/SalynPM-M.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/pVyE79nFdo2lFtKA5J7ziFAeKhP.jpg	"><div class="movie-title">	Mandy (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/misery.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1990/11/w300/gAELWNF6ViSF5OG1fibPvUbtnZn.jpg	"><div class="movie-title">	Miseria (1990) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/3at0fxmmglr9li9/SalynPM-N.D.D.M.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/vOQ66sBtm7F2jN0aLnrLAODyFzO.jpg	"><div class="movie-title">	No dejes de mirar (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/no%20respires.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/3A5sAyP9iENTRL5X86FUeYmo0wZ.jpg	"><div class="movie-title">	 No respires (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/dont%20breathe%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/o0kJOePRfC59exAb7e3wrCTSMbK.jpg	"><div class="movie-title">	 No respires 2 (2021) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/disturbia.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/mOplBj1GJ9Iew1Dazu7cz53WXPd.jpg	"><div class="movie-title">	Paranoia (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://onedrive.live.com/download.aspx?cid=62FE6667D61E2E06&resid=62FE6667D61E2E06!3118&authkey=ANohO-EiyJ9nOcM?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/4N55tgxDW0RRATyrZHbx0q9HUKv.jpg	"><div class="movie-title">	Parasitos (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/rassvet 2019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/gWvRsfRh51vvpii5fh9a6rhS7Ib.jpg	"><div class="movie-title">	Pesadilla Al Amanecer (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/7vpro8lqhhqbik0/SalynPM-G.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/ma9gY6OikBev8MsMaeA6h2EIdGo.jpg	"><div class="movie-title">	Pesadilla en el infierno (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/poltergeist%201982.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1982/6/w300/b6JcwPnultjlXSVDGJhtPSAZSEY.jpg	"><div class="movie-title">	𝐏𝐨𝐥𝐭𝐞𝐫𝐠𝐞𝐢𝐬𝐭: 𝐉𝐮𝐞𝐠𝐨𝐬 𝐃𝐢𝐚𝐛𝐨𝐥𝐢𝐜𝐨𝐬 (𝟏𝟗𝟖𝟐) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/poltergeist%20II%20the%20other%20side.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/azI57WBkGe00bAEn7xjw9BtOcaH.jpg	"><div class="movie-title">	𝐏𝐨𝐥𝐭𝐞𝐫𝐠𝐞𝐢𝐬𝐭: 𝐉𝐮𝐞𝐠𝐨𝐬 𝐃𝐢𝐚𝐛𝐨𝐥𝐢𝐜𝐨𝐬 𝐈𝐈 (𝟏𝟗𝟖𝟔) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/poltergeist%20III.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/wqsfcBZW99fJe4JKy3Vga5t1Rlx.jpg	"><div class="movie-title">	𝐏𝐨𝐥𝐭𝐞𝐫𝐠𝐞𝐢𝐬𝐭: 𝐉𝐮𝐞𝐠𝐨𝐬 𝐃𝐢𝐚𝐛𝐨𝐥𝐢𝐜𝐨𝐬 𝐈𝐈𝐈 (𝟏𝟗𝟖𝟖) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/poltergeist.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/5/w300/A1ymtbzatZp94Z49ZOBb8JGXOBB.jpg	"><div class="movie-title">	𝐏𝐨𝐥𝐭𝐞𝐫𝐠𝐞𝐢𝐬𝐭: 𝐉𝐮𝐞𝐠𝐨𝐬 𝐃𝐢𝐚𝐛𝐨𝐥𝐢𝐜𝐨𝐬 (𝐑𝐞𝐦𝐚𝐤𝐞 𝟐𝟎𝟏𝟓) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/premonition.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/kqMjcHouoJ1ap5D9EAjexZOavzy.jpg	"><div class="movie-title">	Premoniciones (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20uninvited.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2009/1/w300/6ufNBNtTFvGstZrL0mC34mRnnpe.jpg	"><div class="movie-title">	𝐏𝐫𝐞𝐬𝐞𝐧𝐜𝐢𝐚𝐬 𝐄𝐱𝐭𝐫𝐚𝐧̃𝐚𝐬 - 𝐋𝐚 𝐌𝐚𝐥𝐝𝐢𝐜𝐢𝐨́𝐧 𝐃𝐞 𝐋𝐚𝐬 𝐇𝐞𝐫𝐦𝐚𝐧𝐚𝐬 (𝟐𝟎𝟎𝟗) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/l5ib7m63g1w1ypo/Scrm96-18pl4T.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/aF6thtdNObk3VLtfEDd820tdVDb.jpg	"><div class="movie-title">	Scream 1 (1986) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/qcfxj73odjtrxcf/Scream%202%201997.MP4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/isdgZMoH1QMpfvzMOGaeu01RRYN.jpg	"><div class="movie-title">	Scream 2 (1997) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/4xd6bsrwflgac3e/5C934M4.1080p.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/sr7WNBgjX1UH9yw4Qq4o6GLAyVf.jpg	"><div class="movie-title">	Scream 4 (2001) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/siniestro.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/3/w300/rLcHfQ4fnwaFcElMMCWNfJtIecf.jpg	"><div class="movie-title">	𝐒𝐢𝐧𝐢𝐞𝐬𝐭𝐫𝐨 (𝟐𝟎𝟏𝟐) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/siniestro%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/8/w300/fy77hEGu1Sek6oyek2odciegKd1.jpg	"><div class="movie-title">	𝐒𝐢𝐧𝐢𝐞𝐬𝐭𝐫𝐨 𝟐 (𝟐𝟎𝟏𝟓) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/i%20see%20you%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/gs91aIwM7dB152Wbg84LVrpFM2T.jpg	"><div class="movie-title">	Te Veo (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tremors.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/gGg2haDaZF3vklYQXPPQ6ccCNj0.jpg	"><div class="movie-title">	Terror Bajo La Tierra (1990) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20amityville%20horror.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2005/4/w300/Io6R7kDqO8nkj7VE0DSbbVNWuK.jpg	"><div class="movie-title">	Terror En Amityville: La Morada Del Miedo (2005) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/silent%20hill.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2006/8/w300/jXlETG0ZInqCrnh6GjqTUI2WQrp.jpg	"><div class="movie-title">	Terror En Silent Hill (2006) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/silent%20hill%20revelation.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/xBC7bHZ5UglTw4LMd2lTSgXvQXl.jpg	"><div class="movie-title">	Terror Silent Hill 2: Revelacion (2012) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/jl9fl2p8iqa6dze/The.domestics.2018.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/wHSaDFjN0kbch7hmJ17yL5lyqUD.jpg	"><div class="movie-title">	The Domestics (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20prodigy%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/oCVDRqnh6xtaexTKQ8OkXD89rkL.jpg	"><div class="movie-title">	The Prodigy: Maligno (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tiburon%201975.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/aCqHb3eFQV8raX30OfGurqPlpjh.jpg	"><div class="movie-title">	Tiburon (1975) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/7wuj8sgifapq3ex/SalynPM-T.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/jwsmeU8mYEP6GpxJ2sbCzc2MQmi.jpg	"><div class="movie-title">	Traffik (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/tr4gSRREG10/tr4gSRREG10.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/3UgRc3vpOiW9HOAD7oBa16xQ21E.jpg	"><div class="movie-title">	Tragedy Girls (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20quiet%20place.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/bBcQiubPGb7LgcRgT2kwC8YOWVo.jpg	"><div class="movie-title">	Un Lugar Tranquilo (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20quiet%20place%20part%20II%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/6uRb5axnwAd17h4ak4ENHcJqHVr.jpg	"><div class="movie-title">	Un Lugar Tranquilo Parte II (2021) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/z5g9xhsc1g90gna/SalynPM-V.B.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/3rViQPcrWthMNecp5XnkKev6BzW.jpg	"><div class="movie-title">	Velvet Buzzsaw (2019) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/xf5v4psji8jd80t/SalynPM-Revenge.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/iMyeUUmgxetaf4NnLd54unrZa6N.jpg	"><div class="movie-title">	Venganza del más allá (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/go182wadn2kcuy3/SalynPM-Summer.of.84.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/htA4DEnBQf7Wg4M1jsUr7kHALrV.jpg	"><div class="movie-title">	Verano del 84 (1995) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/dyea628y6qn0bmt/SalynPM-V.O.R.18.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/eEcy8YQyxnZowlVSoiAfp72mxQF.jpg	"><div class="movie-title">	Verdad o Reto (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://onedrive.live.com/download.aspx?cid=61BF9704CA96F884&resid=61BF9704CA96F884!1358&authkey=ANdX5tup-vBNhXM&ithint=video,mp4?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/eEcy8YQyxnZowlVSoiAfp72mxQF.jpg	"><div class="movie-title">	Verdad O Reto (2018) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/viral%202016.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/4XLUXRn0Du0xGPUitSuTTT9a8lF.jpg	"><div class="movie-title">	Viral (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/visions.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/8/w300/iZoaV2jaicOXn2ojuS5UJJfygP8.jpg	"><div class="movie-title">	𝐘𝐨 𝐯𝐢́ 𝐚𝐥 𝐝𝐢𝐚𝐛𝐥𝐨 (𝟐𝟎𝟏𝟓) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20despertar%20del%20diablo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2006/6/w300/rDdae8EOH6o2mE2H7K35qw6Te61.jpg	"><div class="movie-title">	𝐄𝐥 𝐃𝐞𝐬𝐩𝐞𝐫𝐭𝐚𝐫 𝐃𝐞𝐥 𝐃𝐢𝐚𝐛𝐥𝐨 (𝟐𝟎𝟎𝟔) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20despertar%20del%20diablo%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2007/3/w300/hDZmMfAVF5D3pyabJvX1mNtJfhX.jpg	"><div class="movie-title">	𝐄𝐥 𝐃𝐞𝐬𝐩𝐞𝐫𝐭𝐚𝐫 𝐃𝐞𝐥 𝐃𝐢𝐚𝐛𝐥𝐨 𝟐 (𝟐𝟎𝟎𝟕) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/joy%20ride.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2001/10/w300/hIgmIUnexSHnKLSx7uKflRmfdwE.jpg	"><div class="movie-title">	𝐅𝐫𝐞𝐜𝐮𝐞𝐧𝐜𝐢𝐚 𝐌𝐨𝐫𝐭𝐚𝐥 (𝟐𝟎𝟎𝟏) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/freddy%20vs%20jason.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/uBXEcdi5gV0VjMxZ8EUwQnvQHbs.jpg	"><div class="movie-title">	Freddy VS Jason (2003) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/house%20of%20wax.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2005/4/w300/2LQS9JNfbRlsalAe2BlTDXquSyH.jpg	"><div class="movie-title">	𝐋𝐚 𝐂𝐚𝐬𝐚 𝐃𝐞 𝐂𝐞𝐫𝐚 (𝟐𝟎𝟎𝟓) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20nightmare%20on%20elm%20street.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/7T7Ns03QKU455tOOrkFQpGjeF9t.jpg	"><div class="movie-title">	Pesadilla En La Calle Del Infierno (1984) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20nightmare%20on%20elm%20street%202%20freddys%20revenge.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/nT041ZZKpuEJ1LiJSjrAFsPxpj1.jpg	"><div class="movie-title">	Pesadilla En La Calle Del Infierno 2: La Venganza De Freddy (1985) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20nightmare%20on%20elm%20street%203%20dream%20warriors.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/T4Rxt8IHkXViERXO8ysdWzIHoc.jpg	"><div class="movie-title">	Pesadilla En La Calle Del Infierno 3: Los Guerreros De Los Sueños (1987) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20nightmare%20on%20elm%20street%204%20the%20dream%20master.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/bmAcwWWhacEbU6Grp20CQbjfKOP.jpg	"><div class="movie-title">	Pesadilla En La Calle Del Infierno 4: El Amo De Los Sueños (1988) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20nightmare%20on%20elm%20street%205%20the%20dream%20child.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/745GbVAVGLh7wadvJD8Oq1DHgZB.jpg	"><div class="movie-title">	Pesadilla En La Calle Del Infierno 5: Ha Nacido El Hijo De Freddy (1989) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20nightmare%20on%20elm%20street%206.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/dq8Q4SwqIvu2lBPxzMxRu5E6IA1.jpg	"><div class="movie-title">	Pesadilla En La Calle Del Infierno 6: La Muerte De Freddy - La Pesadilla Final (1991) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/wes%20cravens%20new%20nightmare.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/sVsfuNjBWUxKyL6u4eZdgJz7dPA.jpg	"><div class="movie-title">	Pesadilla En La Calle Del Infierno 7: La Ultima Pesadilla (1994) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20nightmare%20on%20elm%20street%202010.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/zTFmVeGRNEaNyry0CC0V5lbNauo.jpg	"><div class="movie-title">	Pesadilla En La Calle Del Infierno 8 - Pesadilla En La Calle Elm (2010) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/psycho.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1960/6/w300/bpBJXvgGDG52XJJrVSl4zxfIsU9.jpg	"><div class="movie-title">	Psicosis (1960) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/psycho%20II.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://r3.abcimg.es/resizer/resizer.php?imagen=	"><div class="movie-title">	Psicosis 2: El regreso de Norman (1983) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/i%20know%20what%20you%20did%20last%20summer.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1997/10/w300/nO0WqEgH0IKHlXsl9WCJiFJyohi.jpg	"><div class="movie-title">	Sé lo que hicieron el verano pasado (1997) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/i%20still%20know%20what%20you%20did%20last%20summer.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/i76jwlMItxiv0gtfEuJXs8zvjR1.jpg	"><div class="movie-title">	Sé lo que hicieron el verano pasado 2 (1998) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/friday%20the%2013th%201980.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1980/5/w300/wLdUNsyeSd9OvKmM0CeXF6n13IL.jpg	"><div class="movie-title">	Viernes 13: Parte I (1980) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/friday%20the%2013th%20part%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/n2D3JuHNBTZENynVlj0vuBILykG.jpg	"><div class="movie-title">	Viernes 13: Parte II (1981) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/friday%20the%2013th%20part%20III.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1982/8/w300/isCTWFTrfnSvkmG0LR8lq6gh3n5.jpg	"><div class="movie-title">	Viernes 13: Parte III (1982) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/friday%20the%2013th%20the%20final%20chapter.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1984/4/w300/tYSBsTqBR1FGBnahTf3ACyRM3gn.jpg	"><div class="movie-title">	Viernes 13: Parte IV - El Ultimo Capitulo (1984) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/friday%20the%2013th%20part%20V.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1985/3/w300/5i3dGT3pD3tRsqRiIsMY29YAg1A.jpg	"><div class="movie-title">	Viernes 13: Parte 5 - Todo Comienza De Nuevo (1985) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/friday%20the%2013th%20part%20VI.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1986/8/w300/l9RFv2Ulev2lpnQVDHEcTVFon7v.jpg	"><div class="movie-title">	Viernes 13: Parte VI - Jason Vive (1986) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/friday%20the%2013th%20part%20VII.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/4K4noCHKnAsxwFddhkYHbh4EBgz.jpg	"><div class="movie-title">	Viernes 13 Parte VII - Sangre Nueva (1988) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/friday%20the%2013th%20part%20VIII.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/sVvP2woMRNNXe70fqTCo78co96V.jpg	"><div class="movie-title">	Viernes 13 Parte VIII - Jason Toma Manhattan	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/friday%20the%2013th%20part%20IX.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/twCZFfkVeLLNOABWoE1lSvKvRQ4.jpg	"><div class="movie-title">	Viernes 13 Parte IX - El Final - Jason Se Va Al Infierno (1993) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/friday%20the%2013th%20part%20X.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/eTrClCmNlvaizoGZp59FjnFelP1.jpg	"><div class="movie-title">	Viernes 13 Parte X - Jason X (2001) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/viernes%2013.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/wYQA4UwVLaI4Sf0d5IXEhGO2Ueh.jpg	"><div class="movie-title">	Viernes 13 - Reboot (2009) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20midnight%20meat%20train.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w300/wuc51Xgh0a5LVEpXlR6kPcfdVRn.jpg	"><div class="movie-title">	Masacre en el tren de la muerte(2008) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/31.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/16/09/27/14/15/310705.jpg	"><div class="movie-title">	31 (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/i%20spit%20on%20your%20grave.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/97/19/12/20514203.jpg	"><div class="movie-title">	Dulce Venganza: Escupire Sobre Sus Tumbas (2010) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/i%20spit%20on%20your%20grave%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img2.acsta.net/pictures/210/216/21021603_20130925130827511.jpg	"><div class="movie-title">	Dulce Venganza 2: Escupire Sobre Sus Tumbas (2013) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/i%20spit%20on%20your%20grave%203.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/51bwfLwbW-L._SY445_.jpg	"><div class="movie-title">	Dulce Venganza 3: Escupire Sobre Sus Tumbas (2015) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/5atgpxgyor2z5ny/SalynPM-SPM3t1f.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/gMGDqPParsbPRtSbVZ2pNLmdXz1.jpg	"><div class="movie-title">	El Ciempiés Humano 2 (2011) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hostal.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/xbrPRC7doDPEoC3z35q6MXqLEBM.jpg	"><div class="movie-title">	Hostal (2005) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hostal%20parte%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/fvFYsHFyK4KB8MxezR8xUhUyFHL.jpg	"><div class="movie-title">	Hostal Parte 2 (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hostal%20parte%203.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/nxe2oVACLP7xlZXSXPqLaG6XZti.jpg	"><div class="movie-title">	Hostal Parte 3 (2011) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20midnight%20meat%20train.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/l406iW4gL48UtRD3LyH7i9xz8cD.jpg	"><div class="movie-title">	Masacre En El Tren De La Muerte (2008) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/saw%20I.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/k9h1Don5JWNhLMAjspwbiMMoDzS.jpg	"><div class="movie-title">	SAW El Juego Del Miedo (2004) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/saw%20II.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/gw7nQp0rXmEF81SvumCXWx7U5nb.jpg	"><div class="movie-title">	SAW II: El Juego Del Miedo  (2005) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/saw%20III.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/4iO9n24Rb10peXV0JH2EldIOrAp.jpg	"><div class="movie-title">	SAW III: El Juego Del Miedo  (2006) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/saw%20IV.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pscAI6z7kYbQQvPLj7rGqoPmjXb.jpg	"><div class="movie-title">	SAW IV: El Juego Del Miedo  (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/saw%20IV.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/dpiS8OcDaTkBdQZkkrdQPPXdJgK.jpg	"><div class="movie-title">	SAW V: El Juego Del Miedo  (2008) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/saw%20VI.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/8LK5KRYgGNgTid20hQHllJANA3M.jpg	"><div class="movie-title">	SAW VI: El Juego Del Miedo  (2009) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/saw%20VII.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/2Juvn0GN3NhrUjkfkVGUJTIRRuR.jpg	"><div class="movie-title">	SAW VII: El Juego Continua (2010) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jigsaw.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kYCdqkId4WF1cizkVlXdPJY5GDV.jpg	"><div class="movie-title">	SAW VIII - JiwSaw El Juego Del Miedo Continua  (2017) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/spiral%20from%20the%20book%20of%20saw%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/qIlRt4op22B69QUbLlfif2lFHVs.jpg	"><div class="movie-title">	SAW IX - Spiral (2021) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/turbo%20kid.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/8/w300/ArUqADkwycYtNVuXSoSXVrdJ8iJ.jpg	"><div class="movie-title">	𝐓𝐮𝐫𝐛𝐨 𝐊𝐢𝐝 (𝟐𝟎𝟏𝟓) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20belko%20experiment.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/qhW6eALsVZy85mCDJRjBGoiuqq3.jpg	"><div class="movie-title">	The Belko Experiment (2016) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/grave%202016.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pRN5M5hhf3feIZoSGoC9fuCLOrl.jpg	"><div class="movie-title">	Voraz (2016) 	<br>	Terror	</div></a>
+
+
+
+
+
+
+
+
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
