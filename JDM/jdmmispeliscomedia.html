@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 0px;
+      background: black;
+      outline: none;
+      border:none;
+      text-decoration: none;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      margin-left:1px;
+    }
+    
+    #movie-list{
+        overflow-y: scroll;
+        position: relative;
+        width: 48%;
+        height: 600px;
+    }
+
+    ::-webkit-scrollbar {
+        background:transparent;
+    }
+
+    img {
+        margin-bottom: 0rem;
+        position: relative;
+        width: 130px;
+        border-radius: 14px;
+    }
+
+    #player {
+        width: 50%;
+    }
+
+    #video-player{
+        margin-top: 2.2rem;
+        width: 100%;
+        height: 55%;
+    }
+    .movie-item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
+    @media screen and (max-width: 480px){
+        #container{
+            height: auto;
+        }
+        
+        #movie-list {
+            position: absolute;
+            width: auto;
+            height: 450px;
+            top: 12.5rem;
+            left: 14px;
+        }
+        
+        img {
+            margin-bottom: 0rem;
+            position: relative;
+            width: 125px;
+            border-radius: 14px;
+        }
+
+        #barra_lateral{
+            display:none;
+        }
+
+        #player {
+            position: absolute;
+            width: 90%;
+            align-items: center;
+            left: 2px;
+            top: 3.2rem;
+            display: flex;
+        }
+
+        #video-player{
+            margin-top: 5px;
+            width: 100%;
+            height: 90%;
+        }
+  .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+#search-bar {
+    height:20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-right: 2rem;
+}
+#search-button{
+    padding: 0px 0px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
+    }
+
+
+
+
+
+
+    #search-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 2rem;
+    }
+
+    #search-input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: solid;
+    color: #b7ee00;
+    font-size: 14px;
+}
+
+    #search-button {
+      padding: 0px 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      color:black;
+      cursor: pointer;
+    }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">INICIO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisotros.html">OTROS</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisaccion.html">ACCION</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisaventuras.html">AVENTURA</a>
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispeliscomedia.html">COMEDIA</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisdrama.html">DRAMA</a>
+
+
+</div>
+</nav>
+
+
+
+
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+
+  <div id="container">
+<div id="movie-list">
+
+
+
+<!-- para poner mas peliculas #############################
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
+
+ ############################ -->
+
+
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/whered%20you%20go%20bernadette%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/c_310_420/pictures/19/06/11/14/26/0459878.jpg	"><div class="movie-title">	¿Donde estas Bernadette? (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/17%20again%202009.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/69/42/96/20290524.jpg	"><div class="movie-title">	17 otra vez (2009) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/get%20hard.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/14/11/24/12/19/213308.jpg	"><div class="movie-title">	30 dias para ir a la carcel (2015) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/50%20first%20dates.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/001_copy_500x247.jpeg	"><div class="movie-title">	50 Primeras Citas (2004) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/big%20stan.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/dNHVHyg0oa5BtrqUEzx1BQMAMfr.jpg	"><div class="movie-title">	A Prueba De Hombres (2007) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/abracadabra.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/05/30/13/13/279729.jpg	"><div class="movie-title">	Abracadabra (2017) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/absolutely%20anything.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/15/11/23/17/04/260944.jpg	"><div class="movie-title">	Absolutamente todo (2015) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/grandma.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/91ZGEpe3CIL._RI_.jpg	"><div class="movie-title">	Abuela (2015) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/barely%20lethal.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/15/04/27/12/12/451625.jpg	"><div class="movie-title">	Academia de espias (2015) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/action%20point.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/81xLqUAHx1L._SY445_.jpg	"><div class="movie-title">	Action Point (2018) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/lets%20be%20cops.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://i.pinimg.com/originals/35/0c/28/350c28aecc41b879bcc03545a14773f5.jpg	"><div class="movie-title">	Agentes del desorden (2014) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://onedrive.live.com/download.aspx?cid=E44DF942B91FC749&resid=E44DF942B91FC749!2797&authkey=AAEvvsEa01f8Jh0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/002%20ajuste_copy_500x247.jpeg	"><div class="movie-title">	Ajuste De Cuentas (2013) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bedazzled.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/003%20al%20diablo_copy_500x247.jpeg	"><div class="movie-title">	Al Diablo Con El Diablo (2000) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20pie%20unrated.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/004%20american%201_copy_500x247.png	"><div class="movie-title">	American Pie: Tu Primera Vez (1999) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20pie%202%20unrated.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_solo02/005%20american%202_copy_500x247.png	"><div class="movie-title">	American Pie 2: Tu Segunda Vez Es Mejor (2001) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20wedding%20unrated.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/006%20american%203_copy_500x247.png	"><div class="movie-title">	American Pie 3: La Boda (2003) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20pie%20band%20camp.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/007%20american%204_copy_500x247.png	"><div class="movie-title">	American Pie: Campamento De Bandas (2005) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20pie%20presents%20the%20naked%20mile.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/008%20american%205_copy_500x247.png	"><div class="movie-title">	American Pie: La Milla Al Desnudo (2006) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20pie%20beta%20house.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/009%20american%206_copy_500x247.png	"><div class="movie-title">	American Pie Presenta: La Casa Beta (2007) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20pie%20presents%20the%20book%20of%20love.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/010%20american%207_copy_500x247.png	"><div class="movie-title">	American Pie 7: La Guia Del Amor (2009) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20reunion%20unrated.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/011%20american%20i_copy_500x247.png	"><div class="movie-title">	American Pie: El Reencuentro (2012) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20pie%20presents%20girls%20rules%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/012%20american%209_copy_500x247.png	"><div class="movie-title">	American Pie: Las Reglas De Las Niñas (2020) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/vacation%20friends%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/21/07/26/12/32/5723105.jpg	"><div class="movie-title">	Amigos de las vacaciones (2021) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/shallow%20hal.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/013%20amor%20ciego_copy_500x247.jpeg	"><div class="movie-title">	Amor Ciego (2001) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/here%20today%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/04/23/09/28/4061783.jpg	"><div class="movie-title">	Aqui y ahora (2021) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hot%20fuzz.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/r_1280_720/img/4a/9b/4a9bc0dec39cd1fc5aca6996579baadb.jpg	"><div class="movie-title">	Arma Fatal (2007) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ashby.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://br.web.img3.acsta.net/pictures/15/03/23/18/20/524426.jpg	"><div class="movie-title">	Ashby (2015) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/barb%20and%20star%20go%20to%20vista%20del%20mar%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/21/03/16/11/06/5465611.jpg	"><div class="movie-title">	Barb and Star Go to Vista Del Mar (2021) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/baywatch.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img2.acsta.net/pictures/18/11/15/20/18/1207770.jpg	"><div class="movie-title">	Baywatch: Guardianes de la bahia (2017) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bean%20the%20ultimate%20disaster%20movie.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/014%20bean_copy_500x247.png	"><div class="movie-title">	Bean: the ultimate disaster movie (1997) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bia%20un%20mundo%20al%20reves%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img2.acsta.net/pictures/21/02/04/22/51/3123513.jpg	"><div class="movie-title">	BIA: Un mundo al reves (2021) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/good%20kids.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/81BF9--HtCL._RI_.jpg	"><div class="movie-title">	Buenos niños (2016) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/captain%20fantastic.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/16/05/31/11/58/083624.jpg	"><div class="movie-title">	Capitan Fantastico (2016) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/carnaval%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/015%20carnaval_copy_500x247.jpg	"><div class="movie-title">	Carnaval (2021) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://onedrive.live.com/download.aspx?cid=62FE6667D61E2E06&resid=62FE6667D61E2E06!3109&authkey=AOy_jIDek2FFBdQ?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/016%20cindy%20la%20regia_copy_500x247.jpeg	"><div class="movie-title">	Cindy La Regia (2020) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20heat.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/91KGBseC1FL._SL200_.jpg	"><div class="movie-title">	Chicas armadas y peligrosas (2013) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mean%20girls%202004.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ox7Ted0SMEc9TBJNQdogQm8I8NH.jpg	"><div class="movie-title">	Chicas pesadas (2004) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mean%20girls%202%202011.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/oTBmG7P8GKikZJet3agYOv7TWhh.jpg	"><div class="movie-title">	Chicas pesadas 2 (2011) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/good%20boys%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/81wApQ6wSfL._RI_.jpg	"><div class="movie-title">	Chicos Buenos (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/see%20no%20evil%20hear%20no%20evil.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/51zDEZJFcQL._AC_SY200_.jpg	"><div class="movie-title">	𝐂𝐢𝐞𝐠𝐨𝐬 𝐒𝐨𝐫𝐝𝐨𝐬 𝐘 𝐋𝐨𝐜𝐨𝐬 (𝟏𝟗𝟖𝟗) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/click.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/017%20click_copy_500x247.jpeg	"><div class="movie-title">	Click: Perdiendo El Control (2006) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/21%20jump%20street.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/89/04/90/20036278.jpg	"><div class="movie-title">	Comando Especial: Infiltrados en clase (2012) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/22%20jump%20street.mkv?android_vs.ts.mp4	 '); return false;"><img src="	http://img5.allocine.fr/acmedia/medias/nmedia/19/01/73/69/20651405.jpg	"><div class="movie-title">	Comando Especial 2: Infiltrados en la universidad (2014) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/como%20hackear%20seu%20chefe%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://media.filmelier.com/tit/15450/poster/como-hackear-a-tu-jefe_tyr0v0Y.jpeg	"><div class="movie-title">	Como hackear a tu jefe (2021) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/how%20to%20be%20a%20latin%20lover.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/04/10/11/23/259590.jpg	"><div class="movie-title">	Como ser un Latin Lover (2017) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/contando%20ovejas%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/22/03/09/13/45/4695361.jpg	"><div class="movie-title">	Contando Ovejas (2022) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/cruella%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/018%20cruella_copy_500x247.jpeg	"><div class="movie-title">	Cruella (2021) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/entre%20pillos%20anda%20el%20juego.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/oALw5xvV8xHrAnw1NMpRcEQpMop.jpg	"><div class="movie-title">	De Mendigo A Millonario (1983) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/late%20night%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/19/09/04/09/14/5723237.jpg	"><div class="movie-title">	De Noche Con Kate (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/nobodys%20fool.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://br.web.img3.acsta.net/pictures/18/10/15/13/07/5666313.jpg	"><div class="movie-title">	De Tonta Nada (2018) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dedicada%20a%20mi%20ex%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/19/09/13/21/50/3820466.jpg	"><div class="movie-title">	Dedicada A Mi Ex (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/snatched.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/17/07/05/09/40/068080.jpg	"><div class="movie-title">	Descontroladas (2017) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/despido%20procedente.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/17/05/04/16/10/350598.jpg	"><div class="movie-title">	Despido Procedente (2017) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dr%20dolittle.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/91/34/98/20141057.jpg	"><div class="movie-title">	Doctor Dolittle (1998) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dog%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/22/03/03/18/15/3886284.jpg	"><div class="movie-title">	Dog: Un Viaje Salvaje (2022) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/easter%20sunday%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/22/05/06/11/15/1337643.jpg	"><div class="movie-title">	Domingo De Pascuas (2022) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/doula%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images.static-bluray.com/products/20/128764_1_front.jpg	"><div class="movie-title">	Doula (2022) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/life%20of%20the%20party.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/18/06/22/23/35/2406351.jpg	"><div class="movie-title">	El Alma De La Fiesta (2018) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20year%20one.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/020%20el%20a%C3%B1o%20uno_copy_500x247.jpeg	"><div class="movie-title">	El Año Uno (2009) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20bar.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/17/01/25/13/52/576358.jpg	"><div class="movie-title">	El Bar (2017) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/early%20man.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/18/01/02/11/47/5478453.jpg	"><div class="movie-title">	El Cavernicola (2018) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20diario%20de%20la%20princesa.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/oD5hC5y8RNokonYxzaSWsHSDGaN.jpg	"><div class="movie-title">	El Diario De La Princesa (2001) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tyler%20perrys%20a%20madea%20family%20funeral%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/18/12/21/12/28/4637671.jpg	"><div class="movie-title">	El Funeral De Madea (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20futbol%20o%20yo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/18/05/17/11/17/0423294.jpg	"><div class="movie-title">	El Futbol O Yo (2017) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20wedding%20ringer.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/15/01/19/11/49/274619.jpg	"><div class="movie-title">	El Gurú De Las Bodas (2015) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/encino-man_202302/encino%20man.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/iELnPngC88tWomx72X8ywQzgZbK.jpg	"><div class="movie-title">	El Hombre De California (1992) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20wolf%20of%20wall%20street%202013.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Dra_01_50/046%20el%20lobo_copy_360x203.png	"><div class="movie-title">	El Lobo De Wall Street (2013) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/g2dwc5n1gvom49w/SalynPM-The.package.2018.1080p.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/021%20el%20paquete_copy_500x247.jpeg	"><div class="movie-title">	El Paquete (2018) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20unbearable%20weight%20of%20massive%20talent%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/12/14/10/19/3728297.jpg	"><div class="movie-title">	El Peso Del Talento (2022) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/elvis%20y%20nixon.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/022%20elvis_copy_500x247.jpeg	"><div class="movie-title">	Elvis Y Nixon (2016) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/ukfj7mlu3ogp1ef/SalynPM-E.Frios.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/023%20escalofrios_copy_500x247.jpeg	"><div class="movie-title">	Escalofríos (2015) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/q362hwl8gsm640p/SalynPM-Goosebumps2.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/024%20escalofrios%202_copy_500x247.jpeg	"><div class="movie-title">	Escalofríos 2: Una noche embrujada (2018) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/espejito%20espejito.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/025%20espejito_copy_500x247.png	"><div class="movie-title">	Espejito Espejito (2012) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/este%20cuerpo%20no%20es%20el%20mio.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/c1r1LX49vuO6AXnk7xisSuMER9U.jpg	"><div class="movie-title">	Este Cuerpo No Es Mio (2002) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/freaks%20of%20nature.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/10/w300/fblh9Q2AkYHQNgw1d9z9O45tbFr.jpg	"><div class="movie-title">	Fenomenos De La Naturaleza (2015) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/ccl1yy0tbdv80eg/SalynPM-F.N.O.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/026%20fiesta_copy_500x247.jpeg	"><div class="movie-title">	Fiesta de navidad en la oficina (2016) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/free%20guy%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/wlhkMcBmpQXzKZJttAdfkQAxxZh.jpg	"><div class="movie-title">	Free Guy: Tomando El Control (2021) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/twins.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1988/12/w300/z17mNScwFyZ9sOplnd2R9aQOmlr.jpg	"><div class="movie-title">	𝐆𝐞𝐦𝐞𝐥𝐨𝐬 (𝟏𝟗𝟖𝟖) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/gigolo%20por%20accidente.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/LlFLmp7KYnN3na68PhkMYYYtHv.jpg	"><div class="movie-title">	Gigolo Por Accidente (1999) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/daddys%20home.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/12/w300/lDyhnC0d2pLH3MMxWpBQ0ig9J10.jpg	"><div class="movie-title">	Guerra De Papás (2015) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/8a01zt5zys2rkcp/SalynPM-SPM8a7j.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/027%20hogar_copy_500x247.jpeg	"><div class="movie-title">	Hogar dulce infierno (2015) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/c54aqc2syzyzpxa/SalynPM-Holmes.and.watson.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/028%20holmes_copy_500x247.jpeg	"><div class="movie-title">	Holmes y Watson (2018) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/5td3wzcx1buxdu7/SalynPM-Overboard.2018.1080p.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/029%20hombre%20al%20agua_copy_500x247.jpeg	"><div class="movie-title">	Hombre al agua! (2018) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/r51rmkp2gfg7zmn/SalynPM-Ingrid.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/030%20ingrid_copy_500x247.jpeg	"><div class="movie-title">	Ingrid cambia de rumbo (2017) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/intercambiadas%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/031%20intercambiadas_copy_500x247.jpeg	"><div class="movie-title">	Intercambiadas (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/0231564654SRREGIO/0231564654SRREGIO.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/032%20jhonny_copy_500x247.jpeg	"><div class="movie-title">	Jhonny english (2003) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/krampus.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/11/w300/cbjeBRyNnN6uYGYfOEczmJX1d7J.jpg	"><div class="movie-title">	𝐊𝐫𝐚𝐦𝐩𝐮𝐬: 𝐌𝐚𝐥𝐝𝐢𝐭𝐚 𝐍𝐚𝐯𝐢𝐝𝐚𝐝 (𝟐𝟎𝟏𝟓) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-mano-que-mece-la-cuna/joven%20hechicera.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/3quG4zYlD8dDs98UqTIXH8kQkFz.jpg	"><div class="movie-title">	La Joven Hechicera (1989) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ladrona%20de%20identidades.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2013/2/w300/83Y1GDLtofCCauB2538IXMntNKU.jpg	"><div class="movie-title">	𝐋𝐚𝐝𝐫𝐨𝐧𝐚 𝐃𝐞 𝐈𝐝𝐞𝐧𝐭𝐢𝐝𝐚𝐝𝐞𝐬 (𝟐𝟎𝟏𝟑) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20duff.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/2/w300/nDfF22C1ZxX0QX7lW16YYstru8l.jpg	"><div class="movie-title">	𝐋𝐚 𝐃𝐞𝐬𝐢𝐠𝐧𝐚𝐝𝐚 𝐔́𝐥𝐭𝐫𝐚 𝐅𝐞𝐚: 𝐄𝐥 𝐔́𝐥𝐭𝐢𝐦𝐨 𝐁𝐚𝐢𝐥𝐞 (𝟐𝟎𝟏𝟓) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20mask%201994.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1994/7/w300/sW0tABq2gGGzdwHKhBs2hupEK11.jpg	"><div class="movie-title">	𝐋𝐚 𝐌𝐚́𝐬𝐜𝐚𝐫𝐚 (𝟏𝟗𝟗𝟒) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20mujer%20de%20mis%20pesadillas%202007.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2007/10/w300/mA31BQikiOOUT4mMQaSfzGrrrGW.jpg	"><div class="movie-title">	𝐋𝐚 𝐌𝐮𝐣𝐞𝐫 𝐃𝐞 𝐌𝐢𝐬 𝐏𝐞𝐬𝐚𝐝𝐢𝐥𝐥𝐚𝐬 (𝟐𝟎𝟎𝟕) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20woman%20in%20red.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1984/8/w300/jECT2DusOJUuICl3aycplLV6qxL.jpg	"><div class="movie-title">	𝐋𝐚 𝐌𝐮𝐣𝐞𝐫 𝐃𝐞 𝐑𝐨𝐣𝐨 (𝟏𝟗𝟖𝟒) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/dwrxy3i0qoj0vwe/SalynPM-N.M.R.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/033%20la%20navidad%20de%20las%20madres_copy_500x247.jpeg	"><div class="movie-title">	La navidad de las madres rebeldes (2017) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20night%20before.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/11/w300/rohl62VPf5Nb9iUCQIUD9o1AebL.jpg	"><div class="movie-title">	𝐋𝐚 𝐍𝐨𝐜𝐡𝐞 𝐀𝐧𝐭𝐞𝐫𝐢𝐨𝐫: 𝐋𝐨𝐬 𝟑 𝐑𝐞𝐲𝐞𝐬 𝐌𝐚𝐥𝐨𝐬 (𝟐𝟎𝟏𝟓) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20pantera%20rosa.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2006/2/w300/4aWj9ooZamY3aaIatr4QaMT57Ex.jpg	"><div class="movie-title">	𝐋𝐚 𝐏𝐚𝐧𝐭𝐞𝐫𝐚 𝐑𝐨𝐬𝐚 (𝟐𝟎𝟎𝟔) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20pantera%20rosa%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2009/2/w300/kVUZfXbq473EIyJKpUkG3TfU8tC.jpg	"><div class="movie-title">	𝐋𝐚 𝐏𝐚𝐧𝐭𝐞𝐫𝐚 𝐑𝐨𝐬𝐚 𝟐 (𝟐𝟎𝟎𝟗) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20peor%20de%20mis%20bodas%202016.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/035%20la%20peor%20de%20mis%20bodas_copy_500x247.jpeg	"><div class="movie-title">	La Peor De Mis Bodas (2016) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20peor%20de%20mis%20bodas%202%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_solo02/035%20la%20peor%202_copy_500x247.jpeg	"><div class="movie-title">	La Peor De Mis Bodas 2 (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20naked%20gun.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1988/12/w300/soPRU0ON48dqH00IngCjvhiWF2V.jpg	"><div class="movie-title">	𝐋𝐚 𝐏𝐢𝐬𝐭𝐨𝐥𝐚 𝐃𝐞𝐬𝐧𝐮𝐝𝐚 (𝟏𝟗𝟖𝟖) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/qga7cwijfr4eua2/SalynPM-SPM7s3g.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/036%20la%20rzaon_copy_500x247.jpeg	"><div class="movie-title">	La razón de estar contigo  (2006) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/uo4u686vb17xe11/SalynPM-SPM9a5o.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/037%20lego_copy_500x247.jpeg	"><div class="movie-title">	LEGO DC: Batman - Asuntos familiares (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/knocked%20up.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2007/6/w300/szMsHnzsed2gtPjluBL0fI8xME8.jpg	"><div class="movie-title">	𝐋𝐢𝐠𝐞𝐫𝐚𝐦𝐞𝐧𝐭𝐞 𝐄𝐦𝐛𝐚𝐫𝐚𝐳𝐚𝐝𝐚 (𝟐𝟎𝟎𝟕) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/take%20me%20home%20tonight.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2011/3/w300/uDzsQpeHcNqgF0lv8kIkw4DyxZl.jpg	"><div class="movie-title">	𝐋𝐥𝐞́𝐯𝐚𝐦𝐞 𝐀 𝐂𝐚𝐬𝐚 𝐄𝐬𝐭𝐚 𝐍𝐨𝐜𝐡𝐞 - 𝐋𝐚 𝐌𝐞𝐣𝐨𝐫 𝐍𝐨𝐜𝐡𝐞 𝐃𝐞 𝐓𝐮 𝐕𝐢𝐝𝐚 (𝟐𝟎𝟏𝟏) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/de7d942fv1ssyir/SalynPM-L.P.E.T.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/038%20loca%20por%20el%20trabajo_copy_500x247.jpeg	"><div class="movie-title">	Loca por el trabajo (2018) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://archive.org/download/la-noche-de-su-vida/la%20noche%20de%20su%20vida.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2009/7/w300/hjvNdSFr36epusgDf1myO2xG4yD.jpg	"><div class="movie-title">	𝐋𝐨𝐜𝐮𝐫𝐚𝐬 𝐃𝐞 𝐔𝐧 𝐍𝐞𝐫𝐝 𝐄𝐧𝐚𝐦𝐨𝐫𝐚𝐝𝐨 (𝟐𝟎𝟎𝟗) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/black%20knight.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2001/11/w300/gMLWo2wPBt7SVR6Jz9dr8Sv9ekY.jpg	"><div class="movie-title">	𝐋𝐨𝐜𝐮𝐫𝐚𝐬 𝐄𝐧 𝐋𝐚 𝐄𝐝𝐚𝐝 𝐌𝐞𝐝𝐢𝐚 (𝟐𝟎𝟎𝟏) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/los-blancos-no-saben-saltar_202302/Los%20blancos%20no%20saben%20saltar.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/uwJLwiwpigyMt6MEo7Z59QTKSnQ.jpg	"><div class="movie-title">	Los Blancos No Saben Saltar (1992) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/6c8zmjjlig18mvm/SalynPM-SPM8d8x.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/eCgKRs1qMRCc2wx0VG7ONEOj2MJ.jpg	"><div class="movie-title">	Los colegas del barrio (1996) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/los%20dioses%20deben%20estar%20locos.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cQpfWlsV8lnAFeUqDvAsWp1rCBi.jpg	"><div class="movie-title">	Los Dioses Deben Estar Locos (1980) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/los-dioses-deben-estar-locos_202104/Los%20dioses%20deben%20estar%20locos%202.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ul7dJpxZ3Ds3oEUEy7MEMGvOs4o.jpg	"><div class="movie-title">	Los Dioses Deben Estar Locos 2 (1989) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20three%20stooges.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/4/w300/2rP8vjVp5nx4c9TxVW14jWlffW.jpg	"><div class="movie-title">	𝐋𝐨𝐬 𝐓𝐫𝐞𝐬 𝐂𝐡𝐢𝐟𝐥𝐚𝐝𝐨𝐬 (𝟐𝟎𝟏𝟐) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/kasv0kqfdgexyho/SalynPM-B.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/040%20luna%20de%20miel_copy_500x247.jpeg	"><div class="movie-title">	Luna de miel en familia (2014) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/moonwalkers.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/3/w300/a6qyxuQ3UTxxRQv7LdHHi2liJP1.jpg	"><div class="movie-title">	𝐋𝐮𝐧𝐚́𝐭𝐢𝐜𝐨𝐬 (𝟐𝟎𝟏𝟓) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mama%20se%20fue%20de%20viaje%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/041%20mama_copy_500x247.jpeg	"><div class="movie-title">	Mamá Se Fue De Viaje (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mars%20attacks%201996.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/042%20mars%20attak_copy_500x247.jpeg	"><div class="movie-title">	Mars Attacks (1996) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/liar%20liar.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1997/3/w300/im7U6LDUmsINzi8dSoeIVBZXpvC.jpg	"><div class="movie-title">	𝐌𝐞𝐧𝐭𝐢𝐫𝐨𝐬𝐨 𝐦𝐞𝐧𝐭𝐢𝐫𝐨𝐬𝐨 (𝟏𝟗𝟗𝟕) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/big%20mommas%20house%202000.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2000/5/w300/svzVjVV8QUpfYItr3PH5bMzRPer.jpg	"><div class="movie-title">	𝐌𝐢 𝐀𝐛𝐮𝐞𝐥𝐚 𝐄𝐬 𝐔𝐧 𝐏𝐞𝐥𝐢𝐠𝐫?? (𝟐𝟎𝟎𝟎) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/big%20mommas%20house%202%202006.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/xyGaAbVNVVW8ExVLWa9cwioVM9v.jpg	"><div class="movie-title">	𝐌𝐢 𝐀𝐛𝐮𝐞𝐥𝐚 𝐄𝐬 𝐔𝐧 𝐏𝐞𝐥𝐢𝐠𝐫𝐨 𝟐 (𝟐𝟎𝟎𝟔) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/big%20mommas%20house%203%202011.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/6fgGIzTZbMdbteF8OQvZlnki1wl.jpg	"><div class="movie-title">	𝐌𝐢 𝐀𝐛𝐮𝐞𝐥𝐚 𝐄𝐬 𝐔𝐧 𝐏𝐞𝐥𝐢𝐠𝐫𝐨 𝟑 (𝟐𝟎𝟏𝟏) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20kid.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/043%20mi%20encuentro_copy_500x247.jpg	"><div class="movie-title">	Mi Encuentro Conmigo (2000) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/fv3vz9m21ycie68/5LPN306-18p.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/044%20mia%20te%20la%20apuesto_copy_500x247.jpeg	"><div class="movie-title">	Mía... Te la apuesto (2018) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/3wj3jsew0xwx2da/SalynPM-Nine.lives.2016.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/045%20mi%20papa_copy_500x247.jpg	"><div class="movie-title">	Mi papá es un gato (2016) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/4ueh6fa7jn23vbh/SalynPM-SMP2w9b.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/047%20misterio%20a%20bordo_copy_500x247.jpeg	"><div class="movie-title">	Misterio a bordo (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/1a69lszel1wkvn1/SalynPM-A.N.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/048%20nacion_copy_500x247.jpg	"><div class="movie-title">	Nación asesina (2018) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/unfinished%20business.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/3/w300/vKuYDKLMR2sk5X9ssDbJu2DvycY.jpg	"><div class="movie-title">	𝐍𝐞𝐠𝐨𝐜𝐢𝐨𝐬 𝐂𝐨𝐧 𝐑𝐞𝐬𝐚𝐜𝐚 (𝟐𝟎𝟏𝟓) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/l5s0hsnvok6gwwf/SalynPM-N.M.F.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/049%20no%20manches%20frida_copy_500x247.jpeg	"><div class="movie-title">	No manches Frida 1 (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/czsf3sc58ifdhnh/SalynPM-N.M.F.2.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/050%20no%20manches%202_copy_500x247.jpeg	"><div class="movie-title">	No manches Frida 2 (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://content-na.drive.amazonaws.com/cdproxy/share/xBf2JOWtOpnnhCWtWCAV3Ty3K041EDKRgblsrUqdir8/nodes/rkRLodYHTVCcDofVWbMCyg?nonce=4oyWAIeqTeWAETYsZWutoumgP5aohP_meHKgb-WR6E2uoUFegVQxWhQcucGVVSVH&download=true&ownerId=A1UL3LSS0WHJ1U?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/050%20no%20manches%202_copy_500x247.jpeg	"><div class="movie-title">	No manches Frida 2 (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/were%20no%20angels.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1989/6/w300/3ckhkPRqMKblgtq5xhKKL6Yikbk.jpg	"><div class="movie-title">	𝐍𝐨 𝐒𝐨𝐦𝐨𝐬 𝐀𝐧𝐠𝐞𝐥𝐞𝐬 (𝟏𝟗𝟖𝟗) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/american%20ultra.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/8/w300/hOhMZ6is0mDnuMqOPs5FRUztU3L.jpg	"><div class="movie-title">	𝐎𝐩𝐞𝐫𝐚𝐜𝐢𝐨́𝐧 𝐔𝐥𝐭𝐫𝐚 (𝟐𝟎𝟏𝟓) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hall%20pass.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2011/2/w300/pgeAE9a5Vucq9ZLAhWHK9WEez3e.jpg	"><div class="movie-title">	Pase libre (2011) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/here%20comes%20the%20boom.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/10/w300/qNxilhwnRmkzt7CaOF1vSVzNKEu.jpg	"><div class="movie-title">	Peso pesado: El maestro luchador (2012) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20other%20guys.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2010/8/w300/bICF08SgTCMqqyDcTXBlupnEKQL.jpg	"><div class="movie-title">	Policías de repuesto (2010) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20hangover.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/053%20que%20paso_copy_500x247.png	"><div class="movie-title">	Qué pasó ayer 1 (2009) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20hangover%20part%20II.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/054%20que%20pado%202_copy_500x247.png	"><div class="movie-title">	Qué pasó ayer 2 (2011) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20hangover%20part%20III.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/055%20que%20paso%203_copy_500x247.png	"><div class="movie-title">	Qué pasó ayer 3 (2013) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/yes%20man.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2009/4/w300/hyI59bVRElUXFxHNg2HLYV6UmUw.jpg	"><div class="movie-title">	Si señor (2008) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/urw0q2drepsxnnh/SalynPM-SPM9h6z.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/056%20snatchers_copy_500x247.jpeg	"><div class="movie-title">	Snatchers (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/turner%20and%20hooch%201989.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1989/7/w300/mPRTuakCxvN5hm20vPHzSgmB52n.jpg	"><div class="movie-title">	Socios y sabuesos (1989) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/grown%20ups.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2010/6/w300/jXex0xZGjkuR47VGbDuKhI5GfGj.jpg	"><div class="movie-title">	Son como niños 1 (2010) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/grown%20ups%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2013/7/w300/6TRhV0E6wDQjMEtvYru0Kel6juW.jpg	"><div class="movie-title">	Son como niños 2 (2013) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/una%20espia%20despistada.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/5/w300/lVkXwG46cB195CcP1gKgfqEOXyj.jpg	"><div class="movie-title">	𝐒𝐩𝐲: 𝐔𝐧𝐚 𝐄𝐬𝐩𝐢́𝐚 𝐃𝐞𝐬𝐩𝐢𝐬𝐭𝐚𝐝𝐚 (𝟐𝟎𝟏𝟓) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/get%20smart.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2008/6/w300/lKSOh8Sm0iFLeT5zmf2HyhBwfiF.jpg	"><div class="movie-title">	Superagente 86 (2008) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/agent%20cody%20banks.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2003/3/w300/q4cXY2pPzRTR4e5sknVbVzJisJH.jpg	"><div class="movie-title">	Superagente Cody Banks (2003) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/taxi%20a%20gibraltar 2019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/059%20taxy_copy_500x247.jpeg	"><div class="movie-title">	Taxy A Gibraltar (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ted.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/6/w300/osJNr64CNyGhCzdlg6oHt3a6vNA.jpg	"><div class="movie-title">	Ted (2012) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ted%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/6/w300/220fvwTHqV7nNpRpZItmbVCHLjC.jpg	"><div class="movie-title">	Ted 2 (2015) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/zombieland.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/060%20tierra%20de%20zombies_copy_500x247.png	"><div class="movie-title">	Tierra de zombies (Opc.2) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/zombieland%20double%20tap%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/053%20tierra%20de%20zombies_copy_500x247.jpeg	"><div class="movie-title">	Tierra de zombies 2: Tiro De Gracia (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/todos%20caen%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/063%20todas%20caen_copy_500x247.jpeg	"><div class="movie-title">	Todas Caen (2019) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bruce%20almighty.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2003/5/w300/vD0EfyAo5pz4kVqa8KHCfB9dZzC.jpg	"><div class="movie-title">	Todopoderoso: Como Dios (2003) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/evan%20almighty.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2007/6/w300/jGYbia49LHLpURfYcCdhZVrDS1z.jpg	"><div class="movie-title">	Todopoderoso 2: Sigo Como Dios (2007) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tootsie.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1982/12/w300/yoza1QYYc0Ukh5yY1emL6HRdSYm.jpg	"><div class="movie-title">	Tootsie (1982) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/beverly%20hills%20cop%201984.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1984/12/w300/q8RtQuLStydGdJmHR4p8jNVssbv.jpg	"><div class="movie-title">	Un Detective Suelto En Hollywood (1984) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/un%20papa%20genial.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1999/6/w300/iD5mbxxy5SPCgsp5qzyS6k2QQrn.jpg	"><div class="movie-title">	Un Papá Genial (1999) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/vacaciones%20de%20navidad.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1989/11/w300/qmyeMduOLqrNqBpAaMwC7Qivwoy.jpg	"><div class="movie-title">	Vacaciones De Navidad (1989) 	<br>	Comedia	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/aez9sb22f2vuyve/SalynPM-Y-D.E.L.R.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Com_01_64/064%20y%20donde%20estan_copy_500x247_thumb.jpg	"><div class="movie-title">	Y dónde están las rubias (2004) 	<br>	Comedia	</div></a>
+
+
+
+
+
+
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>

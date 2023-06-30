@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 0px;
+      background: black;
+      outline: none;
+      border:none;
+      text-decoration: none;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      margin-left:1px;
+    }
+    
+    #movie-list{
+        overflow-y: scroll;
+        position: relative;
+        width: 48%;
+        height: 600px;
+    }
+
+    ::-webkit-scrollbar {
+        background:transparent;
+    }
+
+    img {
+        margin-bottom: 0rem;
+        position: relative;
+        width: 130px;
+        border-radius: 14px;
+    }
+
+    #player {
+        width: 50%;
+    }
+
+    #video-player{
+        margin-top: 2.2rem;
+        width: 100%;
+        height: 55%;
+    }
+    .movie-item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
+    @media screen and (max-width: 480px){
+        #container{
+            height: auto;
+        }
+        
+        #movie-list {
+            position: absolute;
+            width: auto;
+            height: 450px;
+            top: 12.5rem;
+            left: 14px;
+        }
+        
+        img {
+            margin-bottom: 0rem;
+            position: relative;
+            width: 125px;
+            border-radius: 14px;
+        }
+
+        #barra_lateral{
+            display:none;
+        }
+
+        #player {
+            position: absolute;
+            width: 90%;
+            align-items: center;
+            left: 2px;
+            top: 3.2rem;
+            display: flex;
+        }
+
+        #video-player{
+            margin-top: 5px;
+            width: 100%;
+            height: 90%;
+        }
+  .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+#search-bar {
+    height:20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-right: 2rem;
+}
+#search-button{
+    padding: 0px 0px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
+    }
+
+
+
+
+
+
+    #search-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 2rem;
+    }
+
+    #search-input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: solid;
+    color: #b7ee00;
+    font-size: 14px;
+}
+
+    #search-button {
+      padding: 0px 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      color:black;
+      cursor: pointer;
+    }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">INICIO</a>
+			        <a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisdrama.html">DRAMA</a>
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisromance.html">ROMANCE</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisficcion.html">FICCION</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisfamiliar.html">FAMILIAR</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelismusicales.html">MARVEL</a>
+
+
+</div>
+</nav>
+
+
+
+
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+
+  <div id="container">
+<div id="movie-list">
+
+
+
+<!-- para poner mas peliculas #############################
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
+
+ ############################ -->
+
+
+
+
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/meet%20joe%20black.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kZZ5G3ye4VlAqmIfpZY3lkXvcnf.jpg	"><div class="movie-title">	¿Conoces A Joe Black? (1998) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/2%20hearts%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/001%202%20corazones_copy_360x203.png	"><div class="movie-title">	2 Corazones (2020) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/nine%2012%20weeks%201986.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/S/pv-target-images/47910305c3e1f6a0bef1f4b2894a453d5a612cab749f1059f6a482d91f811a5b._RI_V_TTW_.jpg	"><div class="movie-title">	9 semanas y media (1986) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/27%20dresses.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/51fmEM55wKL._AC_SY445_.jpg	"><div class="movie-title">	27 bodas (2008) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/fifty%20shades%20of%20grey.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/14/11/14/11/16/546987.jpg	"><div class="movie-title">	50 sombras de Grey (2015) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/fifty%20shades%20darker.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/16/12/12/16/47/000977.jpg	"><div class="movie-title">	50 sombras mas oscuras (2017) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/fifty%20shades%20freed.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/18/01/17/13/23/1362181.jpg	"><div class="movie-title">	50 sombras liberadas (2018) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/365%20dni%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/002%20365%20dias_copy_360x203.png	"><div class="movie-title">	365 Dias (2020) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/01_20220427_20220427_1537/01.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/22/04/27/21/58/0515920.jpg	"><div class="movie-title">	365 dias: Aquel dia (2022) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/after%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/003%20after%201_copy_360x203.png	"><div class="movie-title">	After: Aqui Empieza Todo (2019) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/after%20we%20collided%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/004%20after%202_copy_360x203.png	"><div class="movie-title">	After 2: En Mil Pedazos (2020) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/after%20we%20fell%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/005%20after%203_copy_360x203.png	"><div class="movie-title">	After 3: Almas Perdidas (2021) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/after%20ever%20happy%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/8/w300/xbMYV7fR9ygl5PGlM6MBZ7Vgjef.jpg	"><div class="movie-title">	After 4: Amor Infinito (2022) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/amar.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/17/04/10/15/13/259667.jpg	"><div class="movie-title">	Amar (2017) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/amar%20te%20duele%202002.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/006%20amar%20te%20duele3_copy_360x203.png	"><div class="movie-title">	Amar Te Duele (2002) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/no%20strings%20attached.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/7Jj71JWTbIHZmdLQHWkFtbl4s11.jpg	"><div class="movie-title">	Amigos Con Derechos (2011) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/fever%20pitch.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/007%20amor%20en%20juego_copy_360x203.png	"><div class="movie-title">	Amor En Juego (2005) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/redeeming%20love%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/S/pv-target-images/8c7bd2bcffc3b7aa98c4bdd0b177204724c3ed6a3618001a29fac92e3a36703c._RI_V_TTW_.jpg	"><div class="movie-title">	Amor redentor (2022) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/west%20side%20story%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/21/11/18/23/01/4140906.jpg	"><div class="movie-title">	Amor sin barreras (2021) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/before%20sunrise%201995.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/008%20antes%20del%20amanecer_copy_360x203.png	"><div class="movie-title">	Antes Del Amanecer (1995) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/before%20sunset%202004.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/09%20antes%20del%20atardecer_copy_360x203.png	"><div class="movie-title">	Antes Del Atardecer (2004) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/before%20midnight.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/010%20antes%20de%20la%20medianoche_copy_360x203.png	"><div class="movie-title">	Antes De La Medianoche (2013) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/five%20feet%20apart%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Dra_01_50/003%20a%20dos%20metros%20de%20ti_copy_360x203.png	"><div class="movie-title">	A Dos Metros De Ti (2019) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/at%20first%20sight.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/012%20a%20primera%20vista_copy_360x203.png	"><div class="movie-title">	A Primera Vista (1999) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/8gndbaxqchcwbza/T.F.O.S-SalynPM.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/013%20bajo%20la%20misma%20estrella_copy_360x203.png	"><div class="movie-title">	Bajo la misma estrella (2014) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/book%20club.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/18/04/05/17/30/2798314.jpg	"><div class="movie-title">	Book Club: Cuando Ellas Quieren (2018) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/seeking%20a%20friend%20for%20the%20end%20of%20the%20world.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/snRqIWFUgEEN4oXHv1SgcupfZBY.jpg	"><div class="movie-title">	Buscando Un Amigo Para El Fin Del Mundo (2012) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/marry%20me%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/22/01/27/01/14/0024658.jpg	"><div class="movie-title">	Casate conmigo (2022) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/chocolat.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kvMhjQlnoMirmmddIJQkAraJusE.jpg	"><div class="movie-title">	Chocolate (2000) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/crush%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/22/04/07/07/49/0630455.jpg	"><div class="movie-title">	Crush: Amor A Primera Vista (2022) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/CuNoCoSRREGIO/CuNoCoSRREGIO.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/018%20cuando_copy_360x203.png	"><div class="movie-title">	Cuando nos conocimos	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/cuatro%20bodas%20y%20un%20funeral.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/hpPe7zVnNuqfzDy3bzXnWnJWA83.jpg	"><div class="movie-title">	Cuatro Bodas Y Un Funeral (1994) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/destinos-opuestos/Destinos%20opuestos.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kb6IzkcovQTupxpQsEelMqrVO8W.jpg	"><div class="movie-title">	Destinos Opuestos (1991) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20notebook.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://i.pinimg.com/originals/f2/29/77/f22977e18e371b166d8d4598738508f1.jpg	"><div class="movie-title">	Diario De Una Pasion (2004) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bridget%20jones%20baby.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/16/06/30/13/54/273297.jpg	"><div class="movie-title">	El Bebe De Bridget Jones (2016) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20bounty%20hunter%202010.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2010/3/w300/qwVwxmzTdeVm4otgh1UiwM1NjqS.jpg	"><div class="movie-title">	𝐄𝐥 𝐂𝐚𝐳𝐚 𝐑𝐞𝐜𝐨𝐦𝐩𝐞𝐧𝐬𝐚𝐬: 𝐄𝐱𝐩𝐨𝐬𝐚𝐝𝐨𝐬 (𝟐𝟎𝟏𝟎) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20diablo%20viste%20a%20la%20moda.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/019%20el%20diablo%20viste%20a%20la%20moda_copy_360x203.jpg	"><div class="movie-title">	𝐄𝐥 𝐃𝐢𝐚𝐛𝐥𝐨 𝐕𝐢𝐬𝐭𝐞 𝐀 𝐋𝐚 𝐌𝐨𝐝𝐚 (𝟐𝟎𝟎𝟔) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20guardaespaldas.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/77/56/83/20025137.jpg	"><div class="movie-title">	El Guardaespaldas (1992) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20tomorrow%20man%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/91kyI5+GGwL._RI_.jpg	"><div class="movie-title">	El Hombre Del Mañana (2019) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20ilusionista.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/16/02/22/13/32/340710.jpg	"><div class="movie-title">	El Ilusionista (2006) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/all%20i%20wish.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/18/02/27/19/28/5578222.jpg	"><div class="movie-title">	El Mejor Regalo Es El Amor (2017) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/father%20of%20the%20bride%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/22/05/10/07/22/0774029.jpg	"><div class="movie-title">	El Padre De La Novia (2022) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20secret%20dare%20to%20dream%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	http://es.web.img2.acsta.net/pictures/20/05/26/13/44/5711989.jpg	"><div class="movie-title">	El Secreto: Atrevete A Soñar (2020) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ella.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/020%20ella_copy_360x203.png	"><div class="movie-title">	Ella (2013) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/ella-es-asi_202109/Ella%20Es%201998%201080p%20Latino%20%28She%27s%20All%20That%29.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/021%20ella%20es%20asi_copy_360x203.jpg	"><div class="movie-title">	Ella Es Asi (1999) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/atonement.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2007/9/w300/kevM6Yn2lVmvhUKpU7DWFmq2S8R.jpg	"><div class="movie-title">	𝐃𝐞𝐬𝐞𝐨 𝐲 𝐩𝐞𝐜𝐚𝐝𝐨 (𝟐𝟎𝟎𝟕) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/by%20the%20sea.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/11/w300/w4bg71SeAamQXDm8gTc1ccuYUkL.jpg	"><div class="movie-title">	Frente Al Mar (2015) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ghost%20la%20sombra%20del%20amor.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/022%20ghost_copy_360x203.png	"><div class="movie-title">	𝐆𝐡𝐨𝐬𝐭 𝐋𝐚 𝐒𝐨𝐦𝐛𝐫𝐚 𝐃𝐞𝐥 𝐀𝐦𝐨𝐫 (𝟏𝟗𝟗𝟎) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/practical%20magic.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/e91N5wCFS4PAC4MszLRcKBCVkl8.jpg	"><div class="movie-title">	Hechizo De Amor (1998) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hitch.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2005/2/w300/oSAq1R4qtrkpIeZoOzvahuAE308.jpg	"><div class="movie-title">	𝐇𝐢𝐭𝐜𝐡: 𝐄𝐬𝐩𝐞𝐜𝐢𝐚𝐥𝐢𝐬𝐭𝐚 𝐄𝐧 𝐒𝐞𝐝𝐮𝐜𝐜𝐢𝐨́𝐧 (𝟐𝟎𝟎𝟓) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20family%20man.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2000/12/w300/fvMImuEq9IWlcsVCPXrFDqgNdNn.jpg	"><div class="movie-title">	𝐇𝐨𝐦𝐛𝐫𝐞 𝐃𝐞 𝐅𝐚𝐦𝐢𝐥𝐢𝐚 (𝟐𝟎𝟎𝟎) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jerry%20maguire.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1996/12/w300/wyEECX6JopQfJPbfVi4sRVLKGpy.jpg	"><div class="movie-title">	𝐉𝐞𝐫𝐫𝐲 𝐌𝐚𝐠𝐮𝐢𝐫𝐞: 𝐀𝐦𝐨𝐫 𝐘 𝐃𝐞𝐬𝐚𝐟𝐢𝐨 (𝟏𝟗𝟗𝟔) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20escort.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/11/w300/f0UUAhIBecyfUTjn3C3sw1UioUx.jpg	"><div class="movie-title">	𝐋𝐚 𝐀𝐜𝐨𝐦𝐩𝐚𝐧̃𝐚𝐧𝐭𝐞 (𝟐𝟎𝟏𝟓) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/beauty%20and%20the%20beast.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/23%20la%20bella%20_copy_360x203.png	"><div class="movie-title">	La Bella Y La Bestia (2017) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/my%20best%20friends%20wedding.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/024%20la%20boda%20de%20mi%20mejor%20amigo_copy_360x203.png	"><div class="movie-title">	𝐋𝐚 𝐁𝐨𝐝𝐚 𝐃𝐞 𝐌𝐢 𝐌𝐞𝐣𝐨𝐫 𝐀𝐦𝐢𝐠𝐨 (𝟏𝟗𝟗𝟕) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20casa%20del%20lago.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2006/6/w300/zE2QSywfJvaFLRFkxbGLhdibEnx.jpg	"><div class="movie-title">	𝐋𝐚 𝐂𝐚𝐬𝐚 𝐃𝐞𝐥 𝐋𝐚𝐠𝐨 (𝟐𝟎𝟎𝟔) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/75lm96hpaygjosg/SalynPM%20-%20SPM1y5i.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/025%20la%20cita%20perfecta_copy_360x203.png	"><div class="movie-title">	La cita perfecta (2019) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20propuesta.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2009/6/w300/l9aQBOZfdqiZdEu0Mb7Hbp7YY10.jpg	"><div class="movie-title">	𝐋𝐚 𝐏𝐫𝐨𝐩𝐮𝐞𝐬𝐭𝐚 (𝟐𝟎𝟎𝟗) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/chaos.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2005/1/w300/vLUrpKQIv6myYmSsjgd9CCOogHz.jpg	"><div class="movie-title">	𝐋𝐚 𝐓𝐞𝐨𝐫𝐢́𝐚 𝐃𝐞𝐥 𝐂𝐚𝐨𝐬 (𝟐𝟎𝟎𝟓) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/11ts5lxxiqa0uhq/SalynPM-SPM9x2w.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/sVKeuoy82eR02iMIqRAepqMCoag.jpg	"><div class="movie-title">	La teoría del todo (2014) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20terminal.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2004/6/w300/g0szJPw61Cj3sjaGsIy4aWdGZU3.jpg	"><div class="movie-title">	𝐋𝐚 𝐓𝐞𝐫𝐦𝐢𝐧𝐚𝐥 (𝟐𝟎𝟎𝟒) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/legends%20of%20the%20fall.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1994/12/w300/fZjjcVq8YTOUSN6PYTIS009FsmW.jpg	"><div class="movie-title">	𝐋𝐞𝐲𝐞𝐧𝐝𝐚𝐬 𝐃𝐞 𝐏𝐚𝐬𝐢𝐨́𝐧 (𝟏𝟗𝟗𝟓) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/london%20boulevard.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/86/11/83/19823625.jpg	"><div class="movie-title">	London Boulevard (2010) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/as%20good%20as%20it%20gets.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1997/12/w300/bCReR9JeX8mFXg3QoknTuQNEvtf.jpg	"><div class="movie-title">	𝐌𝐞𝐣𝐨𝐫... 𝐢𝐦𝐩𝐨𝐬𝐢𝐛𝐥𝐞 (𝟏𝟗𝟗𝟕) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/memoirs%20of%20a%20geisha.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2005/12/w300/c1bRPGCTTz970dkxqOtKVaiRgru.jpg	"><div class="movie-title">	𝐌𝐞𝐦𝐨𝐫𝐢𝐚𝐬 𝐃𝐞 𝐔𝐧𝐚 𝐆𝐞𝐢𝐬𝐡𝐚 (𝟐𝟎𝟎𝟓) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/blast%20from%20the%20past.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/fYREkgHy6tred4PwWPnT7pBEvgU.jpg	"><div class="movie-title">	Mi Novio Atomico (1998) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/warm%20bodies.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ccJCKPZ1UfC1wQa7guqgKtVYYnC.jpg	"><div class="movie-title">	Mi Novio Es Un Zombie (2013) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/my%20girl.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1991/1/w300/6iYlGQ82uM2l5Jjor0axXB30J3J.jpg	"><div class="movie-title">	𝐌𝐢 𝐏𝐫𝐢𝐦𝐞𝐫 𝐁𝐞𝐬𝐨 (𝟏𝟗𝟗𝟏) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/look%20whos%20talking.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1989/10/w300/3pfesuEGjxA83F8DesrHmkNo9Bh.jpg	"><div class="movie-title">	𝐌𝐢𝐫𝐚 𝐐𝐮𝐢𝐞𝐧 𝐇𝐚𝐛𝐥𝐚 (𝟏𝟗𝟖𝟗) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/look%20whos%20talking%20too.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/4RXcuUzYiRQ6mb9ydiUyMUrPZPM.jpg	"><div class="movie-title">	𝐌𝐢𝐫𝐚 𝐐𝐮𝐢𝐞𝐧 𝐇𝐚𝐛𝐥𝐚 𝐓𝐚𝐦𝐛𝐢𝐞𝐧 (𝟏𝟗𝟗𝟎) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/look%20whos%20talking%20now.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/alTFrpxgq5XlOA6LpfHToTcC6Cc.jpg	"><div class="movie-title">	𝐌𝐢𝐫𝐚 𝐐𝐮𝐢𝐞𝐧 𝐇𝐚𝐛𝐥𝐚 𝐀𝐡𝐨𝐫𝐚 (𝟏𝟗𝟗𝟑) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/pretty%20woman.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/027%20mujer%20bonita_copy_360x203.jpg	"><div class="movie-title">	𝐌𝐮𝐣𝐞𝐫 𝐁𝐨𝐧𝐢𝐭𝐚 (𝟏𝟗𝟗𝟎) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/little%20women%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/028%20mujercitas_copy_360x203.png	"><div class="movie-title">	Mujercitas (2019) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/we%20are%20your%20friends.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/8/w300/rpjGpELAYt9D9oCqGXHJfruYwUd.jpg	"><div class="movie-title">	𝐌𝐮𝐬𝐢𝐜𝐚 𝐀𝐦𝐢𝐠𝐨𝐬 𝐘 𝐅𝐢𝐞𝐬𝐭𝐚 (𝟐𝟎𝟏𝟓) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/just%20like%20heaven.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2005/9/w300/bDzmhWd2hRVJwSLVPEoeKRq98ZJ.jpg	"><div class="movie-title">	Como 𝐅𝐮𝐞𝐫𝐚 𝐂𝐢𝐞𝐫𝐭𝐨 (𝟐𝟎𝟎𝟓) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/orgullo%20y%20prejuicio.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/oixzLjpyaLagLa8UREts1NiHr6F.jpg	"><div class="movie-title">	Orgullo Y Prejuicio (2005) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/original%20sin.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/029%20pecado_copy_360x203.png	"><div class="movie-title">	Pecado Original (2001) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/penelope.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/030%20penelope_copy_360x203.png	"><div class="movie-title">	Penelope (2006) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/28-semanas-despues/Por%20siempre%20cenicienta.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/wOZAnDCkrg2c8SLZe2oU4jWx3rC.jpg	"><div class="movie-title">	Por Siempre Cenicienta - Una Historia De Amor (1998) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/realmente%20amor.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/A3jpXZMwqe8DoGuykyojNIidWNj.jpg	"><div class="movie-title">	Realmente Amor (2003) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/an%20officer%20and%20a%20gentleman.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1982/7/w300/7zr85y0ll4JqbBrWUEkELq2Il8C.jpg	"><div class="movie-title">	Reto al destino (1982) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/easy%20a.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2010/9/w300/vSK2jgl4Xg0wNi6OyVjBLVv70Mq.jpg	"><div class="movie-title">	Se dice de mí (2010) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/sex%20and%20the%20city.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/77tIJpDUV5maRnmAUnxT1bzz1Zp.jpg	"><div class="movie-title">	Sex And The City (2008) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/sex%20and%20the%20city%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/iHSRxhZsPaVuLCivvV6WEkMVGWU.jpg	"><div class="movie-title">	Sex And The City 2 (2010) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/shakespeare-enamorado/Shakespeare%20enamorado.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/zkk10Qks8epZJsECI01WaR4055m.jpg	"><div class="movie-title">	Shakespeare Enamorado (1998) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/si%20tuviera%2030.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kJUu3fyRSqsCIiGtcZLgsE2OKK5.jpg	"><div class="movie-title">	Si Yo Tuviera 30 (2004) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/sintonia%20de%20amor.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/031%20sintonia%20de%20amor_copy_360x203.png	"><div class="movie-title">	Sintonia De Amor (1993) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/splash.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1984/3/w300/3hWTdbCsIega1LEsjiuO9Eu7eWm.jpg	"><div class="movie-title">	Splash (1984) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20holiday.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/oboCfI4E79HHlj06mCZ5fDuIpxL.jpg	"><div class="movie-title">	The Holiday - El Descanso (2006) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/titanic.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/032%20titanic_copy_360x203.png	"><div class="movie-title">	Titanic (1997) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/city%20of%20angels.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/3uYY5zmB0HLcg6ouz1cpZM5dmkw.jpg	"><div class="movie-title">	Un Angel Enamorado (1998) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/far%20and%20away.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1992/5/w300/9KCHnF2PniBexsvfvSgRx6ErwvR.jpg	"><div class="movie-title">	Un Horizonte Muy Lejano (1992) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/notting%20hill%201999.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/034%20un%20lugar_copy_360x203.png	"><div class="movie-title">	Un Lugar Llamado Notting Hill (1999) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20dash%20of%20love%202017.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/033%20una%20pisca%20de%20amor_copy_360x203.png	"><div class="movie-title">	Una Pizca De Amor (2017) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/indecent%20proposal.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1993/4/w300/gnfppUk4ccdVKLvcN8johTWa0tC.jpg	"><div class="movie-title">	𝐔𝐧𝐚 𝐏𝐫𝐨𝐩𝐮𝐞𝐬𝐭𝐚 𝐈𝐧𝐝𝐞𝐜𝐞𝐧𝐭𝐞 (𝟏𝟗𝟗𝟑) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/vichq06j97w7jnm/SalynPM-SPM4p6m.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/035%20vaselina_copy_360x203.png	"><div class="movie-title">	Vaselina (1978) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/all%20the%20bright%20places%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/036%20violet%20y%20fich_copy_360x203.png	"><div class="movie-title">	Violet Y Finch (2020) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/me%20before%20you.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/037%20yo%20antes%20de%20ti_copy_360x203.png	"><div class="movie-title">	Yo Antes De Ti (2016) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/s6xpfin40mjgxze/SalynPM-Love.simon.2018.1080p.mp4?dl=0?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/038%20yo%20soy%20simon_copy_360x203.png	"><div class="movie-title">	Yo soy Simón (2018) 	<br>	Romance	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/258DocNameRegio/258DocNameRegio.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/romance_01_39/039%20your%20name_copy_360x203.png	"><div class="movie-title">	Your name (2016) 	<br>	Romance	</div></a>
+
+
+
+
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>

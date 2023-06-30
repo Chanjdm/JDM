@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 0px;
+      background: black;
+      outline: none;
+      border:none;
+      text-decoration: none;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      margin-left:1px;
+    }
+    
+    #movie-list{
+        overflow-y: scroll;
+        position: relative;
+        width: 48%;
+        height: 600px;
+    }
+
+    ::-webkit-scrollbar {
+        background:transparent;
+    }
+
+    img {
+        margin-bottom: 0rem;
+        position: relative;
+        width: 130px;
+        border-radius: 14px;
+    }
+
+    #player {
+        width: 50%;
+    }
+
+    #video-player{
+        margin-top: 2.2rem;
+        width: 100%;
+        height: 55%;
+    }
+    .movie-item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
+    @media screen and (max-width: 480px){
+        #container{
+            height: auto;
+        }
+        
+        #movie-list {
+            position: absolute;
+            width: auto;
+            height: 450px;
+            top: 12.5rem;
+            left: 14px;
+        }
+        
+        img {
+            margin-bottom: 0rem;
+            position: relative;
+            width: 125px;
+            border-radius: 14px;
+        }
+
+        #barra_lateral{
+            display:none;
+        }
+
+        #player {
+            position: absolute;
+            width: 90%;
+            align-items: center;
+            left: 2px;
+            top: 3.2rem;
+            display: flex;
+        }
+
+        #video-player{
+            margin-top: 5px;
+            width: 100%;
+            height: 90%;
+        }
+  .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+#search-bar {
+    height:20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-right: 2rem;
+}
+#search-button{
+    padding: 0px 0px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
+    }
+
+
+
+
+
+
+    #search-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 2rem;
+    }
+
+    #search-input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: solid;
+    color: #b7ee00;
+    font-size: 14px;
+}
+
+    #search-button {
+      padding: 0px 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      color:black;
+      cursor: pointer;
+    }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">INICIO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelismarvel.html">MARVEL-DC</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelismex-esp-lat.html">MEX-ESP-LAT</a>
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispelissuspenso.html">SUSPENSO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispeliscrimen.html">MAS</a>
+
+</div>
+</nav>
+
+
+
+
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+
+  <div id="container">
+<div id="movie-list">
+
+
+
+<!-- para poner mas peliculas #############################
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
+
+ ############################ -->
+
+
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/entebbe.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/18/03/12/12/01/2086598.jpg	"><div class="movie-title">	7 dias en Entebbe (2018) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/127%20hours.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/51RpZUzt8ZL._AC_.jpg	"><div class="movie-title">	127 horas (2010) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/dead%20in%20the%20water%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/41drlhAblok3gOlQFSrAGIfyrIY.jpg	"><div class="movie-title">	Aguas_Negras (2021) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://103.145.12.67/peliculas/720/deep%20water%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/22/02/15/10/04/5157285.jpg	"><div class="movie-title">	Aguas profundas (2022) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/anaconda%201997.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://i.pinimg.com/originals/ad/ad/a9/adada9fae4a8dccb03ce3f3069ec5ef5.jpg	"><div class="movie-title">	Anaconda (1997) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://199.188.103.26/rombwgshgfhgdsjr/homeend-d3728.appspot.com/Saga/anaconda%20/Ver%20pel%C3%ADcula%20Anaconda%202-%20En%20Busca%20de%20la%20Orqu%C3%ADdea%20Sangrienta%20online%20gratis%20en%20HD%20-%20Cliver.MP4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cct9huxT1D3pwflow5UgNmJxp7L.jpg	"><div class="movie-title">	Anaconda_2: En Busca De La Orquidea Sangrienta (2004) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://199.188.103.26/rombwgshgfhgdsjr/homeend-d3728.appspot.com/Saga/anaconda%20/Ver%20pel%C3%ADcula%20Anaconda%203-%20La%20Amenaza%20online%20gratis%20en%20HD%20-%20Cliver.MP4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ITzhXbEAi0L5d3oJt1rTq7W3Pu.jpg	"><div class="movie-title">	Anaconda_3: La Amenaza (2008) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://199.188.103.26/rombwgshgfhgdsjr/homeend-d3728.appspot.com/Saga/anaconda%20/8cbfd9848e6a52ff47354ec4afa1ab9f-360p.MP4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pxhih2VLhYoqUzNO459RhZtKBfl.jpg	"><div class="movie-title">	Anaconda_4: Rastro De Sagre (2009) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/nocturnal%20animals.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/tRia5btRjsE9kOW2Zl3HgyFlqOn.jpg	"><div class="movie-title">	Animales_Nocturnos (2015) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/argo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/18/10/13/05/18/0524536.jpg	"><div class="movie-title">	Argo (2012) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/memory%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/22/04/06/02/36/2924051.jpg	"><div class="movie-title">	Asesino sin memoria (2022) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/fatal%20attraction.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/91QXF7gVCOL._SL200_.jpg	"><div class="movie-title">	Atraccion fatal (1987) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20frozen%20ground.mkv?android_vs.ts.mp4	 '); return false;"><img src="	http://img5.allocine.fr/acmedia/medias/nmedia/18/98/42/35/20591571.jpg	"><div class="movie-title">	Bajo cero (2013) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/bajos-instintos-2/bajos%20instintos.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kbxuAUIKrZHXXRxVvVYw95HWPKJ.jpg	"><div class="movie-title">	Bajos Instintos (1992) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/bajos-instintos-2/bajos%20instintos%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/70klhSzfgEhmYCOVdsBONunbgbH.jpg	"><div class="movie-title">	Bajos Instintos 2 (2006) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/becky%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/20/06/10/09/28/2998321.jpg	"><div class="movie-title">	Becky (2020) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/beirut.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/81sieLq8AGL._AC_SY741_.jpg	"><div class="movie-title">	Beirut: El rehen (2018) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/kiss%20the%20girls.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/A1Pnd0uD2uL._AC_SL200_.jpg	"><div class="movie-title">	Besos que matan (1997) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/burn%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/19/07/01/09/32/5896891.jpg	"><div class="movie-title">	Burn: Fuego mortal (2019) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/every%20breath%20you%20take%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w500/iUxadKYbRH5zt1yg1cf54zIu5qm.jpg	"><div class="movie-title">	Cada Respiro Que Tomas (2021) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/causalidad%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/21/11/23/16/57/4236593.png	"><div class="movie-title">	Causalidad (2021) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hunting%20ava%20bravo%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/4/w300/rC3R4duNxZO0qmcEt7n1RNw4mWR.jpg	"><div class="movie-title">	Cazando a Ava Bravo (2022) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/close.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/dy1THXfbZCKsONYzrMTvnJzxzax.jpg	"><div class="movie-title">	Close - Escolta (2019) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/unlocked.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/12/18/17/18/1972813.jpg	"><div class="movie-title">	Codigo Abierto (2017) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/contraband.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/83/08/61/19997018.jpg	"><div class="movie-title">	Contrabando (2012) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/out%20of%20time.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/82/00/31/19589981.jpg	"><div class="movie-title">	Contrarreloj (2003) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/copycat.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/95/69/05/20422751.jpg	"><div class="movie-title">	Copycat: Copia mortal (1995) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/run%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/tfMRX5uhe8k0knQHwFAnRZBtsuj.jpg	"><div class="movie-title">	Corre (2020) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/crawlspace%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w300/qEu6qI5sVoIe10gD1BQBqxcNIW2.jpg	"><div class="movie-title">	Crawlspace: El Entresuelo (2022) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/crimen%20perfecto.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/wcTuyqsQVbSFz8kw9FGcNhN3AJu.jpg	"><div class="movie-title">	Crimen Perfecto (2007) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/crisis%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/o22H1AYFmvF556syhhDjG1ryJRn.jpg	"><div class="movie-title">	Crisis (2021) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/cuando%20se%20rompe%20la%20rama.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/16/06/24/00/15/238609.jpg	"><div class="movie-title">	Cuando Se Rompe La Rama (2016) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/all%20i%20see%20is%20you.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/10/03/09/01/5367869.jpg	"><div class="movie-title">	Dame Tus Ojos (2016) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/derailed.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2005/11/w300/4Fzo3C3tawlO4eLDHDjhOFpqmPO.jpg	"><div class="movie-title">	Descarrilados (2005) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/unknown.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/83/85/85/19712000.jpg	"><div class="movie-title">	Desconocido: Sin Identidad (2011) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/i%20care%20a%20lot%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/04/05/18/21/1434252.jpg	"><div class="movie-title">	Descuida Yo Te Cuido (2021) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20desperate%20hour%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/22/02/23/01/06/1196618.png	"><div class="movie-title">	Desesperada (2021) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/gold%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/22/03/08/17/27/4936079.jpg	"><div class="movie-title">	Desierto De Oro (2022) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/awakening%20the%20zodiac.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/05/04/13/26/494587.jpg	"><div class="movie-title">	Despertando A Zodiac (2017) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/double%20jeopardy.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/61Zo6qLgXcL._RI_.jpg	"><div class="movie-title">	Doble Traicion (1999) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20abogado%20del%20diablo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Dra_01_50/032%20el%20abogado%20del%20diablo_copy_360x203.png	"><div class="movie-title">	El Abogado Del Diablo (1997) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20whole%20truth.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/16/09/22/16/01/098343.jpg	"><div class="movie-title">	El Abogado Del Mal (2016) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20good%20son.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pcYZcS8tEnHExGuoPorcwGZD7ZH.jpg	"><div class="movie-title">	El Angel Malvado (1993) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20cadaver%20de%20anna%20fritz.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/16/04/04/16/37/159769.jpg	"><div class="movie-title">	El Cadaver De Anna Fritz (2015) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20bone%20collector.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Dra_01_50/036%20el%20coleccionista_copy_360x203.png	"><div class="movie-title">	El Coleccionista De Huesos (1999) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/bajos-instintos-2/el%20cuerpo%20del%20delito.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/5udxjDEdjoq2NXUog5k8wD79Se5.jpg	"><div class="movie-title">	El Cuerpo Del Delito (1993) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://199.188.103.26/rombwgshgfhgdsjr/85455532potroxvix/Pel%C3%ADculas/El%20Efecto%20Marcus%20Los%20Casos%20del%20Departamento%20Q.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/sEneMGx9S0SO08wSAPlgD83ysmO.jpg	"><div class="movie-title">	El_Efecto Marcus: Los Casos Del Departamento Q (2021) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20shadow%20effect.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/03/31/18/46/271475.jpg	"><div class="movie-title">	El Efecto Sombra (2017) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20embajador%20del%20miedo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Dra_01_50/039%20el%20embajador_copy_360x203.png	"><div class="movie-title">	El Embajador Del Miedo (2004) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20wrong%20high%20school%20sweetheart%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/2/w300/1UZg70VgMSbcC2BAihw0Mrx78J.jpg	"><div class="movie-title">	El Exnovio Equivocado (2022) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20experiment.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/r_1280_720/pictures/bzp/03/121780.jpg	"><div class="movie-title">	El Experimento (2010) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20guardian%20invisible.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/01/12/10/38/229206.jpg	"><div class="movie-title">	El Guardian Invisible (2017) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-mano-que-mece-la-cuna/el%20inquilino.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/9peU4Ygo7V8DH49o0ogloVi7WH5.jpg	"><div class="movie-title">	El Inquilino (1990) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/eliza%20graves.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2014/10/w300/itvsscemvBjw8WtKXToSmNEbHPK.jpg	"><div class="movie-title">	𝐄𝐥 𝐌𝐚𝐧𝐢𝐜𝐨𝐦𝐢𝐨 𝐃𝐞 𝐄𝐥𝐢𝐳𝐚: 𝐄𝐥 𝐄𝐱𝐩𝐞𝐫𝐢𝐦𝐞𝐧𝐭𝐨 (𝟐𝟎𝟏𝟒) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20negotiator.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/51lLvCD2IiL._AC_.jpg	"><div class="movie-title">	El Mediador: Justicia A Toda Costa (1998) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20commuter.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/12/28/15/35/1057716.jpg	"><div class="movie-title">	El Pasajero (2018) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20marksman%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/21/03/17/19/33/0560798.jpg	"><div class="movie-title">	El Protector (2021) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bridge%20of%20spies.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/15/11/13/13/23/537395.jpg	"><div class="movie-title">	El Puente De Los Espias (2015) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20killing%20of%20a%20sacred%20deer.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/10/17/15/37/0218450.jpg	"><div class="movie-title">	El Sacrificio Del Ciervo Sagrado (2017) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/01_20220718_20220718_2113/01.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/22/05/09/23/04/5145567.jpg	"><div class="movie-title">	El telefono negro (2022) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/phone%20booth.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/8mf98d0EZ4g7ImF16l0ZN7KXoy1.jpg	"><div class="movie-title">	Enlace_Mortal (2003) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/green%20room.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/9/w300/evZicaR7nXe4LiD9G6QYTorcJGO.jpg	"><div class="movie-title">	Habitacion Verde (2015) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/blackhat.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/1/w300/c9FRZfZ3LWMSn6oGuxxXPHkSjH5.jpg	"><div class="movie-title">	Hacker: Amenaza En La Red (2015) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/who%20am%20i.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2014/9/w300/hdCt77CmKXe1oLJ2vH1UtNRa4XH.jpg	"><div class="movie-title">	𝐇𝐚𝐜𝐤𝐞𝐫𝐬: 𝐍𝐢𝐧𝐠𝐮́𝐧 𝐒𝐢𝐬𝐭𝐞𝐦𝐚 𝐄𝐬 𝐒𝐞𝐠𝐮𝐫𝐨 (𝟐𝟎𝟏𝟒) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/man%20on%20fire.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2005/5/w300/6iY8RVwei6s6djRqjiaGXU3AxI5.jpg	"><div class="movie-title">	Hombre en llamas (2004) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20finest%20hours.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/pTzFfxyqp3N6k377TyAUu4463YS.jpg	"><div class="movie-title">	Horas Contadas (2016) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/identity.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2003/4/w300/g1p1vpAeFzicDbswKWuOrKOtt2A.jpg	"><div class="movie-title">	𝐈𝐝𝐞𝐧𝐭𝐢𝐝𝐚𝐝 (𝟐𝟎𝟎𝟑) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/gladiador_202303/Juegos%20Sadicos.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/85buICoIliwD7JeYVUYP9WhBMnW.jpg	"><div class="movie-title">	Juegos Sadicos (𝟐𝟎𝟎7) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/return%20to%20sender.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/5/w300/j0yIndJ5vDCOkoRMLIuetgmBMc6.jpg	"><div class="movie-title">	Justicia Personal (2015) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/kalifornia%201993.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1993/6/w300/nSKN0PeTADSFWMYzkhVuklXbtlY.jpg	"><div class="movie-title">	Kalifornia (1993) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20house%20that%20jack%20built%202018.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/oeRnKXrWkiQBQm6rqMei2ZqQN7s.jpg	"><div class="movie-title">	La Casa De Jack (2018) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20habitacion%20del%20panico.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/tKgHmaBJ6aUgG6JUFgURdhwlqTs.jpg	"><div class="movie-title">	La_Habitacion Del Panico (2002) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/shutter%20island.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/rFu6pBWZ9b8wHHzmc2ADOFJGHsU.jpg	"><div class="movie-title">	La Isla Siniestra (2010) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-mano-que-mece-la-cuna/la%20mano%20que%20mece%20la%20cuna.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/fDjv4tmjnWuPR9L0nVbWLH2qfLs.jpg	"><div class="movie-title">	La Mano Que Mece La Cuna (1992) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-novena-puerta/La%20Novena%20Puerta.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/32cSdAyCSvjrtbfzJcRxG3ywiJH.jpg	"><div class="movie-title">	La Novena Puerta (1999) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/operator.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/8/w300/6XHpAyRg8KikNG3gZnAM5vE7hsw.jpg	"><div class="movie-title">	𝐋𝐚 𝐎𝐩𝐞𝐫𝐚𝐝𝐨𝐫𝐚 (𝟐𝟎𝟏𝟓) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20net.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1995/7/w300/9vmRmkVjMUME1QknZeklYkMcoEr.jpg	"><div class="movie-title">	𝐋𝐚 𝐑𝐞𝐝 (𝟏𝟗𝟗𝟓) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/left%20behind.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2014/10/w300/d2OrXUnS5K2haCvtGLHxYjuSlDJ.jpg	"><div class="movie-title">	𝐋𝐚 𝐔́𝐥𝐭𝐢𝐦𝐚 𝐏𝐫𝐨𝐟𝐞𝐜𝐢́𝐚 (𝟐𝟎𝟏𝟒) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/lazos%20perversos.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kJq5BFH5PVKmpwLF7lhRVq9v41c.jpg	"><div class="movie-title">	𝐋𝐚zos Perversos (2013) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/los%20ojos%20de%20julia.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/1Hb9pyN7BdNGWPwGwOMPtOy7RQN.jpg	"><div class="movie-title">	Los Ojos De Julia (2010) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/crimson%20tide.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/19BjmBCB70qqcX1W2gQ0c69CJ79.jpg	"><div class="movie-title">	Marea Roja (1995) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mente%20siniestra.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/po8t33XtP3JzUnMnZoYxMVUfpIZ.jpg	"><div class="movie-title">	Mente Siniestra (2005) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dont%20say%20a%20word.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2001/9/w300/tqje0P5tCWmbtTruf8ypEdfPgHe.jpg	"><div class="movie-title">	𝐍𝐢 𝐮𝐧𝐚 𝐩𝐚𝐥𝐚𝐛𝐫𝐚 (𝟐𝟎𝟎𝟏) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/enough.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2002/5/w300/cRRyl6rWBZp4Y5zUvZsETBeGTN3.jpg	"><div class="movie-title">	𝐍𝐮𝐧𝐜𝐚 𝐦𝐚́𝐬 (𝟐𝟎𝟎𝟐) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-mano-que-mece-la-cuna/objeto%20de%20deseo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/wOv6HKiKTcDiyZRXPOsjm2JhVZV.jpg	"><div class="movie-title">	Objeto De Deseo (1995) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/serenity.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2005/9/w300/zD81lzAEsTeEDl8f1C6t4USRihg.jpg	"><div class="movie-title">	Obsesion (2005) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/gone%20girl.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/c7jOAiCQpMVCzSkJ2aJbZIhn602.jpg	"><div class="movie-title">	Perdida (2014) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/the-faculty_20230320/perturbados.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/tNXST68drEaM0WmUpZVEhQcioMx.jpg	"><div class="movie-title">	Perturbados (1998) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/absolute%20power.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1997/2/w300/xzyyrc5qIQi62wOLnlGadLGjavJ.jpg	"><div class="movie-title">	Poder absoluto (1997) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/red%20lights.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/3/w300/izzinERoDjXVGJ6with5a1bJVKe.jpg	"><div class="movie-title">	𝐏𝐨𝐝𝐞𝐫𝐞𝐬 𝐎𝐜𝐮𝐥𝐭𝐨𝐬 (𝟐𝟎𝟏𝟐) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/premonition.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2007/2/w300/kqMjcHouoJ1ap5D9EAjexZOavzy.jpg	"><div class="movie-title">	Premoniciones (2007) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20intruders.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://br.web.img3.acsta.net/pictures/15/12/17/15/58/558705.jpg	"><div class="movie-title">	𝐏𝐫𝐞𝐬𝐞𝐧𝐜𝐢𝐚𝐬 𝐌𝐢𝐬𝐭𝐞𝐫𝐢𝐨𝐬𝐚𝐬 (𝟐𝟎𝟏𝟓) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/siberia.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/A52dnVJKfoNCtGEI9Zw2Zyip91b.jpg	"><div class="movie-title">	Siberia (2018) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/sliver.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/g7PC2e2KqDkIfOoJx9iXJJez99d.jpg	"><div class="movie-title">	𝐒liver: Una Invasion A La Intimidad (1993) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/no%20escape.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/8/w300/5lD3a5DP7LRqBvDjduELvqK9xJo.jpg	"><div class="movie-title">	𝐒𝐢𝐧 𝐄𝐬𝐜𝐚𝐩𝐞: 𝐆𝐨𝐥𝐩𝐞 𝐃𝐞 𝐄𝐬𝐭𝐚𝐝𝐨 (𝟐𝟎𝟏𝟓) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/un%20ciudadano%20ejemplar.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2009/10/w300/iaY5L2gY60La8ImK7ll7QBXXk26.jpg	"><div class="movie-title">	Un Ciudadano Ejemplar (2009) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/a%20perfect%20murder.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1998/6/w300/rfm9EtbaUWDzQAFfShb7X1uSczU.jpg	"><div class="movie-title">	Un Crimen Perfecto (1998) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20grey.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2012/1/w300/qrLan9yN5LJbJYozrr5VarL1FVh.jpg	"><div class="movie-title">	Un Día Para Sobrevivir (2011) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/old%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/1fxxpXpuaki0oCf9dqSV3KhpRpz.jpg	"><div class="movie-title">	Viejos (2021) 	<br>	Suspenso	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/zona%20de%20miedo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/buNosyXSokmrYzxvMpb5dUiPkBy.jpg	"><div class="movie-title">	Zona De Miedo (2009) 	<br>	Suspenso	</div></a>
+
+
+
+
+
+
+
+
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>

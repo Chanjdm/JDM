@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 0px;
+      background: black;
+      outline: none;
+      border:none;
+      text-decoration: none;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      margin-left:1px;
+    }
+    
+    #movie-list{
+        overflow-y: scroll;
+        position: relative;
+        width: 48%;
+        height: 600px;
+    }
+
+    ::-webkit-scrollbar {
+        background:transparent;
+    }
+
+    img {
+        margin-bottom: 0rem;
+        position: relative;
+        width: 130px;
+        border-radius: 14px;
+    }
+
+    #player {
+        width: 50%;
+    }
+
+    #video-player{
+        margin-top: 2.2rem;
+        width: 100%;
+        height: 55%;
+    }
+    .movie-item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
+    @media screen and (max-width: 480px){
+        #container{
+            height: auto;
+        }
+        
+        #movie-list {
+            position: absolute;
+            width: auto;
+            height: 450px;
+            top: 12.5rem;
+            left: 14px;
+        }
+        
+        img {
+            margin-bottom: 0rem;
+            position: relative;
+            width: 125px;
+            border-radius: 14px;
+        }
+
+        #barra_lateral{
+            display:none;
+        }
+
+        #player {
+            position: absolute;
+            width: 90%;
+            align-items: center;
+            left: 2px;
+            top: 3.2rem;
+            display: flex;
+        }
+
+        #video-player{
+            margin-top: 5px;
+            width: 100%;
+            height: 90%;
+        }
+  .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+#search-bar {
+    height:20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-right: 2rem;
+}
+#search-button{
+    padding: 0px 0px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
+    }
+
+
+
+
+
+
+    #search-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 2rem;
+    }
+
+    #search-input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: solid;
+    color: #b7ee00;
+    font-size: 14px;
+}
+
+    #search-button {
+      padding: 0px 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      color:black;
+      cursor: pointer;
+    }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">INICIO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispeliscrimen.html">CRIMEN</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisrobos.html">ROBOS</a>
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispelismisterio.html">MISTERIO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisapocalipsis.html">APOCALIPSIS</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelissurreal.html">MAS</a>
+</div>
+</nav>
+
+
+
+
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+
+  <div id="container">
+<div id="movie-list">
+
+
+
+<!-- para poner mas peliculas #############################
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
+
+ ############################ -->
+
+
+
+
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/run%20all%20night.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/3/w300/iSjOGNQY34qIOfYk5heCc1gAlEY.jpg	"><div class="movie-title">	𝐔𝐧𝐚 𝐍𝐨𝐜𝐡𝐞 𝐏𝐚𝐫𝐚 𝐒𝐨𝐛𝐫𝐞𝐯𝐢𝐯𝐢𝐫 (𝟐𝟎𝟏𝟓) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/memento.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/19/07/11/03/07/5008137.jpg	"><div class="movie-title">	Amnesia (2000) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/angels%20and%20demons.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/64/21/36/19079651.jpg	"><div class="movie-title">	Angeles y demonios (2009) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/murder%20on%20the%20orient%20express.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/91qZHTigi7L._RI_.jpg	"><div class="movie-title">	Asesinato en el Expreso de Oriente (2017) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/contratiempo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/16/11/18/11/16/356441.jpg	"><div class="movie-title">	Contratiempo (2016) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/blood%20work.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/pictures/14/03/17/13/40/427609.jpg	"><div class="movie-title">	Deuda De Sangre (2002) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20da%20vinci%20code.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Dra_01_50/035%20el%20codigo_copy_360x203.png	"><div class="movie-title">	El Codigo Da Vinci (2006) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20prestige.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Dra_01_50/041%20gran%20truco_copy_360x203.png	"><div class="movie-title">	El Gran Truco (2006) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20snowman.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/71-9-5ASCpL._SY445_.jpg	"><div class="movie-title">	El Muñeco De Nieve (2017) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/solace.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/9/w300/rX7us4Z78XVEX1RMkmIhKqK9DdV.jpg	"><div class="movie-title">	En La Mente Del Asesino: Premonicion (2015) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/knives%20out%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/omPRLe495hZSsKdI3LjYsK7HcYn.jpg	"><div class="movie-title">	Entre Navajas Y Secretos (2019) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/happy%20death%20day.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/xLu1qmpTCW0qAYCZ3MylNyQ52Lv.jpg	"><div class="movie-title">	Feliz Dia De Tu Muerte (2017) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/happy%20death%20day%202%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/18/11/23/15/27/4536332.jpg	"><div class="movie-title">	Feliz dia de tu muerte 2 (2019) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/red%20dragon.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ou9ZKA2cms02b7CdCdVqGkKu0O0.jpg	"><div class="movie-title">	𝐇𝐚𝐧𝐧𝐢𝐛𝐚𝐥: 𝐃𝐫𝐚𝐠𝐨𝐧 𝐑𝐨𝐣𝐨 (𝟐𝟎𝟎𝟐) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20silence%20of%20the%20lambs.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/9OotAIqASfWZES2xsZiHhfi2qm5.jpg	"><div class="movie-title">	𝐇𝐚𝐧𝐧𝐢𝐛𝐚𝐥: 𝐄𝐥 𝐒𝐢𝐥𝐞𝐧𝐜𝐢𝐨 𝐃𝐞 𝐋𝐨𝐬 𝐈𝐧𝐨𝐜𝐞𝐧𝐭𝐞𝐬 (𝟏𝟗𝟗𝟏) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hannibal.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/rbPQFxirzGs0Nk62VYTdJJPoeTK.jpg	"><div class="movie-title">	𝐇𝐚𝐧𝐧𝐢𝐛𝐚𝐥 (𝟐𝟎𝟎𝟏) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20girl%20with%20the%20dragon%20tattoo%202011.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/qBQmjXW93vTY0XNi6NFYNTLuut7.jpg	"><div class="movie-title">	𝐋𝐚 𝐂𝐡𝐢𝐜𝐚 𝐃𝐞𝐥 𝐃𝐫𝐚𝐠𝐨𝐧 𝐓𝐚𝐭𝐮𝐚𝐝𝐨 (𝟐𝟎𝟏𝟏) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-chica-del-dragon-tatuado-2/la%20chica%20del%20drag%C3%B3n%20tatuado%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/zP551GwQ0Rw7PECJMcE0jsz2YP9.jpg	"><div class="movie-title">	𝐋𝐚 𝐂𝐡𝐢𝐜𝐚 𝐃𝐞𝐥 𝐃𝐫𝐚𝐠𝐨𝐧 𝐓𝐚𝐭𝐮𝐚𝐝𝐨 𝟐: 𝐋𝐚 𝐂𝐡𝐢𝐜𝐚 𝐄𝐧 𝐋𝐚 𝐓𝐞𝐥𝐚𝐫𝐚𝐧̃𝐚 (𝟐𝟎𝟏𝟖) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/les%20rivieres%20pourpres%202000.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/2YpfSp1E2JxvdZcwfUARAXPLU3v.jpg	"><div class="movie-title">	𝐋𝐨𝐬 𝐑𝐢𝐨𝐬 𝐃𝐞 𝐂𝐨𝐥𝐨𝐫 𝐩𝐮𝐫𝐩𝐮𝐫𝐚 (𝟐𝟎𝟎𝟎) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dark%20places.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/4/w300/1t5qXa3Xzj2IQLvvbIhldJvRQGT.jpg	"><div class="movie-title">	𝐋𝐮𝐠𝐚𝐫𝐞𝐬 𝐎𝐬𝐜𝐮𝐫𝐨𝐬 (𝟐𝟎𝟏𝟓) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/beyond%20a%20reasonable%20doubt.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/yB3Yz2RE8kvhdKi13DbUPZQ7avO.jpg	"><div class="movie-title">	Mas Alla De Una Duda Razonable (2009) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/millennium%201.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/fYeXySqKa5uiqFM8OMSdxs3hGK3.jpg	"><div class="movie-title">	𝐌𝐢𝐥𝐥𝐞𝐧𝐧𝐢𝐮𝐦 𝟏: 𝐋𝐨𝐬 𝐇𝐨𝐦𝐛𝐫𝐞𝐬 𝐐𝐮𝐞 𝐍𝐨 𝐀𝐦𝐚𝐛𝐚𝐧 𝐀 𝐥𝐚𝐬 𝐌𝐮𝐣𝐞𝐫𝐞𝐬 (𝟐𝟎𝟎𝟗) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-chica-del-dragon-tatuado-2/milenium%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ikCdaQwDEaPKXjXCE8ByzfOLK0a.jpg	"><div class="movie-title">	𝐌𝐢𝐥𝐥𝐞𝐧𝐧𝐢𝐮𝐦 𝟐: 𝐋𝐚 𝐂𝐡𝐢𝐜𝐚 𝐐𝐮𝐞 𝐒𝐨𝐧̃𝐚𝐛𝐚 𝐂𝐨𝐧 𝐔𝐧𝐚 𝐂𝐞𝐫𝐢𝐥𝐥𝐚 𝐘 𝐮𝐧 𝐁𝐢𝐝𝐨𝐧 𝐃𝐞 𝐆𝐚𝐬𝐨𝐥𝐢𝐧𝐚 (𝟐𝟎𝟎𝟗) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/la-chica-del-dragon-tatuado-2/milenium%203.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/iaDftmicSI0M1RxtraZW6Uh8OeB.jpg	"><div class="movie-title">	𝐌𝐢𝐥𝐥𝐞𝐧𝐧𝐢𝐮𝐦 𝟑: 𝐋𝐚 𝐑𝐞𝐢𝐧𝐚 𝐄𝐧 𝐄𝐥 𝐏𝐚𝐥𝐚𝐜𝐢𝐨 𝐃𝐞 𝐋𝐚𝐬 𝐂𝐨𝐫𝐫𝐢𝐞𝐧𝐭𝐞𝐬 𝐃𝐞 𝐀𝐢𝐫𝐞 (𝟐𝟎𝟎𝟗) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/game%20night.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cSrbnS7SItBFenF6jrKGhgFAiaq.jpg	"><div class="movie-title">	Noche De Juegos (2018) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/regression.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/10/w300/cuenHtO5dHs6dhcr1MhuzIoNVsz.jpg	"><div class="movie-title">	𝐑𝐞𝐠𝐫𝐞𝐬𝐢𝐨́𝐧 (𝟐𝟎𝟏𝟓) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/secret%20in%20their%20eyes.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/10/w300/biK0cAoIJpnRFg7A7JMIOHY7LMs.jpg	"><div class="movie-title">	𝐒𝐞𝐜𝐫𝐞𝐭𝐨𝐬 𝐃𝐞 𝐔𝐧𝐚 𝐎𝐛𝐬𝐞𝐬𝐢𝐨́𝐧 (𝟐𝟎𝟏𝟓) 	<br>	Misterio	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/vertigo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/15uOEfqBNTVtDUT7hGBVCka0rZz.jpg	"><div class="movie-title">	Vertigo (1958) 	<br>	Misterio	</div></a>
+
+
+
+
+
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>

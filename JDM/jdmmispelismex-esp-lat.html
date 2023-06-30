@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 0px;
+      background: black;
+      outline: none;
+      border:none;
+      text-decoration: none;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      margin-left:1px;
+    }
+    
+    #movie-list{
+        overflow-y: scroll;
+        position: relative;
+        width: 48%;
+        height: 600px;
+    }
+
+    ::-webkit-scrollbar {
+        background:transparent;
+    }
+
+    img {
+        margin-bottom: 0rem;
+        position: relative;
+        width: 130px;
+        border-radius: 14px;
+    }
+
+    #player {
+        width: 50%;
+    }
+
+    #video-player{
+        margin-top: 2.2rem;
+        width: 100%;
+        height: 55%;
+    }
+    .movie-item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
+    @media screen and (max-width: 480px){
+        #container{
+            height: auto;
+        }
+        
+        #movie-list {
+            position: absolute;
+            width: auto;
+            height: 450px;
+            top: 12.5rem;
+            left: 14px;
+        }
+        
+        img {
+            margin-bottom: 0rem;
+            position: relative;
+            width: 125px;
+            border-radius: 14px;
+        }
+
+        #barra_lateral{
+            display:none;
+        }
+
+        #player {
+            position: absolute;
+            width: 90%;
+            align-items: center;
+            left: 2px;
+            top: 3.2rem;
+            display: flex;
+        }
+
+        #video-player{
+            margin-top: 5px;
+            width: 100%;
+            height: 90%;
+        }
+  .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+#search-bar {
+    height:20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-right: 2rem;
+}
+#search-button{
+    padding: 0px 0px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
+    }
+
+
+
+
+
+
+    #search-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 2rem;
+    }
+
+    #search-input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: solid;
+    color: #b7ee00;
+    font-size: 14px;
+}
+
+    #search-button {
+      padding: 0px 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      color:black;
+      cursor: pointer;
+    }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">INICIO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelismarvel.html">MARVEL-DC</a>
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispelismex-esp-lat.html">MEX-ESP-LAT</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelissuspenso.html">SUSPENSO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispeliscrimen.html">MAS</a>
+
+</div>
+</nav>
+
+
+
+
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+
+  <div id="container">
+<div id="movie-list">
+
+
+
+<!-- para poner mas peliculas #############################
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
+
+ ############################ -->
+
+
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/amar%20te%20duele%202002.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/eyhd9wLlyDTGOKl4jmzWy5sa90o.jpg	"><div class="movie-title">	Amar Te Duele (2002) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/amores%20perros.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cp74gjYSZjPs894MMPAVBykhWqU.jpg	"><div class="movie-title">	Amores Perros	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/angelitos%20negros.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/lH3vmMkYjjgGXLopIrGW59Y6SWi.jpg	"><div class="movie-title">	Angelitos Negros	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/chicuarotes%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/8qCDtYCeBF7PwV42NDw2VrtNgA0.jpg	"><div class="movie-title">	Chicuarotes	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/chilangolandia%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://static.cinepolis.com/img/peliculas/36727/1/1/36727.jpg	"><div class="movie-title">	Chilangolandia (2021) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/como%20agua%20para%20chocolate.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/bBToqYouLBaoojtC6AyRNeFcQoV.jpg	"><div class="movie-title">	Como Agua Para Chocolate	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/como%20cortar%20a%20tu%20patan.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/17/09/06/19/49/3462523.jpg	"><div class="movie-title">	Como cortar a tu patan (2017) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/cuidado%20con%20lo%20que%20deseas%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/20/03/07/01/23/0036122.jpg	"><div class="movie-title">	Cuidado Con Lo Que Deseas (2020) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/desierto.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/fsI9izzYvpZIErDzIIUtRe9Idq5.jpg	"><div class="movie-title">	Desierto	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/despues%20de%20ti%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/20/11/03/17/09/1252050.jpg	"><div class="movie-title">	Despues de ti (2021) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/y-2-mate.is-dios-los-cri-a-vicente-ferna-ndez-2un-nusz-24-qy-480p-1639113956059/Y2Mate.is%20-%20%F0%9F%8E%AC%20DIOS%20LOS%20CR%C3%8DA%20%20%20%E2%AD%90%EF%B8%8F%20VICENTE%20FERN%C3%81NDEZ%20%E2%AD%90%EF%B8%8F-2unNusz24QY-480p-1639113956059.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/smgfrbJIttn2Q65mYrHjOkWOAYi.jpg	"><div class="movie-title">	Dios Los Cria (1977) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dos%20tipos%20de%20cuidado.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/86WaWg7M6M9HKEl1CWodmC5VJHQ.jpg	"><div class="movie-title">	Dos Tipos De Cuidado	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/el-arracadas_202206/el%20arracadas.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/k1RIi0Q26iHF64Pl43rNxrOXRSm.jpg	"><div class="movie-title">	El Arracadas (1978) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20ascensor%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/02/10/16/40/4960318.jpg	"><div class="movie-title">	El Ascensor (2021) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20bolero%20de%20raquel.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/fTnNcQIIkghGyYmNIGMCtgy4BoN.jpg	"><div class="movie-title">	El Bolero De Raquel	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/el-cuatrero/El%20Cuatrero.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/sZ7YDTCRCeW0FVMJs4Gpq2ZwBjt.jpg	"><div class="movie-title">	El Cuatrero (1989) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/el-diablo-el-santo-y-el-tonto-1987-widescreen-version/El%20Diablo%2C%20El%20Santo%20Y%20El%20Tonto%281987%29%20WIDESCREEN%20VERSION.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cPykZwqUIv71SE1hucdkGK4HmVG.jpg	"><div class="movie-title">	El Diablo El Santo Y El Tonto (1987) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/yt-1s.com-el-hijo-del-pueblo-1974-widescreen-version-720p/yt1s.com%20-%20El%20Hijo%20Del%20Pueblo%201974%20%20WIDESCREEN%20VERSION_720p.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/nyhjwtfxttQE14thuk4NRpIPtCW.jpg	"><div class="movie-title">	El Hijo Del Pueblo (1974) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20infierno.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ar8BpJ5xAzTIw9bqD9Sra6TjBvw.jpg	"><div class="movie-title">	El Infierno	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20exorcismo%20de%20carmen%20farias%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img2.acsta.net/pictures/20/05/27/03/22/0534950.jpg	"><div class="movie-title">	El Exorcismo De Carmen Farias (2021) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20padrecito.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/fREvHyV2W1gG1HrBaAbxmXiYE2P.jpg	"><div class="movie-title">	El Padrecito (1964) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20profe.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/gkAuxr9F2N1yq0hkexqMF120QFg.jpg	"><div class="movie-title">	El Profe (1971) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20senor%20doctor.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/aRkaHVK8qPuG0ckmp1lgtoFeid1.jpg	"><div class="movie-title">	El Señor Doctor (1965) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/2954-el-tahur-1979-dvdrip-lat-mx-v.mkv?android_vs.ts.mp4/2954-El_Tahur_%281979%29_DVDRip_Lat_mx_v.mkv?android_vs.ts.mp4.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/9UcPHf3sZCjdLUw2enr2uRJkiJk.jpg	"><div class="movie-title">	El Tahur (1979) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20dictadura%20perfecta.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/bpjYRN6hcT1xuuejcltlvP7BSO4.jpg	"><div class="movie-title">	La Dictadura Perfecta	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20jaula%20de%20oro.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/lmm7ySFMlOyefDTUd0EwLdOzd5x.jpg	"><div class="movie-title">	La Jaula De Oro	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20ley%20de%20herodes%201999.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/653dXbr6dXffXG0oN8OfZGShFRP.jpg	"><div class="movie-title">	La Ley De Herodes	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/y-2-mate.is-la-ley-del-monte-widescreen-d-1-amdx-7o-hp-q-720p-1641780089832/Y2Mate.is%20-%20La%20Ley%20Del%20Monte%20WIDESCREEN-D1AMDX7oHpQ-720p-1641780089832.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/j3xpGiZ8CvkHmTgTme1pfgrw7fM.jpg	"><div class="movie-title">	La Ley Del Monte (1976) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/las%20hijas%20de%20abril.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ojIlsqffbUWPo7bh4gDiqy6Yvgk.jpg	"><div class="movie-title">	Las Hijas De Abril	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/los%20lobos%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/fu307LsuE639r9ceu1nCcL4mqRY.jpg	"><div class="movie-title">	Los Lobos	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/los%20trapos%20sucios%20se%20lavan%20en%20casa%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/klmsgJ1gBsZSmeN7JbUcaBy1AAV.jpg	"><div class="movie-title">	Los Trapos Sucios Se Lavan En Casa (2020) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/museo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/83qrxZUQaKnTkC6xUS2sHcOjkl0.jpg	"><div class="movie-title">	Museo	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/noche%20de%20fuego%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/gPMDylzC8H8vMLGsAOGRgBGAhxX.jpg	"><div class="movie-title">	Noche De Fuego	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/nosotros%20los%20nobles.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/mBI1WTduABARAPzOhi8k0Sh2F6b.jpg	"><div class="movie-title">	Nosotros Los Nobles	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/nuestro%20tiempo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/klIu4ov7JLKuefq7pCu3jtGulCV.jpg	"><div class="movie-title">	Nuestro Tiempo	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/por%20mis%20pistolas.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/qSWIHSwohqeZTFartIE3qzzV4i0.jpg	"><div class="movie-title">	Por Mis Pistolas (1968) 	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/roma.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/mol9igUACes9yma2e7965qDBspL.jpg	"><div class="movie-title">	Roma	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/romina.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/hkrlkZU6SjZkS2HHNWO5Ca6NLnr.jpg	"><div class="movie-title">	Romina	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/rudo%20y%20cursi.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/jKACExV7LJboFpsT3RqNpyX7meY.jpg	"><div class="movie-title">	Rudo Y Cursi	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/sonora%202018.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/tuLnN4M1d0SbegWndB2vZYOPAtH.jpg	"><div class="movie-title">	Sonora	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/voces%20inocentes.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/4n17GclsQnAMr8zGDFc22ZlGocU.jpg	"><div class="movie-title">	Voces Inocentes	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/vuelven.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/kF9npcT5oIheqQ0O0O53PYfYba0.jpg	"><div class="movie-title">	Vuelven	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/y%20tu%20mama%20tambien.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/hvdqoH6DMZjes6MXImW8J49l01Q.jpg	"><div class="movie-title">	Y tu Mamá tambien	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ya%20no%20estoy%20aqui%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/min2PJ67s9HUD5ZeCSKTfSgniSC.jpg	"><div class="movie-title">	Ya No Estoy Aqui	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/zapata.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/6mbiWuCzVNyH5m8BqZ46Ju0BPmI.jpg	"><div class="movie-title">	Zapata	<br>	Cine Mexicano	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tres%20metros%20sobre%20el%20cielo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/nNoMfNPnvEzGADXDkP6eJAP81KB.jpg	"><div class="movie-title">	3 Metros Sobre El Cielo (2010) 	<br>	Cine Español	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20jugador%20de%20ajedrez.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/17/02/15/15/22/150475.jpg	"><div class="movie-title">	El Jugador De Ajedrez (2017) 	<br>	Cine Español	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20orfanato.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/14/04/14/10/36/123417.jpg	"><div class="movie-title">	El Orfanato (2007) 	<br>	Cine Español	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/extinction.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/8/w300/h2peRx0F8tO8crFVkOeKUK2q8BR.jpg	"><div class="movie-title">	𝐋𝐚 𝐄𝐫𝐚 𝐃𝐞 𝐋𝐚 𝐄𝐱𝐭𝐢𝐧𝐬𝐢𝐨𝐧 (𝟐𝟎𝟏𝟓) 	<br>	Cine Español	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20piel%20que%20habito.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/sW6pB4C674TDMhFcBXDbz7L0ppO.jpg	"><div class="movie-title">	La Piel Que Habito (2011) 	<br>	Cine Español	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20clan.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/8/w300/mhFKzAvuBb87fwygkcLvhiJ0bbS.jpg	"><div class="movie-title">	El Clan (2015) 	<br>	Cine Latino	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20profugo%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/20/01/30/15/43/2556601.jpg	"><div class="movie-title">	El Profugo (2021) 	<br>	Cine Latino	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20secreto%20de%20sus%20ojos.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/S/pv-target-images/f60a6f84a4de51b4c8da33ce71a79dc2aa0ca9307034ad8e2b9fb1b14d1531a7._RI_V_TTW_.jpg	"><div class="movie-title">	El Secreto De Sus Ojos (2009) 	<br>	Cine Latino	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%2033.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/8/w300/428swQoL0VH65ixfsYxnWCJqGrG.jpg	"><div class="movie-title">	𝐋𝐨𝐬 𝟑𝟑 (𝟐𝟎𝟏𝟓) 	<br>	Cine Latino	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/relatos%20salvajes.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2014/8/w300/ttaZHjuyiyBqH85sOBqgWxczqdJ.jpg	"><div class="movie-title">	𝐑𝐞𝐥𝐚𝐭𝐨𝐬 𝐒𝐚𝐥𝐯𝐚𝐣𝐞𝐬 (𝟐𝟎𝟏𝟓) 	<br>	Cine Latino	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tropa%20de%20elite.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2007/10/w300/bfYxW49qwF6ruBs9QvM4VwKsUuz.jpg	"><div class="movie-title">	Tropa de elite (2007) 	<br>	Cine Latino	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tropa%20de%20elite%202%20o%20inimigo%20agora%20e%20outro.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2010/10/w300/geK5X7cIWap06q7J2ZiyQr2scrc.jpg	"><div class="movie-title">	Tropa de elite 2 (2010) 	<br>	Cine Latino	</div></a>
+
+
+
+
+
+
+
+
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>

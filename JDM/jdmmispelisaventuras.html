@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+<head>
+  <style>
+    * {
+      padding: 0px;
+      background: black;
+      outline: none;
+      border:none;
+      text-decoration: none;
+    }
+
+    #container {
+      display: flex;
+      background: black;
+      margin-left:1px;
+    }
+    
+    #movie-list{
+        overflow-y: scroll;
+        position: relative;
+        width: 48%;
+        height: 600px;
+    }
+
+    ::-webkit-scrollbar {
+        background:transparent;
+    }
+
+    img {
+        margin-bottom: 0rem;
+        position: relative;
+        width: 130px;
+        border-radius: 14px;
+    }
+
+    #player {
+        width: 50%;
+    }
+
+    #video-player{
+        margin-top: 2.2rem;
+        width: 100%;
+        height: 55%;
+    }
+    .movie-item {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+
+    @media screen and (max-width: 720px){
+        
+.nav-links{
+    font-size: 10px;
+    margin-top: 14px;
+}
+}
+    @media screen and (max-width: 480px){
+        #container{
+            height: auto;
+        }
+        
+        #movie-list {
+            position: absolute;
+            width: auto;
+            height: 450px;
+            top: 12.5rem;
+            left: 14px;
+        }
+        
+        img {
+            margin-bottom: 0rem;
+            position: relative;
+            width: 125px;
+            border-radius: 14px;
+        }
+
+        #barra_lateral{
+            display:none;
+        }
+
+        #player {
+            position: absolute;
+            width: 90%;
+            align-items: center;
+            left: 2px;
+            top: 3.2rem;
+            display: flex;
+        }
+
+        #video-player{
+            margin-top: 5px;
+            width: 100%;
+            height: 90%;
+        }
+  .movie-title {
+    display: grid;
+    color: white;
+    font-size: 13px;
+    margin-bottom: 10px;
+    justify-content: center;
+    width: 130px;
+}
+#search-bar {
+    height:20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0px;
+    margin-right: 2rem;
+}
+#search-button{
+    padding: 0px 0px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+    cursor: pointer;
+}
+
+.page-link {
+    position: relative;
+    top: -10px;
+    font-size: 8px;
+
+}
+
+    }
+
+
+
+
+
+
+    #search-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+      margin-right: 2rem;
+    }
+
+    #search-input {
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    border: solid;
+    color: #b7ee00;
+    font-size: 14px;
+}
+
+    #search-button {
+      padding: 0px 10px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 14px;
+      color:black;
+      cursor: pointer;
+    }
+.page-link.current   {
+    color: #00ffcc;
+    box-shadow: 0 0 1rem var(--primary);
+    display: inline-grid;
+    justify-content: space-around;
+}
+
+.page-link  {
+    border-style: solid;
+    border-width: 0.5px;
+    margin-left: 4px;
+    color: #ff5fee;
+    padding: 2px;
+    background: #8a797900;
+}
+}
+
+
+
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="nav-links"  style="   height: 5px;">
+
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html">INICIO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisotros.html">OTROS</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisaccion.html">ACCION</a>
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisaventuras.html">AVENTURA</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispeliscomedia.html">COMEDIA</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisdrama.html">DRAMA</a>
+
+
+</div>
+</nav>
+
+
+
+
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+
+  <div id="container">
+<div id="movie-list">
+
+
+
+<!-- para poner mas peliculas #############################
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
+
+ ############################ -->
+
+
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/47%20ronin.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/8SR6ZXRh1gmuesCvcuuAiImnva5.jpg	"><div class="movie-title">	𝟒𝟕 𝐑𝐨𝐧𝐢𝐧: 𝐋𝐚 𝐋𝐞𝐲𝐞𝐧𝐝𝐚 𝐃𝐞𝐥 𝐒𝐚𝐦𝐮𝐫𝐚𝐢 (𝟐𝟎𝟏𝟑) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/10000%20bc.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/fShaGUuwkDgobYRZCwntmzjjn2i.jpg	"><div class="movie-title">	10,000 A.C. (𝟐𝟎𝟎𝟖) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/300.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/zLQG9fqH01f8eFRAaSUJY7va92x.jpg	"><div class="movie-title">	300(𝟐𝟎𝟎𝟔) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/300%20rise%20of%20an%20empire.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/cbt5wY4rCe63JBmNYnJytJpFhnm.jpg	"><div class="movie-title">	𝟑𝟎𝟎 𝐄𝐥 𝐍𝐚𝐜𝐢𝐦𝐢𝐞𝐧𝐭𝐨 𝐃𝐞 𝐔𝐧 𝐈𝐦𝐩𝐞𝐫𝐢𝐨 (𝟐𝟎𝟏𝟒) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/airborne_202109/www.MEGA-DVDRIP.CC--1314.MP4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/4TPCzvOoQmmParPjgHCiqqiVYIJ.jpg	"><div class="movie-title">	𝐀𝐢𝐫𝐛𝐨𝐫𝐧𝐞: 𝐍𝐚𝐜𝐢𝐝𝐨𝐬 𝐏𝐚𝐫𝐚 𝐕𝐨𝐥𝐚𝐫 (𝟏𝟗𝟗𝟑) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/aladdin%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/trnyoKkkvvjZvRvCMrNDtSf25nH.jpg	"><div class="movie-title">	𝐀𝐥𝐚𝐝𝐝𝐢𝐧 (𝟐𝟎𝟏𝟗) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/alpha.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/ujWmzBgVZLyTiEbFPgA50qSJVGl.jpg	"><div class="movie-title">	𝐀𝐥𝐟𝐚 (𝟐𝟎𝟏𝟖) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/fantastic%20beast%20and%20where%20to%20find%20them.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/pLgSLx9dn2YYbwVk8p0F28KIU8C.jpg	"><div class="movie-title">	𝐀𝐧𝐢𝐦𝐚𝐥𝐞𝐬 𝐅𝐚𝐧𝐭𝐚𝐬𝐭𝐢𝐜𝐨𝐬 𝐘 𝐃𝐨𝐧𝐝𝐞 𝐄𝐧𝐜𝐨𝐧𝐭𝐫𝐚𝐫𝐥𝐨𝐬 (𝟐𝟎𝟏𝟔) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/animales%20fantasticos%20los%20crimenes%20de%20grindelwald.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/p4BabO5lvfXnIsVIBLDpN2wLORz.jpg	"><div class="movie-title">	𝐀𝐧𝐢𝐦𝐚𝐥𝐞𝐬 𝐅𝐚𝐧𝐭𝐚𝐬𝐭𝐢𝐜𝐨𝐬 𝟐: 𝐋𝐨𝐬 𝐂𝐫𝐢𝐦𝐞𝐧𝐞𝐬 𝐃𝐞 𝐆𝐫𝐢𝐧𝐝𝐞𝐥𝐰𝐚𝐥𝐝 (𝟐𝟎𝟏𝟖) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/fantastic%20beasts%20the%20secrets%20of%20dumbledore%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/gd7H5Tb5LMOqxiRKFbNmt0EAw4R.jpg	"><div class="movie-title">	𝐀𝐧𝐢𝐦𝐚𝐥𝐞𝐬 𝐅𝐚𝐧𝐭𝐚𝐬𝐭𝐢𝐜𝐨𝐬 𝟑: 𝐋𝐨𝐬 𝐒𝐞𝐜𝐫𝐞𝐭𝐨𝐬 𝐃𝐞 𝐃𝐮𝐦𝐛𝐥𝐞𝐝𝐨𝐫𝐞 (𝟐𝟎𝟐𝟐) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/apocalypto.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/yQ4uC13IYVerbxMMXeSogSQUkOT.jpg	"><div class="movie-title">	𝐀𝐩𝐨𝐜𝐚𝐥𝐲𝐩𝐭𝐨 (𝟐𝟎𝟎𝟔) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/australia.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/v9umE5IGuLdSTUZb0erveBnmzaS.jpg	"><div class="movie-title">	𝐀𝐮𝐬𝐭𝐫𝐚𝐥𝐢𝐚 (𝟐𝟎𝟎𝟖) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/avatar.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/tXmTHdrZgNsULqCbThK2Dt2X9Wt.jpg	"><div class="movie-title">	𝐀𝐯𝐚𝐭𝐚𝐫 (𝟐𝟎𝟎𝟗) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/avatar%20the%20way%20of%20water%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/bqOqQ2Tawum3eHKNrc94P4EeaZB.jpg	"><div class="movie-title">	Avatar: El Sentido Del Agua (2022) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/beowulf.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/wb3ElIvaek5Ou8HeMaF0H0q0Kud.jpg	"><div class="movie-title">	𝐁𝐞𝐨𝐰𝐮𝐥𝐟 (𝟐𝟎𝟎𝟕) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/blade.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/dCsTsFX4PT9wewpKYaddwPHYI3A.jpg	"><div class="movie-title">	𝐁𝐥𝐚𝐝𝐞 (𝟏𝟗𝟗𝟖) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/blade%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/4upKg9wQ6P86CjSlqI7wQ3ZM3Dz.jpg	"><div class="movie-title">	𝐁𝐥𝐚𝐝𝐞 𝟐 (𝟐𝟎𝟎𝟐) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/blade%203.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/8GiUVbr73cHe68d4ybpxDbeReZP.jpg	"><div class="movie-title">	𝐁𝐥𝐚𝐝𝐞 𝐓𝐫𝐢𝐧𝐢𝐭𝐲 (𝟐𝟎𝟎𝟒) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/snow%20white%20and%20the%20huntsman.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/aXDkg5obS59srKM2IefPIZMGF4b.jpg	"><div class="movie-title">	𝐁𝐥𝐚𝐧𝐜𝐚𝐧𝐢𝐞𝐯𝐞𝐬 𝐲 𝐋𝐚 𝐋𝐞𝐲𝐞𝐧𝐝𝐚 𝐃𝐞𝐥 𝐂𝐚𝐳𝐚𝐝𝐨𝐫 (𝟐𝟎𝟏𝟐) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/temporada%20de%20brujas.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/HbpdHdvHbAppdzxUaKIwAuy3CZ.jpg	"><div class="movie-title">	𝐂𝐚𝐜𝐞𝐫𝐢𝐚 𝐃𝐞 𝐁𝐫𝐮𝐣𝐚𝐬 (𝟐𝟎𝟏𝟏) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jurassic%20hunt%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/M/MV5BNzBiZDcyYTgtMDYxMC00MjU0LThmMzgtYTkxNjVkNWMxYjAxXkEyXkFqcGdeQXVyOTg4MDYyNw@@._V1_.jpg	"><div class="movie-title">	𝐂𝐚𝐜𝐞𝐫𝐢𝐚 𝐉𝐮𝐫𝐚𝐬𝐢𝐜𝐚 (𝟐𝟎𝟐𝟏) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/into%20the%20wild.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://mx.web.img3.acsta.net/pictures/15/11/02/12/26/041714.jpg	"><div class="movie-title">	𝐂𝐚𝐦𝐢𝐧𝐨 𝐒𝐚𝐥𝐯𝐚𝐣𝐞 (𝟐𝟎𝟎𝟕) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/i%20kill%20giants.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/2YCcd76n32nuc04DuSGfjq9wW62.jpg	"><div class="movie-title">	𝐂azadora De Gigantes (2017) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/conan%20the%20barbarian%201982.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/81Q4cNxhIkL._AC_SL200_.jpg	"><div class="movie-title">	𝐂𝐨𝐧𝐚𝐧 𝐄𝐥 𝐁𝐚𝐫𝐛𝐚𝐫𝐨 (𝟏𝟗𝟖𝟐) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/conan%20the%20destroyer%201984.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/I/51LQrlGGAGL._AC_.jpg	"><div class="movie-title">	𝐂𝐨𝐧𝐚𝐧 𝐄𝐥 𝐃𝐞𝐬𝐭𝐫𝐮𝐜𝐭𝐨𝐫 (𝟏𝟗𝟖𝟒) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/conan%20the%20barbarian%202011.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/uxgpV9lVOMhtaVxwlpUiZea31KY.jpg	"><div class="movie-title">	𝐂𝐨𝐧𝐚𝐧 𝐄𝐥 𝐁𝐚𝐫𝐛𝐚𝐫𝐨 (𝟐𝟎𝟏𝟏) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/pathfinder.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/44EwZZhkNuuYWAtTeW3HVQ1uL4f.jpg	"><div class="movie-title">	𝐂𝐨𝐧𝐪𝐮𝐢𝐬𝐭𝐚𝐝𝐨𝐫𝐞𝐬 (𝟐𝟎𝟎𝟕) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/constantine.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/oj0s9jvCyMSCMvw7pNWt7nELykW.jpg	"><div class="movie-title">	𝐂𝐨𝐧𝐬𝐭𝐚𝐧𝐭𝐢𝐧𝐞 (𝟐𝟎𝟎𝟓) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/corazon-de-dragon_202303/Corazon%20de%20dragon.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/5ciO16x4LQ7uhy854YHvQuQvHU9.jpg	"><div class="movie-title">	Corazon De Dragon (1996) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/crepusculo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/40ollvfwHaVF85lkkg522SIl3Qc.jpg	"><div class="movie-title">	𝐂𝐫𝐞𝐩𝐮𝐬𝐜𝐮𝐥𝐨 (𝟐𝟎𝟎𝟖) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20twilight%20saga%20new%20moon.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/hyzlDaHtB15PnRMFsd9jmMJ73pO.jpg	"><div class="movie-title">	𝐂𝐫𝐞𝐩𝐮𝐬𝐜𝐮𝐥𝐨: 𝐋𝐮𝐧𝐚 𝐍𝐮𝐞𝐯𝐚 (𝟐𝟎𝟎𝟗) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20twilight%20saga%20eclipse.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/yjfrg4H8sCst4Z5gAW0Asn7506T.jpg	"><div class="movie-title">	𝐂𝐫𝐞𝐩𝐮𝐬𝐜𝐮𝐥𝐨: 𝐄𝐜𝐥𝐢𝐩𝐬𝐞 (𝟐𝟎𝟏𝟎) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/amanecer%20parte%201.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/27WlKKz9f3vMr6JvSf0LDBVdtaZ.jpg	"><div class="movie-title">	𝐂𝐫𝐞𝐩𝐮𝐬𝐜𝐮𝐥𝐨: 𝐀𝐦𝐚𝐧𝐞𝐜𝐞𝐫 𝐏𝐚𝐫𝐭𝐞 𝟏 (𝟐𝟎𝟏𝟏) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/crepusculo%20amanecer%20parte%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/pPB3rQx0oBOmj5CHZxLWgexo5nS.jpg	"><div class="movie-title">	𝐂𝐫𝐞𝐩𝐮𝐬𝐜𝐮𝐥𝐨: 𝐀𝐦𝐚𝐧𝐞𝐜𝐞𝐫 𝐏𝐚𝐫𝐭𝐞 𝟐 (𝟐𝟎𝟏𝟐) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/cruzada.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/utqr2zoLzU8O89pxmIBVMvKqkc3.jpg	"><div class="movie-title">	𝐂𝐫𝐮𝐳𝐚𝐝𝐚 (𝟐𝟎𝟎𝟓) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/diamante%20de%20sangre.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img2.acsta.net/medias/nmedia/18/67/78/10/20060233.jpg	"><div class="movie-title">	𝐃𝐢𝐚𝐦𝐚𝐧𝐭𝐞 𝐃𝐞 𝐒𝐚𝐧𝐠𝐫𝐞 (𝟐𝟎𝟎𝟔) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/gods%20of%20egypt.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/j6RDEmmkkDwF8hoAWh9xiYybYC7.jpg	"><div class="movie-title">	Dioses De Egipto (2016) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dracula%201992.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/aYfpL5vJHJ21NZo5oxjUQSkkbpq.jpg	"><div class="movie-title">	𝐃𝐫𝐚𝐜𝐮𝐥𝐚 𝐃𝐞 𝐁𝐫𝐚𝐦 𝐒𝐭𝐨𝐤𝐞𝐫 (𝟏𝟗𝟗𝟐) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dracula%20untold.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/bDtez5W2CtIN7HqQNLWKzY60yE4.jpg	"><div class="movie-title">	Dracula: La Historia Jamas Contada (2014) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/dune%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/qf5bntGx2p5kQKO7zUbHrbOx9pp.jpg	"><div class="movie-title">	Duna (2021) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20eagle.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/81knv50rIyL._RI_.jpg	"><div class="movie-title">	El Aguila De La Legion Perdida (2011) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20huntsman%20winters%20war.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/kz5pn8vOvvyUaEGbThMkfYN3kcX.jpg	"><div class="movie-title">	El Cazador Y La Reina Del Hielo (2016) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20count%20of%20monte%20cristo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/udaGNhjNcfW2Y2EQKk75SYIeBYl.jpg	"><div class="movie-title">	El Conde De Montecristo (2002) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20fourth%20musketeer%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/3/w300/6DdDsgqMaQ7v0e9tGTPcIExc7kl.jpg	"><div class="movie-title">	El Cuarto Mosquetero (2022) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/outcast.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/I/81fAIcnNTuL._RI_.jpg	"><div class="movie-title">	𝐄𝐥 𝐅𝐚𝐧𝐭𝐚𝐬𝐦𝐚 (𝟐𝟎𝟏𝟒) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20hobbit%20an%20unexpected%20journey.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/2Also6fDCjczi6xEFYFOqiau3f7.jpg	"><div class="movie-title">	El Hobbit 1: Un Viaje Inesperado (2012) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20hobbit%20the%20desolation%20of%20smaug.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/m8uQ5swzBLRyY19UwqCsVK2fM7C.jpg	"><div class="movie-title">	El Hobbit 2: La Desolacion De smaug (2013) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20hobbit%20the%20battle%20of%20the%20five%20armies.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/6OiNSLcRKJsBLXwb6DEi6IQ0JFk.jpg	"><div class="movie-title">	El Hobbit 3: La Batalla De Los Cinco Ejercitos (2014) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20man%20in%20the%20iron%20mask.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/50Ug4tJ66gJ9ZgivMGzZnGkdw1p.jpg	"><div class="movie-title">	El Hombre De La Mascara De Hierro (1998) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20northman%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/j26MVGWydk3wij5PKWsqW35APGx.jpg	"><div class="movie-title">	El Hombre Del Norte (2022) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20imaginarium%20of%20doctor%20parnassus%202009.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/lzceuiHbqiOGRkDjzysVQ15DVK7.jpg	"><div class="movie-title">	El Imaginario Mundo Del Doctor Parnassus (2009) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20lone%20ranger.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/d3CDpP25e1sDluuvEbgnhl1Ovte.jpg	"><div class="movie-title">	El llanero Solitario (2013) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20laberinto%20del%20fauno.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/Ao83nMqYIYUsD2Q3lNsz6176MlC.jpg	"><div class="movie-title">	El Laberinto Del Fauno (2006) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20jungle%20book%202016.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/16/02/15/14/51/400512.jpg	"><div class="movie-title">	El Libro De La selva  (2016) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/bridge%20to%20terabithia.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/2I0mrsvS1tz5Ylxw3eCYKCQgaI8.jpg	"><div class="movie-title">	El Mundo Magico De Terabithia (2007) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20principe%20de%20persia%20las%20arenas%20del%20tiempo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/vhATwS2BVbVvu5ltv8F1aodLTPE.jpg	"><div class="movie-title">	El Principe De Persia: Las Arenas Del Tiempo (2010) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/el-reino-del-anillo/el%20reino%20del%20anillo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/uVUTgJPXFHB1Pc8g0PiYWhEtKZP.jpg	"><div class="movie-title">	El Reino Del Anillo (2004) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20forbidden%20kingdom.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/15/11/10/09/37/281675.jpg	"><div class="movie-title">	El Reino Prohibido (2008) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/el-rey-arturo/El%20rey%20arturo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/d7xVc64aCBkcPKqNH0asz69T4tX.jpg	"><div class="movie-title">	𝐄𝐥 Rey Arturo (2004) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/king%20arthur%20legend%20of%20the%20sword.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/wl2LLrxuCRoAP1TDOz8Et8exwsx.jpg	"><div class="movie-title">	𝐄𝐥 𝐑𝐞𝐲 𝐀𝐫𝐭𝐮𝐫𝐨: 𝐋𝐚 𝐥𝐞𝐲𝐞𝐧𝐝𝐚 𝐃𝐞 𝐋𝐚 𝐄𝐬𝐩𝐚𝐝𝐚 (𝟐𝟎𝟏𝟕) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/edge%20of%20the%20world%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/21/07/21/10/24/1216702.jpg	"><div class="movie-title">	El Rey Del Fin Del Mundo (2021) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20scorpion%20king.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/aAOQaJ9PeL29mgr2og42d3ZV68L.jpg	"><div class="movie-title">	El Rey Escorpion (2002) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20scorpion%20king%20rise%20of%20a%20warrior.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/sifKzZSF0slc353Q3c02YmUTFtF.jpg	"><div class="movie-title">	El Rey Escorpion 2: El Ascenso De Un Guerrero (2008) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20scorpion%20king%203%20battle%20for%20redemption.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/5S35RXhpva5hfXYTvPGLzQmqhdy.jpg	"><div class="movie-title">	El Rey Escorpion 3 (2012) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20lord%20of%20the%20rings%20the%20fellowship%20of%20the%20ring.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/9xtH1RmAzQ0rrMBNUMXstb2s3er.jpg	"><div class="movie-title">	El Señor De Los Anillos 1: La Comunidad Del Anilllo (2001) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20lord%20of%20the%20rings%20the%20two%20tower.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/qHEU9067PL8iIZULg7q58NvoWlS.jpg	"><div class="movie-title">	El Señor De Los Anillos 2: Las Dos Torres (2002) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20lord%20of%20the%20rings%20the%20return%20of%20the%20king.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/mWuFbQrXyLk2kMBKF9TUPtDwuPx.jpg	"><div class="movie-title">	El Señor De Los Anillos 3: El Retorno Del Rey (2003) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20rundown.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2003/9/w300/32vcJ7Fz03cNWGZt8FD75Z9pCO3.jpg	"><div class="movie-title">	El Tesoro del Amazonas (2003) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20ultimo%20cazador%20de%20brujas.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/10/w300/7fwK5selQxZ7XVNBAPdewDjCfCp.jpg	"><div class="movie-title">	El Ultimo Cazador De Brujas (2015) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20last%20of%20the%20mohicans.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1992/8/w300/zOYJ4L2aEHzTokFBwxJRHdN9xW9.jpg	"><div class="movie-title">	𝐄𝐥 𝐔́𝐥𝐭𝐢𝐦𝐨 𝐃𝐞 𝐋𝐨𝐬 𝐌𝐨𝐡𝐢𝐜𝐚𝐧𝐨𝐬 (𝟏𝟗𝟗𝟐) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/el%20ultimo%20maestro%20del%20aire.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/ztvnkvNYtZReU9iQyY94PXw3nzs.jpg	"><div class="movie-title">	El Ultimo Maestro Del Aire (2010) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20last%20samurai.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/tETzFLV6TtPIAxo10sSatI1W0UP.jpg	"><div class="movie-title">	𝐄𝐥 𝐔𝐥𝐭𝐢𝐦𝐨 𝐒𝐚𝐦𝐮𝐫𝐚𝐢 (𝟐𝟎𝟎𝟑) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/enola%20holmes%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/8STWO9pUTqubPV04iXZ2R6SClME.jpg	"><div class="movie-title">	Enola Holmes (2020) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/entrevista%20con%20el%20vampiro.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/10Y3tfdMc4VhGElEjZCJtx1IfNJ.jpg	"><div class="movie-title">	Entrevista Con El Vampiro (1994) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/come%20away%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/7KMi2m7l12w7gCKsR6j4N0J2Ygz.jpg	"><div class="movie-title">	Erase Una Vez (2020) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/exodus%20dioses%20y%20reyes.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cjeBeNVht4o3zGRQF9qrSTiD7j8.jpg	"><div class="movie-title">	Exodus: Dioses y Reyes (2014) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/everest.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/9/w300/7SfhoXCc8LGfKvyNIw2nU0gEi3R.jpg	"><div class="movie-title">	Everest (2015) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/clash%20of%20the%20titans.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/gn2q6HooPdGfFaOI2U2nbjw3BSZ.jpg	"><div class="movie-title">	Furia De Titanes 1 (2010) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/wrath%20of%20the%20titans.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/5b1y7Bbr8BxSK5luKMyiqIgdkNh.jpg	"><div class="movie-title">	Furia De Titanes 2 (2012) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20hunger%20games%20catching%20fire%2013.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/8Z56XLMedD0Ut8sOWpIwVbBcfA2.jpg	"><div class="movie-title">	Gabriel (2007) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/gladiator.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/90QFOG5zSN4cbrIVs4DL4ePAuA5.jpg	"><div class="movie-title">	Gladiador (2000) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/gorillas%20in%20the%20mist.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1988/9/w300/obrJkMogBFZttglk4t9rAax7QA7.jpg	"><div class="movie-title">	𝐆𝐨𝐫𝐢𝐥𝐚𝐬 𝐞𝐧 𝐥𝐚 𝐧𝐢𝐞𝐛𝐥𝐚 (𝟏𝟗𝟖𝟖) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/gretel%20and%20hansel%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/cSoRQKVITESDpSCOdzgAyCy6xeE.jpg	"><div class="movie-title">	Gretel Y Hansel (2020) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/greystoke%20the%20legend%20of%20tarzan%20lord%20of%20the%20apes.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1984/3/w300/wuBltPy6z3XQnannxX1qryy7in.jpg	"><div class="movie-title">	Greystoke: La Leyenda De Tarzan (1984) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/xw9yw7hgcb3ctts/SalynPM-H.S.mp4?dl=0?android_vs.ts.mp4?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/isFKKZS3JEIxGfcciL2DQEYhiy1.jpg	"><div class="movie-title">	Han Solo: Una historia de Star Wars (2018) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hansel%20y%20gretel%20cazadores%20de%20brujas.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/7XUTA42MFXWoUNzdvCgs9PYwJrT.jpg	"><div class="movie-title">	Hansel Y Gretel: Cazadores De Brujas (2013) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/harry%20potter%20and%20the%20sorcerers%20stone.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/roKMM6S9DRGFNujmvqlk8l5YbN3.jpg	"><div class="movie-title">	Harry Potter y La Piedra Filosofal (2001) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/harry%20potter%20and%20the%20chamber%20of%20secrets.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/3nvGqfZE3yrsqehpF107byUdUSq.jpg	"><div class="movie-title">	Harry Potter y La Camara Secreta (2002) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/harry%20potter%20and%20the%20prisoner%20of%20azkaban.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/xBph7rrwtxUuDxyZVDQtbP2H0sM.jpg	"><div class="movie-title">	Harry Potter y El Prisionero De Azkaban (2004) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/harry%20potter%20and%20the%20goblet%20of%20fire.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/sYPh29MkZTWewIL5adMwj5stqgA.jpg	"><div class="movie-title">	Harry Potter y El Caliz De Fuego (2005) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/harry%20potter%20and%20the%20order%20of%20the%20phoenix.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/vYUjcTKDXOHJOlilNK953m8zJww.jpg	"><div class="movie-title">	Harry Potter y La Orden Del Fenix (2007) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/harry%20potter%20and%20the%20half%20blood%20prince.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/tO0UGkNuQoxyXve0mvwtXP49NAO.jpg	"><div class="movie-title">	Harry Potter y El Misterio Del Principe (2009) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/harry%20potter%20and%20the%20deathly%20hallows%20part%20I.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/w6wsYKdXERaXRdByPsI2O9rn20b.jpg	"><div class="movie-title">	Harry Potter y las reliquias de la muerte - Parte 1 (2010) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/harry%20potter%20and%20the%20deathly%20hallows%20part%20II.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/wjKy2wSlDiLLLIkM7tHnxsXG8Tp.jpg	"><div class="movie-title">	Harry Potter y las reliquias de la muerte: Parte 2 (2011) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hellboy.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/5PWLsq6g52HqBMVJPVj64Q77p1L.jpg	"><div class="movie-title">	Hellboy (2004) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hellboy%20II%20the%20golden%20army.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/2oJ8v3zmwD0MruokYiLkUivY9wl.jpg	"><div class="movie-title">	Hellboy 2: El Ejercito Dorado (2008) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hellboy%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/3dLwRfMIKvrufKiJADKbTGdAoqN.jpg	"><div class="movie-title">	Hellboy 3: la Reina De Sangre (2019) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hercules%202014.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/2q9Ic0Q4vMcs2AbTE640fRuB0Qe.jpg	"><div class="movie-title">	Hercules (2014) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/highlander.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://images-na.ssl-images-amazon.com/images/S/pv-target-images/5181510b280b7bdd8f3f9cb7a4b0b93b4b5dfa78ddb052692bbe3bc0fbc3954a._RI_V_TTW_.jpg	"><div class="movie-title">	Highlander 1: El inmortal (1986) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/highlander%20II%20the%20quickening.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://m.media-amazon.com/images/M/MV5BMjE2MjMzNzIwM15BMl5BanBnXkFtZTcwNzA5MzYyMQ@@._V1_.jpg	"><div class="movie-title">	Highlander 2: Duelo final (1991) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/indiana%20jones%20and%20the%20raiders%20of%20the%20lost%20ark%201981.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1981/6/w300/9QvmNoet3sZhuR225rDjTh1Hhb4.jpg	"><div class="movie-title">	𝐈𝐧𝐝𝐢𝐚𝐧𝐚 𝐉𝐨𝐧𝐞𝐬: 𝐄𝐧 𝐛𝐮𝐬𝐜𝐚 𝐝𝐞𝐥 𝐚𝐫𝐜𝐚 𝐩𝐞𝐫𝐝𝐢𝐝𝐚 (𝟏𝟗𝟖𝟏) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/indiana%20jones%20y%20el%20templo%20de%20la%20perdicion.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1984/5/w300/6UrznkPL4Y2f66zkoFAiSwfAYtE.jpg	"><div class="movie-title">	𝐈𝐧𝐝𝐢𝐚𝐧𝐚 𝐉𝐨𝐧𝐞𝐬: 𝐘 𝐞𝐥 𝐭𝐞𝐦𝐩𝐥𝐨 𝐝𝐞 𝐥𝐚 𝐩𝐞𝐫𝐝𝐢𝐜𝐢𝐨́𝐧 (𝟏𝟗𝟖𝟒) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/indiana%20jones%20y%20la%20ultima%20cruzada.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1989/5/w300/osKZUgKRUK1jwYMdsmlevK7zZIY.jpg	"><div class="movie-title">	𝐈𝐧𝐝𝐢𝐚𝐧𝐚 𝐉𝐨𝐧𝐞𝐬: 𝐘 𝐥𝐚 𝐮́𝐥𝐭𝐢𝐦𝐚 𝐜𝐫𝐮𝐳𝐚𝐝𝐚 (𝟏𝟗𝟖𝟗) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/tt0367882/tt0367882.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2008/5/w300/fGG1Ljd0ULYHOegN8Qm3r1ndXhE.jpg	"><div class="movie-title">	𝐈𝐧𝐝𝐢𝐚𝐧𝐚 𝐉𝐨𝐧𝐞𝐬: 𝐘 𝐞𝐥 𝐫𝐞𝐢𝐧𝐨 𝐝𝐞 𝐥𝐚 𝐜𝐚𝐥𝐚𝐯𝐞𝐫𝐚 𝐝𝐞 𝐜𝐫𝐢𝐬𝐭𝐚𝐥 (𝟏𝟗𝟖𝟗) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/inmortales.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/m90Ak1wRPthiTtoWAXVaZfaBwYa.jpg	"><div class="movie-title">	Inmortales (2011) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/john%20carter.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/lCxz1Yus07QCQQCb6I0Dr3Lmqpx.jpg	"><div class="movie-title">	John Carter: Entre Dos Mundos (2012) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jumanji.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/m67M2wXLKblJLuJlvF7qaGrGfCa.jpg	"><div class="movie-title">	Jumanji (1995) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jumanji%20welcome%20to%20the%20jungle.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/1uQaSgtHyTN3r2fecL0mSs6geQO.jpg	"><div class="movie-title">	Jumanji: Bienvenidos A La Jungla (2017) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jumanji%20the%20next%20level%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/a8R5yw0vShsgHSjeikVcPdkaWAW.jpg	"><div class="movie-title">	Jumanji: El Siguiente Nivel (2019) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jungle%20cruise%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/HPEXPFY5B2TWyC1mKoUtz4fNsB.jpg	"><div class="movie-title">	Jungle Cruise (2021) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jurassic%20park.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/1r8TWaAExHbFRzyqT3Vcbq1XZQb.jpg	"><div class="movie-title">	Jurassic Park (1993) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20lost%20world%20jurassic%20park%201997.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/8oozgbwXq3IeUOyMeqLtfr0RzqS.jpg	"><div class="movie-title">	Jurassic Park 2: El Mundo Perdido (1997) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jurassic%20park%20III.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/5GM4Nqc79PFE3IOqNKwmOxAWkX1.jpg	"><div class="movie-title">	Jurassic Park 3 (2001) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jurassic%20world%20mundo%20jurasico.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/sOgfattHPWE5sWdVCGHQ08GEbaP.jpg	"><div class="movie-title">	Jurassic World: Mundo Jurasico (2015) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/jurassic%20world%20el%20reino%20caido.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/yHa2I7qxZvZUASLHrIR8vQLmZ4B.jpg	"><div class="movie-title">	Jurassic World 2: El Reino Caido (2018) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://103.145.12.67/peliculas/720/jurassic%20world%20dominion%202022.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/VEZtsEQwsItZUoIdqzMwjvkwxI.jpg	"><div class="movie-title">	Jurassic World 3: Dominion (2022) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/king%20kong.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/tSfZ6LoZgnz8BOrSQVo24vqv4nW.jpg	"><div class="movie-title">	King Kong (2005) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/kong%20skull%20island.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/myOdovPayRRitZDZSutI07eNANM.jpg	"><div class="movie-title">	Kong: La Isla Calavera (2017) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20cumbre%20escarlata.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/5SbIDk0Gkyr0y22ZtydVq9Px423.jpg	"><div class="movie-title">	La Cumbre Escarlata (2015) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20great%20wall.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/8VenQvaBTOM2By4rsJbCZhl6hFU.jpg	"><div class="movie-title">	La Gran Muralla (2016) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20neverending%20story.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/dHZ3HmN294z2ri1KyWFwBORFOd7.jpg	"><div class="movie-title">	La Historia Sin Fin (1984) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20neverending%20story%202%20the%20next%20chapter%201990.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/bmxZK2By8BsHrfGOlEERIX4TYRA.jpg	"><div class="movie-title">	La Historia Sin Fin 2 (1990) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20neverending%20story%203%20escape%20from%20fantasia%201994.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/iZ6nP7CSc6OfGzxsj6WgxheetCF.jpg	"><div class="movie-title">	La Historia Sin Fin 3 (1994) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20leyenda%20del%20jinete%20sin%20cabeza.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/sEsDyXI4LTjS0RmlUehHUGI7Xny.jpg	"><div class="movie-title">	La Leyenda Del Jinete SIn Cabeza (1999) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20leyenda%20de%20hercules.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/zc6Cjed79ENqzktwQUeYkp0YWaQ.jpg	"><div class="movie-title">	La Leyenda De Hercules (2014) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20legend%20of%20tarzan.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/zzsryqYKz60Hn73AiZqbJGgAbMk.jpg	"><div class="movie-title">	La Leyenda De Tarzan (2016) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/national%20treasure.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2004/11/w300/qOiISWd6n524EvOQRjJpGWFA4WK.jpg	"><div class="movie-title">	𝐋𝐚 𝐥𝐞𝐲𝐞𝐧𝐝𝐚 𝐝𝐞𝐥 𝐭𝐞𝐬𝐨𝐫𝐨 𝐩𝐞𝐫𝐝𝐢𝐝𝐨 (𝟐𝟎𝟎𝟒) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/national%20treasure%20book%20of%20secrets.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2007/12/w300/9gVoUTjFqxdkNxywEySRzYNzzhk.jpg	"><div class="movie-title">	𝐋𝐚 𝐥𝐞𝐲𝐞𝐧𝐝𝐚 𝐝𝐞𝐥 𝐭𝐞𝐬𝐨𝐫𝐨 𝐩𝐞𝐫𝐝𝐢𝐝𝐨 𝟐 (𝟐𝟎𝟎𝟕) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20league%20of%20extraordinary%20gentlemen.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/y4DuzWnRkjfY84NnhL8biEgimmh.jpg	"><div class="movie-title">	La Liga Extraordinaria (2003) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20time%20machine.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/ir4elJEr8mbCBIMFgsQG6m01aS1.jpg	"><div class="movie-title">	La Maquina Del Tiempo (2002) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20mummy.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/6sp0jw3x5TXfEIRFTK8oyswhPrU.jpg	"><div class="movie-title">	La Momia (1999) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20mummy%20returns.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/ouV5es1ylyKdLiBUJeEQrKcpm0k.jpg	"><div class="movie-title">	La Momia Regresa (2001) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20mummy%20tomb%20of%20the%20dragon%20emperor.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/jjiqVRGzD3n05uqSy0A30HuHNfE.jpg	"><div class="movie-title">	La Momia: La Tumba Del Emperador Dragon (2008) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20mummy%202017.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/jjiqVRGzD3n05uqSy0A30HuHNfE.jpg	"><div class="movie-title">	La Momia: Reboot (2017) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/the-faculty_20230320/La%20odicea.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/rAm6B3WVRzT4XKD15qF1wrDbmmC.jpg	"><div class="movie-title">	La Odicea (1997) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/la%20princesa%20mononoke.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/xP466sdt19CPLVljpRwI7luEgFn.jpg	"><div class="movie-title">	La Princesa Mononoke (1997) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/queen%20of%20the%20desert.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2015/9/w300/wkRfYqr3zqqmLagUyEWetDNVkgg.jpg	"><div class="movie-title">	𝐋𝐚 𝐑𝐞𝐢𝐧𝐚 𝐃𝐞𝐥 𝐃𝐞𝐬𝐢𝐞𝐫𝐭𝐨 (𝟐𝟎𝟏𝟓) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20perfect%20storm.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2000/6/w300/75aRoXgG74D5wbSqEQAYFpFFJ0V.jpg	"><div class="movie-title">	𝐋𝐚 𝐓𝐨𝐫𝐦𝐞𝐧𝐭𝐚 𝐏𝐞𝐫𝐟𝐞𝐜𝐭𝐚 (𝟐𝟎𝟎𝟎) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/life%20of%20pi.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/7Y4X4o2SbW9zBLW56crQDR3WCdI.jpg	"><div class="movie-title">	La Vida De Pi: Una Aventura Extraordinaria (2012) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/cronicas%20de%20narnia.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/vnyDtI6aMZ2TtAjrmNsKBIeoea9.jpg	"><div class="movie-title">	Las Cronicas De Narnia: El Leon	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/las%20cronicas%20de%20narnia%20el%20principe%20caspian.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/r3X3ss0pEy1CntvxbgDYZD3XFa6.jpg	"><div class="movie-title">	Las Cronicas De Narnia: El Principe Caspian (2008) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/las%20cronicas%20de%20narnia%20la%20travesia%20del%20viajero%20del%20alba.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/68KT76Lb7YbwVxdDucehfIWPiUj.jpg	"><div class="movie-title">	Las Cronicas De Narnia: La Travesia De Viajero Del Alba (2010) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/teenage%20mutant%20ninja%20turtles.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1990/3/w300/uDJipJy4zwIN9F7stcaTGwfD9yP.jpg	"><div class="movie-title">	Las Tortugas Ninja (1990) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/legion.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/39vqW5mUZtX0artpqeY4CoIJ4sl.jpg	"><div class="movie-title">	Legion (2010) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20ghost%20and%20the%20darkness%201996.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1996/10/w300/sSA0bmScT6gOjYp18IS5EEFijhv.jpg	"><div class="movie-title">	𝐋𝐨𝐬 𝐃𝐞𝐦𝐨𝐧𝐢𝐨𝐬 𝐝𝐞 𝐥𝐚 𝐍𝐨𝐜𝐡𝐞 - 𝐅𝐚𝐧𝐭𝐚𝐬𝐦𝐚 𝐲 𝐎𝐬𝐜𝐮𝐫𝐢𝐝𝐚𝐝 (𝟏𝟗𝟗𝟔) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/Los-tres-mosqueteros/The.Three.Musketeers%20LAT.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/AuCJOLhSl3dsQ2DoRNuN1L9tVUF.jpg	"><div class="movie-title">	Los Tres Mosqueteros (2011) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mad%20max%201979.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w188_and_h282_bestv2/9LSgFb5pU2hO0nbOTG803uWeXfn.jpg	"><div class="movie-title">	Mad Max (1979) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mad%20max%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/115%20mad%20max%202_copy_500x247.jpeg	"><div class="movie-title">	Mad Max 2: El Guerrero De la Carretera (1981) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mad%20max%203.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/116%20mad%20max%203_copy_500x247.jpeg	"><div class="movie-title">	Mad Max 3: Mas Alla De La Cupula Del trueno (1985) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mad%20max%20fury%20road.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/117%20mad%20max%20r_copy_500x247.jpeg	"><div class="movie-title">	Mad Max 4: Furia En El Camino (2015) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/h805vwjh2pp3elb/SalynPM-M.M.mp4?dl=0?android_vs.ts.mp4?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/118%20maquinas_copy_500x247.jpeg	"><div class="movie-title">	Máquinas Mortales (2018) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/matrix.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/119%20matrix%201_copy_500x247.jpeg	"><div class="movie-title">	Matrix 1: (1999) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/urcbgdre1fibju1/SalynPM-SPM1d9p.mp4?dl=0?android_vs.ts.mp4?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/120%20matrix%202_copy_500x247.jpeg	"><div class="movie-title">	Matrix 2 recargado (2003) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/7x639wrubob88ji/SalynPM-SPM6t5m.mp4?dl=0?android_vs.ts.mp4?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/121%20matrix%203_copy_500x247.jpeg	"><div class="movie-title">	Matrix 3 Revoluciones (2003) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx:80/peliculas/720/the%20matrix%20resurrections%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/121%20matrix%203_copy_500x247.jpeg	"><div class="movie-title">	Matrix 4: Resurrecciones (2021) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/0r7g3y9odoysu0r/SalynPM-SPM2t8r.mp4?dl=0?android_vs.ts.mp4?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/122%20monster%20house_copy_500x247.jpeg	"><div class="movie-title">	Monster House: La casa de los sustos (2006) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/monster%20hunter%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/123%20monster%20hunter_copy_500x247.jpeg	"><div class="movie-title">	Monster Hunter: La Caceria Comienza (2020) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mortal%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/124%20mortal_copy_500x247.jpeg	"><div class="movie-title">	Mortal (2020) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mortal%20kombat.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/1995/8/w300/yQA2tNUex9usFP4Tp6NEuZNGtxN.jpg	"><div class="movie-title">	𝐌𝐨𝐫𝐭𝐚𝐥 𝐊𝐨𝐦𝐛𝐚𝐭 (𝟏𝟗𝟗𝟓) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mortal%20kombat%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/125%20mortal%20kombat_copy_500x247.jpeg	"><div class="movie-title">	𝐌𝐨𝐫𝐭𝐚𝐥 𝐊𝐨𝐦𝐛𝐚𝐭 (𝟐𝟎𝟐𝟏) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/waterworld.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/126%20mundo%20acuatico_copy_500x247.jpg	"><div class="movie-title">	Mundo Acuatico (1995) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/mulan%202020.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/127%20mulan_copy_500x247.jpeg	"><div class="movie-title">	Mulan (2020) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/noah.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2014/3/w300/aF3wGlkxLnMSul3wCuZdLnx793N.jpg	"><div class="movie-title">	𝐍𝐨𝐞́ (𝟐𝟎𝟏𝟒) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/hidalgo%202004.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/6lr1tLVHrhfMsbCzskj6za7zdQa.jpg	"><div class="movie-title">	Oceanos De Fuego (2004) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/oz%20the%20great%20and%20powerful.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.lavanguardia.com/peliculas-series/images/movie/poster/2013/3/w300/piHFgW1yotlHrewwdlQJG7gRRLu.jpg	"><div class="movie-title">	Oz: Un mundo de fantasía (2013) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/pirates%20of%20the%20caribbean%20the%20curse%20of%20the%20black%20pearl.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/128%20piratas%2001_copy_500x247.jpeg	"><div class="movie-title">	Piratas Del Caribe 1: La Maldicion Del Perla Negra (2003) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/pirates%20of%20the%20caribbean%20dead%20mans%20chest.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/129%20piratas%202_copy_500x247.jpeg	"><div class="movie-title">	Piratas Del Caribe 2: El Cofre De La Muerte (2006) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/pirates%20of%20the%20caribbean%20at%20worlds%20end.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/130%20piratas%203_copy_500x247.jpeg	"><div class="movie-title">	Piratas Del Caribe 3: En El Fin Del Mundo (2007) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/pirates%20of%20the%20caribbean%20on%20stranger%20tides.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/131%20piratas%204_copy_500x247.jpeg	"><div class="movie-title">	Piratas Del Caribe 4: Navegando En Aguas Misteriosas (2011) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/pirates%20of%20the%20caribbean%20dead%20men%20tell%20no%20tales.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/132%20piratas%205_copy_500x247.jpeg	"><div class="movie-title">	Piratas Del Caribe 5: La Venganza De Salazar (2017) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/priest.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/133%20priest_copy_500x247.jpg	"><div class="movie-title">	Priest: El Vengador (2011) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/ver-raya-y-el-ultimo-dragon-2021-online-latino-hd-pelisplus-2/Ver%20Raya%20y%20el%20%C3%BAltimo%20drag%C3%B3n%20%282021%29%20Online%20Latino%20HD%20-%20PELISPLUS%202.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/134%20raya_copy_500x247.jpeg	"><div class="movie-title">	Raya Y El Ultimo Dragon (2021) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/pitch%20black.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/135%20riddick%201_copy_500x247.jpeg	"><div class="movie-title">	Riddick 1: Pitch Black (1998) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/las%20cronicas%20de%20riddick%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/136%20riddick%202_copy_500x247.jpeg	"><div class="movie-title">	Riddick 2: Las Cronicas De Riddick (2004) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/riddick.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/137%20riddick%203_copy_500x247.jpeg	"><div class="movie-title">	Riddick 3 (2013) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://51.79.65.130:999/PELISSD/Robert.the.Bruce.2019-Latino.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/138%20robert_copy_500x247.jpeg	"><div class="movie-title">	Robert The Bruce (2019) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/robin%20hood%202010.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/140%20robin%20hood_copy_500x247.jpeg	"><div class="movie-title">	Robin Hood (2010) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/robin%20hood%202018.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/140%20robin%20hood%202018_copy_500x247.jpeg	"><div class="movie-title">	Robin Hood (2018) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/ruroni%20kenshin%20sai%20shusho%20the%20final%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/141%20samuray%20x%20el%20fin_copy_500x247.jpeg	"><div class="movie-title">	Samuray X: El Fin (2021) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/sherlock%20holmes%202009.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/142%20sherlok%201_copy_500x247.jpeg	"><div class="movie-title">	Sherlock Holmes (2009) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/sherlock%20holmes%20a%20game%20of%20shadows%202011.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/143%20sherlok%202_copy_500x247.jpeg	"><div class="movie-title">	Sherlock Holmes 2: Juego De Sombras (2011) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://149.56.14.226:999/PELISSD/Seven.Years.in.Tibet.1997.lati.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/144%20siete%20a%C3%B1os_copy_500x247.jpeg	"><div class="movie-title">	Siete Años En El Tibet(1997) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/star%20wars%20episode%20I%20the%20phantom%20menace.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/145%20star%20wars%201_copy_500x247.jpeg	"><div class="movie-title">	Star wars: Episodio I - La amenaza fantasma (1999) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/star%20wars%20episode%20II%20attack%20of%20the%20clones.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/146%20star%20wars%202_copy_500x247.jpeg	"><div class="movie-title">	Star Wars: Episodio II - El ataque de los clones (2002) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/star%20wars%20episode%20III%20revenge%20of%20the%20sith.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/147%20star%20wars%203_copy_500x247.jpeg	"><div class="movie-title">	Star wars: Episodio III - La venganza de los sith (2005) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/star%20wars.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/148%20star%20wars%204_copy_500x247.jpeg	"><div class="movie-title">	Star Wars: Episodio IV (1977) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/star%20wars%20episode%20V%20the%20empire%20strikes%20back.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/149%20star%20wars%205_copy_500x247.png	"><div class="movie-title">	Star Wars: Episodio V - El imperio contraataca (1980) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/star%20wars%20episode%20VI%20return%20of%20the%20jedi.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/150%20star%20wars%206_copy_500x247.png	"><div class="movie-title">	Star Wars: Episodio VI - El regreso del Jedi (1983) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/star%20wars%20episode%20vii%20the%20force%20awakens.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/151%20star%20wars%207_copy_500x247.png	"><div class="movie-title">	Star Wars: Episodio VII - El despertar de la Fuerza (2015) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/star%20wars%20the%20last%20jedi.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/96FO2Z7cAB2tFNHXWS2igeWbkhM.jpg	"><div class="movie-title">	Star Wars: Episodio VII - Los Ultimos Jedi (2017) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/star%20wars%20the%20rise%20of%20skywalker%202019.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/16G2wZAkmKqSGK3it2VPjco5oyn.jpg	"><div class="movie-title">	Star Wars: Episodio IX (2019) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/299hr9pexp0ctk8/SalynPM-H.S.mp4?dl=0?android_vs.ts.mp4?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/152%20star%20wars%20han%20solo_copy_500x247.png	"><div class="movie-title">	Star wars: Han Solo - Una historia de Star Wars (2018) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/videotime-cine-latino/Star%20Wars%20-%20Las%20guerras%20clonicas.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/84h3VzyC62A47uXQQDvFUnPtvTH.jpg	"><div class="movie-title">	Star wars: Las Guerras Clonicas (2008) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/kyw3jvivl25nc4o/SalynPM-SPM2i6v.mp4?dl=0?android_vs.ts.mp4?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/153%20star%20wars%20rogue_copy_500x247.png	"><div class="movie-title">	Star wars: Rogue One - Una historia de Star Wars (2016) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/stardust.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/154%20stardust_copy_500x247.jpeg	"><div class="movie-title">	Stardust: El Misterio De La Estrella (2007) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/stargate.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/medias/nmedia/18/79/65/25/20373181.jpg	"><div class="movie-title">	Stargate: Puerta a las estrellas (1994) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20spirit.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/155%20the%20spirit_copy_500x247.jpeg	"><div class="movie-title">	The Spirit (2008) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/troy.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/156%20troy_copy_500x247.jpg	"><div class="movie-title">	Troya (2004) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/tomb%20raider%202018.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/157%20tom%20rider_copy_500x247.jpeg	"><div class="movie-title">	Tomb Raider (2018) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/inframundo.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/157%20underworld%2001_copy_500x247.jpeg	"><div class="movie-title">	Underworld (2003) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/inframundo%20la%20evolucion.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/159%20underworld%202_copy_500x247.jpeg	"><div class="movie-title">	Underworld: La Evolucion (2006) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/inframundo%20la%20rebelion%20de%20los%20lycans.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/160%20underworld%203_copy_500x247.png	"><div class="movie-title">	Underworld: La Rebelion De Los Lycans (2009) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/inframundo%20el%20despertar.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/161%20underworld%204_copy_500x247.jpeg	"><div class="movie-title">	Underworld: El Despertar (2012) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://archive.org/download/alplani1_202001/Inframundo%205%20Guerras%20de%20Sangre.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/161%20underworld%205_copy_500x247.jpeg	"><div class="movie-title">	Underworld: Guerras De Sangre (2016) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/van%20helsing.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/162%20van%20helsing_copy_500x247.jpeg	"><div class="movie-title">	Van Helsing: El Cazador De Monstruos (2004) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	https://dl.dropboxusercontent.com/s/lam750xoajf1uo7/SalynPM-Victor.Frank.mp4?dl=0?android_vs.ts.mp4?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/163%20victor_copy_500x247.jpeg	"><div class="movie-title">	Victor Frankenstein (2015) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/volver%20al%20futuro.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/167%20v%201_copy_500x247.png	"><div class="movie-title">	Volver al futuro (1985) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/volver%20al%20futuro%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/168%20vol%202_copy_500x247.png	"><div class="movie-title">	Volver al futuro 2 (1989) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/volver%20al%20futuro%203.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/169%20vol%203_copy_500x247.png	"><div class="movie-title">	Volver al futuro 3 (1990) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/warcraft.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/171%20warcraft_copy_500x247.jpeg	"><div class="movie-title">	Warcraft: El Encuentro De Dos Mundos (2016) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/willow%20en%20la%20tierra%20del%20encanto.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/z9UUfYZzKVBCEFs6TnCdAp5mUbJ.jpg	"><div class="movie-title">	Willow En La Tierra Del Encanto (1988) 	<br>	Aventura	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/the%20lost%20city%20of%20z.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://archive.org/download/Av_101_172/172%20z%20la%20ciudad_copy_500x247.jpeg	"><div class="movie-title">	Z: La Ciudad Perdida (2016) 	<br>	Aventura	</div></a>
+
+
+
+
+
+
+
+
+      <!-- Agrega más elementos de la lista aquí -->
+    </div>
+    <div id="player">
+      <video id="video-player" controls>
+        <!-- El video se reproducirá aquí -->
+      </video>
+    </div>
+  </div>
+
+
+
+  <script>
+    function playMovie(movieUrl) {
+      var videoPlayer = document.getElementById("video-player");
+      videoPlayer.src = movieUrl;
+      videoPlayer.play();
+    }
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+</body>
