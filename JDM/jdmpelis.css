@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+  <meta charset='UTF-8'/>
+  <style>
 * {
 Background:black;
 Text-decoration:none;
@@ -15,7 +21,6 @@ Text-decoration:none;
     display: flex;
     height: 40px;
 }
-
 .page-link.current   {
     color: black;
     box-shadow:60rem var(--primary);
@@ -35,42 +40,7 @@ color: #fff300ed;
     padding: 4px;
     background: #8a797900;
 }    
-
-
-         #player-container {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 49%;
-      transform: translate(-50%, -50%);
-      z-index: 999;
-      background-color: rgba(0, 0, 0, 0.9);
-      padding: 0px;
-      border-radius: 5px;
-    }
-
-    #close-button {
-      position: fixed;
-      top: -25px;
-      Right: 1px;
-      padding: 1px 1px;
-      cursor: pointer;
-      color: White;
-      font-size: 20px;
-      z-index: 9999;
-    }
-
-    #video-player {
-      width: 100%;
-      height: 80%;
-    }
-
-
-
-
-
-
-    #search-input {
+#search-input {
     padding: 5px;
     margin-right: 5px;
     border-radius: 5px;
@@ -132,84 +102,6 @@ color: #fff300ed;
       margin: 0 auto; /* Center the movie list container */
     }
 
-
-
-    figure {
-      margin: 1.5px; /* Add some space between movie items */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    img {
-      margin-bottom: 0.5rem;
-      position: relative;
-      width: 250px;
-      border-radius: 14px;
-    }
-
-    .movie-title {
-      text-align: center;
-      font-weight: bold;
-       Z-index:9;
-       Bottom:30px
-      
-    }
-
-    /* Responsive styling for the movie items */
-    .movie-item {
-      /* Add your styles for each movie item */
-      flex: 0 0 calc(0% - 0px); /* This sets the initial width to 50% minus the margin */
-    
-    }
-
-.movie-title{
-  Position:relative;
-  Width:250px;
-  Font-size:auto;
-  Color:white;
- 
-  Margin:0px 0px 30px 0px;
-  background:black;
-  Border-radius:0px 0px 10px 10px;
-  
-}
-
-     
-    @media only screen and (min-width: 600px) {
-     
-    #container {
-      position: relative;
-      max-width: 100%;
-      display: flex;
-      Margin-Left:0em;
-      flex-wrap: wrap; /* This allows items to wrap to the next line if there's not enough space */
-      justify-content: center; /* This centers the items horizontally within the container */
-    }
-    .generos .nav-links{
-    overflow-x: scroll;
-    overflow-y: hidden;
-    width: 80%;
-    display: flex;
-    height: 40px;
-    Margin-left:5px;
-}
-    img {
-      margin-bottom: 0.5rem;
-      position: relative;
-      width: 190px;
-      border-radius: 14px;
-    }
-    .movie-title{
-  Position:relative;
-  Width:190px;
-  Font-size:auto;
-  Color:white;
-  Margin:0px 0px 30px 0px;
-  background:black;
-  Border-radius:0px 0px 10px 10px;
-  
-}
     #player-container {
       display: none;
       position: fixed;
@@ -224,20 +116,57 @@ color: #fff300ed;
 
     #close-button {
       position: fixed;
-      top: -0px;
-      Right: 0px;
-      padding: 3px 3px;
+      top: -25px;
+      Right: 1px;
+      padding: 1px 1px;
       cursor: pointer;
-      color: Aqua;
+      color: red;
       font-size: 20px;
       z-index: 9999;
-    } 
-        #video-player {
-      width: 300px;
-      height: 80%;
     }
 
+    #video-player {
+      width: 380px;
+      height: 180px;
     }
+
+    figure {
+      margin: 10px; /* Add some space between movie items */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    img {
+      margin-bottom: 0.5rem;
+      position: relative;
+      width: 200px;
+      border-radius: 14px;
+    }
+
+    .movie-title {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Responsive styling for the movie items */
+    .movie-item {
+      /* Add your styles for each movie item */
+      flex: 0 0 calc(0% - 0px); /* This sets the initial width to 50% minus the margin */
+    
+    }
+
+.movie-title{
+  Position:relative;
+  Width:200px;
+  Font-size:auto;
+  Color:white;
+  Top:-4em;
+  Padding:10px 0px; 
+  background:rgba(00,00,00,0.89);
+  Border-radius:0px 0px 10px 10px;
+  
+}
 
     @media only screen and (max-width: 600px) {
      
@@ -246,11 +175,6 @@ color: #fff300ed;
       display: flex;
       Margin-Top:2em;
     }
-          img {
-        width: 150px;
-        Margin:0px;
-        Paddin ; 0Px;
-      }
      
      
      
@@ -268,7 +192,7 @@ color: #fff300ed;
       .movie-title{
   Position:relative;
   Width:130px;
-  Font-size:13px; 
+  Font-size:auto;
   Color:white;
   Top:-1em;
   Padding:0px 0px; 
@@ -300,7 +224,7 @@ color: #fff300ed;
 }
 #search-bar {
     position: absolute;
-    Top:40px;
+    Top:35px;
     Right: 0.5em;
     Z-index:99;
     display: flex;
@@ -326,3 +250,153 @@ color: #fff300ed;
     cursor: pointer;
 }
     }
+  </style>
+</head>
+
+<body>
+<nav class="navigation pagination">
+<div class="generos">
+<div class="nav-links">
+
+				<a class="page-link current" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis.html"  target="_blank">*2023*</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis2022.html"  target="_blank">2022</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelis2021.html"  target="_blank">2021</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisguerra.html"  target="_blank">GUERRA</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisoeste.html"  target="_blank">ZOMBIES</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisaccion.html"  target="_blank">ACCION</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisaliens.html"  target="_blank">ALIENS</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisotros.html"  target="_blank">OTROS</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisamazon.html"  target="_blank">AMAZON</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisapocalipsis.html"  target="_blank">APOCALIPSIS</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisapple.html"  target="_blank">APPLE</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisretro.html"  target="_blank">RETRO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisaventuras.html"  target="_blank">AVENTURAS</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispeliscomedia.html"  target="_blank">COMEDIA</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispeliscrimen.html"  target="_blank">CRIMEN</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisculto.html"  target="_blank">CULTO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisromance.html"  target="_blank">ROMANCE</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisdisney.html"  target="_blank">DISNEY</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisdocumental.html"  target="_blank">DOCUMENTAL</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisdrama.html"  target="_blank">DRAMA</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisfamiliar.html"  target="_blank">FAMILIAR</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisficcion.html"  target="_blank">FICCION</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelishbo.html"  target="_blank">HBO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelismarvel.html"  target="_blank">MARVEL</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelismex-esp-lat.html"  target="_blank">MEXICO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelismisterio.html"  target="_blank">MISTERIO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisnegro.html"  target="_blank">NEGRO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisnetflix.html"  target="_blank">NETFLIX</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelissurreal.html"  target="_blank">SURREAL</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelissuspenso.html"  target="_blank">SUSPENSO</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisterror.html"  target="_blank">TERROR</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisvix.html"  target="_blank">VIX</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisoeste.html"  target="_blank">OESTE</a>
+				<a class="page-link" href="https://chanjdm.github.io/JDM/JDM/jdmmispelisrobos.html"  target="_blank">ROBOS</a>
+
+</div>
+</div>
+</nav>
+
+
+    <!-- Existing search bar -->
+  <div id="search-bar">
+    <input type="text" id="search-input" placeholder="título" oninput="searchByTitle()">
+    <button id="search-button" onclick="searchByTitle()">Buscar</button>
+  </div>
+
+  <div id="container">
+    <div id="movie-list">
+      <!-- Existing movie items -->
+
+      
+      
+            <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/perfect%20addiction%202023.mkv'); return false;"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w300/PZvtFU6HIzHKRdIYOlL4Lj0YFV.jpg" group-title="2023"><div class="movie-title">Adicción perfecta (2023)</div></a>
+<a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/air%202023.mkv'); return false;"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/4/w300/cDsjKX93HdfTMzkdiOVBhXERhph.jpg" group-title="2023"><div class="movie-title">Air: La historia detrás del logo (2023)</div></a>
+      
+      
+      
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.mkv'); return false;">
+        <figure>
+          <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w300/lZjmSFRf6u1hYvLGxCAu13dpGQA.jpg" group-title="2023" alt="10 días de un buen hombre (2023)">
+          <figcaption class="movie-title">10 días de un buen hombre (2023)</figcaption>
+        </figure>
+      </a>
+      <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/65%202023.mkv'); return false;">
+        <figure>
+          <img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w300/dhqu9rInT9IOa2w0TU22YMEgGus.jpg" group-title="2023" alt="65: Al borde de la extinción (2023)">
+          <figcaption class="movie-title">65: Al borde de la extinción (2023)</figcaption>
+        </figure>
+      </a>
+      
+      <a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/paranormal%20activity%202007.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/919Xf5NshBIKuj4HP2XkGIfNaCF.jpg	"><div class="movie-title">	Actividad Paranormal (2007) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/paranormal%20activity%202.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/9pQr1OssLBtLoMoCEigHMZN7JyR.jpg	"><div class="movie-title">	Actividad Paranormal 2 (2010) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/paranormal%20activity%204.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/zthZf2pnhmtQGFZhbHEcUlilsL4.jpg	"><div class="movie-title">	Actividad Paranormal 4 (2012) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://66.70.182.230/peliculas/720/paranormal%20activity%20next%20of%20kin%202021.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/cN1WYVV1NyQNoHcOTAQVH448ljY.jpg	"><div class="movie-title">	Actividad Paranormal: Vinculos Familiares (2021) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/alien%20abduction.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/ffatP1TcSSIrh6ekYW39sMNxW4I.jpg	"><div class="movie-title">	Alien Abduction (2014) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/area%2051.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://es.web.img3.acsta.net/pictures/15/04/28/11/56/379860.jpg	"><div class="movie-title">	Area 51 (2015) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/as%20above%20so%20below.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/vyDIDxwMQP8UG9bpAeckURPK0Vq.jpg	"><div class="movie-title">	Asi En La Tierra Como En El Infierno (2015) 	<br>	Terror	</div></a>
+<a class="movie-item" href="#" onclick="playMovie('	http://vod.tuxchannel.mx/peliculas/720/creep.mkv?android_vs.ts.mp4	 '); return false;"><img src="	https://www.themoviedb.org/t/p/w200/qn53D574tT0YRyLgirEFHQwGUXw.jpg	"><div class="movie-title">	Creep (2014) 	<br>	Terror	</div></a>
+      
+      
+      
+
+      <!-- Add more movie items here -->
+    </div>
+
+    <div id="player-container">
+      <div id="close-button" onclick="closePlayer()">CERRAR</div>
+      <video id="video-player" controls>
+        <!-- Provide multiple video sources for better compatibility -->
+        <source src="http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.mp4" type="video/mp4">
+        <source src="http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.webm" type="video/webm">
+        <!-- Add more sources as needed -->
+      </video>
+    </div>
+  </div>
+
+  <script src="./jdmpelis.js"></script>
+  <script>
+    function playMovie(url) {
+      const videoPlayer = document.getElementById('video-player');
+      const playerContainer = document.getElementById('player-container');
+
+      videoPlayer.src = url;
+      playerContainer.style.display = 'block';
+      videoPlayer.play();
+    }
+
+    function closePlayer() {
+      const videoPlayer = document.getElementById('video-player');
+      const playerContainer = document.getElementById('player-container');
+
+      videoPlayer.pause();
+      videoPlayer.src = '';
+      playerContainer.style.display = 'none';
+    }
+    
+    
+    
+    
+    
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+    
+    
+  </script>
+</body>
+</html>
+
