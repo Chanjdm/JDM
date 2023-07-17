@@ -15,11 +15,7 @@
       videoPlayer.src = '';
       playerContainer.style.display = 'none';
     }
-    
-    
-    
-    
-    
+
     function searchByTitle() {
       var searchInput = document.getElementById("search-input");
       var searchTerm = searchInput.value.toLowerCase();
