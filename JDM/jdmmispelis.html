@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
+<head>
 <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
 <link href="./jdmpelis.css" rel="stylesheet">
 <script src="./jdmpelis.js"></script>
-<head>
-
 </head>
 
 <body>
@@ -52,28 +51,19 @@
 </nav>
 
 
-
-
+    <!-- Existing search bar -->
   <div id="search-bar">
-    <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
+    <input type="text" id="search-input" placeholder="título" oninput="searchByTitle()">
     <button id="search-button" onclick="searchByTitle()">Buscar</button>
   </div>
 
-
   <div id="container">
-<div id="movie-list">
-
-
-
-<!-- para poner mas peliculas #############################
-<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
-
- ############################ -->
+    <div id="movie-list">
 
 
 
 
-
+            <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/perfect%20addiction%202023.mkv'); return false;"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w300/PZvtFU6HIzHKRdIYOlL4Lj0YFV.jpg" group-title="2023"><div class="movie-title">Adicción perfecta (2023)</div></a>
 
 
 <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.mkv'); return false;"><img src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w300/lZjmSFRf6u1hYvLGxCAu13dpGQA.jpg" group-title="2023"><div class="movie-title">10 días de un buen hombre (2023)</div></a>
@@ -300,14 +290,19 @@
 
       <!-- Agrega más elementos de la lista aquí -->
     </div>
-    <div id="player">
+
+    <div id="player-container">
+      <div id="close-button" onclick="closePlayer()">CERRAR</div>
       <video id="video-player" controls>
-        <!-- El video se reproducirá aquí -->
+        <!-- Provide multiple video sources for better compatibility -->
+        <source src="http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.mp4" type="video/mp4">
+        <source src="http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.webm" type="video/webm">
+        <!-- Add more sources as needed -->
       </video>
     </div>
   </div>
 
 
-
-
 </body>
+</html>
+
