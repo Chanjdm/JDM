@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
-<link href="./jdmpelis.css" rel="stylesheet">
-<script src="./jdmpelis.js"></script>
 <head>
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+  <link rel="stylesheet" href="./jdmpelis.css" />
+<script src="./jdmpelis.js"></script>
+<meta charset="UTF-8">
+
 
 </head>
 
@@ -340,43 +342,22 @@
 
 
 
-
-
-
-
       <!-- Agrega más elementos de la lista aquí -->
+
+
     </div>
-    <div id="player">
+
+    <div id="player-container">
+      <div id="close-button" onclick="closePlayer()">CERRAR</div>
       <video id="video-player" controls>
-        <!-- El video se reproducirá aquí -->
+        <!-- Provide multiple video sources for better compatibility -->
+        <source src="http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.mp4" type="video/mp4">
+        <source src="http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.webm" type="video/webm">
+        <!-- Add more sources as needed -->
       </video>
     </div>
   </div>
 
 
-
-  <script>
-    function playMovie(movieUrl) {
-      var videoPlayer = document.getElementById("video-player");
-      videoPlayer.src = movieUrl;
-      videoPlayer.play();
-    }
-
-    function searchByTitle() {
-      var searchInput = document.getElementById("search-input");
-      var searchTerm = searchInput.value.toLowerCase();
-
-      var movieItems = document.getElementsByClassName("movie-item");
-      for (var i = 0; i < movieItems.length; i++) {
-        var movieTitle = movieItems[i].querySelector(".movie-title");
-        var title = movieTitle.innerText.toLowerCase();
-
-        if (title.includes(searchTerm)) {
-          movieItems[i].style.display = "inline-block";
-        } else {
-          movieItems[i].style.display = "none";
-        }
-      }
-    }
-  </script>
 </body>
+</html>
