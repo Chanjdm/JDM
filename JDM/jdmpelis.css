@@ -62,8 +62,8 @@ color: #fff300ed;
     }
 
     #video-player {
-    width: 800px;
-    height: 100%;
+    width: 600px;
+    height: 70%;
 }
 
 
@@ -234,8 +234,8 @@ color: #fff300ed;
       z-index: 9999;
     } 
         #video-player {
-    width: 700px;
-    height: 90%;
+    width: 600px;
+    height: 70%;
 }
 
     }
