@@ -1,9 +1,25 @@
-    function playMovie(movieUrl) {
-      var videoPlayer = document.getElementById("video-player");
-      videoPlayer.src = movieUrl;
+    function playMovie(url) {
+      const videoPlayer = document.getElementById('video-player');
+      const playerContainer = document.getElementById('player-container');
+
+      videoPlayer.src = url;
+      playerContainer.style.display = 'block';
       videoPlayer.play();
     }
 
+    function closePlayer() {
+      const videoPlayer = document.getElementById('video-player');
+      const playerContainer = document.getElementById('player-container');
+
+      videoPlayer.pause();
+      videoPlayer.src = '';
+      playerContainer.style.display = 'none';
+    }
+    
+    
+    
+    
+    
     function searchByTitle() {
       var searchInput = document.getElementById("search-input");
       var searchTerm = searchInput.value.toLowerCase();
@@ -20,3 +36,4 @@
         }
       }
     }
+    
