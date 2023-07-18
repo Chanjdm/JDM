@@ -1,36 +1,23 @@
   var currentVideoURL = "";
-    var player;
 
-    function playMovie(url) {
-      const playerContainer = document.getElementById('player-container');
-      player = new Plyr('#video-player', {
-        controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
-      });
-      
-      // Load the new video source
-      player.source = {
-        type: 'video',
-        sources: [
-          {
-            src: url,
-            type: 'video/mp4',
-          },
-        ],
-      };
+  function playMovie(url) {
+    const videoPlayer = document.getElementById('video-player');
+    const playerContainer = document.getElementById('player-container');
 
-      playerContainer.style.display = 'block';
-      player.play();
-    }
+    videoPlayer.src = url;
+    currentVideoURL = url;
+    playerContainer.style.display = 'block';
+    videoPlayer.play();
+  }
 
-    function closePlayer() {
-      const playerContainer = document.getElementById('player-container');
-      player.pause();
-      player.destroy();
-      player = null;
-      playerContainer.style.display = 'none';
-    }
+  function closePlayer() {
+    const videoPlayer = document.getElementById('video-player');
+    const playerContainer = document.getElementById('player-container');
 
-    // Resto del código
+    videoPlayer.pause();
+    videoPlayer.src = '';
+    playerContainer.style.display = 'none';
+  }
 
   function repeatVideo() {
     if (currentVideoURL) {
