@@ -190,7 +190,7 @@
 
     <div id="player-container">
       <div id="close-button" onclick="closePlayer()">CERRAR</div>
-      <video id="video-player" controls>
+  <video id="video-player" controls onended="repeatVideo()">
         <!-- Provide multiple video sources for better compatibility -->
         <source src="http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.mp4" type="video/mp4">
         <source src="http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.webm" type="video/webm">

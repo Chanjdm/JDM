@@ -1,20 +1,34 @@
-    function playMovie(url) {
-      const videoPlayer = document.getElementById('video-player');
-      const playerContainer = document.getElementById('player-container');
+  var currentVideoURL = "";
 
-      videoPlayer.src = url;
-      playerContainer.style.display = 'block';
+  function playMovie(url) {
+    const videoPlayer = document.getElementById('video-player');
+    const playerContainer = document.getElementById('player-container');
+
+    videoPlayer.src = url;
+    currentVideoURL = url;
+    playerContainer.style.display = 'block';
+    videoPlayer.play();
+  }
+
+  function closePlayer() {
+    const videoPlayer = document.getElementById('video-player');
+    const playerContainer = document.getElementById('player-container');
+
+    videoPlayer.pause();
+    videoPlayer.src = '';
+    playerContainer.style.display = 'none';
+  }
+
+  function repeatVideo() {
+    if (currentVideoURL) {
+      const videoPlayer = document.getElementById('video-player');
+      videoPlayer.currentTime = 0; // Restart video from the beginning
       videoPlayer.play();
     }
+  }
 
-    function closePlayer() {
-      const videoPlayer = document.getElementById('video-player');
-      const playerContainer = document.getElementById('player-container');
 
-      videoPlayer.pause();
-      videoPlayer.src = '';
-      playerContainer.style.display = 'none';
-    }
+
 
     function searchByTitle() {
       var searchInput = document.getElementById("search-input");
