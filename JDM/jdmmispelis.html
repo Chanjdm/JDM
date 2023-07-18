@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
-  <link rel="stylesheet" href="./jdmpelis.css" />
-<script src="./jdmpelis.js"></script>
-<meta charset="UTF-8">
-
-
+  <meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+  <link rel="stylesheet" href="https://chanjdm.github.io/JDM/JDM/jdmpelis.css" />
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+  <meta charset="UTF-8">
 </head>
 
 <body>
+  <!-- Resto del código -->
 <nav class="navigation pagination">
 <div class="generos">
 <div class="nav-links">
@@ -61,8 +59,13 @@
     <input type="text" id="search-input" placeholder="Buscar por título" oninput="searchByTitle()">
     <button id="search-button" onclick="searchByTitle()">Buscar</button>
   </div>
+  
+  <!-- Agrega la última versión de Plyr -->
+  <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
 
-
+  <div id="container">
+    <div id="movie-list">
+      <!-- Resto del código -->
   <div id="container">
 <div id="movie-list">
 
@@ -72,10 +75,6 @@
 <a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
 
  ############################ -->
-
-
-
-
 
 
 
@@ -307,9 +306,12 @@
 
     </div>
 
+
+
     <div id="player-container">
       <div id="close-button" onclick="closePlayer()">CERRAR</div>
-  <video id="video-player" controls onended="repeatVideo()">
+      <!-- Usa el reproductor Plyr en lugar del video original -->
+      <video id="video-player" controls onended="repeatVideo()">
         <!-- Provide multiple video sources for better compatibility -->
         <source src="http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.mp4" type="video/mp4">
         <source src="http://vod.tuxchannel.mx/peliculas/720/iyi%20adamin%2010%20gunu%202023.webm" type="video/webm">
@@ -317,6 +319,75 @@
       </video>
     </div>
   </div>
+
+  <script>
+  var currentVideoURL = "";
+    var player;
+
+    function playMovie(url) {
+      const playerContainer = document.getElementById('player-container');
+      player = new Plyr('#video-player', {
+        controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'fullscreen'],
+      });
+      
+      // Load the new video source
+      player.source = {
+        type: 'video',
+        sources: [
+          {
+            src: url,
+            type: 'video/mp4',
+          },
+        ],
+      };
+
+      playerContainer.style.display = 'block';
+      player.play();
+    }
+
+    function closePlayer() {
+      const playerContainer = document.getElementById('player-container');
+      player.pause();
+      player.destroy();
+      player = null;
+      playerContainer.style.display = 'none';
+    }
+
+    // Resto del código
+
+  function repeatVideo() {
+    if (currentVideoURL) {
+      const videoPlayer = document.getElementById('video-player');
+      videoPlayer.currentTime = 0; // Restart video from the beginning
+      videoPlayer.play();
+    }
+  }
+
+
+
+
+    function searchByTitle() {
+      var searchInput = document.getElementById("search-input");
+      var searchTerm = searchInput.value.toLowerCase();
+
+      var movieItems = document.getElementsByClassName("movie-item");
+      for (var i = 0; i < movieItems.length; i++) {
+        var movieTitle = movieItems[i].querySelector(".movie-title");
+        var title = movieTitle.innerText.toLowerCase();
+
+        if (title.includes(searchTerm)) {
+          movieItems[i].style.display = "inline-block";
+        } else {
+          movieItems[i].style.display = "none";
+        }
+      }
+    }
+
+</script>
+
+
+
+
 
 
 </body>
