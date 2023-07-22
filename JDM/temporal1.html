@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página de Series</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <meta charset='UTF-8'/>
+<meta content='article' property='og:type'/>
+<!-- Responsive viewport -->
+<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+
+
+
+<style>
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    background: black;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.serie {
+  position: relative;
+}
+
+.serie-image {
+border-radius: 5px;
+  width: 100%;
+  height: auto;
+}
+
+.serie-info {
+border-radius: 10px;
+box-shadow: 0 0 32px #ff0000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.serie:hover .serie-info {
+  opacity: 1;
+}
+
+h2 {
+    background: #0000008c;
+    height: auto;
+    padding: 10px;
+    width: 100%;
+    color: aqua;
+}
+p {
+    overflow-y: auto;
+    height: auto;
+    margin-top: -1.3em;
+    padding: 40px 7px;
+    background: #0000008c;
+}
+
+.dialog-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+
+.dialog-box.open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+
+.dialog-content  {
+    overflow-y: auto;
+    height: 500px;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.close-button {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 43px;
+    left: 47%;
+    right: 47%;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+.close-button:hover{
+ 
+    background:red;
+    color:white;
+
+  }
+
+.hidden {
+  display: none;
+}
+
+.seasons h3{
+    color: aliceblue;
+    padding: 4px 0px;
+}
+.season-button {
+    position: relative;
+    left: 10px;
+    border: 3px solid #90ff00;
+    padding: 3px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 6px 4px 2px rgb(110, 140, 0);
+}
+.season-button:hover{
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	background:#12C987
+}
+
+
+
+
+ /* Muestra los capítulos en línea vertical */
+.chapter-menu {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+.chapter-menu a:hover{
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	background:#009dfd;
+        color:black;
+}
+
+/* Ajusta el espacio entre los capítulos */
+.chapter-menu a {
+    color: #e9a603;
+    margin-bottom: 5px;
+    box-shadow: 0px 1px 8px 0px rgb(248, 70, 0);
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+.close-button {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 26px;
+    top: 26px;
+    left: 77%;
+    right: 3%;
+    border-radius: 5px;
+    padding: 0px 5px;
+}
+.serie-info h2 {
+ font-size:16px;
+ Margin-top:0px;
+}
+.dialog-box h2{
+ Color:Black;
+}
+}
+
+
+
+
+#start-button, #previous-button, #next-button{
+    position: relative;
+    border: 2px solid red;
+    background: black;
+    color: #03ff41;
+    border-radius: 4px;
+    padding: 5px;
+    transition: all 0.9s;
+    text-align: center;
+    box-shadow: 0px 5px 12px 3px rgb(248, 70, 0);
+    margin-inline: 10px;
+    top: 10px;
+}
+
+.dialog-content  {
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.dialog-content h2 {
+    background: #00c8ff;
+    border: 2px solid red;
+    border-radius: 4px;
+    padding: 5px;
+    transition: all 0.9s;
+    text-align: center;
+    box-shadow: 0px 10px 16px 4px rgb(255 0 0);
+    margin-inline: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+::-webkit-scrollbar {display: none;}
+</style>
+
+
+<body>
+ 
+
+  <div class="container">
+
+
+
+<!--   #####################    PARA PONER MAS SERIES ##########################
+
+<div class="serie" id="serie1"><div class="serie">
+<img src=" ### IMAGEN #### 
+" alt="Serie 1" class="serie-image">
+<div class="serie-info"><h2> ### TITULO ### 
+</h2><p> ##### SINOPSIS #####
+</p> </div> <div class="seasons hidden"><h3> #### TITULO ####
+</h3><button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+
+<a href="" target="_blank">Cap. 01</a>
+
+</div>
+
+<button class="season-button">Temporada 2</button><div class="chapter-menu show">
+<a href="" target="_blank">Cap. 01</a>
+
+        </div></div> </div></div>
+
+#####################################################################  -->
+
+
+
+
+<div class="serie" id="serie1"><div class="serie">
+<img src=" https://ayudaizzi.izzi.mx/hc/article_attachments/5793963569818
+" alt="Serie 1" class="serie-image">
+<div class="serie-info"><h2> CANALES DE TV
+</h2><p>  </p> </div> <div class="seasons hidden"><h3> CANALES DE TV
+</h3><button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+
+
+<a href="http://davidc.myftp.org:80/play/Z6dpNkqdadH3FglWupeP3UTY-2awfv2qfcrcQiJSWQQ/m3u8" target="_blank">WIN + ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/292" target="_blank">WIN SPORT + FHD OPC-2 ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/290" target="_blank">CARACOL 🇨🇴</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/390" target="_blank">RCN 🇨🇴</a>
+<a href="https://rcntv-rcnmas-1-us.plex.wurl.tv/playlist.m3u8" target="_blank">RCN MAX 🇨🇴</a>
+<a href="https://latv-rcn-xtra-1-mx.tcl.wurl.tv/playlist.m3u8" target="_blank">RCN xtra 🇨🇴</a>
+<a href="https://mdstrm.com/live-stream-playlist/5a5e1c2568b1910913db5fe2.m3u8" target="_blank">CANAL UNO 🇨🇴</a>
+<a href="https://tkx.mp.lura.live/rest/v2/mcp/video/adstB64MXYxqLZwy?anvack=4gXmVVoVIp3YeECJWm6af3j0mlHwl6vO&eud=SKjoH1L/9Enwo5zQBiBTRfTSNGfENMNO6udm4CQNVvix/L9XX8kucBOvzWalIghNrL5GllGH8ou17ICYGv29Rg==" target="_blank">TELECARIBE 🇨🇴</a>
+<a href="https://59a564764e2b6.streamlock.net/ctvbarranquilla/ctv/.m3u8" target="_blank">CTV BARRANQUILLA 🇨🇴</a>
+<a href="https://streaming.rtvc.gov.co/TV_CanalInstitucional_live/smil:live.smil/chunklist_b3500000.m3u8" target="_blank">CANAL INSTITUCIONAL 🇨🇴</a>
+<a href="https://geostreaming.rtvc.gov.co/TV_Senal_Colombia_live/smil:live.smil/chunklist_b3500000.m3u8" target="_blank">SEÑAL COLOMBIA 🇨🇴</a>
+<a href="https://inforedvos.lcdn.claro.net.co/Content/HLS_HLS_DIR/Live/channel(REDMASHDWEB)/master.m3u8" target="_blank">RED MAX 🇨🇴</a>
+<a href="https://stmv1.voxtvhd.com.br/tvpenol/tvpenol/chunklist_w110379676.m3u8" target="_blank">TV PEÑOL HD Antioquia 🇨🇴</a>
+<a href="https://live-edge-bhs-1.cdn.enetres.net/184784E1D210401F8041E3E1266822CC021/playlist.m3u8" target="_blank">CANAL 90 MINUTOS 🇨🇴</a>
+<a href="https://stmv1.voxtvhd.com.br/alpavision/alpavision/.m3u8" target="_blank">ALPAVISION 🇨🇴</a>
+<a href="https://59ef525c24caa.streamlock.net/atntelevision/atntelevision/.m3u8" target="_blank">ATN CÚCUTA 🇨🇴</a>
+<a href="https://stmv2.voxtvhd.com.br/canalccali/canalccali/.m3u8" target="_blank">CANAL C 🇨🇴</a>
+<a href="https://movil.ejeserver.com/live/visiondorada.m3u8" target="_blank">CANAL VISION DORADA 🇨🇴</a>
+<a href="https://stream.ads.ottera.tv/playlist.m3u8?network_id=1079" target="_blank">CANAL ADS 🇨🇴</a>
+<a href="#EXTINF:-1 channel-id="jtvs-inf" tvg-id="jtvs-inf" tvg-logo=""  group-title="informe" ,RADIO IPUC 🎙️🎵🎶" target="_blank">🌐</a>
+<a href="https://virtualtronics.net/proxy/ipuc?mp=/stream/1/" target="_blank">RADIO IPUC 🎙️🎵🎶</a>
+<a href="http://stream-064.zeno.fm/q1hztfgm54zuv?zs=hfiTC0VGTqS6vA7xvNs3YA" target="_blank">RADIO CIELO IPUC 🎙️🎵🎶</a>
+<a href="https://samuel.i-radio.co:9000/radiobendicion.aac?1682825427796" target="_blank">RADIO BENDICIÓN IPUC 🎙️🎵🎶</a>
+<a href="https://video.misistemareseller.com/minfavtv/minfavtv/playlist.m3u8" target="_blank">FAV TV CRISTIANO</a>
+<a href="https://5bf8041cb3fed.streamlock.net:443/AlcanceTV/AlcanceTV/playlist.m3u8" target="_blank"> ALCANCE TV - Cristiano</a>
+<a href="https://emisoras.hn:8081/diostevekids/playlist.m3u8 " target="_blank">DIOS TE VE INFANTIL</a>
+<a href="#EXTINF:-1 channel-id="FORO MX-inf" tvg-id="FORO MX-inf" tvg-logo=""  group-title="" ,INGLES PRINCIPIANTE" target="_blank">🌐</a>
+<a href="https://daiconnect.com/live/hls/tvup/tivify-ita-principiante/.m3u8?ApPW=[playerWidth]&ApPH=" target="_blank">INGLES PRINCIPIANTE</a>
+<a href="https://daiconnect.com/live/hls/tvup/tivify-ita-intermedio/.m3u8?ApPW=[playerWidth]&ApPH" target="_blank">INGLES INTERMEDIO</a>
+<a href="https://daiconnect.com/live/hls/tvup/tivify-ita-avanzado/.m3u8?ApPW=" target="_blank">INGLES AVANZADO</a>
+<a href="#EXTINF:-1 channel-id="FORO MX-inf" tvg-id="FORO MX-inf" tvg-logo=""  group-title="" ,CASO CERRADO " target="_blank">🌐</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/907" target="_blank">CASO CERRADO</a>
+<a href="https://cdn2.eco.cdn.moderntv.eu/econocable/stream/HISTORY1/40-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DHISTORYCHANNEL_stream_2w&_cdn_session=983441779&_cdn_timestamp=1690181885&_cdn_token=020a6757f96b411fe152a9c5b619c373ee7eb41f" target="_blank"> HISTORIA (PC)</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/67" target="_blank">CANAL HISTORIA</a>
+<a href="https://cdn1.eco.cdn.moderntv.eu/econocable/stream/HOMEANDHEALTH/10-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DHOMEANDHEALTH_stream_qp&_cdn_session=983445907&_cdn_timestamp=1690182542&_cdn_token=fffa977cfb7ec28b4e980e02fee01f43f0b7cdb8" target="_blank">Discobery H&H- Hogar y Salud (PC)</a>
+<a href="https://cdn1.eco.cdn.moderntv.eu/econocable/stream/DISCOVERYTURBO/40-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DDISCOVERYTURBO_stream_kb&_cdn_session=983441067&_cdn_timestamp=1690181777&_cdn_token=8180ccb643a7df0e8e686e3dd9b9a1b06fe136d6" target="_blank"> DISCOVERY TURBO- (PC)</a>
+<a href="https://cdn3.eco.cdn.moderntv.eu/econocable/stream/DISCOVERYSCIENCE/40-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DDISCOVERYSCIENCE_stream_49&_cdn_session=983441035&_cdn_timestamp=1690181764&_cdn_token=bf888f0b1bc1a5513eda3c6a2f25f59308327aaf" target="_blank"> DISCOVERY CIENCIE (PC)</a>
+<a href="https://cdn2.eco.cdn.moderntv.eu/econocable/stream/DISCOVERY/10-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DDISCOVERYCH_stream_hg&_cdn_session=983440987&_cdn_timestamp=1690181757&_cdn_token=757158ac370775972e86408c4573b6ef2c34162f" target="_blank">DISCOVERY CHANNEL (PC)</a>
+<a href="https://cdn2.eco.cdn.moderntv.eu/econocable/stream/ID/10-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DID_stream_ch&_cdn_session=986619259&_cdn_timestamp=1690260360&_cdn_token=a09e33f659e08c1b58f247e6891c819fbc9b02db" target="_blank">DISCOVERY INVESTIGACIÓN (PC)</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/22" target="_blank"> DISCOVERY CHANNEL</a>
+<a href="https://cdn2.eco.cdn.moderntv.eu/econocable/stream/TLC/40-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DTRAVELANDLIVING_stream_z3&_cdn_session=983445923&_cdn_timestamp=1690182547&_cdn_token=2bf82e3c95039c49fbaeb10a1f7d18e72c808c27" target="_blank">#EXTINF:-Viajes y Vida (PC)</a>
+<a href="https://cdn3.eco.cdn.moderntv.eu/econocable/stream/NATGEO/40-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DNATGEO_stream_17&_cdn_session=983441411&_cdn_timestamp=1690181833&_cdn_token=0ab579583be2a80141542da3f7dd7f0864f5f656" target="_blank"> NATIONAL GEOGRAPHIC (PC)</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/76" target="_blank"> NATIONAL GEOGRAPHIC</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/77" target="_blank"> NAT GEO</a>
+<a href="https://cdn2.eco.cdn.moderntv.eu/econocable/stream/ANIMALPLANET/10-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DANIMALPLANET_stream_2n&_cdn_session=983441395&_cdn_timestamp=1690181828&_cdn_token=ecfbae2719ba2da5adbfb938b378e6c5b5210ce7" target="_blank">ANIMAL PLANET (PC)</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/3" target="_blank"> ANIMAL PLANET</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/23" target="_blank">HGTV- Remodelacion de Casas</a>
+<a href="https://nodep002.service.openstream.es/SVoriginOperatorEdge2/smil:25_HD.smil/manifest.m3u8" target="_blank">DOCUMENTAL DKISS</a>
+<a href="https://spa-ha-p004.cdn.masmediatv.es/SVoriginOperatorEdge/smil:23_HD.smil/manifest.m3u8" target="_blank">DOCUMENTAL DMAX- Casos de la Vida Real</a>
+<a href="https://marine2.miplay.cl/ontour/playlist.m3u8" target="_blank">ON TOUR</a>
+<a href="https://nodep002.service.openstream.es/SVoriginOperatorEdge2/smil:26_HD.smil/manifest.m3u8" target="_blank">DOCUMENTAL TEM- Casos de la Vida Real</a>
+<a href="#EXTINF:-1 id-canal="FORO MX-inf" tvg-id="FORO MX-inf" tvg-logo="" group-title="" ,DISNEY CHANNEL" target="_blank">🌐</a>
+<a href="https://spa-ha-p004.cdn.masmediatv.es/SVoriginOperatorEdge2/smil:21_HD.smil/manifest.m3u8" target="_blank">DISNEY CHANNEL</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/428" target="_blank">CANTIFLAS</a>
+<a href="https://6362ca6f1fc28.streamlock.net:443/elchavoplus/elchavoplus/playlist.m3u8" target="_blank">EL CHAVO DEL 8 (PC)</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/400" target="_blank">EL CHAVO DEL 8</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/417" target="_blank">EL DOCTOR CHAPATIN</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/418" target="_blank">EL CHAPULIN COLORADO</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/425" target="_blank"> DRAGÓN BALL Z</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/894" target="_blank">LOS SIMPSON</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/427" target="_blank"> CABALLEROS DEL ZODIACO</a>
+<a href="https://canadaremar2.todostreaming.es/live/peque-pequetv.m3u8" target="_blank">PEQUERADIO- INFANTIL</a>
+<a href="https://playout.cdn.cartoonnetwork.com.br/playout_06/playlist-720p.m3u8" target="_blank">CARTOON NETWORD</a>
+<a href="https://playout.cdn.cartoonnetwork.com.br/playout_08/playlist-720p.m3u8" target="_blank">CARTOON NETWORD 2</a>
+<a href="https://playout.cdn.cartoonnetwork.com.br/playout_02/playlist.m3u8" target="_blank">CARTOON NETWORD 3</a>
+<a href="https://playout.cdn.cartoonnetwork.com.br/playout_04/playlist-720p.m3u8" target="_blank">CARTOONITO</a>
+<a href="#EXTINF:-1 channel-id="FOX SPORTS 2-inf" tvg-id="FOX SPORTS 2-inf" tvg-logo=""  group-title="" ,FOX SPORTS" target="_blank">🌐</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/998" target="_blank">FOX SPORTS</a>
+<a href="https://d17lgdx4t7a4od.cloudfront.net/out/v1/9143d1b1e45440b99f1fdc3a6a50c210/index.m3u8" target="_blank">FOX SPORTS 2 ⚽</a>
+<a href="https://cdn3.eco.cdn.moderntv.eu/econocable/stream/ESPN/10-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DESPN2_stream_et&_cdn_session=983438635&_cdn_timestamp=1690181279&_cdn_token=915e185129645dbc32212692da8c50fa091d3aa1" target="_blank">ESPN (PC)</a>
+<a href="https://cdn3.eco.cdn.moderntv.eu/econocable/stream/ESPN2/40-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DESNP_stream_zq&_cdn_session=983438667&_cdn_timestamp=1690181284&_cdn_token=fc17874bde6036bd5e4cf64bd7ab3a2f6fccb8fb" target="_blank">ESPN 2 (PC)</a>
+<a href="https://cdn2.eco.cdn.moderntv.eu/econocable/stream/ESPN3/40-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DESPN3_stream_yi&_cdn_session=983439595&_cdn_timestamp=1690181480&_cdn_token=817531e69819af37f985471eb95f6844e6d7f993" target="_blank">ESPN 3 (PC)</a>
+<a href="https://cdn1.eco.cdn.moderntv.eu/econocable/stream/FOXSPORTS/40-hls/live-media.m3u8?_cdn_attrs=account%3Deconocable%2Cresource%3DFOXSPORTS_stream_ml&_cdn_session=983440427&_cdn_timestamp=1690181642&_cdn_token=7b0115b575779294342bbe9df00e4d5a0091b4f7" target="_blank">ESPN 4 (PC)</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/34" target="_blank">ESPN ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/487" target="_blank">ESPN Extra ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/494" target="_blank">ESPN Extra- ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/156" target="_blank">ESPN 2 ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/35" target="_blank">ESPN 2 Opc -2 ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/484" target="_blank">ESPN 2- ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/485" target="_blank">ESPN 3 ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/493" target="_blank">ESPN 4 ⚽</a>
+<a href="https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/bein-sports-xtra-en-espanol/playlist.m3u8" target="_blank">BEIN SPORTS Extra (PC)</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/9" target="_blank">BEIN SPORTS ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/989" target="_blank">SKY SPORTS ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/900" target="_blank">SKY SPORTS 2 ⚽</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/997" target="_blank">TUDN SPORTS ⚽</a>
+<a href="https://rmtv.akamaized.net/hls/live/2043153/rmtv-es-web/master.m3u8" target="_blank"> REALMADRID TV (PC)</a>
+<a href="https://stream.plixitv.live/edx/edx/playlist.m3u8" target="_blank">DEPORTES LIGA1MAX - EDX</a>
+<a href="https://d3j7ofexbkp7q4.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-bl5ti7t9yiazp-ssai-prd/master.m3u8" target="_blank">DEPORTES VIAPLAY ⚽</a>
+<a href="https://motorsportnetwork-motor1tv-1-it.samsung.wurl.tv/playlist.m3u8" target="_blank">CARROS Y MOTOS -MOTOR 1 TV</a>
+<a href="https://5fe2654d6127d.streamlock.net/tododeportesplus/smil:tododeportesplus.smil/playlist.m3u8?wmsAuthSign=c2VydmVyX3RpbWU9Ny8yMC8yMDIzIDQ6NDc6MTQgQU0maGFzaF92YWx1ZT0rOUpzVW50L3lIanNMQy9FVjMwVy9RPT0mdmFsaWRtaW51dGVzPTM2MDAmaWQ9" target="_blank">TODO DEPORTES - Boxeo</a>
+<a href="https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_928.m3u8" target="_blank">DEPORTES REDBULL ⚽</a>
+<a href="https://linear-193.frequency.stream/193/hls/master/playlist.m3u8" target="_blank"> DEPORTES LIGA MX ⚽</a>
+<a href="https://tinyurl.com/2zzuhma3" target="_blank">DEPORTES ⚽</a>
+<a href="https://stream.ads.ottera.tv/cl/230503ch9d0pa7g1oopc29ru1g/1280x720_4214276_1_f.m3u8?i=475_3010" target="_blank">ITV DEPORTES ⚽</a>
+<a href="#EXTINF:-1 channel-id="rtv-tv" tvg-id="rtv-tv" tvg-logo=""  group-title="informe" , NOTICIA- 24h" target="_blank">🌐</a>
+<a href="https://ztnr.rtve.es/ztnr/1694255.m3u8" target="_blank"> NOTICIA- 24h</a>
+<a href="https://channel02-notusa.akamaized.net/hls/live/2023914-b/event01/index.m3u8" target="_blank">NOTICIA -FORO MX</a>
+<a href="https://5ea86ddd14ce7.streamlock.net/live/cable09061970/.m3u8" target="_blank">CABLENOTICIAS</a>
+<a href="https://dwamdstream104.akamaized.net/hls/live/2015530/dwstream104/stream03/streamPlaylist.m3u8" target="_blank">NOTICIA - DW</a>
+<a href="https://stream.oursnetworktv.com/latin/encoder29/playlist.m3u8" target="_blank">NOTICIA - DW CorTV</a>
+<a href="#EXTINF:-1, LA DIEZ - SALUD" target="_blank">🌐</a>
+<a href="https://panel.miplay.cl:8081/ladies/index.m3u8" target="_blank"> LA DIEZ - SALUD</a>
+<a href="https://marine2.miplay.cl/mundoysabor/playlist.m3u8" target="_blank">Mundo & Sabor</a>
+<a href="https://022d66c197dd4a1e9008e0134a74f34e.mediatailor.us-east-1.amazonaws.com/v1/master/44f73ba4d03e9607dcd9bebdcb8494d86964f1d8/Samsung-es_HolaPlay/playlist.m3u8" target="_blank">CANAL HOLA PLAY - COSINA</a>
+<a href="https://tinyurl.com/2z5u36m2" target="_blank">COSINA ESPAÑOLA</a>
+<a href="https://tinyurl.com/2mr5lbjd" target="_blank">COSINA MEXICANA</a>
+<a href="https://tinyurl.com/2p2do28c" target="_blank">COSINA VENEZOLANA</a>
+<a href="#EXTINF:-1 channel-id="FORO MX-inf" tvg-id="FORO MX-inf" tvg-logo=""  group-title="" ,TLNOVELAS- Univision " target="_blank">🌐</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/413" target="_blank">TLNOVELAS- Univision</a>
+<a href="https://linear-305.frequency.stream/305/hls/master/playlist.m3u8" target="_blank">AMORES VERDADEROS</a>
+<a href="https://live.seo.tv.bo/live/3SEO.m3u8" target="_blank">SEO TV NOVELAS</a>
+<a href="https://linear-311.frequency.stream/311/hls/master/playlist.m3u8" target="_blank">NOVELAS- FAMILIA P-LUCHE</a>
+<a href="https://linear-313.frequency.stream/313/hls/master/playlist.m3u8" target="_blank">NOVELAS RISAS DE ORO</a>
+<a href="https://linear-314.frequency.stream/314/hls/master/playlist.m3u8" target="_blank">NOVELAS - VESINOS</a>
+<a href="https://linear-315.frequency.stream/315/hls/master/playlist.m3u8" target="_blank">NOVELAS - GRAFACANICAS</a>
+<a href="https://linear-316.frequency.stream/316/hls/master/playlist.m3u8" target="_blank">NOVELAS - CUIDADO CON EL ANGEL</a>
+<a href="https://linear-319.frequency.stream/319/hls/master/playlist.m3u8" target="_blank">NOVELAS - ALEGRIJES Y RIBUJOS</a>
+<a href="https://linear-321.frequency.stream/321/hls/master/playlist.m3u8" target="_blank">30.NOVELAS - ANGELIQUE</a>
+<a href="https://linear-323.frequency.stream/323/hls/master/playlist.m3u8" target="_blank">NOVELAS - LOS EROES DEL NORTE</a>
+<a href="https://linear-325.frequency.stream/325/hls/master/playlist.m3u8" target="_blank">NOVELAS - GALANES</a>
+<a href="https://linear-327.frequency.stream/327/hls/master/playlist.m3u8" target="_blank">NOVELAS - JUANA LA VIRGEN</a>
+<a href="https://linear-328.frequency.stream/328/hls/master/playlist.m3u8" target="_blank">15.NOVELAS - LAS 3 MARIAS</a>
+<a href="https://linear-335.frequency.stream/335/hls/master/playlist.m3u8" target="_blank">NOVELAS - REBELDE</a>
+<a href="https://linear-337.frequency.stream/337/hls/master/playlist.m3u8" target="_blank">NOVELAS - SORTILEGIO</a>
+<a href="https://linear-338.frequency.stream/338/hls/master/playlist.m3u8" target="_blank">NOVELAS - TRIUNFO DE AMOR</a>
+<a href="https://linear-340.frequency.stream/340/hls/master/playlist.m3u8" target="_blank">NOVELAS - 40 y 20</a>
+<a href="https://linear-341.frequency.stream/341/hls/master/playlist.m3u8" target="_blank">NOVELAS - COMO DICE EL DICHO</a>
+<a href="https://linear-342.frequency.stream/342/hls/master/playlist.m3u8" target="_blank">NOVELAS - TERESA</a>
+<a href="https://linear-343.frequency.stream/343/hls/master/playlist.m3u8" target="_blank">NOVELAS - LA PROMESA</a>
+<a href="https://linear-416.frequency.stream/416/hls/master/playlist.m3u8" target="_blank">NOVELAS - LAS ESTRELLAS</a>
+<a href="https://linear-447.frequency.stream/447/hls/master/playlist.m3u8" target="_blank">NOVELAS - HASTA QUE EL DINERO NOS SEPARE</a>
+<a href="https://linear-448.frequency.stream/448/hls/master/playlist.m3u8" target="_blank">NOVELAS - LA USURPADORA</a>
+<a href="https://linear-450.frequency.stream/450/hls/master/playlist.m3u8" target="_blank">NOVELAS - UNA FAMILIA DE  DIEZ</a>
+<a href="https://rt-esp.rttv.com/live/rtesp/playlist.m3u8" target="_blank">NOTICIAS RT ESPAÑOL</a>
+<a href="#EXTINF:-1 channel-id="FORO MX-inf" tvg-id="FORO MX-inf" tvg-logo=""  group-title="" ,PELICULAS TNT" target="_blank">🌐</a>
+<a href="https://v3.playerlatino.live/stream/m3u8/500" target="_blank">PELICULAS TNT</a>
+<a href="https://cdn.klowdtv.net/803B48A/n1.klowdtv.net/live1/cine_720p/playlist.m3u8" target="_blank">PELICULAS SONY TV</a>
+<a href="https://ss2.domint.net:3200/gdm_str/gdmtv/playlist.m3u8" target="_blank">PELICULAS GDM TV</a>
+<a href="https://live.seo.tv.bo/live/1SEO.mhttps://live.seo.tv.bo/live/1SEO.m3u8" target="_blank"> PELÍCULA SEO TV</a>
+<a href="https://live.seo.tv.bo/live/4SEO.m3u8" target="_blank">05.SEO TV PELICULAS</a>
+<a href="https://vivo.solumedia.com:19360/sicarditv/sicarditv.m3u8" target="_blank">SICARDI TV</a>
+<a href="https://stmv1.cnarlatam.com/solivetv/solivetv/playlist.m3uhttps://stmv1.cnarlatam.com/solivetv/solivetv/playlist.m3u8" target="_blank">SOLIVE TV PELÍCULAS</a>
+
+
+<a href="#EXTINF:-1 channel-id="entres-net" tvg-id="entres-net" tvg-logo="" group-title="informe" ,TELEMADRID" target="_blank">🌐</a>
+<a href="https://telemadridhls2-live-hls.secure2.footprint.net/egress/chandler/telemadrid/telemadrid_1/bitrate_1.m3u8" target="_blank">TELEMADRID</a>
+<a href="https://videostream.shockmedia.com.ar:19360/milenniotv/milenniotv.m3u8" target="_blank">CANAL MILENIO</a>
+<a href="https://5ca3e84a76d30.streamlock.net/mexiquense/videomexiquense/playlist.m3u8" target="_blank"> MEXIQUENSE</a>
+<a href="https://5f2c1b0d880e5.streamlock.net/boliviatv2/videoboliviatv2/chunklist_w202750595.m3u8" target="_blank">BOLIVIA TV</a>
+<a href="https://cdnesmain.telesur.ultrabase.net/mbliveMain/hd/playlist.m3u8" target="_blank">TELESUR</a>
+<a href="https://3abn-live.akamaized.net/hls/live/2010547-b/Latino/HQs/chunklist.m3u8" target="_blank">3ABN Latino</a>
+<a href="https://streaming012.gestec-video.com/hls/eltoro_bal.m3u8" target="_blank">TORO TV</a>
+<a href="https://tinyurl.com/2zurssc7" target="_blank">CANAL NATURALEZA</a>
+<a href="https://stream.arcast.live/canal10/ngrp:canal10_all/.m3u8" target="_blank">CANAL 10</a>
+<a href="https://univision-live.cdn.vustreams.com/live/ce88b839-6376-4494-a2ee-83d66bc7cfc1/live.isml/ce88b839-6376-4494-a2ee-83d66bc7cfc1.m3u8" target="_blank">UNIVISION</a>
+<a href="https://streamtv.mediasector.es/hls/activatv/.m3u8" target="_blank">ACTIVA TV</a>
+<a href="https://5fc584f3f19c9.streamlock.net/agrotendencia/videoagrotendencia_hls1/.m3u8" target="_blank">AGROTENDENCIAS MX</a>
+<a href="https://vcp2.myplaytv.com/anzoateguitv/anzoateguitv/.m3u8" target="_blank">ANSOATEGUI VEN</a>
+<a href="https://5ab29cc78f681.streamlock.net/canal33tvmadridgmailcom/livestream/.m3u8" target="_blank">CANAL 33</a>
+<a href="" target="_blank">💎</a>
+<a href="https://objectstorage.sa-saopaulo-1.oraclecloud.com/n/grrfff66me7t/b/Cubojoselyn/o/reset%2Fpeliculas%2Fjulio%2FVer%20Misi%C3%B3n-%20Imposible%20-%20Sentencia%20mortal%20parte%20uno%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Misión imposible: Sentencia mortal (2023)(CAM)</a>
+<a href="https://objectstorage.sa-saopaulo-1.oraclecloud.com/n/grrfff66me7t/b/Cubojoselyn/o/reset%2Fpeliculas%2Fjulio%2FVer%20Unos%20suegros%20de%20armas%20tomar%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Unos sueños de armas tomar (2023)</a>
+<a href="https://objectstorage.sa-saopaulo-1.oraclecloud.com/n/grrfff66me7t/b/Cubojoselyn/o/reset%2Fpeliculas%2Fjulio%2FVer%20Guardianes%20de%20la%20Galaxia%20volumen%203%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Guardianes de la galaxia Vol. 3 (2023)</a>
+<a href="https://od.lk/s/NV8xODY2OTYzNzRf/Indiana%20Jones%20y%20el%20dial%20del%20destino%20Online%202023.mp4" target="_blank">Indiana Jones y el dial del destino (2023)(CAM)</a>
+<a href="https://main.cinedecalidad.xyz/mexicanas/indianajones.mp4" target="_blank">Indiana Jones y el dial del destino (2023)(CAM)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fjunn%2FVer%20Misi%C3%B3n%20de%20rescate%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Misión de rescate 1 (2020)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fjunn%2FVer%20R%C3%A1pidos%20y%20furiosos%20X%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol_2.mp4" target="_blank">Rápidos y furiosos 10 (2023)</a>
+<a href="https://main.cinedecalidad.xyz/mexicanas/TransformersDespertar.mp4" target="_blank">Transformers: El despertar de las bestias (2023) (CAM)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fmayooo%2FVer%20Demonio%20negro%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Demonio negro (2023) (CAM)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fmayooo%2FVer%20Hypnotic%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank"> Hipnótico (2023) (CAM)</a>
+<a href="https://od.lk/s/NV8xODU0MTg5MjBf/R%C3%A1pidos%20y%20furiosos%20X%20%282023%29%20Online.mp4" target="_blank">Rápidos y furiosos 10 (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fabril%2FVer%20Calabozos%20%26%20Dragones-%20Honor%20entre%20ladrones%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Calabozos y Dragones: Honor entre ladrones (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fabril%2FVer%20Scream%20VI%20Online%20Castellano%20Latino%20Subtitulada%20HD%20-%20HDFull.mp4" target="_blank"> Scream VI (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fabril%2FVer%20Siete%20reyes%20deben%20morir%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Siete reyes deben morir (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fabril%2FVer%20El%20hijo%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">El hijo (2022)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fabril%2FVer%20Hambre%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol_2.mp4" target="_blank">Hambre (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fabril%2FVer%20Ant-Man%20and%20the%20Wasp-%20Quantumania%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Ant-Man y la Avispa: Quantumanía (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fabril%2FVer%2065%20Online%20Castellano%20Latino%20Subtitulada%20HD%20-%20HDFull.mp4" target="_blank">65 (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fabril%2FVer%20Chupa%20Online%20Castellano%20Latino%20Subtitulada%20HD%20-%20HDFull.mp4" target="_blank"> Chupa (2023)</a>
+<a href="https://objectstorage.us-ashburn-1.oraclecloud.com/n/idvrlfgimket/b/cubostudio/o/peliculas%2Fpelisabr23%2FVer%20Calabozos%20%26%20Dragones-%20Honor%20entre%20ladrones%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Calabozos y Dragones: Honor entre ladrones (2023)</a>
+<a href="https://objectstorage.us-ashburn-1.oraclecloud.com/n/idvrlfgimket/b/cubostudio/o/peliculas%2Fpelisabr23%2FVer%20Murder%20Mystery%202%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Misterio a la vista (2023)</a>
+<a href="https://od.lk/s/OTZfNzc3MjU5Nzhf/On%20a%20Wing%20and%20a%20Prayer%20%282023%29%20Online.mp4" target="_blank">Mientras Haya Esperanza (2023)</a>
+<a href="https://od.lk/s/OTZfNzc3MTU1MDlf/Tetris%20%282023%29%20Online.mp4" target="_blank"> Tetris (2023)</a>
+<a href="https://objectstorage.us-ashburn-1.oraclecloud.com/n/idvrlfgimket/b/cubostudio/o/peliculas%2Fpelisabr23%2FVer%20El%20vuelo%20de%20los%20ladrones%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">El vuelo de los ladrones (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fmarz%2FVer%20Avatar-%20El%20camino%20del%20agua%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol_2.mp4" target="_blank">Avatar: El sentido del agua (2022)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fmarz%2FVer%20%C2%A1Shazam!%20La%20furia%20de%20los%20dioses%20Online%20Castellano%20Latino%20Subtitulada%20HD%20-%20HDFull.mp4" target="_blank"> Shazam 2 (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2FVer%20Scream%206%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Grito 6 (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2FVer%20Agente%20Fortune-%20El%20gran%20enga%C3%B1o%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Agente Fortune: El gran engaño (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Ffeb%2FVer%20Creed%20III%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank"> Credo III (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/pelisarregladas%2Fparte5%2FVer%20Creed%202-%20La%20leyenda%20de%20Rocky%20(Defendiendo%20el%20legado)%20Online%20(2018)%20-%20REPELIS.mp4" target="_blank"> Credo II (2018)</a>
+<a href="https://objectstorage.us-ashburn-1.oraclecloud.com/n/idvrlfgimket/b/cubostudio/o/peliculas%2Fpelisfeb23%2FVer%20Creed-%20Coraz%C3%B3n%20de%20campe%C3%B3n%20(2015)%20Online%20Gratis%20en%20HD%20-%20InkaPelis.mp4" target="_blank"> Credo I (2015)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Ffeb%2FVer%20El%20peor%20vecino%20del%20mundo%20Online%20Castellano%20Latino%20Subtitulada%20HD%20-%20HDFull_3.mp4" target="_blank">El peor vecino del mundo (2022)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Ffeb%2FVer%20Tenemos%20un%20fantasma%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Tenemos un fantasma (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Ffeb%2FVer%20Die%20Hart%20the%20Movie%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank"> Hart (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Ffeb%2FVer%20Tenemos%20un%20fantasma%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Tenemos un fantasma (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Ffeb%2FVer%20Die%20Hart%20the%20Movie%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank"> Hart (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fene%2FVer%20Pamela%20Anderson-%20Una%20historia%20de%20amor%20Online%20Castellano%20Latino%20Subtitulada%20HD%20-%20HDFull.mp4" target="_blank">Pamela: una historia de amor (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fene%2FVer%20Winnie-the-Pooh-%20Blood%20and%20Honey%20Online%20Castellano%20Latino%20Subtitulada%20HD%20-%20HDFull.mp4" target="_blank">Winnie the Pooh: Sangre y miel (2023) MÁQUINA</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fene%2FVer%20Dead%20Zone%20Online%20Castellano%20Latino%20Subtitulada%20HD%20-%20HDFull_2.mp4" target="_blank">Zona muerta (2022)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fene%2FVer%20Teen%20Wolf-%20The%20Movie%20Online%20Castellano%20Latino%20Subtitulada%20HD%20-%20HDFull.mp4" target="_blank">Teen Wolf: La película (2023)</a>
+<a href="https://sblona.com/xls06xw6vekc.mp4" target="_blank">Agente</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fmayooo%2FVer%20La%20sirenita%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">La sirenita (2023)</a>
+<a href="https://archive.org/download/01_20230520_20230520_2013/01.mp4" target="_blank">Air: La historia detrás del logo (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fmayooo%2FVer%20John%20Wick%204%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol_2.mp4" target="_blank">John Wick 4 (2023)</a>
+<a href="https://od.lk/s/NV8xODUzNTIxNDZf/Super%20Mario%20Bros.%20La%20pel%C3%ADcula%20online%202023%20HD.mp4" target="_blank">Super Mario Bros: La película (2023)</a>
+<a href="https://od.lk/s/NV8xODU0MTg5MjBf/R%C3%A1pidos%20y%20furiosos%20X%20%282023%29%20Online.mp4" target="_blank">Rápidos y furiosos 10 (2023)</a>
+<a href="https://archive.org/download/01_20230519_20230519_2125/01.mp4" target="_blank">Rápidos y furiosos X ( 2023)</a>
+<a href="https://archive.org/download/01_20230520_20230520_2211/01.mp4" target="_blank">Anna Nicole Smith: Tú no me conoces (2023)</a>
+<a href="https://archive.org/download/01_20230520_20230520_2157/01.mp4" target="_blank">Fanfik (2023)</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fmayooo%2FVer%20Cr%C3%A1ter%20online%20HD%20-%20Cuevana%202%20Espa%C3%B1ol.mp4" target="_blank">Cráter (2023)</a>
+<a href="https://archive.org/download/01_20230514_20230514_2127/01.mp4" target="_blank"> Caballero Negro (2023)</a>
+<a href="https://archive.org/download/01_20230514_20230514_2224/01.mp4" target="_blank">Royalteen: Princess Margrethe (2023)</a>
+<a href="https://archive.org/download/01_20230513/01.mp4" target="_blank">Sombras de un crimen (2023)</a>
+<a href="https://archive.org/download/01_20230513_202305/01.mp4" target="_blank">Linaje Oscuro (2022)</a>
+<a href="https://archive.org/download/01_20230512_20230512_2326/01.mp4" target="_blank">La madre (2023)</a>
+<a href="https://archive.org/download/01_20230509_202305/01.mp4" target="_blank">Uno para morir (2023)</a>
+<a href="https://archive.org/download/01_20230509_20230509_1915/01.mp4" target="_blank">Posesión infernal: El despertar (2023) )</a>
+<a href="https://archive.org/download/01_20230509_20230509/01.mp4" target="_blank">Sustitutos (2023)</a>
+<a href="https://pc-25.pelismxcdn.com/oxlcqmqktdvppecnltaiaymghwhujtjfkzlnrhsumgegvyivyxjwrjepuecsmpifpwjbdvsppjxybtnjzgesoqpjfobkrefssuiudqbcifvhbyoxfxhryplilbsieybjtcclxpyupfwzagzoxysbpwqwdjumzjnypwpmivgqpehfsayntbyvnrklkzgqxiqzvkpjxzpf/627ffec313d18a60350c84d3849ab876/EP.0.2.v0.1682817561.1080.m3u8" target="_blank"> PELÍCULA Caballeros del zodiaco (2023)</a>
+<a href="https://archive.org/download/10_20210221/01.mp4" target="_blank"> 10 Cosas que Odio de Ti - netflix</a>
+<a href="https://archive.org/download/p-313/P313.mp4" target="_blank"> Pelao Netflix 2021</a>
+<a href="https://archive.org/download/01_20210226_20210226_1652/01.mp4" target="_blank"> Flora y Ulises 2021</a>
+<a href="https://objectstorage.us-phoenix-1.oraclecloud.com/n/axa4wow3dcia/b/bucket-20201001-1658/o/2023pelis%2Fene%2FVer%20Babylon%20Online%20Castellano%20Latino%20Subtitulada%20HD%20-%20HDFull_3.mp4" target="_blank"> Babilonia (2022)</a>
+<a href="https://archive.org/download/04_20210224/03.mp4" target="_blank"> Soul 2021 Disney</a>
+<a href="https://archive.org/download/02_20210301/02.mp4" target="_blank">La chica del tren Netflix 2021</a>
+<a href="https://archive.org/download/01_20210227_20210227_1502/01.mp4" target="_blank"> Loco por ella Netflix 2021</a>
+<a href="https://archive.org/download/01_20210307_20210307_1612/01.mp4" target="_blank"> Centinela Netflix 2021</a>
+<a href="https://archive.org/download/03_20210313_20210313_1548/03.mp4" target="_blank"> Vidas de papel Netflix 2021</a>
+<a href="https://archive.org/download/03_20210313_20210313_1548/02.mp4" target="_blank"> Akelarre Netflix 2021</a>
+<a href="https://archive.org/download/01_20210329_20210329_1822/01.mp4" target="_blank"> Sin hijos Netflix 2021</a>
+<a href="https://archive.org/download/03_20210329_202103/03.mp4" target="_blank"> En la misma ola Netflix 2021</a>
+<a href="https://archive.org/download/01_20210506_20210506_2121/01.mp4" target="_blank"> La apariencia de las cosas Netflix 2021</a>
+<a href="https://archive.org/download/01_20210506_20210506_2132/01.mp4" target="_blank"> La familia Mitchell vs. las maquinas Netflix 2021</a>
+<a href="https://archive.org/download/01_20210506_20210506_2143/01.mp4" target="_blank"> Sospecha mortal Netflix 2019</a>
+<a href="https://archive.org/download/01_20210511_20210511_1606/01.mp4" target="_blank"> Pasajero inesperado Netflix 2021</a>
+<a href="https://archive.org/download/01_20210516_20210516/01.mp4" target="_blank"> La mujer en la ventana Netflix 2021</a>
+<a href="https://archive.org/download/01_20210518_20210518_1349/01.mp4" target="_blank"> Yo soy todas ellas Netflix 2021</a>
+<a href="https://archive.org/download/01_20210519_20210519_1603/01.mp4" target="_blank"> Familia al instante</a>
+<a href="https://archive.org/download/01_20210519_20210519_1628/01.mp4" target="_blank"> El Codigo Da Vinci</a>
+<a href="https://archive.org/download/01_20210519_20210519_1653/01.mp4" target="_blank"> La momia</a>
+<a href="https://archive.org/download/01_20210519_20210519_1703/01.mp4" target="_blank"> Cincuenta sombras de Grey</a>
+<a href="https://archive.org/download/01_20210519_20210519_1719/01.mp4" target="_blank"> La momia regresa</a>
+<a href="https://archive.org/download/01_20210520_20210520_1544/01.mp4" target="_blank"> Terminator 2: El juicio final</a>
+<a href="https://archive.org/download/01_20210520_20210520_1553/01.mp4" target="_blank">El Grinch</a>
+<a href="https://storage.googleapis.com/eighth-opus-250514.appspot.com/content/R/The%20Grinch/LAT%201080%20T.H.3_G.R.1.N.C.H.mp4" target="_blank">El Grinch- Animado</a>
+<a href="https://archive.org/download/01_20210521_20210521_1407/01.mp4" target="_blank"> 8 Mile: Calle de las ilusiones</a>
+<a href="https://archive.org/download/01_20210521_20210521_1554/01.mp4" target="_blank"> Army of the Dead - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210521_20210521_1637/01.mp4" target="_blank"> Viviendo con mi ex</a>
+<a href="https://archive.org/download/01_20210527_20210527/01.mp4" target="_blank"> El experimento fantasma Netflix 2021</a>
+<a href="https://archive.org/download/01_20210602_20210602_1433/01.mp4" target="_blank"> Milagro azul - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210608_20210608_1508/01.mp4" target="_blank"> Carnaval - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210608_20210608_1521/01.mp4" target="_blank"> Dulce y amargo - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210617_20210617/01.mp4" target="_blank"> Disomnia - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210617_20210617_1756/01.mp4" target="_blank"> El dragon de la tetera - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210617_20210617_1955/01.mp4" target="_blank"> Juntos nuevamente 2021</a>
+<a href="https://archive.org/download/01_20210623/01.mp4" target="_blank"> La casa de las flores - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210623_20210623/01.mp4" target="_blank"> Samuray X: El fin -Netflix 2021</a>
+<a href="https://archive.org/download/01_20210623_202106/01.mp4" target="_blank"> Paternidad - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210623_20210623_1756/01.mp4" target="_blank"> Seguridad 2021</a>
+<a href="https://archive.org/download/01_20210624_202106/01.mp4" target="_blank"> Amor de cuento - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210630_20210630_1417/01.mp4" target="_blank"> Estados Unidos - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210705_202107/01.mp4" target="_blank"> Horario Estelar - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210707_20210707_1902/01.mp4" target="_blank"> Duro de Cuidar 2</a>
+<a href="https://archive.org/download/03_20210719_20210719_1607/03.mp4" target="_blank"> Civil War Capitan America</a>
+<a href="https://archive.org/download/02_20210719_20210719/01.mp4" target="_blank"> Iron man</a>
+<a href="https://archive.org/download/02_20210719_20210719/02.mp4" target="_blank"> Iron man 2</a>
+<a href="https://archive.org/download/02_20210719_20210719/03.mp4" target="_blank"> Iron man 3</a>
+<a href="https://archive.org/download/01_20210713_20210713_2219/01.mp4" target="_blank"> Black Widow 2021</a>
+<a href="https://archive.org/download/01_20210707_20210707_1450/01.mp4" target="_blank"> Mobile Suit Gundam Hathaway - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210717_20210717_2017/01.mp4" target="_blank"> El Hombre del Agua - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210717_20210717_2000/01.mp4" target="_blank"> Como me converti en superheroe  - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210717_20210717_2023/01.mp4" target="_blank"> Guia para la familia perfecta - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210717_20210717_1955/01.mp4" target="_blank"> Aquel verano - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210717_20210717_2038/01.mp4" target="_blank"> La calle del terror (Parte 3): 1666 Netflix 2021</a>
+<a href="https://archive.org/download/01_20210811_20210811_1644/01.mp4" target="_blank"> El stand de los Besos 3 - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210904_20210904_1946/01.mp4" target="_blank"> El es asi - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210902_20210902_2259/01.mp4" target="_blank"> La Última carta de amor - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210902_20210902_2328/01.mp4" target="_blank"> Cielo rojo sangre - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210912_20210912_1543/01.mp4" target="_blank"> Â¿Cuanto vale la vida? - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210912_20210912_1420/01.mp4" target="_blank"> Presas - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210912_20210912_1429/01.mp4" target="_blank"> El jinete del dragon - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210923_20210923/01.mp4" target="_blank"> BAC Nord: Brigada Anticriminal - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210923_20210923_1437/01.mp4" target="_blank"> Bajo el hechizo del amor - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210923_202109/01.mp4" target="_blank"> Intrusion - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210927_20210927/01.mp4" target="_blank"> My Little Pony: Nueva generacion - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210924_20210924/01.mp4" target="_blank"> Je Suis Karl Netflix 2021</a>
+<a href="https://archive.org/download/01_20210930_20210930_0718/01.mp4" target="_blank"> Te quiero como amigo - Netflix 2021</a>
+<a href="https://archive.org/download/01_20210930_20210930_0726/01.mp4" target="_blank"> Nadie sale con vida - Netflix 2021</a>
+<a href="https://archive.org/download/01_20211001_20211001_2008/01.mp4" target="_blank"> The Seven Deadly Sins: La maldicion de la luz</a>
+<a href="https://archive.org/download/01_20211011_20211011_2308/01.mp4" target="_blank"> Hay alguien en tu casa - Netflix 2021</a>
+<a href="https://archive.org/download/01_20211011_20211011_2322/01.mp4" target="_blank"> Barbie y Chelsea El Cumpleaños Perdido 2021</a>
+<a href="https://archive.org/download/01_20211011_20211011_2330/01.mp4" target="_blank"> Catalina la Catrina Especial Dia de Muertos Blim</a>
+<a href="https://archive.org/download/01_20211014_20211014_0239/01.mp4" target="_blank"> Bright: Alma de samuray - Netflix 2021</a>
+<a href="https://archive.org/download/01_20211014_20211014_1519/01.mp4" target="_blank"> Muppets Haunted Mansion Disney 2021</a>
+<a href="https://archive.org/download/01_20211014_20211014_1909/01.mp4" target="_blank"> Señales del Corazon 2021</a>
+<a href="https://archive.org/download/01_20211017/01.mp4" target="_blank"> Altares sin amor - Netflix 2021</a>
+<a href="https://archive.org/download/01_20211017_20211017/01.mp4" target="_blank"> Cuatro por cuatro - Netflix 2021</a>
+<a href="https://archive.org/download/01_20211017_20211017_0329/01.mp4" target="_blank"> La batalla olvidada - Netflix 2021</a>
+<a href="https://archive.org/download/01_20211017_20211017_1900/01.mp4" target="_blank"> Halloween Kills 2021</a>
+<a href="https://archive.org/download/01_20211020_20211020_1834/01.mp4" target="_blank"> Amigos Pasajeros hulu 2021</a>
+<a href="https://archive.org/download/01_20211021/01.mp4" target="_blank"> Fauces de la noche - Netflix 2021</a>
+<a href="https://archive.org/download/01_20211021_202110/01.mp4" target="_blank"> Aquel encuentro - Netflix 2021</a>
+<a href="https://archive.org/download/01_20211029_20211029_2343/01.mp4" target="_blank"> Hipnotico - Netflix 2021</a>
+<a href="https://archive.org/download/01_20211031_20211031_1921/01.mp4" target="_blank"> Host 2020</a>
+<a href="https://archive.org/download/01_20211031_20211031_1927/01.mp4" target="_blank"> El Vaculo</a>
+<a href="https://archive.org/download/01_20211031_20211031_1935/01.mp4" target="_blank"> Voces</a>
+<a href="https://archive.org/download/01_20211031_20211031_2044/01.mp4" target="_blank"> It: capÃ­tulo dos</a>
+<a href="https://archive.org/download/01_20211031_20211031_1945/01.mp4" target="_blank"> La noche de Halloween</a>
+<a href="https://archive.org/download/01_20211031_20211031_1955/01.mp4" target="_blank"> It</a>
+<a href="https://archive.org/download/01_20211031_20211031_2017/01.mp4" target="_blank"> El orfanato</a>
+<a href="https://archive.org/download/01_20211031_20211031_2027/01.mp4" target="_blank"> La novia cadaver</a>
+<a href="https://archive.org/download/01_20211031_20211031_2036/01.mp4" target="_blank"> Halloween: Resurrection</a>
+<a href="https://archive.org/download/01_20211109_20211109_1615/01.mp4" target="_blank"> Yara - Netflix 2021</a>
+<a href="https://archive.org/download/01_20211110_20211110_1547/01.mp4" target="_blank"> Descendants: The Royal Wedding</a>
+<a href="https://archive.org/download/01_20211110_20211110_1536/01.mp4" target="_blank"> Ainbo: La Guerrera del Amazonas</a>
+<a href="https://archive.org/download/01_20211114_20211114_1735/01.mp4" target="_blank"> Mi Pobre y Dulce Angelito 2021</a>
+<a href="https://archive.org/download/01_20211124_20211124_0551/01.mp4" target="_blank"> Amor sin medida Netflix 2021</a>
+<a href="https://archive.org/download/01_20211124_20211124/01.mp4" target="_blank"> Intercambio de Princesas 3 Netflix 2021</a>
+<a href="https://archive.org/download/01_20211124_20211124_0324/01.mp4" target="_blank"> tick tick...BOOM -Netflix 2021</a>
+<a href="https://archive.org/download/01_20211124_20211124_1457/01.mp4" target="_blank"> Avengers Infinity War</a>
+<a href="https://archive.org/download/01_20211124_20211124_1511/01.mp4" target="_blank"> Avengers Endgame</a>
+<a href="https://archive.org/download/01_20211124_20211124_1429/01.mp4" target="_blank"> Avengers Los Vengadores</a>
+<a href="https://archive.org/download/02_20210719_20210719_1751/02.mp4" target="_blank"> Ant-Man y la Avispa</a>
+<a href="https://archive.org/download/03_20210719_20210719_1700/03.mp4" target="_blank"> Thor Ragnarok</a>
+<a href="https://archive.org/download/01_20210719_20210719_1914/01.mp4" target="_blank"> Doctor Strange: hechicero supremo</a>
+<a href="https://archive.org/download/02_20210719_20210719_1859/01.mp4" target="_blank"> Guardianes de la galaxia</a>
+<a href="https://archive.org/download/03_20210719_20210719_1700/01.mp4" target="_blank"> Thor</a>
+<a href="https://archive.org/download/01_20210719_20210719_1813/01.mp4" target="_blank"> Spider-Man: Homecoming (2017)</a>
+<a href="https://archive.org/download/01_20210719_20210719_1804/01.mp4" target="_blank"> Spider-Man: Lejos de Casa (2019)</a>
+<a href="https://archive.org/download/01_20220505_20220505_1629/01.mp4" target="_blank"> El Gran Perro Rojo</a>
+<a href="https://ia904604.us.archive.org/28/items/01_20211126_20211126_1829/01.mp4" target="_blank"> Robin Robin -  Netflix 2021</a>
+<a href="https://ia801007.us.archive.org/30/items/01_20211126_20211126_1835/01.mp4" target="_blank"> Herida - Netflix 2021</a>
+<a href="https://archive.org/download/01_20220409_20220409_1622/01.mp4" target="_blank"> Spider-Man: No Way Home 2021</a>
+<a href="https://ia804609.us.archive.org/14/items/01_20211218_202112/01.mp4" target="_blank"> Rumble</a>
+<a href="https://ia804608.us.archive.org/13/items/01_20211218_20211218_1630/01.mp4" target="_blank"> South Park: Post Covid</a>
+<a href="https://ia804603.us.archive.org/30/items/01_20211222_20211222_0328/01.mp4" target="_blank"> Operación Feliz Navidad: La estafa de los duendes</a>
+<a href="https://ia804608.us.archive.org/33/items/01_20211222_20211222_0451/01.mp4" target="_blank"> La Navidad Esta Cancelada</a>
+<a href="https://ia804601.us.archive.org/17/items/01_20211222_20211222_0253/01.mp4" target="_blank"> La serpiente verde - Netflix 2021</a>
+<a href="https://ia804602.us.archive.org/0/items/01_20211222_20211222_0244/01.mp4" target="_blank"> Soltero en Navidad - Netflix 2021</a>
+<a href="https://ia804607.us.archive.org/2/items/01_20211221_20211221_2122/01.mp4" target="_blank"> David y los elfos Netflix 2021</a>
+<a href="https://ia804606.us.archive.org/1/items/01_20211221_20211221_2054/01.mp4" target="_blank"> Anonima - Netflix 2021</a>
+<a href="https://ia904603.us.archive.org/10/items/01_20211221_20211221_2030/01.mp4" target="_blank"> Animalia en Australia - Netflix 2021</a>
+<a href="https://ia804604.us.archive.org/22/items/01_20211222_202112/01.mp4" target="_blank"> Fue la mano de Dios - Netflix 2021</a>
+<a href="https://ia804607.us.archive.org/13/items/01_20211222_20211222_0504/01.mp4" target="_blank"> Santa Claus</a>
+<a href="https://ia804602.us.archive.org/24/items/01_20211222_20211222_0513/01.mp4" target="_blank"> Beethoven Aventura de navidad</a>
+<a href="https://ia804600.us.archive.org/16/items/01_20211222_20211222_0532/01.mp4" target="_blank"> Intercambio de Princesas</a>
+<a href="https://ia904609.us.archive.org/30/items/01_20211222_20211222_0523/01.mp4" target="_blank"> Intercambio de Princesas 2</a>
+<a href="https://ia804609.us.archive.org/10/items/01_20211222_20211222_0544/01.mp4" target="_blank"> Las cronicas de Navidad</a>
+<a href="https://ia804609.us.archive.org/7/items/01_20211222_20211222_0556/01.mp4" target="_blank"> Las cronicas de Navidad 2</a>
+<a href="https://ia804604.us.archive.org/9/items/01_20211222_20211222_0850/01.mp4" target="_blank"> Cuento de Navidad</a>
+<a href="https://ia904602.us.archive.org/31/items/01_20211222_20211222_0859/01.mp4" target="_blank"> El Grinch</a>
+<a href="https://ia804601.us.archive.org/9/items/01_20211222_20211222_0909/01.mp4" target="_blank"> La leyenda de Klaus</a>
+<a href="https://ia904608.us.archive.org/9/items/01_20211222_20211222_0920/01.mp4" target="_blank"> Love Actually</a>
+<a href="https://ia804605.us.archive.org/8/items/01_20211222_20211222_0931/01.mp4" target="_blank"> El extraño mundo de Jack</a>
+<a href="https://ia904606.us.archive.org/1/items/01_20211222_20211222_0940/01.mp4" target="_blank"> El expreso polar</a>
+<a href="https://ia904604.us.archive.org/10/items/01_20211222_20211222_0952/01.mp4" target="_blank"> Mi pobre angelito</a>
+<a href="https://ia904600.us.archive.org/8/items/01_20211222_20211222_1002/01.mp4" target="_blank"> Mi Pobre Angelito 2: Perdido En Nueva York</a>
+<a href="https://ia804607.us.archive.org/27/items/01_20211222_20211222_1014/01.mp4" target="_blank"> El Regalo Prometido</a>
+<a href="https://ia801509.us.archive.org/25/items/01_20220112_20220112_1623/01.mp4" target="_blank"> Sing 2: Â¡Ven y Canta de Nuevo!</a>
+<a href="https://ia601409.us.archive.org/6/items/01_20220204_20220204_1825/01.mp4" target="_blank"> A traves de mi ventana Netflix 2021</a>
+<a href="https://ia601500.us.archive.org/27/items/01_20220204_20220204_1832/01.mp4" target="_blank"> El estafador de Tinder - Netflix 2022</a>
+<a href="https://ia601503.us.archive.org/1/items/01_20220204_20220204_1813/01.mp4" target="_blank"> Jugar en casa - Netflix 2022</a>
+<a href="https://ia601507.us.archive.org/18/items/01_20220204_20220204_1750/01.mp4" target="_blank"> Tratamiento real - Netflix 2022</a>
+<a href="https://ia601507.us.archive.org/15/items/01_20220204_20220204_1738/01.mp4" target="_blank"> Impodica - Netflix 2022</a>
+<a href="https://ia601501.us.archive.org/8/items/01_20220204_20220204_1729/01.mp4" target="_blank"> El paramo - Netflix 2022</a>
+<a href="https://ia601408.us.archive.org/17/items/01_20220204_20220204_1710/01.mp4" target="_blank"> 4 mitades - Netflix 2021</a>
+<a href="https://archive.org/download/01_20220206_20220206_2313/01.mp4" target="_blank"> Agentes 355</a>
+<a href="https://archive.org/download/01_20220315_20220315_1510/01.mp4" target="_blank"> El Proyecto Adam Netflix 2022</a>
+<a href="https://archive.org/download/01_20220318_20220318_1710/01.mp4" target="_blank"> Riesgo bajo cero 2021</a>
+<a href="https://archive.org/download/01_20220318_20220318_1644/01.mp4" target="_blank"> El rescate de Ruby Netflix 2022</a>
+<a href="https://archive.org/download/01_20220320_20220320_1730/01.mp4" target="_blank"> Frutos del viento - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220320_20220320_1808/01.mp4" target="_blank"> Cangrejo Negro - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220322_20220322_1505/01.mp4" target="_blank"> Aguas Profundas 2022</a>
+<a href="https://archive.org/download/01_20220323_20220323/01.mp4" target="_blank"> Ecos de un crimen - HBO Max 2022</a>
+<a href="https://archive.org/download/01_20220406_20220406_1450/01.mp4" target="_blank"> Un lugar seguro - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220406_20220406_1459/01.mp4" target="_blank"> Siempre en el mejor momento - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220408_20220408_1949/01.mp4" target="_blank"> Capitana Nova - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220410/01.mp4" target="_blank"> Entre la vida y la muerte - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220410_20220410/01.mp4" target="_blank"> Metal Lords - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220410_202204/01.mp4" target="_blank"> Las niñas de cristal - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220410_20220410_1847/01.mp4" target="_blank"> Una cita con el pasado 2022</a>
+<a href="https://archive.org/download/01_20220411_20220411_1559/01.mp4" target="_blank"> Sueños de Marte HBO Max 2022</a>
+<a href="https://archive.org/download/01_20220412_20220412_2141/01.mp4" target="_blank"> Sex Appeal - hulu 2022</a>
+<a href="https://archive.org/download/01_20220415_20220415_1712/01.mp4" target="_blank"> Elige o muere - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220423_20220423_1846/01.mp4" target="_blank"> En el blanco El ascenso y   Abercrombie</a>
+<a href="https://archive.org/download/01_20220423_20220423_1829/01.mp4" target="_blank"> La princesa de la Yakuza - Netflix 2021</a>
+<a href="https://archive.org/download/01_20220427_20220427_2041/01.mp4" target="_blank"> Polar Bear (2022)</a>
+<a href="https://archive.org/download/01_20220502_20220502_1411/01.mp4" target="_blank"> The Mystery of Marilyn Monroe Netflix 2022</a>
+<a href="https://archive.org/download/01_20220502_20220502_1447/01.mp4" target="_blank"> The Survivor (2022)</a>
+<a href="https://archive.org/download/01_20220502_20220502_1500/01.mp4" target="_blank"> La Octava Clausula 2022</a>
+<a href="https://archive.org/download/01_20220503_20220503_1800/01.mp4" target="_blank"> Crush (2022)</a>
+<a href="https://archive.org/download/01_20220505_20220505_1718/01.mp4" target="_blank"> Burbujas Netflix 2022</a>
+<a href="https://archive.org/download/01_20220504_20220504/01.mp4" target="_blank"> Amor de madre - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220505_20220505_1944/01.mp4" target="_blank"> Joker</a>
+<a href="https://ia801507.us.archive.org/17/items/04_20210224/04.mp4" target="_blank"> Wonder Woman 1984</a>
+<a href="https://archive.org/download/01_20220505_20220505_1955/01.mp4" target="_blank"> El Hombre De Acero</a>
+<a href="https://archive.org/download/01_20220505_20220505_2008/01.mp4" target="_blank"> Batman vs Superman El Origen de la Justicia</a>
+<a href="https://archive.org/download/01_20220505_20220505_2056/01.mp4" target="_blank"> Escuadron Suicida</a>
+<a href="https://ia801501.us.archive.org/13/items/01_20210329_20210329_2158/01.mp4" target="_blank"> La Liga de la Justicia de Zack Snyder</a>
+<a href="https://archive.org/download/01_20220505_20220505_2109/01.mp4" target="_blank"> Liga de la Justicia</a>
+<a href="https://archive.org/download/01_20220505_20220505_2119/01.mp4" target="_blank"> Aquaman</a>
+<a href="https://archive.org/download/01_20220505_20220505_2130/01.mp4" target="_blank"> Shazam</a>
+<a href="https://ia801500.us.archive.org/34/items/01_20210811_20210811_1651/01.mp4" target="_blank"> El Escuadron Suicida 2021</a>
+<a href="https://archive.org/download/01_20220513_20220513_1923/01.mp4" target="_blank"> Marmaduke Netflix 2022</a>
+<a href="https://archive.org/download/01_20220513_20220513_1939/01.mp4" target="_blank"> Dejate llevar - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220522_20220522_1455/01.mp4" target="_blank"> Chip y Dale: Al Rescate Disney 2022</a>
+<a href="https://archive.org/download/01_20220523_20220523_1440/01.mp4" target="_blank"> El maestro de las fugas - Netflix 2021</a>
+<a href="https://archive.org/download/01_20220523_20220523_1427/01.mp4" target="_blank"> El arma del engaÃ±o Netflix 2022</a>
+<a href="https://archive.org/download/01_20220523_20220523_1521/01.mp4" target="_blank"> El aÃ±o de mi graduacion - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220523_20220523_1853/01.mp4" target="_blank"> Un maridaje perfecto Netflix 2022</a>
+<a href="https://archive.org/download/01_20220529_20220529_1558/01.mp4" target="_blank"> Jackass 4.5  2022</a>
+<a href="https://archive.org/download/01_20220529_20220529_1551/01.mp4" target="_blank"> Emergency 2022</a>
+<a href="https://archive.org/download/01_20220604_20220604_2112/01.mp4" target="_blank"> Interceptor Netflix 2022</a>
+<a href="https://archive.org/download/01_20220605_20220605_1549/01.mp4" target="_blank"> Dos mas dos 2022</a>
+<a href="https://archive.org/download/01_20220605_20220605_1918/01.mp4" target="_blank"> Se termina el tiempo</a>
+<a href="https://archive.org/download/01_20220605_20220605_1834/01.mp4" target="_blank"> Blindfire 2022</a>
+<a href="https://archive.org/download/01_20220606_20220606_2020/01.mp4" target="_blank"> R.I.A (Override) 2022</a>
+<a href="https://archive.org/download/01_20220606_20220606_1958/01.mp4" target="_blank"> Despertar al peligro</a>
+<a href="https://archive.org/download/01_20220608_20220608/01.mp4" target="_blank"> Garra - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220701_20220701_1544/01.mp4" target="_blank"> Desfile de corazones - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220701_20220701_1536/01.mp4" target="_blank"> La ira de Dios - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220701_20220701_1429/01.mp4" target="_blank"> La cabeza de la araña Netflix 2022</a>
+<a href="https://archive.org/download/01_20220705_202207/01.mp4" target="_blank"> El Hombre de Toronto Netflix 2022</a>
+<a href="https://archive.org/download/01_20220705_20220705_1602/01.mp4" target="_blank"> El padre de la novia 2022</a>
+<a href="https://archive.org/download/01_20220705_20220705_1620/01.mp4" target="_blank"> La princesa 2022</a>
+<a href="https://archive.org/download/01_20220908_20220908_1549/01.mp4" target="_blank"> Thor: Amor y Trueno 2022</a>
+<a href="https://archive.org/download/01_20220714_20220714_1611/01.mp4" target="_blank"> Hola adios y todo lo que paso - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220714_20220714_1634/01.mp4" target="_blank"> Relaciones Peligrosas - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220714_20220714_1640/01.mp4" target="_blank"> Malnazidos - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220715_20220715_2150/01.mp4" target="_blank"> Persuasion - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220718_20220718_2102/01.mp4" target="_blank"> El Ultimo Dragon</a>
+<a href="https://archive.org/download/01_20220718_20220718_2113/01.mp4" target="_blank"> Telefono negro</a>
+<a href="https://archive.org/download/01_20220722_202207/01.mp4" target="_blank"> El Hombre Gris - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220802_20220802_1526/01.mp4" target="_blank"> Corazones malheridos - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220802_20220802_1535/01.mp4" target="_blank"> Pipa - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220806/01.mp4" target="_blank"> Buba - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220806_20220806/01.mp4" target="_blank"> Temporada de bodas - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220806_20220806_1557/01.mp4" target="_blank"> Luck 2022</a>
+<a href="https://archive.org/download/01_20220806_20220806_1621/01.mp4" target="_blank"> Excasados</a>
+<a href="https://archive.org/download/01_20220808_20220808_1638/01.mp4" target="_blank"> Viajeros: Perdidos en el tiempo 2022</a>
+<a href="https://archive.org/download/01_20220809_20220809_2034/01.mp4" target="_blank"> Hero Mode 2021</a>
+<a href="https://archive.org/download/01_20220809_20220809_2050/01.mp4" target="_blank"> With/In Volume 2</a>
+<a href="https://archive.org/download/01_20220809_20220809_2058/01.mp4" target="_blank"> Doblemente Embarazada 2</a>
+<a href="https://archive.org/download/01_20220812_20220812_2003/01.mp4" target="_blank"> Turno del dia - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220812_20220812_2003/01.mp4" target="_blank"> El musical - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220818_20220818_1849/01.mp4" target="_blank"> Royalteen - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220818_20220818_1832/01.mp4" target="_blank"> Codigo Emperador - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220821_20220821_1714/01.mp4" target="_blank"> Pil: Princesa cero fresa 2022</a>
+<a href="https://archive.org/download/01_20220821_20220821_1718/01.mp4" target="_blank"> Till Death 2021</a>
+<a href="https://archive.org/download/01_20220821_20220821_1728/01.mp4" target="_blank"> 365 días más - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220823_20220823_1612/01.mp4" target="_blank"> Guerra Oculta 2022</a>
+<a href="https://archive.org/download/01_20220826_20220826/01.mp4" target="_blank"> NÃ©mesis</a>
+<a href="https://archive.org/download/01_20220827_20220827_1709/01.mp4" target="_blank"> Amor adulto - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220902_20220902_1537/01.mp4" target="_blank"> First Love</a>
+<a href="https://archive.org/download/01_20220902_20220902_1455/01.mp4" target="_blank"> La jefa - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220902_20220902_1505/01.mp4" target="_blank"> Yo estuve aqui - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220909_20220909_1738/01.mp4" target="_blank"> Sin aliento - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220916_20220916_1805/01.mp4" target="_blank"> Broad Peak - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220919/01.mp4" target="_blank"> Sociedad de Honor</a>
+<a href="https://archive.org/download/01_20220924_20220924_1801/01.mp4" target="_blank"> Los Monsters</a>
+<a href="https://archive.org/download/01_20220924_20220924_1738/01.mp4" target="_blank"> Yo era famoso - Netflix 2022</a>
+<a href="https://archive.org/download/01_20220928_20220928_1730/01.mp4" target="_blank"> Los Minions y sus amigos Volumen 1</a>
+<a href="https://archive.org/download/01_20220928_20220928_1721/01.mp4" target="_blank"> Fullmetal Alchemist La alquimia final</a>
+<a href="https://archive.org/download/01_20220930_202209/01.mp4" target="_blank"> Abracadabra 2</a>
+<a href="https://archive.org/download/01_20221007_20221007_1759/01.mp4" target="_blank"> El telefono del señor Harrigan -  Netflix 2022</a>
+<a href="https://archive.org/download/01_20221009_20221009_2101/01.mp4" target="_blank"> La Chica Mas Afortunada del Mundo - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221014_20221014/01.mp4" target="_blank"> La Maldicion De Bridge Hollow Netflix 2022</a>
+<a href="https://archive.org/download/01_20221101_20221101/01.mp4" target="_blank"> Esposa de alquiler - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221101/01.mp4" target="_blank"> Sin novedad en el frente - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221101_202211/01.mp4" target="_blank"> Mas Allá del universo - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221102_20221102_2006/01.mp4" target="_blank"> Mex Zombies 2022</a>
+<a href="https://archive.org/download/01_20221102_20221102_2042/01.mp4" target="_blank"> Wendell y Wild - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221102_20221102_1957/01.mp4" target="_blank"> El abismo del infierno - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221104_20221104/01.mp4" target="_blank"> Enola Holmes 2 - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221109_20221109_1704/01.mp4" target="_blank"> Escalera al infierno 2022</a>
+<a href="https://archive.org/download/01_20221109_20221109_1715/01.mp4" target="_blank"> Medieval 2022</a>
+<a href="https://archive.org/download/01_20221109_20221109_1728/01.mp4" target="_blank"> Resurgir 2022</a>
+<a href="https://archive.org/download/01_20221110_20221110_2055/01.mp4" target="_blank"> La toma del poder Netflix 2022</a>
+<a href="https://archive.org/download/01_20221112_20221112_1545/01.mp4" target="_blank"> Amsterdam 2022</a>
+<a href="https://archive.org/download/01_20221112_20221112_1556/01.mp4" target="_blank"> Navidad de golpe - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221114_20221114_1903/01.mp4" target="_blank"> La captura del enfermero asesino  - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221114_20221114_1912/01.mp4" target="_blank"> Quedate - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221119_20221119_1942/01.mp4" target="_blank"> Smile 2022</a>
+<a href="https://archive.org/download/01_20221119_20221119_1934/01.mp4" target="_blank"> Desencantada 2022</a>
+<a href="https://archive.org/download/01_20221119_20221119_1904/01.mp4" target="_blank"> El prodigio Netflix 2022</a>
+<a href="https://archive.org/download/01_20221119_20221119_1856/01.mp4" target="_blank"> El paseo de los sueños - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221127_20221127_2052/01.mp4" target="_blank"> Black Adam 2022</a>
+<a href="https://archive.org/download/01_20221127_20221127_2110/01.mp4" target="_blank"> La mujer rey 2022</a>
+<a href="https://archive.org/download/01_20221130_20221130_2225/01.mp4" target="_blank"> Navidad en la granja - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221130_20221130_2214/01.mp4" target="_blank"> Las nadadoras - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221130_20221130_2156/01.mp4" target="_blank"> El diario de Noel - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221201/01.mp4" target="_blank"> Me llamo Venganza - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221202_20221202_1943/01.mp4" target="_blank"> Una Navidad llena de Gracia - Netflix 2022</a>
+<a href="https://archive.org/download/01_20221202_20221202_1851/01.mp4" target="_blank"> Trol Netflix 2022</a>
+<a href="https://archive.org/download/01_20221204_20221204_1807/01.mp4" target="_blank"> El amante de Lady Chatterley Netflix 2022</a>
+<a href="https://archive.org/download/01_20221204_20221204_1824/01.mp4" target="_blank"> Scrooge: Cuento de Navidad Netflix 2022</a>
+<a href="https://archive.org/download/01_20221209_20221209_2328/01.mp4" target="_blank"> Hacia la libertad 2022</a>
+<a href="https://archive.org/download/01_20221209_20221209_2339/01.mp4" target="_blank"> Noche en el museo: El retorno de Kahmunrah 2022</a>
+<a href="https://archive.org/download/01_20221209_20221209_2313/01.mp4" target="_blank"> Pinocho de Guillermo del Toro -  Netflix 2022</a>
+<a href="https://archive.org/download/01_20221222_20221222_1827/01.mp4" target="_blank"> Hellraiser 2022</a>
+<a href="https://archive.org/download/01_20221224_20221224_1739/01.mp4" target="_blank"> Reza por el diablo 2022</a>
+<a href="https://archive.org/download/01_20221230_20221230_2245/01.mp4" target="_blank"> Mal de Ojo 2022</a>
+<a href="https://archive.org/download/01_20221230_20221230_2343/01.mp4" target="_blank"> Avatar: El sentido del agua 2022</a>
+<a href="https://archive.org/download/01_20230107_20230107_1713/01.mp4" target="_blank"> Gato con Botas: El Ultimo deseo 2022</a>
+<a href="https://archive.org/download/01_20230112_20230112_2047/01.mp4" target="_blank"> The Enforcer 2023</a>
+<a href="https://archive.org/download/03_20210301/03.mp4" target="_blank"> Tom & Jerry 2021</a>
+<a href="https://archive.org/download/04_20210226/04.mp4" target="_blank"> Scooby-Doo!</a>
+<a href="https://archive.org/download/02_20210329_20210329_2215/02.mp4" target="_blank"> Godzilla vs Kong 2021</a>
+<a href="https://archive.org/download/01_20210506_202105/01.mp4" target="_blank"> Mortal Kombat 2021</a>
+<a href="https://archive.org/download/01_20210717_20210717_1759/01.mp4" target="_blank"> Space Jam: Una Nueva Era 2021</a>
+<a href="https://archive.org/download/01_20210928_202109/01.mp4" target="_blank"> Maligno 2021</a>
+<a href="https://archive.org/download/01_20211111_202111/01.mp4" target="_blank"> Madre soltera por Elección</a>
+<a href="https://archive.org/download/01_20211111_20211111/01.mp4" target="_blank">Los muchos santos de Newark HBO max</a>
+<a href="https://archive.org/download/01_20211111_20211111_1727/01.mp4" target="_blank"> Querido Evan Hansen</a>
+<a href="https://archive.org/download/01_20210706_20210706_1516/01.mp4" target="_blank"> Ni Un paso en falso 2021</a>
+<a href="https://archive.org/download/01_20210608_20210608_1554/01.mp4" target="_blank"> Oslo 2021</a>
+<a href="https://archive.org/download/01_20210608_20210608_1543/01.mp4" target="_blank"> Friends la reunion 2021</a>
+<a href="https://archive.org/download/01_20210608_20210608_1600/01.mp4" target="_blank">No embarazada 2021</a>
+<a href="https://archive.org/download/01_20211111_20211111_1754/01.mp4" target="_blank"> Bloqueado</a>
+<a href="https://archive.org/download/01_20211111_20211111_1845/01.mp4" target="_blank"> el mismo aliento -  Documental</a>
+<a href="https://archive.org/download/01_20211111_20211111_1854/01.mp4" target="_blank"> amor y rabia - Documental</a>
+<a href="https://archive.org/download/01_20210706_20210706_1509/01.mp4" target="_blank"> La leyenda del subterráneo 2021 Documental</a>
+<a href="https://archive.org/download/01_20210608_20210608_1549/01.mp4" target="_blank"> Libertad Madre de los Exiliados 2021 - Documental</a>
+<a href="https://archive.org/download/01_20211111_20211111_1906/01.mp4" target="_blank">Nuestros Pueblos -   Documental</a>
+<a href="https://archive.org/download/01_20211111_20211111_1915/01.mp4" target="_blank"> El Ultimo Crucero - Documental</a>
+<a href="https://archive.org/download/01_20211111_20211111_1920/01.mp4" target="_blank"> El Dia Que El Deporte Se Detuvo  - Documental</a>
+<a href="https://archive.org/download/01_20211111_20211111_1927/01.mp4" target="_blank"> Falsa famosa -  Documental</a>
+<a href="https://archive.org/download/01_20211111_20211111_1935/01.mp4" target="_blank"> Babe Dios -  Documental</a>
+<a href="https://archive.org/download/01_20211111_20211111_1956/01.mp4" target="_blank">  Bajo el árbol de la toronja</a>
+<a href="https://archive.org/download/01_20211111_20211111_2002/01.mp4" target="_blank"> Las Brujas</a>
+<a href="https://ia904609.us.archive.org/5/items/01_20211126_20211126_1919/01.mp4" target="_blank"> Navidad en 8 bits</a>
+<a href="https://ia804601.us.archive.org/24/items/01_20211126_20211126_1909/01.mp4" target="_blank"> El Ultimo Adios</a>
+<a href="https://archive.org/download/01_20220705_20220705_1631/01.mp4" target="_blank"> Un Juego Entre Amigos 2022</a>
+<a href="https://archive.org/download/01_20210409_20210409_1655/01.mp4" target="_blank"> Guerra de Likes 2021</a>
+<a href="https://archive.org/download/03_20210719_20210719_1607/02.mp4" target="_blank"> Capitan America y el soldado del invierno</a>
+<a href="https://archive.org/download/03_20210719_20210719_1607/01.mp4" target="_blank"> Capitan America</a>
+<a href="https://archive.org/download/01_20210731_20210731_1400/01.mp4" target="_blank"> Crucero por la jungla Disney 2021</a>
+<a href="https://archive.org/download/01_20211112_20211112_1440/01.mp4" target="_blank"> Shang-Chi y la leyenda de los Diez Anillos 2021</a>
+<a href="https://archive.org/download/01_20211011_20211011_2336/01.mp4" target="_blank">  Star Wars Historias Aterradoras Disney</a>
+<a href="https://archive.org/download/01_20211014_20211014_1523/01.mp4" target="_blank"> Una Momia en Halloween Disney 2021</a>
+<a href="https://archive.org/download/01_20211124_20211124_1442/01.mp4" target="_blank"> Avengers Era de Ultron</a>
+<a href="https://archive.org/download/01_20210719_20210719_1714/01.mp4" target="_blank"> Capitana Marvel</a>
+<a href="https://archive.org/download/02_20210719_20210719_1859/02.mp4" target="_blank"> Guardianes de la galaxia Vol. 2</a>
+<a href="https://archive.org/download/02_20210719_20210719_1751/01.mp4" target="_blank"> Ant-Man: el Hombre Hormiga</a>
+<a href="https://archive.org/download/03_20210719_20210719_1700/02.mp4" target="_blank"> Thor Un mundo oscuro</a>
+<a href="https://ia804506.us.archive.org/24/items/01_20210719_20210719_1941/01.mp4" target="_blank"> X-Men (2000)</a>
+<a href="https://ia804505.us.archive.org/34/items/01_20210719_20210719_1951/01.mp4" target="_blank"> X-Men 2</a>
+<a href="https://ia904502.us.archive.org/0/items/01_20210719_20210719_1957/01.mp4" target="_blank"> X-Men La Batalla Final</a>
+<a href="https://ia804502.us.archive.org/13/items/01_20210719_20210719_2005/01.mp4" target="_blank"> X-men origenes Wolverine</a>
+<a href="https://ia904509.us.archive.org/17/items/01_20210719_20210719_2017/01.mp4" target="_blank"> X-Men Dias del futuro pasado</a>
+<a href="https://ia804504.us.archive.org/31/items/01_20210719_20210719_2024/01.mp4" target="_blank"> X-Men Primera generación</a>
+<a href="https://ia802303.us.archive.org/12/items/01_20210721_20210721_1505/01.mp4" target="_blank"> Los 4 Fantasticos</a>
+<a href="https://ia902304.us.archive.org/10/items/01_20210721_20210721_1514/01.mp4" target="_blank"> Los 4 Fantasticos y Silver Surfer</a>
+<a href="https://ia804608.us.archive.org/19/items/01_20211222_20211222_1131/01.mp4" target="_blank"> Resident Evil: Bienvenidos a Raccoon City</a>
+<a href="https://archive.org/download/01_20220410_20220410_1514/01.mp4" target="_blank"> MÃ¡s barato por docena 2022</a>
+<a href="https://archive.org/download/01_20220522_20220522_1534/01.mp4" target="_blank"> La Cenicienta en zapatillas Disney 2022</a>
+<a href="https://archive.org/download/01_20220818_20220818_1820/01.mp4" target="_blank"> Año luz - 2022</a>
+<a href="https://archive.org/download/01_20220818_20220818_1755/01.mp4" target="_blank"> Yo soy Groot Los primeros pasos de Groot</a>
+<a href="https://archive.org/download/01_20220818_20220818_1758/01.mp4" target="_blank"> Yo soy Groot Obra maestra</a>
+<a href="https://archive.org/download/01_20220908_20220908_1538/01.mp4" target="_blank"> Pinocho 2022</a>
+<a href="https://archive.org/download/01_20220924_20220924_1809/01.mp4" target="_blank"> El regreso del Jedi</a>
+<a href="https://archive.org/download/01_20221007_20221007_1814/01.mp4" target="_blank"> La maldición del Hombre Lobo 2022</a>
+<a href="https://archive.org/download/01_20221112_20221112/01.mp4" target="_blank">Pantera Negra: Wakanda para siempre 2022</a>
+<a href="https://ia904602.us.archive.org/1/items/01_20211221_20211221_1902/01.mp4" target="_blank"> Madre/Android - hulu 2021</a>
+<a href="https://archive.org/download/01_20220522_202205/01.mp4" target="_blank"> El Valet 2022</a>
+<a href="https://archive.org/download/01_20220605_20220605/01.mp4" target="_blank"> Fresca</a>
+<a href="https://archive.org/download/01_20220802_20220802_1542/01.mp4" target="_blank"> Falsa influencer</a>
+<a href="https://archive.org/download/01_20220806_20220806_1613/01.mp4" target="_blank"> Depredador: La presa</a>
+<a href="https://archive.org/download/01_20221102_20221102_2023/01.mp4" target="_blank"> Rosalina 2022</a>
+<a href="https://archive.org/download/01_20211125_20211125_1946/01.mp4" target="_blank"> No me Echen ese Muerto</a>
+<a href="https://archive.org/download/01_20211125_20211125_1923/01.mp4" target="_blank">Evangelion: 3.0+1.0 Tres veces una vez</a>
+<a href="https://archive.org/download/01_20211125_20211125_1938/01.mp4" target="_blank"> Jolt</a>
+<a href="https://archive.org/download/01_20211128_20211128_2032/01.mp4" target="_blank"> Anni da Cane</a>
+<a href="https://archive.org/download/01_20220322_20220322_1531/01.mp4" target="_blank"> Master 2022</a>
+<a href="https://archive.org/download/01_20221021_20221021_1512/01.mp4" target="_blank"> La ultima Noche 2022</a>
+<a href="https://archive.org/download/01_20210301/01.mp4" target="_blank"> Billie Eilish The World's a Little Blurry</a>
+<a href="https://archive.org/download/01_20211110_20211110_1422/01.mp4" target="_blank"> Finch</a>
+<a href="https://ia804609.us.archive.org/0/items/01_20211128_20211128_2328/01.mp4" target="_blank">libros de sangre - hulu 2021</a>
+<a href="https://ia601006.us.archive.org/10/items/01_20211130_20211130_2002/01.mp4" target="_blank"> Plan B hulu</a>
+<a href="https://archive.org/download/01_20210902_20210902_1720/01.mp4" target="_blank"> Infinito 2021</a>
+<a href="https://archive.org/download/01_20210902_20210902_2227/01.mp4" target="_blank"> Paw Patrol</a>
+<a href="https://archive.org/download/01_20210929_20210929_1540/01.mp4" target="_blank"> G.I. Joe: Snake Eyes 2021</a>
+<a href="https://archive.org/download/01_20210928_20210928_0218/01.mp4" target="_blank"> No respires 2</a>
+<a href="https://ia904602.us.archive.org/19/items/01_20211218_20211218_1739/01.mp4" target="_blank"> Paranormal Activity: Next of Kin</a>
+<a href="https://ia804608.us.archive.org/23/items/01_20211218_20211218_1851/01.mp4" target="_blank">  Una Navidad muy Loud</a>
+<a href="https://ia904600.us.archive.org/11/items/01_20211218_20211218_2153/01.mp4" target="_blank"> Jugando con fuego</a>
+<a href="https://ia804601.us.archive.org/33/items/01_20211218_20211218_2206/01.mp4" target="_blank"> Like a Boss</a>
+<a href="https://archive.org/download/01_20220410_20220410_2044/01.mp4" target="_blank"> Scream 5  2022</a>
+<a href="https://archive.org/download/01_20220410_20220410_2111/01.mp4" target="_blank">Cada una de ellas 2021</a>
+<a href="https://archive.org/download/01_20220410_20220410_2225/01.mp4" target="_blank"> Mónica y amigas: lecciones</a>
+<a href="https://archive.org/download/01_20220505_20220505_1609/01.mp4" target="_blank"> Sonic 2</a>
+<a href="https://archive.org/download/01_20220513_20220513_1550/01.mp4" target="_blank"> La Ciudad Perdida 2022</a>
+<a href="https://archive.org/download/01_20221014_20221014_1944/01.mp4" target="_blank"> Monster High</a>
+<a href="https://archive.org/download/01_20210731_20210731_1348/01.mp4" target="_blank"> Rapidos y furiosos 9</a>
+<a href="https://archive.org/download/09_20210717_202107/09.mp4" target="_blank"> Rapidos y Furiosos Hobbs & Shaw</a>
+<a href="https://archive.org/download/07_20210717_202107/04.mp4" target="_blank"> Rapidos y furiosos 4</a>
+<a href="https://archive.org/download/02_20210717_202107/08.mp4" target="_blank"> Harry Potter y las Reliquias de la Muerte - Parte</a>
+<a href="https://archive.org/download/02_20210717_202107/07.mp4" target="_blank"> Harry Potter y las Reliquias de la Muerte - Parte</a>
+<a href="https://storage.googleapis.com/eighth-opus-250514.appspot.com/content/P/Grandes%20estrenos/Deadpool%202/LAT-720%20D.3.4.D.P.0.0.L_2.mp4" target="_blank">Deadpool 2</a>
+<a href="https://storage.googleapis.com/eighth-opus-250514.appspot.com/content/P/Grandes%20estrenos/Transformers%206%20Bumblebee/LAT-720%20T.R.4.N.S.F.0.R.M.3.R.S_6_B.U.M.B.L.3.B.3.3.mp4" target="_blank">Bumblebee</a>
+<a href="https://storage.googleapis.com/eighth-opus-250514.appspot.com/content/P/Grandes%20estrenos/How%20to%20Train%20Your%20Dragon%203%20The%20Hidden%20World/MC%20LAT-720%20H.0.W_T.0_T.R.4.1.N_Y.0.U.R_D.R.4.G.0.N_3_T.H.3_H.1.D.D.3.N_W.0.R.L.D.mp4" target="_blank">Cómo entrenar a tu dragón 3</a>
+<a href="https://storage.googleapis.com/eighth-opus-250514.appspot.com/content/P/Grandes%20estrenos/The%20Meg/LAT-720%20T.H.3_M.3.G.mp4" target="_blank">Megalodon</a>
+<a href="https://storage.googleapis.com/eighth-opus-250514.appspot.com/content/P/Grandes%20estrenos/Fantastic%20Beasts%202%20The%20Crimes%20of%20Grindelwald/LAT-720%20F.4.N.T.4.S.T.1.C_B.3.4.S.T.S_2_T.H.3_C.R.1.M.3.S_0.F_G.R.1.N.D.3.L.W.4.L.D.mp4" target="_blank">Animales Fantásticos 2: Los crímenes de Grindelwald</a>
+<a href="https://storage.googleapis.com/eighth-opus-250514.appspot.com/content/P/Grandes%20estrenos/Bohemian%20Rhapsody/LAT-720%20B.0.H.3.M.1.4.N_R.H.4.P.S.0.D.Y.mp4" target="_blank">Bohemian Rhapsody</a>
+<a href="https://storage.googleapis.com/eighth-opus-250514.appspot.com/content/P/Grandes%20estrenos/Spider-Man%20Into%20the%20Spider-Verse/LAT-720%20S.P.1.D.3.R_M.4.N_1.N.T.0_T.H.3_S.P.1.D.3.R_V.3.R.S.3.mp4" target="_blank">Spider-Man: Un Nuevo Universo</a>
+<a href="https://bludot.skin/dtvpl2.html?id=1251" target="_blank">win</a>
+
+
+        </div></div> </div></div>
+
+
+
+
+
+
+
+    <!-- Agrega más elementos "serie" según tus necesidades -->
+  </div>
+
+  <div id="dialog-box" class="dialog-box">
+    <div class="dialog-content">
+      <h2>Temporadas</h2>
+      <div class="seasons-dialog">
+        <!-- Aquí se mostrarán los botones de temporada y capítulos -->
+      </div>
+      <a href="#" class="close-button">Cerrar</a>
+    </div>
+  </div>
+
+<!--  ##############################
+<div class="navigation-buttons">
+    <a href="go:SERIESTUX" id="start-button">Inicio</a>
+    <a href="go:SERIESTUXB" id="previous-button">Anterior</a>
+    <a href="go:SERIESTUXC" id="next-button">Siguiente</a>
+  </div>
+
+#################################   -->
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+
+
+
+
+
+function openDialog(index) {
+  // ...
+
+  const chapters = document.querySelectorAll('.chapter-menu a');
+  chapters.forEach(function(chapter) {
+    chapter.classList.remove('selected-chapter');
+  });
+
+  // ...
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const series = document.querySelectorAll('.serie');
+  const dialogBox = document.getElementById('dialog-box');
+  const closeButton = document.querySelector('.close-button');
+
+  series.forEach(function(serie) {
+    serie.addEventListener('click', function() {
+      dialogBox.classList.add('open');
+
+      const serieInfo = serie.querySelector('.serie-info');
+      const serieTitle = serieInfo.querySelector('h2').textContent;
+      const seasonsDialog = document.querySelector('.seasons-dialog');
+      seasonsDialog.innerHTML = '';
+
+      const seasons = serie.querySelectorAll('.seasons');
+      seasons.forEach(function(season) {
+        const seasonButton = season.querySelector('.season-button');
+        const chapterMenu = season.querySelector('.chapter-menu');
+        const chapterLinks = chapterMenu.querySelectorAll('a');
+
+        seasonButton.addEventListener('click', function() {
+          chapterMenu.classList.toggle('hidden');
+        });
+
+        const clonedSeason = season.cloneNode(true);
+        clonedSeason.classList.remove('hidden'); // Mostrar temporada al hacer clic en la imagen
+        seasonsDialog.appendChild(clonedSeason);
+      });
+    });
+  });
+
+ closeButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        dialogBox.classList.remove('open');
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
