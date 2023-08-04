@@ -331,3 +331,64 @@ color: #fff300ed;
     cursor: pointer;
 }
     }
+
+
+
+
+
+
+
+.movie-list, li, img{
+    display: inline-table;
+}
+.titulo {
+    top: -1em;
+    display: flex;
+    position: relative;
+    width: 8em;
+    justify-content: space-evenly;
+    color: white;
+    align-items: center;
+    left: 0px;
+}
+
+.xplus {
+    width: 10em;
+}
+
+
+
+ /* Ocultar todo el contenido con CSS por defecto */
+    #contenido {
+    display: none;
+   }
+#formulario {
+position: absolute;
+    top: 40%;
+    left: 30%;
+color:lime;
+}
+#formulario button   {
+    color: aqua;
+    height: 4em;
+    width: 8em;
+    font-size: 15px;
+    border-style: double;
+}
+#formulario input  {
+    margin: 1em 0em 1em 0em;
+    border-style: solid;
+    border-color: red;
+    background: #76767647;
+    height: 3em;
+    width: 4em;
+    font-size: 2em;
+color: yellow;
+}
+#formulario label  {
+    border-color: aqua;
+    font-size: 24px;
+    border-style: double;
+    padding: 14px 1px;
+    margin: 4px;
+}
