@@ -1,5 +1,3 @@
-
-
         var codigoCorrecto = "51078"; // Cambia "miCodigoSecreto" por tu código de acceso
         var tiempoDuracion = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
 
@@ -51,10 +49,6 @@
 
 
 
-
-
-
-
 document.addEventListener('click', function(event) {
   const link = event.target;
   if (link.tagName === 'A' && link.href.startsWith('http')) {
@@ -76,8 +70,8 @@ document.addEventListener('click', function(event) {
     closeButton.style.display = 'block';
     closeButton.addEventListener('click', function() {
       videoPlayer.pause();
-      videoPlayer.remove();
-      closeButton.style.display = 'none';
+      videoPlayer.remove(); // Eliminar el reproductor de video
+      closeButton.remove(); // Eliminar el botón de cerrar
     });
 
     document.body.appendChild(videoPlayer);
@@ -97,23 +91,16 @@ document.addEventListener('click', function(event) {
 
 
 
+function openDialog(index) {
+  // ...
 
+  const chapters = document.querySelectorAll('.chapter-menu a');
+  chapters.forEach(function(chapter) {
+    chapter.classList.remove('selected-chapter');
+  });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // ...
+}
 
 
 
@@ -165,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
         dialogBox.classList.remove('open');
   });
 });
+
 
 
 
