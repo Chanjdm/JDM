@@ -1,0 +1,452 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    background: black;
+}
+
+
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.serie {
+  position: relative;
+}
+
+.serie-image {
+border-radius: 5px;
+  width: 100%;
+  height: auto;
+}
+
+.serie-info {
+border-radius: 10px;
+box-shadow: 0 0 32px #ff0000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.serie:hover .serie-info {
+  opacity: 1;
+}
+
+h2 {
+    background: #00000005;
+    height: auto;
+    PADDING: 20PX 20PX;
+    width: 100%;
+    color: aqua;
+}
+p {
+    overflow-y: auto;
+    height: auto;
+    margin-top: -1.3em;
+    padding: 40px 7px;
+    background: #00000000;
+}
+
+.dialog-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+
+.dialog-box.open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+
+.dialog-content  {
+    overflow-y: auto;
+    height: 450px;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    TOP: -24PX;
+}
+
+.close-button  {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 43px;
+    left: 43%;
+    right: 43%;
+    border-radius: 5px;
+    padding: 2px 63px;
+    Z-INDEX: 10;
+BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
+}
+.close-button:hover{
+ 
+    background:red;
+    color:white;
+
+  }
+
+.hidden {
+  display: none;
+}
+.dialog-content H2 {
+    TOP: 1.7EM;
+    position: fixed;
+    width: 57%;
+    z-index: 5;
+}
+.seasons-dialog{
+    WIDTH: 46EM;
+    POSITION: relative;
+    LEFT: 0PX;
+    TOP: 11EM;
+    transition: all 0.9s;
+}
+.seasons h3 {
+    OVERFLOW-Y: SCROLL;
+    HEIGHT: 28%;
+    WIDTH: 58%;
+    Z-INDEX: 2;
+    POSITION: fixed;
+    color: aliceblue;
+    padding: 71PX 1PX 10PX 0PX;
+    TOP: 2.2EM;
+}
+.season-button {
+    position: relative;
+    left: 10px;
+    border: 3px solid #90ff00;
+    padding: 3px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+.season-button:hover{
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	background:#12C987
+}
+
+
+
+
+ /* Muestra los capítulos en línea vertical */
+.chapter-menu {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+.chapter-menu a:hover{
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	background:#009dfd;
+        color:black;
+}
+
+/* Ajusta el espacio entre los capítulos */
+.chapter-menu a {
+    color: #e9a603;
+    margin-bottom: 5px;
+    box-shadow: 0px 1px 8px 0px rgb(248, 70, 0);
+}
+
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: 2.EM;
+    LEFT: 0%;
+}
+@media (max-width: 740px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  }
+.seasons-dialog {
+    OVERFLOW: scroll;
+    HEIGHT: 25EM;
+    PADDING-TOP: 1EM;
+    WIDTH: 25EM;
+}
+.close-button {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 43px;
+    left: 38%;
+    right: 38%;
+    border-radius: 5px;
+    padding: 2px 63px;
+    Z-INDEX: 10;
+}
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: -15EM;
+    TOP: 50%;
+    LEFT: 18%;
+}
+#formulario {
+position: absolute;
+    top: 40%;
+    left: 30%;
+color:lime;
+}
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+.close-button {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 26px;
+    top: 7px;
+    left: 20%;
+    right: 19%;
+    border-radius: 5px;
+    padding: 0px
+px
+ 62px;
+}
+.serie-info h2 {
+ font-size:16px;
+ Margin-top:0px;
+}
+.dialog-content {
+    TOP: -117PX;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    overflow-y: auto;
+    height: 270px;
+    background-color: #000000;
+    position: relative;
+    TOP: -24PX;
+}
+.dialog-box h2{
+    WIDTH: 11.7EM;
+    Color: Black;
+}
+.dialog-content h2 {
+    TOP: 9PX;
+    background: #0d4757;
+    border: 2px solid red;
+    border-radius: 4px;
+    padding: 5px;
+    transition: all 0.9s;
+    text-align: center;
+    box-shadow: 0px 10px 16px 4px rgb(255 0 0);
+    margin-inline: 0px;
+}
+.seasons h3 {
+    WIDTH: 94%;
+    Z-INDEX: 2;
+    POSITION: fixed;
+    color: aliceblue;
+    padding: 71PX 1PX 17PX 0PX;
+    TOP: 1EM;
+    FONT-SIZE: 100%;
+    OVERFLOW-Y: scroll;
+    HEIGHT: 185PX;
+}
+.seasons-dialog {
+    WIDTH: 17EM;
+    POSITION: relative;
+    LEFT: 0PX;
+    TOP: 0EM;
+}
+.dialog-content {
+    TOP: 5EM;
+    background-color: #000000;
+    padding: 15PX 0PX 0PX 0PX;
+    border-radius: 5px;
+    position: relative;
+}
+.chapter-menu {
+    WIDTH: 250PX;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: -3EM;
+    TOP: 50%;
+    LEFT: 6%;
+}
+#formulario {
+    position: absolute;
+    top: 17%;
+    left: 30%;
+    color: lime;
+}
+}
+
+
+
+
+#start-button, #previous-button, #next-button{
+    position: relative;
+    border: 2px solid red;
+    background: black;
+    color: #03ff41;
+    border-radius: 4px;
+    padding: 5px;
+    transition: all 0.9s;
+    text-align: center;
+    box-shadow: 0px 5px 12px 3px rgb(248, 70, 0);
+    margin-inline: 10px;
+    top: 10px;
+}
+
+.dialog-content  {
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.dialog-content h2 {
+    background: #0d4757;
+    border: 2px solid red;
+    border-radius: 4px;
+    padding: 5px;
+    transition: all 0.9s;
+    text-align: center;
+    box-shadow: 0px 10px 16px 4px rgb(255 0 0);
+    margin-inline: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+body #close-player {
+    position: fixed;
+    top: 7%;
+    right: 1%;
+    background-color: #000;
+    color: #6cc3ff;
+    padding: 5px 2px;
+    border: 4px solid #6200ff;
+    cursor: pointer;
+    z-index: 99999;
+    box-shadow: -1px 2px 19px 4px rgb(102 0 207);
+}
+
+
+
+
+@media screen and (max-width: 900px) {
+  #video-player {
+    width: 97%;
+    height: auto;
+    margin-top: -44%;
+    margin-left: -29%;
+}
+
+}
+body #close-player  {
+    position: fixed;
+    top: 40%;
+    right: 22%;
+    background-color: #000;
+    color: #6cc3ff;
+    padding: 5px 2px;
+    border: 4px solid #6200ff;
+    cursor: pointer;
+    z-index: 99999;
+    box-shadow: -1px 2px 19px 4px rgb(102 0 207);
+}
+
+
+
+
+::-webkit-scrollbar {display: none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* Ocultar todo el contenido con CSS por defecto */
+    #contenido {
+    display: none;
+   }
+
+#formulario button   {
+    color: #00fff9;
+    height: 4em;
+    width: 8em;
+    font-size: 15px;
+    border-style: double;
+    border-color: #0fff00;
+}
+#formulario input  {
+    margin: 1em 0em 1em 0em;
+    border-style: solid;
+    border-color: red;
+    background: #76767647;
+    height: 3em;
+    width: 4em;
+    font-size: 2em;
+color: yellow;
+}
+#formulario label   {
+    border-color: aqua;
+    font-size: 24px;
+    border-style: double;
+    padding: 14px 1px;
+    margin-right: 4px;
+}
