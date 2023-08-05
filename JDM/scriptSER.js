@@ -114,16 +114,6 @@ document.addEventListener('click', function(event) {
 
 
 
-function openDialog(index) {
-  // ...
-
-  const chapters = document.querySelectorAll('.chapter-menu a');
-  chapters.forEach(function(chapter) {
-    chapter.classList.remove('selected-chapter');
-  });
-
-  // ...
-}
 
 
 
