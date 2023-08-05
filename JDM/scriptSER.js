@@ -1,4 +1,6 @@
 
+
+
         var codigoCorrecto = "51078"; // Cambia "miCodigoSecreto" por tu código de acceso
         var tiempoDuracion = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
 
@@ -159,4 +161,18 @@ document.addEventListener('DOMContentLoaded', function() {
         dialogBox.classList.remove('open');
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
