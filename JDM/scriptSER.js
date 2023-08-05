@@ -1,3 +1,4 @@
+
         var codigoCorrecto = "51078"; // Cambia "miCodigoSecreto" por tu código de acceso
         var tiempoDuracion = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
 
@@ -40,7 +41,7 @@
 
 
 
-
+/*   ###########################################   */
 
 
 
@@ -52,31 +53,37 @@
 document.addEventListener('click', function(event) {
   const link = event.target;
   if (link.tagName === 'A' && link.href.startsWith('http')) {
-    event.preventDefault();
-    const videoUrl = link.href;
-    const videoPlayer = document.createElement('video');
-    videoPlayer.src = videoUrl;
-    videoPlayer.width = '560';
-    videoPlayer.height = '315';
-    videoPlayer.controls = true;
-    videoPlayer.style.position = 'fixed';
-    videoPlayer.style.top = '33%';
-    videoPlayer.style.left = '30%';
-    videoPlayer.style.border = 'none';
-    videoPlayer.style.zIndex = '9999';
-    videoPlayer.id = 'video-player';
+    const videoExtensions = ['mkv', 'mp4', 'avi']; // Agrega más extensiones si es necesario
+    const linkExtension = link.href.split('.').pop().toLowerCase();
 
-    const closeButton = document.getElementById('close-player');
-    closeButton.style.display = 'block';
-    closeButton.addEventListener('click', function() {
-      videoPlayer.pause();
-      videoPlayer.remove(); // Eliminar el reproductor de video
-      closeButton.remove(); // Eliminar el botón de cerrar
-    });
+    if (videoExtensions.includes(linkExtension)) {
+      event.preventDefault();
+      const videoUrl = link.href;
+      const videoPlayer = document.createElement('video');
+      videoPlayer.src = videoUrl;
+      videoPlayer.width = '560';
+      videoPlayer.height = '315';
+      videoPlayer.controls = true;
+      videoPlayer.style.position = 'fixed';
+      videoPlayer.style.top = '33%';
+      videoPlayer.style.left = '30%';
+      videoPlayer.style.border = 'none';
+      videoPlayer.style.zIndex = '9999';
+      videoPlayer.id = 'video-player';
 
-    document.body.appendChild(videoPlayer);
+      const closeButton = document.getElementById('close-player');
+      closeButton.style.display = 'block';
+      closeButton.addEventListener('click', function() {
+        videoPlayer.pause();
+        videoPlayer.remove();
+        closeButton.style.display = 'none';
+      });
+
+      document.body.appendChild(videoPlayer);
+    }
   }
 });
+
 
 
 
@@ -152,18 +159,4 @@ document.addEventListener('DOMContentLoaded', function() {
         dialogBox.classList.remove('open');
   });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
