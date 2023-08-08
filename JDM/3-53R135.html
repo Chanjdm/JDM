@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Series *Buenas*</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <meta charset='UTF-8'/>
-<meta content='article' property='og:type'/>
-<!-- Responsive viewport -->
-<meta content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' name='viewport'/>
+   <title>Series Buenas</title>
+  <meta charset="UTF-8"/>
+  <meta content="article" property="og:type"/>
+  <!-- Responsive viewport -->
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport"/>
+  <link rel="stylesheet" href="./styleSER.css">
+  <link rel="stylesheet" href="./scriptSER.js">
+
+
+
 
 <style>
-* {
-    box-sizing: border-box;
-    text-decoration: none;
-    background: black;
-}
 
 
 
 .container {
     margin: 11px 2px 3px 2px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
 
@@ -108,7 +105,7 @@ p {
     color: red;
     font-weight: bold;
     position: fixed;
-    top: 43px;
+    top: 28px;
     left: 43%;
     right: 43%;
     border-radius: 5px;
@@ -118,7 +115,7 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
 }
 .close-button:hover{
  
-    background:red;
+    background:RED;
     color:white;
 
   }
@@ -155,13 +152,13 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
     border: 3px solid #90ff00;
     padding: 3px;
     margin-top: 10px;
-    color: aqua;
+    color: RED;
     background: black;
     box-shadow: 0px 1px 21px 0px rgb(255 251 4);
 }
 .season-button:hover{
-	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
-	background:#12C987
+	BOX-shadow: 20 1px 21px 0PX rgba(0,0,0,0.5);
+	background:#def5f3;
 }
 
 
@@ -229,9 +226,20 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
 
 
 @media (max-width: 480px) {
-  .container {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  }
+.close-button  {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 8px;
+    left: 28%;
+    right: 28%;
+    border-radius: 5px;
+    padding: 2px 25px;
+    Z-INDEX: 10;
+}
+
 .pagina {
     position: relative;
     margin: 0px 7px 20px;
@@ -241,25 +249,7 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
     margin-left: -8em;
     padding: 0px;
 }
-.close-button {
-    background: black;
-    border: 0.5px solid #00ff3c;
-    color: red;
-    font-weight: bold;
-    position: fixed;
-    top: 26px;
-    top: 7px;
-    left: 20%;
-    right: 19%;
-    border-radius: 5px;
-    padding: 0px
-px
- 62px;
-}
-.serie-info h2 {
- font-size:16px;
- Margin-top:0px;
-}
+
 .dialog-content {
     background-color: #000000;
     padding: 10px;
@@ -270,21 +260,7 @@ px
     border-radius: 5px;
 }
 
-.dialog-box h2{
-    WIDTH: 11.7EM;
-    Color: Black;
-}
-.dialog-content h2 {
-    TOP: 9PX;
-    background: #0d4757;
-    border: 2px solid red;
-    border-radius: 4px;
-    padding: 5px;
-    transition: all 0.9s;
-    text-align: center;
-    box-shadow: 0px 10px 16px 4px rgb(255 0 0);
-    margin-inline: 0px;
-}
+
 .season-button {
     position: relative;
     left: -0.2em;
@@ -295,16 +271,23 @@ px
     background: black;
     box-shadow: 0px 1px 21px 0px rgb(255 251 4);
 }
+.dialog-content H2 {
+    TOP: 0.8EM;
+    LEFT: 3EM;
+    position: fixed;
+    width: 57%;
+    z-index: 5;
+}
 .seasons h3 {
     OVERFLOW-Y: SCROLL;
-    HEIGHT: 30%;
+    HEIGHT: 38%;
     WIDTH: 91%;
-    font-size: 17px;
+    font-size: 85%;
     Z-INDEX: 2;
     POSITION: fixed;
     color: aliceblue;
-    padding: 71PX 10PX 10PX 10PX;
-    TOP: 2.2EM;
+    padding: 94PX 10PX 10PX 10PX;
+    TOP: -0.8EM;
     margin-left: -15px;
 }
 .seasons-dialog {
@@ -318,57 +301,9 @@ px
     background: black;
     box-shadow: 0px 1px 21px 0px rgb(255 251 4);
 }
-
-.chapter-menu {
-    WIDTH: 250PX;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-}
-.navigation-buttons {
-    POSITION: RELATIVE;
-    ALIGN-ITEMS: center;
-    BOTTOM: -3EM;
-    TOP: 50%;
-    LEFT: 6%;
-}
 }
 
 
-
-
-#start-button, #previous-button, #next-button{
-    position: relative;
-    border: 2px solid red;
-    background: black;
-    color: #03ff41;
-    border-radius: 4px;
-    padding: 5px;
-    transition: all 0.9s;
-    text-align: center;
-    box-shadow: 0px 5px 12px 3px rgb(248, 70, 0);
-    margin-inline: 10px;
-    top: 10px;
-}
-
-.dialog-content  {
-    background-color: #000000;
-    padding: 10px;
-    border-radius: 5px;
-    position: relative;
-}
-.dialog-content h2 {
-    background: #0d4757;
-    border: 2px solid red;
-    border-radius: 4px;
-    padding: 5px;
-    transition: all 0.9s;
-    text-align: center;
-    box-shadow: 0px 10px 16px 4px rgb(255 0 0);
-    margin-inline: 0px;
-}
 
 
 
@@ -437,15 +372,28 @@ body {
 
 ::-webkit-scrollbar {display: none;}
 </style>
-
-
-
+</head>
 <body>
+
+  <div id="formulario">
+        <label for="clave"> Ingresa clave: </label>
+        <input type="password" id="clave">
+        <button onclick="verificarCodigo()">Enviar</button>
+    </div>
+
+
+    <div id="contenido">
+        <!-- Aquí coloca todo el contenido que deseas mostrar una vez que el código sea correcto 
+        <h1>Bienvenido al contenido protegido</h1>
+        <p>Este es el contenido que solo se mostrará si ingresas el código de acceso correcto.</p>  -->
+
+
+
+
+
+<button id="close-player" style="display: none;">Cerrar</button>
+
  
-
-
-
-
 
   <div class="container">
 
@@ -471,6 +419,12 @@ body {
         </div></div> </div></div>
 
 #####################################################################  -->
+
+
+
+
+
+
 
 
 <div class="serie" id="serie1"> <div class="serie">
@@ -500,7 +454,8 @@ body {
             <h2>El juego del calamar (2021)</h2><p></p> </div><div class="seasons hidden">
             <h3>El juego del calamar (2021)<br>Cientos de jugadores con problemas de dinero aceptan una invitación rarísima para competir en juegos infantiles. Dentro les esperan un tentador premio y desafíos letales.</h3>
             <button class="season-button">Temporada 1</button>
-            <div class="chapter-menu show"> 
+            <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
                 <a href="https://ia904706.us.archive.org/4/items/el-juego-del-calamar-t-1-cap-1/El%20juego%20del%20calamar%20T1%20Cap1.mp4"" target="_blank">Capítulo 1</a>
 <a href="https://ia904704.us.archive.org/27/items/el-juego-del-calamar-t-1-cap-2/El%20juego%20del%20calamar%20T1%20Cap2.mp4"" target="_blank">Capítulo 2</a>
 <a href="https://ia904703.us.archive.org/4/items/el-juego-del-calamar-t-1-cap-3/El%20juego%20del%20calamar%20T1%20Cap3.mp4"" target="_blank">Capítulo 3</a>
@@ -524,6 +479,7 @@ body {
             <h3>Juego de Tronos (2011)<br>En un mundo fantástico y en un contexto medieval varias familias, relativas a la nobleza, se disputan el poder para dominar el territorio ficticio de Poniente (Westeros) y tomar el control de los Siete Reinos desde el Trono de Hierro, lugar donde el rey ejerce el poder.</h3>
             <button class="season-button">Temporada 1</button>
             <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
                 <a href="https://ia601604.us.archive.org/15/items/tr-0n-0-t-1c-1/Tr0n0%24_t1c1.mp4"" target="_blank">Capítulo 1</a>
 <a href="https://ia601604.us.archive.org/15/items/tr-0n-0-t-1c-1/Tr0n0%24_t1c2.mp4"" target="_blank">Capítulo 2</a>
 <a href="https://ia601604.us.archive.org/15/items/tr-0n-0-t-1c-1/Tr0n0%24_t1c3.mp4"" target="_blank">Capítulo 3</a>
@@ -629,6 +585,7 @@ body {
             <h3>The Last of Us (2023)<br>Joel, uno de los pocos sobrevivientes, es contratado para sacar de contrabando a Ellie, una niña de 14 años, fuera de una opresiva zona de cuarentena. Lo que pareciera ser un pequeño trabajo, se convierte en un viaje brutal y desgarrador</h3>
             <button class="season-button">Temporada 1</button>
             <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
                 <a href="https://ia904702.us.archive.org/9/items/the-last-uf-us-t-1-cap-1/The%20last%20uf%20Us%20T1%20Cap1.mp4"" target="_blank">Capítulo 1</a>
 <a href="https://ia801605.us.archive.org/13/items/the-last-of-us-t-1-c-2/the%20last%20of%20us%20t1%20c2.mp4"" target="_blank">Capítulo 2</a>
 <a href="https://ia904704.us.archive.org/4/items/thelaste3/thelaste3.mp4"" target="_blank">Capítulo 3</a>
@@ -652,6 +609,7 @@ body {
             <h3>The Mandalorian (2019)<br>Ambientada tras la caída del Imperio y antes de la aparición de la Primera Orden, la serie sigue los pasos de un pistolero solitario en las aventuras que protagoniza en los confines de la galaxia, donde no alcanza la autoridad de la Nueva República.</h3>
             <button class="season-button">Temporada 1</button>
             <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
                 <a href="https://ia801600.us.archive.org/24/items/m-4nd-410r-14n-t-1c-1/M4nd410r14n_t1c1.mp4"" target="_blank">Capítulo 1</a>
 <a href="https://ia601600.us.archive.org/24/items/m-4nd-410r-14n-t-1c-1/M4nd410r14n_t1c2.mp4"" target="_blank">Capítulo 2</a>
 <a href="https://ia801600.us.archive.org/24/items/m-4nd-410r-14n-t-1c-1/M4nd410r14n_t1c3.mp4"" target="_blank">Capítulo 3</a>
@@ -850,6 +808,7 @@ body {
             <h3>Seduciendo a un asesino (2021)<br>La historia real de una controvertida trampa de miel en el corazón de la investigación policial de 1992 sobre el asesinato de una joven madre en Londres. Al examinar la complicada y tóxica política sexual de principios de los noventa y la obsesión de la policía con el hombre equivocado, Deceit entra en un mundo disfuncional, donde se le pide a una agente encubierta, cuyo nombre en clave es "Lizzie James", que se convierta en cebo sexual para un presunto asesino.</h3>
             <button class="season-button">Temporada 1</button>
             <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
                 <a href="https://archive.org/download/18-4_20221113/18_1.mp4" target="_blank">Capítulo 1</a>
 <a href="https://archive.org/download/18-4_20221113/18_2.mp4" target="_blank">Capítulo 2</a>
 <a href="https://archive.org/download/18-4_20221113/18_3.mp4" target="_blank">Capítulo 3</a>
@@ -891,6 +850,7 @@ body {
             <h3>Desde cero<br>Una artista se enamora de un chef en Italia y se embarca en un viaje transformador, donde descubre el amor, la pérdida, la resiliencia y la esperanza entre culturas y continentes.</h3>
             <button class="season-button">Temporada 1</button>
             <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
                 <a href="http://series.tuxchannel.mx/series/from_scratch/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
 <a href="http://series.tuxchannel.mx/series/from_scratch/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
 <a href="http://series.tuxchannel.mx/series/from_scratch/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
@@ -1009,6 +969,7 @@ body {
             <h3>Dickinson<br>La historia se ubica en el siglo XIX donde a través de la mirada y perspectiva de la joven y rebelde poeta Emily Dickinson se explorarán las limitaciones de la sociedad, el género y la familia de su tiempo.</h3>
             <button class="season-button">Temporada 1</button>
             <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
                 <a href="http://series.tuxchannel.mx/series/dickinson/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
 <a href="http://series.tuxchannel.mx/series/dickinson/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
 <a href="http://series.tuxchannel.mx/series/dickinson/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
@@ -1043,6 +1004,7 @@ body {
             <h3>Dinastía<br>Los Carrington y los Colby se disputan el control de su fortuna (y de sus hijos) en este remake actualizado del gran clásico de la televisión.</h3>
             <button class="season-button">Temporada 1</button>
             <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
                 <a href="http://series.tuxchannel.mx/series/dynasty/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
 <a href="http://series.tuxchannel.mx/series/dynasty/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
 <a href="http://series.tuxchannel.mx/series/dynasty/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
@@ -1124,6 +1086,7 @@ body {
             <h3>Distrito salvaje (2018)<br>Jhon Jeiver (Juan Pablo Raba) es un guerrillero que escapa de la jungla tras la firma del Tratado de Paz Colombiano. Llega a Bogotá escapando de su pasado para intentar reinsertarse en la sociedad, mientras busca reconectarse con su familia. Pero rápidamente se encuentra envuelto en una red de crimen y corrupción, luchando por comprender las reglas de la jungla de asfalto, proteger a su familia de su pasado y enfrentándose al dilema moral de elegir de qué lado de la ley quiere estar.</h3>
             <button class="season-button">Temporada 1</button>
             <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
                 <a href="http://series.tuxchannel.mx/series/distrito_salvaje/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
 <a href="http://series.tuxchannel.mx/series/distrito_salvaje/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
 <a href="http://series.tuxchannel.mx/series/distrito_salvaje/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
@@ -1209,6 +1172,7 @@ body {
             <h3>Dracula<br>Miniserie de TV de tres episodios inspirada en el personaje de Bram Stoker, el conde Drácula, que viaja de Transilvania a Londres para saciar su sed de sangre.</h3>
             <button class="season-button">Temporada 1</button>
             <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
                 <a href="http://series.tuxchannel.mx/series/dracula/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
 <a href="http://series.tuxchannel.mx/series/dracula/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
 <a href="http://series.tuxchannel.mx/series/dracula/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
@@ -1249,6 +1213,7 @@ body {
             <h3>Dulce hogar<br>En un mundo en el que las personas se convierten en monstruos que reflejan sus propios deseos individuales, el solitario estudiante de secundaria Cha Hyun-soo se muda a un nuevo departamento después de perder a su familia. En su nueva estancia enfrentará circunstancias extrañas e impactantes.</h3>
             <button class="season-button">Temporada 1</button>
             <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
                 <a href="http://series.tuxchannel.mx/series/sweet_home/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
 <a href="http://series.tuxchannel.mx/series/sweet_home/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
 <a href="http://series.tuxchannel.mx/series/sweet_home/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
@@ -1380,6 +1345,19 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Agrega más elementos "serie" según tus necesidades -->
   </div>
 
@@ -1392,7 +1370,6 @@ body {
       <a href="#" class="close-button">Cerrar</a>
     </div>
   </div>
-
 
 
 
@@ -1416,6 +1393,8 @@ body {
     </div>
     <button class="next-btn">Siguiente</button>
   </div>   </div>
+  
+
 
 
 
@@ -1431,6 +1410,181 @@ body {
 
 
   <script>
+
+
+
+
+
+
+
+
+
+
+        var codigoCorrecto = "51078"; // Cambia "miCodigoSecreto" por tu código de acceso
+        var tiempoDuracion = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
+
+        function verificarCodigo() {
+            var codigoIngresado = document.getElementById("clave").value;
+
+            if (codigoIngresado === codigoCorrecto) {
+                localStorage.setItem("accesoConcedido", "true");
+                mostrarContenido();
+            } else {
+                alert("Código incorrecto. Intenta de nuevo.");
+                document.getElementById("clave").value = "";
+            }
+        }
+
+        function mostrarContenido() {
+            document.getElementById("formulario").style.display = "none";
+            document.getElementById("contenido").style.display = "block";
+            setTimeout(cerrarSesion, tiempoDuracion); // Configurar el temporizador para cerrar la sesión
+        }
+
+        function cerrarSesion() {
+            localStorage.removeItem("accesoConcedido");
+            document.getElementById("contenido").style.display = "none";
+            document.getElementById("formulario").style.display = "block";
+            document.getElementById("clave").value = "";
+        }
+
+        // Comprobar si la sesión está activa al cargar la página
+        window.onload = function() {
+            var accesoConcedido = localStorage.getItem("accesoConcedido");
+            if (accesoConcedido === "true") {
+                mostrarContenido();
+            } else {
+                cerrarSesion();
+            }
+        }
+
+
+
+
+
+/*   ###########################################   */
+
+
+
+
+
+
+
+
+document.addEventListener('click', function(event) {
+  const link = event.target;
+  if (link.tagName === 'A' && link.href.startsWith('http')) {
+    const videoExtensions = ['mkv', 'mp4', 'avi']; // Agrega más extensiones si es necesario
+    const linkExtension = link.href.split('.').pop().toLowerCase();
+
+    if (videoExtensions.includes(linkExtension)) {
+      event.preventDefault();
+      const videoUrl = link.href;
+      const videoPlayer = document.createElement('video');
+      videoPlayer.src = videoUrl;
+      videoPlayer.width = '560';
+      videoPlayer.height = '315';
+      videoPlayer.controls = true;
+      videoPlayer.style.position = 'fixed';
+      videoPlayer.style.top = '33%';
+      videoPlayer.style.left = '30%';
+      videoPlayer.style.border = 'none';
+      videoPlayer.style.zIndex = '9999';
+      videoPlayer.id = 'video-player';
+
+      const closeButton = document.getElementById('close-player');
+      closeButton.style.display = 'block';
+      closeButton.addEventListener('click', function() {
+        videoPlayer.pause();
+        videoPlayer.remove();
+        closeButton.style.display = 'none';
+      });
+
+      document.body.appendChild(videoPlayer);
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function openDialog(index) {
+  // ...
+
+  const chapters = document.querySelectorAll('.chapter-menu a');
+  chapters.forEach(function(chapter) {
+    chapter.classList.remove('selected-chapter');
+  });
+
+  // ...
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const series = document.querySelectorAll('.serie');
+  const dialogBox = document.getElementById('dialog-box');
+  const closeButton = document.querySelector('.close-button');
+
+  series.forEach(function(serie) {
+    serie.addEventListener('click', function() {
+      dialogBox.classList.add('open');
+
+      const serieInfo = serie.querySelector('.serie-info');
+      const serieTitle = serieInfo.querySelector('h2').textContent;
+      const seasonsDialog = document.querySelector('.seasons-dialog');
+      seasonsDialog.innerHTML = '';
+
+      const seasons = serie.querySelectorAll('.seasons');
+      seasons.forEach(function(season) {
+        const seasonButton = season.querySelector('.season-button');
+        const chapterMenu = season.querySelector('.chapter-menu');
+        const chapterLinks = chapterMenu.querySelectorAll('a');
+
+        seasonButton.addEventListener('click', function() {
+          chapterMenu.classList.toggle('hidden');
+        });
+
+        const clonedSeason = season.cloneNode(true);
+        clonedSeason.classList.remove('hidden'); // Mostrar temporada al hacer clic en la imagen
+        seasonsDialog.appendChild(clonedSeason);
+      });
+    });
+  });
+
+ closeButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        dialogBox.classList.remove('open');
+  });
+});
+
+
+
+
+/*   ###########################################   */
 
 
 
@@ -1511,33 +1665,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 const pageLinks = [
-  { number: 1, link: 'go:SERIESTUX' },
-  { number: 2, link: 'go:SERIESTUXA' },
-  { number: 3, link: 'go:SERIESTUXB' },
-  { number: 4, link: 'go:SERIESTUXC' },
-  { number: 5, link: 'go:SERIESTUXD' },
-  { number: 6, link: 'go:SERIESTUXE' },
-  { number: 7, link: 'go:SERIESTUXF' },
-  { number: 8, link: 'go:SERIESTUXG' },
-  { number: 9, link: 'go:SERIESTUXH' },
-  { number: 10, link: 'go:SERIESTUXI' },
-  { number: 11, link: 'go:SERIESTUXJ' },
-  { number: 12, link: 'go:SERIESTUXK' },
-  { number: 13, link: 'go:SERIESTUXL' },
-  { number: 14, link: 'go:SERIESTUXM' },
-  { number: 15, link: 'go:SERIESTUXN' },
-  { number: 16, link: 'go:SERIESTUXO' },
-  { number: 17, link: 'go:SERIESTUXP' },
-  { number: 18, link: 'go:SERIESTUXQ' },
-  { number: 19, link: 'go:SERIESTUXR' },
-  { number: 20, link: 'go:SERIESTUXS' },
-  { number: 21, link: 'go:SERIESTUXT' },
-  { number: 22, link: 'go:SERIESTUXU' },
-  { number: 23, link: 'go:SERIESTUXV' },
-  { number: 24, link: 'go:SERIESTUXW' },
-  { number: 25, link: 'go:SERIESTUXX' },
-  { number: 26, link: 'go:SERIESTUXY' },
-  { number: 27, link: 'go:SERIESTUXZ' },
+  { number: 1, link: './1-53R135.html' },
+  { number: 2, link: './2-53R135.html' },
+  { number: 3, link: './3-53R135.html' },
+  { number: 4, link: './4-53R135.html' },
+  { number: 5, link: './5-53R135.html' },
+  { number: 6, link: './6-53R135.html' },
+  { number: 7, link: './7-53R135.html' },
+  { number: 8, link: './8-53R135.html' },
+  { number: 9, link: './9-53R135.html' },
+  { number: 10, link: './10-53R135.html' },
+  { number: 11, link: './11-53R135.html' },
+  { number: 12, link: './12-53R135.html' },
+  { number: 13, link: './13-53R135.html' },
+  { number: 14, link: './14-53R135.html' },
+  { number: 15, link: './15-53R135.html' },
+  { number: 16, link: './16-53R135.html' },
+  { number: 17, link: './17-53R135.html' },
+  { number: 18, link: './18-53R135.html' },
+  { number: 19, link: './19-53R135.html' },
+  { number: 20, link: './20-53R135.html' },
+  { number: 21, link: './21-53R135.html' },
+  { number: 22, link: './22-53R135.html' },
+  { number: 23, link: './23-53R135.html' },
+  { number: 24, link: './24-53R135.html' },
+  { number: 25, link: './25-53R135.html' },
+  { number: 26, link: './26-53R135.html' },
+  { number: 27, link: './27-53R135.html' },
   // Agrega más objetos para cada página con sus enlaces
 ];
 
@@ -1545,7 +1699,7 @@ const pageNumbersContainer = document.querySelector('.page-numbers');
 const prevButton = document.querySelector('.prev-btn');
 const nextButton = document.querySelector('.next-btn');
 
-let currentPage = 3;           /* ####   CAMBIAR NUMERO DE PAGINA  ##### */
+let currentPage = 1;           /* ####   CAMBIAR NUMERO DE PAGINA  ##### */
 
 function updatePageNumbers() {
   pageNumbersContainer.innerHTML = '';
@@ -1586,10 +1740,11 @@ nextButton.addEventListener('click', () => {
 updatePageNumbers();
 
 
+
+
+
+
 </script>
-
-
-
-
+</div>
 </body>
 </html>
