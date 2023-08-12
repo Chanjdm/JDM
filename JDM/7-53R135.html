@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Series Buenas</title>
+  <meta charset="UTF-8"/>
+  <meta content="article" property="og:type"/>
+  <!-- Responsive viewport -->
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport"/>
+  <link rel="stylesheet" href="https://chanjdm.github.io/JDM/JDM/styleSER.css">
+  <link rel="stylesheet" href="https://chanjdm.github.io/JDM/JDM/scriptSER.js">
+
+
+
+
+<style>
+
+
+
+.container {
+    margin: 11px 2px 3px 2px;
+    gap: 20px;
+}
+
+.serie {
+    position: relative;
+    width: 240px;
+}
+
+.serie-image {
+border-radius: 5px;
+  width: 100%;
+  height: auto;
+}
+
+.serie-info {
+border-radius: 10px;
+box-shadow: 0 0 32px #ff0000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.serie:hover .serie-info {
+  opacity: 1;
+}
+
+h2 {
+    background: #00000005;
+    height: auto;
+    PADDING: 20PX 20PX;
+    width: 100%;
+    color: aqua;
+}
+p {
+    overflow-y: auto;
+    height: auto;
+    margin-top: -1.3em;
+    padding: 40px 7px;
+    background: #00000000;
+}
+
+.dialog-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+
+.dialog-box.open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+
+.dialog-content  {
+    overflow-y: auto;
+    height: 450px;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    TOP: -24PX;
+}
+
+.close-button  {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 28px;
+    left: 43%;
+    right: 43%;
+    border-radius: 5px;
+    padding: 2px 63px;
+    Z-INDEX: 10;
+BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
+}
+.close-button:hover{
+ 
+    background:RED;
+    color:white;
+
+  }
+
+.hidden {
+  display: none;
+}
+.dialog-content H2 {
+    TOP: 1.7EM;
+    position: fixed;
+    width: 57%;
+    z-index: 5;
+}
+.seasons-dialog{
+    WIDTH: 46EM;
+    POSITION: relative;
+    LEFT: 0PX;
+    TOP: 11EM;
+    transition: all 0.9s;
+}
+.seasons h3 {
+    OVERFLOW-Y: SCROLL;
+    HEIGHT: 28%;
+    WIDTH: 58%;
+    Z-INDEX: 2;
+    POSITION: fixed;
+    color: aliceblue;
+    padding: 71PX 1PX 10PX 0PX;
+    TOP: 2.2EM;
+}
+.season-button {
+    position: relative;
+    left: 0px;
+    border: 3px solid #90ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: RED;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+.season-button:hover{
+	BOX-shadow: 20 1px 21px 0PX rgba(0,0,0,0.5);
+	background:#def5f3;
+}
+
+
+
+
+ /* Muestra los capítulos en línea vertical */
+.chapter-menu {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+.chapter-menu a:hover{
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	background:#009dfd;
+        color:black;
+}
+
+/* Ajusta el espacio entre los capítulos */
+.chapter-menu a {
+    color: #e9a603;
+    margin-bottom: 5px;
+    box-shadow: 0px 1px 8px 0px rgb(248, 70, 0);
+}
+
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: 2.EM;
+    LEFT: 0%;
+}
+@media (max-width: 740px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+.seasons-dialog {
+    OVERFLOW: scroll;
+    HEIGHT: 25EM;
+    PADDING-TOP: 1EM;
+    WIDTH: 25EM;
+}
+.close-button {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 43px;
+    left: 38%;
+    right: 38%;
+    border-radius: 5px;
+    padding: 2px 63px;
+    Z-INDEX: 10;
+}
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: -15EM;
+    TOP: 50%;
+    LEFT: 18%;
+}
+}
+
+
+@media (max-width: 480px) {
+.close-button  {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 8px;
+    left: 28%;
+    right: 28%;
+    border-radius: 5px;
+    padding: 2px 25px;
+    Z-INDEX: 10;
+}
+.serie {
+    position: relative;
+    width: 145px;
+}
+
+.pagina {
+    position: relative;
+    margin: 0px 7px 20px;
+    overflow-x: scroll;
+    width: 26em;
+    height: 4em;
+    margin-left: -8em;
+    padding: 0px;
+}
+
+.dialog-content {
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    height: 22em;
+    top: 7em;
+    border-radius: 5px;
+}
+
+
+.season-button {
+    position: relative;
+    left: -0.2em;
+    border: 3px solid #90ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+/*
+.dialog-content H2 {
+    TOP: 0.8EM;
+    LEFT: 3EM;
+    position: fixed;
+    width: 57%;
+    z-index: 5;
+}
+*/
+.dialog-content H2  {
+    display: flex;
+    TOP: 30px;
+    font-size: 15px;
+    width: 57%;
+    z-index: 5;
+    color: rgb(255 255 255);
+    justify-content: center;
+    right: 20%;
+    left: 20%;
+    box-shadow: 0px 0px 9px 2px rgb(255 0 0);
+}
+
+.seasons h3 {
+    OVERFLOW-Y: SCROLL;
+    HEIGHT: 38%;
+    WIDTH: 91%;
+    font-size: 85%;
+    Z-INDEX: 2;
+    POSITION: fixed;
+    color: aliceblue;
+    padding: 94PX 10PX 10PX 10PX;
+    TOP: -0.8EM;
+    margin-left: -15px;
+}
+.seasons-dialog {
+    position: initial;
+    height: 18.2em;
+    width: 17.5em;
+    border: 3px solid #62ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination {
+    position: relative;
+    margin: 6px 7px 0px;
+    overflow-x: scroll;
+    width: 26em;
+    height: 4em;
+    margin-left: 33%;
+    padding: 10px;
+}
+
+
+.prev-btn, .next-btn {
+ display:NONE;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.page-numbers {
+  display: flex;
+}
+
+.page-number {
+    background-color: #000000;
+    color: #70ff00;
+    border: solid;
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.page-number.active {
+    background-color: #ff0000;
+    color: black;
+    box-shadow: 0px 0px 16px 4px rgb(255 0 0);
+}
+
+
+::-webkit-scrollbar {display: none;}
+.pagina {
+    position: relative;
+    top: 9em;
+}
+</style>
+</head>
+<body>
+
+  <div id="formulario">
+        <label for="clave"> Ingresa clave: </label>
+        <input type="password" id="clave">
+        <button onclick="verificarCodigo()">Enviar</button>
+    </div>
+
+
+    <div id="contenido">
+        <!-- Aquí coloca todo el contenido que deseas mostrar una vez que el código sea correcto 
+        <h1>Bienvenido al contenido protegido</h1>
+        <p>Este es el contenido que solo se mostrará si ingresas el código de acceso correcto.</p>  -->
+
+
+
+
+
+<button id="close-player" style="display: none;">Cerrar</button>
+
+ 
+
+  <div class="container">
+
+
+
+<!--   #####################    PARA PONER MAS SERIES ##########################
+
+<div class="serie" id="serie1"><div class="serie">
+<img src=" ### IMAGEN #### 
+" alt="Serie 1" class="serie-image">
+<div class="serie-info"><h2> ### TITULO ### 
+</h2><p> 
+</p> </div> <div class="seasons hidden"><h3> #### TITULO ####   <BR> 
+</h3><button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+
+<a href="" target="_blank">Cap. 01</a>
+
+</div>
+
+<button class="season-button">Temporada 2</button><div class="chapter-menu show">
+<a href="" target="_blank">Cap. 01</a>
+
+        </div></div> </div></div>
+
+#####################################################################  -->
+
+
+
+
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//qrirXKTViJJiVhITNSeER3tNTXC.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Los hijos de Sam: Un descenso a los infiernos</h2><p></p> </div><div class="seasons hidden">
+            <h2>Los hijos de Sam: Un descenso a los infiernos</h2><h3>El caso del hijo de Sam se convirtió en una obsesión permanente para el periodista Maury Terry, convencido de que los homicidios tenían que ver con un culto satánico.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+                
+<a href="http://series.tuxchannel.mx/series/the_sons_of_sam_a_descent_into_darkness/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/the_sons_of_sam_a_descent_into_darkness/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/the_sons_of_sam_a_descent_into_darkness/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/the_sons_of_sam_a_descent_into_darkness/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//78q2QDm9mEiACC3BFcn0IIy1tAc.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Perdiendo a Alice</h2><p></p> </div><div class="seasons hidden">
+            <h2>Perdiendo a Alice</h2><h3>Alice es una directora de cine que se acerca a los cincuenta y se siente perdida desde que tuvo a sus hijos. Un encuentro casual con Sophie, una escritora y mujer fatal, la arrastrará a una búsqueda obsesiva del éxito.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+                
+<a href="http://series.tuxchannel.mx/series/losing_alice/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/losing_alice/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/losing_alice/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/losing_alice/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/losing_alice/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/losing_alice/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/losing_alice/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/losing_alice/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//fEKReZ29cgtUeeQLlvmwADWwcm0.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>El Hombre Inocente</h2><p></p> </div><div class="seasons hidden">
+            <h2>El Hombre Inocente</h2><h3>Kang Ma Roo es estudiante de medicina, quien es un poco inocente, confía  ciegamente en su novia, Han Jae Hee , de la cual esta muy enamorado.  Sin embargo, ella utiliza su confianza para incriminarlo por un  asesinato que cometió y luego se casa con un hombre mayor y rico para  escapar de su pobreza. Ma Roo, después de sentirse destrozado  literalmente por la traición de la que él creía era el amor de su vida,  decide convertirse en todo un rompe corazones. Lleno de dolor y rabia  decide utilizar a la típica heredera familiar un poco fría y caprichosa  Seo Eun Gi, hijastra de Jae Hee y sucesora del grupo Taesang la cual sin  darse cuenta de sus verdaderas intenciones, terminará enamorándose de  él.Pero el destino les pone una trampa, luego de un accidente  automovilístico provocado por Eun Gi, después de la conmoción de saber  el porqué Ma Roo se acercó a ella y para colmo, recibe un mensaje de  texto donde se le notifica de la muerte de su padre, ella desaparece sin  dejar rastro por casi un año y para cuándo se reencuentra con Ma Roo,  ella ha perdido totalmente la memoria, hasta tal punto que no sabe  nisiquiera quién es ella misma, debido a los daños causados por el  accidente ¿Kang Ma Roo se enamorara? ¿Han Jae Hee lo tratara de recuperar? ¿El amor de Kang Ma Roo y Seo Eun Gi triunfara?</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+                
+<a href="https://archive.org/download/ti-8_20220214/ti%20%281%29.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/ti-8_20220214/ti%20%282%29.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/ti-8_20220214/ti%20%283%29.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/ti-8_20220214/ti%20%284%29.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/ti-8_20220214/ti%20%285%29.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/ti-8_20220214/ti%20%286%29.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/ti-8_20220214/ti%20%287%29.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/ti-8_20220214/ti%20%288%29.mp4" target="_blank">Capítulo 8</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//qN6HCKR3ZRqbpGBWFctVlSTKR2k.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Los irregulares</h2><p></p> </div><div class="seasons hidden">
+            <h2>Los irregulares</h2><h3>Un heterogéneo grupo de inadaptados investiga una serie de crímenes sobrenaturales en el Londres victoriano para el Dr. Watson y su misterioso socio, Sherlock Holmes.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+                
+<a href="http://series.tuxchannel.mx/series/the_irregulars/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/the_irregulars/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/the_irregulars/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/the_irregulars/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/the_irregulars/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/the_irregulars/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/the_irregulars/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/the_irregulars/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//quGmzISvzZeAd3ijCLbVMIfEHni.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Los Últimos Zares</h2><p></p> </div><div class="seasons hidden">
+            <h2>Los Últimos Zares</h2><h3>La agitación social se extiende por Rusia a principios del siglo XX. El zar Nicolás II se resiste al cambio, desencadenando una revolución que pone fin a una dinastía.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+                <a href="" target="_blank">TRAILER</a> 
+                
+<a href="http://series.tuxchannel.mx/series/the_last_czars/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/the_last_czars/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/the_last_czars/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/the_last_czars/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/the_last_czars/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/the_last_czars/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//bTEx3tvWr8vAg1kQ8ohr3QBqeS8.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Lupin</h2><p></p> </div><div class="seasons hidden">
+            <h2>Lupin</h2><h3>Inspirado por las aventuras de Arsène Lupin, el ladrón de guante blanco Assane Diop se propone vengar la injusticia sufrida por su padre a manos de una familia rica.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+                
+<a href="http://series.tuxchannel.mx/series/lupin/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/lupin/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/lupin/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/lupin/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/lupin/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+<a href="http://series.tuxchannel.mx/series/lupin/s_02_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/lupin/s_02_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/lupin/s_02_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/lupin/s_02_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/lupin/s_02_e_05.mkv" target="_blank">Capítulo 5</a>
+ 
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//ajQ9OW0TSJ5d8MCkKFiqCBpfa05.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Manifest</h2><p></p> </div><div class="seasons hidden">
+            <h2>Manifest</h2><h3>Cuando el vuelo 828 de Montego Air aterriza de manera segura después de un vuelo turbulento pero de rutina, la tripulación y los pasajeros se sienten aliviados. Sin embargo, aunque para ellos han pasado pocas horas, el mundo ha envejecido cinco años y sus amigos, familias y colegas, después de llorar su pérdida, han perdido la esperanza y están intentando seguir adelante. Ahora, frente a lo imposible, a todos se les da una segunda oportunidad. Pero, a medida que se aclaran sus nuevas realidades, se enfrentan a un misterio más profundo y algunos de los pasajeros pronto se dan cuenta de que pueden estar destinados a algo más grande de lo que alguna vez creyeron posible.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+                
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_09.mkv" target="_blank">Capítulo 9</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_10.mkv" target="_blank">Capítulo 10</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_11.mkv" target="_blank">Capítulo 11</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_12.mkv" target="_blank">Capítulo 12</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_13.mkv" target="_blank">Capítulo 13</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_14.mkv" target="_blank">Capítulo 14</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_15.mkv" target="_blank">Capítulo 15</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_01_e_16.mkv" target="_blank">Capítulo 16</a>
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_09.mkv" target="_blank">Capítulo 9</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_10.mkv" target="_blank">Capítulo 10</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_11.mkv" target="_blank">Capítulo 11</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_12.mkv" target="_blank">Capítulo 12</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_02_e_13.mkv" target="_blank">Capítulo 13</a>
+
+            </div><button class="season-button">Temporada 3</button>
+            <div class="chapter-menu show">
+
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_09.mkv" target="_blank">Capítulo 9</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_10.mkv" target="_blank">Capítulo 10</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_11.mkv" target="_blank">Capítulo 11</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_12.mkv" target="_blank">Capítulo 12</a>
+<a href="http://series.tuxchannel.mx/series/manifest/s_03_e_13.mkv" target="_blank">Capítulo 13</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//hpeaMzflHMEepUGiCjXld7lrnC2.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Marianne</h2><p></p> </div><div class="seasons hidden">
+            <h2>Marianne</h2><h3>Una novelista se da cuenta de que sus historias de terror se hacen realidad y decide volver a su ciudad natal para enfrentarse a los demonios del pasado que la inspiran.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+                
+<a href="http://series.tuxchannel.mx/series/marianne/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/marianne/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/marianne/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/marianne/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/marianne/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/marianne/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/marianne/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/marianne/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//w4vFoA48nSU1ORKVmcTWOwtzPgw.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>María Felix, La Doña</h2><p></p> </div><div class="seasons hidden">
+            <h2>María Felix, La Doña</h2><h3>Esta es la historia de una mujer adelantada a su época, que enfrentó un mundo de hombres y se ganó su lugar. De espectacular belleza, vestida de pantalones, con la ceja levantada y la voz grave, se convirtió en la máxima diva del cine mexicano.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+                
+<a href="http://series.tuxchannel.mx/series/maria_felix_la_dona/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/maria_felix_la_dona/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/maria_felix_la_dona/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/maria_felix_la_dona/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/maria_felix_la_dona/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/maria_felix_la_dona/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/maria_felix_la_dona/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/maria_felix_la_dona/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//zc1nMTDGRxazYawj4nbETaEpX60.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Maya y los tres</h2><p></p> </div><div class="seasons hidden">
+            <h2>Maya y los tres</h2><h3>Una valiente princesa guerrera emprende una gran misión: debe cumplir una antigua profecía y salvar a la humanidad de la ira de los vengativos dioses.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+                
+<a href="https://archive.org/download/02_20211029_20211029_2239/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/02_20211029_20211029_2239/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/02_20211029_20211029_2239/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/02_20211029_20211029_2239/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/02_20211029_20211029_2239/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/09_20211029_20211029/06.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/09_20211029_20211029/07.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/09_20211029_20211029/08.mp4" target="_blank">Capítulo 8</a>
+<a href="https://archive.org/download/09_20211029_20211029/09.mp4" target="_blank">Capítulo 9</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//6Zy5AtrKJOMnVWgDqHtnogOfI40.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Medical Police</h2><p></p> </div><div class="seasons hidden">
+            <h2>Medical Police</h2><h3>Los doctores Owen Maestro y Lola Spratt dejan el Hospital de Niños y se unen a una agencia secreta para investigar y destruir un virus global mortal.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+            <!--    <a href="" target="_blank">TRAILER</a>     -->
+                
+<a href="http://series.tuxchannel.mx/series/medical_police/s_01_e_01.mkv" target="_blank">Capitulo 1</a>
+<a href="http://series.tuxchannel.mx/series/medical_police/s_01_e_02.mkv" target="_blank">Capitulo 2</a>
+<a href="http://series.tuxchannel.mx/series/medical_police/s_01_e_03.mkv" target="_blank">Capitulo 3</a>
+<a href="http://series.tuxchannel.mx/series/medical_police/s_01_e_04.mkv" target="_blank">Capitulo 4</a>
+<a href="http://series.tuxchannel.mx/series/medical_police/s_01_e_05.mkv" target="_blank">Capitulo 5</a>
+<a href="http://series.tuxchannel.mx/series/medical_police/s_01_e_06.mkv" target="_blank">Capitulo 6</a>
+<a href="http://series.tuxchannel.mx/series/medical_police/s_01_e_07.mkv" target="_blank">Capitulo 7</a>
+<a href="http://series.tuxchannel.mx/series/medical_police/s_01_e_08.mkv" target="_blank">Capitulo 8</a>
+<a href="http://series.tuxchannel.mx/series/medical_police/s_01_e_09.mkv" target="_blank">Capitulo 9</a>
+<a href="http://series.tuxchannel.mx/series/medical_police/s_01_e_10.mkv" target="_blank">Capitulo 10</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//q6j9Dn3iiXoCjpVitDppNNZXwVq.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Miércoles</h2><p></p> </div><div class="seasons hidden">
+            <h2>Miércoles</h2><h3>Miércoles Addams, lista, sarcástica y un poco muerta por dentro, investiga una oleada de asesinatos mientras hace amigos —y enemigos— en la Academia Nunca Más.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+            <!--    <a href="" target="_blank">TRAILER</a>     -->
+                
+<a href="http://series.tuxchannel.mx/series/wednesday/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/wednesday/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/wednesday/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/wednesday/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/wednesday/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/wednesday/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/wednesday/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/wednesday/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//1wRMQeGZ3KyawL4vyOyPLuEihu2.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Mil Colmillos</h2><p></p> </div><div class="seasons hidden">
+            <h2>Mil Colmillos</h2><h3>Un comando de élite tiene una misión, en lo profundo de la jungla, para encontrar y destruir a un líder poderoso y misterioso.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+            <!--    <a href="" target="_blank">TRAILER</a>     -->
+                
+<a href="https://archive.org/download/03_20211111_20211111/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/03_20211111_20211111/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/03_20211111_20211111/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/03_20211111_20211111/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/03_20211111_20211111/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/03_20211111_20211111/06.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/03_20211111_20211111/07.mp4" target="_blank">Capítulo 7</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//h9p1zxKzti35Aqe6xpwkP9NlG7p.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Mi Nombre</h2><p></p> </div><div class="seasons hidden">
+            <h2>Mi Nombre</h2><h3>[My Name] Tras el asesinato de su padre, una mujer con sed de venganza decide confiar en el poderoso jefe de una red criminal... y se infiltra en la policía bajo sus órdenes.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+            <!--    <a href="" target="_blank">TRAILER</a>     -->
+                
+<a href="https://archive.org/download/08_20211017/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/08_20211017/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/08_20211017/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/08_20211017/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/08_20211017/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/08_20211017/06.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/08_20211017/07.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/08_20211017/08.mp4" target="_blank">Capítulo 8</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//zogTjQRIJsmg8yvIo8gDLtp65th.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Mi otra yo</h2><p></p> </div><div class="seasons hidden">
+            <h2>Mi otra yo</h2><h3>Tres amigas llegan a un pueblo costero, donde se conectan con su lado espiritual y, sin imaginarlo, enfrentan traumas familiares del pasado.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+            <!--    <a href="" target="_blank">TRAILER</a>     -->
+                
+<a href="http://series.tuxchannel.mx/series/mi_otra_yo/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/mi_otra_yo/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/mi_otra_yo/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/mi_otra_yo/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/mi_otra_yo/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/mi_otra_yo/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/mi_otra_yo/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/mi_otra_yo/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//4ZQiVDFQgGO791f9pAcsPUeOtFe.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Misa de medianoche</h2><p></p> </div><div class="seasons hidden">
+            <h2>Misa de medianoche</h2><h3>Una comunidad al borde de la extinción y ávida de fe recibe la llegada de un carismático sacerdote, que trae consigo milagros, misterios y un renovado fervor religioso.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+            <!--    <a href="" target="_blank">TRAILER</a>     -->
+                
+<a href="http://series.tuxchannel.mx/series/midnight_mass/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/midnight_mass/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/midnight_mass/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/midnight_mass/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/midnight_mass/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/midnight_mass/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/midnight_mass/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//sDPNwSe63WACVlHap7un6AgbqgO.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Mi Tío</h2><p></p> </div><div class="seasons hidden">
+            <h2>Mi Tío</h2><h3>Andy (José Eduardo Derbez), un músico inmaduro y fallido que está a punto de quitarse la vida, recibe la llamada caótica de su hermana Sam (Ariadne Díaz) pidiéndole que recoja en la escuela a Tadeo (Santiago Beltrán), su hijo, y lo cuide durante la tarde. Esta llamada salva la vida de Andy y él y Tadeo forman un vínculo inusual.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+            <!--    <a href="" target="_blank">TRAILER</a>     -->
+                
+<a href="https://archive.org/download/06_20220422_20220422/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/06_20220422_20220422/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/06_20220422_20220422/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/06_20220422_20220422/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/06_20220422_20220422/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/06_20220422_20220422/06.mp4" target="_blank">Capítulo 6</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//AuKtpbcL1OS2S7kIFRkHXvjcBr7.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Modern Love Chennai</h2><p></p> </div><div class="seasons hidden">
+            <h2>Modern Love Chennai</h2><h3>An eclectic bouquet of love stories – funny, quirky, deep and puzzling. While the stories converse with your heart, you also catch a glimpse into the soul of Chennai with its unique terrains and diverse inhabitants.</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+            <!--    <a href="" target="_blank">TRAILER</a>     -->
+                
+<a href="http://series.tuxchannel.mx/series/modern_love/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/modern_love/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/modern_love/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/modern_love/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/modern_love/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/modern_love/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/modern_love/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/modern_love/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//6fnMW8CmXaf1OpXqNvGRBUGAeh5.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>M.O.D.O.K.</h2><p></p> </div><div class="seasons hidden">
+            <h2>M.O.D.O.K.</h2><h3>El supervillano megalómano M.O.D.O.K. ha perseguido durante mucho tiempo su sueño de conquistar el mundo algún día. Pero después de años de reveses y fracasos luchando contra los héroes más poderosos de la Tierra, M.O.D.O.K. ha dirigido su malvada organización A.I.M. en el suelo. Derrocado como líder de A.I.M., mientras también lidia con su matrimonio desmoronado y su vida familiar, el organismo mental diseñado solo para matar está listo para enfrentar su mayor desafío hasta ahora: ¡una crisis de la mediana edad!</h3>
+            <button class="season-button">Temporada 1</button>
+            <div class="chapter-menu show">
+            <!--    <a href="" target="_blank">TRAILER</a>     -->
+                
+<a href="https://archive.org/download/01_20211130_20211130_2109/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/01_20211130_20211130_2109/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/01_20211130_20211130_2109/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/01_20211130_20211130_2109/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/01_20211130_20211130_2109/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/01_20211130_20211130_2109/06.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/01_20211130_20211130_2109/07.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/01_20211130_20211130_2109/08.mp4" target="_blank">Capítulo 8</a>
+<a href="https://archive.org/download/01_20211130_20211130_2109/09.mp4" target="_blank">Capítulo 9</a>
+<a href="https://archive.org/download/01_20211130_20211130_2109/10.mp4" target="_blank">Capítulo 10</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Agrega más elementos "serie" según tus necesidades -->
+  </div>
+
+  <div id="dialog-box" class="dialog-box">
+    <div class="dialog-content">
+      <h2>Temporadas</h2>
+      <div class="seasons-dialog">
+        <!-- Aquí se mostrarán los botones de temporada y capítulos -->
+      </div>
+      <a href="#" class="close-button">Cerrar</a>
+    </div>
+  </div>
+
+
+
+<!--
+
+<div class="navigation-buttons">
+ <!--   <a href="go:SERIESTUX" id="start-button">Inicio</a>
+    <a href="go:SERIESTUX" id="previous-button">Anterior</a>  
+    <a href="go:SERIESTUXA" id="next-button">Siguiente</a>
+  </div>
+
+  
+-->
+
+
+  <div class="pagina">
+  <div class="pagination">
+    <button class="prev-btn">Anterior</button>
+    <div class="page-numbers">
+      <!-- Aquí se generarán dinámicamente los números de página -->
+    </div>
+    <button class="next-btn">Siguiente</button>
+  </div>   </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+
+
+
+
+
+
+
+
+
+
+        var codigoCorrecto = "51078"; // Cambia "miCodigoSecreto" por tu código de acceso
+        var tiempoDuracion = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
+
+        function verificarCodigo() {
+            var codigoIngresado = document.getElementById("clave").value;
+
+            if (codigoIngresado === codigoCorrecto) {
+                localStorage.setItem("accesoConcedido", "true");
+                mostrarContenido();
+            } else {
+                alert("Código incorrecto. Intenta de nuevo.");
+                document.getElementById("clave").value = "";
+            }
+        }
+
+        function mostrarContenido() {
+            document.getElementById("formulario").style.display = "none";
+            document.getElementById("contenido").style.display = "block";
+            setTimeout(cerrarSesion, tiempoDuracion); // Configurar el temporizador para cerrar la sesión
+        }
+
+        function cerrarSesion() {
+            localStorage.removeItem("accesoConcedido");
+            document.getElementById("contenido").style.display = "none";
+            document.getElementById("formulario").style.display = "block";
+            document.getElementById("clave").value = "";
+        }
+
+        // Comprobar si la sesión está activa al cargar la página
+        window.onload = function() {
+            var accesoConcedido = localStorage.getItem("accesoConcedido");
+            if (accesoConcedido === "true") {
+                mostrarContenido();
+            } else {
+                cerrarSesion();
+            }
+        }
+
+
+
+
+
+/*   ###########################################   */
+
+
+
+
+
+
+
+
+document.addEventListener('click', function(event) {
+  const link = event.target;
+  if (link.tagName === 'A' && link.href.startsWith('http')) {
+    const videoExtensions = ['mkv', 'mp4', 'avi']; // Agrega más extensiones si es necesario
+    const linkExtension = link.href.split('.').pop().toLowerCase();
+
+    if (videoExtensions.includes(linkExtension)) {
+      event.preventDefault();
+      const videoUrl = link.href;
+      const videoPlayer = document.createElement('video');
+      videoPlayer.src = videoUrl;
+      videoPlayer.width = '560';
+      videoPlayer.height = '315';
+      videoPlayer.controls = true;
+      videoPlayer.style.position = 'fixed';
+      videoPlayer.style.top = '33%';
+      videoPlayer.style.left = '30%';
+      videoPlayer.style.border = 'none';
+      videoPlayer.style.zIndex = '9999';
+      videoPlayer.id = 'video-player';
+
+      const closeButton = document.getElementById('close-player');
+      closeButton.style.display = 'block';
+      closeButton.addEventListener('click', function() {
+        videoPlayer.pause();
+        videoPlayer.remove();
+        closeButton.style.display = 'none';
+      });
+
+      document.body.appendChild(videoPlayer);
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function openDialog(index) {
+  // ...
+
+  const chapters = document.querySelectorAll('.chapter-menu a');
+  chapters.forEach(function(chapter) {
+    chapter.classList.remove('selected-chapter');
+  });
+
+  // ...
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const series = document.querySelectorAll('.serie');
+  const dialogBox = document.getElementById('dialog-box');
+  const closeButton = document.querySelector('.close-button');
+
+  series.forEach(function(serie) {
+    serie.addEventListener('click', function() {
+      dialogBox.classList.add('open');
+
+      const serieInfo = serie.querySelector('.serie-info');
+      const serieTitle = serieInfo.querySelector('h2').textContent;
+      const seasonsDialog = document.querySelector('.seasons-dialog');
+      seasonsDialog.innerHTML = '';
+
+      const seasons = serie.querySelectorAll('.seasons');
+      seasons.forEach(function(season) {
+        const seasonButton = season.querySelector('.season-button');
+        const chapterMenu = season.querySelector('.chapter-menu');
+        const chapterLinks = chapterMenu.querySelectorAll('a');
+
+        seasonButton.addEventListener('click', function() {
+          chapterMenu.classList.toggle('hidden');
+        });
+
+        const clonedSeason = season.cloneNode(true);
+        clonedSeason.classList.remove('hidden'); // Mostrar temporada al hacer clic en la imagen
+        seasonsDialog.appendChild(clonedSeason);
+      });
+    });
+  });
+
+ closeButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        dialogBox.classList.remove('open');
+  });
+});
+
+
+
+
+/*   ###########################################   */
+
+
+
+function openDialog(index) {
+  // ...
+
+  const chapters = document.querySelectorAll('.chapter-menu a');
+  chapters.forEach(function(chapter) {
+    chapter.classList.remove('selected-chapter');
+  });
+
+  // ...
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const series = document.querySelectorAll('.serie');
+  const dialogBox = document.getElementById('dialog-box');
+  const closeButton = document.querySelector('.close-button');
+
+  series.forEach(function(serie) {
+    serie.addEventListener('click', function() {
+      dialogBox.classList.add('open');
+
+      const serieInfo = serie.querySelector('.serie-info');
+      const serieTitle = serieInfo.querySelector('h2').textContent;
+      const seasonsDialog = document.querySelector('.seasons-dialog');
+      seasonsDialog.innerHTML = '';
+
+      const seasons = serie.querySelectorAll('.seasons');
+      seasons.forEach(function(season) {
+        const seasonButton = season.querySelector('.season-button');
+        const chapterMenu = season.querySelector('.chapter-menu');
+        const chapterLinks = chapterMenu.querySelectorAll('a');
+
+        seasonButton.addEventListener('click', function() {
+          chapterMenu.classList.toggle('hidden');
+        });
+
+        const clonedSeason = season.cloneNode(true);
+        clonedSeason.classList.remove('hidden'); // Mostrar temporada al hacer clic en la imagen
+        seasonsDialog.appendChild(clonedSeason);
+      });
+    });
+  });
+
+ closeButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        dialogBox.classList.remove('open');
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+/* PONER MAS PAGINAS  ######################################################   */
+
+
+const pageLinks = [
+  { number: 1, link: './1-53R135.html' },
+  { number: 2, link: './2-53R135.html' },
+  { number: 3, link: './3-53R135.html' },
+  { number: 4, link: './4-53R135.html' },
+  { number: 5, link: './5-53R135.html' },
+  { number: 6, link: './6-53R135.html' },
+  { number: 7, link: './7-53R135.html' },
+  { number: 8, link: './8-53R135.html' },
+  { number: 9, link: './9-53R135.html' },
+  { number: 10, link: './10-53R135.html' },
+  { number: 11, link: './11-53R135.html' },
+  { number: 12, link: './12-53R135.html' },
+  { number: 13, link: './13-53R135.html' },
+  { number: 14, link: './14-53R135.html' },
+  { number: 15, link: './15-53R135.html' },
+  { number: 16, link: './16-53R135.html' },
+  { number: 17, link: './17-53R135.html' },
+  { number: 18, link: './18-53R135.html' },
+  { number: 19, link: './19-53R135.html' },
+  { number: 20, link: './20-53R135.html' },
+  { number: 21, link: './21-53R135.html' },
+  { number: 22, link: './22-53R135.html' },
+  { number: 23, link: './23-53R135.html' },
+  { number: 24, link: './24-53R135.html' },
+  { number: 25, link: './25-53R135.html' },
+  { number: 26, link: './26-53R135.html' },
+  { number: 27, link: './27-53R135.html' },
+  // Agrega más objetos para cada página con sus enlaces
+];
+
+const pageNumbersContainer = document.querySelector('.page-numbers');
+const prevButton = document.querySelector('.prev-btn');
+const nextButton = document.querySelector('.next-btn');
+
+let currentPage = 7;           /* ####   CAMBIAR NUMERO DE PAGINA  ##### */
+
+function updatePageNumbers() {
+  pageNumbersContainer.innerHTML = '';
+
+  for (const pageLink of pageLinks) {
+    const pageNumber = document.createElement('a');
+    pageNumber.textContent = pageLink.number;
+    pageNumber.href = pageLink.link;
+    pageNumber.classList.add('page-number');
+    
+    if (pageLink.number === currentPage) {
+      pageNumber.classList.add('active');
+    }
+
+    pageNumber.addEventListener('click', () => {
+      currentPage = pageLink.number;
+      updatePageNumbers();
+    });
+
+    pageNumbersContainer.appendChild(pageNumber);
+  }
+}
+
+prevButton.addEventListener('click', () => {
+  if (currentPage > 7) {
+    currentPage--;
+    updatePageNumbers();
+  }
+});
+
+nextButton.addEventListener('click', () => {
+  if (currentPage < pageLinks.length) {
+    currentPage++;
+    updatePageNumbers();
+  }
+});
+
+updatePageNumbers();
+
+
+
+
+
+
+</script>
+</div>
+</body>
+</html>
