@@ -71,10 +71,6 @@ color: #fff300ed;
       z-index: 9999;
     }
 
-    #video-player {
-    width: 800px;
-    height: 100%;
-}
 
 
 
@@ -155,31 +151,32 @@ color: #fff300ed;
     img {
       margin-bottom: 0.5rem;
       position: relative;
-      width: 250px;
+      width: 150px;
+      height: 225px;
       border-radius: 14px;
     }
 
     .movie-title  {
     Position: relative;
-    Width: 221px;
+    Width: 150px;
     top: -10px;
     Font-size: auto;
     Color: white;
     Margin: 0px 0px 30px 0px;
     background: black;
     Border-radius: 0px 0px 10px 10px;
+    text-align: -webkit-center;
 }
 
-    /* Responsive styling for the movie items */
-    .movie-item {
-      /* Add your styles for each movie item */
-      flex: 0 0 calc(20% - 0px); /* This sets the initial width to 50% minus the margin */
-    
-    }
+#video-player {
+    width: 800px;
+    height: 100%;
+}
+
 
 
      
-    @media only screen and (min-width: 600px) {
+    @media only screen and (max-width: 320px) {
      
     #container {
       position: relative;
@@ -192,20 +189,30 @@ color: #fff300ed;
     .generos .nav-links{
     overflow-x: scroll;
     overflow-y: hidden;
-    width: 80%;
+    width: 96%;
     display: flex;
     height: 55px;
     Margin-left:5px;
 }
     img {
-      margin-bottom: 0.5rem;
-      position: relative;
-      width: 220px;
-      border-radius: 14px;
-    }
+    margin-bottom: 0.5rem;
+    position: relative;
+    width: 150px;
+    height: 220px;
+    border-radius: 14px;
+}
+#movie-list {
+    position: absolute;
+    top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 auto;
+}
     .movie-title {
     Position: relative;
-    Width: 209px;
+    Width: 138px;
     top: -10px;
     Font-size: 16px;
     Color: white;
@@ -236,104 +243,48 @@ color: #fff300ed;
       padding: 3px 3px;
       cursor: pointer;
       color: Aqua;
-      font-size: 20px;
+      font-size: 10px;
       z-index: 9999;
     } 
-        #video-player {
-    width: 800px;
+#video-player {
+    width: 280px;
     height: 100%;
 }
-
-    }
-
-    @media only screen and (max-width: 600px) {
-     
-         #movie-list {
-          
-      display: flex;
-      Margin-Top:2em;
-    }
-          img {
-        width: 150px;
-        Margin:0px;
-        Paddin ; 0Px;
-      }
-     
-     
-     
-      /* Add styles for smaller screens */
-      img {
-        width: 130px;
-        Margin:0px;
-        Paddin ; 0Px;
-      }
-
-      .movie-item {
-        flex-basis: calc(50% - 10px); /* Adjust the width for smaller screens */
-      }
-      
-      .movie-title{
-  Position:relative;
-  Width:130px;
-  Font-size:13px; 
-  Color:white;
-  Top:-1em;
-  Padding:0px 0px; 
-  background:rgba(00,00,00,0.89);
-  Border-radius:0px 0px 10px 10px;
-  
-}
-    #video-player {
-      width: 300px;
-      height: 180px;
-    }
-        #close-button {
-      position: fixed;
-      top: -15px;
-      Right: 1px;
-      padding: 1px 1px;
-      cursor: pointer;
-      color: red;
-      font-size: 15px;
-      z-index: 9999;
-    }
-    
-    .generos .nav-links{
-    overflow-x: scroll;
-    overflow-y: hidden;
-    width: 98%;
-    display: flex;
-    height: 40px;
+.page-link {
+    border-style: solid;
+    border-width: 0.5px;
+    margin: 0px 10px 27px 0px;
+    Border-radius: 4px;
+    color: #fff300ed;
+    padding: 4px;
+    background: #8a797900;
 }
 #search-bar {
     position: absolute;
-    Top:40px;
-    Right: 0.5em;
-    Z-index:99;
     display: flex;
     justify-content: flex-end;
-    Width:90%;
+    top: 2.1em;
+    Right: 1em;
+    Width: 50px;
 }
-    #search-input {
-    padding: 5px 5px;
+#search-input {
+    padding: 5px;
     margin-right: 5px;
     border-radius: 5px;
     border: solid;
     color: #b7ee00;
     font-size: 14px;
-    Width:100%;
-    margin-left: 12px;
+    Width: 180px;
 }
-#search-button{
-    padding: 0px 5px;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    font-size: 14px;
-    color: black;
-    cursor: pointer;
-}
+
     }
+
+
+
+
+
+
+
 
 
 
@@ -357,6 +308,7 @@ color: #fff300ed;
 
 #menu-button img {
   width: 25px; /* Ajusta el tamaño de la imagen */
+    top: -10px;
     height: auto;
     border-radius: 4px;
     background: bottom;
@@ -443,11 +395,6 @@ text-align: center;
 
 
 
-
-.lazy-load {
-  opacity: 0; /* Establece la opacidad inicial en 0 para que las imágenes sean invisibles */
-  transition: opacity 3s ease-in-out; /* Agrega una transición suave de opacidad */
-}
 
 </style>
 
@@ -541,262 +488,14 @@ text-align: center;
 
 
 <!-- para poner mas peliculas #############################
-<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img data-src=""><div class="movie-title"></div></a>
+<a class="movie-item" href="#" onclick="playMovie(''); return false;"><img src=""><div class="movie-title"></div></a>
 
  ############################ -->
 
 
 
 
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/ah%20belinda%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/4/w1280/iNdJShQTWNufnlIl1fRDHTGfKdL.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Oh Belinda</div>
-                </a>
 
-                <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/01_20230408_20230408_1938/01.mp4'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BODY4OWM5M2UtM2Y1Yi00YjAyLTlhMDktMDkzZjFmMjI5MmI5XkEyXkFqcGdeQXVyMTA1NjQyNjkw._V1_FMjpg_UX1000_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">One piece film: Red</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/operation%20fortune%20ruse%20de%20guerre%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/37zlKKOEJ2CqCYTF8rmCSPYo3Dv.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Operación Fortune: El gran engaño</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/oppenheimer%202023.mkv'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BMDBmYTZjNjUtN2M1MS00MTQ2LTk2ODgtNzc2M2QyZGE5NTVjXkEyXkFqcGdeQXVyNzAwMjU2MTY@._V1_FMjpg_UX1000_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Oppenheimer</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/to%20end%20all%20war%20oppenheimer%20and%20the%20atomic%20bomb%202023.mkv'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BOTI1ZjI3MDctMzFmOC00NTZkLWI3ZjUtODMzNmI4MzM1NmRkXkEyXkFqcGdeQXVyNjQzMDEyOTI@._V1_FMjpg_UX1000_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Oppenheimer: El dilema de la bomba atómica</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/cocaine%20bear%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/xNaMZMtGUPPmjYU5h5iqVxvcSe.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Oso intoxicado</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/prom%20pact%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/748fvxCzIKHKZI2c98DdWPAeNkR.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Pacto de graduación</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/paint%202023.mkv'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BMWFmOTU2ZjctN2VhMS00Yzg4LWIyOGEtMTgwZTdjYTMyZjNkXkEyXkFqcGdeQXVyMzQwMTY2Nzk@._V1_FMjpg_UX1000_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Paint</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/pamela%20a%20love%20story%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/aOj8mNRXz3ss9pwCYgpva1JqmZx.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Pamela: Una historia de amor</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/01_20230801_20230801_2301/01.mp4'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/6/w1280/yGz88hNPcHUJkUx7MPm0Ue6GZt7.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Paradise</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/dog%20gone%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/eYWdLZCS9W1Xli9bynzFSddLx02.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Perro perdido</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/peter%20pan%20and%20wendy%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/4/w1280/eelbIlq9Iv4Hg9WPSHwuqNij1eo.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Peter Pan y Wendy</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/polite%20society%202023.mkv'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BM2RjMjU0NDMtMmM2MS00MTRmLWI1YmMtZWQwZjUxNzZhMWEyXkEyXkFqcGdeQXVyMTQzNTA5MzYz._V1_FMjpg_UX1000_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Polite society: Sociedad educada</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/evil%20dead%20rise%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/4/w1280/ioMtng0qHbwNjR1fuxYZsRf1kjm.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Posesión infernal: El despertar</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/01_20230422_20230422_1858/01.mp4'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/4/w1280/qj1NrdMSm2xinqchBDD23U83vj8.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Power Rangers: Ayer hoy y siempre</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/praise%20this%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/4/w1280/twdgFrp9Sd8rb3TdbWFQXAvslrH.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Praise this</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/01_20230801_20230801_2036/01.mp4'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/7/w1280/wqwDKolEd9lhrPGWwqTCpwJc2aT.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Proyecto extracción</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/chang%20can%20dunk%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/ijgY6uYwNqkVIgG9T6TTkdgt2Wi.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Puedes hacerlo Chang</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/quasi%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/4/w1280/g6uFA7r4VqqQeW4u9YtktheRXUt.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Quasi</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/577fhtht555444/Dear%20Zoe.mp4'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BMDIyOTIwNmMtMjhlOS00NzMxLTkyYWItZjgyN2NkODJjN2ViXkEyXkFqcGdeQXVyMTYzMjIxMjI@._V1_FMjpg_UX1000_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Querida Zoe  FHD</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/dear%20david%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/2/w1280/A9JD050ibp3hNC1kmbcq07jEZv2.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Querido David</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/que%20viva%20mexico%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/ieyUpr5ES9QEz1cn4clCnBf9XJl.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Que viva México</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/quiero%20tu%20vida%202023.mkv'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BYmI5Zjk3OGQtMGY0Ny00YTgzLWJkZTQtYTZmNjBmMzY4YTg1XkEyXkFqcGdeQXVyMTYwOTA5MDU0._V1_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Quiero tu vida</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/01_20230609_20230609_2125/01.mp4'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/5/w1280/3P9QvWVN02Etn4kYGC702WVoXEb.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Rápidos y furiosos 10</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/reality%202023.mkv'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BZDc4NGNlN2MtZTVlZC00YzhkLWI4ODgtOTk0YjJkYTNlMGEyXkEyXkFqcGdeQXVyMzQyMDgzOTU@._V1_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Reality</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/karada%20sagashi%202022.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2022/10/w1280/pRNSIJyGM7cR8xAHee0obKXpzIl.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Re/Member: Buscando un cuerpo</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/renfield%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/4/w1280/uGw4zPyiBAx9B1j9pKYWSvFiLug.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Renfield: Asistente de vampiro</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/01_20230801_20230801_2328/01.mp4'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/6/w1280/lcCcX1ejZTOc2wZK66ou9zWQCu0.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Resident Evil: Isla de la muerte</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/ricos%20de%20amor%202%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/6/w1280/xdAVVJT8TtC3S1VVHzh5eIX0CzQ.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Ricos de amor 2</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/river%20wild%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/8/w1280/bAKCbByXeZ9UyFKIR04ry4fCQX3.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Río salvaje</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/the-ritual-killer-2023/The%20Ritual%20Killer%20%282023%29.mp4'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/1VtHaELqLMovl8EueBWHDtihhzF.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Ritual asesino  SUB</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/royalteen%20princess%20margrethe%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/5/w1280/oWmcC2RENbkdS3BuPor530KzKDc.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Royalteen: La princesa Margrethe</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/noise%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/2EyqCN2r7gObxSpdfb9eU1yEQ8W.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Ruido mental</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/blood%20and%20gold%202023.mkv'); return false;">
-                    <img data-src="https://es.web.img2.acsta.net/pictures/23/04/12/10/04/5221253.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Sangre y oro</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/sayen%202022.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/aCy61aU7BMG7SfhkaAaasS0KzUO.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Sayen</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/scream%20vi%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/3/w1280/4nOYmPqBgbVEYJun5EB9Vk9tqSA.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Scream 6</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/merve%20kult%202023.mkv'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BMzEzOTVhYWUtMmVhZC00MTYwLWIzZjQtZjA0NTk0Njk0NjRhXkEyXkFqcGdeQXVyMTIyMjI4OTkx._V1_QL75_UY281_CR6,0,190,281_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Sé tú misma</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/sharper%202023.mkv'); return false;">
-                    <img data-src="https://mx.web.img2.acsta.net/pictures/23/01/12/20/37/5714526.png" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Sharper: Un plan perfecto</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/shazam%20fury%20of%20the%20gods%202023.mkv'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BNzJlM2NmZTItOGQyYS00MmE2LTkwZGUtNDFkNmJmZjRjZjcxXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_FMjpg_UX1000_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Shazam: La furia de los dioses</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/shooting%20stars%202023.mkv'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BZmRiMWZmMjQtZWM3YS00NWM0LWFmNTgtOWNkNDY5NzNmOWI3XkEyXkFqcGdeQXVyMTUxNDM3MTgy._V1_FMjpg_UX1000_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Shooting stars: La historia de LeBron</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/seven%20kings%20must%20die%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/4/w1280/eCEu3EkKNhYaIHHAAd0qVzLp5zB.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Siete reyes deben morir</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/immerstill%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/yBmkMKvDUcnyEGxsZkPnsQAS9UT.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Sin rastro</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/maybe%20i%20do%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/cfODWkrxyC8kRrTOMyCCVIknJg8.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Si quiero... o no: Quizás para siempre</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/sisu%202022.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/t9VXZkgcxpIwfPUKAWOOONs0vHv.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Sisu</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/snag%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/4/w300/8SWfoi5GuE8WCaLVnjEAVsyCa5z.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Snag</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/sf-22-v-11080-hdcamx-264-dual/SF22V11080HDCAMx264Dual.mp4'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/7/w1280/zKs57cx0vjIYSWUZq0oOMrqWSlN.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Sonido de libertad  CINE</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/sound-of-freedom-2023-x-264-1080p-es-lat./Sound%20of%20Freedom%20%282023%29%20x264%201080p%20es-lat%20-.mp4'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/7/w1280/zKs57cx0vjIYSWUZq0oOMrqWSlN.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Sonido de libertad  Opción 2</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('https://archive.org/download/sos-mamis-2-mosquita-muerta/SOS%20Mamis%202%20Mosquita%20Muerta.mp4'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/8/w1280/jWJs1aigS0uJ12FkGHhJjBsWFzX.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">S.O.S. mamis 2: Mosquita muerta</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/soy%20inocente%202023.mkv'); return false;">
-                    <img data-src="https://www.lavanguardia.com/peliculas-series/images/movie/poster/2023/1/w1280/e3vS1xECN2bcYYu4EfXJXFVkxtu.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Soy inocente</div>
-                </a>
-
-                <a class="movie-item" href="#" onclick="playMovie('http://vod.tuxchannel.mx/peliculas/720/spider%20man%20across%20the%20spider%20verse%202023.mkv'); return false;">
-                    <img data-src="https://m.media-amazon.com/images/M/MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" class="lazy-load" group-title="2023">
-                    <div class="movie-title">Spider-Man: A través del spider-verso</div>
-                </a>
 
 
 
@@ -824,23 +523,6 @@ text-align: center;
 
 
 
-// Inicializar el Intersection Observer
-const observador = new IntersectionObserver((entradas, observador) => {
-  entradas.forEach(entrada => {
-if (entrada.isIntersecting) {
-  const img = entrada.target;
-  img.src = img.dataset.src;
-  img.style.opacity = 10; // Cambia la opacidad para que la imagen aparezca suavemente
-  observador.unobserve(img);
-    }
-  });
-});
-
-// Encontrar todas las imágenes con la clase "lazy-load" y aplicar el observador
-const imagenesLazy = document.querySelectorAll('.lazy-load');
-imagenesLazy.forEach(imagen => {
-  observador.observe(imagen);
-});
 
 
 
