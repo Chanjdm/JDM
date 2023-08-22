@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Series Buenas</title>
+  <meta charset="UTF-8"/>
+  <meta content="article" property="og:type"/>
+  <!-- Responsive viewport -->
+  <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport"/>
+  <link rel="stylesheet" href="https://chanjdm.github.io/JDM/JDM/styleSER.css">
+  <link rel="stylesheet" href="https://chanjdm.github.io/JDM/JDM/scriptSER.js">
+
+
+
+
+<style>
+
+
+
+.container {
+    margin: 11px 2px 3px 2px;
+    gap: 20px;
+}
+
+.serie {
+  position: relative;
+}
+
+.serie-image {
+border-radius: 5px;
+  width: 100%;
+  height: auto;
+}
+
+.serie-info {
+border-radius: 10px;
+box-shadow: 0 0 32px #ff0000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.serie:hover .serie-info {
+  opacity: 1;
+}
+
+h2 {
+    background: #00000005;
+    height: auto;
+    PADDING: 20PX 20PX;
+    width: 100%;
+    color: aqua;
+}
+p {
+    overflow-y: auto;
+    height: auto;
+    margin-top: -1.3em;
+    padding: 40px 7px;
+    background: #00000000;
+}
+
+.dialog-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+
+.dialog-box.open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+
+.dialog-content  {
+    overflow-y: auto;
+    height: 450px;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    TOP: -24PX;
+}
+
+.close-button  {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 28px;
+    left: 43%;
+    right: 43%;
+    border-radius: 5px;
+    padding: 2px 63px;
+    Z-INDEX: 10;
+BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
+}
+.close-button:hover{
+ 
+    background:RED;
+    color:white;
+
+  }
+
+.hidden {
+  display: none;
+}
+.dialog-content H2 {
+    TOP: 1.7EM;
+    position: fixed;
+    width: 57%;
+    z-index: 5;
+}
+.seasons-dialog{
+    WIDTH: 46EM;
+    POSITION: relative;
+    LEFT: 0PX;
+    TOP: 11EM;
+    transition: all 0.9s;
+}
+.seasons h3 {
+    OVERFLOW-Y: SCROLL;
+    HEIGHT: 28%;
+    WIDTH: 58%;
+    Z-INDEX: 2;
+    POSITION: fixed;
+    color: aliceblue;
+    padding: 71PX 1PX 10PX 0PX;
+    TOP: 2.2EM;
+}
+.season-button {
+    position: relative;
+    left: 0px;
+    border: 3px solid #90ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: RED;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+.season-button:hover{
+	BOX-shadow: 20 1px 21px 0PX rgba(0,0,0,0.5);
+	background:#def5f3;
+}
+
+
+
+
+ /* Muestra los capítulos en línea vertical */
+.chapter-menu {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+.chapter-menu a:hover{
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	background:#009dfd;
+        color:black;
+}
+
+/* Ajusta el espacio entre los capítulos */
+.chapter-menu a {
+    color: #e9a603;
+    margin-bottom: 5px;
+    box-shadow: 0px 1px 8px 0px rgb(248, 70, 0);
+}
+
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: 2.EM;
+    LEFT: 0%;
+}
+@media (max-width: 740px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+.seasons-dialog {
+    OVERFLOW: scroll;
+    HEIGHT: 25EM;
+    PADDING-TOP: 1EM;
+    WIDTH: 25EM;
+}
+.close-button {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 43px;
+    left: 38%;
+    right: 38%;
+    border-radius: 5px;
+    padding: 2px 63px;
+    Z-INDEX: 10;
+}
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: -15EM;
+    TOP: 50%;
+    LEFT: 18%;
+}
+}
+
+
+@media (max-width: 480px) {
+.close-button  {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 8px;
+    left: 28%;
+    right: 28%;
+    border-radius: 5px;
+    padding: 2px 25px;
+    Z-INDEX: 10;
+}
+
+.pagina {
+    position: relative;
+    margin: 0px 7px 20px;
+    overflow-x: scroll;
+    width: 26em;
+    height: 4em;
+    margin-left: -8em;
+    padding: 0px;
+}
+
+.dialog-content {
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    height: 22em;
+    top: 7em;
+    border-radius: 5px;
+}
+
+
+.season-button {
+    position: relative;
+    left: -0.2em;
+    border: 3px solid #90ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+/*
+.dialog-content H2 {
+    TOP: 0.8EM;
+    LEFT: 3EM;
+    position: fixed;
+    width: 57%;
+    z-index: 5;
+}
+*/
+.dialog-content H2  {
+    display: flex;
+    TOP: 30px;
+    font-size: 15px;
+    width: 57%;
+    z-index: 5;
+    color: rgb(255 255 255);
+    justify-content: center;
+    right: 20%;
+    left: 20%;
+    box-shadow: 0px 0px 9px 2px rgb(255 0 0);
+}
+
+.seasons h3 {
+    OVERFLOW-Y: SCROLL;
+    HEIGHT: 38%;
+    WIDTH: 91%;
+    font-size: 85%;
+    Z-INDEX: 2;
+    POSITION: fixed;
+    color: aliceblue;
+    padding: 94PX 10PX 10PX 10PX;
+    TOP: -0.8EM;
+    margin-left: -15px;
+}
+.seasons-dialog {
+    position: initial;
+    height: 18.2em;
+    width: 17.5em;
+    border: 3px solid #62ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination {
+    position: relative;
+    margin: 6px 7px 0px;
+    overflow-x: scroll;
+    width: 26em;
+    height: 4em;
+    margin-left: 33%;
+    padding: 10px;
+}
+
+
+.prev-btn, .next-btn {
+ display:NONE;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.page-numbers {
+  display: flex;
+}
+
+.page-number {
+    background-color: #000000;
+    color: #70ff00;
+    border: solid;
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.page-number.active {
+    background-color: #ff0000;
+    color: black;
+    box-shadow: 0px 0px 16px 4px rgb(255 0 0);
+}
+
+
+::-webkit-scrollbar {display: none;}
+</style>
+</head>
+<body>
+
+  <div id="formulario">
+        <label for="clave"> Ingresa clave: </label>
+        <input type="password" id="clave">
+        <button onclick="verificarCodigo()">Enviar</button>
+    </div>
+
+
+    <div id="contenido">
+        <!-- Aquí coloca todo el contenido que deseas mostrar una vez que el código sea correcto 
+        <h1>Bienvenido al contenido protegido</h1>
+        <p>Este es el contenido que solo se mostrará si ingresas el código de acceso correcto.</p>  -->
+
+
+
+
+
+<button id="close-player" style="display: none;">Cerrar</button>
+
+ 
+
+  <div class="container">
+
+
+
+<!--   #####################    PARA PONER MAS SERIES ##########################
+
+<div class="serie" id="serie1"><div class="serie">
+<img src=" ### IMAGEN #### 
+" alt="Serie 1" class="serie-image">
+<div class="serie-info"><h2> ### TITULO ### 
+</h2><p> 
+</p> </div> <div class="seasons hidden"><h3> #### TITULO ####   <BR> 
+</h3><button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+
+<a href="" target="_blank">Cap. 01</a>
+
+</div>
+
+<button class="season-button">Temporada 2</button><div class="chapter-menu show">
+<a href="" target="_blank">Cap. 01</a>
+
+        </div></div> </div></div>
+
+#####################################################################  -->
+
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//nexuOn0gRy53AgbsQbrbL2g4PEt.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Proyecto Blue Book</h2><p></p> </div><div class="seasons hidden">
+            <h2>Proyecto Blue Book</h2><h3>J. Allen Hynek es un brillante profesor de universidad que es reclutado por las Fuerzas Especiales Aéreas de los Estados Unidos para investigar una serie de casos que no se resolvieron en su momento. Hynek tiene que hacer frente a la difícil tarea de recabar información para tratar de arrojar algo de luz a una de las eras más misteriosas de la historia del país norteamericano.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/yjIlpawMbsU" target="_blank">TRAILER</a> <!-- Agrega el enlace del tráiler si está disponible -->
+             <a href="http://series.tuxchannel.mx/series/project_blue_book/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_01_e_09.mkv" target="_blank">Capítulo 9</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_01_e_10.mkv" target="_blank">Capítulo 10</a>
+
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_02_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_02_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_02_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_02_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_02_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_02_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_02_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_02_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_02_e_09.mkv" target="_blank">Capítulo 9</a>
+<a href="http://series.tuxchannel.mx/series/project_blue_book/s_02_e_10.mkv" target="_blank">Capítulo 10</a>
+
+            </div></div></div></div>
+            
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//nLQkRwxwKJqbnJZG3vh0UcyYVxj.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Puerta 7</h2><p></p> </div><div class="seasons hidden">
+            <h2>Puerta 7</h2><h3>Una mujer con una férrea determinación trabaja para librar al fútbol de la violencia y la corrupción que rodean a las barras bravas argentinas.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/IiWIrZVnukg" target="_blank">TRAILER</a> <!-- Agrega el enlace del tráiler si está disponible -->
+             <a href="http://series.tuxchannel.mx/series/puerta_7/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/puerta_7/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/puerta_7/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/puerta_7/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/puerta_7/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/puerta_7/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/puerta_7/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/puerta_7/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//92bJ5Ja4oEoun9zFvAOMVtaNfrA.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>¿Qué pasaría si...?</h2><p></p> </div><div class="seasons hidden">
+            <h2>¿Qué pasaría si...?</h2><h3>Inspirándose en los cómics del mismo nombre, cada episodio explora un momento crucial del Universo Cinematográfico Marvel.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/9Cmxhn46H0s" target="_blank">TRAILER</a> <!-- Agrega el enlace del tráiler si está disponible -->
+             <a href="https://archive.org/download/04_20211114_20211114_2003/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/04_20211114_20211114_2003/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/04_20211114_20211114_2003/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/04_20211114_20211114_2003/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/04_20211114_20211114_2003/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/09_20211114_20211114/06.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/09_20211114_20211114/07.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/09_20211114_20211114/08.mp4" target="_blank">Capítulo 8</a>
+<a href="https://archive.org/download/09_20211114_20211114/09.mp4" target="_blank">Capítulo 9</a>
+
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//dXIXXFQmnozQl2ZJ7rM4oMI2zjy.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>¿Quién mató a Sara?</h2><p></p> </div><div class="seasons hidden">
+            <h2>¿Quién mató a Sara?</h2><h3>Tras 18 años de encarcelamiento injusto, Alex Guzmán es liberado con el plan perfecto para descubrir quién mató a su hermana Sara y por qué la familia Lazcano lo culpó del crimen. Lo que no sabe, es que la búsqueda de pruebas lo llevará por un desvío mucho más peligroso de lo que imaginaba. Cuando finalmente se enfrente al verdadero culpable, Alex deseará no haber buscado su venganza.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/tyU4zz_ds-s" target="_blank">TRAILER</a> <!-- Agrega el enlace del tráiler si está disponible -->
+             <a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_01_e_09.mkv" target="_blank">Capítulo 9</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_01_e_10.mkv" target="_blank">Capítulo 10</a>
+
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_02_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_02_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_02_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_02_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_02_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_02_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_02_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/quien_mato_a_sara/s_02_e_08.mkv" target="_blank">Capítulo 8</a>
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//xUtOM1QO4r8w8yeE00QvBdq58N5.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Ragnarok</h2><p></p> </div><div class="seasons hidden">
+            <h2>Ragnarok</h2><h3>Un pequeño pueblo de Noruega atraviesa inviernos cálidos con tormentas devastadoras. La batalla del fin del mundo parece inevitable, a menos que alguien actúe a tiempo.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/7H9AaiBLHCo" target="_blank">TRAILER</a> <!-- Agrega el enlace del tráiler si está disponible -->
+            <a href="http://series.tuxchannel.mx/series/ragnarok/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/ragnarok/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/ragnarok/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/ragnarok/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/ragnarok/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/ragnarok/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//uf0JXBxRRzp3r3jReOKrz9llYv8.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Fast & Furious: Espías a todo gas</h2><p></p> </div><div class="seasons hidden">
+            <h2>Fast & Furious: Espías a todo gas</h2><h3>Un grupo de adolescentes se infiltra en una liga de automovilismo de élite controlada por una malvada organización que persigue dominar el mundo. Esta serie de animación infantil está ambientada en el universo de las exitosas películas de la saga Rápidos y furiosos.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/ZoabGr0bHe4" target="_blank">TRAILER</a> <!-- Agrega el enlace del tráiler si está disponible -->
+            <a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+ 
+
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div><button class="season-button">Temporada 3 SAHARA</button>
+            <div class="chapter-menu show">
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_03_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_03_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_03_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_03_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_03_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_03_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_03_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_03_e_08.mkv" target="_blank">Capítulo 8</a>
+
+            </div><button class="season-button">Temporada 4 MEXICO</button>
+            <div class="chapter-menu show">
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_04_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_04_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_04_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_04_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_04_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_04_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_04_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/fast_and_furious_spy_racers/s_04_e_08.mkv" target="_blank">Capítulo 8</a>
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//mDakjPhBYXIKSgeDiWl7hBzvsrD.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Ratched</h2><p></p> </div><div class="seasons hidden">
+            <h2>Ratched</h2><h3>En 1947, Mildred llega a Carolina del Norte en busca de empleo en un hospital psiquiátrico donde nuevos e inquietantes experimentos han iniciado con la mente humana. En una misión clandestina, Mildred se presenta como la imagen perfecta de lo que una enfermera dedicada debería de ser.Mientras la vida da muchas vueltas, ella comienza a infiltrarse en el sistema de cuidado de la salud mental, el estilizado exterior de Mildred esconde una creciente oscuridad que se ha mantenido escondida por mucho tiempo, revelando que los verdaderos monstruos se hacen, no nacen.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/w8McLfsTqhM" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/ratched/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/ratched/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/ratched/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/ratched/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/ratched/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/ratched/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/ratched/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/ratched/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+<a href="https://archive.org/download/r-1_20220219/r%20%281%29.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/r-1_20220219/r%20%282%29.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/r-1_20220219/r%20%283%29.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/r-1_20220219/r%20%284%29.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/r-1_20220219/r%20%285%29.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/r-1_20220219/r%20%286%29.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/r-1_20220219/r%20%287%29.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/r-1_20220219/r%20%288%29.mp4" target="_blank">Capítulo 8</a>
+
+            </div></div></div></div>
+            <div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//kQHXg2BOiODkF4yVI75NcodMmAJ.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Rebelde</h2><p></p> </div><div class="seasons hidden">
+            <h2>Rebelde</h2><h3>El "Elite Way School" es un exclusivo colegio privado de prestigio internacional donde adolescentes de clase alta estudian. El colegio cuenta con un programa de becas para jóvenes de bajos recursos con excelente nivel académico o deportivo; sin embargo, pocos de ellos logran graduarse, ya que son perseguidos por una sociedad secreta llamada “La Logia” cuyo propósito es conservar la “pureza” de la clase privilegiada. Entre el grupo de chicos que llega al club de veraneo que precede al año escolar, se encuentran Mía, Miguel, Diego y Roberta, que a pesar de sus grandes diferencias, descubren algo que los unirá por encima de los prejuicios, su profesión. Remake de la telenovela Rebelde Way producida en Argentina.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/REHRc5VylcY" target="_blank">TRAILER</a>
+            <a href="https://archive.org/download/08_20220106_20220106_1758/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/08_20220106_20220106_1758/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/08_20220106_20220106_1758/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/08_20220106_20220106_1758/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/08_20220106_20220106_1758/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/08_20220106_20220106_1758/06.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/08_20220106_20220106_1758/07.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/08_20220106_20220106_1758/08.mp4" target="_blank">Capítulo 8</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//t6hqwD5oQRGgNrZKN71BQYxteC1.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Reservation Dogs</h2><p></p> </div><div class="seasons hidden">
+            <h2>Reservation Dogs</h2><h3>Esta comedia sigue las hazañas de cuatro adolescentes indígenas en la zona rural de Oklahoma que roban, roban y ahorran para llegar a la exótica, misteriosa y lejana tierra de California.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            
+            <a href="https://archive.org/download/08_20211130_20211130/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/08_20211130_20211130/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/08_20211130_20211130/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/08_20211130_20211130/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/08_20211130_20211130/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/08_20211130_20211130/06.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/08_20211130_20211130/07.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/08_20211130_20211130/08.mp4" target="_blank">Capítulo 8</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//kCSvQN5qUHFQM1Ted8wwcKMuW1S.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Resident Evil: Oscuridad infinita</h2><p></p> </div><div class="seasons hidden">
+            <h2>Resident Evil: Oscuridad infinita</h2><h3>Años después de los escalofriantes eventos en Raccoon City, Claire y Leon se ven envueltos en una siniestra conspiración cuando un ataque viral arrasa la Casa Blanca.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/vTsOGDtwJbQ" target="_blank">TRAILER</a>
+            <a href="https://archive.org/download/08_20220715_202207/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/08_20220715_202207/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/08_20220715_202207/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/08_20220715_202207/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/08_20220715_202207/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/08_20220715_202207/06.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/08_20220715_202207/07.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/08_20220715_202207/08.mp4" target="_blank">Capítulo 8</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//kCSvQN5qUHFQM1Ted8wwcKMuW1S.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Resident Evil: Oscuridad infinita</h2><p></p> </div><div class="seasons hidden">
+            <h2>Resident Evil: Oscuridad infinita</h2><h3>Años después de los escalofriantes eventos en Raccoon City, Claire y Leon se ven envueltos en una siniestra conspiración cuando un ataque viral arrasa la Casa Blanca.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/vTsOGDtwJbQ" target="_blank">TRAILER</a>
+            <a href="https://archive.org/download/04_20210708_202107/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/04_20210708_202107/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/04_20210708_202107/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/04_20210708_202107/04.mp4" target="_blank">Capítulo 4</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//eLmQL6gWgWnhgdv0CxHaVQcnYOX.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Rétame</h2><p></p> </div><div class="seasons hidden">
+            <h2>Rétame</h2><h3>Sumérgete en el mundo feroz de las porristas competitivas de la escuela secundaria, siguiendo la tensa relación entre dos mejores amigos después de que llega un nuevo entrenador para llevar a su equipo a la fama.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/qFvyJ7q4-jQ" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/dare_me/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/dare_me/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/dare_me/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/dare_me/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/dare_me/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/dare_me/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/dare_me/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/dare_me/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/dare_me/s_01_e_09.mkv" target="_blank">Capítulo 9</a>
+<a href="http://series.tuxchannel.mx/series/dare_me/s_01_e_10.mkv" target="_blank">Capítulo 10</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//x4IjWxX5jPGD1TcwZFsf8XP1RKT.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Sangre, sexo y realeza</h2><p></p> </div><div class="seasons hidden">
+            <h2>Sangre, sexo y realeza</h2><h3>Esta sensual serie ofrece una visión moderna de los dramas de la realeza británica mostrando las vidas de los monarcas más mortíferos, sexis e icónicos de la historia.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/N8co2uPx-FE" target="_blank">TRAILER</a>
+            <a href="https://archive.org/download/03_20221126/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/03_20221126/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/03_20221126/03.mp4" target="_blank">Capítulo 3</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//qIF53PuAJB0SE37IuPe77xCBuse.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Santo</h2><p></p> </div><div class="seasons hidden">
+            <h2>Santo</h2><h3>Santo es un narcotraficante cuyo rostro jamás se ha desvelado. Dos policías que van tras él, Cardona y Millán, radicalmente opuestos, tendrán que aprender a colaborar para resolver el caso y mantener sus vidas a salvo.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/sspsUdLrc-g" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/santo/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/santo/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/santo/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/santo/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/santo/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/santo/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//kBlqr507IV9bDKHLEFBtEtTfCw3.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Sean eternos: Campeones de América</h2><p></p> </div><div class="seasons hidden">
+            <h2>Sean eternos: Campeones de América</h2><h3>Una serie documental de 3 episodios que revela el recorrido de los jugadores de fútbol, en medio de críticas y presiones, hacia la victoria en la máxima cita continental.Una mirada inédita de la batalla argentina para romper una racha de 28 años sin títulos, a través de imágenes inéditas y entrevistas exclusivas con: Lionel Messi, Ángel Di María, Lisandro Martínez, Sergio Agüero, Rodrigo De Paul, Lionel Scaloni y otras grandes figuras de la Selección Argentina y del fútbol mundial como Neymar Jr, Ronaldinho y Xavi Hernández.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/zkmxFvWu8Bc" target="_blank">TRAILER</a>
+            <a href="https://archive.org/download/03_20221104_202211/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/03_20221104_202211/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/03_20221104_202211/03.mp4" target="_blank">Capítulo 3</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//7hkp2nLI84G6btRGwcYVHYZ9coT.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Sed de revancha</h2><p></p> </div><div class="seasons hidden">
+            <h2>Sed de revancha</h2><h3>En un acto secreto de ingeniosa venganza, cuatro alumnas de un colegio de élite forjan una alianza para exponer las injusticias cometidas en la prestigiosa institución.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/JJz5UeaFkjE" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/get_even/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/get_even/s_01_e_01.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/get_even/s_01_e_01.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/get_even/s_01_e_01.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/get_even/s_01_e_01.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/get_even/s_01_e_01.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/get_even/s_01_e_01.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/get_even/s_01_e_01.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/get_even/s_01_e_01.mkv" target="_blank">Capítulo 9</a>
+<a href="http://series.tuxchannel.mx/series/get_even/s_01_e_10.mkv" target="_blank">Capítulo 10</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//1kZdBrH1C07Zf2131QUpmju3kO6.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>See</h2><p></p> </div><div class="seasons hidden">
+            <h2>See</h2><h3>En un futuro lejano, la humanidad ha perdido el sentido de la vista. Jason Momoa, padre de gemelos que nacen con la mítica capacidad de ver, deberá proteger a su clan de una despiadada reina.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/QkiuwZn5yaw" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/see/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/see/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/see/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/see/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/see/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/see/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/see/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/see/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+<a href="http://series.tuxchannel.mx/series/see/s_02_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/see/s_02_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/see/s_02_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/see/s_02_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/see/s_02_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/see/s_02_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/see/s_02_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/see/s_02_e_08.mkv" target="_blank">Capítulo 8</a>
+
+            </div><button class="season-button">Temporada 3</button>
+            <div class="chapter-menu show">
+<a href="http://series.tuxchannel.mx/series/see/s_03_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/see/s_03_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/see/s_03_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/see/s_03_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/see/s_03_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/see/s_03_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/see/s_03_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/see/s_03_e_08.mkv" target="_blank">Capítulo 8</a>
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//iLVmgQXgIVXaBBvKn4prPuSDVxM.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Selena: La serie</h2><p></p> </div><div class="seasons hidden">
+            <h2>Selena: La serie</h2><h3>La cantante mexicoestadounidense Selena se hace adulta y cumple sus sueños. Para ello, su familia y ella tomarán decisiones para mantenerse unidas y vivir de su música.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/-0wz7n-h71M" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/selena_the_series/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_01_e_09.mkv" target="_blank">Capítulo 9</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_02_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_02_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_02_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_02_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_02_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_02_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_02_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_02_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/selena_the_series/s_02_e_09.mkv" target="_blank">Capítulo 9</a>
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//qNaP0kYGH6KYDQa9rRVEqNo6Hdq.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Sé lo que hicisteis el último verano</h2><p></p> </div><div class="seasons hidden">
+            <h2>Sé lo que hicisteis el último verano</h2><h3>En una ciudad hawaiana bañada por el sol con un pasado misterioso, un grupo de amigos se queda con un oscuro secreto después de un trágico accidente. Un año después, un miembro del grupo recibe un mensaje amenazante y los amigos ahora saben que alguien tiene la intención de hacerles pagar el verano pasado.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/P7PqRDJiWkU" target="_blank">TRAILER</a>
+            <a href="https://archive.org/download/08_20211125_20211125_1956/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/08_20211125_20211125_1956/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/08_20211125_20211125_1956/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/08_20211125_20211125_1956/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/08_20211125_20211125_1956/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/08_20211125_20211125_1956/06.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/08_20211125_20211125_1956/07.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/08_20211125_20211125_1956/08.mp4" target="_blank">Capítulo 8</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//1jIAXxjHo4FUYFCNZ8YNfgDfWzD.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Shaq</h2><p></p> </div><div class="seasons hidden">
+            <h2>Shaq</h2><h3>Con una serie de entrevistas reveladoras con Shaquille O'Neal, este documental de cuatro partes cuenta la historia de una leyenda del baloncesto como ninguna otra, cuya personalidad más grande que la vida trascendió el deporte y lo transformó en un ícono cultural.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/P7PqRDJiWkU" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/shaq/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/shaq/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/shaq/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/shaq/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//4ie82rXFa1rAJ9qTWoCvlljglLJ.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>She-Hulk: abogada Hulka</h2><p></p> </div><div class="seasons hidden">
+            <h2>She-Hulk: abogada Hulka</h2><h3>Jennifer Walters —una abogada especializada en derecho sobrehumano— tendrá que lidiar con los problemas típicos de una treintañera soltera que además resulta ser una Hulka verde de 2 metros.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/PF1XE7yEmgY" target="_blank">TRAILER</a>
+            <a href="https://archive.org/download/1_20220818_20220818_2308/1.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/02_20220825_202208/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/3_20220901_20220901_2328/3.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/01_20220908_20220908_1601/01.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/05_20220915_202209/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/06_20220923/06.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/07_20220929_202209/07.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/08_20221014_202210/08.mp4" target="_blank">Capítulo 8</a>
+<a href="https://archive.org/download/09_20221014/09.mp4" target="_blank">Capítulo 9</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//oMmqtafm6Rdlka1ejJeC9BDWzyO.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>El tirador</h2><p></p> </div><div class="seasons hidden">
+            <h2>El tirador</h2><h3>Un francotirador, ex-marine muy condecorado, vuelve a la acción para defender al presidente de su posible asesinato, sin saber que le han tendido una trampa.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/X2x6IR3FhbQ" target="_blank">TRAILER</a>
+            <a href="https://archive.org/download/st-3-2/st1%20%281%29.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/st-3-2/st1%20%282%29.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/st-3-2/st1%20%283%29.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/st-3-2/st1%20%284%29.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/st-3-2/st1%20%285%29.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/st-3-2/st1%20%286%29.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/st-3-2/st1%20%287%29.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/st-3-2/st1%20%288%29.mp4" target="_blank">Capítulo 8</a>
+<a href="https://archive.org/download/st-3-2/st1%20%289%29.mp4" target="_blank">Capítulo 9</a>
+<a href="https://archive.org/download/st-3-2/st1%20%2810%29.mp4" target="_blank">Capítulo 10</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+<a href="https://archive.org/download/st-3-2/st2%20%281%29.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/st-3-2/st2%20%282%29.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/st-3-2/st2%20%283%29.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/st-3-2/st2%20%284%29.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/st-3-2/st2%20%285%29.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/st-3-2/st2%20%286%29.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/st-3-2/st2%20%287%29.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/st-3-2/st2%20%288%29.mp4" target="_blank">Capítulo 8</a>
+
+            </div><button class="season-button">Temporada 3</button>
+            <div class="chapter-menu show">
+<a href="https://archive.org/download/st-3-2/st3%20%281%29.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/st-3-2/st3%20%282%29.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/st-3-2/st3%20%283%29.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/st-3-2/st3%20%284%29.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/st-3-2/st3%20%285%29.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/st-3-2/st3%20%286%29.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/st-3-2/st3%20%287%29.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/st-3-2/st3%20%288%29.mp4" target="_blank">Capítulo 8</a>
+<a href="https://archive.org/download/st-3-2/st3%20%289%29.mp4" target="_blank">Capítulo 9</a>
+<a href="https://archive.org/download/st-3-2/st3%20%2810%29.mp4" target="_blank">Capítulo 10</a>
+<a href="https://archive.org/download/st-3-2/st3%20%2811%29.mp4" target="_blank">Capítulo 11</a>
+<a href="https://archive.org/download/st-3-2/st3%20%2812%29.mp4" target="_blank">Capítulo 12</a>
+<a href="https://archive.org/download/st-3-2/st3%20%2813%29.mp4" target="_blank">Capítulo 13</a>
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//pY6ebATpiVBOeJ48uBPN3QFYm0b.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Siempre fui yo</h2><p></p> </div><div class="seasons hidden">
+            <h2>Siempre fui yo</h2><h3>Lupe tiene 22 años cuando su vida cambia de repente al enterarse de que su padre, un famoso cantautor colombiano, ha muerto. Al llegar a Colombia, Lupe conoce a Noah, un personaje misterioso que resulta ser el ayudante de su padre. En vez de volver a México, Lupe decide quedarse, ya que sospecha que la muerte del músico no ha sido accidental. Junto a Noah, se embarca en una aventura musical llena de peligro, misterio y amor en la región caribeña de Colombia.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/ikoq53SvZQQ" target="_blank">TRAILER</a>
+            <a href="https://archive.org/download/02_20220623_20220623_1904/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/02_20220623_20220623_1904/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/02_20220623_20220623_1904/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/02_20220623_20220623_1904/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/02_20220623_20220623_1904/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/06_20220623/06.mp4" target="_blank">Capítulo 6</a>
+<a href="https://archive.org/download/06_20220623/07.mp4" target="_blank">Capítulo 7</a>
+<a href="https://archive.org/download/06_20220623/08.mp4" target="_blank">Capítulo 8</a>
+<a href="https://archive.org/download/06_20220623/09.mp4" target="_blank">Capítulo 9</a>
+<a href="https://archive.org/download/06_20220623/10.mp4" target="_blank">Capítulo 10</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//GCbrZqvUmQZ8LR3D3j7FNEYN48.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Sigue respirando</h2><p></p> </div><div class="seasons hidden">
+            <h2>Sigue respirando</h2><h3>Cuando una avioneta se estrella en medio de la naturaleza canadiense, la única superviviente debe hacer frente a los elementos y a sus propios traumas para sobrevivir.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/pfhCEXLnQh8" target="_blank">TRAILER</a>
+            <a href="https://archive.org/download/03_20220803_20220803_1544/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/03_20220803_20220803_1544/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/03_20220803_20220803_1544/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/06_20220803/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/06_20220803/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/06_20220803/06.mp4" target="_blank">Capítulo 6</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//jYuhnOapapB1C0rYVh0Q6nYqw3r.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Sin novedad</h2><p></p> </div><div class="seasons hidden">
+            <h2>Sin novedad</h2><h3>Dos policías esperando la misión que los convierta en héroes. Dos delincuentes esperando el golpe de su vida. Dos inspectoras esperando pasar a la acción. ¡La comedia nocturna que todos estaban esperando!</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/pfhCEXLnQh8" target="_blank">TRAILER</a>
+            <a href="https://archive.org/download/01_20211221_20211221_1844/01.mp4" target="_blank">Capítulo 1</a>
+<a href="https://archive.org/download/01_20211221_20211221_1844/02.mp4" target="_blank">Capítulo 2</a>
+<a href="https://archive.org/download/01_20211221_20211221_1844/03.mp4" target="_blank">Capítulo 3</a>
+<a href="https://archive.org/download/01_20211221_20211221_1844/04.mp4" target="_blank">Capítulo 4</a>
+<a href="https://archive.org/download/01_20211221_20211221_1844/05.mp4" target="_blank">Capítulo 5</a>
+<a href="https://archive.org/download/01_20211221_20211221_1844/06.mp4" target="_blank">Capítulo 6</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//safjAD2bBNT1grB23rFff5ChwDv.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Sintonia</h2><p></p> </div><div class="seasons hidden">
+            <h2>Sintonia</h2><h3>Contada a través de la perspectiva de tres personajes diferentes, la serie explora la interconexión de la música, la religión y el narcotráfico en São Paulo.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/yMPaefXxlNE" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/sintonia/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/sintonia/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/sintonia/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/sintonia/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/sintonia/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/sintonia/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//k906XXqqFMT93v2WMkIOtUcEAlV.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Siren</h2><p></p> </div><div class="seasons hidden">
+            <h2>Siren</h2><h3>Esta serie nos lleva al corazón de Bristol Cove, una ciudad costera conocida por la leyenda que afirma que un día fue hogar de las sirenas. Cuando la llegada de una misteriosa joven prueba que el mito podría ser cierto, la batalla entre los hombres y el mar da un peligroso giro desde el momento en el que estas depredadoras criaturas vuelven para reclamar sus derechos. Todo comienza cuando Ben, un brillante biólogo marino, se encuentra con Ryn, una joven misteriosa recién llegada que esconde un oscuro secreto. Todo el mundo en la ciudad sospecha de ella, incluida Maddie, la bióloga que trabaja con Ben, Xander, un pescador de altura decidido a desvelar el misterio y Helen, una excéntrica vecina que sabe más de sirenas de lo que aparenta.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/yMPaefXxlNE" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/siren/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/siren/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/siren/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/siren/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/siren/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/siren/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/siren/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/siren/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/siren/s_01_e_09.mkv" target="_blank">Capítulo 9</a>
+<a href="http://series.tuxchannel.mx/series/siren/s_01_e_10.mkv" target="_blank">Capítulo 10</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//jyoPy0nW38nC1tEBhUKKrOzails.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Skylines</h2><p></p> </div><div class="seasons hidden">
+            <h2>Skylines</h2><h3>Con un acuerdo en la línea para Skyline, Khalifa lucha por dejar atrás su pasado. A medida que la vida de Sarah se descontrola, Jinn recibe una oferta que cambia su carrera.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/e5bE-8n0_5Q" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/skylines/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/skylines/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/skylines/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/skylines/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/skylines/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/skylines/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//uTFX9V2dct1nKjG6zhNiThPm8Tp.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Sky Rojo</h2><p></p> </div><div class="seasons hidden">
+            <h2>Sky Rojo</h2><h3>Tras un desgraciado giro del destino, tres mujeres atormentadas por el pasado huyen de un burdel y arriesgan la vida para escapar de un proxeneta y sus secuaces.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/AwBpPi1lRRQ" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/sky_rojo/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/sky_rojo/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/sky_rojo/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/sky_rojo/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/sky_rojo/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/sky_rojo/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/sky_rojo/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/sky_rojo/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+
+            </div></div></div></div>
+            
+
+<div class="serie" id="serie1"> <div class="serie">
+        <img src="https://image.tmdb.org/t/p/w200//AnV2DMsAwG3WGLD7LvtptBbSSrG.jpg" alt="Serie 1" class="serie-image">
+        <div class="serie-info">
+            <h2>Snowpiercer: Rompenieves</h2><p></p> </div><div class="seasons hidden">
+            <h2>Snowpiercer: Rompenieves</h2><h3>En un futuro en el que la Tierra ha quedado cubierta por hielos perpetuos, los pocos supervivientes humanos se han refugiado en un tren que recorre el planeta sin parar nunca. Ahí, los pasajeros se han repartido siguiendo un estricto sistema de clases en el que los más pudientes se encuentran en los vagones de la cabeza y los más pobres están en la cola y deben alimentar el motor del tren.</h3>
+            <button class="season-button">Temporada 1</button> <div class="chapter-menu show">
+            <a href="https://www.youtube.com/embed/mU3GKEQYDx8" target="_blank">TRAILER</a>
+            <a href="http://series.tuxchannel.mx/series/snowpiercer/s_01_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_01_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_01_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_01_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_01_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_01_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_01_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_01_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_01_e_09.mkv" target="_blank">Capítulo 9</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_01_e_10.mkv" target="_blank">Capítulo 10</a>
+ 
+            </div><button class="season-button">Temporada 2</button>
+            <div class="chapter-menu show">
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_02_e_01.mkv" target="_blank">Capítulo 1</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_02_e_02.mkv" target="_blank">Capítulo 2</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_02_e_03.mkv" target="_blank">Capítulo 3</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_02_e_04.mkv" target="_blank">Capítulo 4</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_02_e_05.mkv" target="_blank">Capítulo 5</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_02_e_06.mkv" target="_blank">Capítulo 6</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_02_e_07.mkv" target="_blank">Capítulo 7</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_02_e_08.mkv" target="_blank">Capítulo 8</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_02_e_09.mkv" target="_blank">Capítulo 9</a>
+<a href="http://series.tuxchannel.mx/series/snowpiercer/s_02_e_10.mkv" target="_blank">Capítulo 10</a>
+
+            </div></div></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Agrega más elementos "serie" según tus necesidades -->
+  </div>
+
+  <div id="dialog-box" class="dialog-box">
+    <div class="dialog-content">
+      <h2>Temporadas</h2>
+      <div class="seasons-dialog">
+        <!-- Aquí se mostrarán los botones de temporada y capítulos -->
+      </div>
+      <a href="#" class="close-button">Cerrar</a>
+    </div>
+  </div>
+
+
+
+<!--
+
+<div class="navigation-buttons">
+ <!--   <a href="go:SERIESTUX" id="start-button">Inicio</a>
+    <a href="go:SERIESTUX" id="previous-button">Anterior</a>  
+    <a href="go:SERIESTUXA" id="next-button">Siguiente</a>
+  </div>
+
+  
+-->
+
+
+  <div class="pagina">
+  <div class="pagination">
+    <button class="prev-btn">Anterior</button>
+    <div class="page-numbers">
+      <!-- Aquí se generarán dinámicamente los números de página -->
+    </div>
+    <button class="next-btn">Siguiente</button>
+  </div>   </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+
+
+
+
+
+
+
+
+
+
+        var codigoCorrecto = "51078"; // Cambia "miCodigoSecreto" por tu código de acceso
+        var tiempoDuracion = 24 * 60 * 60 * 1000; // 24 horas en milisegundos
+
+        function verificarCodigo() {
+            var codigoIngresado = document.getElementById("clave").value;
+
+            if (codigoIngresado === codigoCorrecto) {
+                localStorage.setItem("accesoConcedido", "true");
+                mostrarContenido();
+            } else {
+                alert("Código incorrecto. Intenta de nuevo.");
+                document.getElementById("clave").value = "";
+            }
+        }
+
+        function mostrarContenido() {
+            document.getElementById("formulario").style.display = "none";
+            document.getElementById("contenido").style.display = "block";
+            setTimeout(cerrarSesion, tiempoDuracion); // Configurar el temporizador para cerrar la sesión
+        }
+
+        function cerrarSesion() {
+            localStorage.removeItem("accesoConcedido");
+            document.getElementById("contenido").style.display = "none";
+            document.getElementById("formulario").style.display = "block";
+            document.getElementById("clave").value = "";
+        }
+
+        // Comprobar si la sesión está activa al cargar la página
+        window.onload = function() {
+            var accesoConcedido = localStorage.getItem("accesoConcedido");
+            if (accesoConcedido === "true") {
+                mostrarContenido();
+            } else {
+                cerrarSesion();
+            }
+        }
+
+
+
+
+
+/*   ###########################################   */
+
+
+
+
+
+
+
+
+document.addEventListener('click', function(event) {
+  const link = event.target;
+  if (link.tagName === 'A' && link.href.startsWith('http')) {
+    const videoExtensions = ['mkv', 'mp4', 'avi']; // Agrega más extensiones si es necesario
+    const linkExtension = link.href.split('.').pop().toLowerCase();
+
+    if (videoExtensions.includes(linkExtension)) {
+      event.preventDefault();
+      const videoUrl = link.href;
+      const videoPlayer = document.createElement('video');
+      videoPlayer.src = videoUrl;
+      videoPlayer.width = '560';
+      videoPlayer.height = '315';
+      videoPlayer.controls = true;
+      videoPlayer.style.position = 'fixed';
+      videoPlayer.style.top = '33%';
+      videoPlayer.style.left = '30%';
+      videoPlayer.style.border = 'none';
+      videoPlayer.style.zIndex = '9999';
+      videoPlayer.id = 'video-player';
+
+      const closeButton = document.getElementById('close-player');
+      closeButton.style.display = 'block';
+      closeButton.addEventListener('click', function() {
+        videoPlayer.pause();
+        videoPlayer.remove();
+        closeButton.style.display = 'none';
+      });
+
+      document.body.appendChild(videoPlayer);
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function openDialog(index) {
+  // ...
+
+  const chapters = document.querySelectorAll('.chapter-menu a');
+  chapters.forEach(function(chapter) {
+    chapter.classList.remove('selected-chapter');
+  });
+
+  // ...
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const series = document.querySelectorAll('.serie');
+  const dialogBox = document.getElementById('dialog-box');
+  const closeButton = document.querySelector('.close-button');
+
+  series.forEach(function(serie) {
+    serie.addEventListener('click', function() {
+      dialogBox.classList.add('open');
+
+      const serieInfo = serie.querySelector('.serie-info');
+      const serieTitle = serieInfo.querySelector('h2').textContent;
+      const seasonsDialog = document.querySelector('.seasons-dialog');
+      seasonsDialog.innerHTML = '';
+
+      const seasons = serie.querySelectorAll('.seasons');
+      seasons.forEach(function(season) {
+        const seasonButton = season.querySelector('.season-button');
+        const chapterMenu = season.querySelector('.chapter-menu');
+        const chapterLinks = chapterMenu.querySelectorAll('a');
+
+        seasonButton.addEventListener('click', function() {
+          chapterMenu.classList.toggle('hidden');
+        });
+
+        const clonedSeason = season.cloneNode(true);
+        clonedSeason.classList.remove('hidden'); // Mostrar temporada al hacer clic en la imagen
+        seasonsDialog.appendChild(clonedSeason);
+      });
+    });
+  });
+
+ closeButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        dialogBox.classList.remove('open');
+  });
+});
+
+
+
+
+/*   ###########################################   */
+
+
+
+function openDialog(index) {
+  // ...
+
+  const chapters = document.querySelectorAll('.chapter-menu a');
+  chapters.forEach(function(chapter) {
+    chapter.classList.remove('selected-chapter');
+  });
+
+  // ...
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const series = document.querySelectorAll('.serie');
+  const dialogBox = document.getElementById('dialog-box');
+  const closeButton = document.querySelector('.close-button');
+
+  series.forEach(function(serie) {
+    serie.addEventListener('click', function() {
+      dialogBox.classList.add('open');
+
+      const serieInfo = serie.querySelector('.serie-info');
+      const serieTitle = serieInfo.querySelector('h2').textContent;
+      const seasonsDialog = document.querySelector('.seasons-dialog');
+      seasonsDialog.innerHTML = '';
+
+      const seasons = serie.querySelectorAll('.seasons');
+      seasons.forEach(function(season) {
+        const seasonButton = season.querySelector('.season-button');
+        const chapterMenu = season.querySelector('.chapter-menu');
+        const chapterLinks = chapterMenu.querySelectorAll('a');
+
+        seasonButton.addEventListener('click', function() {
+          chapterMenu.classList.toggle('hidden');
+        });
+
+        const clonedSeason = season.cloneNode(true);
+        clonedSeason.classList.remove('hidden'); // Mostrar temporada al hacer clic en la imagen
+        seasonsDialog.appendChild(clonedSeason);
+      });
+    });
+  });
+
+ closeButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        dialogBox.classList.remove('open');
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+/* PONER MAS PAGINAS  ######################################################   */
+
+
+const pageLinks = [
+  { number: 1, link: './1-53R135.html' },
+  { number: 2, link: './2-53R135.html' },
+  { number: 3, link: './3-53R135.html' },
+  { number: 4, link: './4-53R135.html' },
+  { number: 5, link: './5-53R135.html' },
+  { number: 6, link: './6-53R135.html' },
+  { number: 7, link: './7-53R135.html' },
+  { number: 8, link: './8-53R135.html' },
+  { number: 9, link: './9-53R135.html' },
+  { number: 10, link: './10-53R135.html' },
+  { number: 11, link: './11-53R135.html' },
+  { number: 12, link: './12-53R135.html' },
+  { number: 13, link: './13-53R135.html' },
+  { number: 14, link: './14-53R135.html' },
+  { number: 15, link: './15-53R135.html' },
+  { number: 16, link: './16-53R135.html' },
+  { number: 17, link: './17-53R135.html' },
+  { number: 18, link: './18-53R135.html' },
+  { number: 19, link: './19-53R135.html' },
+  { number: 20, link: './20-53R135.html' },
+  { number: 21, link: './21-53R135.html' },
+  { number: 22, link: './22-53R135.html' },
+  { number: 23, link: './23-53R135.html' },
+  { number: 24, link: './24-53R135.html' },
+  { number: 25, link: './25-53R135.html' },
+  { number: 26, link: './26-53R135.html' },
+  { number: 27, link: './27-53R135.html' },
+  // Agrega más objetos para cada página con sus enlaces
+];
+
+const pageNumbersContainer = document.querySelector('.page-numbers');
+const prevButton = document.querySelector('.prev-btn');
+const nextButton = document.querySelector('.next-btn');
+
+let currentPage = 1;           /* ####   CAMBIAR NUMERO DE PAGINA  ##### */
+
+function updatePageNumbers() {
+  pageNumbersContainer.innerHTML = '';
+
+  for (const pageLink of pageLinks) {
+    const pageNumber = document.createElement('a');
+    pageNumber.textContent = pageLink.number;
+    pageNumber.href = pageLink.link;
+    pageNumber.classList.add('page-number');
+    
+    if (pageLink.number === currentPage) {
+      pageNumber.classList.add('active');
+    }
+
+    pageNumber.addEventListener('click', () => {
+      currentPage = pageLink.number;
+      updatePageNumbers();
+    });
+
+    pageNumbersContainer.appendChild(pageNumber);
+  }
+}
+
+prevButton.addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    updatePageNumbers();
+  }
+});
+
+nextButton.addEventListener('click', () => {
+  if (currentPage < pageLinks.length) {
+    currentPage++;
+    updatePageNumbers();
+  }
+});
+
+updatePageNumbers();
+
+
+
+
+
+
+</script>
+</div>
+</body>
+</html>
