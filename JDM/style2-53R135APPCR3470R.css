@@ -341,7 +341,7 @@ px
 }
  .dialog-content {
         left: 0; /* Centrar el cuadro de diálogo */
-        top: 18%; /* Ajustar la posición en dispositivos pequeños */
+        top: 22%; /* Ajustar la posición en dispositivos pequeños */
         width: 100%; /* Ancho completo */
         height: auto; /* Altura automática */
       }
@@ -405,7 +405,7 @@ px
     height: auto;
 }
 .seasons h3 {
-    LEFT: 30PX;
+    LEFT: 20PX;
     OVERFLOW-Y: SCROLL;
     HEIGHT: 31%;
     WIDTH: 91%;
