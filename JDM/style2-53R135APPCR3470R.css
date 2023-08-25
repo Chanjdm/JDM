@@ -1,0 +1,550 @@
+* {
+    outline:none !important;
+    box-sizing: border-box;
+    text-decoration: none;
+    background: black;
+}
+.dialog-content  {
+    overflow-y: auto;
+    height: 450px;
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    TOP: -24PX;
+}
+
+.dialog-content H2 {
+    TOP: 1.7EM;
+    position: fixed;
+    width: 736PX;
+    z-index: 5;
+}
+.dialog-content h2 {
+    background: #0d4757;
+    border: 2px solid red;
+    border-radius: 4px;
+    padding: 5px;
+    transition: all 0.9s;
+    text-align: center;
+    box-shadow: 0px 10px 16px 4px rgb(255 0 0);
+    margin-inline: 0px;
+}
+
+.container {
+    margin: 12px 7px 2px 7px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.serie {
+  position: relative;
+}
+
+.serie-image {
+    border-radius: 5px;
+    width: 240px;
+    height: auto;
+}
+
+.serie-info {
+    border-radius: 10px;
+    box-shadow: 0 0 32px #ff0000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 240PX;
+    height: 370PX;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.serie:hover .serie-info {
+  opacity: 1;
+}
+
+h2  {
+    background: #00000005;
+    height: auto;
+    PADDING: 20PX 20PX;
+    width: 240PX;
+    color: aqua;
+}
+p {
+    overflow-y: auto;
+    height: auto;
+    margin-top: -1.3em;
+    padding: 40px 7px;
+    background: #00000000;
+}
+
+.dialog-box {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    width: 780PX;
+    height: 700PX;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+
+.dialog-box.open {
+    HEIGHT: 687PX;
+    WIDTH: 780PX;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.5s;
+}
+
+
+
+.close-button  {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 30px;
+    left: 43%;
+    right: 43%;
+    border-radius: 5px;
+    padding: 2px 63px;
+    Z-INDEX: 10;
+BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
+}
+.close-button:hover{
+ 
+    background:red;
+    color:white;
+
+  }
+
+.hidden {
+  display: none;
+}
+
+.seasons-dialog{
+    WIDTH: 46EM;
+    POSITION: relative;
+    LEFT: 0PX;
+    TOP: 11EM;
+    transition: all 0.9s;
+}
+.seasons h3 {
+    OVERFLOW-Y: SCROLL;
+    HEIGHT: 199PX;
+    WIDTH: 730PX;
+    Z-INDEX: 2;
+    POSITION: fixed;
+    color: aliceblue;
+    padding: 71PX 1PX 10PX 0PX;
+    TOP: 2.2EM;
+}
+.season-button {
+    position: relative;
+    left: 0px;
+    border: 3px solid #90ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+.season-button:hover{
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	background:#12C987
+}
+
+
+
+
+ /* Muestra los capítulos en línea vertical */
+.chapter-menu {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+.chapter-menu a:hover{
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	background:#009dfd;
+        color:black;
+}
+
+/* Ajusta el espacio entre los capítulos */
+.chapter-menu a {
+    color: #e9a603;
+    margin-bottom: 5px;
+    box-shadow: 0px 1px 8px 0px rgb(248, 70, 0);
+}
+
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: 2.EM;
+    LEFT: 0%;
+}
+
+
+
+
+
+@media (max-width: 740px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+.dialog-content {
+    background-color: #000000;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+.dialog-box.open {
+    LEFT: 82PX;
+    HEIGHT: 614PX;
+    WIDTH: 455PX;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.5s;
+}
+.dialog-content h2 {
+    LEFT: 95PX;
+    WIDTH: 436PX;
+    background: #0d4757;
+    border: 2px solid red;
+    border-radius: 4px;
+    padding: 5px;
+    transition: all 0.9s;
+    text-align: center;
+    box-shadow: 0px 10px 16px 4px rgb(255 0 0);
+    margin-inline: 0px;
+}
+.seasons-dialog {
+    OVERFLOW: scroll;
+    HEIGHT: 25EM;
+    PADDING-TOP: 1EM;
+    WIDTH: 25EM;
+}
+h2 {
+    background: #00000005;
+    height: auto;
+    PADDING: 20PX 20PX;
+    width: 220PX;
+    color: aqua;
+}
+.seasons h3 {
+    LEFT: 98PX;
+    OVERFLOW-Y: SCROLL;
+    HEIGHT: 199PX;
+    WIDTH: 420PX;
+    Z-INDEX: 2;
+    POSITION: fixed;
+    color: aliceblue;
+    padding: 71PX 13PX 10PX 0PX;
+    TOP: 2.2EM;
+}
+.close-button {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 43px;
+    left: 38%;
+    right: 38%;
+    border-radius: 5px;
+    padding: 2px 63px;
+    Z-INDEX: 10;
+}
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: -15EM;
+    TOP: 50%;
+    LEFT: 18%;
+}
+.serie-info {
+    border-radius: 10px;
+    box-shadow: 0 0 32px #ff0000;
+    position: absolute;
+    top: 0;
+    left: 14px;
+    width: 171PX;
+    height: 267PX;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.serie-image {
+    border-radius: 5px;
+    width: 170px;
+    height: auto;
+}
+}
+
+
+
+
+
+
+@media (max-width: 480px) {
+      .container {
+        gap: 5px; /* Reducir el espacio entre series */
+        margin: 5px; /* Espaciado en dispositivos pequeños */
+      }
+.pagina {
+    position: relative;
+    margin: 0px 7px 20px;
+    overflow-x: scroll;
+    width: 26em;
+    height: 4em;
+    margin-left: -8em;
+    padding: 0px;
+}
+.close-button {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 26px;
+    top: 7px;
+    left: 20%;
+    right: 19%;
+    border-radius: 5px;
+    padding: 0px
+px
+ 62px;
+}
+.serie-info h2 {
+    font-size: 18px;
+    Margin-top: 0px;
+    WIDTH: 140PX;
+}
+ .dialog-content {
+        left: 0; /* Centrar el cuadro de diálogo */
+        top: 18%; /* Ajustar la posición en dispositivos pequeños */
+        width: 100%; /* Ancho completo */
+        height: auto; /* Altura automática */
+      }
+
+.dialog-box h2{
+    WIDTH: 12EM;
+    left: 15px;
+    Color: #ff8c00;
+}
+.dialog-box {
+    MARGIN: 0PX;
+    position: fixed;
+    top: -38px;
+    left: -227PX;
+    width: 242%;
+    height: 625PX;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+.dialog-box.open {
+    LEFT: 2PX;
+    HEIGHT: 614PX;
+    WIDTH: 455PX;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.5s;
+}
+.dialog-content h2 {
+    TOP: 9PX;
+    background: #0d4757;
+    border: 2px solid red;
+    border-radius: 4px;
+    padding: 5px;
+    transition: all 0.9s;
+    text-align: center;
+    box-shadow: 0px 10px 16px 4px rgb(255 0 0);
+    margin-inline: 0px;
+}
+.season-button {
+    position: relative;
+    left: -0.2em;
+    border: 3px solid #90ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+ .serie {
+        width: 47%; /* Ocupar todo el ancho disponible */
+      }
+
+.serie-image {
+    border-radius: 5px;
+    width: 145px;
+    height: auto;
+}
+.seasons h3 {
+    LEFT: 30PX;
+    OVERFLOW-Y: SCROLL;
+    HEIGHT: 31%;
+    WIDTH: 91%;
+    font-size: 17px;
+    Z-INDEX: 2;
+    POSITION: fixed;
+    color: aliceblue;
+    padding: 71PX 10PX 10PX 10PX;
+    TOP: 2.2EM;
+    margin-left: -15px;
+}
+.seasons-dialog {
+    position: initial;
+    height: 18.2em;
+    width: 17.5em;
+    border: 3px solid #62ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+
+.chapter-menu {
+    WIDTH: 250PX;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: -3EM;
+    TOP: 50%;
+    LEFT: 6%;
+}
+.serie-info {
+border-radius: 10px;
+box-shadow: 0 0 32px #ff0000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 145px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+}
+
+
+
+
+#start-button, #previous-button, #next-button{
+    position: relative;
+    border: 2px solid red;
+    background: black;
+    color: #03ff41;
+    border-radius: 4px;
+    padding: 5px;
+    transition: all 0.9s;
+    text-align: center;
+    box-shadow: 0px 5px 12px 3px rgb(248, 70, 0);
+    margin-inline: 10px;
+    top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination {
+    position: relative;
+    margin: 6px 7px 0px;
+    overflow-x: scroll;
+    width: 26em;
+    height: 4em;
+    margin-left: 33%;
+    padding: 10px;
+}
+
+
+.prev-btn, .next-btn {
+ display:NONE;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.page-numbers {
+  display: flex;
+}
+
+.page-number {
+    background-color: #000000;
+    color: #70ff00;
+    border: solid;
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.page-number.active {
+    background-color: #ff0000;
+    color: black;
+    box-shadow: 0px 0px 16px 4px rgb(255 0 0);
+}
+
+
+::-webkit-scrollbar {display: none;}
