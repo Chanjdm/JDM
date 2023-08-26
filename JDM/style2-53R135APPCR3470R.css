@@ -70,7 +70,9 @@
   opacity: 1;
 }
 
-h2  {
+h2 {
+    position: absolute;
+    top: 1px;
     background: #00000005;
     height: auto;
     PADDING: 20PX 20PX;
@@ -79,8 +81,8 @@ h2  {
 }
 p {
     overflow-y: auto;
-    height: auto;
-    margin-top: -1.3em;
+    height: 220px;
+    margin-top: 8em;
     padding: 40px 7px;
     background: #00000000;
 }
@@ -201,6 +203,7 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
 
 
 
+/*   ###################################################   */
 
 
 @media (max-width: 740px) {
@@ -263,9 +266,9 @@ h2 {
     color: red;
     font-weight: bold;
     position: fixed;
-    top: 43px;
-    left: 38%;
-    right: 38%;
+    top: 30px;
+    left: 31%;
+    right: 45%;
     border-radius: 5px;
     padding: 2px 63px;
     Z-INDEX: 10;
@@ -303,7 +306,7 @@ h2 {
 
 
 
-
+/*   ###################################################   */
 
 @media (max-width: 480px) {
       .container {
@@ -325,29 +328,28 @@ h2 {
     color: red;
     font-weight: bold;
     position: fixed;
-    top: 26px;
-    top: 7px;
+    top: 39px;
     left: 20%;
-    right: 19%;
+    right: 31%;
     border-radius: 5px;
-    padding: 0px 0px 62px;
+    padding: 0px 0px 0px;
 }
 
 .serie-info h2 {
     font-size: 18px;
     Margin-top: 0px;
-    WIDTH: 140PX;
+    WIDTH: 175PX;
 }
 p {
     overflow-y: auto;
     height: 120px;
-    margin-top: 3em;
+    margin-top: 6.5em;
     padding: 6px 7px;
     background: #00000000;
 }
  .dialog-content {
         left: 0; /* Centrar el cuadro de diálogo */
-        top: 22%; /* Ajustar la posición en dispositivos pequeños */
+        top: 38%; /* Ajustar la posición en dispositivos pequeños */
         width: 100%; /* Ancho completo */
         height: auto; /* Altura automática */
       }
@@ -374,14 +376,14 @@ p {
 }
 .dialog-box.open {
     LEFT: 2PX;
-    HEIGHT: 614PX;
-    WIDTH: 455PX;
+    HEIGHT: 566PX;
+    WIDTH: 315PX;
     visibility: visible;
     opacity: 1;
     transition: opacity 1.5s;
 }
 .dialog-content h2 {
-    TOP: 9PX;
+    TOP: 47PX;
     background: #0d4757;
     border: 2px solid red;
     border-radius: 4px;
@@ -413,20 +415,20 @@ p {
 .seasons h3 {
     LEFT: 20PX;
     OVERFLOW-Y: SCROLL;
-    HEIGHT: 31%;
-    WIDTH: 91%;
+    HEIGHT: 23%;
+    WIDTH: 86%;
     font-size: 17px;
     Z-INDEX: 2;
     POSITION: fixed;
     color: aliceblue;
-    padding: 71PX 10PX 10PX 10PX;
-    TOP: 2.2EM;
+    padding: 11PX 10PX 10PX 10PX;
+    TOP: 7.2EM;
     margin-left: -15px;
 }
 .seasons-dialog {
     position: initial;
-    height: 18.2em;
-    width: 17.5em;
+    height: 19em;
+    width: 18.5em;
     border: 3px solid #62ff00;
     padding: 3px;
     margin-top: 10px;
@@ -552,5 +554,11 @@ body {
     box-shadow: 0px 0px 16px 4px rgb(255 0 0);
 }
 
+
+
+.seasons hidden {
+position:absolute;
+
+}
 
 ::-webkit-scrollbar {display: none;}
