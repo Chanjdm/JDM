@@ -330,14 +330,20 @@ h2 {
     left: 20%;
     right: 19%;
     border-radius: 5px;
-    padding: 0px
-px
- 62px;
+    padding: 0px 0px 62px;
 }
+
 .serie-info h2 {
     font-size: 18px;
     Margin-top: 0px;
     WIDTH: 140PX;
+}
+p {
+    overflow-y: auto;
+    height: 120px;
+    margin-top: 3em;
+    padding: 6px 7px;
+    background: #00000000;
 }
  .dialog-content {
         left: 0; /* Centrar el cuadro de diálogo */
