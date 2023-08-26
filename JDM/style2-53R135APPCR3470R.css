@@ -415,14 +415,14 @@ p {
 .seasons h3 {
     LEFT: 20PX;
     OVERFLOW-Y: SCROLL;
-    HEIGHT: 23%;
-    WIDTH: 86%;
+    HEIGHT: 27%;
+    WIDTH: 93%;
     font-size: 17px;
     Z-INDEX: 2;
     POSITION: fixed;
     color: aliceblue;
     padding: 11PX 10PX 10PX 10PX;
-    TOP: 7.2EM;
+    TOP: 6.2EM;
     margin-left: -15px;
 }
 .seasons-dialog {
