@@ -1708,7 +1708,7 @@ h4 {
    
 
 body {
-    height: 650px;
+    height: 710px;
     background-color: #000000;
 }
 
@@ -1793,7 +1793,7 @@ h4 {
     position: relative;
     width: 245px;
     left: 2%;
-    top: 3rem;
+    top: 4rem;
     color: #0ba6b9;
     font-size: 22px;
     margin-bottom: 4rem;
@@ -1807,7 +1807,7 @@ h4 {
 
 a {
     position: absolute;
-    top: 5px;
+    top: 3rem;
     left: 0px;
     padding: 59px 11px 0px 7px;
     text-decoration: none;
