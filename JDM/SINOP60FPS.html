@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Películas</title>
+    <style>
+* {
+    background: black;
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 5px;
+        }
+.movie {
+    width: calc(19.33% - 30px);
+    margin: 10px;
+    position: relative;
+}
+.movie img {
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 6px;
+}
+.popup img  {
+    left: 10px;
+    position: absolute;
+    max-width: 168px;
+    height: auto;
+    box-shadow: 0px 12px 24px 8px black;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 51em;
+    height: 29em;
+    max-width: 80%;
+    background-color: #002a41;
+    border: 5px solid #00fff7;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 33px 12px rgb(0 212 255);
+    Z-index: 99;
+    border-radius: 13px;
+}
+h2 {
+    width: 41rem;
+    height: 60px;
+    left: 11rem;
+    color: #fd8e00;
+    position: relative;
+    top: -30px;
+    background: transparent;
+    text-shadow: 0px 11px 5px black;
+}
+h3 {
+    color: antiquewhite;
+    font-size: 15px;
+    width: 190px;
+    margin: 0px 0px;
+    padding: 0px 9px;
+    display: flex;
+    justify-content: center;
+}
+p {
+    TEXT-SHADOW: 0px 7px 5px black;
+    position: absolute;
+    color: #d0dbdb;
+    top: 3em;
+    width: 21em;
+    height: 10.5em;
+    left: 6em;
+    margin: 4px 15px;
+    background: transparent;
+    overflow-y: scroll;
+    font-size: 30px;
+    BORDER-STYLE: solid;
+    BORDER-COLOR: #842be2;
+    BOX-SHADOW: 0PX 3PX 15PX 5PX #711ccc;
+    PADDING: 7PX 0PX 0PX 0PX;
+}
+
+        .popup-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+.red-button {
+    position: absolute;
+    top: 27em;
+    left: 12em;
+    background-color: red;
+    color: white;
+    Text-decoration: None;
+    box-shadow: 0px 9px 18px #ef0707;
+}
+.green-button {
+    position: absolute;
+    top: 27em;
+    left: 20em;
+    background-color: green;
+    color: white;
+    Text-decoration: None;
+    box-shadow: 0px 9px 18px #03b617;
+}
+.close-button  {
+    background: #b4008f;
+    position: absolute;
+    top: 27.7em;
+    left: 31em;
+    width: 7em;
+    font-size: 16px;
+    height: 40px;
+    color: aliceblue;
+    border: 2px solid #000000;
+    box-shadow: 0px 12px 16px #d700d4;
+}
+span {
+    font-size: 20px;
+    width: 184px;
+    left: 5px;
+    top: 19rem;
+    position: absolute;
+    color: #c8ff00;
+    background-color: #7fffd400;
+    TEXT-SHADOW: 0px 9px 4px black;
+}
+
+#search-input {
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(235, 232, 232);
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    transition: width 0.3s ease-in-out;
+}
+
+
+
+#searchInput  {
+    font-size: 18px;
+    color: aqua;
+    top: 10px;
+    left: 25px;
+    width: 57px;
+    transition: width 0.3s ease-in-out;
+    border: 2px solid red;
+    z-index: 5;
+    position: sticky;
+    border-radius: 6px;
+}
+
+@keyframes moveColors {
+    0%, 100% {
+        border-color: red;
+    }
+    25% {
+        border-color: green;
+    }
+    50% {
+        border-color: yellow;
+    }
+    75% {
+        border-color: cyan;
+    }
+}
+
+#searchInput:hover {
+    width: 130px;
+    animation: moveColors 3s linear infinite;
+}
+
+
+
+
+/* ::-webkit-scrollbar {display: none;}  */
+
+/* Ocultar el scrollbar por defecto */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Estilo del thumb (el mango del scrollbar) */
+::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 6px;
+}
+
+/* Estilo del thumb cuando se pasa el mouse sobre él */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #00fd23;
+}
+
+/* Estilo de la barra de track (la pista por donde se desplaza el thumb) */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 6px;
+}
+
+/* Estilo de la barra de track cuando se pasa el mouse sobre ella */
+::-webkit-scrollbar-track:hover {
+    background-color: transparent;
+}
+body {
+    overflow-x: hidden;
+}
+
+/* Estilo de los botones en los extremos del scrollbar */
+::-webkit-scrollbar-button {
+    display: none;
+}
+#menu-button {
+    position: sticky;
+    top: 11px;
+    left: 165px;
+    border-style: solid;
+    color: aqua;
+    border-color: blueviolet;
+    z-index: 90;
+}
+#menu-options {
+    background: transparent;
+    position: sticky;
+    left: 14rem;
+    top: 12px;
+    width: 60rem;
+    display: block;
+    z-index: 90;
+    margin: -14px;
+    padding: 0px;
+}
+#menu-options button{
+    color: chartreuse;
+    border-style: solid;
+    border-color: darkcyan;
+}
+
+/*  ###################################################################################################   */
+        @media screen and (max-width: 768px) {
+            .movie {
+                width: calc(50% - 20px); /* Mostrar dos elementos en una fila */
+            }
+        }
+/*  ###################################################################################################   */
+        @media screen and (max-width: 480px) {
+            .movie {
+                width: calc(50% - 20px); /* Mostrar un elemento en una fila */
+            }
+.popup{
+    display: none;
+    position: fixed;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 88%;
+    background-color: black;
+    border: 2px solid #ff0101;
+    padding: 6px;
+    text-align: center;
+    box-shadow: 0px 0px 37px rgb(255 8 8);
+    Z-index: 99;
+    overflow-y: scroll;
+    height: 36em;
+    border-radius: 6px;
+}
+.popup img {
+    max-width: 33%;
+    height: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: blueviolet;
+    box-shadow: 0px 0px 27px 0.2px #932eff;
+}
+h2 {
+    position: absolute;
+    width: 10rem;
+    top: 6px;
+    left: 102px;
+    height: 70px;
+    margin: 4px;
+    color: cyan;
+    font-size: 17px;
+}
+
+h3 {
+    color: antiquewhite;
+    font-size: 15px;
+    width: 130px;
+    margin: 0px 0px;
+    display: flex;
+    justify-content: center;
+}
+.popup p {
+    position: absolute;
+    top: 15em;
+    width: 16.5em;
+    height: 16.5em;
+    left: 0em;
+    margin: 20px 8px;
+    color: aliceblue;
+    overflow-y: scroll;
+    BORDER-STYLE: solid;
+    BORDER-COLOR: #79e22b;
+    BOX-SHADOW: 0PX 1PX 15PX 5PX #79e22b;
+    font-size: 16px;
+}
+.red-button {
+    position: absolute;
+    background-color: red;
+    color: white;
+    top: 9em;
+    left: 2em;
+    font-size: 17px;
+    width: 81px;
+    margin: 0px;
+    padding: 3px;
+    border-radius: 4px;
+    Text-decoration: None;
+}
+.green-button {
+    position: absolute;
+    top: 152.4px;
+    color: aliceblue;
+    width: 100px;
+    height: 20px;
+    margin: 0px 0px;
+    left: 9em;
+    padding: 3px;
+    background-color: green;
+    border-radius: 4px;
+    Text-decoration: None;
+    font-size: 17px;
+}
+.close-button {
+    background: #c600ff;
+    position: absolute;
+    top: 200px;
+    left: 4em;
+    width: 10em;
+    height: 25px;
+    border: 2px solid #000000;
+    color: black;
+}
+span {
+    font-size: 13px;
+    width: 165px;
+    left: 110px;
+    top: 6.5rem;
+    position: absolute;
+    color: #c8ff00;
+    background-color: #7fffd400;
+    TEXT-SHADOW: 0px 9px 4px black;
+}
+#searchInput:hover {
+    width: 225px;
+    animation: moveColors 2s linear infinite;
+}
+#menu-button {
+    position: sticky;
+    top: 10px;
+    left: 16.4rem;
+    border-style: solid;
+    color: aqua;
+    height: 26px;
+    border-radius: 4px;
+    border-color: blueviolet;
+    z-index: 90;
+}
+        #menu-options {
+    position: fixed;
+    top: 58px;
+    left: 0px;
+    transition: left 3.3s ease-in-out;
+    background-color: #000000;
+    width: 95%;
+    margin-left: 7px;
+    height: 92%;
+    border-style: solid;
+    border-width: 1px;
+    color: #932eff;
+    box-shadow: 0px 0px 23px #932eff;
+    z-index: 999;
+}
+
+        #menu-options.active {
+            left: 0; /* Mostrar el menú en pantalla */
+        }
+#menu-options button {
+    margin: 11px 4px;
+    padding: 6px 6px;
+    color: chartreuse;
+    border-style: solid;
+    border-color: darkcyan;
+    border-radius: 4px 10px 0px 8px;
+    box-shadow: 0px 4px 18px #0c88cb;
+}
+
+}
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+<div id="container" style="display: none;">
+
+<input type="text" id="searchInput" placeholder="Buscar película Por Letra...">
+
+    <!-- Botón de menú -->
+    <button id="menu-button" onclick="toggleMenu()">Menú</button>
+
+    <!-- Contenedor para las opciones de paginación -->
+    <div id="menu-options" style="display: none;">
+        <a href="SINOP1.html"><button>Estrenos 1</button></a>
+        <a href="SINOP2.html"><button>Estrenos 2</button></a>
+        <a href="SINOP3.html"><button>Estrenos 3</button></a>
+        <a href="SINOP4.html"><button>Estrenos 4</button></a>
+        <a href="SINOP5.html"><button>Estrenos 5</button></a>  
+        <a href="SINOP60FPS.html"><button> 60FPS</button></a>
+        <a href="SINOP4K.html"><button> 4K</button></a>
+     </div>
+
+    <div class="container">
+
+
+
+
+
+
+
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//dhqu9rInT9IOa2w0TU22YMEgGus.jpg" alt="65">
+    <h3>65</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//dhqu9rInT9IOa2w0TU22YMEgGus.jpg" alt="65">
+        <h2>65</h2>
+        <p>Después de un catastrófico accidente en un planeta desconocido, el piloto Mills descubre rápidamente que realmente está varado en la Tierra… hace 65 millones de años. Ahora, con solo una oportunidad de rescate, Mills y la otra única superviviente, Koa, deberán abrirse camino a través del desconocido territorio plagado con peligrosas criaturas prehistóricas en una épica lucha por sobrevivir.</p>
+        <a href="https://www.youtube.com/embed/YeKgkbYSUhA" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/65%20AL%20BORDE%20DE%20LA%20EXTINCI%c3%93N/65Al%20borde%20de%20la%20extinci%c3%b3n%20%282023%29%201080p%2060FPS%20WEB-DL%20Latino.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Acción, Aventura, 90 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//wMeLHrTs0fkPAcezPj6xiiKdRay.jpg" alt="Adicción perfecta">
+    <h3>Adicción perfecta</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//wMeLHrTs0fkPAcezPj6xiiKdRay.jpg" alt="Adicción perfecta">
+        <h2>Adicción perfecta</h2>
+        <p>La entrenadora de artes marciales mixtas (MMA) Sienna Lane (Madeira) pensaba que tenía su vida encaminada: una bonita casa, el trabajo de sus sueños y a Jax (Noszka), el amor de su vida. Sienna entrenó a Jax para convertirlo en el mayor campeón de MMA clandestino y, aparentemente, son una pareja irrompible. Todo parecía perfecto… hasta que dejó de serlo, y pilla a Jax engañándola con su hermana pequeña. Cuando se enfrenta a la traición de sus seres más queridos, Sienna prepara la venganza y planea darle a Jax donde más le duele: en el ring. La oportunidad perfecta se presenta en forma del marginado Kayden Williams (Butler). Kayden es indisciplinado, rencoroso y malhumorado, pero sin duda un gran luchador. Kayden y Sienna pronto se dan cuenta de que, para conseguir sus objetivos, van a tener que trabajar juntos y derrotar a Jax en el ring. Pero cuando las vidas de Sienna y Kayden se empiezan a entrelazar también fuera del ring, el camino por el título de campeón se complica un poco más.</p>
+        
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/Adicci%c3%b3n.perfecta.2023%2060fps/Adicci%c3%b3n.perfecta.2023.WEB-DL.AMZN.1080p.Latino.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Romance, 97 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//ckeTumMS4G31UQ9NNkmtW2QhfMF.jpg" alt="Avatar: El sentido del agua">
+    <h3>Avatar: El sentido del agua</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//ckeTumMS4G31UQ9NNkmtW2QhfMF.jpg" alt="Avatar: El sentido del agua">
+        <h2>Avatar: El sentido del agua</h2>
+        <p>Ambientada más de una década después de los acontecimientos de la primera película, 'Avatar: The Way of Water' empieza contando la historia de la familia Sully (Jake, Neytiri y sus hijos), los problemas que los persiguen, lo que tienen que hacer para mantenerse a salvo, las batallas que libran para seguir con vida y las tragedias que sufren.</p>
+        <a href="https://www.youtube.com/embed/inT3MvpxRqE" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/Avatar%20The%20Way%20of%20Water%2060%20fps/Avatar-%20El%20camino%20del%20agua%20(2022)%201080p%2060FPS%20WEB-DL%20Latino.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Aventura, Acción, 192 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//fcFMd3HdyX7r5gtFwVnn2qr5Yhq.jpg" alt="Creed III">
+    <h3>Creed III</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//fcFMd3HdyX7r5gtFwVnn2qr5Yhq.jpg" alt="Creed III">
+        <h2>Creed III</h2>
+        <p>Después de dominar el mundo del boxeo, Adonis Creed ha prosperado tanto en su carrera como en su vida familiar. Cuando un amigo de la infancia y ex prodigio de boxeo, Damien Anderson, resurge después de cumplir una larga sentencia en prisión, está ansioso por demostrar que merece su disparo en el ring. El enfrentamiento entre los antiguos amigos es más que una pelea. Para resolver el puntaje, Adonis debe poner su futuro en la línea para luchar contra Damien, un luchador que no tiene nada que perder.</p>
+        <a href="https://www.youtube.com/embed/IeZ5xDv3w6A" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/CREED%20III%20%282023%29%201080P%2060FPS/Creed%20III%20%282023%29%201080p%2060FPS%20WEB-DL%20Latino.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Acción, 116 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//1aD4wDFnWl7AkeZt4xr0XcC3S9x.jpg" alt="Destino final">
+    <h3>Destino final</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//1aD4wDFnWl7AkeZt4xr0XcC3S9x.jpg" alt="Destino final">
+        <h2>Destino final</h2>
+        <p>Al subir a un avión con destino a Paris, junto con sus compañeros de clase, Alex tiene una premonición, por lo que desembarca justo antes de despegar junto a seis de sus amigos y una profesora. Poco después el aparato explota en el aire. El grupo de supervivientes se verá perseguido por la dama de la guadaña, la propia muerte, que no se dará por vencida. Acosado por el FBI que considera a Alex responsable del accidente y perseguido por sus propios miedos, el joven deberá descubrir que las coincidencias y los accidentes no son algo casual.</p>
+        
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/DESTINO%20FINAL/1/FINAL%20DESTINATION.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, 98 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//4KHFGNCQvAa5xjJpAFBgqcF4mC2.jpg" alt="Destino final 2">
+    <h3>Destino final 2</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//4KHFGNCQvAa5xjJpAFBgqcF4mC2.jpg" alt="Destino final 2">
+        <h2>Destino final 2</h2>
+        <p>Kimberly Corman se va de vacaciones con sus amigos Dano , Shaina  y Frankie hacia Daytona Beach. De repente, un camión cargado de troncos pierde el control al reventarse la cadena que los sostiene, cayendo y rodando por la autopista donde se origina un trágico accidente, matando a todos los que se encuentran a su paso. Pero esto solo fue una premonición de Kimberly, que al volver a la realidad se asusta y detiene la camioneta en plena desviación de la autopista, de modo que ocasiona que los autos que van detrás se detengan haciendo un gran atasco. Un policía , se acerca a ver que ocurre, y Kim le cuenta lo que ha visto. El policía no le cree y trata de tranquilizarla haciéndole entender que es solo su imaginación, y le ruega que retire el auto del camino, pero Kim se niega, cuando de repente, el camión de troncos cruza ante sus ojos y se cumple la catástrofe, tal y como ella lo había contado.</p>
+        <a href="https://www.youtube.com/embed/7vZqVooni2o" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/DESTINO%20FINAL/2/FINAL%20DESTINATION%202.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Misterio, 90 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//3PEVkIBOii1fxQxaQ0iKODGnBUp.jpg" alt="Destino final 3">
+    <h3>Destino final 3</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//3PEVkIBOii1fxQxaQ0iKODGnBUp.jpg" alt="Destino final 3">
+        <h2>Destino final 3</h2>
+        <p>Una estudiante del instituto tiene una premonición sobre una tragedia en un parque de atracciones local, por lo que decide no montarse en una montaña rusa que presiente va a descarrilar...</p>
+        <a href="https://www.youtube.com/embed/xp8IR9Mh3g0" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/DESTINO%20FINAL/3/FINAL%20DESTINATION%203.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Misterio, 93 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//ug6iiQmLXs5V78yOF4VJlOwIK5E.jpg" alt="Destino final 4">
+    <h3>Destino final 4</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//ug6iiQmLXs5V78yOF4VJlOwIK5E.jpg" alt="Destino final 4">
+        <h2>Destino final 4</h2>
+        <p>Nick O’Bannon y unos amigos acuden a un circuito de carreras para presenciar una prueba del Nascar. Durante ésta tiene lugar un terrible accidente que conlleva desastrosas consecuencias para el estadio. Pero Nick descubre que se trata de sólo una visión de algo que está a punto de suceder, y junto con otras doce personas consigue salir del recinto y escapar de una tragedia segura. Pensando que han burlado a la muerte, el grupo continúa con su vida, pero desafortunadamente para Nick, Lori y sus amigos sólo es el principio, ya que la muerte no deja cabos sueltos, y regresará para llevarse a los supervivientes de una manera brutal.</p>
+        <a href="https://www.youtube.com/embed/azQH42WEoTg" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/DESTINO%20FINAL/4/FINAL%20DESTINATION%204.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Misterio, 82 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//T0IGau7Alj52OLrrthzftkLMIA.jpg" alt="Destino final 5">
+    <h3>Destino final 5</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//T0IGau7Alj52OLrrthzftkLMIA.jpg" alt="Destino final 5">
+        <h2>Destino final 5</h2>
+        <p>Sam Lawton tiene una premonición sobre la destrucción de un puente colgante que causaría su muerte y la de otras personas. La visión se hace realidad, pero Sam se las arregla para salvarse a sí mismo y a algunos otros de la catastrófica tragedia. Sin embargo, Sam y su novia Molly descubren que no están realmente a salvo: la muerte los persigue a ellos y a los que sobrevivieron al horrible accidente... Quinta entrega de la popular serie de terror "Destino final".</p>
+        <a href="https://www.youtube.com/embed/OWVYtZVhg-Q" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/DESTINO%20FINAL/5/FINAL%20DESTINATION%205.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Misterio, 92 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//Af1vSPTbraVVqc6kB3Avm55gxcq.jpg" alt="El estrangulador de Boston">
+    <h3>El estrangulador de Boston</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//Af1vSPTbraVVqc6kB3Avm55gxcq.jpg" alt="El estrangulador de Boston">
+        <h2>El estrangulador de Boston</h2>
+        <p>Un thriller sobre las periodistas pioneras que destaparon la historia de los asesinatos del famoso estrangulador de Boston: Loretta McLaughlin, reportera del periódico Record-American, y su compañera y confidente Jean Cole. Mientras el asesino va sumando víctimas, la pareja investiga, arriesgando su propia vida para descubrir la verdad.</p>
+        <a href="https://www.youtube.com/embed/XbaGCWIDAZU" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/BOSTON%20STRANGLER%2060fps/BOSTON%20STRANGLER.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Crimen, Misterio, Suspense, 112 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//tVj5dn15iwkMhjU2wIih1yMy5LK.jpg" alt="Gran Turismo">
+    <h3>Gran Turismo</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//tVj5dn15iwkMhjU2wIih1yMy5LK.jpg" alt="Gran Turismo">
+        <h2>Gran Turismo</h2>
+        <p>Un jugador adolescente de Gran Turismo gana una serie de campeonatos de Nissan y luego se convierte en un verdadero piloto de carreras profesional.</p>
+        <a href="https://www.youtube.com/embed/f5IRCGKZgJY" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/Gran%20Turismo%2060%20fps/Gran%20Turismo%20De%20jugador%20a%20corredor%20%282023%29%201080p%2060FPS%20WEB-DL%20Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Acción, Drama, 135 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//6GkKzdNosVAL7UGgwTtCHSxLQ67.jpg" alt="Guardianes de la Galaxia: Volumen 3">
+    <h3>Guardianes de la Galaxia: Volumen 3</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//6GkKzdNosVAL7UGgwTtCHSxLQ67.jpg" alt="Guardianes de la Galaxia: Volumen 3">
+        <h2>Guardianes de la Galaxia: Volumen 3</h2>
+        <p>La querida banda de los Guardianes se instala en Knowhere. Pero sus vidas no tardan en verse alteradas por los ecos del turbulento pasado de Rocket. Peter Quill, aún conmocionado por la pérdida de Gamora, debe reunir a su equipo en una peligrosa misión para salvar la vida de Rocket, una misión que, si no se completa con éxito, podría muy posiblemente conducir al final de los Guardianes tal y como los conocemos.</p>
+        <a href="https://www.youtube.com/embed/FTGm7EexNmw" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/Guardians%20of%20the%20Galaxy%20Vol.%203%20%282023%29%2060/Guardianes%20de%20la%20galaxia%20Vol.%203%20%282023%29%201080p%2060FPS%20IMAX%20WEB-DL%20Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Aventura, Acción, 150 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//cB9JjO3IU2s3ZBj1fK3baTCigVW.jpg" alt="Hook (El capitán Garfio)">
+    <h3>Hook (El capitán Garfio)</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//cB9JjO3IU2s3ZBj1fK3baTCigVW.jpg" alt="Hook (El capitán Garfio)">
+        <h2>Hook (El capitán Garfio)</h2>
+        <p>Peter Pan es un prestigioso abogado y tiene una encantadora familia, pero ha perdido el contacto con algo maravilloso: su infancia. Sin embargo, cuando sus hijos son secuestrados por su antiguo enemigo, el Capitán Garfio, y llevados al País de Nunca Jamás, también él tendrá que viajar a ese reino encantado, donde, con la ayuda de Campanilla, podrá recuperar no sólo a sus hijos, sino también al niño que un día fue.</p>
+        
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/HOOK%20EL%20REGRESO%20DEL%20CAPITAN%20GARFIO/HOOK.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Fantasía, Comedia, Familia, 142 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//suXcdJ90Heh1AWNcIQayagUtgWI.jpg" alt="A.I. Inteligencia Artificial">
+    <h3>A.I. Inteligencia Artificial</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//suXcdJ90Heh1AWNcIQayagUtgWI.jpg" alt="A.I. Inteligencia Artificial">
+        <h2>A.I. Inteligencia Artificial</h2>
+        <p>En un futuro donde los avances científicos hacen posible la existencia, los humanos confían todos los aspectos de sus vidas a sofisticados robots denominados Mecas. La emoción es la última frontera en la evolución de las máquinas. Pero cuando un avanzado niño robótico llamado David es programado para amar, los humanos no están preparados para las consecuencias.</p>
+        <a href="https://www.youtube.com/embed/4DUVcNPCNvo" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/I.A.%20INTELIGENCIA%20ARTIFICIAL/A.I.%20ARTIFICIAL%20INTELLIGENCE.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Ciencia ficción, Aventura, 146 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//mHJX5D5FKKoC0GWUAWFq2qJZrPv.jpg" alt="John Wick (Otro día para matar)">
+    <h3>John Wick (Otro día para matar)</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//mHJX5D5FKKoC0GWUAWFq2qJZrPv.jpg" alt="John Wick (Otro día para matar)">
+        <h2>John Wick (Otro día para matar)</h2>
+        <p>John Wick es un antiguo asesino a sueldo de Nueva York que se había retirado de la profesión después de perder a su esposa. Pero, al descubrir la oscura trama que la mafia había planeado para acabar con él, arrebatándole lo que más quería, volverá a introducirse en el negocio, esta vez por su cuenta, para vengarse.</p>
+        <a href="https://www.youtube.com/embed/UNIv8nzUryo" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/john%20wick/1/JOHN%20WICK.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Suspense, 101 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//aSmLqVTFeh9cQkcO8RWzz1gR0ez.jpg" alt="John Wick: Pacto de sangre">
+    <h3>John Wick: Pacto de sangre</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//aSmLqVTFeh9cQkcO8RWzz1gR0ez.jpg" alt="John Wick: Pacto de sangre">
+        <h2>John Wick: Pacto de sangre</h2>
+        <p>El legendario asesino John Wick (Keanu Reeves) se ve obligado a salir del retiro por un ex-asociado que planea obtener el control de un misterioso grupo internacional de asesinos. Obligado a ayudarlo por un juramento de sangre, John emprende un viaje a Roma lleno de adrenalina estremecedora para pelear contra los asesinos más peligrosos del mundo.</p>
+        <a href="https://www.youtube.com/embed/jbeRIvRRxdE" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/john%20wick/2/JOHN%20WICK%20CHAPTER%20TWO.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Suspense, Crimen, 122 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//aKw7oqYdfn4pkKYvp18Gd1YhK6m.jpg" alt="John Wick: Capítulo 3 - Parabellum">
+    <h3>John Wick: Capítulo 3 - Parabellum</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//aKw7oqYdfn4pkKYvp18Gd1YhK6m.jpg" alt="John Wick: Capítulo 3 - Parabellum">
+        <h2>John Wick: Capítulo 3 - Parabellum</h2>
+        <p>John Wick (Keanu Reeves) regresa a la acción, solo que esta vez con una recompensa de 14 millones de dólares sobre su cabeza y con un ejército de mercenarios intentando darle caza. Tras asesinar a uno de los miembros del gremio de asesinos al que pertenecía, Wick es expulsado de la organización, pasando a convertirse en el centro de atención de multitud de asesinos a sueldo que esperan detrás de cada esquina para tratar de deshacerse de él.</p>
+        <a href="https://www.youtube.com/embed/UtWl7Lz6A10" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/john%20wick/3/JOHN%20WICK%20CHAPTER%203%20PARABELLUM.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Suspense, Crimen, 131 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//d07xtqwq1uriQ1hda6qeu8Skt5m.jpg" alt="La Exorcista">
+    <h3>La Exorcista</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//d07xtqwq1uriQ1hda6qeu8Skt5m.jpg" alt="La Exorcista">
+        <h2>La Exorcista</h2>
+        <p>Ofelia, una joven monja recién llegada al pueblo de San Ramón, donde se ve obligada a realizar un exorcismo a una mujer embarazada. Cuando la posesión parece haber finalizado, ella descubre que la presencia maligna está tratando de regresar al cuerpo de la víctima. Para evitar esto, tendrá que arriesgarlo todo e incluso exponer sus debilidades a las fuerzas del mal.</p>
+        <a href="https://www.youtube.com/embed/Cv9zaWYz0do" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/LA%20EXORCISTA%2060fps/LA%20EXORCISTA.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, 101 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//eCvBFo3jjKViSuhcsOdVbcsFCq4.jpg" alt="Luther: Cae la noche">
+    <h3>Luther: Cae la noche</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//eCvBFo3jjKViSuhcsOdVbcsFCq4.jpg" alt="Luther: Cae la noche">
+        <h2>Luther: Cae la noche</h2>
+        <p>Atormentado por un caso sin resolver, el brillante pero caído en desgracia inspector londinense John Luther se fuga de la cárcel para intentar atrapar a un sádico asesino en serie... Largometraje inspirado en la serie de televisión "Luther".</p>
+        <a href="https://www.youtube.com/embed/ogs3C6iKHDo" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/LUTHER%20CAE%20LA%20NOCHE/LUTHER%20THE%20FALLEN%20SUN.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Crimen, Misterio, Suspense, 130 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//mbVd0dXD21BxVGlmW4GyeGIR01l.jpg" alt="Need for Speed">
+    <h3>Need for Speed</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//mbVd0dXD21BxVGlmW4GyeGIR01l.jpg" alt="Need for Speed">
+        <h2>Need for Speed</h2>
+        <p>El más famoso de los videojuegos de carreras llega a la gran pantalla para dejar a los más fanáticos boquiabiertos. Need for Speed cuenta la historia de un experto en automovilismo (Aaron Paul), el cual tiene un garage en dónde transforma coches para hacerlos más rápidos de lo que son para poder competir en carreras ilegales. Entró en la cárcel por un delito que no había cometido, justo cuando su mejor amigo muere en una carrera, y ahora sale de allí para vengarse.</p>
+        <a href="https://www.youtube.com/embed/_Z-4LBVzuqY" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/need%20for%20speed.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Crimen, Drama, Suspense, 130 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//qDRrP4NATGTWH8ORJV6T0BeoIhQ.jpg" alt="Fast & Furious X">
+    <h3>Fast & Furious X</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//qDRrP4NATGTWH8ORJV6T0BeoIhQ.jpg" alt="Fast & Furious X">
+        <h2>Fast & Furious X</h2>
+        <p>Dom Toretto y su familia se convierten en el objetivo del vengativo hijo del capo de las drogas Hernán Reyes.</p>
+        <a href="https://www.youtube.com/embed/KOQy0AwA7k8" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/Fast%20X%2060FPS/R%c3%a1pidos%20y%20furiosos%20X%20%282023%29%201080p%2060FPS%20WEB-DL%20Latino.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Crimen, Suspense, 142 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//rVBXvZDdCLR7qxrgPNBWcReOFap.jpg" alt="Romeo y Julieta">
+    <h3>Romeo y Julieta</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//rVBXvZDdCLR7qxrgPNBWcReOFap.jpg" alt="Romeo y Julieta">
+        <h2>Romeo y Julieta</h2>
+        <p>La paz de Verona se ve perturbada por la rivalidad existente entre nobles familias: los Montesco y los Capuleto, enemigos irreconciliables. Tienen contínuos enfrentamientos y, para evitarlos, el príncipe de Verona comunica a los jefes que las dos familias responderán con sus vidas si se producen nuevas luchas. En un baile, tiene lugar una fiesta en honor a Julieta.</p>
+        
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/Romeo%20y%20Juliet/ROMEO%20Y%20JULIET.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, 100 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//hy0A5ZAHpQIbhL4CsGHbInTDdkI.jpg" alt="Scary Movie 12">
+    <h3>Scary Movie 12</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//hy0A5ZAHpQIbhL4CsGHbInTDdkI.jpg" alt="Scary Movie 12">
+        <h2>Scary Movie 12</h2>
+        <p>To quote the original Youtube description: "The best movie ever made".</p>
+        
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/SCARY%20MOVIE/1/SCARY%20MOVIE1.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, Terror, 7 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//r4qTydYjntbb5TfZKV229NpSaCt.jpg" alt="Scary Movie 2">
+    <h3>Scary Movie 2</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//r4qTydYjntbb5TfZKV229NpSaCt.jpg" alt="Scary Movie 2">
+        <h2>Scary Movie 2</h2>
+        <p>En esta ocasión los hermanos Wayans empiezan la historia con una satírica parodia de El Exorcista, mostrando a James Woods en el papel de un cura poco convencional, el padre McFelly, ocupado en salvar a una Natasha Lyonne de un espíritu de otro mundo. Entonces, retomando la historia donde la dejaron, los hermanos Wayans se vuelven a reunir de forma cómica con la heroína Cindy Campbell, convertida ahora en una buena estudiante universitaria. Un profesor loco la recluta a ella y a su grupo de compañeros deseosos de vivir aventuras y nuevas experiencias, para una salida de fin de semana bajo el pretexto de realizar un experimento científico. Mientras se desarollan las actividades del fin de semana, las continuas sorpresas mantienen la diversión siempre en marcha.</p>
+        <a href="https://www.youtube.com/embed/NdnacU5sbcE" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/SCARY%20MOVIE/2/SCARY%20MOVIE%202.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, 82 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//7tMsPb5yEwmb4eHbXRAD6mURE5B.jpg" alt="Scary Movie 3">
+    <h3>Scary Movie 3</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//7tMsPb5yEwmb4eHbXRAD6mURE5B.jpg" alt="Scary Movie 3">
+        <h2>Scary Movie 3</h2>
+        <p>Después de haberlo pasado fatal -eso siempre según se mire- en las dos anteriores entregas, Cindy Campbell (Anna Faris) está dispuesta a salir adelante. Ahora es una guapa periodista que se propone encontrar una historia con la que poder destacar en un mundo tan duro como el del periodismo televisivo, en el que predomina la basura. Pero en su búsqueda se encuentra con que la Tierra está siendo amenazada por varios casos teroríficos que ponen los pelos de punta a cualquiera.</p>
+        <a href="https://www.youtube.com/embed/ficqfF525vk" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/SCARY%20MOVIE/3/SCARY%20MOVIE%203.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, 85 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//iSybaw6TeJKKmHIh8UonOEsv4Bh.jpg" alt="Scary Movie 4">
+    <h3>Scary Movie 4</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//iSybaw6TeJKKmHIh8UonOEsv4Bh.jpg" alt="Scary Movie 4">
+        <h2>Scary Movie 4</h2>
+        <p>Una nueva entrega de la franquicia que parodia los últimos títulos del cine americano. Esta vez, la ingenua Cindy Campbell (Anna Faris) intenta hacer carrera en la atención sanitaria a domicilio, y encuentra trabajo con una horripilante anciana que vive en una horripilante casa embrujada por una presencia fantasmal. Si a esto le añades un vecino guapetón y la amenaza de unos alienígenas que quieren dominar la tierra... el pelo rubísimo de Cindy se erizará presa del miedo más electrizante. Nuestra valiente heroína vuelve a sumergirse en la acción más enloquecida en su intento de descifrar los extraños mensajes que le llegan del más allá. Pero eso no le impide seguir buscando el amor en los sitios más inusitados y de salvar el mundo de la destrucción masiva.</p>
+        <a href="https://www.youtube.com/embed/X2UbAb61zG4" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/SCARY%20MOVIE/4/SCARY%20MOVIE%204.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, 89 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//mjsX6YYZEepnuJ6F04MAGGOSdbJ.jpg" alt="Scary Movie 5">
+    <h3>Scary Movie 5</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//mjsX6YYZEepnuJ6F04MAGGOSdbJ.jpg" alt="Scary Movie 5">
+        <h2>Scary Movie 5</h2>
+        <p>Los felizmente casados Dan y Jody empiezan a observar algunos fenómenos extraños en su casa tras volver del hospital con su bebé, Aiden. Pero cuando el caos se apodera del trabajo de Jody como bailarina de ballet y de la carrera de Dan como investigador de monos, la pareja descubre que está siendo acosada por una presencia demoníaca. Juntos, con la ayuda de expertos cualificados y de numerosas cámaras, intentarán deshacerse del maléfico ser antes de que sea demasiado tarde.</p>
+        <a href="https://www.youtube.com/embed/Vn1uwEiTfMM" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/SCARY%20MOVIE/5/SCARY%20MOVIE%205.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, 88 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//tCcODG2u3vzhakA2PfVG4h5tUO9.jpg" alt="Sugar en aprietos">
+    <h3>Sugar en aprietos</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//tCcODG2u3vzhakA2PfVG4h5tUO9.jpg" alt="Sugar en aprietos">
+        <h2>Sugar en aprietos</h2>
+        <p>Mariana, una joven locuaz y divertida, tiene la oportunidad de ser enviada a estudiar a la universidad gracias a la caridad de un benefactor (Sugar daddy?) que patrocina el orfanato municipal de la ciudad. Junto a sus compañeros, harán una historia de enredos, pero amorosa a la vez. Una montaña rusa de emociones, amistades disfuncionales y escenas disparadas acompañan a esta comedia pícara y divertida.</p>
+        <a href="https://www.youtube.com/embed/2M_D42Ll3CU" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/SUGAR%20EN%20APRIETOS%20%282022%29/Sugar%20en%20aprietos%20%282022%29%201080p%20WEB-DL%20Latino.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//igFLHxab9zG0M89OmEpnOM6TPXn.jpg" alt="¡Shazam! La furia de los dioses">
+    <h3>¡Shazam! La furia de los dioses</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//igFLHxab9zG0M89OmEpnOM6TPXn.jpg" alt="¡Shazam! La furia de los dioses">
+        <h2>¡Shazam! La furia de los dioses</h2>
+        <p>Billy Batson y sus hermanos adoptivos, que se transforman en superhéroes al decir "¡Shazam!", se ven obligados a volver a la acción y luchar contra las Hijas de Atlas, a quienes deben evitar que use un arma que podría destruir el mundo.</p>
+        <a href="https://www.youtube.com/embed/WhCuNiqUi2w" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/Shazam!%20Fury%20of%20the%20Gods/%c2%a1Shazam!%20La%20furia%20de%20los%20dioses.2023.WEB-DL.60FPS.1080p.Latino.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, Acción, Fantasía, 130 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//zNKs1T0VZuJiVuhuL5GSCNkGdxf.jpg" alt="Super Mario Bros: La película">
+    <h3>Super Mario Bros: La película</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//zNKs1T0VZuJiVuhuL5GSCNkGdxf.jpg" alt="Super Mario Bros: La película">
+        <h2>Super Mario Bros: La película</h2>
+        <p>Mientras trabajan en una avería subterránea, los fontaneros de Brooklyn, Mario y su hermano Luigi, viajan por una misteriosa tubería hasta un nuevo mundo mágico. Pero, cuando los hermanos se separan, Mario deberá emprender una épica misión para encontrar a Luigi.</p>
+        <a href="https://www.youtube.com/embed/8OtTfN6k7_Y" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/PELICULAS%2060%20FPS/Super%20Mario%20Bros.%20La%20pel%c3%adcula%20%282023%29%201080p%2060FPS/Super%20Mario%20Bros.%20La%20pel%c3%adcula%20%282023%29%201080p%2060FPS%20WEB-DL%20Latino.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Animación, Familia, Aventura, Fantasía, Comedia, 92 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+       <!-- 
+                <div class="movie">
+            <img src="IMAGEN" alt="TITULO">
+            <h3>TITULO</h3>
+            <div class="popup">
+                <img src="IMAGEN" alt="TITULO">
+                <h2>TITULO</h2>
+                <p>SINOPSIS</p>
+                <a href="TRAILER" class="popup-button red-button">Tráiler</a>
+                <a href="LINK" class="popup-button green-button">Reproducir</a>
+            </div>
+         -->
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const movies = document.querySelectorAll('.movie');
+
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+
+        movies.forEach(movie => {
+            const title = movie.querySelector('h3').textContent.toLowerCase();
+            const popup = movie.querySelector('.popup');
+
+            if (title.includes(searchTerm)) {
+                movie.style.display = 'block';
+                popup.style.display = 'none';
+            } else {
+                movie.style.display = 'none';
+            }
+        });
+    });
+
+    movies.forEach(movie => {
+        const popup = movie.querySelector('.popup');
+        const movieImage = movie.querySelector('img');
+        const closeButton = popup.querySelector('.close-button');
+
+        movieImage.addEventListener('click', () => {
+            popup.style.display = 'block';
+        });
+
+        closeButton.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+    });
+
+
+
+
+
+
+
+
+ // Función para mostrar/ocultar el menú
+        function toggleMenu() {
+            const menuOptions = document.getElementById('menu-options');
+            if (menuOptions.style.display === 'block') {
+                menuOptions.style.display = 'none';
+            } else {
+                menuOptions.style.display = 'block';
+            }
+        }
+
+        // Función para manejar la paginación
+        function goToPage(pageNumber) {
+            // Aquí puedes implementar la lógica para cambiar de página
+            // Por ejemplo, mostrar películas de la página seleccionada.
+            // Puedes usar AJAX o manipular el DOM directamente según tu estructura.
+            // Esto dependerá de cómo se organice tu contenido.
+            console.log('Ir a la página ' + pageNumber);
+            // Aquí deberías agregar la lógica para cambiar de página.
+        }
+
+
+
+
+
+
+// Función para mostrar el cuadro de diálogo de contraseña
+function showPasswordPrompt() {
+  const storedTimestamp = localStorage.getItem('accessTimestamp');
+  const currentTime = new Date().getTime();
+  const expirationTimeMinutes = 5; // 5 minutos
+  
+  // Si el tiempo almacenado es válido y no ha expirado
+  if (storedTimestamp && (currentTime - parseInt(storedTimestamp)) < (expirationTimeMinutes * 60 * 1000)) {
+    document.getElementById('container').style.display = 'block';
+  } else {
+    const password = prompt('Ingrese la contraseña:');
+    if (password === '5') {
+      // Guarda el tiempo de acceso en milisegundos en el almacenamiento local
+      localStorage.setItem('accessTimestamp', currentTime.toString());
+      document.getElementById('container').style.display = 'block';
+    } else {
+      alert('Contraseña incorrecta. Acceso denegado.');
+      // Redirección a una página de error si lo deseas
+      // window.location.href = 'pagina-de-error.html';
+    }
+  }
+}
+
+// Llama a la función para mostrar el cuadro de diálogo de contraseña cuando la página se carga
+window.addEventListener('load', showPasswordPrompt);
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Películas</title>
+    <style>
+* {
+    background: black;
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 5px;
+        }
+.movie {
+    width: calc(19.33% - 30px);
+    margin: 10px;
+    position: relative;
+}
+.movie img {
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 6px;
+}
+.popup img  {
+    left: 10px;
+    position: absolute;
+    max-width: 168px;
+    height: auto;
+    box-shadow: 0px 12px 24px 8px black;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 51em;
+    height: 29em;
+    max-width: 80%;
+    background-color: #002a41;
+    border: 5px solid #00fff7;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 33px 12px rgb(0 212 255);
+    Z-index: 99;
+    border-radius: 13px;
+}
+h2 {
+    width: 41rem;
+    height: 60px;
+    left: 11rem;
+    color: #fd8e00;
+    position: relative;
+    top: -30px;
+    background: transparent;
+    text-shadow: 0px 11px 5px black;
+}
+h3 {
+    color: antiquewhite;
+    font-size: 15px;
+    width: 190px;
+    margin: 0px 0px;
+    padding: 0px 9px;
+    display: flex;
+    justify-content: center;
+}
+p {
+    TEXT-SHADOW: 0px 7px 5px black;
+    position: absolute;
+    color: #d0dbdb;
+    top: 3em;
+    width: 21em;
+    height: 10.5em;
+    left: 6em;
+    margin: 4px 15px;
+    background: transparent;
+    overflow-y: scroll;
+    font-size: 30px;
+    BORDER-STYLE: solid;
+    BORDER-COLOR: #842be2;
+    BOX-SHADOW: 0PX 3PX 15PX 5PX #711ccc;
+    PADDING: 7PX 0PX 0PX 0PX;
+}
+
+        .popup-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+.red-button {
+    position: absolute;
+    top: 27em;
+    left: 12em;
+    background-color: red;
+    color: white;
+    Text-decoration: None;
+    box-shadow: 0px 9px 18px #ef0707;
+}
+.green-button {
+    position: absolute;
+    top: 27em;
+    left: 20em;
+    background-color: green;
+    color: white;
+    Text-decoration: None;
+    box-shadow: 0px 9px 18px #03b617;
+}
+.close-button  {
+    background: #b4008f;
+    position: absolute;
+    top: 27.7em;
+    left: 31em;
+    width: 7em;
+    font-size: 16px;
+    height: 40px;
+    color: aliceblue;
+    border: 2px solid #000000;
+    box-shadow: 0px 12px 16px #d700d4;
+}
+span {
+    font-size: 20px;
+    width: 184px;
+    left: 5px;
+    top: 19rem;
+    position: absolute;
+    color: #c8ff00;
+    background-color: #7fffd400;
+    TEXT-SHADOW: 0px 9px 4px black;
+}
+
+#search-input {
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(235, 232, 232);
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    transition: width 0.3s ease-in-out;
+}
+
+
+
+#searchInput  {
+    font-size: 18px;
+    color: aqua;
+    top: 10px;
+    left: 25px;
+    width: 57px;
+    transition: width 0.3s ease-in-out;
+    border: 2px solid red;
+    z-index: 5;
+    position: sticky;
+    border-radius: 6px;
+}
+
+@keyframes moveColors {
+    0%, 100% {
+        border-color: red;
+    }
+    25% {
+        border-color: green;
+    }
+    50% {
+        border-color: yellow;
+    }
+    75% {
+        border-color: cyan;
+    }
+}
+
+#searchInput:hover {
+    width: 130px;
+    animation: moveColors 3s linear infinite;
+}
+
+
+
+
+/* ::-webkit-scrollbar {display: none;}  */
+
+/* Ocultar el scrollbar por defecto */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Estilo del thumb (el mango del scrollbar) */
+::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 6px;
+}
+
+/* Estilo del thumb cuando se pasa el mouse sobre él */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #00fd23;
+}
+
+/* Estilo de la barra de track (la pista por donde se desplaza el thumb) */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 6px;
+}
+
+/* Estilo de la barra de track cuando se pasa el mouse sobre ella */
+::-webkit-scrollbar-track:hover {
+    background-color: transparent;
+}
+body {
+    overflow-x: hidden;
+}
+
+/* Estilo de los botones en los extremos del scrollbar */
+::-webkit-scrollbar-button {
+    display: none;
+}
+#menu-button {
+    position: sticky;
+    top: 11px;
+    left: 165px;
+    border-style: solid;
+    color: aqua;
+    border-color: blueviolet;
+    z-index: 90;
+}
+#menu-options {
+    background: transparent;
+    position: sticky;
+    left: 14rem;
+    top: 12px;
+    width: 60rem;
+    display: block;
+    z-index: 90;
+    margin: -14px;
+    padding: 0px;
+}
+#menu-options button{
+    color: chartreuse;
+    border-style: solid;
+    border-color: darkcyan;
+}
+
+/*  ###################################################################################################   */
+        @media screen and (max-width: 768px) {
+            .movie {
+                width: calc(50% - 20px); /* Mostrar dos elementos en una fila */
+            }
+        }
+/*  ###################################################################################################   */
+        @media screen and (max-width: 480px) {
+            .movie {
+                width: calc(50% - 20px); /* Mostrar un elemento en una fila */
+            }
+.popup{
+    display: none;
+    position: fixed;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 88%;
+    background-color: black;
+    border: 2px solid #ff0101;
+    padding: 6px;
+    text-align: center;
+    box-shadow: 0px 0px 37px rgb(255 8 8);
+    Z-index: 99;
+    overflow-y: scroll;
+    height: 36em;
+    border-radius: 6px;
+}
+.popup img {
+    max-width: 33%;
+    height: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: blueviolet;
+    box-shadow: 0px 0px 27px 0.2px #932eff;
+}
+h2 {
+    position: absolute;
+    width: 10rem;
+    top: 6px;
+    left: 102px;
+    height: 70px;
+    margin: 4px;
+    color: cyan;
+    font-size: 17px;
+}
+
+h3 {
+    color: antiquewhite;
+    font-size: 15px;
+    width: 130px;
+    margin: 0px 0px;
+    display: flex;
+    justify-content: center;
+}
+.popup p {
+    position: absolute;
+    top: 15em;
+    width: 16.5em;
+    height: 16.5em;
+    left: 0em;
+    margin: 20px 8px;
+    color: aliceblue;
+    overflow-y: scroll;
+    BORDER-STYLE: solid;
+    BORDER-COLOR: #79e22b;
+    BOX-SHADOW: 0PX 1PX 15PX 5PX #79e22b;
+    font-size: 16px;
+}
+.red-button {
+    position: absolute;
+    background-color: red;
+    color: white;
+    top: 9em;
+    left: 2em;
+    font-size: 17px;
+    width: 81px;
+    margin: 0px;
+    padding: 3px;
+    border-radius: 4px;
+    Text-decoration: None;
+}
+.green-button {
+    position: absolute;
+    top: 152.4px;
+    color: aliceblue;
+    width: 100px;
+    height: 20px;
+    margin: 0px 0px;
+    left: 9em;
+    padding: 3px;
+    background-color: green;
+    border-radius: 4px;
+    Text-decoration: None;
+    font-size: 17px;
+}
+.close-button {
+    background: #c600ff;
+    position: absolute;
+    top: 200px;
+    left: 4em;
+    width: 10em;
+    height: 25px;
+    border: 2px solid #000000;
+    color: black;
+}
+span {
+    font-size: 13px;
+    width: 165px;
+    left: 110px;
+    top: 6.5rem;
+    position: absolute;
+    color: #c8ff00;
+    background-color: #7fffd400;
+    TEXT-SHADOW: 0px 9px 4px black;
+}
+#searchInput:hover {
+    width: 225px;
+    animation: moveColors 2s linear infinite;
+}
+#menu-button {
+    position: sticky;
+    top: 10px;
+    left: 16.4rem;
+    border-style: solid;
+    color: aqua;
+    height: 26px;
+    border-radius: 4px;
+    border-color: blueviolet;
+    z-index: 90;
+}
+        #menu-options {
+    position: fixed;
+    top: 58px;
+    left: 0px;
+    transition: left 3.3s ease-in-out;
+    background-color: #000000;
+    width: 95%;
+    margin-left: 7px;
+    height: 92%;
+    border-style: solid;
+    border-width: 1px;
+    color: #932eff;
+    box-shadow: 0px 0px 23px #932eff;
+    z-index: 999;
+}
+
+        #menu-options.active {
+            left: 0; /* Mostrar el menú en pantalla */
+        }
+#menu-options button {
+    margin: 11px 4px;
+    padding: 6px 6px;
+    color: chartreuse;
+    border-style: solid;
+    border-color: darkcyan;
+    border-radius: 4px 10px 0px 8px;
+    box-shadow: 0px 4px 18px #0c88cb;
+}
+
+}
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+<div id="container" style="display: none;">
+
+<input type="text" id="searchInput" placeholder="Buscar película Por Letra...">
+
+    <!-- Botón de menú -->
+    <button id="menu-button" onclick="toggleMenu()">Menú</button>
+
+    <!-- Contenedor para las opciones de paginación -->
+    <div id="menu-options" style="display: none;">
+        <a href="SINOP1.html"><button>Estrenos 1</button></a>
+        <a href="SINOP2.html"><button>Estrenos 2</button></a>
+        <a href="SINOP3.html"><button>Estrenos 3</button></a>
+        <a href="SINOP4.html"><button>Estrenos 4</button></a>
+        <a href="SINOP5.html"><button>Estrenos 5</button></a>  
+        <a href="SINOP60FPS.html"><button> 60FPS</button></a>
+        <a href="SINOP4K.html"><button> 4K</button></a>
+     </div>
+
+    <div class="container">
+
+
+
+
+
+
+
+
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//8NCrCV6tR0Uafp8eVYiZbRsvrAv.jpg" alt="Spectre">
+    <h3>Spectre</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//8NCrCV6tR0Uafp8eVYiZbRsvrAv.jpg" alt="Spectre">
+        <h2>Spectre</h2>
+        <p>Un críptico mensaje del pasado envía a James Bond a una misión secreta a México D.F. y luego a Roma, donde conoce a Lucía Sciarra, la hermosa viuda de un infame criminal. Bond se infiltra en una reunión secreta y descubre la existencia de una siniestra organización conocida como SPECTRE. Mientras tanto, en Londres, el nuevo director del Centro para la Seguridad Nacional cuestiona las acciones de Bond y pone en duda la importancia del MI6, encabezado por M. De modo encubierto Bond recluta a Moneypenny y Q para que le ayuden a buscar a Madeleine Swann, la hija de su antiguo archienemigo, el Sr. White, que quizá tenga la clave para desentrañar el misterio de SPECTRE. A medida que Bond avanza en su misión, descubre una estremecedora conexión entre él mismo y el enemigo que busca.</p>
+        <a href="https://www.youtube.com/embed/ycih-sGr9js" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/spectre.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Suspense, 149 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//245tgZ3mTHWs0NRiPSwPjKobKHf.jpg" alt="Alien: Covenant">
+    <h3>Alien: Covenant</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//245tgZ3mTHWs0NRiPSwPjKobKHf.jpg" alt="Alien: Covenant">
+        <h2>Alien: Covenant</h2>
+        <p>Rumbo a un remoto planeta al otro lado de la galaxia, la tripulación de la nave colonial Covenant descubre lo que creen que es un paraíso inexplorado, pero resulta tratarse de un mundo oscuro y hostil cuyo único habitante es un "sintético" llamado David (Michael Fassbender), superviviente de la malograda expedición Prometheus.  Secuela de "Prometheus" (2012), a su vez precuela de "Alien, el octavo pasajero" (1979).</p>
+        <a href="https://www.youtube.com/embed/_O6YW4Rxubk" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/alien%20covenant.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Terror, Misterio, 122 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//lKHy0ntGPdQeFwvNq8gK1D0anEr.jpg" alt="Ant-Man y la Avispa: Quantumanía">
+    <h3>Ant-Man y la Avispa: Quantumanía</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//lKHy0ntGPdQeFwvNq8gK1D0anEr.jpg" alt="Ant-Man y la Avispa: Quantumanía">
+        <h2>Ant-Man y la Avispa: Quantumanía</h2>
+        <p>La pareja de superhéroes Scott Lang y Hope van Dyne regresa para continuar sus aventuras como Ant-Man y la Avispa. Los dos, junto a los padres de Hope, Hank Pym y Janet van Dyne y la hija de Scott, Cassie Lang, se dedican a explorar el Mundo Cuántico, interactuando con nuevas y extrañas criaturas y embarcándose en una aventura que les llevará más allá de los límites de lo que creían posible.</p>
+        <a href="https://www.youtube.com/embed/G4ZV8qfskfA" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Ant.Man.and.the.Wasp.Quantumania.2023.4k/Ant.Man.and.the.Wasp.Quantumania.2023.4k.WEB-DL.HDR.Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Ciencia ficción, 125 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//yQ4uC13IYVerbxMMXeSogSQUkOT.jpg" alt="Apocalypto">
+    <h3>Apocalypto</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//yQ4uC13IYVerbxMMXeSogSQUkOT.jpg" alt="Apocalypto">
+        <h2>Apocalypto</h2>
+        <p>Historia ambientada en la época del imperio maya. Cuando la idílica existencia de los mayas es brutalmente interrumpida por el ataque de una fuerza invasora, un hombre emprende un arriesgado viaje a un mundo regido por el miedo y la opresión en el que le espera un incierto final. Debido a un giro del destino y espoleado por el amor a su esposa y a su familia, emprenderá el regreso a su hogar en un desesperado esfuerzo por preservar su forma de vida...</p>
+        <a href="https://www.youtube.com/embed/ngWBddVNVZs" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/apocalypto%204K/Apcalpto%20%281%29.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Drama, Historia, 136 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//njB8UnVBp6GznmIzlTNm51LwiHR.jpg" alt="Assassin's Creed">
+    <h3>Assassin's Creed</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//njB8UnVBp6GznmIzlTNm51LwiHR.jpg" alt="Assassin's Creed">
+        <h2>Assassin's Creed</h2>
+        <p>Gracias a una revolucionaria tecnología que desbloquea los recuerdos genéticos, Callum Lynch vive las aventuras de su ancestro, Aguilar, en la España del siglo XV. Callum descubre que es el descendiente de una misteriosa sociedad secreta, los Asesinos, y que posee increíbles conocimientos y habilidades que le permitirán enfrentarse a la poderosa y opresora organización de los Templarios en el presente.</p>
+        <a href="https://www.youtube.com/embed/6zItrFSDVSc" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/assassins%20creed.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Ciencia ficción, 115 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//ip8KeJPM3qEEklev7sXeaOkJeaf.jpg" alt="Avatar">
+    <h3>Avatar</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//ip8KeJPM3qEEklev7sXeaOkJeaf.jpg" alt="Avatar">
+        <h2>Avatar</h2>
+        <p>Año 2154. Jake Sully , un exmarine en silla de ruedas, es enviado al planeta Pandora, donde se ha creado el programa Avatar, gracias al cual los seres humanos pueden controlar de forma remota un cuerpo biológico con apariencia y genética de la especie nativa. Pronto se encontrará con la encrucijada entre seguir las órdenes de sus superiores o defender al mundo que le ha acogido y siente como suyo.</p>
+        <a href="https://www.youtube.com/embed/AZS_d_hS2dM" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/avatar.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Fantasía, Ciencia ficción, 178 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//ckeTumMS4G31UQ9NNkmtW2QhfMF.jpg" alt="Avatar: El sentido del agua">
+    <h3>Avatar: El sentido del agua</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//ckeTumMS4G31UQ9NNkmtW2QhfMF.jpg" alt="Avatar: El sentido del agua">
+        <h2>Avatar: El sentido del agua</h2>
+        <p>Ambientada más de una década después de los acontecimientos de la primera película, 'Avatar: The Way of Water' empieza contando la historia de la familia Sully (Jake, Neytiri y sus hijos), los problemas que los persiguen, lo que tienen que hacer para mantenerse a salvo, las batallas que libran para seguir con vida y las tragedias que sufren.</p>
+        <a href="https://www.youtube.com/embed/inT3MvpxRqE" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Avatar%20The%20Way%20of%20Wate%204k/Avatar%20The%20Way%20of%20Wate%20%282022%29%204K%20WEB-DL%20HDR%20Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Aventura, Acción, 192 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//ddQI1uU1A7dm50J49tCTPGF179z.jpg" alt="Battleship">
+    <h3>Battleship</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//ddQI1uU1A7dm50J49tCTPGF179z.jpg" alt="Battleship">
+        <h2>Battleship</h2>
+        <p>“Battleship” es la libre adaptación al cine del popular juego de mesa de Hasbro conocido como “Hundir la flota” o ”Batalla naval”. La curiosa variante que plantea esta versión es que la batalla será entre la U.S. Navy y… ¡una flota alienígena! La historia nos propone una épica aventura de acción que transcurre en el mar, el cielo y la tierra, y en la que nuestro planeta lucha por sobrevivir contra una fuerza muy superior. La película está protagonizada por Taylor Kitsch en el papel del teniente Hopper, un oficial de la Marina destinado al John Paul Jones; Brooklyn Decker es Sam Shane, una fisioterapeuta de la Marina y novia de Hopper; Alexander Skarsgård es Stone, el hermano mayor de Hopper y comandante del Samson; Rihanna es la suboficial Raikes, especialista en armas del John Paul Jones; y Liam Neeson es el almirante Shane, el oficial superior de Hopper y Stone (y padre de Sam).</p>
+        <a href="https://www.youtube.com/embed/m4S2cc1OKKI" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/battleship.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Suspense, Acción, Aventura, Ciencia ficción, 131 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//z5mkvXYNRauSzHdZgxAj6MzrLTY.jpg" alt="Blue Beetle">
+    <h3>Blue Beetle</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//z5mkvXYNRauSzHdZgxAj6MzrLTY.jpg" alt="Blue Beetle">
+        <h2>Blue Beetle</h2>
+        <p>Un adolescente mexicano encuentra un escarabajo alienígena que le proporciona una armadura superpoderosa.</p>
+        <a href="https://www.youtube.com/embed/B8QJ7zZ-aBk" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Blue%20Beetle%204k/Blue.Beetle.2023.4k.WEB-DL.HDR.Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Ciencia ficción, Aventura, 128 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//68vam4lGyeHE6q6bkNFseGyb4aC.jpg" alt="The Boogeyman">
+    <h3>The Boogeyman</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//68vam4lGyeHE6q6bkNFseGyb4aC.jpg" alt="The Boogeyman">
+        <h2>The Boogeyman</h2>
+        <p>Todavía conmocionadas por la trágica muerte de su madre, una adolescente y su hermana menor se ven atormentadas por una presencia sádica en su casa y luchan para que su afligido padre les preste atención antes de que sea demasiado tarde.</p>
+        <a href="https://www.youtube.com/embed/lpsXFTWQr9w" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/The%20Boogeyman%204k/Boogeyman%20Tu%20miedo%20es%20real.2023.4k.WEB-DL.HDR.Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Suspense, Misterio, 99 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//wXBwo2DxTm6wZ8Cbu02t9kzzoK4.jpg" alt="Buscando a Dory">
+    <h3>Buscando a Dory</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//wXBwo2DxTm6wZ8Cbu02t9kzzoK4.jpg" alt="Buscando a Dory">
+        <h2>Buscando a Dory</h2>
+        <p>Un año después de los acontecimientos narrados en "Buscando a Nemo", Dory vive apaciblemente con Marlin y su hijo Nemo. Pero durante un viaje para ver cómo las mantarrayas migran de vuelta a casa, los problemas de memoria de Dory parecen desaparecer durante un segundo: recuerda que tiene una familia e inmediatamente decide emprender viaje para reencontrarse con sus padres, a los que perdió hace años.</p>
+        <a href="https://www.youtube.com/embed/5Z_tMWAFTyg" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/finding%20dory.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Animación, Comedia, Familia, 97 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//jPPy7tCfglppQo6J9nGwU6UmJ8X.jpg" alt="Capitán América: Civil War">
+    <h3>Capitán América: Civil War</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//jPPy7tCfglppQo6J9nGwU6UmJ8X.jpg" alt="Capitán América: Civil War">
+        <h2>Capitán América: Civil War</h2>
+        <p>Continúa la historia de “Avengers: Age of Ultron”, con Steve Rogers liderando un nuevo equipo de Vengadores en su esfuerzo por proteger a la humanidad. Tras otro incidente internacional relacionado con los Vengadores que ocasiona daños colaterales, la presión política fuerza a crear un sistema de registro y un cuerpo gubernamental para determinar cuándo se requiere los servicios del equipo. El nuevo status quo divide a los Vengadores mientras intentan salvar al mundo de un nuevo y perverso villano.</p>
+        <a href="https://www.youtube.com/embed/6aWYmFCRsEI" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/captain%20america%20civil%20war.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Acción, Ciencia ficción, 147 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//99Cbn2hRcvRCHzUYV9hb1UCXqTr.jpg" alt="Carrie">
+    <h3>Carrie</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//99Cbn2hRcvRCHzUYV9hb1UCXqTr.jpg" alt="Carrie">
+        <h2>Carrie</h2>
+        <p>Carrie es una torturada estudiante de secundaria que no encaja en su entorno, sin confianza en sí misma y sin amigos... y sin ser consciente de la amplitud de sus poderes telquinéticos. Pero cuando su psicótica madre y sus sádicos compañeros de clase llegan demasiado lejos, la una vez tímida adolescente se convierte en una máquina desenfrenada y, con ayuda de su "don especial", hace caer el infierno sobre sus cabezas en un frenesí de sangre, fuego y azufre que te llevará a las profundidades del horror... y aún más lejos.</p>
+        <a href="https://www.youtube.com/embed/eONFNDCcY44" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/carrie.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Suspense, 98 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//ppEvMrq2nvV9DfBHuCRilf2MBnm.jpg" alt="Cráter: Un viaje inolvidable">
+    <h3>Cráter: Un viaje inolvidable</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//ppEvMrq2nvV9DfBHuCRilf2MBnm.jpg" alt="Cráter: Un viaje inolvidable">
+        <h2>Cráter: Un viaje inolvidable</h2>
+        <p>Cinco chicos de una colonia minera lunar roban un rover para poder explorar un misterioso cráter.</p>
+        <a href="https://www.youtube.com/embed/hKtjAcWlJMM" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Cr%c3%a1ter%204k/Cr%c3%a1ter%20%282023%29%20Web-Dl%204K%20DV%20HDR.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Acción, Aventura, Familia, 105 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//bzLLeqhNBNmO6WImHrrmLNyhMxi.jpg" alt="Depredador">
+    <h3>Depredador</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//bzLLeqhNBNmO6WImHrrmLNyhMxi.jpg" alt="Depredador">
+        <h2>Depredador</h2>
+        <p>Un comando de mercenarios es contratados por la CIA para rescatar a unos pilotos apresados por las guerrillas en la selva Centroamericana. La misión resulta satisfactoria, pero durante su viaje de regreso se dan cuenta de que algo está dándoles caza uno a uno, ese algo resulta ser un cazador alienígena que se queda con las calaveras de sus víctimas como trofeos</p>
+        <a href="https://www.youtube.com/embed/PyfkVDkixqQ" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/predator.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Acción, Aventura, Suspense, 107 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//uOnutpXJdDWyWzUCkApkahPSKuy.jpg" alt="Doctor Strange en el multiverso de la locura">
+    <h3>Doctor Strange en el multiverso de la locura</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//uOnutpXJdDWyWzUCkApkahPSKuy.jpg" alt="Doctor Strange en el multiverso de la locura">
+        <h2>Doctor Strange en el multiverso de la locura</h2>
+        <p>Viaja a lo desconocido con el Doctor Strange, quien, con la ayuda de tanto antiguos como nuevos aliados místicos, recorre las complejas y peligrosas realidades alternativas del multiverso para enfrentarse a un nuevo y misterioso adversario.</p>
+        <a href="https://www.youtube.com/embed/LZbQJVO1Dk8" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/doctor%20strange.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Fantasía, Acción, Aventura, 126 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//dAImnw2GJNDAEVeGij9HVQNJD2c.jpg" alt="El último viaje del Demeter">
+    <h3>El último viaje del Demeter</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//dAImnw2GJNDAEVeGij9HVQNJD2c.jpg" alt="El último viaje del Demeter">
+        <h2>El último viaje del Demeter</h2>
+        <p>Basado en un solo capítulo, el Captain's Log, de la clásica novela Drácula de 1897 de Bram Stoker, la historia se desarrolla a bordo de la goleta rusa Demeter, que fue fletada para transportar carga privada (veinticuatro cajas de madera sin marcar) desde Carpatia a Londres. La película detallará los extraños eventos que acontecieron a la tripulación condenada mientras intentan sobrevivir al viaje por el océano, acechados cada noche por una aterradora presencia a bordo del barco. Cuando finalmente llegó cerca del puerto de Whitby, estaba totalmente en ruinas. No había rastro de la tripulación.</p>
+        <a href="https://www.youtube.com/embed/Xq3x3Ntc74w" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/The%20Last%20Voyage%20of%20the%20Demeter%204k/Dr%c3%a1cula%20Mar%20de%20sangre%20%282023%29%204k%20WEB-DL%20HDR%20Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Suspense, Terror, 119 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//vOGikJku5HDxcdHvnH4SqqWibO0.jpg" alt="El código Da Vinci">
+    <h3>El código Da Vinci</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//vOGikJku5HDxcdHvnH4SqqWibO0.jpg" alt="El código Da Vinci">
+        <h2>El código Da Vinci</h2>
+        <p>El catedrático y afamado simbologista Robert Langdon se ve obligado a acudir una noche al Museo del Louvre, cuando el asesinato de un restaurador deja tras de sí un misterioso rastro de símbolos y pistas. Con la ayuda de la criptógrafa de la policía Sophie Neveu y poniendo en juego su propia vida, Langdon descubre que la obra de Leonardo Da Vinci esconde una serie de misterios que apuntan a una sociedad secreta encargada de custodiar un antiguo secreto que ha permanecido oculto durante dos mil años...</p>
+        <a href="https://www.youtube.com/embed/xpBaUqYbEB8" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/the%20da%20vinci%20code.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Suspense, Misterio, 149 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//d79DeKDCgFOM23O8Dr6MELZVooY.jpg" alt="Elemental">
+    <h3>Elemental</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//d79DeKDCgFOM23O8Dr6MELZVooY.jpg" alt="Elemental">
+        <h2>Elemental</h2>
+        <p>En una ciudad donde los residentes del fuego, el agua, la tierra y el aire viven juntos, una joven apasionada y un chico que se deja llevar por la corriente descubrirán algo elemental: cuánto tienen en común.</p>
+        <a href="https://www.youtube.com/embed/dJgSXsnrHrw" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Elemental%204k/Elementos.2023.4k.WEB-DL.HDR.Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Animación, Comedia, Familia, Fantasía, Romance, 93 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//4n7HJ322ARRWytwxLKEZi0mIrYE.jpg" alt="El exorcista del papa">
+    <h3>El exorcista del papa</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//4n7HJ322ARRWytwxLKEZi0mIrYE.jpg" alt="El exorcista del papa">
+        <h2>El exorcista del papa</h2>
+        <p>Película sobre Gabriele Amorth, un sacerdote que ejerció como exorcista principal del Vaticano, realizando más de cien mil exorcismos a lo largo de su vida. Amorth escribió dos libros de memorias donde detalló sus experiencias luchando contra Satanás.</p>
+        <a href="https://www.youtube.com/embed/a-Cx7IE04sA" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/El%20exorcista%20del%20Papa%204k/El%20exorcista%20del%20papa%20%282023%29%20Web-Dl%204K%20DV%20HDR.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Suspense, 103 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//k3Jh7J5GGMx1lmr7qmynRxOvOK5.jpg" alt="El renacido">
+    <h3>El renacido</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//k3Jh7J5GGMx1lmr7qmynRxOvOK5.jpg" alt="El renacido">
+        <h2>El renacido</h2>
+        <p>Durante una expedición en las tierras salvajes americanas, el legendario explorador Hugh Glass es brutalmente atacado por un oso y dado por muerto por los miembros de su propia partida de caza. En su cruzada por sobrevivir, Glass supera inimaginables tribulaciones, además de la traición de su confidente John Fitzgerald. Guiado por la pura determinación y el amor de su familia, Glass deberá superar un duro invierno mientras busca sin descanso un motivo para seguir adelante y encontrar la redención.</p>
+        <a href="https://www.youtube.com/embed/a8HRA49kaok" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/the%20revenant.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Western, Drama, Aventura, 156 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//zEdwDsEwny5rAZ8WEPA97XBqtru.jpg" alt="Elysium">
+    <h3>Elysium</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//zEdwDsEwny5rAZ8WEPA97XBqtru.jpg" alt="Elysium">
+        <h2>Elysium</h2>
+        <p>En el año 2159 existen dos clases de personas, los ricos que viven en una estación espacial llamada Elysium, y el resto, que viven en un superpoblada y en ruinas Tierra. La secretaria Rhodes, una dura gobernante oficial, no parará ante nada para reforzar la ley anti-migración y preservar así el lujoso estilo de vida de los ciudadanos de Elysium. Pero eso no detendrá a las personas de la Tierra de intentar entrar, por cualquier medio posible. Max acepta una misión casi utópica, pero que, si tuviera éxito, significaría la conquista de la igualdad entre las personas de esos dos mundos tan opuestos.</p>
+        <a href="https://www.youtube.com/embed/1XbXKEEonbE" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/elysium.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Acción, Drama, Suspense, 109 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//fPJWlhXA2VXf4MlQ3JenVsz1iba.jpg" alt="El escuadrón suicida">
+    <h3>El escuadrón suicida</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//fPJWlhXA2VXf4MlQ3JenVsz1iba.jpg" alt="El escuadrón suicida">
+        <h2>El escuadrón suicida</h2>
+        <p>Un grupo de super villanos se encuentran encerrados en Belle Reve, una prisión de alta seguridad con la tasa de mortalidad más alta de Estados Unidos. Para salir de allí harán cualquier cosa, incluso unirse al grupo Task Force X, dedicado a llevar a cabo misiones suicidas bajo las órdenes de Amanda Waller. Fuertemente armados son enviados a la isla Corto Maltese, una jungla repleta de enemigos.</p>
+        <a href="https://www.youtube.com/embed/qv8eF1u0-QU" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/suicide%20squad.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Comedia, Aventura, 132 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//fYtIWhTDgPTcutD24f53Dcc7BAE.jpg" alt="Spectral">
+    <h3>Spectral</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//fYtIWhTDgPTcutD24f53Dcc7BAE.jpg" alt="Spectral">
+        <h2>Spectral</h2>
+        <p>Esta historia de ciencia ficción / thriller se centra en un equipo de operaciones especiales enviado para luchar contra unos seres sobrenaturales.</p>
+        <a href="https://www.youtube.com/embed/-VDv8SnaSOA" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/spectral.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Suspense, Acción, 107 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//Ag51YF1ZTNTefjhVMVGBCFv8h5s.jpg" alt="Múltiple">
+    <h3>Múltiple</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//Ag51YF1ZTNTefjhVMVGBCFv8h5s.jpg" alt="Múltiple">
+        <h2>Múltiple</h2>
+        <p>A pesar de que Kevin le ha demostrado a su psiquiatra de confianza, la Dra. Fletcher, que posee 23 personalidades diferentes, aún queda una por emerger, decidida a dominar a todas las demás. Obligado a raptar a tres chicas adolescentes encabezadas por la decidida y observadora Casey, Kevin lucha por sobrevivir contra todas sus personalidades y la gente que le rodea, a medida que las paredes de sus compartimentos mentales se derrumban.</p>
+        <a href="https://www.youtube.com/embed/GTnNVq99qdE" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/split.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Suspense, 117 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//zSw2JeQ03GivcS4VKJmWK5sYi1F.jpg" alt="Ghosting">
+    <h3>Ghosting</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//zSw2JeQ03GivcS4VKJmWK5sYi1F.jpg" alt="Ghosting">
+        <h2>Ghosting</h2>
+        <p>Cole, un tipo campechano, se enamora perdidamente de la enigmática Sadie, quien, para su enorme sorpresa, resulta ser una agente secreta. Antes de que pueda surgir una segunda cita, los dos deben embarcarse en una aventura internacional para salvar el mundo.</p>
+        <a href="https://www.youtube.com/embed/ve96Bzj7cnY" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Ghosted%20Ghosting%204k/Ghosteado%20%282023%29%20Web-Dl%204K%20UHD%20HDR.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Comedia, Romance, 117 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//rzEmtM8qrvRKNdJUUiizdNHTccV.jpg" alt="Guardianes de la galaxia">
+    <h3>Guardianes de la galaxia</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//rzEmtM8qrvRKNdJUUiizdNHTccV.jpg" alt="Guardianes de la galaxia">
+        <h2>Guardianes de la galaxia</h2>
+        <p>El temerario aventurero Peter Quill es objeto de un implacable cazarrecompensas después de robar una misteriosa esfera codiciada por Ronan, un poderoso villano cuya ambición amenaza todo el universo. Para poder escapar del incansable Ronan, Quill se ve obligado a pactar una complicada tregua con un cuarteto de disparatados inadaptados: Rocket, un mapache armado con un rifle, Groot, un humanoide con forma de árbol, la letal y enigmática Gamora y el vengativo Drax the Destroyer. Pero cuando Quill descubre el verdadero poder de la esfera, deberá hacer todo lo posible para derrotar a sus extravagantes rivales en un intento desesperado de salvar el destino de la galaxia.</p>
+        <a href="https://www.youtube.com/embed/F60FZKt_36s" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/guardians%20of%20the%20galaxy.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Ciencia ficción, Aventura, 121 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//kdg6Y06jfq9FV7qknWNcKLYtBJn.jpg" alt="Guardianes de la galaxia Vol. 2">
+    <h3>Guardianes de la galaxia Vol. 2</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//kdg6Y06jfq9FV7qknWNcKLYtBJn.jpg" alt="Guardianes de la galaxia Vol. 2">
+        <h2>Guardianes de la galaxia Vol. 2</h2>
+        <p>Continúan las aventuras del equipo en su travesía por los confines del cosmos. Los Guardianes deberán luchar para mantener unida a su nueva familia mientras intentan resolver el misterio de los verdaderos orígenes de Peter Quill. Viejos rivales se convertirán en nuevos aliados, y queridos personajes de los cómics clásicos acudirán en ayuda de nuestros héroes a medida que el universo cinematográfico de Marvel continúa expandiéndose.</p>
+        <a href="https://www.youtube.com/embed/ISS-a7b0iHw" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/guardians%20of%20the%20galaxy%20vol%202.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Aventura, Acción, 136 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//6GkKzdNosVAL7UGgwTtCHSxLQ67.jpg" alt="Guardianes de la Galaxia: Volumen 3">
+    <h3>Guardianes de la Galaxia: Volumen 3</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//6GkKzdNosVAL7UGgwTtCHSxLQ67.jpg" alt="Guardianes de la Galaxia: Volumen 3">
+        <h2>Guardianes de la Galaxia: Volumen 3</h2>
+        <p>La querida banda de los Guardianes se instala en Knowhere. Pero sus vidas no tardan en verse alteradas por los ecos del turbulento pasado de Rocket. Peter Quill, aún conmocionado por la pérdida de Gamora, debe reunir a su equipo en una peligrosa misión para salvar la vida de Rocket, una misión que, si no se completa con éxito, podría muy posiblemente conducir al final de los Guardianes tal y como los conocemos.</p>
+        <a href="https://www.youtube.com/embed/FTGm7EexNmw" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Guardians%20of%20the%20Galaxy%20Vol.%203%20%282023%29%204K/Guardianes%20de%20la%20galaxia%20Vol.%203%20%282023%29%20IMAX%20Web-Dl%204K%20DV%20HDR.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Aventura, Acción, 150 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//m3jj8IJ7uP5p4MqMzgtGW5l4ECd.jpg" alt="Hasta el último hombre">
+    <h3>Hasta el último hombre</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//m3jj8IJ7uP5p4MqMzgtGW5l4ECd.jpg" alt="Hasta el último hombre">
+        <h2>Hasta el último hombre</h2>
+        <p>Narra la historia de Desmond Doss, un joven médico militar que participó en la sangrienta batalla de Okinawa, en el Pacífico durante la II Guerra Mundial, y se convirtió en el primer objetor de conciencia en la historia estadounidense en recibir la Medalla de Honor del Congreso. Doss quería servir a su país, pero desde pequeño se había hecho una promesa a sí mismo: no coger jamás ningún arma.</p>
+        <a href="https://www.youtube.com/embed/bSpqX6x97N0" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/hacksaw%20ridge.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Historia, Bélica, 139 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//3Sj5ubQ0BLXd6JuECq52Ira8Oor.jpg" alt="Indiana Jones y el dial del destino">
+    <h3>Indiana Jones y el dial del destino</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//3Sj5ubQ0BLXd6JuECq52Ira8Oor.jpg" alt="Indiana Jones y el dial del destino">
+        <h2>Indiana Jones y el dial del destino</h2>
+        <p>El arqueólogo Indiana Jones deberá emprender otra aventura contra el tiempo para intentar recuperar un dial legendario que puede cambiar el curso de la historia. Acompañado por su ahijada, Jones pronto se encuentra enfrentándose a Jürgen Voller, un ex nazi que trabaja para la NASA.</p>
+        <a href="https://www.youtube.com/embed/EVjvIL2joxQ" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Indiana%20Jones%20and%20the%20Dial%20of%20Destiny%204k/Indiana%20Jones%20y%20el%20dial%20del%20destino%20%282023%29%204k%20WEB-DL%20HDR%20Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Acción, 142 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//lCGqpwsgjegq26fMiR54ugJtIc6.jpg" alt="Inferno">
+    <h3>Inferno</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//lCGqpwsgjegq26fMiR54ugJtIc6.jpg" alt="Inferno">
+        <h2>Inferno</h2>
+        <p>Robert Langdon se despierta en una habitación de hospital en Florencia, Italia, sin memoria de lo que ha ocurrido en los últimos días. De repente se encuentra a sí mismo, una vez más, el blanco de una cacería humana importante. Pero con la ayuda de la Dra Sienna Brooks, y su conocimiento de la simbología, Langdon va a tratar de recuperar su libertad, y la pérdida de los recuerdos, todo al mismo tiempo que resuelve los más intrincados enigmas que ha enfrentado.</p>
+        <a href="https://www.youtube.com/embed/-_9ML-xA1Co" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/inferno.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Misterio, Suspense, Acción, 121 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//hn2C89W1APrPPoZ1XQv69jJb1RP.jpg" alt="Boyka: Invicto IV">
+    <h3>Boyka: Invicto IV</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//hn2C89W1APrPPoZ1XQv69jJb1RP.jpg" alt="Boyka: Invicto IV">
+        <h2>Boyka: Invicto IV</h2>
+        <p>Boyka es un luchador de boxeo que se encuentra en mitad de una importante liga. Durante la competición se produce una muerte lo que hace que empiece a replantearse verdaderamente lo que merece la pena este deporte. Cuando descubre que la mujer del fallecido se encuentra en serios problemas, decide luchar una serie de batallas para poder liberarla de la servidumbre.</p>
+        <a href="https://www.youtube.com/embed/NQLg9sklAzM" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/boyka%20undisputed%20iv.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Drama, 87 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//gh2bmprLtUQ8oXCSluzfqaicyrm.jpg" alt="John Wick 4">
+    <h3>John Wick 4</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//gh2bmprLtUQ8oXCSluzfqaicyrm.jpg" alt="John Wick 4">
+        <h2>John Wick 4</h2>
+        <p>John Wick descubre un camino para derrotar a la Alta Mesa. Pero para poder ganar su libertad, Wick deberá enfrentarse a un nuevo rival con poderosas alianzas en todo el mundo, capaz de convertir a viejos amigos en enemigos.</p>
+        <a href="https://www.youtube.com/embed/L0anWmmd8TI" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/John.Wick.Chapter.4.2023%204k/John%20Wick%204-%20Baba%20Yaga%20%282023%29%201080p%20WEB-DL%20Latino.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Suspense, Crimen, 170 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//HPEXPFY5B2TWyC1mKoUtz4fNsB.jpg" alt="Jungle Cruise">
+    <h3>Jungle Cruise</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//HPEXPFY5B2TWyC1mKoUtz4fNsB.jpg" alt="Jungle Cruise">
+        <h2>Jungle Cruise</h2>
+        <p>Principios del siglo XX. Frank es el carismático capitán de una peculiar embarcación que recorre la selva amazónica. Allí, a pesar de los peligros que el río Amazonas les tiene preparados, Frank llevará en su barco a la científica Lily Houghton y a su hermano McGregor Houghton. Su misión será encontrar un árbol místico que podría tener poderes curativos. Claro que su objetivo no será fácil, y en su aventura se encontrarán con toda clase de dificultades, además de una expedición alemana que busca también este árbol con propiedades curativas. Esta comedia de acción y aventuras está basada en la atracción Jungle Cruise de los parques de ocio de Disney.</p>
+        <a href="https://www.youtube.com/embed/mamwmMsJ_lw" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Jungle%20Cruise%20%282021%29%204K%20WEB-DL%20HDR%20Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Fantasía, 127 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//sKn0fSOmcVWo1PNIT5XWkP9lonv.jpg" alt="Jurassic World: Dominion">
+    <h3>Jurassic World: Dominion</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//sKn0fSOmcVWo1PNIT5XWkP9lonv.jpg" alt="Jurassic World: Dominion">
+        <h2>Jurassic World: Dominion</h2>
+        <p>Cuatro años después de la destrucción de Isla Nublar, los dinosaurios conviven – y cazan – con los seres humanos en todo el mundo. Este frágil equilibrio cambiará el futuro y decidirá, de una vez por todas, si los seres humanos seguirán en la cúspide de los depredadores en un planeta que comparten con los animales más temibles de la creación.</p>
+        <a href="https://www.youtube.com/embed/RJ4b1ZQxPmE" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/jurassic%20world.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Acción, Ciencia ficción, 147 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//tzp6VzED2TBc02bkYoYnQa6r2OK.jpg" alt="La guerra del mañana">
+    <h3>La guerra del mañana</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//tzp6VzED2TBc02bkYoYnQa6r2OK.jpg" alt="La guerra del mañana">
+        <h2>La guerra del mañana</h2>
+        <p>Un día el mundo se paraliza cuando un grupo de viajeros en el tiempo se transporta desde el año 2051 para entregar un mensaje urgente: La humanidad está perdiendo la guerra mundial contra una especie alienígena letal. La única esperanza de supervivencia es que los soldados y los ciudadanos del presente sean transportados al futuro y se unan a la lucha. Entre los reclutados está el profesor de instituto y padre de familia Dan Forester (Chris Pratt) quien, decidido a salvar el mundo por su hija, se une a una brillante científica (Yvonne Strahovski) y a su padre (J.K. Simmons) en una búsqueda desesperada por reescribir el destino del planeta.</p>
+        <a href="https://www.youtube.com/embed/-SKUaEjmUWc" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/The.Tomorrow.War.2021.4k.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Ciencia ficción, Aventura, 138 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//56utveUWJwmG12YU7c2zKw6pbRZ.jpg" alt="Shutter Island">
+    <h3>Shutter Island</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//56utveUWJwmG12YU7c2zKw6pbRZ.jpg" alt="Shutter Island">
+        <h2>Shutter Island</h2>
+        <p>Verano de 1954. Los agentes judiciales Teddy Daniels y Chuck Aule son destinados a una remota isla del puerto de Boston para investigar la desaparición de una peligrosa asesina recluida en el hospital psiquiátrico Ashecliffe, un centro penitenciario para criminales perturbados dirigido por el siniestro doctor John Cawley. Pronto descubrirán que el centro guarda muchos secretos, y que la isla esconde algo más peligroso que los pacientes.</p>
+        <a href="https://www.youtube.com/embed/vmvDCDC9Ylc" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/shutter%20island.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Suspense, Misterio, 138 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//zzsryqYKz60Hn73AiZqbJGgAbMk.jpg" alt="La leyenda de Tarzán">
+    <h3>La leyenda de Tarzán</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//zzsryqYKz60Hn73AiZqbJGgAbMk.jpg" alt="La leyenda de Tarzán">
+        <h2>La leyenda de Tarzán</h2>
+        <p>Ya hace años que Tarzán (Alexander Skarsgård) abandonó la jungla africana para llevar una vida aburguesada como John Clayton III, Lord Greystoke, junto a su esposa Jane (Margot Robbie). Pero un día le ofrecen el cargo de embajador en el Congo. En realidad, todo forma parte de un plan ideado por un capitán belga (Christoph Waltz), aunque los responsables de llevarlo a cabo no están preparados para ello.</p>
+        <a href="https://www.youtube.com/embed/05PIESjxvxg" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/the%20legend%20of%20tarzan.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Fantasía, Acción, Aventura, 109 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//wD4eLIHUaTvrXQqAzlfduHQ1NYg.jpg" alt="Insidious: La puerta roja">
+    <h3>Insidious: La puerta roja</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//wD4eLIHUaTvrXQqAzlfduHQ1NYg.jpg" alt="Insidious: La puerta roja">
+        <h2>Insidious: La puerta roja</h2>
+        <p>Para enterrar sus demonios de una vez por todas, Josh Lambert y un ya universitario Dalton Lambert, deberán profundizar en El Mas Allá (The Further) más que nunca, enfrentándose al oscuro pasado familiar y a un huésped de nuevos horrores terroríficos que acechan tras la puerta roja.</p>
+        <a href="https://www.youtube.com/embed/uNZu5dNck9Y" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Insidious%20The%20Red%20Door%204k/La%20noche%20del%20demonio%20La%20puerta%20roja%20%282023%29%204k%20WEB-DL%20HDR%20Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Misterio, Suspense, 107 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//mdszPVnIY7cWgbgJ8zbwu1PiU5V.jpg" alt="La sirenita">
+    <h3>La sirenita</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//mdszPVnIY7cWgbgJ8zbwu1PiU5V.jpg" alt="La sirenita">
+        <h2>La sirenita</h2>
+        <p>Ariel es una joven y soñadora sirena, hija del Rey Tritón, que está cansada de su vida como princesa bajo el mar. Su mayor deseo es abandonar el fondo marino y tener una vida normal y apacible en la superficie. La bruja Úrsula descubre su anhelo y, por eso, a cambio de su preciosa voz le ofrece un cuerpo totalmente humano. Ariel acepta, movida por su pasión por conocer el mundo terrestre y porque está enamorada de un apuesto príncipe humano. Pero las cosas no serán fáciles para Ariel, ya que la bruja Úrsula esconde oscuras intenciones.</p>
+        <a href="https://www.youtube.com/embed/RdxqdIc7xlQ" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/The%20Little%20Mermaid%20%204k/La%20sirenita%20%282023%29%201080p%20WEB-DL%20Latino.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Familia, Fantasía, Romance, 135 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//7CWblj8zFnNxjBnRufRO4lQyAEm.jpg" alt="La vida de Pi">
+    <h3>La vida de Pi</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//7CWblj8zFnNxjBnRufRO4lQyAEm.jpg" alt="La vida de Pi">
+        <h2>La vida de Pi</h2>
+        <p>Pi Patel es un muchacho cuyo padre es el dueño del zoológico de la ciudad de la India en la que viven. Su familia decide marcharse a Canadá, pero una tormenta hace naufragar el barco en el que viajan. Pi consigue salvarse gracias a una barcaza en la que también hay otro "pasajero", un tigre de Bengala al que el joven intentará domar para poder sobrevivir.</p>
+        <a href="https://www.youtube.com/embed/qcSs_K_G10o" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/life%20of%20pi.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Drama, 126 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//iN3fPrPLozgPDrHO1IILh1Cx0C3.jpg" alt="Ahora me ves">
+    <h3>Ahora me ves</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//iN3fPrPLozgPDrHO1IILh1Cx0C3.jpg" alt="Ahora me ves">
+        <h2>Ahora me ves</h2>
+        <p>Un equipo del FBI debe enfrentarse a una banda de criminales expertos en magia. Ellos son 'los cuatro jinetes', un grupo formado por los mejores ilusionistas del mundo, dedicado a realizar grandes robos contra hombres de negocios corruptos. Su gran golpe es pasar desapercibidos para hacer llover el dinero robado a su público. En un mundo de magia y espectáculo, nada es lo que parece.</p>
+        <a href="https://www.youtube.com/embed/K1lguoJMFBI" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/now%20you%20see%20me.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Suspense, Crimen, 115 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//pjGt13AXXTLxvkmdF6SpA1feFOw.jpg" alt="Ahora me ves 2">
+    <h3>Ahora me ves 2</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//pjGt13AXXTLxvkmdF6SpA1feFOw.jpg" alt="Ahora me ves 2">
+        <h2>Ahora me ves 2</h2>
+        <p>Un año después de despistar al FBI y conseguir la admiración del público con sus espectáculos mentales, los cuatro jinetes vuelven a la luz pública, pero un nuevo enemigo se propone arruinar su golpe más espectacular y peligroso hasta la fecha... Secuela de "Ahora me ves" del 2013.</p>
+        <a href="https://www.youtube.com/embed/KOzG9YQoE0c" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/now%20you%20see%20me%202.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Crimen, Suspense, Acción, Misterio, 129 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//mnVZLdo9C4X80sJmgcGNpMNCbgk.jpg" alt="Mad Max: Furia en la carretera">
+    <h3>Mad Max: Furia en la carretera</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//mnVZLdo9C4X80sJmgcGNpMNCbgk.jpg" alt="Mad Max: Furia en la carretera">
+        <h2>Mad Max: Furia en la carretera</h2>
+        <p>Perseguido por su turbulento pasado, Mad Max cree que la mejor forma de sobrevivir es ir solo por el mundo. Sin embargo, se ve arrastrado a formar parte de un grupo que huye a través del desierto en un War Rig conducido por una Emperatriz de élite: Furiosa. Escapan de una Ciudadela tiranizada por Immortan Joe, a quien han arrebatado algo irreemplazable. Enfurecido, el Señor de la Guerra moviliza a todas sus bandas y persigue implacablemente a los rebeldes en una 'guerra de la carretera' de altas revoluciones.</p>
+        <a href="https://www.youtube.com/embed/UyqFAle_4aE" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/mad%20max%20fury%20road.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Ciencia ficción, 120 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//AfFD10ZqEx2vkxM2yvRZkybsGB7.jpg" alt="Matrix">
+    <h3>Matrix</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//AfFD10ZqEx2vkxM2yvRZkybsGB7.jpg" alt="Matrix">
+        <h2>Matrix</h2>
+        <p>The film is composed of receding planes in a landscape: a back garden and the houses beyond. The wooden lattice fence, visible in the image, marks the border between enclosed and open, private and public space, and forms both a fulcrum for the work and a formal grid by which the shots are framed and organised.</p>
+        <a href="https://www.youtube.com/embed/vN_Hx_It3r0" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/matrix.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>7 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//ayZkaN2f3ASjWW8ooCfuJT3T8Va.jpg" alt="Matrix Reloaded">
+    <h3>Matrix Reloaded</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//ayZkaN2f3ASjWW8ooCfuJT3T8Va.jpg" alt="Matrix Reloaded">
+        <h2>Matrix Reloaded</h2>
+        <p>Las máquinas avanzan imparables hacia Zion en su afán por destruir a toda la humanidad y todas las naves se preparan para la dura batalla. Neo junto con Morfeo y Trinity buscan el camino del elegido dentro de Matrix para vencer a las máquinas y se encuentran con dificultades inesperadas: el agente Smith ha vuelto y no sólo eso, otros programas dentro de Matrix intentarán acabar con su misión. Mientras tanto Neo se tendrá que adaptar a la vida real y a la fama de ser el elegido.</p>
+        <a href="https://www.youtube.com/embed/dvauYuYX4Jc" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/the%20matrix%20reloaded.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Acción, Suspense, Ciencia ficción, 138 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//zi1UMF9jIM2JnQz0u2AyUw8QFZi.jpg" alt="Matrix Revolutions">
+    <h3>Matrix Revolutions</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//zi1UMF9jIM2JnQz0u2AyUw8QFZi.jpg" alt="Matrix Revolutions">
+        <h2>Matrix Revolutions</h2>
+        <p>Quedan veinte horas para la irrupción de las máquinas en Sión, el último bastión de los humanos libres. Mientras el cuerpo de Neo permanece en coma, su consciencia se encuentra en tierra de nadie, en un lugar entre el mundo humano y el de las máquinas.</p>
+        <a href="https://www.youtube.com/embed/pc1IhO2szrc" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/the%20matrix%20revolutions.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Acción, Suspense, Ciencia ficción, 130 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//dLIwpCTf4QoW01pp85KP9jcfTpu.jpg" alt="Matrix Resurrections">
+    <h3>Matrix Resurrections</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//dLIwpCTf4QoW01pp85KP9jcfTpu.jpg" alt="Matrix Resurrections">
+        <h2>Matrix Resurrections</h2>
+        <p>En un mundo compuesto por dos realidades, lo cotidiano y lo oculto tras ella, Thomas Anderson se ve obligado de nuevo a ir tras el conejo blanco. Dicha elección continúa siendo la vía de acceso a Matrix, que esta vez es más poderosa e intrincada que en ocasiones anteriores.</p>
+        <a href="https://www.youtube.com/embed/JT6pn9KHMh4" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/The.Matrix.Resurrections.2021.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Acción, Aventura, 148 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//mBgynPDplmo5JTY9VfGqY35OjDu.jpg" alt="Megalodón 2: La fosa">
+    <h3>Megalodón 2: La fosa</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//mBgynPDplmo5JTY9VfGqY35OjDu.jpg" alt="Megalodón 2: La fosa">
+        <h2>Megalodón 2: La fosa</h2>
+        <p>Una exploración submarina en las profundidades del océano se convierte en una espiral de caos cuando una malévola operación minera amenaza la misión y obliga al equipo de investigación a librar una arriesgada batalla por la supervivencia. Secuela de 'The Meg' (2018).</p>
+        <a href="https://www.youtube.com/embed/C1FmYERF0pk" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Meg%202%204K/Megalod%c3%b3n%202%20El%20gran%20abismo%20%282023%29%201080p%20WEB-DL%20Latino.4K.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Ciencia ficción, Terror, 116 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//mv2DFhsaLeNgFzNe2G5CJhzbrkt.jpg" alt="Sin señal">
+    <h3>Sin señal</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//mv2DFhsaLeNgFzNe2G5CJhzbrkt.jpg" alt="Sin señal">
+        <h2>Sin señal</h2>
+        <p>Futuro cercano. Lera Arabova es una niña de 15 años que vive con su familia en Vladivostok. El padre de Lera ha estado trabajando en la estación espacial en órbita "Mira" durante muchos años y durante mucho tiempo perdió el contacto con su hija, convirtiéndose solo en una voz en el teléfono. Después de que una lluvia de meteoritos golpee la ciudad, Lera solo tiene una oportunidad de salvar a sus seres queridos y a la ciudad de un nuevo desastre. Su padre la ayuda en esto: a través de los sistemas de vigilancia satelital y el teléfono, aprovecha cada oportunidad para enviar un mensaje a su hija, observando desde arriba desde la estación cada paso.</p>
+        <a href="https://www.youtube.com/embed/oDn1y4M-crE" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/MIRA4K/MIRA2022%20SUB%20%281%29.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Aventura, Ciencia ficción, Familia, 110 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//ys0jZr0quHERDUEoCboGQEKPvgQ.jpg" alt="Vaiana">
+    <h3>Vaiana</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//ys0jZr0quHERDUEoCboGQEKPvgQ.jpg" alt="Vaiana">
+        <h2>Vaiana</h2>
+        <p>Versión de imagen real de la película de animación de 2016 'Vaiana'.</p>
+        <a href="https://www.youtube.com/embed/ZjlxiCDtNhg" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/moana.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Comedia, Familia, Fantasía</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//hJfHQlX5i9L5ywAHGbZw4OmI3mj.jpg" alt="La chaqueta metálica">
+    <h3>La chaqueta metálica</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//hJfHQlX5i9L5ywAHGbZw4OmI3mj.jpg" alt="La chaqueta metálica">
+        <h2>La chaqueta metálica</h2>
+        <p>Un grupo de reclutas se prepara en Parish Island, centro de entrenamiento de la marina Norteamericana. Allí está el sargento Hartmann, duro e implacable, cuya única misión en la vida es endurecer el cuerpo y el alma de los novatos, para que puedan defenderse del enemigo. Pero no todos los jóvenes soportan igual sus métodos...</p>
+        <a href="https://www.youtube.com/embed/7115nOKRFD8" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/full%20metal%20jacket.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Bélica, 120 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//cAYdzYUUOWeXpnFY6QsE1T2ls1m.jpg" alt="Náufrago">
+    <h3>Náufrago</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//cAYdzYUUOWeXpnFY6QsE1T2ls1m.jpg" alt="Náufrago">
+        <h2>Náufrago</h2>
+        <p>Chuck Noland, un ejecutivo de la empresa multinacional de mensajería FedEx, se ve apartado de su cómoda vida y de su prometida a causa de un accidente de avión por el que queda aislado de la civilización en una remota isla tropical. Único superviviente y solo en la isla, tras cuatro años de subsistencia Chuck aprende todas las técnicas de supervivencia mientras sufre la tortura de la soledad. La solución: arriesgar la vida adentrándose mar adentro.</p>
+        <a href="https://www.youtube.com/embed/OF7bO1RUOU8" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/cast%20away.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Drama, 143 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//mbVd0dXD21BxVGlmW4GyeGIR01l.jpg" alt="Need for Speed">
+    <h3>Need for Speed</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//mbVd0dXD21BxVGlmW4GyeGIR01l.jpg" alt="Need for Speed">
+        <h2>Need for Speed</h2>
+        <p>El más famoso de los videojuegos de carreras llega a la gran pantalla para dejar a los más fanáticos boquiabiertos. Need for Speed cuenta la historia de un experto en automovilismo (Aaron Paul), el cual tiene un garage en dónde transforma coches para hacerlos más rápidos de lo que son para poder competir en carreras ilegales. Entró en la cárcel por un delito que no había cometido, justo cuando su mejor amigo muere en una carrera, y ahora sale de allí para vengarse.</p>
+        <a href="https://www.youtube.com/embed/_Z-4LBVzuqY" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/need%20for%20speed.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Crimen, Drama, Suspense, 130 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//eO3r38fwnhb58M1YgcjQBd3VNcp.jpg" alt="Oblivion">
+    <h3>Oblivion</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//eO3r38fwnhb58M1YgcjQBd3VNcp.jpg" alt="Oblivion">
+        <h2>Oblivion</h2>
+        <p>Un veterano asignado a extraer los recursos restantes de la Tierra comienza a cuestionar lo que sabe sobre su misión y sobre sí mismo.</p>
+        <a href="https://www.youtube.com/embed/87hRZ7kOAPo" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/oblivion.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Ciencia ficción, Aventura, Misterio, 124 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//cxqVdZvya1mynzr3rbh6gPVS15V.jpg" alt="Pasajeros">
+    <h3>Pasajeros</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//cxqVdZvya1mynzr3rbh6gPVS15V.jpg" alt="Pasajeros">
+        <h2>Pasajeros</h2>
+        <p>A story about friendship and moral dilemmas. Young people yearn for a better future in developing country, while old people seek to restore the old times.</p>
+        
+        <a href="http://vod.tuxchannel.mx/peliculas4k/passengers.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, 120 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//A1ymtbzatZp94Z49ZOBb8JGXOBB.jpg" alt="Poltergeist">
+    <h3>Poltergeist</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//A1ymtbzatZp94Z49ZOBb8JGXOBB.jpg" alt="Poltergeist">
+        <h2>Poltergeist</h2>
+        <p>Cuenta la historia de una familia que, tras mudarse a una nueva casa, se ve azotada por los espíritus de los que la habitaron en el pasado. El foco del ataque sobrenatural se centra en la hija más pequeña del matrimonio. Remake del clásico de 1982.</p>
+        
+        <a href="http://vod.tuxchannel.mx/peliculas4k/poltergeist.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, 100 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//uwF8bBauJob5TISQ1cMHoVgIdWD.jpg" alt="Posesión infernal: El despertar">
+    <h3>Posesión infernal: El despertar</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//uwF8bBauJob5TISQ1cMHoVgIdWD.jpg" alt="Posesión infernal: El despertar">
+        <h2>Posesión infernal: El despertar</h2>
+        <p>Historia de dos hermanas separadas cuyo reencuentro se ve interrumpido por el surgimiento de demonios poseedores de carne, empujándolos a una batalla por la supervivencia mientras se enfrentan a la versión de familia más aterradora que se pueda imaginar. Secuela de la trilogía original de 'Evil Dead'.</p>
+        <a href="https://www.youtube.com/embed/xedWpltgifc" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Evil%20Dead%204K/Evil%20Dead%20El%20despertar%20%282023%29%20Web-Dl%204K%20DV%20HDR.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Suspense, 96 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//dgsnZW7zyChQfAzCtmLlPp5twpl.jpg" alt="Power Rangers">
+    <h3>Power Rangers</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//dgsnZW7zyChQfAzCtmLlPp5twpl.jpg" alt="Power Rangers">
+        <h2>Power Rangers</h2>
+        <p>La película sigue a cinco jóvenes predestinados a convertirse en algo extraordinario cuando descubren que tanto su modesto poblado, Angel Grove, como el resto del mundo, están al borde de la aniquilación por una amenaza alienígena. Nuestros héroes descubren rápidamente que son los únicos que pueden salvar al planeta, pero para lograrlo tendrán que superar problemas de la vida real y unirse bajo el nombre de Power Rangers antes de que sea demasiado tarde.</p>
+        <a href="https://www.youtube.com/embed/t1ir126OGks" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/power%20rangers.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Ciencia ficción, 124 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//qDRrP4NATGTWH8ORJV6T0BeoIhQ.jpg" alt="Fast & Furious X">
+    <h3>Fast & Furious X</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//qDRrP4NATGTWH8ORJV6T0BeoIhQ.jpg" alt="Fast & Furious X">
+        <h2>Fast & Furious X</h2>
+        <p>Dom Toretto y su familia se convierten en el objetivo del vengativo hijo del capo de las drogas Hernán Reyes.</p>
+        <a href="https://www.youtube.com/embed/KOQy0AwA7k8" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/the%20fast%20and%20the%20furious.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Crimen, Suspense, 142 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//lD8V3DBban95Mxz4sjuA81Tw771.jpg" alt="Fast & Furious X: Parte 2">
+    <h3>Fast & Furious X: Parte 2</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//lD8V3DBban95Mxz4sjuA81Tw771.jpg" alt="Fast & Furious X: Parte 2">
+        <h2>Fast & Furious X: Parte 2</h2>
+        <p>Decimoprimera entrega de la saga Fast & Furious.</p>
+        
+        <a href="http://vod.tuxchannel.mx/peliculas4k/2%20fast%202%20furious.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Crimen, Suspense</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//hO02IBZmvbn2RULu4myYVl2NUGj.jpg" alt="Fast & Furious 7">
+    <h3>Fast & Furious 7</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//hO02IBZmvbn2RULu4myYVl2NUGj.jpg" alt="Fast & Furious 7">
+        <h2>Fast & Furious 7</h2>
+        <p>De nuevo los problemas les persiguen. Sin conseguir librarse de la mancha de criminales de su ficha. Su pasado de larga trayectoria en las carreras ilegales les perseguirá y deberán hacer frente a las circunstancias de la única forma que saben. Cuando les pongan entre la espada y la pared idearán un plan para escapar del peligro en una trepidante carrera por salvar la vida y limpiar su reputación. Acción, persecuciones y un ritmo frenético en esta nueva entrega.</p>
+        <a href="https://www.youtube.com/embed/tX0MGnC41nk" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/fast%20and%20furious%207.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Suspense, Crimen, 137 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//65nizg9kZ3kWHvE4QLqUDbBLIXa.jpg" alt="Super rápidos y mega furiosos">
+    <h3>Super rápidos y mega furiosos</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//65nizg9kZ3kWHvE4QLqUDbBLIXa.jpg" alt="Super rápidos y mega furiosos">
+        <h2>Super rápidos y mega furiosos</h2>
+        <p>Parodia de la franquicia de películas Fast and Furious, dirigida por los creadores de películas como Scary Movie o Epic Movie. El policía encubierto, Paul White, se une a la banda de corredores de carreras ilegales capitaneada por Vin Serento. Su plan es darle una puñalada trapera al capo de la mafia Juan Carlos de la Sol que esconde todo su dinero en un Taco Bell del centro de la ciudad. El plan de la banda tan intrépido como ridículo, consiste en robar el restaurante entero e ir transportándolo a toda velocidad a través de la ciudad. Pero tal como dice Vin Serento, “no es el coche que tú conduces… Es el conductor que conduce el coche el que hace la conducción”.</p>
+        <a href="https://www.youtube.com/embed/3KuazYQ1JuE" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/the%20fate%20of%20the%20furious.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, Acción, 99 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//qDRrP4NATGTWH8ORJV6T0BeoIhQ.jpg" alt="Fast & Furious X">
+    <h3>Fast & Furious X</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//qDRrP4NATGTWH8ORJV6T0BeoIhQ.jpg" alt="Fast & Furious X">
+        <h2>Fast & Furious X</h2>
+        <p>Dom Toretto y su familia se convierten en el objetivo del vengativo hijo del capo de las drogas Hernán Reyes.</p>
+        <a href="https://www.youtube.com/embed/KOQy0AwA7k8" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Fast%20X%204K/R%c3%a1pidos%20y%20furiosos%20X%20(2023)%201080p%20WEB-DL%20Latino.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Crimen, Suspense, 142 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//nlAi9cw2uLZ9hHwhzCMOG6TZMHc.jpg" alt="Resident Evil">
+    <h3>Resident Evil</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//nlAi9cw2uLZ9hHwhzCMOG6TZMHc.jpg" alt="Resident Evil">
+        <h2>Resident Evil</h2>
+        <p>En un centro clandestino de investigación genética -con fines militares- de una poderosa multinacional se produce un brote vírico que contamina todo el edificio. Para contener la fuga el ordenador que controla el centro sella toda la instalación y, en un principio se cree que mueren todos los empleados, pero en realidad se han convertido en feroces zombis...</p>
+        <a href="https://www.youtube.com/embed/B8Htt3yx-fo" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/resident%20evil.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Acción, Ciencia ficción, 101 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//8tNrm8TgAeSgH35rPs2WJD26Hnf.jpg" alt="Resident Evil 2: Apocalipsis">
+    <h3>Resident Evil 2: Apocalipsis</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//8tNrm8TgAeSgH35rPs2WJD26Hnf.jpg" alt="Resident Evil 2: Apocalipsis">
+        <h2>Resident Evil 2: Apocalipsis</h2>
+        <p>Un virus mortal ha sido liberado sobre la población de Raccoon City. Alice (Milla Jovovich), una de las supervivientes del desastre bioquímico, se encuentra en el corazón de esta devastada ciudad. Sometida a experimentos que han alterado su genética, ahora posee fuerza, sentidos y destreza sobrehumana. Estas habilidades, y más, serán las que deba utilizar quien quiera sobrevivir en esta nueva aventura. Junto con otros supervivientes deberá escapar de la cada vez más peligrosa Raccoon City. Para alcanzar su meta necesitarán luchar contra las fuerzas de la Umbrella Corporation, las violentas criaturas de bioingeniería creadas en sus laboratorios, los zombies que plagan la ciudad y, finalmente, enfrentarse a la más colosal y mortal de estas creaciones: Nemesis.</p>
+        <a href="https://www.youtube.com/embed/SwSLx-Img2w" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/resident%20evil%20apocalypse.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Acción, Ciencia ficción, 94 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//lP0cconRQqe6O4c6L2mVADDvFyt.jpg" alt="Resident Evil 3: Extinción">
+    <h3>Resident Evil 3: Extinción</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//lP0cconRQqe6O4c6L2mVADDvFyt.jpg" alt="Resident Evil 3: Extinción">
+        <h2>Resident Evil 3: Extinción</h2>
+        <p>Tercera entrega de la saga basada en los famosos videojuegos. En esta ocasión, nuestra heroína, Milla Jovovich, junto con los supervivientes de la catástrofe acontecida en la ciudad de Raccoon deben atravesar el desierto de Nevada con la esperanza de llegar a Alaska, antes de que los de la Corporación Umbrella les alcancen.</p>
+        <a href="https://www.youtube.com/embed/KNim-rMiabI" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/resident%20evil%20extinction.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Acción, Ciencia ficción, 94 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//j7obkD5UQUydpBOBRpToLWIWkwq.jpg" alt="Resident Evil 4: Ultratumba">
+    <h3>Resident Evil 4: Ultratumba</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//j7obkD5UQUydpBOBRpToLWIWkwq.jpg" alt="Resident Evil 4: Ultratumba">
+        <h2>Resident Evil 4: Ultratumba</h2>
+        <p>En un mundo asolado por un virus infeccioso que convierte a sus víctimas en muertos vivientes, Alice continúa buscando supervivientes para ponerlos a salvo. Su batalla a muerte con la Corporación Umbrella llega a alturas insospechadas, pero Alice, inesperadamente, recibe ayuda de una vieja amiga. Nuevas pistas, con la promesa de un paraíso a salvo de muertos vivientes, los conduce hasta Los Ángeles, pero cuando llegan, la ciudad está infectada con miles de muertos vivientes. Alice y sus compañeros están a punto de caer en una trampa mortal.</p>
+        <a href="https://www.youtube.com/embed/Lhzu-BlANWY" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/resident%20evil%20afterlife.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Terror, Ciencia ficción, 97 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//yYZQXdfGNPMjBi18suxPuWii6MP.jpg" alt="Resident Evil: Venganza">
+    <h3>Resident Evil: Venganza</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//yYZQXdfGNPMjBi18suxPuWii6MP.jpg" alt="Resident Evil: Venganza">
+        <h2>Resident Evil: Venganza</h2>
+        <p>El virus de la corporación Umbrella sigue haciendo estragos en La Tierra convirtiendo a la población en legiones de muertos sedientos de sangre. La última esperanza de la humanidad, Alice, despierta en el centro de operaciones de la compañía donde comienza a conocer más detalles de su pasado. Alice seguirá persiguiendo a los responsables del virus llevándola por Tokio, Nueva York, Washington y Moscú donde le será revelado algo que la hará plantearse todo lo que la ha sucedido hasta ahora. Con la ayuda de sus nuevos aliados, Alice deberá sobrevivir el tiempo suficiente para escapar de un mundo hostil... La cuenta atrás ha comenzado.</p>
+        
+        <a href="http://vod.tuxchannel.mx/peliculas4k/resident%20evil%20retribution.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Terror, Ciencia ficción, 96 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//il1B9mM7Cn9ccavnilzUGKL1xzQ.jpg" alt="Resident Evil: Capítulo final">
+    <h3>Resident Evil: Capítulo final</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//il1B9mM7Cn9ccavnilzUGKL1xzQ.jpg" alt="Resident Evil: Capítulo final">
+        <h2>Resident Evil: Capítulo final</h2>
+        <p>La humanidad está agonizando tras la traición sufrida por Alice a manos de Wesker. Alice deberá regresar a donde la comenzó la pesadilla -Raccoon City-, ya que allí la Corporación Umbrella está reuniendo fuerzas antes de un último ataque a los últimos supervivientes del apocalipsis. En una carrera contra el tiempo, Alice tendrá que unir fuerzas con viejos amigos y con un inesperado aliado en una batalla contra hordas de zombis y nuevos monstruos mutantes. Será la aventura más difícil de Alice para salvar a la humanidad, que está al borde de la extinción.</p>
+        <a href="https://www.youtube.com/embed/ft8-IJ-vFr4" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/resident%20evil%20the%20final%20chapter.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Terror, Ciencia ficción, 107 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//uVslABtSGk5S9I9oZhlVUwbPv1L.jpg" alt="Soy leyenda">
+    <h3>Soy leyenda</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//uVslABtSGk5S9I9oZhlVUwbPv1L.jpg" alt="Soy leyenda">
+        <h2>Soy leyenda</h2>
+        <p>Primero estalló la guerra atómica, fueron fabricadas nuevas máquinas, aparecieron pájaros muertos. En 1999, comenzó una guerra bacteriológica, hubo tormentas de arena y plagas de langostas gigantes; el tejido humano fue transformado y surgió un nuevo ser, antes legendario, ahora real: el vampiro. Solo Robert Neville, el último hombre sobre la Tierra, permanece sin contaminar, viviendo en lucha constante con los nuevos pobladores del planeta.</p>
+        <a href="https://www.youtube.com/embed/TXQ7kRnFXS4" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/i%20am%20legend.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Terror, Ciencia ficción, 37 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//zNKs1T0VZuJiVuhuL5GSCNkGdxf.jpg" alt="Super Mario Bros: La película">
+    <h3>Super Mario Bros: La película</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//zNKs1T0VZuJiVuhuL5GSCNkGdxf.jpg" alt="Super Mario Bros: La película">
+        <h2>Super Mario Bros: La película</h2>
+        <p>Mientras trabajan en una avería subterránea, los fontaneros de Brooklyn, Mario y su hermano Luigi, viajan por una misteriosa tubería hasta un nuevo mundo mágico. Pero, cuando los hermanos se separan, Mario deberá emprender una épica misión para encontrar a Luigi.</p>
+        <a href="https://www.youtube.com/embed/8OtTfN6k7_Y" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Super%20Mario%20Bros.%20La%20pel%c3%adcula%204K/Super%20Mario%20Bros.%20La%20pel%c3%adcula%20%282023%29%20WebRip%201080p%20L%20%28%204K.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Animación, Familia, Aventura, Fantasía, Comedia, 92 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//x9Qc86JEyYkAKsdzjDpS5kbaAB7.jpg" alt="Flash">
+    <h3>Flash</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//x9Qc86JEyYkAKsdzjDpS5kbaAB7.jpg" alt="Flash">
+        <h2>Flash</h2>
+        <p>Flash, el héroe más rápido, viaja a una línea temporal en que la Tierra está en crisis y sus héroes perdidos o dispersados.</p>
+        <a href="https://www.youtube.com/embed/mUSFzSvsy8A" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/The%20Flash%204k/Flash%20%282023%29%20Web-Dl%204K%20DV%20HDR%20L.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Ciencia ficción, 144 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//qFAVW4XJaxhj7PcpiUI5hhO9bOX.jpg" alt="Thor">
+    <h3>Thor</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//qFAVW4XJaxhj7PcpiUI5hhO9bOX.jpg" alt="Thor">
+        <h2>Thor</h2>
+        <p>Thor es un arrogante y codicioso guerrero cuya imprudencia desata una antigua guerra. Por ese motivo, su padre Odín lo castiga desterrándolo a la Tierra para que viva entre los hombres y descubra así el verdadero sentido de la humildad. Cuando el villano más peligroso de su mundo envía a la Tierra a las fuerzas más oscuras de Asgard, Thor se dará cuenta de lo que realmente hace falta para ser un verdadero héroe.</p>
+        <a href="https://www.youtube.com/embed/gNOX4SEQ7aM" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/thor.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Fantasía, Acción, 115 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//gPAmH41VpK5UPaNhAiNJePzrL8z.jpg" alt="Thor: el mundo oscuro">
+    <h3>Thor: el mundo oscuro</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//gPAmH41VpK5UPaNhAiNJePzrL8z.jpg" alt="Thor: el mundo oscuro">
+        <h2>Thor: el mundo oscuro</h2>
+        <p>Thor lucha por restablecer el orden en el cosmos, pero una antigua raza liderada por el vengativo Malekith regresa con el propósito de volver a sumir el universo en la oscuridad. Se trata de un villano con el que ni siquiera Odín y Asgard se atreven a enfrentarse; por esa razón, Thor tendrá que emprender un viaje muy peligroso, durante el cual se reunirá con Jane Foster y la obligará a sacrificarlo todo para salvar el mundo.</p>
+        <a href="https://www.youtube.com/embed/Dos2w0C3LP0" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/thor%20the%20dark%20world.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Fantasía, 112 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//rBTJZrf5UWaxzg5YJd2eqpeaSvm.jpg" alt="Titanic">
+    <h3>Titanic</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//rBTJZrf5UWaxzg5YJd2eqpeaSvm.jpg" alt="Titanic">
+        <h2>Titanic</h2>
+        <p>Durante las labores de recuperación de los restos del famoso Titanic, una anciana norteamericana se pone en contacto con la expedición para acudir a una plataforma flotante instalada en el Mar del Norte y asistir 'in situ' a la recuperación de sus recuerdos. A través de su memoria reviviremos los acontecimientos que marcaron el siniestro más famoso del siglo XX: el hundimiento del trasatlántico más lujoso del mundo, la máquina más sofisticada de su tiempo, considerada «insumergible», que sucumbió a las heladas aguas del Atlántico en abril de 1912, llevándose consigo la vida de mil quinientas personas, más de la mitad del pasaje. En los recueros de la anciana hay cabida para algo más que la tragedia, la historia de amor que vivió con un joven pasajero de tercera clase, un pintor aficionado que había ganado su pasaje en una partida las cartas en una taberna de Southampton.</p>
+        <a href="https://www.youtube.com/embed/6FKmt1RcLug" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/titanic.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Romance, 195 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//qe1tFtmKtyiw8OjlCgs7cSqqF8s.jpg" alt="Transformers">
+    <h3>Transformers</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//qe1tFtmKtyiw8OjlCgs7cSqqF8s.jpg" alt="Transformers">
+        <h2>Transformers</h2>
+        <p>Dos razas de robots extraterrestres transformables (los villanos "decepticons" y los amistosos "autobots") llegan a la Tierra en busca de una misteriosa fuente de poder. En la guerra que estalla entre las dos razas, los hombres toman partido por los "autobots". Sam Witwicky (Shia LaBeouf), un avispado adolescente, que sólo desea conquistar a la bella Mikaela (Megan Fox), se convierte en la clave de una guerra que puede destruir a la humanidad.</p>
+        
+        <a href="http://vod.tuxchannel.mx/peliculas4k/transformers.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Ciencia ficción, Acción, 143 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//f4PFiwOHVcNUXRcOmxX2hUYdAx7.jpg" alt="Transformers: Rise of the Beasts 2">
+    <h3>Transformers: Rise of the Beasts 2</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//f4PFiwOHVcNUXRcOmxX2hUYdAx7.jpg" alt="Transformers: Rise of the Beasts 2">
+        <h2>Transformers: Rise of the Beasts 2</h2>
+        <p>The first of two planned sequels to the 2023 film Transformers: Rise of the Beasts.</p>
+        
+        <a href="http://vod.tuxchannel.mx/peliculas4k/transformers%20revenge%20of%20the%20fallen.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Ciencia ficción</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//zjDGpjRj9M9pLqVVZPpaFhG6BLx.jpg" alt="Transformers: Rise of the Beasts 3">
+    <h3>Transformers: Rise of the Beasts 3</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//zjDGpjRj9M9pLqVVZPpaFhG6BLx.jpg" alt="Transformers: Rise of the Beasts 3">
+        <h2>Transformers: Rise of the Beasts 3</h2>
+        <p>The second of two planned sequels to the 2023 film Transformers: Rise of the Beasts.</p>
+        
+        <a href="http://vod.tuxchannel.mx/peliculas4k/transformers%20dark%20of%20the%20moon.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Ciencia ficción</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//owqV5Qo2DMMomfB1fS6xYWv3yEh.jpg" alt="Transformers: La Era de la Extinción">
+    <h3>Transformers: La Era de la Extinción</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//owqV5Qo2DMMomfB1fS6xYWv3yEh.jpg" alt="Transformers: La Era de la Extinción">
+        <h2>Transformers: La Era de la Extinción</h2>
+        <p>Han pasado 4 años desde la tragedia de Chicago y la humanidad sigue reparando los destrozos, pero tanto los Autobots como los Decepticons han desaparecido de la faz de la Tierra. Ahora el Gobierno de los Estados Unidos está utilizando la tecnología rescatada en el asedio de Chicago para desarrollar sus propios Transformers. Al frente del proyecto está Joshua Joyce, un arrogante diseñador que piensa que los Autobots son "basura tecnológica" y se cree capaz de fabricar unos robots infinitamente más avanzados. Mientras tanto, Cade Yeager, un mécánico inventor, encuentra un Marmon semi-trailer. Al intentar repararlo, descubre que el camión no solo era un Transformer, sino también el mismísimo Optimus Prime, líder de los Autobots. Lo que Cade ignora son las consecuencias que pueden derivarse de este hallazgo.</p>
+        <a href="https://www.youtube.com/embed/dqE7zYn7Ts0" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/transformers%20age%20of%20extinction.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Acción, Aventura, 165 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//A8d76iKmHvNyjzbTGpTqtHelnyy.jpg" alt="Transformers: El último caballero">
+    <h3>Transformers: El último caballero</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//A8d76iKmHvNyjzbTGpTqtHelnyy.jpg" alt="Transformers: El último caballero">
+        <h2>Transformers: El último caballero</h2>
+        <p>Dos especies en guerra: una de carne y hueso, la otra de metal. El Último Caballero rompe con el mito original de la franquicia de Transformers y redefine lo que significa ser un héroe. Humanos y Transformers están en guerra y Optimus Prime se ha ido. La llave para salvar nuestro futuro está enterrada en los secretos del pasado, en la historia oculta de los Transformers en la Tierra. Salvar a nuestro mundo está en manos de una alianza única: Cade Yeager (Mark Wahlberg); Bumblebee; un Lord Inglés (Sir Anthony Hopkins); y una profesora de la Universidad de Oxford (Laura Haddock). Hay un momento en la vida de todo ser humano en la que recibimos el llamado para hacer la diferencia. En Transformers: El Último Caballero los perseguidos se convertirán en héroes; los héroes se convertirán en villanos y sólo un mundo sobrevivirá: el de ellos o el nuestro. Quinta película de Transformers dirigida por Michael Bay.</p>
+        <a href="https://www.youtube.com/embed/01qxEzjmjaA" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Transformers%20The%20Last%20Knight%20%282017%29%20BDRip%204K%20HDR%20Latino%20%e2%80%93%20CMHDD.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Ciencia ficción, 149 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//8HBYMQkF6cFpupgRDhsrrKskXOE.jpg" alt="Transformers: El despertar de las bestias">
+    <h3>Transformers: El despertar de las bestias</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//8HBYMQkF6cFpupgRDhsrrKskXOE.jpg" alt="Transformers: El despertar de las bestias">
+        <h2>Transformers: El despertar de las bestias</h2>
+        <p>Cuando surge una nueva amenaza capaz de destruir todo el planeta, Optimus Prime y los Autobots deben unirse a una poderosa facción conocida como los Maximals. Con el destino de la humanidad en juego, los humanos Noah y Elena harán lo que sea necesario para ayudar a los Transformers mientras se involucran en la batalla final para salvar la Tierra.</p>
+        <a href="https://www.youtube.com/embed/Db5SvKPJc-w" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Transformers%20Rise%20Of%20The%20Beasts%204k/Transformers%20El%20despertar%20de%20las%20bestias.2023.4k.WEB-DL.HDR.Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Ciencia ficción, 127 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//6uRb5axnwAd17h4ak4ENHcJqHVr.jpg" alt="Un lugar tranquilo 2">
+    <h3>Un lugar tranquilo 2</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//6uRb5axnwAd17h4ak4ENHcJqHVr.jpg" alt="Un lugar tranquilo 2">
+        <h2>Un lugar tranquilo 2</h2>
+        <p>Tras los fatales acontecimientos sucedidos en la primera parte, la familia Abbot debe enfrentarse a los peligros del mundo exterior mientras luchan en silencio por sobrevivir. Forzados a aventurarse en lo desconocido, pronto se dan cuenta de que las criaturas que cazan orientadas por el sonido no son la única amenaza que acecha más allá del camino de arena. Secuela de la exitosa producción "Un lugar tranquilo" (A Quiet Place, 2018).</p>
+        <a href="https://www.youtube.com/embed/TG1v7NGWV4w" class="popup-button red-button">Tráiler</a>
+        <a href="https://tvinnov.online/4KL/Un%20lugar%20en%20silencio-%20Parte%20II%20%282021%29%204K%20WEB-DL%20HDR%20Latino.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Suspense, Terror, 97 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//71wSx6MQm8EbMNDi3vVaD8nD9SL.jpg" alt="Vengadores: La Era de Ultrón">
+    <h3>Vengadores: La Era de Ultrón</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//71wSx6MQm8EbMNDi3vVaD8nD9SL.jpg" alt="Vengadores: La Era de Ultrón">
+        <h2>Vengadores: La Era de Ultrón</h2>
+        <p>Cuando Tony Stark intenta reactivar un programa caído en desuso cuyo objetivo es mantener la paz, las cosas empiezan a torcerse y los héroes más poderosos de la Tierra, incluyendo a Iron Man, Capitán América, Thor, El Increíble Hulk, Viuda Negra y Ojo de Halcón, tendrán que afrontar la prueba definitiva cuando el destino del planeta se ponga en juego. Cuando el villano Ultron emerge, le corresponderá a Los Vengadores detener sus terribles planes, que junto a incómodas alianzas llevarán a una inesperada acción que allanará el camino para una épica y única aventura.</p>
+        <a href="https://www.youtube.com/embed/JQWGle-bKmE" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/avengers%20age%20of%20ultron.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Ciencia ficción, 141 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//c7vYpsBMKZ3AwhBlc7wwGGMPlRA.jpg" alt="Regreso al futuro. Parte III">
+    <h3>Regreso al futuro. Parte III</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//c7vYpsBMKZ3AwhBlc7wwGGMPlRA.jpg" alt="Regreso al futuro. Parte III">
+        <h2>Regreso al futuro. Parte III</h2>
+        <p>Atrapado en 1955, Marty McFly se entera de la muerte de Doc Brown en 1885 y debe viajar en el tiempo para salvarlo. Sin combustible para el DeLorean, los dos deben averiguar cómo escapar del viejo Oeste antes de que Emmett sea asesinado.</p>
+        <a href="https://www.youtube.com/embed/WmBX7CA-AAc" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/back%20to%20the%20future.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Aventura, Comedia, Ciencia ficción, 119 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w300//r62koy47q5TpDfCVzH0opsk7ZXv.jpg" alt="Warcraft: El origen">
+    <h3>Warcraft: El origen</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w300//r62koy47q5TpDfCVzH0opsk7ZXv.jpg" alt="Warcraft: El origen">
+        <h2>Warcraft: El origen</h2>
+        <p>El pacífico reino de Azeroth está a punto de entrar en guerra para enfrentarse a unos terribles invasores: orcos guerreros que han dejado su destruido mundo para colonizar otro. Al abrirse un portal que conecta ambos mundos, un ejército se enfrenta a la destrucción, y el otro, a la extinción. Dos héroes, uno en cada bando, están a punto de chocar en un enfrentamiento que cambiará el destino de su familia, su pueblo y su hogar. Así empieza una espectacular saga de poder y sacrificio donde se descubren las numerosas caras de la guerra y donde cada uno lucha por lo suyo. Adaptación del popular videojuego homónimo.</p>
+        <a href="https://www.youtube.com/embed/fuGRN3dYHKg" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas4k/warcraft.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Fantasía, 123 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         
+
+       <!-- 
+                <div class="movie">
+            <img src="IMAGEN" alt="TITULO">
+            <h3>TITULO</h3>
+            <div class="popup">
+                <img src="IMAGEN" alt="TITULO">
+                <h2>TITULO</h2>
+                <p>SINOPSIS</p>
+                <a href="TRAILER" class="popup-button red-button">Tráiler</a>
+                <a href="LINK" class="popup-button green-button">Reproducir</a>
+            </div>
+         -->
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const movies = document.querySelectorAll('.movie');
+
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+
+        movies.forEach(movie => {
+            const title = movie.querySelector('h3').textContent.toLowerCase();
+            const popup = movie.querySelector('.popup');
+
+            if (title.includes(searchTerm)) {
+                movie.style.display = 'block';
+                popup.style.display = 'none';
+            } else {
+                movie.style.display = 'none';
+            }
+        });
+    });
+
+    movies.forEach(movie => {
+        const popup = movie.querySelector('.popup');
+        const movieImage = movie.querySelector('img');
+        const closeButton = popup.querySelector('.close-button');
+
+        movieImage.addEventListener('click', () => {
+            popup.style.display = 'block';
+        });
+
+        closeButton.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+    });
+
+
+
+
+
+
+
+
+ // Función para mostrar/ocultar el menú
+        function toggleMenu() {
+            const menuOptions = document.getElementById('menu-options');
+            if (menuOptions.style.display === 'block') {
+                menuOptions.style.display = 'none';
+            } else {
+                menuOptions.style.display = 'block';
+            }
+        }
+
+        // Función para manejar la paginación
+        function goToPage(pageNumber) {
+            // Aquí puedes implementar la lógica para cambiar de página
+            // Por ejemplo, mostrar películas de la página seleccionada.
+            // Puedes usar AJAX o manipular el DOM directamente según tu estructura.
+            // Esto dependerá de cómo se organice tu contenido.
+            console.log('Ir a la página ' + pageNumber);
+            // Aquí deberías agregar la lógica para cambiar de página.
+        }
+
+
+
+
+
+
+// Función para mostrar el cuadro de diálogo de contraseña
+function showPasswordPrompt() {
+  const storedTimestamp = localStorage.getItem('accessTimestamp');
+  const currentTime = new Date().getTime();
+  const expirationTimeMinutes = 5; // 5 minutos
+  
+  // Si el tiempo almacenado es válido y no ha expirado
+  if (storedTimestamp && (currentTime - parseInt(storedTimestamp)) < (expirationTimeMinutes * 60 * 1000)) {
+    document.getElementById('container').style.display = 'block';
+  } else {
+    const password = prompt('Ingrese la contraseña:');
+    if (password === '5') {
+      // Guarda el tiempo de acceso en milisegundos en el almacenamiento local
+      localStorage.setItem('accessTimestamp', currentTime.toString());
+      document.getElementById('container').style.display = 'block';
+    } else {
+      alert('Contraseña incorrecta. Acceso denegado.');
+      // Redirección a una página de error si lo deseas
+      // window.location.href = 'pagina-de-error.html';
+    }
+  }
+}
+
+// Llama a la función para mostrar el cuadro de diálogo de contraseña cuando la página se carga
+window.addEventListener('load', showPasswordPrompt);
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
