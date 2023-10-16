@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Películas</title>
+<link
+    href="https://vjs.zencdn.net/7.14.3/video-js.css"
+    rel="stylesheet"
+/>
+<script src="https://vjs.zencdn.net/7.14.3/video.js"></script>
+
     <style>
 * {
     background: black;
@@ -252,6 +258,41 @@ body {
     border-color: darkcyan;
 }
 
+
+#video-player {
+    position: sticky;
+    display: block;
+    z-index: 999;
+    left: 182px;
+    right: 36%;
+    width: 854px;
+    height: 499px;
+    top: 34px;
+    border-radius: 11px;
+}
+#video-element {
+    position: relative;
+    width: 855px;
+    height: 440px;
+    top: 50px;
+}
+
+#close-button {
+    position: absolute;
+    top: 5px;
+    width: 221px;
+    height: 34px;
+    left: 320px;
+    color: chartreuse;
+    font-size: 20px;
+    font-weight: 700;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 6px;
+    border-color: darkorchid;
+    box-shadow: 0px 0px 34px 5px #711ccc;
+}
+
 /*  ###################################################################################################   */
         @media screen and (max-width: 768px) {
             .movie {
@@ -412,6 +453,39 @@ span {
     border-radius: 4px 10px 0px 8px;
     box-shadow: 0px 4px 18px #0c88cb;
 }
+#video-player {
+    position: sticky;
+    display: block;
+    z-index: 999;
+    left: 13px;
+    right: 36%;
+    width: 294px;
+    height: 308px;
+    top: 254px;
+    border-radius: 11px;
+}
+#video-element {
+    position: relative;
+    width: 288px;
+    height: 250px;
+    top: 50px;
+    left: 3px;
+}
+#close-button {
+    position: absolute;
+    top: 5px;
+    width: 230px;
+    height: 34px;
+    left: 30px;
+    color: chartreuse;
+    font-size: 20px;
+    font-weight: 700;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 6px;
+    border-color: darkorchid;
+    box-shadow: 0px 0px 34px 5px #711ccc;
+}
 
 }
 
@@ -423,6 +497,30 @@ span {
 
 </head>
 <body>
+
+<div id="video-player" style="display: none;">
+    <video
+        id="video-element"
+        class="video-js vjs-default-skin"
+        controls
+        preload="auto"
+        width="640"
+        height="360"
+    >
+        <!-- Añade fuentes de video compatibles con diferentes formatos -->
+        <source src="https://tu-servidor.com/tu-video.mp4" type="video/mp4">
+        <source src="https://tu-servidor.com/tu-video.webm" type="video/webm">
+        <source src="https://tu-servidor.com/tu-video.ogv" type="video/ogg">
+        Tu navegador no admite la reproducción de videos.
+    </video>
+
+    <button id="close-button" onclick="closeVideoPlayer()">Cerrar Reproductor</button>
+</div>
+
+<!-- Resto del contenido de tu página, incluyendo los botones de reproducción -->
+
+
+
 
 <div id="container" style="display: none;">
 
@@ -1986,7 +2084,50 @@ window.addEventListener('load', showPasswordPrompt);
 
 
 
+
+
+
+
+
+    // JavaScript para controlar la reproducción de video
+    const videoPlayer = document.getElementById('video-player');
+    const videoElement = document.getElementById('video-element');
+
+    // Función para reproducir el video
+    function playVideo(videoURL) {
+        // Actualiza la fuente del reproductor de video
+        videoElement.src = videoURL;
+
+        // Muestra el reproductor de video
+        videoPlayer.style.display = 'block';
+
+        // Inicia la reproducción
+        videoElement.play();
+    }
+
+    // Función para cerrar el reproductor de video
+    function closeVideoPlayer() {
+        // Pausa la reproducción (opcional)
+        videoElement.pause();
+        
+        // Oculta el reproductor de video
+        videoPlayer.style.display = 'none';
+    }
+
+    // Agrega eventos de clic a los botones de reproducción
+    const playButtons = document.querySelectorAll('.popup-button.green-button');
+    playButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            const videoURL = button.getAttribute('href');
+            playVideo(videoURL);
+        });
+    });
+
+
+
 </script>
+
 
 
 
