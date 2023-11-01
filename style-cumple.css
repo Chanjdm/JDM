@@ -49,8 +49,8 @@ button {
 
 a {
     position: absolute;
-    top: 67px;
-    padding: 59px 14px 2px 0px;
+    top: 23px;
+    padding: 105px 10px 2px 1px;
     text-decoration: none;
     color: #9dff00;
 }
@@ -128,8 +128,10 @@ season-menu{
 }
 
    h4 {
+    OVERFLOW-Y: scroll;
     position: relative;
     width: 680px;
+    height: 350PX;
     left: 38%;
     top: -18rem;
     color: #0ba6b9;
@@ -1708,7 +1710,7 @@ h4 {
    
 
 body {
-    height: 710px;
+    height: 650px;
     background-color: #000000;
 }
 
@@ -1793,7 +1795,7 @@ h4 {
     position: relative;
     width: 245px;
     left: 2%;
-    top: 4rem;
+    top: 3rem;
     color: #0ba6b9;
     font-size: 22px;
     margin-bottom: 4rem;
@@ -1807,9 +1809,9 @@ h4 {
 
 a {
     position: absolute;
-    top: 3rem;
+    top: 5px;
     left: 0px;
-    padding: 59px 11px 0px 7px;
+    padding: 106px 11px 0px 7px;
     text-decoration: none;
     color: #9dff00;
 }
@@ -1834,7 +1836,7 @@ p {
 .neon {
     background: black;
     width: 18rem;
-    height: 68px;
+    height: 71px;
     margin: 0px;
     padding: 0px;
     position: absolute;
