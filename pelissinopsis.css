@@ -1,0 +1,416 @@
+ 
+* {
+    background: black;
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 5px;
+        }
+.movie {
+    width: calc(19.33% - 30px);
+    margin: 10px;
+    position: relative;
+}
+.movie img {
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 6px;
+}
+.popup img  {
+    left: 10px;
+    position: absolute;
+    max-width: 168px;
+    height: auto;
+    box-shadow: 0px 12px 24px 8px black;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 51em;
+    height: 29em;
+    max-width: 80%;
+    background-color: #002a41;
+    border: 5px solid #00fff7;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 33px 12px rgb(0 212 255);
+    Z-index: 99;
+    border-radius: 13px;
+}
+h2 {
+    width: 41rem;
+    height: 60px;
+    left: 11rem;
+    color: #fd8e00;
+    position: relative;
+    top: -30px;
+    background: transparent;
+    text-shadow: 0px 11px 5px black;
+}
+h3 {
+    color: antiquewhite;
+    font-size: 15px;
+    width: 190px;
+    margin: 0px 0px;
+    padding: 0px 9px;
+    display: flex;
+    justify-content: center;
+}
+p {
+    TEXT-SHADOW: 0px 7px 5px black;
+    position: absolute;
+    color: #d0dbdb;
+    top: 3em;
+    width: 21em;
+    height: 10.5em;
+    left: 6em;
+    margin: 4px 15px;
+    background: transparent;
+    overflow-y: scroll;
+    font-size: 30px;
+    BORDER-STYLE: solid;
+    BORDER-COLOR: #842be2;
+    BOX-SHADOW: 0PX 3PX 15PX 5PX #711ccc;
+    PADDING: 7PX 0PX 0PX 0PX;
+}
+
+        .popup-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
+.red-button {
+    position: absolute;
+    top: 27em;
+    left: 12em;
+    background-color: red;
+    color: white;
+    Text-decoration: None;
+    box-shadow: 0px 9px 18px #ef0707;
+}
+.green-button {
+    position: absolute;
+    top: 27em;
+    left: 20em;
+    background-color: green;
+    color: white;
+    Text-decoration: None;
+    box-shadow: 0px 9px 18px #03b617;
+}
+.close-button  {
+    background: #b4008f;
+    position: absolute;
+    top: 27.7em;
+    left: 31em;
+    width: 7em;
+    font-size: 16px;
+    height: 40px;
+    color: aliceblue;
+    border: 2px solid #000000;
+    box-shadow: 0px 12px 16px #d700d4;
+}
+span {
+    font-size: 20px;
+    width: 184px;
+    left: 5px;
+    top: 19rem;
+    position: absolute;
+    color: #c8ff00;
+    background-color: #7fffd400;
+    TEXT-SHADOW: 0px 9px 4px black;
+}
+
+#search-input {
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(235, 232, 232);
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 0;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    transition: width 0.3s ease-in-out;
+}
+
+
+
+#searchInput  {
+    font-size: 18px;
+    color: aqua;
+    top: 10px;
+    left: 25px;
+    width: 57px;
+    transition: width 0.3s ease-in-out;
+    border: 2px solid red;
+    z-index: 5;
+    position: sticky;
+    border-radius: 6px;
+}
+
+@keyframes moveColors {
+    0%, 100% {
+        border-color: red;
+    }
+    25% {
+        border-color: green;
+    }
+    50% {
+        border-color: yellow;
+    }
+    75% {
+        border-color: cyan;
+    }
+}
+
+#searchInput:hover {
+    width: 130px;
+    animation: moveColors 3s linear infinite;
+}
+
+
+
+
+/* ::-webkit-scrollbar {display: none;}  */
+
+/* Ocultar el scrollbar por defecto */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Estilo del thumb (el mango del scrollbar) */
+::-webkit-scrollbar-thumb {
+    background-color: red;
+    border-radius: 6px;
+}
+
+/* Estilo del thumb cuando se pasa el mouse sobre él */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #00fd23;
+}
+
+/* Estilo de la barra de track (la pista por donde se desplaza el thumb) */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 6px;
+}
+
+/* Estilo de la barra de track cuando se pasa el mouse sobre ella */
+::-webkit-scrollbar-track:hover {
+    background-color: transparent;
+}
+body {
+    overflow-x: hidden;
+}
+
+/* Estilo de los botones en los extremos del scrollbar */
+::-webkit-scrollbar-button {
+    display: none;
+}
+#menu-button {
+    position: sticky;
+    top: 11px;
+    left: 165px;
+    border-style: solid;
+    color: aqua;
+    border-color: blueviolet;
+    z-index: 90;
+}
+#menu-options {
+    background: transparent;
+    position: sticky;
+    left: 14rem;
+    top: 12px;
+    width: 60rem;
+    display: block;
+    z-index: 90;
+    margin: -14px;
+    padding: 0px;
+}
+#menu-options button{
+    color: chartreuse;
+    border-style: solid;
+    border-color: darkcyan;
+}
+
+/*  ###################################################################################################   */
+        @media screen and (max-width: 768px) {
+            .movie {
+                width: calc(50% - 20px); /* Mostrar dos elementos en una fila */
+            }
+        }
+/*  ###################################################################################################   */
+        @media screen and (max-width: 480px) {
+            .movie {
+                width: calc(50% - 20px); /* Mostrar un elemento en una fila */
+            }
+.popup{
+    display: none;
+    position: fixed;
+    top: 49%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    max-width: 88%;
+    background-color: black;
+    border: 2px solid #ff0101;
+    padding: 6px;
+    text-align: center;
+    box-shadow: 0px 0px 37px rgb(255 8 8);
+    Z-index: 99;
+    overflow-y: scroll;
+    height: 36em;
+    border-radius: 6px;
+}
+.popup img {
+    max-width: 33%;
+    height: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: blueviolet;
+    box-shadow: 0px 0px 27px 0.2px #932eff;
+}
+h2 {
+    position: absolute;
+    width: 10rem;
+    top: 6px;
+    left: 102px;
+    height: 70px;
+    margin: 4px;
+    color: cyan;
+    font-size: 17px;
+}
+
+h3 {
+    color: antiquewhite;
+    font-size: 15px;
+    width: 130px;
+    margin: 0px 0px;
+    display: flex;
+    justify-content: center;
+}
+.popup p {
+    position: absolute;
+    top: 15em;
+    width: 16.5em;
+    height: 16.5em;
+    left: 0em;
+    margin: 20px 8px;
+    color: aliceblue;
+    overflow-y: scroll;
+    BORDER-STYLE: solid;
+    BORDER-COLOR: #79e22b;
+    BOX-SHADOW: 0PX 1PX 15PX 5PX #79e22b;
+    font-size: 16px;
+}
+.red-button {
+    position: absolute;
+    background-color: red;
+    color: white;
+    top: 9em;
+    left: 2em;
+    font-size: 17px;
+    width: 81px;
+    margin: 0px;
+    padding: 3px;
+    border-radius: 4px;
+    Text-decoration: None;
+}
+.green-button {
+    position: absolute;
+    top: 152.4px;
+    color: aliceblue;
+    width: 100px;
+    height: 20px;
+    margin: 0px 0px;
+    left: 9em;
+    padding: 3px;
+    background-color: green;
+    border-radius: 4px;
+    Text-decoration: None;
+    font-size: 17px;
+}
+.close-button {
+    background: #c600ff;
+    position: absolute;
+    top: 200px;
+    left: 4em;
+    width: 10em;
+    height: 25px;
+    border: 2px solid #000000;
+    color: black;
+}
+span {
+    font-size: 13px;
+    width: 165px;
+    left: 110px;
+    top: 6.5rem;
+    position: absolute;
+    color: #c8ff00;
+    background-color: #7fffd400;
+    TEXT-SHADOW: 0px 9px 4px black;
+}
+#searchInput:hover {
+    width: 225px;
+    animation: moveColors 2s linear infinite;
+}
+#menu-button {
+    position: sticky;
+    top: 10px;
+    left: 16.4rem;
+    border-style: solid;
+    color: aqua;
+    height: 26px;
+    border-radius: 4px;
+    border-color: blueviolet;
+    z-index: 90;
+}
+        #menu-options {
+    position: fixed;
+    top: 58px;
+    left: 0px;
+    transition: left 3.3s ease-in-out;
+    background-color: #000000;
+    width: 95%;
+    margin-left: 7px;
+    height: 92%;
+    border-style: solid;
+    border-width: 1px;
+    color: #932eff;
+    box-shadow: 0px 0px 23px #932eff;
+    z-index: 999;
+}
+
+        #menu-options.active {
+            left: 0; /* Mostrar el menú en pantalla */
+        }
+#menu-options button {
+    margin: 11px 4px;
+    padding: 6px 6px;
+    color: chartreuse;
+    border-style: solid;
+    border-color: darkcyan;
+    border-radius: 4px 10px 0px 8px;
+    box-shadow: 0px 4px 18px #0c88cb;
+}
+
+}
+
+
+
+
+
+   
