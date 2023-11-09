@@ -165,7 +165,7 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
     margin-top: 20px;
     display: flex;
     flex-direction: column;
-
+    align-items: center;
 }
 .chapter-menu a:hover{
 	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
@@ -175,9 +175,15 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
 
 /* Ajusta el espacio entre los capítulos */
 .chapter-menu a {
+    display: flex;
+    width: 20rem;
+    height: 28px;
+    margin: 17px 0px;
     color: #e9a603;
     margin-bottom: 5px;
-    box-shadow: 0px 1px 8px 0px rgb(248, 70, 0);
+    box-shadow: 0px 1px 8px 4px rgb(154 0 255);
+    align-items: center;
+    justify-content: center;
 }
 
 .navigation-buttons {
@@ -356,6 +362,17 @@ body #close-player {
     margin-left: -29%;
     background: black;
     padding: 120px 0px 144% 0px;
+}
+.chapter-menu a {
+    display: flex;
+    width: 15rem;
+    height: 28px;
+    margin: 17px 0px;
+    color: #e9a603;
+    margin-bottom: 5px;
+    box-shadow: 0px 1px 8px 4px rgb(154 0 255);
+    align-items: center;
+    justify-content: center;
 }
 }
 
