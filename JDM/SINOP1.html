@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo de Películas</title>
+  <link rel="stylesheet" href="https://chanjdm.github.io/JDM/pelisCONsinopsis.css">
 <link
     href="https://vjs.zencdn.net/7.14.3/video-js.css"
     rel="stylesheet"
@@ -11,491 +12,6 @@
 <script src="https://vjs.zencdn.net/7.14.3/video.js"></script>
 
     <style>
-* {
-    outline:none !important;
-    text-decoration: none;
-    background: black;
-
-}
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 5px;
-        }
-.movie {
-    width: calc(19.33% - 30px);
-    margin: 10px;
-    position: relative;
-}
-.movie img {
-    width: 100%;
-    height: auto;
-    border: 2px solid black;
-    border-radius: 6px;
-}
-.popup img  {
-    left: 10px;
-    position: absolute;
-    max-width: 168px;
-    height: auto;
-    box-shadow: 0px 12px 24px 8px black;
-}
-.popup {
-    display: none;
-    position: fixed;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 51em;
-    height: 29em;
-    max-width: 80%;
-    background-color: #002a41;
-    border: 5px solid #00fff7;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0px 0px 33px 12px rgb(0 212 255);
-    Z-index: 99;
-    border-radius: 13px;
-}
-h2 {
-    width: 41rem;
-    height: 60px;
-    left: 11rem;
-    color: #fd8e00;
-    position: relative;
-    top: -30px;
-    background: transparent;
-    text-shadow: 0px 11px 5px black;
-}
-h3 {
-    color: antiquewhite;
-    font-size: 15px;
-    width: 190px;
-    margin: 0px 0px;
-    padding: 0px 9px;
-    display: flex;
-    justify-content: center;
-}
-p {
-    TEXT-SHADOW: 0px 7px 5px black;
-    position: absolute;
-    color: #d0dbdb;
-    top: 3em;
-    width: 21em;
-    height: 10.5em;
-    left: 6em;
-    margin: 4px 15px;
-    background: transparent;
-    overflow-y: scroll;
-    font-size: 30px;
-    BORDER-STYLE: solid;
-    BORDER-COLOR: #842be2;
-    BOX-SHADOW: 0PX 3PX 15PX 5PX #711ccc;
-    PADDING: 7PX 0PX 0PX 0PX;
-}
-
-        .popup-button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            border: 2px solid black;
-            cursor: pointer;
-        }
-.red-button {
-    position: absolute;
-    top: 27em;
-    left: 12em;
-    background-color: red;
-    color: white;
-    Text-decoration: None;
-    box-shadow: 0px 9px 18px #ef0707;
-}
-.green-button {
-    position: absolute;
-    top: 27em;
-    left: 20em;
-    background-color: green;
-    color: white;
-    Text-decoration: None;
-    box-shadow: 0px 9px 18px #03b617;
-}
-.close-button  {
-    background: #b4008f;
-    position: absolute;
-    top: 27.7em;
-    left: 31em;
-    width: 7em;
-    font-size: 16px;
-    height: 40px;
-    color: aliceblue;
-    border: 2px solid #000000;
-    box-shadow: 0px 12px 16px #d700d4;
-}
-span {
-    font-size: 20px;
-    width: 184px;
-    left: 5px;
-    top: 19rem;
-    position: absolute;
-    color: #c8ff00;
-    background-color: #7fffd400;
-    TEXT-SHADOW: 0px 9px 4px black;
-}
-
-#search-input {
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid rgb(235, 232, 232);
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 0;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1rem;
-    transition: width 0.3s ease-in-out;
-}
-
-
-
-#searchInput  {
-    font-size: 18px;
-    color: aqua;
-    top: 10px;
-    left: 25px;
-    width: 57px;
-    transition: width 0.3s ease-in-out;
-    border: 2px solid red;
-    z-index: 5;
-    position: sticky;
-    border-radius: 6px;
-}
-
-@keyframes moveColors {
-    0%, 100% {
-        border-color: red;
-    }
-    25% {
-        border-color: green;
-    }
-    50% {
-        border-color: yellow;
-    }
-    75% {
-        border-color: cyan;
-    }
-}
-
-#searchInput:hover {
-    width: 130px;
-    animation: moveColors 3s linear infinite;
-}
-
-
-
-
-/* ::-webkit-scrollbar {display: none;}  */
-
-/* Ocultar el scrollbar por defecto */
-::-webkit-scrollbar {
-    width: 12px;
-}
-
-/* Estilo del thumb (el mango del scrollbar) */
-::-webkit-scrollbar-thumb {
-    background-color: red;
-    border-radius: 6px;
-}
-
-/* Estilo del thumb cuando se pasa el mouse sobre él */
-::-webkit-scrollbar-thumb:hover {
-    background-color: #00fd23;
-}
-
-/* Estilo de la barra de track (la pista por donde se desplaza el thumb) */
-::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 6px;
-}
-
-/* Estilo de la barra de track cuando se pasa el mouse sobre ella */
-::-webkit-scrollbar-track:hover {
-    background-color: transparent;
-}
-body {
-    overflow-x: hidden;
-}
-
-/* Estilo de los botones en los extremos del scrollbar */
-::-webkit-scrollbar-button {
-    display: none;
-}
-#menu-button {
-    position: sticky;
-    top: 11px;
-    left: 165px;
-    border-style: solid;
-    color: aqua;
-    border-color: blueviolet;
-    z-index: 90;
-}
-#menu-options {
-    background: transparent;
-    position: sticky;
-    left: 14rem;
-    top: 12px;
-    width: 60rem;
-    display: block;
-    z-index: 90;
-    margin: -14px;
-    padding: 0px;
-}
-#menu-options button{
-    color: chartreuse;
-    border-style: solid;
-    border-color: darkcyan;
-}
-
-
-#video-player {
-    position: sticky;
-    display: block;
-    z-index: 999;
-    left: 182px;
-    right: 36%;
-    width: 854px;
-    height: 499px;
-    top: 34px;
-    border-radius: 11px;
-}
-#video-element {
-    position: relative;
-    width: 855px;
-    height: 440px;
-    top: 50px;
-}
-
-#close-button {
-    position: absolute;
-    top: 5px;
-    width: 221px;
-    height: 34px;
-    left: 320px;
-    color: chartreuse;
-    font-size: 20px;
-    font-weight: 700;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 6px;
-    border-color: darkorchid;
-    box-shadow: 0px 0px 34px 5px #711ccc;
-}
-
-/*  ###################################################################################################   */
-        @media screen and (max-width: 768px) {
-            .movie {
-                width: calc(50% - 20px); /* Mostrar dos elementos en una fila */
-            }
-        }
-/*  ###################################################################################################   */
-        @media screen and (max-width: 480px) {
-            .movie {
-                width: calc(50% - 20px); /* Mostrar un elemento en una fila */
-            }
-.popup{
-    display: none;
-    position: fixed;
-    top: 49%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    max-width: 88%;
-    background-color: black;
-    border: 2px solid #ff0101;
-    padding: 6px;
-    text-align: center;
-    box-shadow: 0px 0px 37px rgb(255 8 8);
-    Z-index: 99;
-    overflow-y: scroll;
-    height: 36em;
-    border-radius: 6px;
-}
-.popup img {
-    max-width: 33%;
-    height: auto;
-    border-style: solid;
-    border-width: 1px;
-    border-color: blueviolet;
-    box-shadow: 0px 0px 27px 0.2px #932eff;
-}
-h2 {
-    position: absolute;
-    width: 10rem;
-    top: 6px;
-    left: 102px;
-    height: 70px;
-    margin: 4px;
-    color: cyan;
-    font-size: 17px;
-}
-
-h3 {
-    color: antiquewhite;
-    font-size: 15px;
-    width: 130px;
-    margin: 0px 0px;
-    display: flex;
-    justify-content: center;
-}
-.popup p {
-    position: absolute;
-    top: 15em;
-    width: 16.5em;
-    height: 16.5em;
-    left: 0em;
-    margin: 20px 8px;
-    color: aliceblue;
-    overflow-y: scroll;
-    BORDER-STYLE: solid;
-    BORDER-COLOR: #79e22b;
-    BOX-SHADOW: 0PX 1PX 15PX 5PX #79e22b;
-    font-size: 16px;
-}
-.red-button {
-    position: absolute;
-    background-color: red;
-    color: white;
-    top: 9em;
-    left: 2em;
-    font-size: 17px;
-    width: 81px;
-    margin: 0px;
-    padding: 3px;
-    border-radius: 4px;
-    Text-decoration: None;
-}
-.green-button {
-    position: absolute;
-    top: 152.4px;
-    color: aliceblue;
-    width: 100px;
-    height: 20px;
-    margin: 0px 0px;
-    left: 9em;
-    padding: 3px;
-    background-color: green;
-    border-radius: 4px;
-    Text-decoration: None;
-    font-size: 17px;
-}
-.close-button {
-    background: #c600ff;
-    position: absolute;
-    top: 200px;
-    left: 4em;
-    width: 10em;
-    height: 25px;
-    border: 2px solid #000000;
-    color: black;
-}
-span {
-    font-size: 13px;
-    width: 165px;
-    left: 110px;
-    top: 6.5rem;
-    position: absolute;
-    color: #c8ff00;
-    background-color: #7fffd400;
-    TEXT-SHADOW: 0px 9px 4px black;
-}
-#searchInput:hover {
-    width: 225px;
-    animation: moveColors 2s linear infinite;
-}
-#menu-button {
-    position: sticky;
-    top: 10px;
-    left: 16.4rem;
-    border-style: solid;
-    color: aqua;
-    height: 26px;
-    border-radius: 4px;
-    border-color: blueviolet;
-    z-index: 90;
-}
-        #menu-options {
-    position: fixed;
-    top: 58px;
-    left: 0px;
-    transition: left 3.3s ease-in-out;
-    background-color: #000000;
-    width: 95%;
-    margin-left: 7px;
-    height: 92%;
-    border-style: solid;
-    border-width: 1px;
-    color: #932eff;
-    box-shadow: 0px 0px 23px #932eff;
-    z-index: 999;
-}
-
-        #menu-options.active {
-            left: 0; /* Mostrar el menú en pantalla */
-        }
-#menu-options button {
-    margin: 11px 4px;
-    padding: 6px 6px;
-    color: chartreuse;
-    border-style: solid;
-    border-color: darkcyan;
-    border-radius: 4px 10px 0px 8px;
-    box-shadow: 0px 4px 18px #0c88cb;
-}
-#video-player {
-    position: sticky;
-    display: block;
-    z-index: 999;
-    left: 13px;
-    right: 36%;
-    width: 294px;
-    height: 308px;
-    top: 254px;
-    border-radius: 11px;
-}
-#video-element {
-    position: relative;
-    width: 288px;
-    height: 250px;
-    top: 50px;
-    left: 3px;
-}
-#close-button {
-    position: absolute;
-    top: 5px;
-    width: 230px;
-    height: 34px;
-    left: 30px;
-    color: chartreuse;
-    font-size: 20px;
-    font-weight: 700;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 6px;
-    border-color: darkorchid;
-    box-shadow: 0px 0px 34px 5px #711ccc;
-}
-
-}
-
-
-
-
-
     </style>
 
 </head>
@@ -563,6 +79,593 @@ span {
 
 
 
+
+
+
+
+
+
+
+
+
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//hs41WYhEuaq4PaBbtaoCfGFEebi.jpg" alt="Leo">
+    <h3>Leo</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//hs41WYhEuaq4PaBbtaoCfGFEebi.jpg" alt="Leo">
+        <h2>Leo</h2>
+        <p>Leo (Sandler) es un lagarto de 74 años que lleva atrapado en el mismo aula de Florida durante décadas con su compañera de terrario, una tortuga (Bill Burr). Cuando se entera de que solo le queda un año de vida, Leo planea escapar para experimentar la vida en el exterior, pero entonces comienzan sus problemas.</p>
+        <a href="https://www.youtube.com/embed/yloj4ldVLGI" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/leo%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Animación, Comedia, Familia, 106 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//c6otMCRG9bZzI97o9V8hCkOgUvA.jpg" alt="The Creator">
+    <h3>The Creator</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//c6otMCRG9bZzI97o9V8hCkOgUvA.jpg" alt="The Creator">
+        <h2>The Creator</h2>
+        <p>En medio de una guerra futura entre la raza humana y las fuerzas de la inteligencia artificial, Joshua, un duro exagente de las fuerzas especiales que llora la desaparición de su esposa es reclutado para cazar y matar al Creador, el escurridizo arquitecto de la IA avanzada que ha desarrollado una misteriosa arma con el poder de acabar con la guerra... y con la propia humanidad.</p>
+        <a href="https://www.youtube.com/embed/Cws_5o2hN-Y" class="popup-button red-button">Tráiler</a>
+        <a href="https://ia800503.us.archive.org/35/items/130-2023-web-dl-720p/r3515t3nc14.ia.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Ciencia ficción, Acción, Suspense, 133 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//4mvahnNo3zbpTcXJiqoKv63m9gc.jpg" alt="Believer 2">
+    <h3>Believer 2</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//4mvahnNo3zbpTcXJiqoKv63m9gc.jpg" alt="Believer 2">
+        <h2>Believer 2</h2>
+        <p>Un tenaz policía prosigue su búsqueda de la verdad sobre la organización de narcotráfico más grande de Asia y su escurridizo jefe, con quien tiene asuntos pendientes.</p>
+        <a href="https://www.youtube.com/embed/U-V3Kd-QEf4" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/believer%202%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Crimen, Acción, Suspense, 116 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//c8m07IFco52OStlgd4lOQdp5r5i.jpg" alt="Resurección del mal">
+    <h3>Resurección del mal</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//c8m07IFco52OStlgd4lOQdp5r5i.jpg" alt="Resurección del mal">
+        <h2>Resurección del mal</h2>
+        <p>En un futuro distópico, el Vaticano tiene el conocimiento de resucitar personas, pero un sacerdote descubre una trama de conspiración y asesinatos relacionados con estos aparentes milagros.</p>
+        <a href="https://www.youtube.com/embed/JZrAsw7cYjo" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/resurrected%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span></span> <!-- Información adicional -->
+    </div>
+</div>
+
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//eO4nzd4p7lKxUFQtQF2qui8gGNf.jpg" alt="El sabor de la Navidad">
+    <h3>El sabor de la Navidad</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//eO4nzd4p7lKxUFQtQF2qui8gGNf.jpg" alt="El sabor de la Navidad">
+        <h2>El sabor de la Navidad</h2>
+        <p>Tres historias paralelas que giran en torno a la celebración de la Navidad en la Ciudad de México se entrelazan al final. En la primera, una hija busca reconciliarse con su familia. En la segunda, dos amigos ponen a prueba su amistad al trabajar compitiendo como Santa Clauses en la Alameda Central. En la tercera, una solitaria chef que prepara cenas navideñas para otras familias confronta sus sentimientos hacia su ayudante de cocina.</p>
+        <a href="https://www.youtube.com/embed/eUFT1rKaCFg" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/el%20sabor%20de%20la%20navidad%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, Drama, Romance, 100 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//aV8oX27hhYrWIaGFok6tVgsKYNn.jpg" alt="Amor en aguas turbulentas">
+    <h3>Amor en aguas turbulentas</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//aV8oX27hhYrWIaGFok6tVgsKYNn.jpg" alt="Amor en aguas turbulentas">
+        <h2>Amor en aguas turbulentas</h2>
+        <p>Suguru Ubukata (Ryo Yoshizawa) trabaja como mayordomo en el gigantesco crucero de lujo MSC Bellissima. El barco se dirige actualmente al mar Egeo. Durante este viaje, Suguru Ubukata conoce a la misteriosa pasajera Chizuru Banjaku (Aoi Miyazaki). Ambos se ven envueltos en un caso de asesinato que tiene lugar en el crucero.</p>
+        <a href="https://www.youtube.com/embed/_B_dH7RMBUI" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/in%20love%20and%20deep%20water%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Romance, Comedia, Misterio, Suspense, 127 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//sFhKtkrZMc382q6U5mf9ngb84dV.jpg" alt="Mejor Navidad, ¡imposible!">
+    <h3>Mejor Navidad, ¡imposible!</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//sFhKtkrZMc382q6U5mf9ngb84dV.jpg" alt="Mejor Navidad, ¡imposible!">
+        <h2>Mejor Navidad, ¡imposible!</h2>
+        <p>Todas las Navidades, Jackie envía un boletín festivo tan pretencioso que Charlotte, su vieja amiga de la universidad, se siente como un trapo. Pero cuando, unos días antes de Navidad, un golpe del destino deja a Charlotte y a su familia ante la nevada puerta de Jackie, Charlotte aprovecha la ocasión para demostrar que la vida de su anfitriona no puede ser tan perfecta.</p>
+        <a href="https://www.youtube.com/embed/3jU0covnCGM" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/best%20christmas%20ever%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, 82 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//vRJ8gn4lapIhQhZDy1222CWCztc.jpg" alt="Down Low">
+    <h3>Down Low</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//vRJ8gn4lapIhQhZDy1222CWCztc.jpg" alt="Down Low">
+        <h2>Down Low</h2>
+        <p>Un hombre profundamente reprimido, el joven desinhibido que le da un final feliz, y todas las vidas que ellos arruinan en el camino.</p>
+        <a href="https://www.youtube.com/embed/uoYD8hxqkHE&t=14s" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/down%20low%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, 94 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//p1uWI0l4X74mVhYKjStwUeM5DKZ.jpg" alt="Préstame tus Ojos">
+    <h3>Préstame tus Ojos</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//p1uWI0l4X74mVhYKjStwUeM5DKZ.jpg" alt="Préstame tus Ojos">
+        <h2>Préstame tus Ojos</h2>
+        <p>Una joven agorafóbica debe tratar de ayudar remotamente a una misteriosa chica perseguida por un par de asesinos imparables.</p>
+        <a href="https://www.youtube.com/embed/MMLi9F6iyz4&t=38s" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/give%20me%20your%20eyes%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Suspense, Acción</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//oIUK3Jr4iSFfzCWmMDTu6OOU7FM.jpg" alt="La conferencia (The Conference)">
+    <h3>La conferencia (The Conference)</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//oIUK3Jr4iSFfzCWmMDTu6OOU7FM.jpg" alt="La conferencia (The Conference)">
+        <h2>La conferencia (The Conference)</h2>
+        <p>Una jornada de trabajo en equipo para los empleados municipales se convierte en una pesadilla cuando las acusaciones de corrupción comienzan a circular y perjudicar el ambiente laboral. Al mismo tiempo, una figura misteriosa comienza a asesinar a los participantes.</p>
+        <a href="https://www.youtube.com/embed/aWvftEH8kAw" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/the%20conference%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Comedia, Suspense, 100 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//vpuuFM032yiX8tox4L84Wl9MGjG.jpg" alt="The Marvels">
+    <h3>The Marvels</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//vpuuFM032yiX8tox4L84Wl9MGjG.jpg" alt="The Marvels">
+        <h2>The Marvels</h2>
+        <p>Cuando sus obligaciones la envían a un agujero de gusano vinculado a un revolucionario kree, los poderes de Carol Danvers, la capitana Marvel, se entremezclan con los de Kamala Khan, también conocida como la Sra. Marvel y la sobrina de Carol, ahora astronauta de S.A.B.E.R., Monica Rambeau. Juntas, deberán salvar el universo como "The Marvels".</p>
+        <a href="https://www.youtube.com/embed/aTy0YYepMh8" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/the%20marvels%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Aventura, Ciencia ficción, 105 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://static.cinepolis.com/img/peliculas/43535/1/1/43535.jpg" alt="Welcome al Norte">
+    <h3>Welcome al Norte</h3>
+    <div class="popup">
+        <img src="https://static.cinepolis.com/img/peliculas/43535/1/1/43535.jpg" alt="Welcome al Norte">
+        <h2>Welcome al Norte</h2>
+        <p>Polito es gerente de una sucursal de mensajería y paquetería en Yucatán, quien busca cumplir su sueño de recibir un ascenso y tener un lugar en Cancún para mudarse con su esposa Teo y su hijo. Presionado por su esposa, estará dispuesto a todo para conseguirlo y planea una estrategia donde logrará su traslado pero un poco más al norte: Tijuana.</p>
+        <a href="https://www.youtube.com/embed/nlkVndP8Pyk" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/welcome%20al%20norte%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span></span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//kWz6Aa2chxcNUgAQNooYS4yyLkC.jpg" alt="Misterio en Venecia">
+    <h3>Misterio en Venecia</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//kWz6Aa2chxcNUgAQNooYS4yyLkC.jpg" alt="Misterio en Venecia">
+        <h2>Misterio en Venecia</h2>
+        <p>En la Venecia posterior a la Segunda Guerra Mundial, Poirot, ahora retirado y viviendo en su propio exilio, asiste a regañadientes a una sesión de espiritismo, cuando uno de los invitados es asesinado, por lo que depende del ex detective descubrir una vez más al asesino.</p>
+        <a href="https://www.youtube.com/embed/RgClnZlegjo" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/a%20haunting%20in%20venice%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span></span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//jDTnt1TuFm4s38KIhAOpmgGGlkL.jpg" alt="Ladronas">
+    <h3>Ladronas</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//jDTnt1TuFm4s38KIhAOpmgGGlkL.jpg" alt="Ladronas">
+        <h2>Ladronas</h2>
+        <p>Harta de su vida de fugitiva, una ladrona experta decide retirarse... pero antes se propone dar el último golpe con su fiel compinche y una nueva (y peleona) conductora.</p>
+        <a href="https://www.youtube.com/embed/AnNpNIoBCr0" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/wingwomen%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Comedia, Drama, 114 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//1utWajLPvv1R9ZwkD98s2ZEngS.jpg" alt="Sly-Documental">
+    <h3>Sly-Documental</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//1utWajLPvv1R9ZwkD98s2ZEngS.jpg" alt="Sly-Documental">
+        <h2>Sly-Documental</h2>
+        <p>Su amor por el cine surgió como vía de escape a una infancia difícil. En este documental, Sylvester Stallone cuenta cómo se convirtió en una leyenda de Hollywood.</p>
+        <a href="https://www.youtube.com/embed/_FMulgkArnw" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/sly%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Documental, 97 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//aV8oX27hhYrWIaGFok6tVgsKYNn.jpg" alt="Amor en aguas turbulentas">
+    <h3>Amor en aguas turbulentas</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//aV8oX27hhYrWIaGFok6tVgsKYNn.jpg" alt="Amor en aguas turbulentas">
+        <h2>Amor en aguas turbulentas</h2>
+        <p>Suguru Ubukata (Ryo Yoshizawa) trabaja como mayordomo en el gigantesco crucero de lujo MSC Bellissima. El barco se dirige actualmente al mar Egeo. Durante este viaje, Suguru Ubukata conoce a la misteriosa pasajera Chizuru Banjaku (Aoi Miyazaki). Ambos se ven envueltos en un caso de asesinato que tiene lugar en el crucero.</p>
+        <a href="https://www.youtube.com/embed/_B_dH7RMBUI" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/in%20love%20and%20deep%20water%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Romance, Comedia, Misterio, Suspense, 127 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//sFhKtkrZMc382q6U5mf9ngb84dV.jpg" alt="Mejor Navidad, ¡imposible!">
+    <h3>Mejor Navidad, ¡imposible!</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//sFhKtkrZMc382q6U5mf9ngb84dV.jpg" alt="Mejor Navidad, ¡imposible!">
+        <h2>Mejor Navidad, ¡imposible!</h2>
+        <p>Todas las Navidades, Jackie envía un boletín festivo tan pretencioso que Charlotte, su vieja amiga de la universidad, se siente como un trapo. Pero cuando, unos días antes de Navidad, un golpe del destino deja a Charlotte y a su familia ante la nevada puerta de Jackie, Charlotte aprovecha la ocasión para demostrar que la vida de su anfitriona no puede ser tan perfecta.</p>
+        <a href="https://www.youtube.com/embed/3jU0covnCGM" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/best%20christmas%20ever%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, 82 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//vRJ8gn4lapIhQhZDy1222CWCztc.jpg" alt="Down Low">
+    <h3>Down Low</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//vRJ8gn4lapIhQhZDy1222CWCztc.jpg" alt="Down Low">
+        <h2>Down Low</h2>
+        <p>Un hombre profundamente reprimido, el joven desinhibido que le da un final feliz, y todas las vidas que ellos arruinan en el camino.</p>
+        <a href="https://www.youtube.com/embed/m1cLAXR_yz8" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/down%20low%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, 94 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//p1uWI0l4X74mVhYKjStwUeM5DKZ.jpg" alt="Préstame tus Ojos">
+    <h3>Préstame tus Ojos</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//p1uWI0l4X74mVhYKjStwUeM5DKZ.jpg" alt="Préstame tus Ojos">
+        <h2>Préstame tus Ojos</h2>
+        <p>Una joven agorafóbica debe tratar de ayudar remotamente a una misteriosa chica perseguida por un par de asesinos imparables.</p>
+        <a href="https://www.youtube.com/embed/MMLi9F6iyz4&t=36s" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/give%20me%20your%20eyes%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Suspense, Acción</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//oIUK3Jr4iSFfzCWmMDTu6OOU7FM.jpg" alt="La conferencia (The Conference)">
+    <h3>La conferencia (The Conference)</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//oIUK3Jr4iSFfzCWmMDTu6OOU7FM.jpg" alt="La conferencia (The Conference)">
+        <h2>La conferencia (The Conference)</h2>
+        <p>Una jornada de trabajo en equipo para los empleados municipales se convierte en una pesadilla cuando las acusaciones de corrupción comienzan a circular y perjudicar el ambiente laboral. Al mismo tiempo, una figura misteriosa comienza a asesinar a los participantes.</p>
+        <a href="https://www.youtube.com/embed/67MGgCVK-DU" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/the%20conference%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Comedia, Suspense, 100 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//5zxuw5pyFrmlpsyQey3qVfLDT9O.jpg" alt="La reina de los concursos">
+    <h3>La reina de los concursos</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//5zxuw5pyFrmlpsyQey3qVfLDT9O.jpg" alt="La reina de los concursos">
+        <h2>La reina de los concursos</h2>
+        <p>Una hilarante y emotiva comedia protagonizada por Awkwafina, Sandra Oh, Jason Schwartzman, Holland Taylor, Tony Hale y Will Ferrell acerca de una familia disfuncional y el concurso que podría ser la clave para su salvación. En la película, Anne, una joven brillante pero apática y obsesionada con los concursos de preguntas, y su desastrosa hermana Jenny deben trabajar juntas para cubrir las deudas de su madre. Cuando el querido perrito de Anne es secuestrado, las hermanas se embarcan en un alocado viaje a través del país para conseguir el dinero de la única forma que saben: convirtiendo a Anne en la campeona inigualable de un concurso de preguntas.</p>
+        <a href="https://www.youtube.com/embed/St9aaHPFjLU" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/quiz%20lady%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, 100 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//14SsotUuzTYKmPRxvIoFgHzwegf.jpg" alt="Vacaciones de verano">
+    <h3>Vacaciones de verano</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//14SsotUuzTYKmPRxvIoFgHzwegf.jpg" alt="Vacaciones de verano">
+        <h2>Vacaciones de verano</h2>
+        <p>Dos amigos, Oscar y Félix, pierden su trabajo y se ven obligados a aceptar un trabajo temporal como animadores infantiles en un hotel de lujo. Al ser ambos divorciados, les tocan sus hijos un mes de verano y les es imposible compaginarlo con el trabajo, con lo cual deciden llevarse a los niños y ocultarlos en el hotel, escondidos en la zona de empleados... pero el plan resulta ser un desastre.</p>
+        <a href="https://www.youtube.com/embed/BazwUxmme04" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/vacaciones%20de%20verano%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, Familia, 100 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//fm1UBC4HGA3INXZvdkBSIUH6T6L.jpg" alt="Nyad">
+    <h3>Nyad</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//fm1UBC4HGA3INXZvdkBSIUH6T6L.jpg" alt="Nyad">
+        <h2>Nyad</h2>
+        <p>A los 60 años, la nadadora Diana Nyad se propone hacer realidad el sueño de su vida: la travesía de más de 160 km en mar abierto de Cuba a Florida.</p>
+        <a href="https://www.youtube.com/embed/c3hvDvPuhkI" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/nyad%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Historia, 120 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//gTr0EbbrYpM2eKUoIR8US83GCXX.jpg" alt="El rapto">
+    <h3>El rapto</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//gTr0EbbrYpM2eKUoIR8US83GCXX.jpg" alt="El rapto">
+        <h2>El rapto</h2>
+        <p>Basando en el libro homónimo de Martín Sivak. El 5 de diciembre de 1990 un grupo de obreros que levantaba un hotel en el centro de Buenos Aires vio cómo Jorge Sivak se lanzaba al vacío sin darles tiempo a impedirlo. Dirigente estudiantil, guerrillero urbano, abogado defensor de presos políticos, y él mismo preso político y exiliado, Jorge Sivak nunca abandonó la empresa familiar, un pequeño imperio creado gracias a la habilidad mercantil de su padre y a los fondos secretos del Partido Comunista. Quedó a cargo —sin don para los negocios— cuando su hermano mayor fue asesinado en el secuestro más sonado de la década de 1980: el Caso Sivak. Su hijo, Martín Sivak, que en el momento del suicidio tenía quince años, reconstruye una vida que brilló y se extinguió ante sus ojos.</p>
+        <a href="https://www.youtube.com/embed/nEv0CcVOXNk" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/el%20rapto%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Suspense, 95 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//yco6dWR1W3iANUEKxGT0vQRWrJn.jpg" alt="Trolls 3: Todos juntos">
+    <h3>Trolls 3: Todos juntos</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//yco6dWR1W3iANUEKxGT0vQRWrJn.jpg" alt="Trolls 3: Todos juntos">
+        <h2>Trolls 3: Todos juntos</h2>
+        <p>Cuando Floyd, uno de los hermanos de Branch, es secuestrado por una pareja de maléficas estrellas del pop para aprovecharse de su talento musical, Branch y Poppy tendrán que embarcarse en un viaje tan aterrador como emotivo para reunir a la familia y rescatar a Floyd de un destino aún peor que el desolador olvido de los fans.</p>
+        <a href="https://www.youtube.com/embed/U9IvMjKjXhA" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/trolls%20band%20together%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Animación, Familia, Música, Fantasía, Comedia, 92 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//ojsARUPhtbMAcA3dCR3UwcHW1wM.jpg" alt="La Patrulla Canina: La superpelícula">
+    <h3>La Patrulla Canina: La superpelícula</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//ojsARUPhtbMAcA3dCR3UwcHW1wM.jpg" alt="La Patrulla Canina: La superpelícula">
+        <h2>La Patrulla Canina: La superpelícula</h2>
+        <p>Cuando un meteorito mágico se estrella en Ciudad Aventura, los cachorros de la Patrulla Canina consiguen unos superpoderes que los transforman en ¡Los PODEROSOS CACHORROS! Para Skye, la más pequeña del equipo, sus nuevos poderes son un sueño hecho realidad. Pero las cosas se complican cuando Humdinger, el archienemigo de los cachorros que acaba de fugarse de la cárcel, se une a Victoria Vance, una desquiciada científica obsesionada con los meteoritos, y forman una alianza para robar los superpoderes y convertirse en supervillanos. Con el destino de Ciudad Aventura al filo del abismo, los Poderosos Cachorros tendrán que detener a los supervillanos antes de que sea demasiado tarde, y Skye descubrirá que hasta la más pequeña del equipo puede ser la que determine el resultado.</p>
+        <a href="https://www.youtube.com/embed/ipm7uvCUyRw" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/paw%20patrol%20the%20mighty%20movie%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Animación, Familia, Acción, Ciencia ficción, 92 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//zAPPIeqB4cjXiS5qPFgeifndunG.jpg" alt="El club de las peleadoras">
+    <h3>El club de las peleadoras</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//zAPPIeqB4cjXiS5qPFgeifndunG.jpg" alt="El club de las peleadoras">
+        <h2>El club de las peleadoras</h2>
+        <p>Los impopulares mejores amigos PJ y Josie inician un club de autodefensa en la escuela secundaria para conocer chicas y perder su virginidad. Pronto se encuentran en una situación complicada cuando los estudiantes más populares comienzan a golpearse entre sí en nombre de la autodefensa.</p>
+        <a href="https://www.youtube.com/embed/cn94EpOaVlc" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/bottoms%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, 92 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//6uTHaS2eWFLYWQ79I3HuLpXVAFB.jpg" alt="Mickey y sus Amigos: Dulce o Truco (Mickey and Friends: Trick or Treats)">
+    <h3>Mickey y sus Amigos: Dulce o Truco (Mickey and Friends: Trick or Treats)</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//6uTHaS2eWFLYWQ79I3HuLpXVAFB.jpg" alt="Mickey y sus Amigos: Dulce o Truco (Mickey and Friends: Trick or Treats)">
+        <h2>Mickey y sus Amigos: Dulce o Truco (Mickey and Friends: Trick or Treats)</h2>
+        <p>Mickey y sus amigos están pidiendo caramelos por Halloween cuando llegan a la casa más espeluznante de la zona en busca de los mejores dulces. Se topan con la bruja Hazel, quien les lanza un hechizo.</p>
+        <a href="https://www.youtube.com/embed/uhjMD2-uj5c" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/mickey%20and%20friends%20trick%20or%20treats%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Animación, Familia, 22 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//rUV9FvLHqm50jnbf30kwiFpzFmM.jpg" alt="El asesino">
+    <h3>El asesino</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//rUV9FvLHqm50jnbf30kwiFpzFmM.jpg" alt="El asesino">
+        <h2>El asesino</h2>
+        <p>Después de un fatídico error, un asesino se enfrenta a sus jefes —y a sí mismo— en una persecución internacional de castigo, según él, no es nada personal.</p>
+        <a href="https://www.youtube.com/embed/iVau-K3q8cM" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/the%20killer%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Crimen, Suspense, 119 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//wOEF7NmEwcwTdbV8nsCmPk5u8VT.jpg" alt="Hermana Muerte">
+    <h3>Hermana Muerte</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//wOEF7NmEwcwTdbV8nsCmPk5u8VT.jpg" alt="Hermana Muerte">
+        <h2>Hermana Muerte</h2>
+        <p>En la España de la posguerra civil, Narcisa, una novicia, llega a un antiguo convento, reconvertido en colegio de niñas, para convertirse en maestra.</p>
+        <a href="https://www.youtube.com/embed/84dvmHWpxxE" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/hermana%20muerte%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Terror, 90 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//t6RSJ1z8bDEYpk4fLwxfkXciUak.jpg" alt="Five Nights at Freddy's">
+    <h3>Five Nights at Freddy's</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//t6RSJ1z8bDEYpk4fLwxfkXciUak.jpg" alt="Five Nights at Freddy's">
+        <h2>Five Nights at Freddy's</h2>
+        <p>Un guardia de seguridad con problemas comienza a trabajar en Freddy Fazbear's Pizza. Mientras pasa su primera noche en el trabajo, se da cuenta de que el turno de noche en Freddy's no será tan fácil de superar.</p>
+        <a href="https://www.youtube.com/embed/wb59_A2vUCk" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/five%20nights%20at%20freddys%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Suspense, 110 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://www.themoviedb.org/t/p/w200/rS8fjd6dYcf64v3ZhAE6fKrxoaF.jpg" alt="Háblame">
+    <h3>Háblame</h3>
+    <div class="popup">
+        <img src="https://www.themoviedb.org/t/p/w200/rS8fjd6dYcf64v3ZhAE6fKrxoaF.jpg" alt="Háblame">
+        <h2>Háblame</h2>
+        <p>La solitaria adolescente Mia se engancha a la emoción de invocar espíritus utilizando una mano embalsamada, pero cuando se enfrenta a un alma que dice ser su madre muerta, desata una plaga de fuerzas sobrenaturales y se debate entre decidir en quién puede confiar: en los vivos o en los muertos.</p>
+        <a href="https://www.youtube.com/embed/2I5NBRmK5K4" class="popup-button red-button">Tráiler</a>
+        <a href="https://ia601406.us.archive.org/32/items/mov1_06/H.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Suspenso</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//6StdSKn9ej4rwtQjcl1XMk5E0iE.jpg" alt="El exorcista: Creyente">
+    <h3>El exorcista: Creyente</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//6StdSKn9ej4rwtQjcl1XMk5E0iE.jpg" alt="El exorcista: Creyente">
+        <h2>El exorcista: Creyente</h2>
+        <p>Cuando su hija Angela y su amiga Katherine muestran signos de posesión demoníaca, se desata una cadena de acontecimientos que obligan al padre soltero Victor Fielding a afrontar el punto más bajo del mal. Aterrorizado y desesperado, busca a Chris MacNeil, la única persona viva que ha presenciado algo así antes.</p>
+        <a href="https://www.youtube.com/embed/LDjZWjeY7dM" class="popup-button red-button">Tráiler</a>
+        <a href="https://archive.org/download/01_20231029_20231029_2349/01.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, 111 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//epN0x9JTf3esk1FO8DWkhlE4Ax5.jpg" alt="Saw X">
+    <h3>Saw X</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//epN0x9JTf3esk1FO8DWkhlE4Ax5.jpg" alt="Saw X">
+        <h2>Saw X</h2>
+        <p>Entre los acontecimientos de 'Saw' y 'Saw II', un enfermo y desesperado John Kramer viaja a México para someterse a un procedimiento médico arriesgado y experimental con la esperanza de encontrar una cura milagrosa para su cáncer, sólo para descubrir que toda la operación es una estafa para robar a  los más vulnerables. Armado con un nuevo propósito, el infame asesino en serie regresa a su trabajo, dándole la vuelta a los estafadores en su forma visceral característica a través de trampas tortuosas, trastornadas e ingeniosas.</p>
+        <a href="https://www.youtube.com/embed/LZCo3zrbnOY" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/saw%20x%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Terror, Suspense, 118 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://www.themoviedb.org/t/p/w200/5ZfU30EpuAutv2zEZhPtRGOkiTU.jpg" alt="Asediada">
+    <h3>Asediada</h3>
+    <div class="popup">
+        <img src="https://www.themoviedb.org/t/p/w200/5ZfU30EpuAutv2zEZhPtRGOkiTU.jpg" alt="Asediada">
+        <h2>Asediada</h2>
+        <p>Un antiguo Soldado Búfalo, Mo Washington, viaja al Oeste para reclamar una mina de oro. Después de que su diligencia sufra una emboscada, a Mo se le encarga mantener cautivo a un peligroso forajido y debe sobrevivir al día en que la banda del bandido intenta liberarlo.</p>
+        <a href="https://www.youtube.com/embed/h1PcWQcsQuE" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/surrounded%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, Romance, 93 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//4QIZ7AzbfzVXwBL87UviMohU4F7.jpg" alt="Radical (TS-CON ANUNCIOS)">
+    <h3>Radical (TS-CON ANUNCIOS)</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//4QIZ7AzbfzVXwBL87UviMohU4F7.jpg" alt="Radical (TS-CON ANUNCIOS)">
+        <h2>Radical (TS-CON ANUNCIOS)</h2>
+        <p>En una ciudad fronteriza mexicana plagada de abandono, corrupción y violencia, un profesor frustrado prueba un nuevo método radical para romper la apatía de sus alumnos y desbloquear su curiosidad, su potencial... y puede que incluso su genialidad. Basada en una historia real.</p>
+        <a href="https://www.youtube.com/embed/IReOAyX63BM" class="popup-button red-button">Tráiler</a>
+        <a href="https://ia800501.us.archive.org/33/items/01_20231029_20231029_1956/01.mp4" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Drama, 127 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//4ba3Kw9isyWvu6cupzUagm8ejw2.jpg" alt="LEGO Marvel Avengers: Código rojo">
+    <h3>LEGO Marvel Avengers: Código rojo</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//4ba3Kw9isyWvu6cupzUagm8ejw2.jpg" alt="LEGO Marvel Avengers: Código rojo">
+        <h2>LEGO Marvel Avengers: Código rojo</h2>
+        <p>En un multiverso amenazado por el enigmático Fantasma Rojo, los LEGO Vengadores se unen a sus homólogos para detener el caos de la realidad.</p>
+        <a href="https://www.youtube.com/embed/-ErXS9BtyAA" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/lego%20marvel%20avengers%20code%20red%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Animación, Acción, Familia, 46 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//iQUgtRY5qzwn2eyum1wckzRhWmj.jpg" alt="The Ritual Killer">
+    <h3>The Ritual Killer</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//iQUgtRY5qzwn2eyum1wckzRhWmj.jpg" alt="The Ritual Killer">
+        <h2>The Ritual Killer</h2>
+        <p>Un detective al borde de la jubilación se une a un profesor de estudios africanos para localizar a un asesino en serie que está realizando la antigua práctica de magia negra de Muti.</p>
+        <a href="https://www.youtube.com/embed/i3v2H72Z3_U" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/the%20ritual%20killer%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Misterio, Suspense, Acción, Drama, 92 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://www.themoviedb.org/t/p/w200/fUomSM4FU7z1L9ELRWD5g1f0aYe.jpg" alt="El Portero">
+    <h3>El Portero</h3>
+    <div class="popup">
+        <img src="https://www.themoviedb.org/t/p/w200/fUomSM4FU7z1L9ELRWD5g1f0aYe.jpg" alt="El Portero">
+        <h2>El Portero</h2>
+        <p>Waldisney trabaja como portero en un edificio donde la confusión es constante. Sin embargo, el funcionario es experto en mantener cierto orden. Cuando lo acusan injustamente de robar algo, tendrá que demostrar que es cualquier cosa menos un ladrón.</p>
+        <a href="https://www.youtube.com/embed/WRrK8LM7Ux0" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/o%20porteiro%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Acción, Suspense, 97 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//2C4vzdgbG5k81VhwpdX9dvrOIZx.jpg" alt="The Burial">
+    <h3>The Burial</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//2C4vzdgbG5k81VhwpdX9dvrOIZx.jpg" alt="The Burial">
+        <h2>The Burial</h2>
+        <p>Un abogado ayuda al propietario de una funeraria a salvar su negocio familiar de un gigante corporativo. En una estrategia para darle resonancia al caso, el abogado desentierra una compleja red de poder y opresión que obliga a todos a examinar sus prejuicios.</p>
+        <a href="https://www.youtube.com/embed/9UqYEk_7QPg" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/the%20burial%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Comedia, Drama, 127 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
+<div class="movie">
+    <img src="https://image.tmdb.org/t/p/w200//4rcPUwkY51UL4f2JAzcKV1Ny8Oy.jpg" alt="Mortal Kombat Legends - Demonios y Ángeles">
+    <h3>Mortal Kombat Legends - Demonios y Ángeles</h3>
+    <div class="popup">
+        <img src="https://image.tmdb.org/t/p/w200//4rcPUwkY51UL4f2JAzcKV1Ny8Oy.jpg" alt="Mortal Kombat Legends - Demonios y Ángeles">
+        <h2>Mortal Kombat Legends - Demonios y Ángeles</h2>
+        <p>En el Hollywood de la década de 1980, el actor de artes marciales Johnny Cage busca a su coprotagonista desaparecido en medio de un Los Ángeles lleno de luchadores sedientos de sangre.</p>
+        <a href="https://www.youtube.com/embed/TEtRuyNUb5M" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/mortal%20kombat%20legends%20cage%20match%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <button class="close-button">Cerrar</button>
+        <span>Animación, Acción, Fantasía, 76 minutos</span> <!-- Información adicional -->
+    </div>
+</div>
+
 <div class="movie">
     <img src="https://image.tmdb.org/t/p/w200//g6bfq26jmzEGNGMw768Fwu6OmdZ.jpg" alt="Los mercenarios 4">
     <h3>Los mercenarios 4</h3>
@@ -571,39 +674,40 @@ span {
         <h2>Los mercenarios 4</h2>
         <p>Cuarta entrega de la saga Los Mercenarios. El veterano mercenario Barney “Esquizo” Ross (Sylvester Stallone) y su equipo de estrellas, formado por los hombres más duros (Jason Statham, Dolph Lundgren, 50 Cent, Megan Fox…), afrontan un nuevo desafío, en una trama cargada de acción. Para superarlo y salir airosos, deberán recurrir a su ingenio, experiencia y a la fuerza bruta que los caracteriza.</p>
         <a href="https://www.youtube.com/embed/4eiLskUYvQc" class="popup-button red-button">Tráiler</a>
-        <a href="https://archive.org/download/3xp-3nd-4bl-3s.-2023.brrs.-1080p.latino/3xp3nd4bl3s.2023.brrs.1080p.latino.mp4" class="popup-button green-button">Reproducir</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/expend4bles%202023.mkv" class="popup-button green-button">Reproducir</a>
         <button class="close-button">Cerrar</button>
         <span>Acción, Aventura, Suspense, 103 minutos</span> <!-- Información adicional -->
     </div>
 </div>
 
 <div class="movie">
-    <img src="https://image.tmdb.org/t/p/w200//7a7orVYVOpS9oQjQOLbOdxTFQt0.jpg" alt="Sin señal">
-    <h3>Sin señal</h3>
+    <img src="https://image.tmdb.org/t/p/w200//mClrCMfGpOqTSiuCTSK67WZ92x5.jpg" alt="Monster High 2">
+    <h3>Monster High 2</h3>
     <div class="popup">
-        <img src="https://image.tmdb.org/t/p/w200//7a7orVYVOpS9oQjQOLbOdxTFQt0.jpg" alt="Sin señal">
-        <h2>Sin señal</h2>
-        <p>Futuro cercano. Lera Arabova es una niña de 15 años que vive con su familia en Vladivostok. El padre de Lera ha estado trabajando en la estación espacial en órbita "Mira" durante muchos años y durante mucho tiempo perdió el contacto con su hija, convirtiéndose solo en una voz en el teléfono. Después de que una lluvia de meteoritos golpee la ciudad, Lera solo tiene una oportunidad de salvar a sus seres queridos y a la ciudad de un nuevo desastre. Su padre la ayuda en esto: a través de los sistemas de vigilancia satelital y el teléfono, aprovecha cada oportunidad para enviar un mensaje a su hija, observando desde arriba desde la estación cada paso.</p>
-        <a href="https://www.youtube.com/embed/oDn1y4M-crE" class="popup-button red-button">Tráiler</a>
-        <a href="https://archive.org/download/12-horas-para-el-fin-del-mundo/8990930221898899342.mp4" class="popup-button green-button">Reproducir</a>
+        <img src="https://image.tmdb.org/t/p/w200//mClrCMfGpOqTSiuCTSK67WZ92x5.jpg" alt="Monster High 2">
+        <h2>Monster High 2</h2>
+        <p>Al ingresar al segundo año en Monster High, Clawdeen Wolf, Draculaura y Frankie Stein se enfrentan a nuevos estudiantes, nuevos poderes y una amenaza aún mayor que no sólo podría romper su amistad sino que podría cambiar el mundo para siempre.</p>
+        <a href="https://www.youtube.com/embed/2Tcn-gGwGxg" class="popup-button red-button">Tráiler</a>
+        <a href="https://ia600502.us.archive.org/30/items/01_20231029_20231029_1940/01.mp4" class="popup-button green-button">Reproducir</a>
         <button class="close-button">Cerrar</button>
-        <span>Drama, Aventura, Ciencia ficción, Familia, 110 minutos</span> <!-- Información adicional -->
+        <span>Familia, Fantasía, Ciencia ficción, Película de TV, 94 minutos</span> <!-- Información adicional -->
     </div>
 </div>
 
 <div class="movie">
-    <img src="https://image.tmdb.org/t/p/w200//gPSnanVAnKgycgc3SJGcutXCe9A.jpg" alt="Awareness">
-    <h3>Awareness</h3>
+    <img src="https://image.tmdb.org/t/p/w200//7EJdyAY5INMtxGLfjG7zFLMACwr.jpg" alt="El Ingeniero (The Engineer)">
+    <h3>El Ingeniero (The Engineer)</h3>
     <div class="popup">
-        <img src="https://image.tmdb.org/t/p/w200//gPSnanVAnKgycgc3SJGcutXCe9A.jpg" alt="Awareness">
-        <h2>Awareness</h2>
-        <p>Ian es un adolescente rebelde que vive con su padre al margen de la sociedad. Sobreviven a base de pequeños timos gracias a la extraordinaria habilidad de Ian para proyectar ilusiones visuales en la mente de los demás. Tras perder el control sobre sus poderes en público, dos bandos enfrentados empiezan a perseguirlo. En su huida, Ian tendrá que decidir en qué lado va a librar esa guerra en la que se ha visto obligado a participar.</p>
-        <a href="https://www.youtube.com/embed/82DapGcukYY" class="popup-button red-button">Tráiler</a>
-        <a href="https://archive.org/download/13OCTV4/New%20folder/Awareness.2023.1080p.mkv" class="popup-button green-button">Reproducir</a>
+        <img src="https://image.tmdb.org/t/p/w200//7EJdyAY5INMtxGLfjG7zFLMACwr.jpg" alt="El Ingeniero (The Engineer)">
+        <h2>El Ingeniero (The Engineer)</h2>
+        <p>Mientras Israel se ve sacudido por una serie de atentados terroristas, la hija de un senador estadounidense muere en una sangrienta explosión. Ahora, el ex agente del Mossad, Etan, debe liderar un equipo encubierto de élite de agentes y mercenarios para encontrar al hombre responsable: el esquivo "Ingeniero". ¿Podrán encontrar y destruir al loco antes de que se pierdan más vidas inocentes?</p>
+        <a href="https://www.youtube.com/embed/ICjLq5W5viY" class="popup-button red-button">Tráiler</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/the%20engineer%202023.mkv" class="popup-button green-button">Reproducir</a>
         <button class="close-button">Cerrar</button>
-        <span>Ciencia ficción, Misterio, Suspense, Acción, 112 minutos</span> <!-- Información adicional -->
+        <span>Acción, Suspense, 93 minutos</span> <!-- Información adicional -->
     </div>
 </div>
+
 
 <div class="movie">
     <img src="https://image.tmdb.org/t/p/w200//oE7xtGDqZnr7tFHfwb8oM9iRW6H.jpg" alt="Bailarina">
@@ -613,7 +717,7 @@ span {
         <h2>Bailarina</h2>
         <p>Ok Ju solía trabajar como guardaespaldas. Destaca en actividades físicas como las artes marciales, la lucha con espadas, la puntería y la conducción de motos. Ok Ju es amiga de Min Hee, que es bailarina. Min Hee le pide a Ok Ju un favor. Quiere que Ok Ju se vengue de Pro Choi. Ok Ju pronto arriesga su vida por Min Hee.</p>
         <a href="https://www.youtube.com/embed/txxyMQlEIwU" class="popup-button red-button">Tráiler</a>
-        <a href="https://archive.org/download/13OCTV1/New%20folder/Bailarina%20%282023%29.mkv" class="popup-button green-button">Reproducir</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/ballerina%202023.mkv" class="popup-button green-button">Reproducir</a>
         <button class="close-button">Cerrar</button>
         <span>Acción, Crimen, Suspense, 93 minutos</span> <!-- Información adicional -->
     </div>
@@ -627,37 +731,9 @@ span {
         <h2>Chef Jack: El cocinero aventurero</h2>
         <p>Después de cometer un error y ver su reputación caer drásticamente, Jack, un chef de cocina que explora los rincones del mundo en busca de ingredientes para sus recetas, intenta volver a la cima ganando una competencia culinaria. Pero para lograrlo, deberá aprender a trabajar en equipo junto al novato cocinero Leonard.</p>
         <a href="https://www.youtube.com/watch?v=JDTIZtd77m0" class="popup-button red-button">Tráiler</a>
-        <a href="https://archive.org/download/13OCTV1/New%20folder/Chef%20Jack%20El%20cocinero%20aventurero%20%282023%29.mkv" class="popup-button green-button">Reproducir</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/chef%20jack%20o%20cozinheiro%20aventureiro%202023.mkv" class="popup-button green-button">Reproducir</a>
         <button class="close-button">Cerrar</button>
         <span>Animación, Aventura, 80 minutos</span> <!-- Información adicional -->
-    </div>
-</div>
-
-<div class="movie">
-    <img src="https://image.tmdb.org/t/p/w200//74UljzdgFuYo0BqzuEO2s2azObe.jpg" alt="La Patrulla Canina: La superpelícula">
-    <h3>La Patrulla Canina: La superpelícula</h3>
-    <div class="popup">
-        <img src="https://image.tmdb.org/t/p/w200//74UljzdgFuYo0BqzuEO2s2azObe.jpg" alt="La Patrulla Canina: La superpelícula">
-        <h2>La Patrulla Canina: La superpelícula</h2>
-        <p>Cuando un meteorito mágico se estrella en Ciudad Aventura, los cachorros de la Patrulla Canina consiguen unos superpoderes que los transforman en ¡Los PODEROSOS CACHORROS! Para Skye, la más pequeña del equipo, sus nuevos poderes son un sueño hecho realidad. Pero las cosas se complican cuando Humdinger, el archienemigo de los cachorros que acaba de fugarse de la cárcel, se une a Victoria Vance, una desquiciada científica obsesionada con los meteoritos, y forman una alianza para robar los superpoderes y convertirse en supervillanos. Con el destino de Ciudad Aventura al filo del abismo, los Poderosos Cachorros tendrán que detener a los supervillanos antes de que sea demasiado tarde, y Skye descubrirá que hasta la más pequeña del equipo puede ser la que determine el resultado.</p>
-        <a href="https://www.youtube.com/embed/ipm7uvCUyRw" class="popup-button red-button">Tráiler</a>
-        <a href="https://archive.org/download/13OCTV1/New%20folder/p4w.p4tr0l.th3.m1ghty.m0v13.2023.hdcam.1080p.latino.mp4" class="popup-button green-button">Reproducir</a>
-        <button class="close-button">Cerrar</button>
-        <span>Animación, Familia, Acción, Ciencia ficción, 92 minutos</span> <!-- Información adicional -->
-    </div>
-</div>
-
-<div class="movie">
-    <img src="https://image.tmdb.org/t/p/w200//ovIX8JQSh58GKhYlhIhJohVqEaj.jpg" alt="Angela">
-    <h3>Angela</h3>
-    <div class="popup">
-        <img src="https://image.tmdb.org/t/p/w200//ovIX8JQSh58GKhYlhIhJohVqEaj.jpg" alt="Angela">
-        <h2>Angela</h2>
-        <p>Después de una tumultuosa separación y de tener que renunciar a la custodia de sus tres hijos, la famosa socialité Ângela Diniz conoce a Raúl y cree haber encontrado a alguien que ama su espíritu libre tanto como ella. La abrumadora atracción hizo que la pareja dejara todo y viviera el sueño de reconstruir sus vidas llenas de pasión en la casa de la playa. Pero la vida tranquila se transforma rápidamente cuando Raúl comienza a mostrarse como un hombre agresivo, violento y controlador. La relación termina en abusos y violencia, lo que lleva a uno de los casos de asesinato más famosos de todos los tiempos en Brasil.</p>
-        <a href="https://www.youtube.com/embed/lNB6cQuN2ko" class="popup-button red-button">Tráiler</a>
-        <a href="https://archive.org/download/13OCTV1/New%20folder/Angela.mkv" class="popup-button green-button">Reproducir</a>
-        <button class="close-button">Cerrar</button>
-        <span>Drama, Crimen, 104 minutos</span> <!-- Información adicional -->
     </div>
 </div>
 
@@ -669,7 +745,7 @@ span {
         <h2>Juego limpio</h2>
         <p>Recién comprometidos, Emily (Phoebe Dynevor) y Luke (Alden Ehrenreich), una próspera pareja de Nueva York, no se cansan el uno del otro. Cuando surge un codiciado ascenso en su despiadada empresa financiera, los intercambios de apoyo entre los amantes comienzan a agriarse hasta convertirse en algo más siniestro. A medida que la dinámica de poder cambia irrevocablemente en su relación, Luke y Emily deben enfrentarse al verdadero precio del éxito y a los desconcertantes límites de la ambición.</p>
         <a href="https://www.youtube.com/embed/2wOfjF1R3y4" class="popup-button red-button">Tráiler</a>
-        <a href="https://archive.org/download/13OCTV2/New%20folder%20%282%29/Juego%20limpio%20%282023%29.mkv" class="popup-button green-button">Reproducir</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/fair%20play%202023.mkv" class="popup-button green-button">Reproducir</a>
         <button class="close-button">Cerrar</button>
         <span>Suspense, Drama, 113 minutos</span> <!-- Información adicional -->
     </div>
@@ -683,7 +759,7 @@ span {
         <h2>Invitación a un Asesinato</h2>
         <p>Eccentric millionaire Olivia sends her half sister Agatha, and a group of old acquaintances, a mysterious invitation for a weekend on her yacht, where they will discover the true motive behind this invitation: the celebration of… a murder?</p>
         <a href="https://www.youtube.com/embed/nRFwNdIre0U" class="popup-button red-button">Tráiler</a>
-        <a href="https://archive.org/download/13OCTV2/New%20folder%20%282%29/Invitaci%C3%B3n%20a%20un%20asesinato%20%282023%29.mkv" class="popup-button green-button">Reproducir</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/invitacion%20a%20un%20asesinato%202023.mkv" class="popup-button green-button">Reproducir</a>
         <button class="close-button">Cerrar</button>
         <span>Comedia, Misterio, 93 minutos</span> <!-- Información adicional -->
     </div>
@@ -711,7 +787,7 @@ span {
         <h2>Sonido de Libertad</h2>
         <p>Narra la historia de Tim Ballard, un ex Agente de Seguridad Nacional de Estados Unidos que dejó su trabajo para dedicar su vida, sumergiéndose en el submundo del tráfico de personas a lo largo de Latinoamérica, a intentar salvar las vidas de cientos de niños.</p>
         <a href="https://www.youtube.com/embed/LTUNWTHKbKo" class="popup-button red-button">Tráiler</a>
-        <a href="https://archive.org/download/s0n1d0-de-l1bert4d-hd/SOUND.OF.FREEDOM.2023.720P.DUAL.Telegram.%40TecnoPeliculashd.mkv" class="popup-button green-button">Reproducir</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/sound%20of%20freedom%202023.mkv" class="popup-button green-button">Reproducir</a>
         <button class="close-button">Cerrar</button>
         <span>Acción, Drama, 131 minutos</span> <!-- Información adicional -->
     </div>
@@ -725,7 +801,7 @@ span {
         <h2>Misión: Imposible - Sentencia mortal parte uno</h2>
         <p>Ethan Hunt y su equipo del FMI, se embarcan en su misión más peligrosa hasta la fecha: localizar, antes de que caiga en las manos equivocadas, una nueva y terrorífica arma que amenaza a toda la humanidad. En esta tesitura, y con unas fuerzas oscuras del pasado de Ethan acechando, comienza una carrera mortal alrededor del mundo en la que está en juego el control del futuro y el destino del planeta. Enfrentado a un enemigo misterioso y todopoderoso, Ethan se ve obligado a considerar que nada puede anteponerse a su misión, ni siquiera las vidas de aquellos que más le importan.</p>
         <a href="https://www.youtube.com/embed/XoDmKCZBeeI" class="popup-button red-button">Tráiler</a>
-        <a href="https://tvinnov.online/PELICULAS%202023/Mission%20Impossible%20Dead%20Reckoning%20Part%20One/Mission.Impossible.Dead.Reckoning.Part.One.2023.sub.mp4" class="popup-button green-button">Reproducir</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/mission%20impossible%20dead%20reckoning%20part%20one%202023.mkv" class="popup-button green-button">Reproducir</a>
         <button class="close-button">Cerrar</button>
         <span>Acción, Suspense, 164 minutos</span> <!-- Información adicional -->
     </div>
@@ -740,26 +816,12 @@ span {
         <h2>Nowhere</h2>
         <p>Mía es una mujer embarazada que, junto a su marido, huye de un país totalitario escondida en un contenedor marítimo. Tras ser forzosamente separados, deberá luchar por su supervivencia cuando una violenta tormenta la arroja al mar. Sola y a la deriva en mitad del océano, Mía se enfrentará a todo para salvar la vida de su hija y reencontrarse con su pareja.</p>
         <a href="https://www.youtube.com/embed/Gl-T2Iw-kiM" class="popup-button red-button">Tráiler</a>
-        <a href="https://tvinnov.online/PELICULAS%202023/NOWHERE/Nowhere.2023.WEB-DL.1080p.Espa%c3%b1ol.mp4" class="popup-button green-button">Reproducir</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/nowhere%202023.mkv" class="popup-button green-button">Reproducir</a>
         <button class="close-button">Cerrar</button>
         <span>Suspense, Drama, 109 minutos</span> <!-- Información adicional -->
     </div>
 </div>
 
-
-<div class="movie">
-    <img src="https://image.tmdb.org/t/p/w200//dfS5qHWFuXyZQnwYREwb7N4qU5p.jpg" alt="57 Seconds">
-    <h3>57 Seconds</h3>
-    <div class="popup">
-        <img src="https://image.tmdb.org/t/p/w200//dfS5qHWFuXyZQnwYREwb7N4qU5p.jpg" alt="57 Seconds">
-        <h2>57 Seconds</h2>
-        <p>When a tech blogger lands an interview with a tech guru and stops an attack on him, he finds a mysterious ring that takes him back 57 seconds into the past.</p>
-        <a href="https://www.youtube.com/embed/lXnF58uEaJFDVEFv" class="popup-button red-button">Tráiler</a>
-        <a href="https://tvinnov.online/PELICULAS%202023/57%20Seconds/57%20Seconds%202023.720p.sub.mp4" class="popup-button green-button">Reproducir</a>
-        <button class="close-button">Cerrar</button>
-        <span>Suspense, Ciencia ficción, 99 minutos</span> <!-- Información adicional -->
-    </div>
-</div>
 
 <div class="movie">
     <img src="https://image.tmdb.org/t/p/w200//yCMFw4UnI2jACjKzoFqnheMUzrS.jpg" alt="Guardianes del Museo">
@@ -776,20 +838,6 @@ span {
 </div>
 
 <div class="movie">
-    <img src="https://image.tmdb.org/t/p/w200//X13cOdC037SHDHpzLMQDTJjfjU.jpg" alt="Sniper: E.I.R.G. – Equipo de inteligencia y respuesta global">
-    <h3>Sniper: E.I.R.G. – Equipo de inteligencia y respuesta global</h3>
-    <div class="popup">
-        <img src="https://image.tmdb.org/t/p/w200//X13cOdC037SHDHpzLMQDTJjfjU.jpg" alt="Sniper: E.I.R.G. – Equipo de inteligencia y respuesta global">
-        <h2>Sniper: E.I.R.G. – Equipo de inteligencia y respuesta global</h2>
-        <p>Cuando un culto terrorista internacional amenaza la estabilidad política global y secuestra a un compañero agente, Ace Sniper Brandon Beckett (Chad Michael Collins) y el recién formado Equipo de Respuesta e Inteligencia Global, o G.R.I.T., dirigido por el Coronel Stone (Dennis Haysbert) debe viajar por todo el mundo a Malta, infiltrarse en el culto y eliminar a su líder para liberar a Lady Death (Luna Fujimoto) y detener la amenaza global. Ryan Robbins y Josh Brener también protagonizan esta entrada trotamundos de la franquicia Sniper.</p>
-        <a href="https://www.youtube.com/embed/AAT4TCet1KQ" class="popup-button red-button">Tráiler</a>
-        <a href="https://tvinnov.online/PELICULAS%202023/Sniper%20G.R.I.T.%20%e2%80%93%20Global%20Response%20&%20Intelligence%20Team/Sniper.G.R.I.T.Global.Response.and.Intelligence.Team.2023.1080p.WEBRip.mp4" class="popup-button green-button">Reproducir</a>
-        <button class="close-button">Cerrar</button>
-        <span>Acción, Suspense, 93 minutos</span> <!-- Información adicional -->
-    </div>
-</div>
-
-<div class="movie">
     <img src="https://image.tmdb.org/t/p/w200//6cZbQppNSELFdsV7gvrOflL6DWK.jpg" alt="¿Quieres ser mi... hijo?">
     <h3>¿Quieres ser mi... hijo?</h3>
     <div class="popup">
@@ -797,7 +845,7 @@ span {
         <h2>¿Quieres ser mi... hijo?</h2>
         <p>Lu, una mujer conformista de 40 años, un día descubre que su pareja de hace 15 años la estaba engañando. En ese momento, Lu toma la decisión de regresar a su departamento de soltera para empezar de cero, ya que se siente estancada y desconsolada. Conoce a su nuevo vecino Javier, un joven y apuesto mujeriego de tan sólo 23 años, quien no la deja descansar por sus constantes fiestas. Para poder conseguir el trabajo de sus sueños, Lu decide mentir en su entrevista al decir que es mujer de familia y que tiene un hijo de 19 años. Por si fuera poco, tiene que enfrentar la última prueba para ser contratada y pasar un fin de semana en Valle de Bravo con los ejecutivos de la empresa y sus familias. Al encontrarse desesperada, Lu le ofrece el trabajo a Javier, para que se haga pasar por su hijo y a cambio, ella no lo molestará más cuando esté de fiesta.</p>
         <a href="https://www.youtube.com/embed/HK0FizurLk0" class="popup-button red-button">Tráiler</a>
-        <a href="https://archive.org/download/qsmh-2318p/Quieres%20ser%20mi%20hijo%202023.mkv" class="popup-button green-button">Reproducir</a>
+        <a href="http://vod.tuxchannel.mx/peliculas/720/quieres%20ser%20mi%20hijo%202023.mkv" class="popup-button green-button">Reproducir</a>
         <button class="close-button">Cerrar</button>
         <span>Comedia, Romance</span> <!-- Información adicional -->
     </div>
@@ -2785,6 +2833,8 @@ span {
                 <a href="LINK" class="popup-button green-button">Reproducir</a>
             </div>
          -->
+
+
 
 
 
