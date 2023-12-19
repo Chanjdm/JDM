@@ -284,36 +284,29 @@ body {
 }
 
 /*  ###################################################################################################   */
-        @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
             .movie {
-                width: calc(50% - 20px); /* Mostrar dos elementos en una fila */
+               width: calc(20% - 20px);
             }
 #video-player {
     position: sticky;
     display: block;
     z-index: 999;
-    left: 182px;
+    left: 0px;
     right: 36%;
-    width: 854px;
-    height: 499px;
+    width: 700px;
+    height: 320px;
     top: 0px;
     border-radius: 11px;
 }
-#video-element {
-    position: relative;
-    width: 620px;
-    height: 320px;
-    top: 35px;
-    left: 120px;
-}
-#close-button {
+ #close-button {
     position: absolute;
-    top: 0px;
-    width: 310px;
-    height: 30px;
-    left: 275px;
+    top: 5px;
+    width: 99px;
+    height: 60px;
+    left: 85%;
     color: chartreuse;
-    font-size: 20px;
+    font-size: 13px;
     font-weight: 700;
     border-style: solid;
     border-width: 2px;
@@ -321,7 +314,122 @@ body {
     border-color: darkorchid;
     box-shadow: 0px 0px 34px 5px #711ccc;
 }
-
+#video-element {
+    position: relative;
+    width: 620px;
+    height: 250px;
+    top: 13px;
+    left: 56px;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 39em;
+    height: 13em;
+    max-width: 95%;
+    background-color: #002a41;
+    border: 5px solid #00fff7;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 33px 12px rgb(0 212 255);
+    Z-index: 99;
+    border-radius: 13px;
+}
+.popup img {
+    top: 5px;
+    left: 10px;
+    position: absolute;
+    max-width: 120px;
+    height: auto;
+    box-shadow: 0px 12px 24px 8px black;
+}
+.close-button {
+    background: #b4008f;
+    position: absolute;
+    top: 0px;
+    left: 37.5em;
+    width: 4em;
+    font-size: 16px;
+    height: 50px;
+    color: aliceblue;
+    border: 2px solid #000000;
+    border-radius: 0px 6px 0px 6px;
+    box-shadow: 0px 3px 16px #d700d4;
+}
+h3 {
+    color: antiquewhite;
+    font-size: 10px;
+    width: auto;
+    margin: 0px 0px;
+    padding: 0px 9px;
+    display: flex;
+    justify-content: center;
+}
+h2 {
+    width: 28rem;
+    height: 60px;
+    left: 8rem;
+    color: #fd8e00;
+    position: relative;
+    top: -30px;
+    background: transparent;
+    text-shadow: 0px 11px 5px black;
+    font-size: 18px;
+}
+p {
+    TEXT-SHADOW: 0px 7px 5px black;
+    position: absolute;
+    color: #d0dbdb;
+    top: 4em;
+    width: 34em;
+    height: 9em;
+    left: 11em;
+    margin: 4px 15px;
+    background: transparent;
+    overflow-y: scroll;
+    font-size: 14px;
+    BORDER-STYLE: solid;
+    BORDER-COLOR: #842be2;
+    BOX-SHADOW: 0PX 3PX 15PX 5PX #711ccc;
+    PADDING: 7PX 0PX 0PX 2PX;
+}
+span {
+    font-size: 12px;
+    width: 130px;
+    left: 5px;
+    top: 12rem;
+    position: absolute;
+    color: #c8ff00;
+    background-color: #7fffd400;
+    TEXT-SHADOW: 0px 9px 4px black;
+}
+.green-button {
+    position: absolute;
+    top: 12em;
+    left: 18em;
+    width: 121px;
+    height: 25px;
+    padding: 0px;
+    background-color: green;
+    color: white;
+    Text-decoration: None;
+    box-shadow: 0px 9px 18px #03b617;
+}
+.red-button {
+    position: absolute;
+    top: 12em;
+    height: 23px;
+    width: 95px;
+    left: 11em;
+    background-color: red;
+    color: white;
+    Text-decoration: None;
+    padding: 0px;
+    box-shadow: 0px 9px 18px #ef0707;
+}
 
         }
 /*  ###################################################################################################   */
@@ -332,7 +440,7 @@ body {
 .popup{
     display: none;
     position: fixed;
-    top: 49%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
@@ -344,7 +452,7 @@ body {
     box-shadow: 0px 0px 37px rgb(255 8 8);
     Z-index: 99;
     overflow-y: scroll;
-    height: 36em;
+    height: 38em;
     border-radius: 6px;
 }
 .popup img {
@@ -363,7 +471,7 @@ h2 {
     height: 70px;
     margin: 4px;
     color: cyan;
-    font-size: 17px;
+    font-size: 16px;
 }
 
 h3 {
@@ -392,7 +500,7 @@ h3 {
     position: absolute;
     background-color: red;
     color: white;
-    top: 9em;
+    top: 9.5em;
     left: 2em;
     font-size: 17px;
     width: 81px;
@@ -403,7 +511,7 @@ h3 {
 }
 .green-button {
     position: absolute;
-    top: 152.4px;
+    top: 9.5em;
     color: aliceblue;
     width: 100px;
     height: 20px;
@@ -418,7 +526,7 @@ h3 {
 .close-button {
     background: #c600ff;
     position: absolute;
-    top: 200px;
+    top: 212px;
     left: 4em;
     width: 10em;
     height: 25px;
@@ -426,10 +534,10 @@ h3 {
     color: black;
 }
 span {
-    font-size: 13px;
+    font-size: 12px;
     width: 165px;
     left: 110px;
-    top: 6.5rem;
+    top: 7rem;
     position: absolute;
     color: #c8ff00;
     background-color: #7fffd400;
