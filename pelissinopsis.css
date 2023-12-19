@@ -249,8 +249,101 @@ body {
 /*  ###################################################################################################   */
         @media screen and (max-width: 768px) {
             .movie {
-                width: calc(50% - 20px); /* Mostrar dos elementos en una fila */
+                width: calc(20% - 20px); /* Mostrar dos elementos en una fila */
             }
+.popup img {
+    left: 10px;
+    position: absolute;
+    max-width: 132px;
+    height: auto;
+    top: 10px;
+    box-shadow: 0px 12px 24px 8px black;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 45em;
+    height: 14em;
+    max-width: 82%;
+    background-color: #002a41;
+    border: 5px solid #00fff7;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 0px 33px 12px rgb(0 212 255);
+    Z-index: 99;
+    border-radius: 13px;
+}
+h2 {
+    width: 33rem;
+    height: 60px;
+    left: 8rem;
+    color: #fd8e00;
+    position: relative;
+    top: -30px;
+    font-size: 18px;
+    background: transparent;
+    text-shadow: 0px 11px 5px black;
+}
+p {
+    TEXT-SHADOW: 0px 7px 5px black;
+    position: absolute;
+    color: #d0dbdb;
+    top: 3em;
+    width: 30em;
+    height: 8.6em;
+    left: 9em;
+    margin: 4px 15px;
+    background: transparent;
+    overflow-y: scroll;
+    font-size: 16px;
+    BORDER-STYLE: solid;
+    BORDER-COLOR: #842be2;
+    BOX-SHADOW: 0PX 3PX 15PX 5PX #711ccc;
+    PADDING: 7PX 0PX 0PX 0PX;
+}
+.red-button {
+    position: absolute;
+    top: 12.5em;
+    left: 12em;
+    background-color: red;
+    color: white;
+    Text-decoration: None;
+    box-shadow: 0px 9px 18px #ef0707;
+}
+.green-button {
+    position: absolute;
+    top: 12.5em;
+    left: 20em;
+    background-color: green;
+    color: white;
+    Text-decoration: None;
+    box-shadow: 0px 9px 18px #03b617;
+}
+.close-button {
+    background: #b4008f;
+    position: absolute;
+    top: 13em;
+    left: 31em;
+    width: 7em;
+    font-size: 16px;
+    height: 40px;
+    color: aliceblue;
+    border: 2px solid #000000;
+    box-shadow: 0px 12px 16px #d700d4;
+}
+span {
+    font-size: 13px;
+    width: 184px;
+    left: 5px;
+    top: 13.2rem;
+    position: absolute;
+    color: #c8ff00;
+    background-color: #7fffd400;
+    TEXT-SHADOW: 0px 9px 4px black;
+}
         }
 /*  ###################################################################################################   */
         @media screen and (max-width: 480px) {
@@ -411,6 +504,3 @@ span {
 
 
 
-
-
-   
