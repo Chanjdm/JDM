@@ -329,59 +329,6 @@ body {
 
 
 
-#search-container {
-    font-size: 18px;
-    color: aqua;
-    top: 10px;
-    left: 25px;
-    width: 57px;
-    transition: width 0.3s ease-in-out;
-    z-index: 5;
-    position: sticky;
-    border-radius: 6px;
-}
-
-label {
-    font-size: 18px;
-    color: aqua;
-}
-
-@keyframes moveColors {
-    0%, 100% {
-        border-color: red;
-    }
-    25% {
-        border-color: green;
-    }
-    50% {
-        border-color: yellow;
-    }
-    75% {
-        border-color: cyan;
-    }
-}
-
-#search:hover {
-
-    animation: moveColors 2s linear infinite;
-}
-
-
-#search {
-    position: absolute;
-    color: aquamarine;
-    left: -1rem;
-    top: -12px;
-    height: 25px;
-    font-size: 16px;
-    width: 10rem;
-    background: #660602;
-    border-radius: 6px;
-    font-size: x-large;
-    font-family: fantasy;
-}
-
-
 
 
 
@@ -529,28 +476,6 @@ background: #0000ff00;
 
 
 
-        @media screen and (max-width: 720px) {
-
-#search {
-    position: fixed;
-    color: #ffd403;
-    left: 5px;
-    top: 1px;
-    height: 25px;
-    font-size: 16px;
-    width: 150px;
-    background: #660602;
-    border-radius: 6px;
-    font-size: large;
-    font-family: fantasy;
-}
-
-}
-
-
-
-
-
 /*   ###################################################   */
 
 @media (max-width: 480px) {
@@ -558,28 +483,6 @@ background: #0000ff00;
         gap: 10px; /* Reducir el espacio entre series */
         margin: 5px; /* Espaciado en dispositivos pequeños */
       }
-
-
-#searchInput:hover {
-    width: 225px;
-    animation: moveColors 2s linear infinite;
-}
-
-#search {
-    position: fixed;
-    color: #ffd403;
-    left: 5px;
-    top: 1px;
-    height: 25px;
-    font-size: 16px;
-    width: 150px;
-    background: #660602;
-    border-radius: 6px;
-    font-size: large;
-    font-family: fantasy;
-}
-
-
 
 .pagina {
     position: relative;
