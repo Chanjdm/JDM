@@ -511,7 +511,7 @@ h3 {
     position: absolute;
     top: 31%;
     color: aliceblue;
-    width: 110px;
+    width: 100px;
     height: 20px;
     margin: 0px 0px;
     left: 41%;
@@ -534,11 +534,11 @@ h3 {
     color: black;
 }
 span {
-    font-size: 15px;
+    font-size: 13px;
     width: 165px;
     left: 50%;
     transform: translateX(-12%);
-    top: 7.5rem;
+    top: 6.5rem;
     position: absolute;
     color: #c8ff00;
     background-color: #7fffd400;
@@ -575,7 +575,7 @@ span {
     z-index: 999;
 }
 
-        #menu-options.active {
+  #menu-options.active {
             left: 0; /* Mostrar el menú en pantalla */
         }
 #menu-options button {
@@ -599,21 +599,21 @@ span {
     border-radius: 11px;
     PADDING: 134PX 0PX;
 }
-#video-element {
+#video-element  {
     position: relative;
-    width: 95%;
+    width: 90%;
     height: 40%;
     top: 50px;
-    left: 2%;
+    left: 20%;
 }
 #close-button {
     position: absolute;
     top: 33px;
     width: 230px;
     height: 59px;
-    left: 22%;
+    left: 27%;
     color: chartreuse;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     border-style: solid;
     border-width: 2px;
