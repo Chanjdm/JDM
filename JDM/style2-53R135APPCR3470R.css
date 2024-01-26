@@ -25,23 +25,7 @@
     width: 736PX;
     z-index: 5;
 }
- .dialog-content h2{
-    
-}
 
-/*  
-
-.dialog-content h2 {
-    background: #0d4757;
-    border: 2px solid red;
-    border-radius: 4px;
-    padding: 5px;
-    transition: all 0.9s;
-    text-align: center;
-    box-shadow: 0px 10px 16px 4px rgb(255 0 0);
-    margin-inline: 0px;
-}
-*/
 .dialog-content h2 {
     width: calc(60% - 53px);
     top: 5rem;
@@ -381,7 +365,7 @@ body {
 
 /*  TITULO DE LA SERIE DEL POP-UP   */
   
-.dialog-content h2 .dialog-content h2 {
+.dialog-content h2 {
     width: calc(70% - 90px);
     height: 28px;
     top: 11%;
@@ -394,7 +378,7 @@ body {
     left: 7%;
     right: 9%;
 }
-.seasons-dialog .seasons-dialog {
+.seasons-dialog {
     OVERFLOW: scroll;
     HEIGHT: 40%;
     PADDING-TOP: 32px;
