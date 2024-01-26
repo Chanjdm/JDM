@@ -328,7 +328,7 @@ body {
 .chapter-menu {
     padding-top: 0px;
     padding-bottom: 30px;
-    margin-left: -57px;
+    margin-left: -6px;
     margin-right: 167px;
     margin-top: 25px;
     display: flex;
@@ -644,7 +644,17 @@ Z-index:10;
     border-radius: 20px;
 }
 
-
+.chapter-menu {
+    padding-top: 0px;
+    padding-bottom: 30px;
+    margin-left: -35px;
+    margin-right: 167px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20em;
+}
 .chapter-menu a {
     position: relative;
     color: #e9a603;
