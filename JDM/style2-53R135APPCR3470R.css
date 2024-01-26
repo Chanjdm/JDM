@@ -9,20 +9,20 @@
 .dialog-content {
     overflow-y: auto;
     width: 35rem;
-    height: 529px;
+    height: 50%;
     background-color: #000000;
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
     position: relative;
-    TOP: -100PX;
+    TOP: -23%;
     left: 18rem;
 }
 
 .dialog-content H2 {
-    TOP: 1.7EM;
+
     position: fixed;
-    width: 736PX;
+
     z-index: 5;
 }
 
@@ -155,10 +155,10 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
 }
 
  .seasons-dialog {
-    WIDTH: 0EM;
+    WIDTH: 60%;
     POSITION: relative;
-    LEFT: 17rem;
-    TOP: -4.3EM;
+    LEFT: 36%;
+    TOP: -13%;
     transition: all 0.9s;
 }
 
@@ -349,10 +349,10 @@ body {
     padding: 0px;
     border-radius: 5px;
     position: relative;
-    top: -7rem;
+    top: -29%;
 }
 .dialog-box.open {
-    background: #000000f0;
+    background: #0000000;
     top: 0rem;
     left: 0px;
     HEIGHT: 640PX;
@@ -380,16 +380,16 @@ body {
 }
 .seasons-dialog {
     OVERFLOW: scroll;
-    HEIGHT: 40%;
+    HEIGHT: 85%;
     PADDING-TOP: 32px;
     WIDTH: 62%;
-    left: 3em;
+    left: 25%;
     top: -19px;
 }
 .season-button {
     width: 10rem;
     position: relative;
-    left: 3%;
+    left: -10%;
     border: 3px solid #90ff00;
     padding: 3px;
     margin-top: 10px;
@@ -644,23 +644,14 @@ Z-index:10;
     border-radius: 20px;
 }
 
+
 .chapter-menu a {
     position: relative;
     color: #e9a603;
     padding: 11px;
-    left: 14%;
     margin: 0px 0px 0px 12px;
-    width: 125%;
-    border-radius: 5px;
-    margin-bottom: 28px;
-    box-shadow: 0px 0px 7px 5px rgb(158 0 248);
-}
-
-.chapter-menu a {
-    color: #e9a603;
-    padding: 11px;
-    margin: 0px 0px 0px 12px;
-    width: 16rem;
+    width: 100%;
+    left: 21%;
     border-radius: 5px;
     margin-bottom: 28px;
     box-shadow: 0px 0px 7px 5px rgb(158 0 248);
