@@ -177,7 +177,7 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
 .season-button {
     width: 10rem;
     position: relative;
-    left: -70px;
+    left: 0px;
     border: 3px solid #90ff00;
     padding: 3px;
     margin-top: 10px;
@@ -328,7 +328,7 @@ body {
 .chapter-menu {
     padding-top: 0px;
     padding-bottom: 30px;
-    margin-left: -6px;
+    margin-left: -20px;
     margin-right: 167px;
     margin-top: 25px;
     display: flex;
@@ -660,8 +660,8 @@ Z-index:10;
     color: #e9a603;
     padding: 11px;
     margin: 0px 0px 0px 12px;
-    width: 100%;
-    left: 21%;
+    width: 90%;
+    left: 10%;
     border-radius: 5px;
     margin-bottom: 28px;
     box-shadow: 0px 0px 7px 5px rgb(158 0 248);
