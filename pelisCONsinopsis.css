@@ -284,29 +284,36 @@ body {
 }
 
 /*  ###################################################################################################   */
-@media screen and (max-width: 768px) {
+        @media screen and (max-width: 768px) {
             .movie {
-               width: calc(20% - 20px);
+                 width: calc(19.33% - 30px); /* Mostrar dos elementos en una fila */
             }
 #video-player {
     position: sticky;
     display: block;
     z-index: 999;
-    left: 0px;
+    left: 182px;
     right: 36%;
-    width: 700px;
-    height: 320px;
+    width: 854px;
+    height: 499px;
     top: 0px;
     border-radius: 11px;
 }
- #close-button {
+#video-element {
+    position: relative;
+    width: 75%;
+    height: 39%;
+    top: 9%;
+    left: 7%;
+}
+#close-button {
     position: absolute;
-    top: 5px;
-    width: 99px;
-    height: 60px;
-    left: 85%;
+    top: 1%;
+    width: 310px;
+    height: 30px;
+    left: 26%;
     color: chartreuse;
-    font-size: 13px;
+    font-size: 20px;
     font-weight: 700;
     border-style: solid;
     border-width: 2px;
@@ -314,22 +321,15 @@ body {
     border-color: darkorchid;
     box-shadow: 0px 0px 34px 5px #711ccc;
 }
-#video-element {
-    position: relative;
-    width: 620px;
-    height: 250px;
-    top: 13px;
-    left: 56px;
-}
 .popup {
     display: none;
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 48%;
+    left: 46%;
     transform: translate(-50%, -50%);
-    width: 39em;
-    height: 13em;
-    max-width: 95%;
+    width: 85%;
+    height: 29em;
+    max-width: 80%;
     background-color: #002a41;
     border: 5px solid #00fff7;
     padding: 20px;
@@ -338,97 +338,87 @@ body {
     Z-index: 99;
     border-radius: 13px;
 }
-.popup img {
-    top: 5px;
-    left: 10px;
+.popup p {
+    TEXT-SHADOW: 0px 7px 5px black;
     position: absolute;
-    max-width: 120px;
+    color: #d0dbdb;
+    top: 7em;
+    width: 16em;
+    height: 7.5em;
+    left: 8em;
+    margin: 4px 15px;
+    background: transparent;
+    overflow-y: scroll;
+    font-size: 24px;
+    BORDER-STYLE: solid;
+    BORDER-COLOR: #842be2;
+    BOX-SHADOW: 0PX 3PX 15PX 5PX #711ccc;
+    PADDING: 7PX 0PX 0PX 0PX;
+}
+.popup img {
+    left: 2%;
+    top: 24%;
+    position: absolute;
+    max-width: 168px;
     height: auto;
     box-shadow: 0px 12px 24px 8px black;
+}
+.red-button {
+    position: absolute;
+    top: 24%;
+    left: 83%;
+    background-color: red;
+    color: white;
+    Text-decoration: None;
+    box-shadow: 0px 9px 20px #ef0707;
 }
 .close-button {
     background: #b4008f;
     position: absolute;
-    top: 0px;
-    left: 37.5em;
-    width: 4em;
+    top: 60%;
+    left: 85%;
+    width: 5em;
     font-size: 16px;
-    height: 50px;
+    height: 40px;
     color: aliceblue;
     border: 2px solid #000000;
-    border-radius: 0px 6px 0px 6px;
-    box-shadow: 0px 3px 16px #d700d4;
-}
-h3 {
-    color: antiquewhite;
-    font-size: 10px;
-    width: auto;
-    margin: 0px 0px;
-    padding: 0px 9px;
-    display: flex;
-    justify-content: center;
-}
-h2 {
-    width: 28rem;
-    height: 60px;
-    left: 8rem;
-    color: #fd8e00;
-    position: relative;
-    top: -30px;
-    background: transparent;
-    text-shadow: 0px 11px 5px black;
-    font-size: 18px;
-}
-p {
-    TEXT-SHADOW: 0px 7px 5px black;
-    position: absolute;
-    color: #d0dbdb;
-    top: 4em;
-    width: 34em;
-    height: 9em;
-    left: 11em;
-    margin: 4px 15px;
-    background: transparent;
-    overflow-y: scroll;
-    font-size: 14px;
-    BORDER-STYLE: solid;
-    BORDER-COLOR: #842be2;
-    BOX-SHADOW: 0PX 3PX 15PX 5PX #711ccc;
-    PADDING: 7PX 0PX 0PX 2PX;
-}
-span {
-    font-size: 12px;
-    width: 130px;
-    left: 5px;
-    top: 12rem;
-    position: absolute;
-    color: #c8ff00;
-    background-color: #7fffd400;
-    TEXT-SHADOW: 0px 9px 4px black;
+    box-shadow: 0px 12px 16px #d700d4;
 }
 .green-button {
     position: absolute;
-    top: 12em;
-    left: 18em;
-    width: 121px;
-    height: 25px;
-    padding: 0px;
+    top: 41%;
+    left: 83%;
+    width: 84px;
+    height: 2.2rem;
+    padding: 11px 2px 0px 0px;
     background-color: green;
     color: white;
     Text-decoration: None;
     box-shadow: 0px 9px 18px #03b617;
 }
-.red-button {
+
+h2 {
+    width: 60%;
+    height: 45px;
+    font-size: 100%;
+    left: 11rem;
+    color: #fd8e00;
+    position: relative;
+    top: 20%;
+    background: transparent;
+    text-shadow: 0px 11px 5px black;
+}
+span {
+    font-size: 20px;
+    width: 23%;
+    left: 12px;
+    top: 65%;
+    font-size: 92%;
+    padding: 5px 8px 6px 5px;
     position: absolute;
-    top: 12em;
-    height: 23px;
-    width: 95px;
-    left: 11em;
-    background-color: red;
-    color: white;
-    Text-decoration: None;
-    padding: 0px;
-    box-shadow: 0px 9px 18px #ef0707;
+    color: #c8ff00;
+    background-color: #000000a8;
+    TEXT-SHADOW: 0px 9px 4px black;
 }
 
         }
@@ -437,41 +427,61 @@ span {
             .movie {
                 width: calc(50% - 20px); /* Mostrar un elemento en una fila */
             }
-.popup{
+.popup  {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    max-width: 88%;
+    max-width: 93%;
     background-color: black;
     border: 2px solid #ff0101;
-    padding: 6px;
+    padding: 0px;
     text-align: center;
     box-shadow: 0px 0px 37px rgb(255 8 8);
     Z-index: 99;
     overflow-y: scroll;
-    height: 38em;
+    height: 98vh;
     border-radius: 6px;
 }
 .popup img {
-    max-width: 33%;
+    max-width: 38%;
     height: auto;
+    top: 3%;
     border-style: solid;
     border-width: 1px;
     border-color: blueviolet;
     box-shadow: 0px 0px 27px 0.2px #932eff;
 }
+
+.popup p {
+    position: absolute;
+    top: 42%;
+    width: 86%;
+    MAX-WIDTH: 100%;
+    height: 51vh;
+    left: 5%;
+    margin: 20px 0px;
+    color: aliceblue;
+    overflow-y: scroll;
+    BORDER-STYLE: solid;
+    BORDER-COLOR: #79e22b;
+    BOX-SHADOW: 0PX 1PX 15PX 5PX #79e22b;
+    font-size: 16px;
+    padding: 6px 1px 0px 10px;
+}
+
 h2 {
     position: absolute;
     width: 10rem;
     top: 6px;
-    left: 102px;
+    left: 50%;
+    transform: translateX(-12%);
     height: 70px;
     margin: 4px;
     color: cyan;
-    font-size: 16px;
+    font-size: 17px;
 }
 
 h3 {
@@ -482,26 +492,14 @@ h3 {
     display: flex;
     justify-content: center;
 }
-.popup p {
-    position: absolute;
-    top: 15em;
-    width: 16.5em;
-    height: 16.5em;
-    left: 0em;
-    margin: 20px 8px;
-    color: aliceblue;
-    overflow-y: scroll;
-    BORDER-STYLE: solid;
-    BORDER-COLOR: #79e22b;
-    BOX-SHADOW: 0PX 1PX 15PX 5PX #79e22b;
-    font-size: 16px;
-}
+
 .red-button {
     position: absolute;
     background-color: red;
     color: white;
-    top: 9.5em;
-    left: 2em;
+     top: 31%;
+    left: 25%;
+    transform: translateX(-38%);
     font-size: 17px;
     width: 81px;
     margin: 0px;
@@ -511,12 +509,13 @@ h3 {
 }
 .green-button {
     position: absolute;
-    top: 9.5em;
+    top: 31%;
     color: aliceblue;
-    width: 100px;
+    width: 110px;
     height: 20px;
     margin: 0px 0px;
-    left: 9em;
+    left: 41%;
+    transform: translateX(60%);
     padding: 3px;
     background-color: green;
     border-radius: 4px;
@@ -526,18 +525,20 @@ h3 {
 .close-button {
     background: #c600ff;
     position: absolute;
-    top: 212px;
-    left: 4em;
+    top: 38%;
+    left: 37%;
+    transform: translateX(-13%);
     width: 10em;
     height: 25px;
     border: 2px solid #000000;
     color: black;
 }
 span {
-    font-size: 12px;
+    font-size: 15px;
     width: 165px;
-    left: 110px;
-    top: 7rem;
+    left: 50%;
+    transform: translateX(-12%);
+    top: 7.5rem;
     position: absolute;
     color: #c8ff00;
     background-color: #7fffd400;
@@ -590,29 +591,29 @@ span {
     position: sticky;
     display: block;
     z-index: 999;
-    left: 13px;
-    right: 36%;
-    width: 294px;
-    height: 308px;
-    top: 12px;
+    left: 2%;
+    right: 2%;
+    width: 100%;
+    height: 100vh;
+    top: 0px;
     border-radius: 11px;
     PADDING: 134PX 0PX;
 }
 #video-element {
     position: relative;
-    width: 288px;
-    height: 250px;
+    width: 95%;
+    height: 40%;
     top: 50px;
-    left: 3px;
+    left: 2%;
 }
 #close-button {
     position: absolute;
     top: 33px;
     width: 230px;
     height: 59px;
-    left: 30px;
+    left: 22%;
     color: chartreuse;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     border-style: solid;
     border-width: 2px;
@@ -620,9 +621,11 @@ span {
     border-color: darkorchid;
     box-shadow: 0px 0px 34px 5px #711ccc;
 }
-
+::-webkit-scrollbar-button {
+    display: none;
 }
 
+}
 
 
 
