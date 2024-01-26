@@ -209,7 +209,7 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
 
 
 
- /* Muestra los capítulos en línea vertical */
+ /* Muestra los cap tulos en l nea vertical */
 .chapter-menu {
     padding-top: 20px;
     margin-left: 10px;
@@ -225,7 +225,7 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
         color:black;
 }
 
-/* Ajusta el espacio entre los capítulos */
+/* Ajusta el espacio entre los cap tulos */
 .chapter-menu a {
     color: #e9a603;
     padding: 10px;
@@ -309,15 +309,15 @@ body {
 }
 
 
-/* Estilo de la animación para el título */
+/* Estilo de la animaci n para el t tulo */
 .animated-title {
-    animation: slideLeft 0s linear infinite; /* Duración y efecto de animación */
-    white-space: nowrap; /* Evitar que el texto se divida en múltiples líneas */
+    animation: slideLeft 0s linear infinite; /* Duraci n y efecto de animaci n */
+    white-space: nowrap; /* Evitar que el texto se divida en m ltiples l neas */
     overflow: hidden; /* Ocultar el texto que desborda el contenedor */
-    width: 200px; /* Ajusta el ancho de la animación según tus preferencias */
+    width: 200px; /* Ajusta el ancho de la animaci n seg n tus preferencias */
 }
 
-/* Definición de la animación */
+/* Definici n de la animaci n */
 @keyframes slideLeft {
     0% {
         transform: translateX(50%); /* Comenzar fuera del contenedor */
@@ -352,12 +352,12 @@ body {
     align-items: center;
     width: 20em;
 }
-.chapter-menu a {
+ .chapter-menu a {
     color: #e9a603;
     padding: 10px;
     width: 10rem;
     border-radius: 5px;
-    margin-bottom: 28px;
+    margin-bottom: 19px;
     box-shadow: 0px 0px 7px 5px rgb(158 0 248);
 }
 .dialog-content {
@@ -381,26 +381,37 @@ body {
 
 /*  TITULO DE LA SERIE DEL POP-UP   */
   
-.dialog-content h2 {
-    width: calc(59% - 102px);
+.dialog-content h2 .dialog-content h2 {
+    width: calc(70% - 90px);
     height: 28px;
-    top: 35px;
+    top: 11%;
     padding: 6px 0px 0px 0px;
     border: 0px;
     background: transparent;
     box-shadow: 0px 2px 25px 9px red;
     text-shadow: 0px 9px 16px #00c8ff;
-    font-size: 12px;
+    font-size: 13px;
     left: 7%;
     right: 9%;
 }
-.seasons-dialog {
+.seasons-dialog .seasons-dialog {
     OVERFLOW: scroll;
-    HEIGHT: 17EM;
+    HEIGHT: 40%;
     PADDING-TOP: 32px;
     WIDTH: 62%;
     left: 3em;
     top: -19px;
+}
+.season-button {
+    width: 10rem;
+    position: relative;
+    left: 3%;
+    border: 3px solid #90ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
 }
 h2{
     background: #00000005;
@@ -416,15 +427,15 @@ h2{
     LEFT: 15PX;
     OVERFLOW-Y: SCROLL;
     HEIGHT: 154Px;
-    WIDTH: 55%;
+    WIDTH: 70%;
     font-size: 17px;
     Z-INDEX: 5;
     POSITION: fixed;
     color: aliceblue;
     padding: 11PX 20PX 14PX 20PX;
-    TOP: 4.9EM;
+    TOP: 6EM;
     margin-left: -15px;
-background: #0000ff00;
+    background: #0000ff00;
 }
 .close-button {
     background: black;
@@ -481,7 +492,7 @@ background: #0000ff00;
 @media (max-width: 480px) {
       .container {
         gap: 10px; /* Reducir el espacio entre series */
-        margin: 5px; /* Espaciado en dispositivos pequeños */
+        margin: 5px; /* Espaciado en dispositivos peque os */
       }
 
 .pagina {
@@ -523,10 +534,10 @@ p {
 
 /* CUADRO DONDE APARECEN LAS TEMPORADAS Y LOS CAPITULOS PARA AGRANDAR EL FONDO DEL MARCO */
  .dialog-content {
-        left: 0; /* Centrar el cuadro de diálogo */
-        top: 19%; /* Ajustar la posición en dispositivos pequeños */
+        left: 0; /* Centrar el cuadro de di logo */
+        top: 19%; /* Ajustar la posici n en dispositivos peque os */
         width: 100%; /* Ancho completo */
-        height: 500PX; /* Altura automática */
+        height: 500PX; /* Altura autom tica */
       }
 
 
@@ -549,15 +560,14 @@ p {
 /*  CUADRO QUE CONTIENE TODO DEL POP-UP   */
 .dialog-box.open {
     LEFT: 2PX;
-    HEIGHT: 708PX;
-    WIDTH: 338PX;
+    HEIGHT: 100%;
+    WIDTH: 100%;
     visibility: visible;
     opacity: 1;
     transition: opacity 1.5s;
     Z-INDEX: 1;
     background: #000000f5;
 }
-
 /*  TITULO DE LA SERIE DEL POP-UP  
 .dialog-content h2 {
     OVERFLOW-Y: scroll;
@@ -580,7 +590,7 @@ p {
 .dialog-content h2 {
     top: 4rem;
     color: #00ff11;
-    width: fit-content;
+    width: auto;
     HEIGHT: 40PX;
     border: 0px;
     background: transparent;
@@ -638,8 +648,8 @@ Z-index:10;
 /* CUADRO  DEL POP-UP PARA AGRANDAR EL CAJON DE TEMPORADAS Y CAPITULOS */
 .seasons-dialog {
     position: Initial;
-    height: 19.9em;
-    width: 18.5em;
+    height: 81%;
+    width: 92%;
     border: 3px solid #62ff00;
     padding: 3px;
     margin-Bottom: 18px;
@@ -647,16 +657,21 @@ Z-index:10;
     color: aqua;
     background: black;
     box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+    border-radius: 20px;
 }
 
-.chapter-menu {
-    WIDTH: 250PX;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 20px;
-    display: flex;
-   flex-direction: column;
+.chapter-menu a {
+    position: relative;
+    color: #e9a603;
+    padding: 11px;
+    left: 14%;
+    margin: 0px 0px 0px 12px;
+    width: 125%;
+    border-radius: 5px;
+    margin-bottom: 28px;
+    box-shadow: 0px 0px 7px 5px rgb(158 0 248);
 }
+
 .chapter-menu a {
     color: #e9a603;
     padding: 11px;
@@ -691,14 +706,14 @@ box-shadow: 0 0 32px #ff0000;
   transition: opacity 0.3s;
 }
 
-/* Estilo de la animación para el título */
+/* Estilo de la animaci n para el t tulo */
 .animated-title {
-    animation: slideLeft 5s linear infinite; /* Duración y efecto de animación */
-    white-space: nowrap; /* Evitar que el texto se divida en múltiples líneas */
+    animation: slideLeft 5s linear infinite; /* Duraci n y efecto de animaci n */
+    white-space: nowrap; /* Evitar que el texto se divida en m ltiples l neas */
     overflow: hidden; /* Ocultar el texto que desborda el contenedor */
 }
 
-/* Definición de la animación */
+/* Definici n de la animaci n */
 @keyframes slideLeft {
     0% {
         transform: translateX(100%); /* Comenzar fuera del contenedor */
