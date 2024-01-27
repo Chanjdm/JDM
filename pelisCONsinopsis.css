@@ -284,34 +284,36 @@ body {
 }
 
 /*  ###################################################################################################   */
-        @media screen and (max-width: 768px) {
-            .movie {
+        @media screen and (max-width: 900px) {
+.movie {
                  width: calc(19.33% - 30px); /* Mostrar dos elementos en una fila */
             }
 #video-player {
     position: sticky;
     display: block;
     z-index: 999;
-    left: 182px;
-    right: 36%;
-    width: 854px;
-    height: 499px;
+    left: 5px;
+    right: 0%;
+    width: 84%;
+    max-width: 120%;
+    padding: 16px 14% 16px 14%;
+    height: 0%;
     top: 0px;
     border-radius: 11px;
 }
 #video-element {
     position: relative;
-    width: 75%;
-    height: 39%;
-    top: 9%;
-    left: 7%;
+    width: 100%;
+    left: 0%;
+    top: -1px;
+    height: 80%;
 }
 #close-button {
     position: absolute;
     top: 1%;
     width: 310px;
     height: 30px;
-    left: 26%;
+    left: 30%;
     color: chartreuse;
     font-size: 20px;
     font-weight: 700;
@@ -324,12 +326,12 @@ body {
 .popup {
     display: none;
     position: fixed;
-    top: 48%;
-    left: 46%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    width: 85%;
-    height: 29em;
-    max-width: 80%;
+    width: 90%;
+    height: 82%;
+    max-width: 90%;
     background-color: #002a41;
     border: 5px solid #00fff7;
     padding: 20px;
@@ -342,31 +344,31 @@ body {
     TEXT-SHADOW: 0px 7px 5px black;
     position: absolute;
     color: #d0dbdb;
-    top: 7em;
-    width: 16em;
-    height: 7.5em;
-    left: 8em;
+    top: 27%;
+    width: 55%;
+    height: 63%;
+    left: 27%;
     margin: 4px 15px;
     background: transparent;
     overflow-y: scroll;
-    font-size: 24px;
+    font-size: 23px;
     BORDER-STYLE: solid;
     BORDER-COLOR: #842be2;
     BOX-SHADOW: 0PX 3PX 15PX 5PX #711ccc;
-    PADDING: 7PX 0PX 0PX 0PX;
+    PADDING: 7PX 0PX 0PX 5PX;
 }
 .popup img {
     left: 2%;
-    top: 24%;
+    top: 4%;
     position: absolute;
-    max-width: 168px;
+    max-width: 25%;
     height: auto;
-    box-shadow: 0px 12px 24px 8px black;
+    box-shadow: 0px 0px 8px 7px black;
 }
 .red-button {
     position: absolute;
-    top: 24%;
-    left: 83%;
+    top: 7%;
+    left: 85%;
     background-color: red;
     color: white;
     Text-decoration: None;
@@ -375,8 +377,8 @@ body {
 .close-button {
     background: #b4008f;
     position: absolute;
-    top: 60%;
-    left: 85%;
+    top: 75%;
+    left: 87%;
     width: 5em;
     font-size: 16px;
     height: 40px;
@@ -386,11 +388,11 @@ body {
 }
 .green-button {
     position: absolute;
-    top: 41%;
-    left: 83%;
-    width: 84px;
+    top: 40%;
+    left: 85%;
+    width: 90px;
     height: 2.2rem;
-    padding: 11px 2px 0px 0px;
+    padding: 11px 6px 0px 0px;
     background-color: green;
     color: white;
     Text-decoration: None;
@@ -401,24 +403,24 @@ h2 {
     width: 60%;
     height: 45px;
     font-size: 100%;
-    left: 11rem;
+    left: 27%;
     color: #fd8e00;
     position: relative;
-    top: 20%;
+    top: -9%;
     background: transparent;
     text-shadow: 0px 11px 5px black;
 }
 span {
     font-size: 20px;
-    width: 23%;
-    left: 12px;
-    top: 65%;
-    font-size: 92%;
+    width: 55%;
+    left: 29%;
+    top: 17%;
+    font-size: 84%;
     padding: 5px 8px 6px 5px;
     position: absolute;
     color: #c8ff00;
-    background-color: #000000a8;
-    TEXT-SHADOW: 0px 9px 4px black;
+    background-color: #00000000;
+    TEXT-SHADOW: 0px 11px 4px black;
 }
 
         }
@@ -511,7 +513,7 @@ h3 {
     position: absolute;
     top: 31%;
     color: aliceblue;
-    width: 100px;
+    width: 110px;
     height: 20px;
     margin: 0px 0px;
     left: 41%;
@@ -534,11 +536,11 @@ h3 {
     color: black;
 }
 span {
-    font-size: 13px;
+    font-size: 15px;
     width: 165px;
     left: 50%;
     transform: translateX(-12%);
-    top: 6.5rem;
+    top: 7.5rem;
     position: absolute;
     color: #c8ff00;
     background-color: #7fffd400;
@@ -575,7 +577,7 @@ span {
     z-index: 999;
 }
 
-  #menu-options.active {
+        #menu-options.active {
             left: 0; /* Mostrar el menú en pantalla */
         }
 #menu-options button {
@@ -599,21 +601,21 @@ span {
     border-radius: 11px;
     PADDING: 134PX 0PX;
 }
-#video-element  {
+#video-element {
     position: relative;
-    width: 90%;
+    width: 95%;
     height: 40%;
     top: 50px;
-    left: 20%;
+    left: 2%;
 }
 #close-button {
     position: absolute;
     top: 33px;
     width: 230px;
     height: 59px;
-    left: 27%;
+    left: 22%;
     color: chartreuse;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     border-style: solid;
     border-width: 2px;
@@ -626,6 +628,3 @@ span {
 }
 
 }
-
-
-
