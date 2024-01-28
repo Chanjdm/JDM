@@ -253,17 +253,17 @@ body {
     position: sticky;
     display: block;
     z-index: 999;
-    left: 182px;
+    left: 12.5%;
     right: 36%;
-    width: 854px;
+    width: 848px;
     height: 499px;
-    top: 34px;
+    top: 15%;
     border-radius: 11px;
 }
 #video-element {
     position: relative;
-    width: 855px;
-    height: 440px;
+    width: 100%;
+    height: 85%;
     top: 50px;
 }
 
@@ -288,26 +288,29 @@ body {
 .movie {
                  width: calc(19.33% - 30px); /* Mostrar dos elementos en una fila */
             }
-#video-player {
-    position: sticky;
-    display: block;
-    z-index: 999;
-    left: 5px;
-    right: 0%;
-    width: 84%;
-    max-width: 120%;
-    padding: 16px 14% 16px 14%;
-    height: 0%;
-    top: 0px;
-    border-radius: 11px;
-}
-#video-element {
+
+
+ #video-player {
+        position: sticky;
+        display: block;
+        z-index: 999;
+        left: 0; /* Ajuste para evitar desbordes en el lado izquierdo */
+        right: 0; /* Ajuste para evitar desbordes en el lado derecho */
+        width: 74%; /* Cambia este valor a la medida fija que desees */
+        height: 320px; /* Cambia este valor a la medida fija que desees */
+        top: 5%;
+        margin: 0 auto; /* Centrar el elemento horizontalmente */
+        border-radius: 11px;
+        padding: 0% 10%;
+    }
+ #video-element {
     position: relative;
     width: 100%;
-    left: 0%;
-    top: -1px;
-    height: 80%;
+    height: 100%;
+    top: 0px;
+    padding: 2% 0%;
 }
+
 #close-button {
     position: absolute;
     top: 1%;
@@ -392,6 +395,7 @@ body {
     left: 85%;
     width: 90px;
     height: 2.2rem;
+    font-size: 90%;
     padding: 11px 6px 0px 0px;
     background-color: green;
     color: white;
@@ -419,7 +423,6 @@ h3 {
     display: flex;
     justify-content: center;
 }
-            
 span {
     font-size: 20px;
     width: 55%;
@@ -638,3 +641,6 @@ span {
 }
 
 }
+
+
+
