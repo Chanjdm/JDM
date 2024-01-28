@@ -8,47 +8,27 @@
 /* #####   AREA DONDE ESTAN LOS CAPITULOS Y TEMPORADAS  ########    */
 .dialog-content  {
     overflow-y: auto;
-    height: 400px;
+    width: 62%;
+    height: 74%;
     background-color: #000000;
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     border-radius: 5px;
     position: relative;
-    TOP: -24PX;
+    TOP: -10%;
+    left: 38%;
 }
 
-.dialog-content H2 {
-    TOP: 1.7EM;
-    position: fixed;
-    width: 736PX;
-    z-index: 5;
-}
- .dialog-content h2{
-    
-}
 
-/*  
-
-.dialog-content h2 {
-    background: #0d4757;
-    border: 2px solid red;
-    border-radius: 4px;
-    padding: 5px;
-    transition: all 0.9s;
-    text-align: center;
-    box-shadow: 0px 10px 16px 4px rgb(255 0 0);
-    margin-inline: 0px;
-}
-*/
 .dialog-content h2 {
     width: calc(75% - 75px);
-    top: 3rem;
+    top: 16%;
     border: 0px;
     background: transparent;
     box-shadow: 0px 2px 25px 9px red;
     text-shadow: 0px 9px 16px #00c8ff;
-    font-size: 39px;
-    left: 15%;
+    left: 2%;
+    font-size: 1.5em; /* Ajusta el valor según tus necesidades */
     right: 9%;
 }
 
@@ -93,15 +73,7 @@
   opacity: 1;
 }
 
-h2 {
-    position: absolute;
-    top: 1px;
-    background: #00000005;
-    height: auto;
-    PADDING: 20PX 20PX;
-    width: 240PX;
-    color: aqua;
-}
+
 p {
     overflow-y: auto;
     height: 220px;
@@ -156,6 +128,7 @@ p {
     Z-INDEX: 10;
 BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
 }
+
 .close-button:hover{
  
     background:red;
@@ -168,28 +141,29 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
 }
 
 .seasons-dialog {
-    WIDTH: 46EM;
+    WIDTH: 100%;
     POSITION: relative;
     LEFT: 0PX;
-    TOP: 7.5EM;
+    TOP: -13%;
     transition: all 0.9s;
 }
 
  /* ########  AREA DE LA SINOPSIS ######### */
 .seasons h3 {
     OVERFLOW-Y: SCROLL;
-    HEIGHT: 184PX;
-    WIDTH: auto;
+    HEIGHT: 60%;
+    WIDTH: 70%;
     Z-INDEX: 2;
     POSITION: fixed;
     color: aliceblue;
     padding: 10PX 20PX 15PX 20PX;
-    left: 0px;
-    TOP: 7.2EM;
+    left: 1%;
+    TOP: 29%;
 }
+
 .season-button {
     position: relative;
-    left: 0px;
+    left: -6%;
     border: 3px solid #90ff00;
     padding: 3px;
     margin-top: 10px;
@@ -197,6 +171,7 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
     background: black;
     box-shadow: 0px 1px 21px 0px rgb(255 251 4);
 }
+
 .season-button:hover{
 	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 	background:#12C987
@@ -207,6 +182,8 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
 
  /* Muestra los capítulos en línea vertical */
 .chapter-menu {
+    width: 42%;
+    left: 22%;
     padding-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
@@ -214,7 +191,9 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 }
+
 .chapter-menu a:hover{
 	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 	background:#009dfd;
@@ -225,7 +204,7 @@ BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
 .chapter-menu a {
     color: #e9a603;
     padding: 10px;
-    width: 20rem;
+    width: 75%;
     border-radius: 5px;
     margin-bottom: 28px;
     box-shadow: 0px 0px 7px 5px rgb(158 0 248);
@@ -330,10 +309,10 @@ body {
 
 
 
-/*   ###################################################   */
+/*   ###############################################################################################################   */
 
 
-@media (max-width: 740px) {
+@media (max-width: 900px) {
   .container {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
@@ -358,43 +337,37 @@ body {
 /*  TITULO DE LA SERIE DEL POP-UP   */
   
 .dialog-content h2 {
-    width: calc(80% - 80px);
+    width: calc(75% - 80px);
     top: 49px;
     border: 0px;
     background: transparent;
     box-shadow: 0px 2px 25px 9px red;
     text-shadow: 0px 9px 16px #00c8ff;
     font-size: 19px;
-    left: 17%;
+    left: 3%;
     right: 9%;
 }
 .seasons-dialog {
     OVERFLOW: scroll;
-    HEIGHT: 25EM;
+    HEIGHT: 77%;
+    top: -20%;
     PADDING-TOP: 1EM;
-    WIDTH: 25EM;
+    WIDTH: 86%;
+    left: 6%;
 }
-h2 {
-    background: #00000005;
-    height: auto;
-    PADDING: 20PX 20PX;
-    width: 220PX;
-    color: aqua;
-}
+
 
 /*  SINOPSIS DEL POP-UP   */
 .seasons h3 {
-    LEFT: 15PX;
     OVERFLOW-Y: SCROLL;
-    HEIGHT: 154Px;
-    WIDTH: 95%;
-    font-size: 17px;
-    Z-INDEX: 5;
+    HEIGHT: 60%;
+    WIDTH: 70%;
+    Z-INDEX: 2;
     POSITION: fixed;
     color: aliceblue;
-    padding: 11PX 20PX 14PX 20PX;
-    TOP: 4.9EM;
-    margin-left: -15px;
+    padding: 10PX 20PX 15PX 20PX;
+    left: 1%;
+    TOP: 29%;
 }
 .close-button {
     background: black;
@@ -402,13 +375,14 @@ h2 {
     color: red;
     font-weight: bold;
     position: fixed;
-    top: 30px;
-    left: 39%;
+    top: 4%;
+    left: 40%;
     right: 38%;
     border-radius: 5px;
-    padding: 2px 63px;
+    padding: 3px 10px 3px 10px;
     Z-INDEX: 10;
 }
+
 .navigation-buttons {
     POSITION: RELATIVE;
     ALIGN-ITEMS: center;
@@ -444,7 +418,7 @@ h2 {
 
 
 
-/*   ###################################################   */
+/*   ############################################################################################################################   */
 
 @media (max-width: 480px) {
       .container {
@@ -468,9 +442,9 @@ h2 {
     color: red;
     font-weight: bold;
     position: fixed;
-    top: 46px;
-    left: 20%;
-    right: 20%;
+    top: 4%;
+    left: 39%;
+    right: 40%;
     border-radius: 5px;
     padding: 0px 0px 0px;
 }
@@ -515,9 +489,9 @@ p {
 
 /*  CUADRO QUE CONTIENE TODO DEL POP-UP   */
 .dialog-box.open {
-    LEFT: 2PX;
-    HEIGHT: 708PX;
-    WIDTH: 338PX;
+    LEFT: -4PX;
+    HEIGHT: 100%;
+    WIDTH: 100%;
     visibility: visible;
     opacity: 1;
     transition: opacity 1.5s;
@@ -578,15 +552,15 @@ p {
 .seasons h3 {
     LEFT: 15PX;
     OVERFLOW-Y: SCROLL;
-    HEIGHT: 153Px;
+    HEIGHT: 30%;
     WIDTH: 95%;
     font-size: 17px;
     Z-INDEX: 1;
     POSITION: fixed;
     color: aliceblue;
     padding: 11PX 10PX 20PX 10PX;
-    TOP: 127PX;
-    margin-left: -15px;
+    TOP: 14%;
+    margin-left: 0px;
     MARGIN-TOP: 5PX;
 }
 
@@ -604,8 +578,8 @@ Z-index:10;
 /* CUADRO  DEL POP-UP PARA AGRANDAR EL CAJON DE TEMPORADAS Y CAPITULOS */
 .seasons-dialog {
     position: Initial;
-    height: 19.9em;
-    width: 18.5em;
+    height: 86%;
+    width: 100%;
     border: 3px solid #62ff00;
     padding: 3px;
     margin-Bottom: 18px;
@@ -616,16 +590,17 @@ Z-index:10;
 }
 
 .chapter-menu {
-    WIDTH: 250PX;
-    margin-left: 10px;
-    margin-right: 10px;
+    WIDTH: 72%;
+    margin-left: 5%;
+    margin-right: 5%;
     margin-top: 20px;
     display: flex;
-   flex-direction: column;
+    flex-direction: column;
 }
 .chapter-menu a {
     color: #e9a603;
     padding: 11px;
+    left: -20%;
     margin: 0px 0px 0px 12px;
     width: 16rem;
     border-radius: 5px;
