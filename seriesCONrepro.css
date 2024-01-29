@@ -288,7 +288,7 @@ body {
 .pagination {
     position: relative;
     top: 105%;
-    left: 48%;
+    left: 16%;
     transform: translateX(-50%);
     margin: 6px 7px 0px;
     overflow-x: scroll;
@@ -471,7 +471,7 @@ body {
 .pagination {
     position: relative;
     top: 105%;
-    left: 48%;
+    left: 24%;
     transform: translateX(-50%);
     margin: 6px 7px 0px;
     overflow-x: scroll;
