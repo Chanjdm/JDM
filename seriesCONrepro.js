@@ -26,9 +26,9 @@
 
       closeVideoButton.addEventListener('click', closeVideo);
     });
-  </script>
 
-  <script>
+
+
     // Resto de tu script actual
 
     function openDialog(index) {
