@@ -527,10 +527,10 @@ Left: 20%;
 }
 
 .serie-info h2 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     Margin-top: 0px;
-    WIDTH: 5.5em;
     left: 2%;
+    RIGHT: 2%;
 }
 p {
     overflow-y: auto;
