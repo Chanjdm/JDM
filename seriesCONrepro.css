@@ -1,3 +1,5 @@
+    /* Estilos adicionales si es necesario */
+
 
     /* Nueva regla de estilo para el reproductor en primer plano */
     #video-container {
@@ -414,8 +416,9 @@ body {
 /*  SINOPSIS DEL POP-UP   */
 .seasons h3 {
     OVERFLOW-Y: SCROLL;
-    HEIGHT: 60%;
+    HEIGHT: 54%;
     WIDTH: 70%;
+    font-size: 1.5em;
     Z-INDEX: 2;
     POSITION: fixed;
     color: aliceblue;
@@ -451,7 +454,7 @@ body {
     box-shadow: 0 0 32px #ff0000;
     position: absolute;
     top: 0;
-    left: 14px;
+    left: 0px;
     width: 171PX;
     height: 267PX;
     background-color: rgb(0 0 0 / 74%);  /*  controlar opacidad */
@@ -491,12 +494,13 @@ body {
       .container {
         gap: 10px; /* Reducir el espacio entre series */
         margin: 12px 7px 0px 7px; /* Espaciado en dispositivos pequeños */
+Left: 20%;
       }
 
 #close-video {
     position: absolute;
     top: 2%;
-    right: 23%;
+    right: 16%;
     color: #30fe03;
     font-size: 23px;
     cursor: pointer;
@@ -509,23 +513,24 @@ body {
 
 
 .close-button {
-    Font-size: 26px;
+    Font-size: 120%;
     background: black;
     border: 0.5px solid #00ff3c;
     color: red;
     font-weight: bold;
     position: fixed;
     top: 4%;
-    left: 39%;
-    right: 40%;
+    left: 38%;
+    right: 39%;
     border-radius: 5px;
-    padding: 0px 0px 0px;
+    padding:1%;
 }
 
 .serie-info h2 {
-    font-size: 18px;
+    font-size: 1.4em;
     Margin-top: 0px;
-    WIDTH: 175PX;
+    WIDTH: 5.5em;
+    left: 2%;
 }
 p {
     overflow-y: auto;
@@ -537,7 +542,7 @@ p {
 
 /* CUADRO DONDE APARECEN LAS TEMPORADAS Y LOS CAPITULOS PARA AGRANDAR EL FONDO DEL MARCO */
  .dialog-content {
-        left: 0; /* Centrar el cuadro de diálogo */
+        left: 0px; /* Centrar el cuadro de diálogo */
         top: 19%; /* Ajustar la posición en dispositivos pequeños */
         width: 100%; /* Ancho completo */
         height: 500PX; /* Altura automática */
@@ -612,7 +617,7 @@ p {
     box-shadow: 0px 1px 21px 0px rgb(255 251 4);
 }
  .serie {
-        width: 47%; /* Ocupar todo el ancho disponible */
+        width: 38%; /* Ocupar todo el ancho disponible */
       }
 
 .serie-image {
@@ -627,13 +632,13 @@ p {
     OVERFLOW-Y: SCROLL;
     HEIGHT: 30%;
     WIDTH: 95%;
-    font-size: 17px;
+    font-size: 1.5em;
     Z-INDEX: 1;
     POSITION: fixed;
-    color: aliceblue;
-    padding: 11PX 10PX 20PX 10PX;
-    TOP: 14%;
-    margin-left: 0px;
+    color: #00c8ff;
+    padding: 11PX 10PX 19PX 8PX;
+    TOP: 15%;
+    margin-left: -5px;
     MARGIN-TOP: 5PX;
 }
 
@@ -748,3 +753,5 @@ box-shadow: 0 0 32px #ff0000;
 
 
 ::-webkit-scrollbar {display: none;}
+
+
