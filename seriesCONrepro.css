@@ -1,6 +1,14 @@
     /* Estilos adicionales si es necesario */
 
 
+
+#search {
+    color: aqua;
+    font-family: fantasy;
+    letter-spacing: 0.25em;
+    word-spacing: 0.25em;
+}
+
     /* Nueva regla de estilo para el reproductor en primer plano */
     #video-container {
       position: fixed;
