@@ -1820,10 +1820,10 @@ button {
 }
     
 #videoPlayer {
-    width: 19rem;
     position: fixed;
-    top: 65%;
-    left: 50%;
+    top: 35%;
+    left: 49%;
+    width: 96%;
     transform: translate(-50%, -50%);
     background-color: Black;
     border: 1px solid Black;
