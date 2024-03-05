@@ -1,0 +1,758 @@
+    /* Estilos adicionales si es necesario */
+
+
+    /* Nueva regla de estilo para el reproductor en primer plano */
+    #video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+         background: rgb(0 0 0); /* Fondo oscuro semitransparente */
+      z-index: 9999; /* Valor alto para estar por encima de todo */
+      display: none;
+    }
+
+    #video-player {
+    width: 80%;
+    height: 80%;
+    margin: 5% auto;
+    display: block;
+}
+
+#close-video {
+  position: absolute;
+  top: 2%;
+  right: 40%;
+  color: #30fe03;
+  font-size: 23px;
+  cursor: pointer;
+  z-index: 10000;
+  border: 2px solid #30fe03; /* Añadido el estilo de borde */
+  padding: 5px; /* Añadido el relleno para mejorar la apariencia */
+  border-radius: 5px; /* Añadido borde redondeado */
+}
+
+
+
+* {
+    outline:none !important;
+    box-sizing: border-box;
+    text-decoration: none;
+    background: black;
+}
+
+/* #####   AREA DONDE ESTAN LOS CAPITULOS Y TEMPORADAS  ########    */
+.dialog-content  {
+    overflow-y: auto;
+    width: 62%;
+    height: 60%;
+    background-color: #000000;
+    padding: 1rem;
+    margin-bottom: 0rem;
+    border-radius: 5px;
+    position: relative;
+    TOP: -21%;
+    left: 38%;
+}
+
+
+.dialog-content h2 {
+    position: fixed;
+    width: calc(75% - 75px);
+    top: 16%;
+    border: 0px;
+    color: aqua;
+    background: transparent;
+    box-shadow: 0px 2px 25px 9px red;
+    text-shadow: 0px 9px 16px #00c8ff;
+    left: 2%;
+    font-size: 1.5em;
+    right: 9%;
+    padding: 4px 0px;
+   z-index: 999;
+}
+
+
+.container {
+    margin: 12px 7px 10px 7px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.serie {
+  position: relative;
+}
+
+.serie-image {
+    border-radius: 10px;
+    width: 240px;
+    height: auto;
+}
+
+/*  Borde Que Tiene Cada Imagen En Color Rojo */
+.serie-info {
+    border-radius: 10px;
+    box-shadow: 0 0 32px #ff0000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 240PX;
+    height: 370PX;
+    background-color: rgb(0 0 0 / 87%);  /*  controlar opacidad */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.serie-info h2 {
+    color: chartreuse;
+    background: transparent;
+    position: absolute;
+    text-shadow: 0px 7px 23px rgb(0 255 31);
+}
+
+.serie:hover .serie-info {
+  opacity: 1;
+}
+
+
+p {
+    overflow-y: auto;
+    height: 220px;
+    margin-top: 8em;
+    padding: 40px 7px;
+    background: #00000000;
+}
+
+.dialog-box {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    width: 780PX;
+    height: 700PX;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+
+
+/* #####   AREA DEL "POP-UP" DONDE ESTAN LOS CAPITULOS Y TEMPORADAS   ########    */
+
+.dialog-box.open {
+    background: #000000;
+    top: 0rem;
+    left: 0px;
+    HEIGHT: 815PX;
+    WIDTH: -webkit-fill-available;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.8s;
+    z-index: 2;
+}
+
+
+
+.close-button  {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 30px;
+    left: 43%;
+    right: 43%;
+    border-radius: 5px;
+    padding: 2px 63px;
+    Z-INDEX: 10;
+BOX-SHADOW: 0px 1px 9px 4px rgb(0 255 31);
+}
+
+.close-button:hover{
+ 
+    background:red;
+    color:white;
+
+  }
+
+.hidden {
+  display: none;
+}
+
+.seasons-dialog {
+    WIDTH: 100%;
+    POSITION: relative;
+    LEFT: 0PX;
+    TOP: -5%;
+    transition: all 0.9s;
+}
+
+ /* ########  AREA DE LA SINOPSIS ######### */
+.seasons h3 {
+    OVERFLOW-Y: SCROLL;
+    HEIGHT: 60%;
+    WIDTH: 70%;
+    Z-INDEX: 2;
+    POSITION: fixed;
+    color: aliceblue;
+    padding: 10PX 20PX 15PX 20PX;
+    left: 1%;
+    TOP: 29%;
+}
+
+.season-button {
+    position: relative;
+    left: -6%;
+    border: 3px solid #90ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+
+.season-button:hover{
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	background:#12C987
+}
+
+
+
+
+ /* Muestra los capítulos en línea vertical */
+.chapter-menu {
+    width: 42%;
+    left: 22%;
+    padding-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.chapter-menu a:hover{
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	background:#009dfd;
+        color:black;
+}
+
+/* Ajusta el espacio entre los capítulos */
+.chapter-menu a {
+    color: #e9a603;
+    padding: 10px;
+    width: 75%;
+    border-radius: 5px;
+    margin-bottom: 28px;
+    box-shadow: 0px 0px 7px 5px rgb(158 0 248);
+}
+
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: 2.EM;
+    LEFT: 0%;
+}
+
+#start-button, #previous-button, #next-button{
+    position: relative;
+    border: 2px solid red;
+    background: black;
+    color: #03ff41;
+    border-radius: 4px;
+    padding: 5px;
+    transition: all 0.9s;
+    text-align: center;
+    box-shadow: 0px 5px 12px 3px rgb(248, 70, 0);
+    margin-inline: 10px;
+    top: 10px;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.pagination {
+    position: relative;
+    top: 105%;
+    left: 16%;
+    transform: translateX(-50%);
+    margin: 6px 7px 0px;
+    overflow-x: scroll;
+    width: 26em;
+    height: 4em;
+    padding: 10px;
+    z-index: 0;
+}
+
+
+.prev-btn, .next-btn {
+ display:NONE;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.page-numbers {
+  display: flex;
+}
+
+.page-number {
+    background-color: #000000;
+    color: #70ff00;
+    border: solid;
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.page-number.active {
+    background-color: #ff0000;
+    color: black;
+    box-shadow: 0px 0px 16px 4px rgb(255 0 0);
+}
+
+
+/* Estilo de la animación para el título */
+.animated-title {
+    animation: slideLeft 0s linear infinite; /* Duración y efecto de animación */
+    white-space: nowrap; /* Evitar que el texto se divida en múltiples líneas */
+    overflow: hidden; /* Ocultar el texto que desborda el contenedor */
+    width: 200px; /* Ajusta el ancho de la animación según tus preferencias */
+}
+
+/* Definición de la animación */
+@keyframes slideLeft {
+    0% {
+        transform: translateX(50%); /* Comenzar fuera del contenedor */
+    }
+    100% {
+        transform: translateX(-50%); /* Terminar fuera del contenedor */
+    }
+}
+
+
+
+
+
+
+
+
+/*   ###############################################################################################################   */
+
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+.dialog-content {
+    overflow-y: auto;
+    width: 62%;
+    height: 70%;
+    background-color: #000000;
+    padding: 1rem;
+    margin-bottom: 0rem;
+    border-radius: 5px;
+    position: relative;
+    TOP: -12%;
+    left: 38%;
+}
+.dialog-box.open {
+    background: #000000f0;
+    top: 0rem;
+    left: 0px;
+    HEIGHT: 640PX;
+    WIDTH: -webkit-fill-available;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.8s;
+    z-index: 2;
+}
+
+/*  TITULO DE LA SERIE DEL POP-UP   */
+  
+.dialog-content h2 {
+    width: calc(75% - 80px);
+    top: 49px;
+    border: 0px;
+   color: aqua;
+    background: transparent;
+    box-shadow: 0px 2px 25px 9px red;
+    text-shadow: 0px 9px 16px #00c8ff;
+    font-size: 19px;
+    left: 3%;
+    right: 9%;
+}
+.seasons-dialog {
+    OVERFLOW: scroll;
+    HEIGHT: 77%;
+    top: -12%;
+    PADDING-TOP: 1EM;
+    WIDTH: 86%;
+    left: 6%;
+}
+
+
+/*  SINOPSIS DEL POP-UP   */
+.seasons h3 {
+    OVERFLOW-Y: SCROLL;
+    HEIGHT: 54%;
+    WIDTH: 70%;
+    font-size: 1.5em;
+    Z-INDEX: 2;
+    POSITION: fixed;
+    color: aliceblue;
+    padding: 10PX 20PX 15PX 20PX;
+    left: 1%;
+    TOP: 29%;
+}
+.close-button {
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 4%;
+    left: 40%;
+    right: 38%;
+    border-radius: 5px;
+    padding: 3px 10px 3px 10px;
+    Z-INDEX: 10;
+}
+
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: -15EM;
+    TOP: 50%;
+    LEFT: 18%;
+}
+
+/*  Borde Que Tiene Cada Imagen En Color Rojo */
+.serie-info {
+    border-radius: 10px;
+    box-shadow: 0 0 32px #ff0000;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 171PX;
+    height: 267PX;
+    background-color: rgb(0 0 0 / 74%);  /*  controlar opacidad */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.serie-image {
+    border-radius: 10px;
+    width: 170px;
+    height: auto;
+}
+
+.pagination {
+    position: relative;
+    top: 105%;
+    left: 24%;
+    transform: translateX(-50%);
+    margin: 6px 7px 0px;
+    overflow-x: scroll;
+    width: 26em;
+    height: 4em;
+    padding: 10px;
+    z-index: 0;
+}
+}
+
+
+
+
+/*   ############################################################################################################################   */
+
+@media (max-width: 480px) {
+      .container {
+        gap: 10px; /* Reducir el espacio entre series */
+        margin: 12px 7px 0px 7px; /* Espaciado en dispositivos pequeños */
+Left: 20%;
+      }
+
+#close-video {
+    position: absolute;
+    top: 2%;
+    right: 16%;
+    color: #30fe03;
+    font-size: 23px;
+    cursor: pointer;
+    z-index: 10000;
+    border: 2px solid #30fe03;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+
+.close-button {
+    Font-size: 120%;
+    background: black;
+    border: 0.5px solid #00ff3c;
+    color: red;
+    font-weight: bold;
+    position: fixed;
+    top: 4%;
+    left: 38%;
+    right: 39%;
+    border-radius: 5px;
+    padding:1%;
+}
+
+.serie-info h2 {
+    font-size: 1.4em;
+    Margin-top: 0px;
+    WIDTH: 5.5em;
+    left: 2%;
+}
+
+p {
+    overflow-y: auto;
+    height: 120px;
+    margin-top: 6.5em;
+    padding: 6px 7px;
+    background: #00000000;
+}
+
+/* CUADRO DONDE APARECEN LAS TEMPORADAS Y LOS CAPITULOS PARA AGRANDAR EL FONDO DEL MARCO */
+ .dialog-content {
+        left: 0px; /* Centrar el cuadro de diálogo */
+        top: 19%; /* Ajustar la posición en dispositivos pequeños */
+        width: 100%; /* Ancho completo */
+        height: 500PX; /* Altura automática */
+      }
+
+
+.dialog-box {
+    MARGIN: 0PX;
+    position: fixed;
+    top: -38px;
+    left: -227PX;
+    width: 242%;
+    height: 625PX;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0s linear 0.3s;
+}
+
+/*  CUADRO QUE CONTIENE TODO DEL POP-UP   */
+.dialog-box.open {
+    LEFT: -4PX;
+    HEIGHT: 100%;
+    WIDTH: 100%;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 1.5s;
+    Z-INDEX: 1;
+    background: #000000f5;
+}
+
+/*  TITULO DE LA SERIE DEL POP-UP  
+.dialog-content h2 {
+    OVERFLOW-Y: scroll;
+    HEIGHT: 44PX;
+    TOP: 113PX;
+    font-size: 18px;
+    background: #0d4757;
+    border: 2px solid red;
+    border-radius: 4px;
+    padding: 6px 0px 0px 0px;
+    transition: all 0.9s;
+    text-align: center;
+    box-shadow: 0px 0px 31px 12px rgb(255 0 0);
+    margin: 0px;
+    WIDTH: 16.5EM;
+    left: 13px;
+    Color: #09ff00;
+}   */
+
+.dialog-content h2 {
+    top: 4rem;
+    color: #00ff11;
+    width: fit-content;
+    border: 0px;
+    background: transparent;
+    box-shadow: 0px 0px 0px 0px red;
+    text-shadow: 0px 4px 6px #00ff30;
+    font-size: 25px;
+}
+.season-button {
+    position: relative;
+    left: -0.2em;
+    border: 3px solid #90ff00;
+    padding: 3px;
+    margin-top: 10px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+ .serie {
+        width: 38%; /* Ocupar todo el ancho disponible */
+      }
+
+.serie-image {
+    border-radius: 10px;
+    width: 145px;
+    height: auto;
+}
+
+/*  SINOPSIS DEL POP-UP   */
+.seasons h3 {
+    LEFT: 15PX;
+    OVERFLOW-Y: SCROLL;
+    HEIGHT: 30%;
+    WIDTH: 95%;
+    font-size: 1.5em;
+    Z-INDEX: 1;
+    POSITION: fixed;
+    color: #00c8ff;
+    padding: 11PX 10PX 19PX 8PX;
+    TOP: 15%;
+    margin-left: -5px;
+    MARGIN-TOP: 5PX;
+}
+
+.hidden h2{
+ Top:35px;
+ Font-size:18px;
+ Width:90%;
+ Height:45px;
+ Color:Aqua;
+ Padding:0px 5Px;
+Z-index:10;
+
+}
+
+/* CUADRO  DEL POP-UP PARA AGRANDAR EL CAJON DE TEMPORADAS Y CAPITULOS */
+.seasons-dialog {
+    top: 8%;
+    left: 2%;
+    position: relative;
+    height: 86%;
+    width: 98%;
+    border: 3px solid #62ff00;
+    padding: 3px;
+    Margin: 0px;
+    color: aqua;
+    background: black;
+    box-shadow: 0px 1px 21px 0px rgb(255 251 4);
+}
+
+.chapter-menu {
+    WIDTH: 72%;
+    margin-left: -10%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.chapter-menu a {
+    color: #e9a603;
+    padding: 11px;
+    left: -20%;
+    margin: 0px 0px 0px 12px;
+    width: 16rem;
+    border-radius: 5px;
+    margin-bottom: 28px;
+    box-shadow: 0px 0px 7px 5px rgb(158 0 248);
+}
+.navigation-buttons {
+    POSITION: RELATIVE;
+    ALIGN-ITEMS: center;
+    BOTTOM: -3EM;
+    TOP: 50%;
+    LEFT: 6%;
+}
+/*  Borde Que Tiene Cada Imagen En Color Rojo */
+.serie-info {
+border-radius: 15px;
+box-shadow: 0 0 32px #ff0000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 145px;
+  height: 100%;
+  background-color: rgb(0 0 0 / 74%);/*  controlar opacidad */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Estilo de la animación para el título */
+.animated-title {
+    animation: slideLeft 5s linear infinite; /* Duración y efecto de animación */
+    white-space: nowrap; /* Evitar que el texto se divida en múltiples líneas */
+    overflow: hidden; /* Ocultar el texto que desborda el contenedor */
+}
+
+/* Definición de la animación */
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100%); /* Comenzar fuera del contenedor */
+    }
+    100% {
+        transform: translateX(-100%); /* Terminar fuera del contenedor */
+    }
+}
+
+
+.pagination {
+    position: relative;
+    top: 105%;
+    left: 49%;
+    transform: translateX(-50%);
+    margin: 6px 7px 0px;
+    overflow-x: scroll;
+    width: 26em;
+    height: 4em;
+    padding: 10px;
+    z-index: 0;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+::-webkit-scrollbar {display: none;}
+
+
