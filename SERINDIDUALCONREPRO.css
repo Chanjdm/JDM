@@ -1925,21 +1925,21 @@ p {
 
 .neon {
     background: black;
-    width: 85%;
+    width: 88%;
     height: 117px;
     margin: 0px;
     padding: 0px;
     position: absolute;
     overflow: hidden;
     filter: brightness(200%);
-    left: 8%;
+    left: 5%;
     top: 59%;
     border: dotted;
 }
 .text {
     background-color: black;
     color: black;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 100;
     font-family: ui-monospace;
     text-transform: uppercase;
