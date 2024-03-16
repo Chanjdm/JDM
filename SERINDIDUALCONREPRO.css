@@ -1721,6 +1721,14 @@ h4 {
     user-select: none;
     letter-spacing: 3px;
 }
+    .text::before {
+    content: attr(data-text);
+    position: absolute;
+    color: white;
+    filter: blur(0.02em);
+    mix-blend-mode: difference;
+    WIDTH: 30REM;
+}
 .firefly {
     z-index: 99;
     position: fixed;
@@ -1950,10 +1958,10 @@ p {
 .text::before {
     content: attr(data-text);
     position: absolute;
-    color: #ffffff;
+    color: white;
     filter: blur(0.02em);
     mix-blend-mode: difference;
-    WIDTH: 150%;
+    WIDTH: 19REM;
 }
 
 .trailer img {
