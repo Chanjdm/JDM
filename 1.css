@@ -229,7 +229,7 @@ iframe {
 .next-btn {
     padding: 10px 20px;
     border: 3px solid #f00;
-    background-color: #00d4ff;
+    background-color: #4c0795;
     color: #000;
     font-size: 16px;
     text-decoration: none;
@@ -242,7 +242,7 @@ iframe {
 .home-btn:hover,
 .prev-btn:hover,
 .next-btn:hover {
-  background-color: #4c0795;
+  background-color: #00d4ff;
   color: #fff;
 }
 
