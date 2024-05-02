@@ -1,0 +1,525 @@
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000000;
+      margin: 0;
+      padding: 0;
+    }
+.CONTENEDOR {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 0fr)); /* Colocar elementos en columnas, ajustando su tamaño automáticamente */
+      gap: 10px; /* Espacio entre elementos */
+    }
+
+.youtube-button {
+        position: absolute;
+        bottom: 2%;
+        left: -40%;
+    background-color: #ff0000; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    padding: 10px 7px; /* Espacio alrededor del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+
+.video-container {
+    position: relative;
+    width: 290px;
+    height: 540px;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #002528;
+    transition: transform 0.3s ease;
+}
+    .video-item {
+      flex: 0 0 calc(33.33% - 40px); /* Establece el ancho de cada elemento al 33.33% menos 40px de margen */
+      margin: 20px;
+      position: relative;
+    }
+
+    .video-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .video-container img {
+    width: 290px;
+    height: auto;
+    display: block;
+}
+
+    .info-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 290px;
+    height: 100%;
+    background-color: rgb(0 0 0 / 90%);
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+    .video-container:hover .info-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+
+
+ .info-overlay p {
+    margin: 0 5px 6px;
+    position: absolute;
+    top: 9%;
+    left: 1%;
+    color: orange;
+    text-shadow: 0px 4px 10px orange;
+}
+
+h1 {
+    font-size: 1.5em;
+    position: relative;
+    margin-inline-start: 8px;
+    margin-inline-end: 8px;
+    color: azure;
+    text-shadow: 0px 2px 12px #eae6e6;
+}
+    .info-overlay h2 {
+    margin: 0 9px 7px;
+    position: absolute;
+    top: 1%;
+    left: 5%;
+    right: 5%;
+    font-size: 18px;
+    color: chartreuse;
+    text-shadow: 0px 3px 14px #50fc50;
+}
+    .info-overlay h3 {
+    font-size: 16px;
+    position: absolute;
+    top: 14%;
+    left: 2%;
+}
+    .video-info h3 {
+      max-height: 210px; /* Establecer la altura máxima */
+      overflow: hidden; /* Ocultar el texto que excede la altura */
+      text-overflow: ellipsis; /* Mostrar los puntos suspensivos al final */
+      white-space: normal; /* Permitir el desbordamiento del texto */
+      line-height: 1.2; /* Espacio entre líneas */
+    padding: 1%;
+    left: 2%;
+color: aqua;
+    }
+
+
+.video-player {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+    height: 100%;
+    width: 100%;
+    background: black;
+}
+
+    .video-player.active {
+      display: block;
+    }
+
+.video-player video {
+    position: relative;
+    top: 5%;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.close-video-btn {
+    top: 5%;
+    right: 0%;
+    position: absolute;
+    background-color: #51f347;
+    color: #000;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0px 3px 18px #00e2ff;
+}
+
+
+
+
+    .close-video-btn:hover {
+      background-color: #000;
+      color: #fff;
+    }
+iframe {
+    position: absolute;
+    width: 273px;
+    height: 175px;
+    bottom: 10%;
+    left: 3%;
+}
+
+
+
+    .close-btn {
+    DISPLAY: NONE;
+    position: absolute;
+    bottom: 2%;
+    left: 13%;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+    .close-btn:hover {
+      background-color: #cc0000; /* Cambiar color de fondo al pasar el mouse */
+    }
+
+    /* Estilos CSS para el botón de reproducir */
+    .play-btn {
+    position: absolute;
+    bottom: 2%;
+    right: 31%;
+    background-color: #26ff00;
+    color: #000000;
+    border: none;
+    padding: 10px 40px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+    .play-btn:hover {
+      background-color: #ff0303; /* Cambiar color de fondo al pasar el mouse */
+    }
+
+
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.home-btn,
+.prev-btn,
+.next-btn {
+  padding: 10px 20px;
+  border: 2px solid #333;
+  background-color: #fff;
+  color: #333;
+  font-size: 16px;
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  display: inline-block; /* Para que los enlaces se comporten como bloques */
+  margin: 0 10px; /* Espacio entre los botones */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.home-btn:hover,
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+
+/*  ##############################################################################################  */
+    @media screen and (max-width: 840px) {
+      .video-item {
+        flex: 0 0 calc(50% - 40px); /* Establece el ancho de cada elemento al 50% menos 40px de margen en dispositivos con un ancho máximo de 768px */
+      }
+
+
+.CONTENEDOR {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 0fr));
+    gap: 10px;
+}
+.video-container img {
+    width: 240px;
+    height: auto;
+    display: block;
+}
+.video-container {
+    position: relative;
+    width: 240px;
+    height: 400px;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #002528;
+    transition: transform 0.3s ease;
+}
+.info-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 240px;
+        height: 100%;
+        background-color: rgb(0 0 0 / 90%);
+        color: #fff;
+        padding: 10px;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+iframe {
+        position: absolute;
+        width: 240px;
+        height: 175px;
+        bottom: 10%;
+        left: 0%;
+    }
+h1 {
+    font-size: 11px;
+    position: relative;
+    margin-inline-start: 8px;
+    margin-inline-end: 8px;
+    color: azure;
+    text-shadow: 0px 0px 2px #eae6e6;
+}
+.video-info h3 {
+        max-height: 112px;
+        overflow-y: scroll;
+        text-overflow: ellipsis;
+        white-space: normal;
+        line-height: 1.2;
+        padding: 1%;
+        left: 2%;
+    }
+.info-overlay p {
+    margin: 0 5px 6px;
+    position: absolute;
+    width: 235px;
+    top: 12%;
+    left: 1%;
+    color: orange;
+    text-shadow: 0px 4px 10px orange;
+}
+    .info-overlay p {
+        margin: 0 5px 6px;
+        position: absolute;
+        width: 240px;
+        font-size: 12px;
+        top: 12%;
+        left: 1%;
+        color: orange;
+        text-shadow: 0px 4px 10px orange;
+    }
+/*  ###############################################################################################  */
+    @media screen and (max-width: 480px) {
+      .video-item {
+        flex: 0 0 calc(100% - 40px); /* Establece el ancho de cada elemento al 100% menos 40px de margen en dispositivos con un ancho máximo de 480px */
+      }
+.CONTENEDOR {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 0fr));
+    gap: 29px;
+}
+.video-container {
+    position: relative;
+    width: 178px;
+    height: 350px;
+    margin: 5px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #6f6a6a2e;
+    transition: transform 0.3s ease;
+}
+.video-container img {
+    width: 180px;
+    height: auto;
+    display: block;
+}
+
+    .info-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 178px;
+        height: 100%;
+        background-color: rgb(0 0 0 / 90%);
+        color: #fff;
+        padding: 8px;
+        box-sizing: border-box;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        border: solid;
+        border-width: 2px;
+        border-color: aqua;
+        border-radius: 10px;
+    }
+/*  ####   TITULO POP-UP ######  */
+.info-overlay h2 {
+    margin: 0px 9px 7px;
+    position: absolute;
+    top: 1%;
+    left: 0%;
+    right: 5%;
+    font-size: 15px;
+    width: 160px;
+    color: chartreuse;
+    text-shadow: 0px 3px 14px #50fc50;
+}
+/*  ####   GENERO ######  */
+    .info-overlay p {
+        margin: 0 5px 6px;
+        position: absolute;
+        top: 15%;
+        width: 165px;
+        HEIGHT: 33PX;
+        left: 0%;
+        font-size: 11px;
+        color: orange;
+        text-shadow: 0px 4px 10px orange;
+        OVERFLOW-Y: scroll;
+    }
+
+/*  ####   TITULO PRINCIPAL ######  */
+h1 {
+        font-size: 18PX;
+        position: relative;
+        margin-inline-start: 8px;
+        margin-inline-end: 8px;
+        COLOR: #bcd327;
+    }
+/*  ####   SINOPSIS ######  */
+ .video-info h3 {
+        WIDTH: 164PX;
+        max-height: 185px;
+        TOP: 22%;
+        overflow-y: scroll;
+        text-overflow: ellipsis;
+        white-space: normal;
+        line-height: 1.2;
+        padding: 0%;
+        left: 1%;
+        color: aqua;
+        BORDER: SOLID 5PX BLACK;
+    }
+/*  ####   TRAILER ######  */
+iframe {
+   DISPLAY: NONE;
+    position: absolute;
+    width: 176px;
+    height: 130px;
+    bottom: 14%;
+    left: 0%;
+}
+/*  ####   BOTONES PLAY  Y TRAILER  ######  */
+.close-btn {
+    DISPLAY: block;
+    POSITION: absolute;
+    bottom: 2%;
+    left: 2%;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.play-btn {
+        position: absolute;
+        bottom: 2%;
+        right: 2%;
+        background-color: #26ff00;
+        color: #000000;
+        border: none;
+        padding: 11px 20px;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+/*  ####   VIDEO  ######  */
+    .video-player video {
+        POSITION: relative;
+        top: 40%;
+        LEFT: 2%;
+        width: 364PX;
+        max-width: 800px;
+        height: auto;
+        display: block;
+    }
+
+
+.video-player {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: none;
+    height: 100%;
+    width: 100%;
+    background: black;
+}
+video {
+  width: 100%; /* O el ancho deseado */
+  height: auto; /* O la altura deseada */
+  position: absolute;
+  top: 40%;
+}
+/*  #### BOTON CERRAR DEL VIDEO  ######  */
+.close-video-btn {
+    background-color: #d0ff00;
+    color: #000;
+    border: 2px solid #000;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    border-radius: 8px;
+    box-shadow: 0px 3px 18px #d9ff00;
+}
+
+
+.youtube-button {
+        position: absolute;
+        bottom: 2%;
+        left: 2%;
+    background-color: #ff0000; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    padding: 10px 12px; /* Espacio alrededor del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima */
+}
+
+
+.youtube-button:hover {
+    background-color: #0a40a2; /* Cambiar el color de fondo al pasar el cursor */
+}
+    }
+
+
+
+
