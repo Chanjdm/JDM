@@ -5,6 +5,27 @@
       padding: 0;
 outline: none;
     }
+
+
+.home-btn, .prev-btn, .next-btn {
+    padding: 10px 20px;
+    border: 3px solid #f00;
+    background-color: #00d4ff;
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 23px;
+}
+.home-btn:hover, .prev-btn:hover, .next-btn:hover {
+    background-color: #4c0795;
+    color: #fff;
+}
+
+
+
 .CONTENEDOR {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 0fr)); /* Colocar elementos en columnas, ajustando su tamaño automáticamente */
