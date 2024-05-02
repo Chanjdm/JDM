@@ -7,22 +7,7 @@ outline: none;
     }
 
 
-.home-btn, .prev-btn, .next-btn {
-    padding: 10px 20px;
-    border: 3px solid #f00;
-    background-color: #00d4ff;
-    color: #000;
-    font-size: 16px;
-    text-decoration: none;
-    display: inline-block;
-    margin: 0 10px;
-    transition: background-color 0.3s, color 0.3s;
-    border-radius: 23px;
-}
-.home-btn:hover, .prev-btn:hover, .next-btn:hover {
-    background-color: #4c0795;
-    color: #fff;
-}
+
 
 
 
@@ -242,21 +227,22 @@ iframe {
 .home-btn,
 .prev-btn,
 .next-btn {
-  padding: 10px 20px;
-  border: 2px solid #333;
-  background-color: #fff;
-  color: #333;
-  font-size: 16px;
-  text-decoration: none; /* Quita el subrayado de los enlaces */
-  display: inline-block; /* Para que los enlaces se comporten como bloques */
-  margin: 0 10px; /* Espacio entre los botones */
-  transition: background-color 0.3s, color 0.3s;
+    padding: 10px 20px;
+    border: 3px solid #f00;
+    background-color: #00d4ff;
+    color: #000;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 23px;
 }
 
 .home-btn:hover,
 .prev-btn:hover,
 .next-btn:hover {
-  background-color: #333;
+  background-color: #4c0795;
   color: #fff;
 }
 
