@@ -1,0 +1,809 @@
+        /* Estilos CSS SERIES */
+
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    outline:none !important;
+}
+
+
+
+#searchInput {
+    padding: 10px;
+    font-weight: bold;
+    border: 2px solid #ff0101;
+    border-radius: 25px;
+    width: 80px;
+    transition: width 0.9s ease, box-shadow 0.9s ease;
+    box-shadow: 0px 0px 27px #fd0404;
+}
+.search-container::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 25px;
+    border: 2px solid transparent;
+    z-index: -1;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease; /* Agregamos box-shadow a la transición */
+}
+
+#searchInput:hover {
+    font-weight: bold;
+    border: 2px solid #53ff01;
+    width: 155px;
+    box-shadow: 0px 0px 25px #29fd04;
+    transition: width 0.9s ease, box-shadow 0.9s;
+}
+#searchInput:hover + .search-container::before {
+    border-color: linear-gradient(to right, red, blue);
+}
+
+
+#searchInput::placeholder {
+    font-size: 16px; 
+    color: #999;
+    transition: color 0.5s ease; /* Agregamos una transición para el color del texto */
+}
+
+#searchInput:hover::placeholder {
+    text-align: center; /* Alinea el texto del marcador de posición al centro */
+    font-size: 16px; 
+    color: #0144ffba; /* Cambiamos el color del texto al pasar el puntero */
+    transition: color 0.9s ease; /* Agregamos una transición para el color del texto */
+}
+#searchInput:focus {
+ letter-spacing: 2px; /* Agrega espacio entre las letras */
+    padding: 8px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.home-btn,
+.prev-btn,
+.next-btn {
+    padding: 10px 20px;
+    border: 3px solid #f00;
+    background-color: #4c0795;
+    color: #e3ff00;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 23px;
+}
+
+.home-btn:hover,
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: #00d4ff;
+  color: #000;
+}
+
+
+
+
+
+
+   @media only screen and (max-width: 2000px) {
+
+        body {
+            background: black;
+            font-family: Arial, sans-serif;
+            margin: 0; /* Eliminar el margen predeterminado del cuerpo */
+            padding: 0; /* Eliminar el relleno predeterminado del cuerpo */
+            overflow-y: auto; /* Permitir desplazamiento vertical por defecto */
+}
+
+        .container {
+            width: 100%;
+            height: 100vh; /* La altura de la pantalla */
+            display: flex;
+            flex-direction: column;
+           
+            align-items: center;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        #lista-series {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas */
+            list-style: none;
+            padding: 0;
+            width: calc(100% - 5px); /* Ancho del contenedor menos 40px de espacio para el margen */
+            max-width: 100%; /* Ancho máximo para evitar que la lista sea demasiado ancha en pantallas grandes */
+        }
+#lista-series li {
+            margin: 5px; /* Espacio entre elementos */
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #f5f5f500;
+            box-shadow: 0 2px 4px rgb(0 255 244 / 2%);
+            transition: all 0.3s ease;
+               width: calc((100% / 6) - 54px); /* Calcula el ancho para mostrar 5 elementos por fila */
+            max-width: 100%; /* Ancho máximo de cada elemento */
+        }
+
+
+
+        #lista-series li:hover {
+            background-color: #0df8ff;
+            cursor: pointer;
+        }
+
+#lista-series li img {
+    width: 243px; /* Establece un ancho fijo para todas las imágenes */
+    height: auto; /* Mantén la proporción original */
+    border-radius: 5px;
+}
+
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+    top: 0%;
+    position: relative;
+    background-color: #f3eaea;
+    margin: 1% auto 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 95%;
+    height: 95%;
+    color: black;
+}
+#modal-description {
+        position: absolute;
+        width: 49%;
+        height: 57%;
+        left: 50%;
+        padding: 2%;
+        top: 9%;
+        font-size: 24px;
+        box-shadow: 0px 8px 22px black;
+border-radius: 8px;
+    }
+
+#modal-title {
+    padding: 13px 0px 75% 0px;
+    text-shadow: 0px 3px 5px black;
+}
+        .close {
+    background: black;
+    padding: 1%;
+    width: 8%;
+    height: auto;
+    border-bottom: solid;
+    border-width: 6px;
+    border-radius: 8px;
+    color: #08b3f4;
+    position: absolute;
+    top: 10px;
+    right: 3%;
+    font-size: 17px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+box-shadow: 0px 13px 20px black;
+}
+
+        .close:hover,
+        .close:focus {
+            color: #fb0101;  
+            text-decoration: none;
+            cursor: pointer;
+        }
+#close-mkv {
+    background: #00ff62;
+    height: 30px;
+    border-radius: 6px;
+    font-size: medium;
+}
+#close-mkv:hover {
+background: red;
+}
+
+        .season {
+            margin-bottom: 20px;
+        }
+
+        .season-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .chapter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .chapter-button {
+    margin: 5px;
+    padding: 10px 10px;
+    background-color: #08b3f4;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 9px 13px black;
+    font-weight: bold;
+    border-bottom: solid;
+    border-width: 3px;
+}
+
+        .chapter-button:hover {
+            background-color: #ff570d;
+        }
+
+
+        /* Estilo para el cuerpo cuando el modal está abierto */
+        body.modal-open {
+            overflow: hidden; /* Bloquear el desplazamiento vertical */
+        }
+
+#lista-series {
+color: aqua;
+}
+#lista-series:hover {
+color: red;
+}
+# openModal p {
+    color: aqua;
+}
+#modal-title {
+    padding: 13px 0px 0% 0px;
+}
+#video-container iframe {
+    z-index: 900; 
+    box-shadow: 0px 11px 20px black;
+}
+
+        #mkv-player {
+            display: none;
+            position: fixed;
+            top: 47%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000; /* Asegura que esté en primer plano */
+        }
+
+        #mkv-video  {
+    position: relative;
+    width: 800px;
+    max-width: 900px;
+    height: auto;
+    border: 1px solid Black;
+    border-radius: 5px;
+    background-color: Black;
+}
+#video-container {
+        position: relative;
+        top: 0px;
+        width: 48%;
+        Height: 60%;
+        overflow: hidden;
+        border-radius: 5px;
+        margin-bottom: 17px;
+        box-shadow: 0px 10px 20px black;
+    }
+
+
+}
+
+
+
+
+/* #########################################################################################  */
+   @media only screen and (max-width: 1250px) {
+
+        body {
+            background: black;
+            font-family: Arial, sans-serif;
+            margin: 0; /* Eliminar el margen predeterminado del cuerpo */
+            padding: 0; /* Eliminar el relleno predeterminado del cuerpo */
+            overflow-y: auto; /* Permitir desplazamiento vertical por defecto */
+}
+
+        .container {
+            width: 100%;
+            height: 100vh; /* La altura de la pantalla */
+            display: flex;
+            flex-direction: column;
+           
+            align-items: center;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        #lista-series {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en múltiples líneas */
+            list-style: none;
+            padding: 0;
+            width: calc(100% - 5px); /* Ancho del contenedor menos 40px de espacio para el margen */
+            max-width: 100%; /* Ancho máximo para evitar que la lista sea demasiado ancha en pantallas grandes */
+        }
+#lista-series li {
+            margin: 10px; /* Espacio entre elementos */
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f5f5f500;
+            box-shadow: 0 2px 4px rgb(0 255 244 / 2%);
+            transition: all 0.3s ease;
+               width: calc((100% / 5) - 20px); /* Calcula el ancho para mostrar 5 elementos por fila */
+            max-width: 100%; /* Ancho máximo de cada elemento */
+        }
+
+
+
+        #lista-series li:hover {
+            background-color: #0df8ff;
+            cursor: pointer;
+        }
+
+#lista-series li img {
+    width: 200px; /* Establece un ancho fijo para todas las imágenes */
+    height: auto; /* Mantén la proporción original */
+    border-radius: 5px;
+}
+
+        /* Estilos para el modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+    top: 0%;
+    position: relative;
+    background-color: #f3eaea;
+    margin: 1% auto 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 95%;
+    height: auto;
+    color: black;
+}
+#modal-description {
+        position: absolute;
+        width: 49%;
+        left: 50%;
+        padding: 2%;
+        top: 14%;
+        font-size: 100%;
+        height: auto;
+        box-shadow: 0px 13px 20px black;
+        border-radius: 8px;
+    }
+
+#modal-title {
+    padding: 13px 0px 75% 0px;
+    text-shadow: 0px 3px 5px black;
+}
+        .close {
+    background: black;
+    padding: 1%;
+    width: 8%;
+    height: auto;
+    border-bottom: solid;
+    border-width: 6px;
+    border-radius: 8px;
+    color: #08b3f4;
+    position: absolute;
+    top: 10px;
+    right: 3%;
+    font-size: 17px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+box-shadow: 0px 13px 20px black;
+}
+
+        .close:hover,
+        .close:focus {
+            color: #fb0101;  
+            text-decoration: none;
+            cursor: pointer;
+        }
+#close-mkv {
+    background: #00ff62;
+    height: 30px;
+    border-radius: 6px;
+    font-size: medium;
+}
+#close-mkv:hover {
+background: red;
+}
+
+        .season {
+            margin-bottom: 20px;
+        }
+
+        .season-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .chapter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .chapter-button {
+    margin: 5px;
+    padding: 10px 10px;
+    background-color: #08b3f4;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 9px 13px black;
+    font-weight: bold;
+    border-bottom: solid;
+    border-width: 3px;
+}
+
+        .chapter-button:hover {
+            background-color: #ff570d;
+        }
+
+
+        /* Estilo para el cuerpo cuando el modal está abierto */
+        body.modal-open {
+            overflow: hidden; /* Bloquear el desplazamiento vertical */
+        }
+
+#lista-series {
+color: aqua;
+}
+#lista-series:hover {
+color: red;
+}
+# openModal p {
+    color: aqua;
+}
+#modal-title {
+    padding: 13px 0px 0% 0px;
+}
+#video-container iframe {
+    z-index: 900; 
+    box-shadow: 0px 11px 20px black;
+}
+
+        #mkv-player {
+            display: none;
+            position: fixed;
+            top: 47%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000; /* Asegura que esté en primer plano */
+        }
+
+        #mkv-video  {
+    position: relative;
+    width: 800px;
+    max-width: 900px;
+    height: auto;
+    border: 1px solid Black;
+    border-radius: 5px;
+    background-color: Black;
+}
+#video-container {
+    position: relative;
+    top: 0px;
+    width: 48%;
+    Height: 300px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 17px;
+    box-shadow: 0px 10px 20px black;
+}
+h5  {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+}
+
+
+/* #######################################################################################  */
+   @media only screen and (max-width: 900px) {
+
+#modal-title {
+    position: relative;
+    top: -30px;
+    width: 80%;
+    font-size: 25PX;
+    padding: 0px 0px 0% 0px;
+    text-shadow: 0px 5px 8px black;
+}
+/* Estilos para el contenedor del video */
+#video-container {
+    position: relative;
+    top: -24px;
+    width: 48%;
+    Height: 192px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 17px;
+    box-shadow: 0px 10px 20px black;
+}
+
+/* Estilos para el video de YouTube incrustado */
+#video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+}
+
+#modal-description {
+    background: #8ee565;
+    border: solid #8ee565 10px;
+    position: absolute;
+    width: 49%;
+    height: 190px;
+    left: 50%;
+    padding: 2%;
+    top: 75px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0px 13px 20px black;
+    overflow: scroll;
+    border-radius: 8px;
+}
+.close {
+    background: black;
+    padding: 1%;
+    width: 13%;
+    height: auto;
+    border-bottom: solid;
+    border-width: 6px;
+    border-radius: 8px;
+    color: #08b3f4;
+    position: absolute;
+    top: 10px;
+    right: 3%;
+    font-size: 17px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+#mkv-video {
+    position: relative;
+    width: 500px;
+    max-width: 600px;
+    height: auto;
+    border: 1px solid Black;
+    border-radius: 5px;
+    background-color: Black;
+}
+#lista-series li {
+        margin: 4px;
+        padding: 6px;
+        border-radius: 5px;
+        background-color: #f5f5f500;
+        box-shadow: 0 2px 4px rgb(0 255 244 / 2%);
+        transition: all 0.3s ease;
+        width: calc((116% / 5) - 35px);
+        max-width: 100%;
+    }
+#lista-series li img {
+        width: 147px;
+        height: auto;
+        border-radius: 5px;
+    }
+h5 {
+        width: 147px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+/* #######################################################################################  */
+   @media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 400px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        padding: 5px; /* Ajusta el relleno para evitar desbordamiento */
+    }
+
+    #lista-series li {
+        width: calc((100% / 2) - 10px); /* Ajusta el ancho de los elementos */
+        max-width: calc(50% - 10px); /* Ajusta el ancho máximo de los elementos */
+        margin: 5px; /* Ajusta los márgenes entre los elementos */
+    }
+
+    #lista-series li img {
+        width: 100%; /* Ajusta el ancho de las imágenes */
+    }
+
+.container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #lista-series {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        width: calc(100% - 0px);
+        max-width: 100%;
+        text-shadow: 0px 1px 1px black;
+    }
+
+
+#lista-series li img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+#video-container {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    Height: 230px;
+    padding-top: 0%;
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0px 13px 20px black;
+}
+#video-container iframe {
+    position: relative;
+    top: 2%;
+    width: 300px;
+    height: 500px;
+    box-shadow: 0px 11px 20px black;
+    Z-index: 900;
+}
+.close {
+    background: black;
+    padding: 4%;
+    width: 29%;
+    height: auto;
+    border-bottom: solid;
+    border-width: 6px;
+    border-radius: 8px;
+    color: #08b3f4;
+    position: absolute;
+    top: 2px;
+    right: 5%;
+    font-size: 17px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+ .modal-content {
+        top: 0%;
+        position: relative;
+        background-color: #fefefe;
+        margin: 0%;
+        padding: 15px 7px;
+        border-radius: 5px;
+        width: 100%;
+        height: auto;
+        color: black;
+        box-shadow: 0px 2px 15px #5fff00;
+    }
+#modal-title {
+    position: relative;
+    top: -23px;
+    width: 67%;
+    font-size: 25px;
+    padding: 0px 0px 0% 0px;
+    text-shadow: 0px 1px 11px black;
+}
+#modal-description {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    left: 0%;
+    padding: 3%;
+    top: -10px;
+    font-size: 90%;
+    background: aqua;
+    box-shadow: 0px 13px 20px black;
+    overflow-x: scroll;
+    border-radius: 11px;
+    border: solid Aqua 10px;
+}
+
+.season-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 0px 5px 7px black;
+}
+.chapter-button {
+    margin: 10Px;
+    padding: 10px 7px;
+    background-color: #08b3f4;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 13px 9px #6f6464;
+    border-bottom: solid;
+    border-width: 4px;
+}
+
+#mkv-player {
+    display: none;
+    position: fixed;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+        #mkv-video {
+            width: 380px;
+            max-width: 600px;
+            height: auto;
+            border: 1px solid #Black;
+            border-radius: 5px;
+            background-color: #000;
+        }
+h5  {
+    width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+}
+
+
+
+::-webkit-scrollbar {display: none;}
