@@ -1831,7 +1831,7 @@ button {
     position: relative;
     top: 12px;
     width: 7.5em;
-    height: 93%;
+    height: 91%;
     max-height: 100%;
     list-style-type: none;
     margin: 0px;
@@ -1892,7 +1892,7 @@ h4 {
 
 a {
         position: absolute;
-        top: 19px;
+        top: 17px;
         left: 10px;
         padding: 106px 11px 0px 7px;
         text-decoration: none;
