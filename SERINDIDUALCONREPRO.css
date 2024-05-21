@@ -1680,7 +1680,7 @@ p {
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
 h3 {
-    width: 23vh;
+    width: 26vh;
     BACKGROUND: #ff000059;
     box-shadow: 0px 0px 13px red;
     border: 2px solid red;
@@ -1791,7 +1791,7 @@ body {
     box-shadow: 0px 0px 27px #9dff00;
 }
 button {
-    width: 25%;
+    width: 30%;
     height: 32px;
     background-color: #00ff26;
     color: black;
@@ -1874,11 +1874,11 @@ h3 {
 
 h4 {
         overflow-y: scroll;
-        height: 23%;
+        height: 21%;
         position: relative;
         width: 77%;
         left: 3%;
-        top: 7%;
+        top: 8%;
         color: #0ba6b9;
         font-size: 22px;
         margin-bottom: 4rem;
@@ -1897,7 +1897,7 @@ a {
         padding: 106px 11px 0px 7px;
         text-decoration: none;
         color: #58c2ff;
-font-size: 14px;
+font-size: 12px;
     }
 p {
     top: -51px;
