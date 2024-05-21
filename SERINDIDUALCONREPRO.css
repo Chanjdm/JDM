@@ -14,6 +14,10 @@ background-color: #000000;
     border-color: chartreuse;
     box-shadow: 0px 0px 27px #9dff00;
 }
+.poster img {
+    box-shadow: 0px 0px 27px aqua;
+    border: 3px solid aqua;
+}
 
         /* Estilos CSS para animar el texto al pasar el mouse */
         .animated-text {
@@ -38,7 +42,7 @@ background-color: #000000;
     margin: 5px;
 }
 button {
-    width: 20%;
+    width: 15%;
     height: 32px;
     background-color: #00ff26;
     color: black;
@@ -52,7 +56,7 @@ a {
     top: 23px;
     padding: 105px 10px 2px 1px;
     text-decoration: none;
-    color: #9dff00;
+   color: #ecff00;
 }
         
         .season-menu {
@@ -142,6 +146,7 @@ season-menu{
     padding: 20px;
     border-radius: 9px 35px 6px 35px;
     box-shadow: 0px 0px 36px #5700ff;
+border: 10px solid #01192d;
 }
    h3 {
     position: relative;
@@ -150,6 +155,14 @@ season-menu{
     padding-bottom: 0px;
     font-size: 15px;
     color: aqua;
+}
+h3 {
+    width: 16vh;
+    BACKGROUND: #ff000059;
+    box-shadow: 0px 0px 13px red;
+    border: 2px solid red;
+    border-radius: 6px;
+    padding: 5px;
 }
 
         /* Estilos CSS para el reproductor emergente */
@@ -1626,30 +1639,7 @@ body {
 }
 
 
-        /* Estilo para el reproductor de video emergente */
-        #videoPlayer {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            width: 70%;
-            transform: translate(-50%, -50%);
-            background-color: black;
-            padding: 20px;
-            border: 2px solid black;
-            z-index: 9999;
-        }
-        #videoPlayer video {
-            width: 100%;
-        }
-        #closeButton {
-    position: absolute;
-    top: 5px;
-    right: 50px;
-    cursor: pointer;
-    background: crimson;
-    width: 29%;
-    color: black;
-}
+
 
 
 
@@ -1713,21 +1703,13 @@ h4 {
 .text {
     background-color: black;
     color: #010101;
-    font-size: 2.1em;
+    font-size: 2.6em;
     font-weight: 100;
     font-family: system-ui;
     text-transform: uppercase;
     position: relative;
     user-select: none;
     letter-spacing: 3px;
-}
-    .text::before {
-    content: attr(data-text);
-    position: absolute;
-    color: white;
-    filter: blur(0.02em);
-    mix-blend-mode: difference;
-    WIDTH: 30REM;
 }
 .firefly {
     z-index: 99;
@@ -1801,7 +1783,7 @@ body {
     box-shadow: 0px 0px 27px #9dff00;
 }
 button {
-    width: 30%;
+    width: 25%;
     height: 32px;
     background-color: #00ff26;
     color: black;
@@ -1814,24 +1796,11 @@ button {
     left: 10px;
     top: 10px;
 }
-
 #videoPlayer {
+    width: 19rem;
     position: fixed;
-    top: 50%;
-    left: 49%;
-    width: 85%;
-    transform: translate(-50%, -50%);
-    background-color: black;
-    padding: 20px;
-    border: 2px solid black;
-    z-index: 9999;
-}
-    
-#videoPlayer {
-    position: fixed;
-    top: 35%;
-    left: 49%;
-    width: 96%;
+    top: 65%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background-color: Black;
     border: 1px solid Black;
@@ -1888,16 +1857,16 @@ h3 {
 }
 
 h4 {
-    overflow-y: scroll;
-    height: 23%;
-    position: relative;
-    width: 82%;
-    left: 3%;
-    top: 7%;
-    color: #0ba6b9;
-    font-size: 22px;
-    margin-bottom: 4rem;
-}
+        overflow-y: scroll;
+        height: 11%;
+        position: relative;
+        width: 77%;
+        left: 3%;
+        top: 7%;
+        color: #0ba6b9;
+        font-size: 22px;
+        margin-bottom: 4rem;
+    }
 .titulo {
     top: 28em;
     position: absolute;
@@ -1906,13 +1875,13 @@ h4 {
 }
 
 a {
-    position: absolute;
-    top: 5px;
-    left: 0px;
-    padding: 106px 11px 0px 7px;
-    text-decoration: none;
-    color: #9dff00;
-}
+        position: absolute;
+        top: 19px;
+        left: 10px;
+        padding: 106px 11px 0px 7px;
+        text-decoration: none;
+        color: #58c2ff;
+    }
 p {
     top: -51px;
     margin-right: 10px;
@@ -1932,22 +1901,22 @@ p {
 }
 
 .neon {
-    background: black;
-    width: 88%;
-    height: 117px;
-    margin: 0px;
-    padding: 0px;
-    position: absolute;
-    overflow: hidden;
-    filter: brightness(200%);
-    left: 5%;
-    top: 59%;
-    border: dotted;
-}
+        background: black;
+        width: 85%;
+        height: 70px;
+        margin: 0px;
+        padding: 0px;
+        position: absolute;
+        overflow: hidden;
+        filter: brightness(200%);
+        left: 8%;
+        top: 66%;
+        border: dotted;
+    }
 .text {
     background-color: black;
     color: black;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 100;
     font-family: ui-monospace;
     text-transform: uppercase;
@@ -1958,10 +1927,10 @@ p {
 .text::before {
     content: attr(data-text);
     position: absolute;
-    color: white;
+    color: #ffffff;
     filter: blur(0.02em);
     mix-blend-mode: difference;
-    WIDTH: 19REM;
+    WIDTH: 150%;
 }
 
 .trailer img {
@@ -1989,4 +1958,27 @@ p {
 
 
 
-
+        /* Estilo para el reproductor de video emergente */
+        #videoPlayer {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 70%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            padding: 20px;
+            border: 2px solid black;
+            z-index: 9999;
+        }
+        #videoPlayer video {
+            width: 100%;
+        }
+        #closeButton {
+    position: absolute;
+    top: 5px;
+    right: 50px;
+    cursor: pointer;
+    background: crimson;
+    width: 29%;
+    color: black;
+}
