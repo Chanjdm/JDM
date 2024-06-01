@@ -448,7 +448,7 @@ h1 {
         .video-info h3 {
             WIDTH: 139PX;
             max-height: 185px;
-            TOP: 22%;
+            TOP: 23%;
             overflow-y: scroll;
             text-overflow: ellipsis;
             white-space: normal;
@@ -542,18 +542,18 @@ video {
 }
 
 
-.youtube-button {
+    .youtube-button {
         position: absolute;
         bottom: 2%;
         left: 2%;
-    background-color: #ff0000; /* Color de fondo */
-    color: #ffffff; /* Color del texto */
-    padding: 10px 12px; /* Espacio alrededor del texto */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    font-size: 16px; /* Tamaño de fuente */
-    cursor: pointer; /* Cambiar el cursor al pasar por encima */
-}
+        background-color: #ff0000;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+    }
 
 
 .youtube-button:hover {
