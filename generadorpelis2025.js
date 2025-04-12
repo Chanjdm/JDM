@@ -18,6 +18,7 @@ function openStream(url) {
         <head>
           <title>Reproduciendo en Smart TV</title>
           <style>
+            * {    text-decoration: none; outline:none !important; }
             body { margin:0; background:black; display:flex; align-items:center; justify-content:center; height:100vh; }
             video { width:100%; height:auto; }
           </style>
@@ -32,7 +33,7 @@ function openStream(url) {
       `);
       playerWindow.document.close();
     } else {
-      alert("No se pudo abrir la ventana del reproductor. Verifica que no esté bloqueada por el navegador.");
+      alert("PRESIONA ENTER PARA VER LA PELICULA.");
     }
   } else {
     // Otros dispositivos: redirigir normalmente
