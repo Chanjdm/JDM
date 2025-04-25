@@ -10,17 +10,18 @@ function openStream(url) {
     // Dispositivos Android: usa intent
     window.location.href = `intent:${url}#Intent;type=video/*;action=android.intent.action.VIEW;end;`;
   } else if (isLGSmartTV) {
-    // LG Smart TV: abrir reproductor especial
-    const playerWindow = window.open('', '_blank');
-    if (playerWindow) {
-      playerWindow.document.write(`
+    // LG Smart TV: abrir en ventana nueva para evitar perder el enfoque
+    const newWindow = window.open('', '_blank', 'noopener,noreferrer');
+
+    if (newWindow) {
+      newWindow.document.write(`
         <html>
         <head>
           <title>Reproduciendo en Smart TV</title>
           <style>
-            * {    text-decoration: none; outline:none !important; }
-            body { margin:0; background:black; display:flex; align-items:center; justify-content:center; height:100vh; }
-            video { width:100%; height:auto; }
+            * { text-decoration: none; outline: none !important; }
+            body { margin: 0; background: black; display: flex; align-items: center; justify-content: center; height: 100vh; }
+            video { width: 100%; height: auto; }
           </style>
         </head>
         <body>
@@ -31,9 +32,9 @@ function openStream(url) {
         </body>
         </html>
       `);
-      playerWindow.document.close();
+      newWindow.document.close();
     } else {
-      alert("PRESIONA ENTER PARA VER LA PELICULA.");
+      alert("Tu navegador no permite abrir ventanas emergentes. Actívalas para reproducir la película.");
     }
   } else {
     // Otros dispositivos: redirigir normalmente
