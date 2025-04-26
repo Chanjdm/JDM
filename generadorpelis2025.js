@@ -32,7 +32,7 @@ function openStream(url) {
       `);
       playerWindow.document.close();
     } else {
-      alert("No se pudo abrir la ventana del reproductor. Verifica que no esté bloqueada por el navegador.");
+      alert("Presiona El Boton OK Para Ver La Pelicula.");
     }
   } else {
     // Otros dispositivos: redirigir normalmente
