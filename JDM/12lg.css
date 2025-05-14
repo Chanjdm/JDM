@@ -292,7 +292,7 @@ position: absolute;
     top: 0;
     height: 88%;
     width: 20%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     overflow-y: auto;
     display: none;
