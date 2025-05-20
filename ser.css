@@ -1,0 +1,100 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #000000;
+  margin: 0;
+  padding: 20px;
+}
+
+.main-layout {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.poster {
+  flex: 0 0 300px;
+}
+
+.poster img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.season-panel {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.season-selector {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+select {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 3px solid #ff0000;
+  width: 22%;
+  background: aqua;
+  max-width: 200px;
+}
+
+.season-content {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.temporada {
+  display: none;
+}
+
+.temporada.active {
+  display: block;
+}
+
+details {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.05em;
+}
+
+a {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+a:hover {
+  background: #0056b3;
+}
+
+.info-general {
+  margin-top: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin: 5px;
+  text-align: center;
+  color: #7eff00;
+}
