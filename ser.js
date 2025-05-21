@@ -30,3 +30,49 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+
+//  #################   HACER FOCO SELECCIONABLE
+document.addEventListener("DOMContentLoaded", () => {
+  // Hacer focables todos los enlaces de episodio
+  document.querySelectorAll("a").forEach(el => {
+    el.setAttribute("tabindex", "0");
+  });
+
+  // También <summary> y otros si deseas
+  document.querySelectorAll("summary").forEach(el => {
+    el.setAttribute("tabindex", "0");
+  });
+
+  // Opcional: enfocar automáticamente el primer elemento
+  const firstFocusable = document.querySelector("a, select, summary");
+  if (firstFocusable) firstFocusable.focus();
+});
+
+// Forzar foco con teclas
+document.addEventListener("keydown", function (e) {
+  const focusable = Array.from(document.querySelectorAll("a, select, summary")).filter(el => el.offsetParent !== null);
+  const index = focusable.indexOf(document.activeElement);
+
+  if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+    const next = focusable[index + 1] || focusable[0];
+    next.focus();
+    e.preventDefault();
+  }
+
+  if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+    const prev = focusable[index - 1] || focusable[focusable.length - 1];
+    prev.focus();
+    e.preventDefault();
+  }
+
+  if (e.key === "Enter") {
+    if (document.activeElement.tagName === "SUMMARY") {
+      document.activeElement.click();
+    } else if (document.activeElement.tagName === "A") {
+      document.activeElement.click();
+    }
+  }
+});
+
+
+

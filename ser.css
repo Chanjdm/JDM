@@ -100,6 +100,29 @@ h2 {
   color: #7eff00;
 }
 
+/* Estilo visual para el foco */
+:focus {
+    outline: 4px solid #000000;
+    background-color: rgb(255 10 10);
+    border-radius: 6px;
+    transition: outline 0.2s ease;
+    color: #99ff00;
+}
+
+/* Aumentar el área clickable de los enlaces en TVs */
+a {
+  display: inline-block;
+  padding: 8px 12px;
+}
+
+/* Mejora para el selector */
+select:focus {
+  outline: 3px solid #ff0000;
+}
+
+
+
+
 /* Estilo general para el scroll */
 ::-webkit-scrollbar {
   width: 10px;
