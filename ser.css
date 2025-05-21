@@ -31,6 +31,7 @@ body {
 .season-selector {
   text-align: center;
   margin-bottom: 10px;
+    color: #ff9000;
 }
 
 select {
@@ -98,3 +99,77 @@ h2 {
   text-align: center;
   color: #7eff00;
 }
+
+/* Estilo general para el scroll */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Fondo del scroll (track) */
+::-webkit-scrollbar-track {
+  background: #111;
+  border-radius: 5px;
+}
+
+/* Barra deslizante (thumb) */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
+  border-radius: 10px;
+  border: 2px solid #000;
+}
+
+/* Al pasar el mouse */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5555;
+}
+
+@media (max-width: 600px) {
+  .main-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .poster {
+    width: 100%;
+    text-align: center;
+  }
+
+  .poster img {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .season-panel {
+    width: 100%;
+    align-items: center;
+  }
+
+  .season-selector {
+    width: 90%;
+    margin: 10px auto;
+    font-size: 1.5rem;
+  }
+
+  select {
+    width: 100%;
+    height: 3rem;
+    font-size: 1.5rem;
+    padding: 0 10px;
+    text-align-last: center;
+  }
+
+  .season-content {
+        max-height: 24rem;
+        font-size: 1.5rem;
+        overflow-y: auto;
+        width: 100%;
+        margin: auto;
+  }
+
+  .info-general {
+    width: 90%;
+    margin: 20px auto;
+    font-size: 1.5rem;
+  }
+}
+
