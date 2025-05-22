@@ -57,12 +57,33 @@ function openStream(url) {
   closeBtn.style.color = 'white';
   closeBtn.style.border = 'none';
   closeBtn.style.cursor = 'pointer';
-  closeBtn.onclick = () => container.remove();
+  closeBtn.onclick = () => {
+    container.remove();
+    restoreFocus(); // ✅ recupera el foco automáticamente
+  };
 
   container.appendChild(video);
   container.appendChild(closeBtn);
   document.body.appendChild(container);
 }
+
+// ✅ Función para restaurar el foco en el primer capítulo
+function restoreFocus() {
+  setTimeout(() => {
+    const firstLink = document.querySelector('.season-content a');
+    if (firstLink) firstLink.focus();
+  }, 300);
+}
+
+// ✅ Restaurar foco al cargar o si se pierde por error
+document.addEventListener('DOMContentLoaded', restoreFocus);
+document.addEventListener('focusout', () => {
+  setTimeout(() => {
+    if (!document.activeElement || document.activeElement === document.body) {
+      restoreFocus();
+    }
+  }, 200);
+});
 
 
 //  #################   HACER FOCO SELECCIONABLE
