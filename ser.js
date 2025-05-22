@@ -11,24 +11,30 @@ selector.addEventListener("change", function () {
 
 document.addEventListener('DOMContentLoaded', () => {
   const isAndroid = /Android/i.test(navigator.userAgent);
+  const video = document.getElementById('reproductor');
+  const links = document.querySelectorAll('.season-content a');
 
-  if (isAndroid) {
-    const videoLinks = document.querySelectorAll('.season-content a[target="_blank"]');
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const url = link.href;
 
-    videoLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const url = link.href;
-
-        // Construir el esquema intent para Android
+      if (isAndroid) {
+        // En Android: usar intent:// para abrir en app externa
         const intentUrl = `intent:${url}#Intent;type=video/*;action=android.intent.action.VIEW;end;`;
-
-        // Forzar la apertura con intent
         window.location.href = intentUrl;
-      });
+      } else {
+        // En otros dispositivos: usar reproductor en la misma página
+        document.body.querySelectorAll('h2, .main-layout, .info-general').forEach(el => el.style.display = 'none');
+        video.src = url;
+        video.style.display = 'block';
+        video.load();
+        video.play().catch(err => console.log("Error al reproducir:", err));
+      }
     });
-  }
+  });
 });
+
 
 
 //  #################   HACER FOCO SELECCIONABLE
