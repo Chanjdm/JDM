@@ -130,13 +130,13 @@ select:focus {
 
 /* Fondo del scroll (track) */
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: #000000;
   border-radius: 5px;
 }
 
 /* Barra deslizante (thumb) */
 ::-webkit-scrollbar-thumb {
-  background: #ff0000;
+  background: #000000;
   border-radius: 10px;
   border: 2px solid #000;
 }

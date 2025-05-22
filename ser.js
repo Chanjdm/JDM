@@ -10,11 +10,20 @@ selector.addEventListener("change", function () {
 });
 
 function openStream(url) {
+  const isAndroid = /Android/i.test(navigator.userAgent);
+
+  if (isAndroid) {
+    // En Android, redirige usando intent://
+    const intentUrl = `intent:${url}#Intent;type=video/*;action=android.intent.action.VIEW;end;`;
+    window.location.href = intentUrl;
+    return;
+  }
+
   // Elimina si ya existe un reproductor anterior
   let existingPlayer = document.getElementById('streamPlayer');
   if (existingPlayer) existingPlayer.remove();
 
-  // Crear un contenedor para el reproductor
+  // Crear contenedor del reproductor
   const container = document.createElement('div');
   container.id = 'streamPlayer';
   container.style.position = 'fixed';
@@ -98,6 +107,5 @@ document.addEventListener("keydown", function (e) {
     }
   }
 });
-
 
 
