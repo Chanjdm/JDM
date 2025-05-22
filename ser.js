@@ -9,32 +9,51 @@ selector.addEventListener("change", function () {
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const isAndroid = /Android/i.test(navigator.userAgent);
-  const video = document.getElementById('reproductor');
-  const links = document.querySelectorAll('.season-content a');
+function openStream(url) {
+  // Elimina si ya existe un reproductor anterior
+  let existingPlayer = document.getElementById('streamPlayer');
+  if (existingPlayer) existingPlayer.remove();
 
-  links.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const url = link.href;
+  // Crear un contenedor para el reproductor
+  const container = document.createElement('div');
+  container.id = 'streamPlayer';
+  container.style.position = 'fixed';
+  container.style.top = '0';
+  container.style.left = '0';
+  container.style.width = '100vw';
+  container.style.height = '100vh';
+  container.style.backgroundColor = 'black';
+  container.style.zIndex = '9999';
+  container.style.display = 'flex';
+  container.style.justifyContent = 'center';
+  container.style.alignItems = 'center';
 
-      if (isAndroid) {
-        // En Android: usar intent:// para abrir en app externa
-        const intentUrl = `intent:${url}#Intent;type=video/*;action=android.intent.action.VIEW;end;`;
-        window.location.href = intentUrl;
-      } else {
-        // En otros dispositivos: usar reproductor en la misma página
-        document.body.querySelectorAll('h2, .main-layout, .info-general').forEach(el => el.style.display = 'none');
-        video.src = url;
-        video.style.display = 'block';
-        video.load();
-        video.play().catch(err => console.log("Error al reproducir:", err));
-      }
-    });
-  });
-});
+  // Crear el reproductor de video
+  const video = document.createElement('video');
+  video.src = url;
+  video.controls = true;
+  video.autoplay = true;
+  video.style.maxWidth = '100%';
+  video.style.maxHeight = '100%';
+  video.style.backgroundColor = 'black';
 
+  // Botón para cerrar el reproductor
+  const closeBtn = document.createElement('button');
+  closeBtn.textContent = '✖';
+  closeBtn.style.position = 'absolute';
+  closeBtn.style.top = '10px';
+  closeBtn.style.right = '10px';
+  closeBtn.style.fontSize = '2rem';
+  closeBtn.style.background = 'rgba(0,0,0,0.5)';
+  closeBtn.style.color = 'white';
+  closeBtn.style.border = 'none';
+  closeBtn.style.cursor = 'pointer';
+  closeBtn.onclick = () => container.remove();
+
+  container.appendChild(video);
+  container.appendChild(closeBtn);
+  document.body.appendChild(container);
+}
 
 
 //  #################   HACER FOCO SELECCIONABLE
