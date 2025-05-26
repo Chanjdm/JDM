@@ -42,7 +42,7 @@ function openStream(url) {
   video.src = url;
   video.controls = true;
   video.autoplay = true;
-  video.style.maxWidth = '100%';
+  video.style.Width = '100%';
   video.style.maxHeight = '100%';
   video.style.backgroundColor = 'black';
 
