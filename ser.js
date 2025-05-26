@@ -42,8 +42,7 @@ function openStream(url) {
   video.src = url;
   video.controls = true;
   video.autoplay = true;
-video.style.width = '100vw';
-video.style.height = '100vh';
+video.style.width = '100%';
 video.style.objectFit = 'contain'; // o 'cover' si quieres que llene aunque recorte
   video.style.backgroundColor = 'black';
 
