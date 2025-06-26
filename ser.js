@@ -1,4 +1,4 @@
-<script>
+
 window.onload = function () {
     const sesionActiva = localStorage.getItem("sesionActiva");
 
@@ -6,7 +6,7 @@ window.onload = function () {
       window.location.href = "https://soloyo05.github.io/ser/va.mp4"; // Redirigir al login
     }
   };
-</script>
+
 
 
 const selector = document.getElementById("temporadaSelector");
