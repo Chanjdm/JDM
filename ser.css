@@ -187,7 +187,7 @@ select:focus {
   }
 
   .season-content {
-        max-height: 24rem;
+        max-height: 32rem;
         font-size: 1.5rem;
         overflow-y: auto;
         width: 100%;
