@@ -8,6 +8,41 @@
   let hideInfoTimeout = null;
   let lastFocusedEpisode = null;
 
+
+ // ================================
+  // FUNCIÓN toggleFullscreen()
+  // ================================
+  function toggleFullscreen() {
+    const container = document.getElementById("streamPlayer");
+    if (!container) return;
+
+    const isInFullScreen = !!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement);
+
+    if (!isInFullScreen) {
+      if (container.requestFullscreen) {
+        container.requestFullscreen();
+      } else if (container.webkitRequestFullscreen) {
+        container.webkitRequestFullscreen();
+      } else if (container.mozRequestFullScreen) {
+        container.mozRequestFullScreen();
+      } else if (container.msRequestFullscreen) {
+        container.msRequestFullscreen();
+      }
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
+      } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+      } else if (document.msExitFullscreen) {
+        document.msExitFullscreen();
+      }
+    }
+  }
+
+
+
   // Función para mostrar información del episodio
 function showEpisodeInfo(title, image, seasonNumber = 1) {
   if (!infoOverlay) {
@@ -32,10 +67,10 @@ function showEpisodeInfo(title, image, seasonNumber = 1) {
 
   infoOverlay.innerHTML = `
     <img src="${image}" alt="Portada" style="width: 80px; border-radius: 4px;">
-    <strong> ${title}</strong>
-    <small> Canal ➖ - Cap Ant | Canal ➕  Cap Sig</small>
+    <strong>T${seasonNumber}: ${title}</strong>
+    <small>➖ Canal - Cap Ant | ➕ Canal + Cap Sig</small>
     <small>🟢 Play/Pause | 🔵 ⏪ -10s | 🟡 ⏩ +10s</small>
-    <small>🔴 Salir</small>
+    <small>🔴 Rojo Salir | Tecla 0 Pantalla Completa</small>
   `;
   infoOverlay.style.display = 'flex';
 
@@ -45,23 +80,26 @@ function showEpisodeInfo(title, image, seasonNumber = 1) {
   }, 8000);
 }
   // Cambio de temporada
-  selector.addEventListener("change", function () {
-    temporadas.forEach(temp => temp.classList.remove("active"));
-const selected = document.getElementById(this.value);
-if (selected) {
-  selected.classList.add("active");
-  episodeLinks = Array.from(selected.querySelectorAll('.season-content a'));
-  currentEpisodeIndex = 0; // Reiniciar índice
+selector.addEventListener("change", function () {
+  temporadas.forEach(temp => temp.classList.remove("active"));
+  const selected = document.getElementById(this.value);
+  if (selected) {
+    selected.classList.add("active");
+    episodeLinks = Array.from(selected.querySelectorAll('.season-content a'));
+    currentEpisodeIndex = 0;
 
-      const serieId = window.location.href.split('/').pop().replace('.html', '');
-      const ultimoIndice = localStorage.getItem(`ultimoCapitulo_${serieId}`);
-      if (ultimoIndice !== null) {
-        playEpisode(parseInt(ultimoIndice));
-      } else if (episodeLinks.length > 0) {
-        episodeLinks[0].focus();
-      }
+    const serieId = window.location.href.split('/').pop().replace('.html', '');
+    const ultimoIndice = localStorage.getItem(`ultimoCapitulo_${serieId}`);
+    if (ultimoIndice !== null) {
+      currentEpisodeIndex = parseInt(ultimoIndice);
+      lastFocusedEpisode = episodeLinks[currentEpisodeIndex];
     }
-  });
+
+    if (episodeLinks.length > 0) {
+      episodeLinks[0].focus();
+    }
+  }
+});
 
   // Función para abrir un episodio
   function openStream(url) {
@@ -161,20 +199,24 @@ if (episodeElement) {
     }, 300);
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    episodeLinks = Array.from(document.querySelectorAll('.season-content a'));
-    document.querySelectorAll("a, summary").forEach(el => el.setAttribute("tabindex", "0"));
-    const firstFocusable = document.querySelector("a, select, summary");
-    if (firstFocusable) firstFocusable.focus();
-    const serieId = window.location.href.split('/').pop().replace('.html', '');
-    const ultimoIndice = localStorage.getItem(`ultimoCapitulo_${serieId}`);
-    if (ultimoIndice !== null) {
-      currentEpisodeIndex = parseInt(ultimoIndice);
-      lastFocusedEpisode = episodeLinks[currentEpisodeIndex];
-      const url = episodeLinks[currentEpisodeIndex]?.getAttribute('onclick')?.match(/'(.*?)'/)?.[1];
-      if (url) setTimeout(() => openStream(url), 500);
-    }
-  });
+document.addEventListener('DOMContentLoaded', () => {
+  episodeLinks = Array.from(document.querySelectorAll('.season-content a'));
+  document.querySelectorAll("a, summary").forEach(el => el.setAttribute("tabindex", "0"));
+
+  const firstFocusable = document.querySelector("a, select, summary");
+  if (firstFocusable) firstFocusable.focus();
+
+  const serieId = window.location.href.split('/').pop().replace('.html', '');
+  const ultimoIndice = localStorage.getItem(`ultimoCapitulo_${serieId}`);
+
+  if (ultimoIndice !== null) {
+    currentEpisodeIndex = parseInt(ultimoIndice);
+    lastFocusedEpisode = episodeLinks[currentEpisodeIndex];
+  } else if (episodeLinks.length > 0) {
+    currentEpisodeIndex = 0;
+    episodeLinks[0].focus();
+  }
+});
 
   document.addEventListener('focusout', () => {
     setTimeout(() => {
@@ -184,143 +226,114 @@ if (episodeElement) {
     }, 200);
   });
 
-function playEpisode(index) {
-  const allSeasons = Array.from(document.querySelectorAll(".temporada")).sort((a, b) => {
-    const idA = a.id.replace("temporada-", "");
-    const idB = b.id.replace("temporada-", "");
-    return parseInt(idA) - parseInt(idB);
-  });
+  function playEpisode(index) {
+    if (index >= 0 && index < episodeLinks.length) {
+      currentEpisodeIndex = index;
+      lastFocusedEpisode = episodeLinks[index];
 
-  const currentSeasonIndex = allSeasons.findIndex(season =>
-    season.classList.contains("active")
-  );
+      const serieId = window.location.href.split('/').pop().replace('.html', '');
+      localStorage.setItem(`ultimoCapitulo_${serieId}`, index);
 
-  if (currentSeasonIndex === -1) return;
-
-  // Si el índice está fuera del rango de la temporada actual
-  if (index >= episodeLinks.length && currentSeasonIndex < allSeasons.length - 1) {
-    const nextSeason = allSeasons[currentSeasonIndex + 1];
-
-    // Activar la nueva temporada
-    temporadas.forEach(temp => temp.classList.remove("active"));
-    nextSeason.classList.add("active");
-    selector.value = nextSeason.id;
-
-    // Actualizar los links con los de la nueva temporada
-    episodeLinks = Array.from(nextSeason.querySelectorAll('.season-content a'));
-    currentEpisodeIndex = 0; // Reiniciar índice
-    lastFocusedEpisode = episodeLinks[0]; // Enfocar nuevo cap 0
-
-    const serieId = window.location.href.split('/').pop().replace('.html', '');
-    localStorage.setItem(`ultimoCapitulo_${serieId}`, currentEpisodeIndex);
-    localStorage.setItem(`ultimaTemporada_${serieId}`, nextSeason.id);
-
-    const url = episodeLinks[0].getAttribute('onclick').match(/'(.*?)'/)[1];
-    openStream(url);
-
-  } else if (index >= 0 && index < episodeLinks.length) {
-    // Reproducir dentro de la misma temporada
-    currentEpisodeIndex = index;
-    lastFocusedEpisode = episodeLinks[index];
-
-    const serieId = window.location.href.split('/').pop().replace('.html', '');
-    localStorage.setItem(`ultimoCapitulo_${serieId}`, index);
-
-    const url = episodeLinks[index].getAttribute('onclick').match(/'(.*?)'/)[1];
-    openStream(url);
+      const url = episodeLinks[index].getAttribute('onclick').match(/'(.*?)'/)[1];
+      openStream(url);
+    }
   }
-}
 
   // ================================
   // EVENTO KEYDOWN MEJORADO Y ROBUSTO
   // ================================
-  document.addEventListener("keydown", function (e) {
-    const focusable = Array.from(document.querySelectorAll("a, select, summary")).filter(
-      (el) => el.offsetParent !== null
-    );
-    const index = focusable.indexOf(document.activeElement);
-    const video = document.querySelector("#streamPlayer video");
 
-    // Navegación por menú con flechas y enter
-    if (e.key === "ArrowDown" || e.key === "ArrowRight") {
-      const next = focusable[index + 1] || focusable[0];
-      next.focus();
-      e.preventDefault();
-      return;
-    }
-    if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
-      const prev = focusable[index - 1] || focusable[focusable.length - 1];
-      prev.focus();
-      e.preventDefault();
-      return;
-    }
-if (e.key === "Enter") {
-  if (
-    document.activeElement.tagName === "SUMMARY" ||
-    document.activeElement.tagName === "A"
-  ) {
-    document.activeElement.click();
 
-    // Si es un capítulo, actualizamos currentEpisodeIndex
-    if (document.activeElement.tagName === "A") {
-      lastFocusedEpisode = document.activeElement;
+document.addEventListener("keydown", function (e) {
+  const focusable = Array.from(document.querySelectorAll("a, select, summary")).filter(
+    (el) => el.offsetParent !== null
+  );
+  const index = focusable.indexOf(document.activeElement);
+  const video = document.querySelector("#streamPlayer video");
 
-      // Buscar índice del capítulo actual dentro de la temporada activa
-      currentEpisodeIndex = episodeLinks.indexOf(document.activeElement);
-    }
+  // Navegación por menú con flechas
+  if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+    const next = focusable[index + 1] || focusable[0];
+    next.focus();
+    e.preventDefault();
+    return;
   }
-  return;
-}
-
-    // Si NO hay video abierto, solo permitimos usar la tecla roja
-    if (!video) {
-      if (e.keyCode === 403) {
-        playEpisode(currentEpisodeIndex);
-      }
-      return;
-    }
-
-    // Mostrar info del reproductor
-    showEpisodeInfo(
-      infoOverlay ? infoOverlay.querySelector('strong').textContent : 'Episodio desconocido',
-      infoOverlay ? infoOverlay.querySelector('img').src : ''
-    );
-
-    // Detectar teclas
-    const keyCode = e.keyCode;
-    const key = e.key.toLowerCase();
-    const code = e.code.toLowerCase();
-
-    switch (true) {
-      case (keyCode === 33 || keyCode === 109 || keyCode === 189): // Canal - / Tecla -
-        playEpisode(currentEpisodeIndex - 1);
-        break;
-
-      case (keyCode === 34 || keyCode === 107 || keyCode === 187): // Canal + / Tecla +
-        playEpisode(currentEpisodeIndex + 1);
-        break;
-
-      case (keyCode === 403 || keyCode === 82): // Rojo / R
-        const container = document.getElementById("streamPlayer");
-        if (container) {
-          container.remove();
-          restoreFocus();
-        } else {
+  if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+    const prev = focusable[index - 1] || focusable[focusable.length - 1];
+    prev.focus();
+    e.preventDefault();
+    return;
+  }
+  if (e.key === "Enter") {
+    if (
+      document.activeElement.tagName === "SUMMARY" ||
+      document.activeElement.tagName === "A"
+    ) {
+      document.activeElement.click();
+      if (document.activeElement.tagName === "A") {
+        lastFocusedEpisode = document.activeElement;
+        currentEpisodeIndex = episodeLinks.indexOf(document.activeElement);
+        if (currentEpisodeIndex !== -1) {
           playEpisode(currentEpisodeIndex);
         }
-        break;
-
-      case (keyCode === 404 || keyCode === 71): // Verde / G
-        if (video.paused) video.play();
-        else video.pause();
-        break;
-
-      case (keyCode === 405 || keyCode === 89): // Amarillo / Y
-        video.currentTime = Math.max(0, video.currentTime - 10);
-        break;
-
-      case (keyCode === 406 || keyCode === 66): // Azul / B
-        video.currentTime = Math.min(video.duration, video.currentTime + 10);
-        break;
+      }
     }
-  });
+    return;
+  }
+
+  // Si NO hay video abierto, solo permitimos usar la tecla roja
+  if (!video) {
+    if (e.keyCode === 403) {
+      playEpisode(currentEpisodeIndex);
+    }
+    return;
+  }
+
+  // Mostrar info del reproductor
+  showEpisodeInfo(
+    infoOverlay ? infoOverlay.querySelector('strong').textContent : 'Episodio desconocido',
+    infoOverlay ? infoOverlay.querySelector('img').src : ''
+  );
+
+  // Detectar teclas del reproductor
+  const keyCode = e.keyCode;
+  const key = e.key.toLowerCase();
+  const code = e.code.toLowerCase();
+
+  switch (true) {
+    case keyCode === 48 || keyCode === 96: // Tecla "0" (normal o numérica)
+      toggleFullscreen();
+      break;
+
+    case keyCode === 33 || keyCode === 109 || keyCode === 189: // Canal - / Tecla -
+      playEpisode(currentEpisodeIndex - 1);
+      break;
+
+    case keyCode === 34 || keyCode === 107 || keyCode === 187: // Canal + / Tecla +
+      playEpisode(currentEpisodeIndex + 1);
+      break;
+
+    case keyCode === 403 || keyCode === 82: // Rojo / R
+      const container = document.getElementById("streamPlayer");
+      if (container) {
+        container.remove();
+        restoreFocus();
+      } else {
+        playEpisode(currentEpisodeIndex);
+      }
+      break;
+
+    case keyCode === 404 || keyCode === 71: // Verde / G
+      if (video.paused) video.play();
+      else video.pause();
+      break;
+
+    case keyCode === 405 || keyCode === 89: // Amarillo / Y
+      video.currentTime = Math.max(0, video.currentTime - 10);
+      break;
+
+    case keyCode === 406 || keyCode === 66: // Azul / B
+      video.currentTime = Math.min(video.duration, video.currentTime + 10);
+      break;
+  }
+});
