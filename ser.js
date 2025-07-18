@@ -1,3 +1,4 @@
+
   const selector = document.getElementById("temporadaSelector");
   const temporadas = document.querySelectorAll(".temporada");
 
@@ -150,9 +151,11 @@ if (episodeElement) {
     video.src = url;
     video.controls = true;
     video.autoplay = true;
-    video.style.width = '100%';
+    video.style.width = 'auto';
+    video.style.height = '100%';
     video.style.objectFit = 'contain';
     video.style.backgroundColor = 'black';
+
 
     const closeBtn = document.createElement('button');
     closeBtn.textContent = '✖';
@@ -337,3 +340,7 @@ document.addEventListener("keydown", function (e) {
       break;
   }
 });
+
+
+
+
