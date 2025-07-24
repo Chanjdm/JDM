@@ -1,3 +1,4 @@
+
     * {
       margin: 0;
       padding: 0;
@@ -65,7 +66,6 @@
     }
     video {
       width: 100%;
-      max-width: 640px;
       border-radius: 8px;
       margin-top: 20px;
     }
@@ -108,3 +108,9 @@
         max-width: 500px; /* Imagen mÃ¡s pequeÃ±a en pantallas pequeÃ±as */
       }
     }
+h1{
+    margin: 0;
+    font-size: 2.5em;
+    color: #000000;
+    text-shadow: -1px -1px 0 #ffa100, 1px -1px 0 #ffdb00, -1px 1px 0 #ff9800, 1px 1px 0 #ff9500, 0px 0px 31px #005dfb;
+}
