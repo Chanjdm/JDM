@@ -14,7 +14,13 @@ body {
 .poster {
   flex: 0 0 300px;
 }
+#streamPlayer video {
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: contain;
+    background-color: black;
 
+}
 .poster img {
   width: 100%;
   border-radius: 10px;
@@ -125,13 +131,7 @@ select:focus {
 }
 
 
-#streamPlayer video {
-    width: 100%!important;
-    height: 100%!important;
-    object-fit: contain;
-    background-color: black;
 
-}
 
 /* Estilo general para el scroll */
 ::-webkit-scrollbar {
@@ -206,4 +206,5 @@ select:focus {
     font-size: 1.5rem;
   }
 }
+
 
