@@ -125,7 +125,13 @@ select:focus {
 }
 
 
+#streamPlayer video {
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: contain;
+    background-color: black;
 
+}
 
 /* Estilo general para el scroll */
 ::-webkit-scrollbar {
@@ -200,3 +206,4 @@ select:focus {
     font-size: 1.5rem;
   }
 }
+
